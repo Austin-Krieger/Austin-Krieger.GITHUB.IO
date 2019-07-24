@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+</head>
+<script type="text/javascript">
+    function showAnswer(el1, el2){
+        var element1 = document.getElementById(el1);
+        var element2 = document.getElementById(el2);
+        element1.style.transform = "perspective(600px) rotateY(-180deg)";
+        element2.style.transform = "perspective(600px) rotateY(0deg)";
+    }
+
+    function hideAnswer(el1, el2){
+        var element1 = document.getElementById(el1);
+        var element2 = document.getElementById(el2);
+        element1.style.transform = "perspective(600px) rotateY(0deg)";
+        element2.style.transform = "perspective(600px) rotateY(180deg)";
+    }
+</script>
+<body>
+<div class="flip3D" style="float: left;">
+    <div class="back" id="Q1Back" onclick="hideAnswer('Q1Front', 'Q1Back')"><p><?php echo $row[1]; ?></p></div>
+    <div class="front" id="Q1Front" onclick="showAnswer('Q1Front', 'Q1Back')"><p><?php echo $row[0]; ?></p></div>
+</div>
+<div class="flip3D" style="float: right;">
+    <div class="back" id="Q2Back" onclick="hideAnswer('Q2Front', 'Q2Back')"><p><?php echo $row1[1]; ?></p></div>
+    <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p><?php echo $row1[0]; ?></p></div>
+</div>
+<br>
+<div class="flip3D" style="float: left;">
+    <div class="back" id="Q3Back" onclick="hideAnswer('Q3Front', 'Q3Back')"><p><?php echo $row2[1]; ?></p></div>
+    <div class="front" id="Q3Front" onclick="showAnswer('Q3Front', 'Q3Back')"><p><?php echo $row2[0]; ?></p></div>
+</div>
+<div class="flip3D" style="float: right;">
+    <div class="back" id="Q4Back" onclick="hideAnswer('Q4Front', 'Q4Back')"><p><?php echo $row3[1]; ?></p></div>
+    <div class="front" id="Q4Front" onclick="showAnswer('Q4Front', 'Q4Back')"><p><?php echo $row3[0]; ?></p></div>
+</div>
+<br>
+<div class="flip3D" style="float: left;">
+    <div class="back" id="Q5Back" onclick="hideAnswer('Q5Front', 'Q5Back')"><p><?php echo $row4[1]; ?></p></div>
+    <div class="front" id="Q5Front" onclick="showAnswer('Q5Front', 'Q5Back')"><p><?php echo $row4[0]; ?></p></div>
+</div>
+<div class="flip3D" style="float: right;">
+    <div class="back" id="Q6Back" onclick="hideAnswer('Q6Front', 'Q6Back')"><p><?php echo $row5[1]; ?></p></div>
+    <div class="front" id="Q6Front" onclick="showAnswer('Q6Front', 'Q6Back')"><p><?php echo $row5[0]; ?></p></div>
+</div>
+</body>
+</html>

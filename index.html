@@ -1,50 +1,3 @@
-<!--<?php
-// Uncomment when port 3306 is free.
-//require('DatabaseConnection.php');
-/*
-$rand = mt_rand(1,51);
-$rand1 = mt_rand(1,51);
-
-$sql = "SELECT Question, Answer FROM questions WHERE id = " . $rand;
-$sql1 = "SELECT Question, Answer FROM questions WHERE id = " . $rand1;
-$result = mysqli_query($con, $sql);
-$result1 = mysqli_query($con, $sql1);
-
-if ( false===$result ) {
-    printf("error: %s\n", mysqli_error($con));
-}
-
-$row = $result->fetch_row();
-$row1 = $result1->fetch_row();
-*/
-
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "interviewquestions";
-
-$conn = new mysqli($servername, $username, $password, $dbname) or die("Connect failed: %s\n". $conn -> error);
-
-$rand = mt_rand(1,51);
-$rand1 = mt_rand(1,51);
-
-$query = "SELECT question, answer FROM questions WHERE id = ";
-$sql = $query. $rand;
-$sql1 = $query . $rand1;
-
-$result = mysqli_query($conn, $sql);
-$result1 = mysqli_query($conn, $sql1);
-
-if (!$result) {
-    printf("Error: %s\n", mysqli_error($conn));
-    exit();
-}
-
-$row = mysqli_fetch_array($result,MYSQLI_NUM);
-$row1 = mysqli_fetch_array($result1,MYSQLI_NUM);
-
-?>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +30,7 @@ $row1 = mysqli_fetch_array($result1,MYSQLI_NUM);
     <div class="back" id="Q2Back" onclick="hideAnswer('Q2Front', 'Q2Back')"><p><?php echo $row1[1]; ?></p></div>
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p><?php echo $row1[0]; ?></p></div>
 </div>
-<a href="InterviewQuestions.php"><button class="collapsible">Interview Questions (Randomized)</button></a>
+<a href="FlashCards.php"><button class="collapsible">Interview Questions (Randomized)</button></a>
 &nbsp;
 <button class="collapsible">Features of Java</button>
 <div class="content">
@@ -4484,6 +4437,3 @@ $row1 = mysqli_fetch_array($result1,MYSQLI_NUM);
 </script>
 </body>
 </html>
-<!--<?php
-    //$con->close();
-?>-->
