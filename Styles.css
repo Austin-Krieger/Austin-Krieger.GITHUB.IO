@@ -1,0 +1,121 @@
+body {
+    background-color: #777777;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 2px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+     background-color: #dddddd;
+ }
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: 2px solid black;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content0 {
+    display: none;
+    overflow: hidden;
+}
+
+.content0 .collapsible{
+    background-color: #dddddd;
+    color: black;
+    padding-left: 30px;
+}
+
+.content {
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 18px;
+}
+
+.code {
+    padding: 18px;
+    border-radius: 20px;
+    background-color: #dddddd;
+    margin: 20px;
+    width: 90%;
+    font-family: Arial, sans-serif;
+}
+
+.mainMethod {
+    border-top: 1px solid black;
+}
+
+.flip3D {
+    width: 49%;
+    height: 200px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.front {
+    position: absolute;
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    background-color: #dddddd;
+    width: 48%;
+    height: 200px;
+    border: 2px solid #f1f1f1;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+    transition:  -webkit-transform .5s linear 0s;
+}
+
+.back {
+    position: absolute;
+    transform: perspective(600px) rotateY(180deg);
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    background-color: #dddddd;
+    width: 48%;
+    height: 200px;
+    border: 2px solid #f1f1f1;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+    transition:  -webkit-transform .5s linear 0s;
+}
+
+.front p {
+    padding: 5px;
+    height: 77%;
+    color: black;
+}
+
+.back p {
+    padding: 5px;
+    height: 77%;
+    color: black;
+}
+
+.center img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
