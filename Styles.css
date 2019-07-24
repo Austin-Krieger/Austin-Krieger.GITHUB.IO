@@ -114,6 +114,11 @@ tr:nth-child(even) {
     color: black;
 }
 
+.center {
+    margin: auto;
+    width: 600px;
+}
+
 .center img {
     width: 100%;
     height: 100%;
