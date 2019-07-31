@@ -2296,6 +2296,39 @@
 &nbsp;
 <button class="collapsible">JDBC (API), Hibernate and ORM Frameworks</button>
 <div class="content">
+    <h3>What is Hibernate?</h3>
+    <p>Hibernate is an open-source and lightweight <b>ORM</b> tool that is used to store, manipulate, and retrieve data from a database.</p>
+    <h3>What is ORM?</h3>
+    <p>ORM is an acronym for Object/Relational mapping. It is a programming strategy to map objects with the data stored in the database. It simplifies data creation, manipulation and access.</p>
+    <h3>What is JPA?</h3>
+    <p>Java Persistence API (JPA) is a java specification that provides certain functionality and standards to ORM tools. The javax.persistence package contains the JPA classes and interfaces.</p>
+    <h3>Hibernate Architecture</h3>
+    <div class="center"><img src="images/hibernate-architecture.jpg" alt="Hibernate Architecture"></div>
+    <p>Hibernate architecture comprises of many interfaces.</p>
+    <ul>
+        <li>Configuration</li>
+        <li>SessionFactory</li>
+        <li>Session</li>
+        <li>Query</li>
+        <li>Criteria</li>
+        <li>Transaction</li>
+    </ul>
+    <h3>SessionFactory</h3>
+    <p>The SessionFactory is a factory of sessions and clients of the ConnectionProvider. The org.hibernate.SessionFactory interface provides factory method to get the Session object.</p>
+    <h3>Session</h3>
+    <ul>
+        <li>The Session object provides an interface between the application and the data stored in the database.</li>
+        <li>It is a short-lived object and wraps the JDBC connection.</li>
+        <li>It is a factory of Transaction, Query and Criteria.</li>
+        <li>It holds a first-level cache of data.</li>
+        <li>The org.hibernate.Session interface provides methods to insert, update and delete the object. It also provides factory methods for Transaction, Query and Criteria.</li>
+    </ul>
+    <h3>Transaction</h3>
+    <p>The transaction object specifies the atomic unit of work. It is optional. The org.hibernate.Transaction interface provides methods for transaction management.</p>
+    <h3>ConnectionProvider</h3>
+    <p>It is a factory of JDBC connections. It abstracts the application from DriverManager or DataSource. It is optional.</p>
+    <h3>TransactionFactory</h3>
+    <p>It is a factory of Transaction. It is optional.</p>
     <button class="collapsible">Hibernate Lifecycle</button>
     <div class="content">
         <h3>Hibernate Lifecycle</h3>
@@ -2314,7 +2347,8 @@
                 <li>The transient objects exist in the heap memory.</li>
             </ul>
             <div class="code">
-                Employee e = new Employee(); //Here, object enters in the transient state.
+                // Here, object enters the transient state.<br>
+                Employee e = new Employee();
             </div>
             <h3>Persistent State</h3>
             <ul>
@@ -2346,7 +2380,8 @@
                 session.evict(e);
             </div>
         </div>
-    &nbsp;</div>
+    </div>
+    &nbsp;
 <button class="collapsible">Interview Questions</button>
 <div class="content">
     &nbsp;
