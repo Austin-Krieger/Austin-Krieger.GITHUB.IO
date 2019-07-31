@@ -2332,13 +2332,37 @@
     <button class="collapsible">Hibernate Example</button>
     <div class="content">
         <ol>
+            <li>Load the Dependencies (jar files).</li>
             <li>Create the Persistent class.</li>
             <li>Create the mapping file for Persistent class.</li>
             <li>Create the Configuration file.</li>
             <li>Create the class that retrieves or stores the persistent object.</li>
-            <li>Load the jar files.</li>
             <li>Run the application.</li>
         </ol>
+        <h3>Create a new Maven Project "Hibernate Example"</h3>
+        <p>Once the project is created open the pom.xml file and add the necessary dependencies.</p>
+        <div class="code">
+            &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;<br>
+            &emsp;&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;<br>
+            &emsp;&lt;groupId&gt;com.training.maven&lt;/groupId&gt;<br>
+            &emsp;&lt;artifactId&gt;HibernateExample&lt;/artifactId&gt;<br>
+            &emsp;&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;<br><br>
+            &emsp;&lt;dependencies&gt;<br>
+            &emsp;&emsp;&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;<br>
+            &emsp;&emsp;&lt;dependency&gt;<br>
+            &emsp;&emsp;&emsp;&lt;groupId&gt;mysql&lt;/groupId&gt;<br>
+            &emsp;&emsp;&emsp;&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;<br>
+            &emsp;&emsp;&emsp;&lt;version&gt;8.0.16&lt;/version&gt;<br>
+            &emsp;&emsp;&lt;/dependency&gt;<br><br>
+            &emsp;&emsp;&lt;!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core --&gt;<br>
+            &emsp;&emsp;&lt;dependency&gt;<br>
+            &emsp;&emsp;&emsp;&lt;groupId&gt;org.hibernate&lt;/groupId&gt;<br>
+            &emsp;&emsp;&emsp;&lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;<br>
+            &emsp;&emsp;&emsp;&lt;version&gt;5.4.3.Final&lt;/version&gt;<br>
+            &emsp;&emsp;&lt;/dependency&gt;<br>
+            &emsp;&lt;/dependencies&gt;<br>
+            &lt;/project&gt;
+        </div>
         <h3>Create the Persistent class</h3>
         <p>A simple Persistent class should follow some rules:</p>
         <ul>
@@ -2381,6 +2405,8 @@
             <li>generator: It is the sub-element of id. It is used to generate the primary key. There are many generator classes such as assigned, increment, hilo, sequence, native etc. We will learn all the generator classes later.</li>
             <li>property: It is the sub-element of class that specifies the property name of the Persistent class.</li>
         </ul>
+        <button class="collapsible">XML Based</button>
+        <div class="content">
         <div class="code">
             &lt;?xml version="1.0"?&gt;<br>
             &lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"<br>
@@ -2400,6 +2426,45 @@
             &emsp;&emsp;&lt;/property&gt;<br><br>
             &emsp;&lt;/class&gt;<br>
             &lt;/hibernate-mapping&gt;
+        </div>
+        </div>
+        <button class="collapsible">Annotation Based</button>
+        <div class="content">
+            <div class="code">
+                @Entity <mark>// Defines that this Class can be mapped to a table</mark><br>
+                @Table(name = "users") <mark>// User class should connect to the users table in the database</mark><br>
+                public class User {<br><br>
+                &emsp;@Id <mark>// maps the primary key</mark><br>
+                &emsp;@GeneratedValue(strategy = GenerationType.IDENTITY)<mark>// auto_increment the user id</mark><br>
+                &emsp;@Column(name = "UserID") <mark>// name should match the column name in the database</mark><br>
+                &emsp;private int userID;<br>
+                &emsp;@Column(name = "FirstName")<br>
+                &emsp;private String firstName;<br>
+                &emsp;@Column(name = "UserID")<br>
+                &emsp;private String LastName;<br><br>
+                &emsp;public int getId() {<br>
+                &emsp;&emsp;return id;<br>
+                &emsp;}<br><br>
+                &emsp;public void setId(int id) {<br>
+                &emsp;&emsp;this.id = id;<br>
+                &emsp;}<br><br>
+                &emsp;public String getFirstName() {<br>
+                &emsp;&emsp;return firstName;<br>
+                &emsp;}<br><br>
+                &emsp;public void setFirstName(String firstName) {<br>
+                &emsp;&emsp;this.firstName = firstName;<br>
+                &emsp;}<br><br>
+                &emsp;public String getLastName() {<br>
+                &emsp;&emsp;return lastName;<br>
+                &emsp;}<br><br>
+                &emsp;public void setLastName(String lastName) {<br>
+                &emsp;&emsp;this.lastName = lastName;<br>
+                &emsp;}<br><br>
+                &emsp;<mark>// You need a no-argument constructor because Hibernate creates proxy objects</mark><br>
+                &emsp;public User() {<br>
+                &emsp;}<br>
+                }
+            </div>
         </div>
         <h3>Create the Configuration file</h3>
         <p>The configuration file contains information about the database and mapping file. Conventionally, its name should be hibernate.cfg.xml</p>
@@ -2431,6 +2496,8 @@
         </div>
         <h3>Create the utility class that opens sessions</h3>
         <p>For code reuse purposes we can separate our session factory from the main class.</p>
+        <button class="collapsible">XML Based</button>
+        <div class="content">
         <div class="code">
             public class HibernateUtility {<br>
             &emsp;<mark>// Get service registry</mark><br>
@@ -2457,6 +2524,85 @@
             &emsp;&emsp;this.sessionFactory = getMetadata().buildSessionFactory();<br>
             &emsp;}<br>
             }
+        </div>
+        </div>
+        <button class="collapsible">Annotation Based</button>
+        <div class="content">
+            <div class="code">
+                public class HibernateUtility {<br>
+                &emsp;<mark>// Get service registry</mark><br>
+                &emsp;<mark>// Get meta data</mark><br>
+                &emsp;<mark>// Get session factory</mark><br>
+                &emsp;<mark>// Open the session</mark><br><br>
+                &emsp;public SessionFactory sessionFactory;<br><br>
+                &emsp;private Metadata getMetadata() {<br>
+                &emsp;&emsp;<mark>// Specify the mapping class</mark><br>
+                &emsp;&emsp;return new MetadataSources(getServiceRegistry()).addAnnotatedClass(User.class).buildMetadata();<br>
+                &emsp;}<br><br>
+                &emsp;private ServiceRegistry getServiceRegistry() {<br>
+                &emsp;&emsp;<mark>// With this we no longer need hibernate.cfg.xml file</mark><br>
+                &emsp;&emsp;StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();<br>
+                &emsp;&emsp;Map&lt;String, String&gt; settings = new HashMap();<br>
+                &emsp;&emsp;settings.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/interview?serverTimezone=UTC");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.username", "root");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.password", "root");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.show_sql", "true");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.hbm2ddl.auto", "update");<br>
+                &emsp;&emsp;serviceRegistryBuilder.applySettings(settings);<br><br>
+                &emsp;&emsp;return serviceRegistryBuilder.build();
+                &emsp;}<br><br>
+                &emsp;public Session getSession() {<br>
+                &emsp;&emsp;if (this.sessionFactory == null) {<br>
+                &emsp;&emsp;&emsp;getSessionFactory();<br>
+                &emsp;&emsp;}<br><br>
+                &emsp;&emsp;return this.sessionFactory.openSession();<br>
+                &emsp;}<br><br>
+                &emsp;private void getSessionFactory() {<br>
+                &emsp;&emsp;this.sessionFactory = getMetadata().buildSessionFactory();<br>
+                &emsp;}<br>
+                }
+            </div>
+        </div>
+        <button class="collapsible">Annotation Based (With Log Interceptor)</button>
+        <div class="content">
+            <div class="code">
+                public class HibernateUtility {<br>
+                &emsp;<mark>// Get service registry</mark><br>
+                &emsp;<mark>// Get meta data</mark><br>
+                &emsp;<mark>// Get session factory</mark><br>
+                &emsp;<mark>// Open the session</mark><br><br>
+                &emsp;public SessionFactory sessionFactory;<br><br>
+                &emsp;private Metadata getMetadata() {<br>
+                &emsp;&emsp;<mark>// Specify the mapping class</mark><br>
+                &emsp;&emsp;return new MetadataSources(getServiceRegistry()).addAnnotatedClass(User.class).buildMetadata();<br>
+                &emsp;}<br><br>
+                &emsp;private ServiceRegistry getServiceRegistry() {<br>
+                &emsp;&emsp;<mark>// With this we no longer need hibernate.cfg.xml file</mark><br>
+                &emsp;&emsp;StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();<br>
+                &emsp;&emsp;Map&lt;String, String&gt; settings = new HashMap();<br>
+                &emsp;&emsp;settings.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/interview?serverTimezone=UTC");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.username", "root");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.password", "root");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.show_sql", "true");<br>
+                &emsp;&emsp;settings.put("hibernate.connection.hbm2ddl.auto", "update");<br>
+                &emsp;&emsp;serviceRegistryBuilder.applySettings(settings);<br><br>
+                &emsp;&emsp;return serviceRegistryBuilder.build();
+                &emsp;}<br><br>
+                &emsp;public Session getSession() {<br>
+                &emsp;&emsp;if (this.sessionFactory == null) {<br>
+                &emsp;&emsp;&emsp;getSessionFactory();<br>
+                &emsp;&emsp;}<br><br>
+                &emsp;&emsp;<mark>// Apply interceptor to a particular session</mark><br>
+                &emsp;&emsp;return this.sessionFactory.withOptions().interceptor(new LogInterceptor()).openSession();<br>
+                &emsp;}<br><br>
+                &emsp;private void getSessionFactory() {<br>
+                &emsp;&emsp;<mark>// Apply interceptor to all sessions</mark><br>
+                &emsp;&emsp;this.sessionFactory = getMetadata().getSessionFactoryBuilder().applyInterceptor(new LogInterceptor()).build();<br>
+                &emsp;}<br>
+                }
+            </div>
         </div>
         <h3>Create the class that retrieves or stores the object</h3>
         <p>In this class, we are simply storing the user object to the database</p>
