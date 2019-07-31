@@ -2348,9 +2348,10 @@
             <li>Prefer non-final class: Hibernate uses the concept of proxies, that depends on the persistent class. The application programmer will not be able to use proxies for lazy association fetching.</li>
         </ul>
         <div class="code">
-            public class User {<br>
+            public class User {<br><br>
             &emsp;private int userID;<br>
-            &emsp;private String firstName,lastName;<br><br>
+            &emsp;private String firstName;<br>
+            &emsp;private String lastName;<br><br>
             &emsp;public int getId() {<br>
             &emsp;&emsp;return id;<br>
             &emsp;}<br><br>
@@ -2390,13 +2391,13 @@
             &emsp;&emsp;&lt;id name="userID" type="int"&gt;<br>
             &emsp;&emsp;&emsp;&lt;column name="UserID" /&gt;<br>
             &emsp;&emsp;&emsp;&lt;generator class="assigned" /&gt;<br>
-            &emsp;&emsp;&lt;/id&gt;<br>
+            &emsp;&emsp;&lt;/id&gt;<br><br>
             &emsp;&emsp;&lt;property name="firstName" type="java.lang.String"&gt;<br>
             &emsp;&emsp;&emsp;&lt;column name="FirstName" /&gt;<br>
-            &emsp;&emsp;&lt;/property&gt;<br>
+            &emsp;&emsp;&lt;/property&gt;<br><br>
             &emsp;&emsp;&lt;property name="lastName" type="java.lang.String"&gt;<br>
             &emsp;&emsp;&emsp;&lt;column name="LastName" /&gt;<br>
-            &emsp;&emsp;&lt;/property&gt;<br>
+            &emsp;&emsp;&lt;/property&gt;<br><br>
             &emsp;&lt;/class&gt;<br>
             &lt;/hibernate-mapping&gt;
         </div>
