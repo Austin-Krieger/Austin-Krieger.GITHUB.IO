@@ -2410,20 +2410,20 @@
             "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;<br><br>
             &lt;hibernate-configuration&gt;<br>
             &emsp;&lt;session-factory&gt;<br>
-                &emsp;&emsp;<!-- Database connection settings --><br>
+                &emsp;&emsp;&lt;!-- Database connection settings --&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.driver_class"&gt;com.mysql.cj.jdbc.Driver&lt;/property&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.url"&gt;jdbc:mysql://localhost:3306/interview?serverTimezone=UTC&lt;/property&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.username"&gt;root&lt;/property&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.password"&gt;root&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;<!-- JDBC connection pool (use the built-in) --><br>
+                &emsp;&emsp;&lt;!-- JDBC connection pool (use the built-in) --&gt;<br>
                 &emsp;&emsp;&lt;property name="connection.pool_size"&gt;10&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;<!-- SQL dialect --><br>
+                &emsp;&emsp;&lt;!-- SQL dialect --&gt;<br>
                 &emsp;&emsp;&lt;property name="dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;<!-- Enable Hibernate's automatic session context management --><br>
+                &emsp;&emsp;&lt;&lt;!-- Enable Hibernate's automatic session context management --&gt;<br>
                 &emsp;&emsp;&lt;property name="current_session_context_class"&gt;thread&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;<!-- Disable the second-level cache --><br>
+                &emsp;&emsp;&lt;&lt;!-- Disable the second-level cache --&gt;<br>
                 &emsp;&emsp;&lt;property name="cache.provider_class"&gt;org.hibernate.cache.internal.NoCacheProvider&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;<!-- Echo all executed SQL to stdout make false in production --><br>
+                &emsp;&emsp;&lt;&lt;!-- Echo all executed SQL to stdout make false in production --&gt;<br>
                 &emsp;&emsp;&lt;property name="show_sql"&gt;true&lt;/property&gt;<br><br>
                 &emsp;&emsp;&lt;mapping resource="User.hbm.xml" /&gt;<br>
                 &emsp;&lt;/session-factory&gt;<br>
@@ -2433,18 +2433,18 @@
         <p>For code reuse purposes we can separate our session factory from the main class.</p>
         <div class="code">
             public class HibernateUtility {<br>
-            &emsp;// Get service registry<br>
+            &emsp;<div class="comment">// Get service registry<br>
             &emsp;// Get meta data<br>
             &emsp;// Get session factory<br>
-            &emsp;// Open the session<br><br>
+            &emsp;// Open the session</div><br><br>
             &emsp;public SessionFactory sessionFactory;<br><br>
             &emsp;private Metadata getMetadata() {<br>
             &emsp;&emsp;return new MetadataSources(getServiceRegistry()).buildMetadata();<br>
             &emsp;}<br><br>
             &emsp;private ServiceRegistry getServiceRegistry() {<br>
-            &emsp;&emsp;// Specify the file name:<br>
+            &emsp;&emsp;<div class="comment">// Specify the file name:<br>
             &emsp;&emsp;// return new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();<br>
-            &emsp;&emsp;// Search for the file:<br>
+            &emsp;&emsp;// Search for the file:</div><br>
             &emsp;&emsp;return new StandardServiceRegistryBuilder().configure().build();<br>
             &emsp;}<br><br>
             &emsp;public Session getSession() {<br>
@@ -2452,7 +2452,7 @@
             &emsp;&emsp;&emsp;getSessionFactory();<br>
             &emsp;&emsp;}<br><br>
             &emsp;&emsp;return this.sessionFactory.openSession();<br>
-            &emsp;&emsp;}<br><br>
+            &emsp;}<br><br>
             &emsp;private void getSessionFactory() {<br>
             &emsp;&emsp;this.sessionFactory = getMetadata().buildSessionFactory();<br>
             &emsp;}<br>
@@ -2463,49 +2463,49 @@
         <div class="code">
             public class MainProgram {<br>
             &emsp;public static void main(String[] args) {<br><br>
-            &emsp;&emsp;// Access our SessionFactory methods<br>
+            &emsp;&emsp;<div class="comment">// Access our SessionFactory methods</div><br>
             &emsp;&emsp;HibernateUtility util = new HibernateUtility();<br>
-            &emsp;&emsp;// Open a new Session<br>
+            &emsp;&emsp;<div class="comment">// Open a new Session</div><br>
             &emsp;&emsp;Session session = util.getSession();<br>
-            &emsp;&emsp;// Begin a transaction that can rollback our changes if something goes wrong<br>
+            &emsp;&emsp;<div class="comment">// Begin a transaction that can rollback our changes if something goes wrong</div><br>
             &emsp;&emsp;Transaction tx = session.beginTransaction();<br><br>
-            &emsp;&emsp;// Create new User object, enter the transient state<br>
+            &emsp;&emsp;<div class="comment">// Create new User object, enter the transient state</div><br>
             &emsp;&emsp;User user = new User(1, "first", "last");<br><br>
             &emsp;&emsp;try {<br>
-            &emsp;&emsp;&emsp;// Check Session Connection<br>
+            &emsp;&emsp;&emsp;<div class="comment">// Check Session Connection</div><br>
             &emsp;&emsp;&emsp;System.out.println(session.isConnected());<br>
-            &emsp;&emsp;&emsp;// Insert our user into the database, enter the persistent state<br>
+            &emsp;&emsp;&emsp;<div class="comment">// Insert our user into the database, enter the persistent state</div><br>
             &emsp;&emsp;&emsp;session.save(user);<br>
             &emsp;&emsp;} catch (Exception e) {<br>
-            &emsp;&emsp;&emsp;tx.rollback(); // rollback changes to the database<br>
+            &emsp;&emsp;&emsp;tx.rollback(); <div class="comment">// rollback changes to the database</div><br>
             &emsp;&emsp;}<br><br>
-            &emsp;&emsp;// Commit changes to the database<br>
+            &emsp;&emsp;<div class="comment">// Commit changes to the database</div><br>
             &emsp;&emsp;tx.commit();<br>
-            &emsp;&emsp;// Close the connection, enter the detached state<br>
+            &emsp;&emsp;<div class="comment">// Close the connection, enter the detached state</div><br>
             &emsp;&emsp;session.close();<br><br>
-            &emsp;&emsp;// Update the user while in a detached state<br>
+            &emsp;&emsp;<div class="comment">// Update the user while in a detached state</div><br>
             &emsp;&emsp;user.setFirstName("Ravie");<br>
             &emsp;&emsp;user.setLastName("Krieslslk");<br><br>
-            &emsp;&emsp;// Open a new Session<br>
+            &emsp;&emsp;<div class="comment">// Open a new Session</div><br>
             &emsp;&emsp;Session session2 = util.getSession();<br>
             &emsp;&emsp;Transaction tx2 = session2.beginTransaction();<br><br>
             &emsp;&emsp;try {<br>
-            &emsp;&emsp;&emsp;// We need to use saveOrUpdate() here to avoid a duplicate entry<br>
+            &emsp;&emsp;&emsp;<div class="comment">// We need to use saveOrUpdate() here to avoid a duplicate entry<br>
             &emsp;&emsp;&emsp;// Update the user, enter the persistent state<br>
             &emsp;&emsp;&emsp;// session2.saveOrUpdate(user);<br><br>
             &emsp;&emsp;&emsp;// We can use merge if we know the user exists and needs to update<br>
             &emsp;&emsp;&emsp;// session2.merge(user);<br><br>
             &emsp;&emsp;&emsp;// If we use refresh, we can get a fresh copy of the object from the<br>
-            &emsp;&emsp;&emsp;// database and forget about the changes made while in the detached state.<br>
+            &emsp;&emsp;&emsp;// database and forget about the changes made while in the detached state.</div><br>
             &emsp;&emsp;&emsp;session2.refresh(user);<br><br>
-            &emsp;&emsp;&emsp;// Print the user (User class should override toString() for desired results)<br>
+            &emsp;&emsp;&emsp;<div class="comment">// Print the user (User class should override toString() for desired results)</div><br>
             &emsp;&emsp;&emsp;System.out.println(user);<br><br>
             &emsp;&emsp;} catch (Exception e) {<br>
-            &emsp;&emsp;&emsp;tx2.rollback(); // Undo changes to the database<br>
+            &emsp;&emsp;&emsp;tx2.rollback(); <div class="comment">// Undo changes to the database</div><br>
             &emsp;&emsp;}<br><br>
-            &emsp;&emsp;// Commit changes to the database<br>
+            &emsp;&emsp;<div class="comment">// Commit changes to the database</div><br>
             &emsp;&emsp;tx2.commit();<br>
-            &emsp;&emsp;// Close the Session<br>
+            &emsp;&emsp;<div class="comment">// Close the Session</div><br>
             &emsp;&emsp;session2.close();<br>
             &emsp;}<br>
             }
