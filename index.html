@@ -2460,7 +2460,7 @@
         </div>
         <h3>Create the class that retrieves or stores the object</h3>
         <p>In this class, we are simply storing the user object to the database</p>
-        <div class="code">
+        <mark class="code">
             public class MainProgram {<br>
             &emsp;public static void main(String[] args) {<br><br>
             &emsp;&emsp;<div class="comment">// Access our SessionFactory methods</div><br>
@@ -2505,7 +2505,7 @@
             &emsp;&emsp;}<br><br>
             &emsp;&emsp;<div class="comment">// Commit changes to the database</div><br>
             &emsp;&emsp;tx2.commit();<br>
-            &emsp;&emsp;<div class="comment">// Close the Session</div><br>
+            &emsp;&emsp;<mark>// Close the Session</mark><br>
             &emsp;&emsp;session2.close();<br>
             &emsp;}<br>
             }

@@ -61,6 +61,9 @@ tr:nth-child(even) {
     font-family: Arial, sans-serif;
 }
 
+mark {
+    color: green;
+}
 .comment {
     color: green;
 }
