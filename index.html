@@ -2296,9 +2296,57 @@
 &nbsp;
 <button class="collapsible">JDBC (API), Hibernate and ORM Frameworks</button>
 <div class="content">
-
-</div>
-&nbsp;
+    <button class="collapsible">Hibernate Lifecycle</button>
+    <div class="content">
+        <h3>Hibernate Lifecycle</h3>
+            <div class="center"><img src="images/hibernate-lifecycle.png" alt="Hibernate Lifecycle"></div>
+            <p>The Hibernate lifecycle contains the following states:</p>
+            <ul>
+                <li>Transient</li>
+                <li>Persistent</li>
+                <li>Detached</li>
+            </ul>
+            <h3>Transient State</h3>
+            <ul>
+                <li>The transient state is the initial state of an object.</li>
+                <li>Here, an object is not associated with the Session. So, the transient state is not related to any database.</li>
+                <li>Hence, modifications in the data don't affect any changes in the database.</li>
+                <li>The transient objects exist in the heap memory.</li>
+            </ul>
+            <div class="code">
+                Employee e = new Employee(); //Here, object enters in the transient state.
+            </div>
+            <h3>Persistent State</h3>
+            <ul>
+                <li>As soon as the object is associated with the Session, it enters the persistent state.</li>
+                <li>We can say that an object is in the persistence state when we save or persist it.</li>
+                <li>Each Object represents the row of the database table so, modifications to the data make changes in the database.</li>
+            </ul>
+            <p>The following methods are used to put an object in the persistent state:</p>
+            <div class="code">
+                session.save(e);<br>
+                session.persist(e);<br>
+                session.update(e);<br>
+                session.saveOrUpdate(e);<br>
+                session.lock(e);<br>
+                session.merge(e);
+            </div>
+            <h3>Detached State</h3>
+            <ul>
+                <li>Once we either close the session or clear its cache, then the object enters into the detached state.</li>
+                <li>An object is no longer associated with the Session, modification in the data don't affect the database.</li>
+                <li>Detached objects still have a representation in the database. If we want to persist changes made to a detached object, it is required to re-open the Session.</li>
+                <li>To associate the detached object with the new Hibernate Session, we can use methods such as: load(), merge(), refresh(), update() or save() on a new session with the reference of the detached object.</li>
+            </ul>
+            <p>The following methods are used to put an object in the detached state:</p>
+            <div class="code">
+                session.close();<br>
+                session.clear();<br>
+                session.detach(e);<br>
+                session.evict(e);
+            </div>
+        </div>
+    &nbsp;</div>
 <button class="collapsible">Interview Questions</button>
 <div class="content">
     &nbsp;
