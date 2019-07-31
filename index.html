@@ -2329,6 +2329,79 @@
     <p>It is a factory of JDBC connections. It abstracts the application from DriverManager or DataSource. It is optional.</p>
     <h3>TransactionFactory</h3>
     <p>It is a factory of Transaction. It is optional.</p>
+    <button class="collapsible">Hibernate Example</button>
+    <div class="content">
+        <ol>
+            <li>Create the Persistent class.</li>
+            <li>Create the mapping file for Persistent class.</li>
+            <li>Create the Configuration file.</li>
+            <li>Create the class that retrieves or stores the persistent object.</li>
+            <li>Load the jar files.</li>
+            <li>Run the application.</li>
+        </ol>
+        <h3>Create the Persistent class</h3>
+        <p>A simple Persistent class should follow some rules:</p>
+        <ul>
+            <li>A no-arg constructor: It is recommended that you have a default constructor with at least package visibility so that hibernate can create the instance of the Persistent class by newInstance() method.</li>
+            <li>Provide an identifier property: It is better to assign an attribute as id. This attribute behaves as a primary key in database.</li>
+            <li>Declare getter and setter methods: Hibernate recognizes the method by getter and setter method names by default.</li>
+            <li>Prefer non-final class: Hibernate uses the concept of proxies, that depends on the persistent class. The application programmer will not be able to use proxies for lazy association fetching.</li>
+        </ul>
+        <div class="code">
+            public class User {<br>
+            &emsp;private int userID;<br>
+            &emsp;private String firstName,lastName;<br><br>
+            &emsp;public int getId() {<br>
+            &emsp;&emsp;return id;<br>
+            &emsp;}<br><br>
+            &emsp;public void setId(int id) {<br>
+            &emsp;&emsp;this.id = id;<br>
+            &emsp;}<br><br>
+            &emsp;public String getFirstName() {<br>
+            &emsp;&emsp;return firstName;<br>
+            &emsp;}<br><br>
+            &emsp;public void setFirstName(String firstName) {<br>
+            &emsp;&emsp;this.firstName = firstName;<br>
+            &emsp;}<br><br>
+            &emsp;public String getLastName() {<br>
+            &emsp;&emsp;return lastName;<br>
+            &emsp;}<br><br>
+            &emsp;public void setLastName(String lastName) {<br>
+            &emsp;&emsp;this.lastName = lastName;<br>
+            &emsp;}<br>
+            }
+        </div>
+        <h3>Create the mapping file for Persistent class</h3>
+        <p>The mapping file name conventionally, should be class_name.hbm.xml. There are many elements of the mapping file.</p>
+        <ul>
+            <li>hibernate-mapping: It is the root element in the mapping file that contains all the mapping elements.</li>
+            <li>class: It is the sub-element of the hibernate-mapping element. It specifies the Persistent class.</li>
+            <li>id: It is the sub-element of class. It specifies the primary key attribute in the class.</li>
+            <li>generator: It is the sub-element of id. It is used to generate the primary key. There are many generator classes such as assigned, increment, hilo, sequence, native etc. We will learn all the generator classes later.</li>
+            <li>property: It is the sub-element of class that specifies the property name of the Persistent class.</li>
+        </ul>
+        <div class="code">
+            &lt;?xml version="1.0"?&gt;<br>
+            &lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"<br>
+            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;<br>
+            &lt;hibernate-mapping&gt;<br>
+            &emsp;&lt;class name="com.training.hibernate.model.User" table="users"&gt;<br>
+            &emsp;&emsp;<!-- userID is getting mapped to the database column name UserID --><br>
+            &emsp;&emsp;&lt;id name="userID" type="int"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;column name="UserID" /&gt;<br>
+            &emsp;&emsp;&emsp;&lt;generator class="assigned" /&gt;<br>
+            &emsp;&emsp;&lt;/id&gt;<br>
+            &emsp;&emsp;&lt;property name="firstName" type="java.lang.String"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;column name="FirstName" /&gt;<br>
+            &emsp;&emsp;&lt;/property&gt;<br>
+            &emsp;&emsp;&lt;property name="lastName" type="java.lang.String"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;column name="LastName" /&gt;<br>
+            &emsp;&emsp;&lt;/property&gt;<br>
+            &emsp;&lt;/class&gt;<br>
+            &lt;/hibernate-mapping&gt;
+        </div>
+    </div>
+    &nbsp;
     <button class="collapsible">Hibernate Lifecycle</button>
     <div class="content">
         <h3>Hibernate Lifecycle</h3>
