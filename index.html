@@ -480,8 +480,8 @@
     <p>type specifies the type of data being allocated and size specifies the number of elements.</p>
     <p>array-var is the array variable that is linked to the array.</p>
     <div class="code">
-        month_days = new int[12]; // Create a new integer array<br>
-        month_days[1] = 28; // Give index 1 a value of 28
+        month_days = new int[12]; <mark>// Create a new integer array</mark><br>
+        month_days[1] = 28; <mark>// Give index 1 a value of 28</mark>
     </div>
     <p>Combine the declaration of the array with the allocation of the array.</p>
     <div class="code">
@@ -494,7 +494,7 @@
     <h3>Multidimensional Arrays</h3>
     <p>Multidimensional Arrays are "Arrays of Arrays"</p>
     <div class="code">
-        // Allocate a 4 by 5 array and assign it to twoD<br>
+        <mark>// Allocate a 4 by 5 array and assign it to twoD</mark><br>
         int twoD[][] = new int [4][5];
     </div>
     <p>When you allocate the memory for a multi-dimentional array, you need only specify the memory for the first (leftmost) dimension. You can allocate the memory for the remaining dimensions separately.</p>
@@ -880,17 +880,17 @@
     <p>General Form:</p>
     <div class="code">
         try {<br>
-        &emsp;// block of code to monitor for errors<br>
+        &emsp;<mark>// block of code to monitor for errors</mark><br>
         }<br>
         catch (ExceptionType1 exOb) {<br>
-        &emsp;// exception handler for ExceptionType1<br>
+        &emsp;<mark>// exception handler for ExceptionType1</mark><br>
         }<br>
         catch (ExceptionType2 exOb) {<br>
-        &emsp;// exception handler for ExceptionType2<br>
+        &emsp;<mark>// exception handler for ExceptionType2</mark><br>
         }<br>
-        &emsp;// ...<br>
+        &emsp;<mark>// ...</mark><br>
         finally {<br>
-        &emsp;// block of code to be executed after try block ends<br>
+        &emsp;<mark>// block of code to be executed after try block ends</mark><br>
         }
     </div>
     <p>Try Catch Blocks can be written in multiple forms: try/catch, try/catch/finally, and try/finally.</p>
@@ -901,7 +901,7 @@
     <p>When you use multiple catch statements, it is important to remember that exception subclasses must come before any of their superclasses otherwise they will never run (unreachable code).</p>
     <div class="code">
         try {<br>
-        &emsp;//...<br>
+        &emsp;<mark>//...</mark><br>
         } catch (SQLException | ClassNotFoundException e) {<br>
         &emsp;e.printStackTrace();<br>
         }
@@ -911,14 +911,14 @@
     <p>Each time a try statement is entered, the context of that exception is pushed on the stack.</p>
     <p>If the outer try/catch passes it moves inward and if that fails it moves back out If an inner try statement does not have a catch handler for a particular exception, the stack is unwound and the next try statement’s catch handlers are inspected for a match.</p>
     <div class="code">
-        try { // last<br>
-        &emsp;try { // second<br>
-        &emsp;&emsp;try { // check here first<br>
-        &emsp;&emsp;&emsp;//...<br>
+        try { <mark>// last</mark><br>
+        &emsp;try { <mark>// second</mark><br>
+        &emsp;&emsp;try { <mark>// check here first</mark><br>
+        &emsp;&emsp;&emsp;<mark>//...</mark><br>
         &emsp;&emsp;} catch () {<br>
         &emsp;} catch () {<br>
         } catch () {<br>
-        &emsp;//...<br>
+        &emsp;<mark>//...</mark><br>
         }
     </div>
     <h3>Throw</h3>
@@ -930,7 +930,7 @@
     <p>General Form:</p>
     <div class="code">
         type method-name(parameter-list) throws exception-list {<br>
-        &emsp;// body of method<br>
+        &emsp;<mark>// body of method</mark><br>
         }
     </div>
     <h3>Finally</h3>
@@ -981,7 +981,7 @@
         &emsp;&emsp;super(errorMessage);<br>
         &emsp;}<br>
         }<br><br>
-        // Throw the error somewhere else in the code<br>
+        <mark>// Throw the error somewhere else in the code</mark><br>
         throw new InvalidUserException("The supplied user was not valid.");
     </div>
 </div>
@@ -1283,7 +1283,7 @@
     <div class="content">
     <h2>CountDownLatch</h2>
     <p>A CountDownLatch is initially created with a count of the number of events that must occur before the latch is released.</p>
-    <p>CountDownLatch(int num) // num specifies the number of events that must occur in order for the latch to open.</p>
+        <p>CountDownLatch(int num) <mark>// num specifies the number of events that must occur in order for the latch to open.</mark></p>
     <h3>To wait on the latch, a thread calls await()</h3>
     <ol>
         <li>void await() throws InterruptedException</li>
@@ -1292,7 +1292,7 @@
     <p>The second form waits only for the period of time specified by wait in the unit of time specified by tu.</p>
     <h3>To signal an event, call the countDown() method</h3>
     <ol>
-        <li>void countDown() // Each call to countDown() decrements the count associated with the invoking object.</li>
+        <li>void countDown() <mark>// Each call to countDown() decrements the count associated with the invoking object.</mark></li>
     </ol>
         <div class="code">
             import java.util.concurrent.CountDownLatch;<br>
@@ -1319,7 +1319,7 @@
             &emsp;public void run() {<br>
             &emsp;&emsp;for (int i = 0; i < 5; i++) {<br>
             &emsp;&emsp;&emsp;System.out.println(i);<br>
-            &emsp;&emsp;&emsp;latch.countDown(); // decrement count<br>
+            &emsp;&emsp;&emsp;latch.countDown(); <mark>// decrement count</mark><br>
             &emsp;&emsp;}<br>
             &emsp; }<br>
             }
@@ -1368,7 +1368,7 @@
         <p>Designed the simplify the exchange of data between two threads.</p>
         <p>It simply waits until two separate threads call its exchange() method. When that occurs, it exchanges the data supplied by the threads.</p>
         <p>For Example: One thread might prepare a buffer for receiving information over a network connection. Another thread might fill that buffer with the information from the connection. Each time a new buffer is needed, an exchange is made.</p>
-        <p>Exchanger &lt;V&gt; // Here, V specifies the type of the data being exchanged.</p>
+        <p>Exchanger &lt;V&gt; <mark>// Here, V specifies the type of the data being exchanged.</mark></p>
         <h3>Constructors</h3>
         <ol>
             <li>V exchange(V objRef) throws InterruptedException</li>
@@ -1435,7 +1435,7 @@
     <div class="content">
     <h2>Executor</h2>
         <p>Controls the execution of threads.</p>
-        <p>void execute(Runnable thread) // execute() starts the specified thread.</p>
+        <p>void execute(Runnable thread) <mark>// execute() starts the specified thread.</mark></p>
     <h3>ExecutorService</h3>
         <p>The ExecutorService interface extends Executor by adding methods that help manage and control the execution of threads.</p>
         <p>Represents an asynchronous execution mechanism which is capable of executing tasks concurrently in the background.</p>
@@ -1458,15 +1458,15 @@
         <p>The ExecutorService then executes the task concurrently, independently of the thread that submitted the task.</p>
         <h3>Example:</h3>
         <div class="code">
-            // First an ExecutorService is created using the Executors newFixedThreadPool() factory method. This creates a thread pool with 10 threads executing tasks.<br>
+            <mark>// First an ExecutorService is created using the Executors newFixedThreadPool() factory method. This creates a thread pool with 10 threads executing tasks.</mark><br>
             ExecutorService executorService = Executors.newFixedThreadPool(10);<br><br>
-            // Second, an anonymous implementation of the Runnable interface is passed to the execute() method. This causes the Runnable to be executed by one of the threads in the ExecutorService.<br>
+            <mark>// Second, an anonymous implementation of the Runnable interface is passed to the execute() method. This causes the Runnable to be executed by one of the threads in the ExecutorService.</mark><br>
             executorService.execute(new Runnable() {<br>
             &emsp;public void run() {<br>
             &emsp;&emsp;System.out.println("Asynchronous task");<br>
             &emsp;}<br>
             });<br><br>
-            // Shut down executor service<br>
+            <mark>// Shut down executor service</mark><br>
             executorService.shutdown();
         </div>
     <h3>Java ExecutorService Implementations</h3>
@@ -1559,7 +1559,7 @@
         <p>An application can use Callable objects to compute results that are then returned to the invoking thread.</p>
         <p>It can also be used to run a thread that returns a status code that indicates the successful completion of the thread.</p>
     <h3>Callable is a generic interface that is defined like this:</h3>
-    <p>interface Callable &lt;V&gt; // V indicates the type of data returned by the task.</p>
+        <p>interface Callable &lt;V&gt; <mark>// V indicates the type of data returned by the task.</mark></p>
     <h3>Callable defines only one method</h3>
         <p>V call() throws Exception</p>
         <p>Inside call() you define the task that you want performed. After that task completes, you return the result. If the result cannot be computer, call() must throw an exception.</p>
@@ -1582,7 +1582,7 @@
     <h2>Future</h2>
         <p>A generic interface that represents the value that will be returned by a Callable object.</p>
         <p>Because this value is obtained at some future time, the name Future is appropriate.</p>
-        <p>interface Future&lt;V&gt; // V specifies the type of the result.</p>
+        <p>interface Future&lt;V&gt; <mark>// V specifies the type of the result.</mark></p>
         <p>A Java Future, java.util.concurrent.Future, represents the result of an asynchronous computation.</p>
         <p>When the asynchronous task is created, a Java Future object is returned.</p>
         <p>Once the asynchronous task completes, the result can be accessed via the Future object returned when the task was started.</p>
@@ -1607,7 +1607,7 @@
             if(future.isDone()) {<br>
             &emsp;Object result = future.get();<br>
             } else {<br>
-            &emsp;// do something else<br>
+            &emsp;<mark>// do something else</mark><br>
             }
         </div>
         <h3>Check if task is cancelled</h3>
@@ -1870,7 +1870,7 @@
     <p>In pre-generics code, generalized classes, interfaces, and methods used Object references to operate on various types of objects. The problem was that they could not do so with type safety. Generics added the type safety that was lacking.</p>
     <p>With generics, all casts are automatic and implicit. Thus, generics expanded your ability to reuse code and let you do so safely and easily.</p>
     <div class="code">
-        // Here, T is the name of a type parameter. This name is used as a placeholder for the actual type that will be passed to Gen when an object is created.<br>
+        <mark>// Here, T is the name of a type parameter. This name is used as a placeholder for the actual type that will be passed to Gen when an object is created.</mark><br>
         class Gen&lt;T&gt; {
     </div>
     <p>Type safety: means that a program cannot perform an operation on an object unless that operation is valid for that object.</p>
@@ -1884,9 +1884,9 @@
     <p>Generics automatically ensure the type safety of all operations involving Gen. In the process, they eliminate the need for you to enter casts and to type-check code by hand.</p>
     <h3>Generic Class</h3>
     <div class="code">
-        // General Form<br>
-        class class-name&lt;type-param-list&gt; { // …<br>
-        // Full Syntax<br>
+        <mark>// General Form</mark><br>
+        class class-name&lt;type-param-list&gt; { <mark>// ...</mark><br>
+        <mark>// Full Syntax</mark><br>
         class-name&lt;type-arg-list&gt; var-name = new class-name&lt;type-arg-list&gt;(cons-arg-list);
     </div>
     <h3>Bounded Types</h3>
@@ -1894,24 +1894,24 @@
     <p>When specifying a type parameter, you can create an upper bound that declares the superclass from which all type arguments must be derived.</p>
     <p>This is accomplished through the use of an extends clause when specifying the type parameter.</p>
     <div class="code">
-        // This specifies that T can only be replaced by superclass, or subclasses of superclass.<br>
+        <mark>// This specifies that T can only be replaced by superclass, or subclasses of superclass.</mark><br>
         &lt;T extends superclass&gt;<br>
-        // Here, the type argument for T must be either Number, or a class derived from Number.<br>
+        <mark>// Here, the type argument for T must be either Number, or a class derived from Number.</mark><br>
         class Stats&lt;T extends Number&gt; {
     </div>
     <p>When a bound includes an interface type, only type arguments that implement that interface are legal.</p>
     <p>When specifying a bound that has a class and an interface, or multiple interfaces, use the & operator to connect them.</p>
     <div class="code">
-        // Here, T is bounded by a class called MyClass and an interface called MyInterface.<br>
-        class Gen&lt;T extends MyClass & MyInterface> { // ...
+        <mark>// Here, T is bounded by a class called MyClass and an interface called MyInterface.</mark><br>
+        class Gen&lt;T extends MyClass & MyInterface> { <mark>// ...</mark>
     </div>
     <p>Any type argument passed to T must be a subclass of MyClass and implement MyInterface.</p>
     <h3>Using Wildcard Arguments</h3>
     <p>The wildcard argument is specified by the ?, and it represents an unknown type.</p>
     <p>Assume that you want to add a method called sameAvg() that determines if two Stats objects contain arrays that yield the same average, no matter what type of numeric data each object holds.</p>
     <div class="code">
-        // Determine if two averages are the same.<br>
-        // Here, Stats&lt;?&gt; matches any Stats object, allowing any two Stats objects to have their averages compared.<br>
+        <mark>// Determine if two averages are the same.</mark><br>
+        <mark>// Here, Stats&lt;?&gt; matches any Stats object, allowing any two Stats objects to have their averages compared.</mark><br>
         boolean sameAvg(Stats&lt;?&gt; ob) {<br>
 		&emsp;if(average() == ob.average())<br>
         &emsp;&emsp;return true;<br>
@@ -1934,16 +1934,16 @@
     <p>Furthermore, it is possible to create a generic method that is enclosed within a non-generic class.</p>
     <p>Here is the syntax for a generic method:</p>
     <div class="code">
-        &lt;type-param-list&gt; ret-type meth-name (param-list) { // …
+        &lt;type-param-list&gt; ret-type meth-name (param-list) { <mark>// ...</mark>
     </div>
     <p>In all cases, type-param-list is a comma-separated list of type parameters.</p>
     <p>For a generic method, the type parameter list precedes the return type.</p>
     <h3>Generic Constructors</h3>
     <p>It is possible for constructors to be generic, even if their class is not.</p>
     <div class="code">
-        class GenCons { // non-generic class<br>
+        class GenCons { <mark>// non-generic class</mark><br>
         &emsp;private double val;<br>
-        &emsp;&lt;T extends Number&gt; GenCons(T arg) { // generic constructor<br>
+        &emsp;&lt;T extends Number&gt; GenCons(T arg) { <mark>// generic constructor</mark><br>
         &emsp;&emsp;val = arg.doubleValue();<br>
         &emsp;}<br>
         }
@@ -1957,7 +1957,7 @@
     <h3>Generic Interfaces</h3>
     <p>In addition to generic classes and methods, you can also have generic interfaces.</p>
     <div class="code">
-        // A Min/Max interface.<br>
+        <mark>// A Min/Max interface.</mark><br>
         interface MinMax&lt;T extends Comparable&lt;T&gt;&gt; {<br>
         &emsp;T min();<br>
         &emsp;T max();<br>
@@ -1965,9 +1965,9 @@
     </div>
     <p>In general, if a class implements a generic interface, then that class must also be generic, at least to the extent that it takes a type parameter that is passed to the interface.</p>
     <div class="code">
-        // Generalized Syntax for a Generic Interface<br>
+        <mark>// Generalized Syntax for a Generic Interface</mark><br>
         interface interface-name&lt;type-param-list&gt; { // …<br>
-        // Here, type-param-list is a comma-separated list of type parameters.
+        <mark>// Here, type-param-list is a comma-separated list of type parameters.</mark>
     </div>
     <p>When a generic interface is implemented, you must specify the type arguments.</p>
     <div class="code">
@@ -1977,7 +1977,7 @@
     <p>To handle the transition to generics, Java allows a generic class to be used without any type arguments. This creates a raw type for the class.</p>
     <p>The main drawback to using the raw type is that the type safety of generics is lost.</p>
     <div class="code">
-    // Create a raw-type Gen object and give it a Double value.<br>
+        <mark>// Create a raw-type Gen object and give it a Double value.</mark><br>
     Gen raw = new Gen(new Double(98.6));
     </div>
     <p>You should limit the use of raw types to those cases in which you must mix legacy code with newer, generic code.</p>
@@ -1987,28 +1987,28 @@
     <p>Thus, a generic class can act as a superclass or be a subclass.</p>
     <p>The key difference between generic and non-generic hierarchies is that in a generic hierarchy, any type arguments needed by a generic superclass must be passed up the hierarchy by all subclasses.</p>
     <div class="code">
-        // A simple generic class hierarchy.<br>
+        <mark>// A simple generic class hierarchy.</mark><br>
         class Gen&lt;T&gt; {<br>
         &emsp;T ob;<br>
         &emsp;Gen(T o) { ob = o; }<br>
-        &emsp;// Return ob.<br>
+        &emsp;<mark>// Return ob.</mark><br>
         &emsp;T getob() { return ob; }<br>
         }<br><br>
 
-        // A subclass of Gen.<br>
+        <mark>// A subclass of Gen.</mark><br>
         class Gen2&lt;T&gt; extends Gen&lt;T&gt; {<br>
         &emsp;Gen2(T o) { super(o); }<br>
         }<br><br>
 
-        // A subclass of Gen that defines a second type parameter, called V.<br>
+        <mark>// A subclass of Gen that defines a second type parameter, called V.</mark><br>
         class Gen2&lt;T, V&gt; extends Gen&lt;T&gt; {<br>
         &emsp;V ob2;<br>
         &emsp;Gen2(T o, V o2) { super(o); ob2 = o2; }<br>
-        &emsp;// Return the second ob<br>
+        &emsp;<mark>// Return the second ob</mark><br>
         &emsp;V getob2() { return ob2; }<br>
         }<br><br>
         <div class="mainMethod">
-            // Create a Gen2 object for String and Integer.<br>
+            <mark>// Create a Gen2 object for String and Integer.</mark><br>
             Gen2&lt;String, Integer&gt; x = new Gen2&lt;String, Integer&gt;("Value is: ", 99);
         </div>
     </div>
@@ -2024,7 +2024,7 @@
     <p>A method in a generic class can be overridden just like any other method.</p>
     <div class="code">
         class Gen2&lt;T&gt; extends Gen&lt;T&gt; {<br>
-        &emsp;// Override getob() which exists in the parent class<br>
+        &emsp;<mark>// Override getob() which exists in the parent class</mark><br>
         &emsp;T getob() {<br>
         &emsp;&emsp;System.out.print("Gen2's getob(): ");<br>
         &emsp;&emsp;return ob;<br>
@@ -2035,7 +2035,7 @@
     <p>Beginning with JDK 7, it is possible to shorten the syntax used to create an instance of a generic type.</p>
     <div class="code">
         MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;Integer, String&gt;(98, "A String");<br>
-        // Can be re-written as:<br>
+        <mark>// Can be re-written as:</mark><br>
         MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;&gt;(98, "A String");
     </div>
     <p>Diamond Operator: <> is an empty type argument list.</p>
@@ -2056,7 +2056,7 @@
     <p>The inclusion of generics gives rise to a new type of error that you must guard against: ambiguity.</p>
     <p>Ambiguity errors occur when erasure causes two seemingly distinct generic declarations to resolve to the same erased type, causing a conflict.</p>
     <div class="code">
-        // These two overloaded methods are ambiguous and will not compile.<br>
+        <mark>// These two overloaded methods are ambiguous and will not compile.</mark><br>
         void set(T o) {<br>
         &emsp;ob1 = o;<br>
         }<br><br>
@@ -2091,11 +2091,11 @@
     <h3>Type Parameters Can’t Be Instantiated</h3>
     <p>It is not possible to create an instance of a type parameter.</p>
     <div class="code">
-        // Can't create an instance of T.<br>
+        <mark>// Can't create an instance of T.</mark><br>
         class Gen&lt;T&gt; {<br>
         &emsp;T ob;<br>
         &emsp;Gen() {<br>
-        &emsp;&emsp;ob = new T(); // Illegal!!!<br>
+        &emsp;&emsp;ob = new T(); <mark>// Illegal!!!</mark><br>
         &emsp;}<br>
         }
     </div>
@@ -2107,13 +2107,13 @@
     <p>First, you cannot instantiate an array whose element type is a type parameter.</p>
     <p>Second, you cannot create an array of type-specific generic references.</p>
     <div class="code">
-        T vals[]; // OK<br>
-        vals = new T[10]; // can't create an array of T
+        T vals[]; <mark>// OK</mark><br>
+        vals = new T[10]; <mark>// can't create an array of T</mark>
     </div>
     <p>The reason you can’t create an array of T is that there is no way for the compiler to know what type of array to actually create.</p>
     <p>You can create an array of references to a generic type if you use a wildcard, however, as shown here:</p>
     <div class="code">
-        Gen&lt;?&gt; gens[] = new Gen&lt;?&gt;[10]; // OK
+        Gen&lt;?&gt; gens[] = new Gen&lt;?&gt;[10]; <mark>// OK</mark>
     </div>
     <h3>Generic Exception Restriction</h3>
     <p>A generic class cannot extend Throwable. This means that you cannot create generic exception classes.</p>
@@ -2150,9 +2150,9 @@
     <div class="content">
         <h3>Lambdas that define a single expression</h3>
         <div class="code">
-            // This lambda expression takes no parameter, thus the parameter list is empty.<br>
-            () -> 123.45 // Returns the constant value 123.45<br>
-            (n) -> (n % 2) == 0 // Returns true if the value of parameter n is even.
+            <mark>// This lambda expression takes no parameter, thus the parameter list is empty.</mark><br>
+            () -> 123.45 <mark>// Returns the constant value 123.45</mark><br>
+            (n) -> (n % 2) == 0 <mark>// Returns true if the value of parameter n is even.</mark>
         </div>
         <p>The body of the lambdas shown in the preceding examples consist of a single expression. These types of lambda bodies are referred to as expression bodies or expression lambdas. In an expression body, the code on the right side of the lambda operator must consist of a single expression.</p>
         <p>When a lambda expression has only one parameter, it is not necessary to surround the parameter name with parentheses when it is specified on the left side of the lambda operator.</p>
@@ -2177,7 +2177,7 @@
             }<br><br>
             <div class="mainMethod">
                 <br>
-            // This block lambda computes the factorial of an int value.<br>
+                <mark>// This block lambda computes the factorial of an int value.</mark><br>
             NumericFunc factorial = (n) -> {<br>
             &emsp;int result = 1;<br>
             &emsp;for(int i=1; i <= n; i++)<br>
@@ -2205,9 +2205,9 @@
     <p>As a result, a lambda expression can be specified only in a context in which a target type is defined.</p>
     <p>Target type contexts include variable initialization, return statements, and method arguments, to name a few.</p>
     <div class="code">
-        // Create a reference to a MyNumber instance.<br>
+        <mark>// Create a reference to a MyNumber instance.</mark><br>
         MyNumber myNum;<br>
-        // Use a lambda in an assignment context.<br>
+        <mark>// Use a lambda in an assignment context.</mark><br>
         myNum = () -> 123.45;<br>
     </div>
     <p>In general, the type and number of the lambda expression’s parameters must be compatible with the method’s parameters; the return types must be compatible; and any exceptions thrown by the lambda expression must be acceptable to the method.</p>
@@ -2243,16 +2243,16 @@
         }<br><br>
         <div class="mainMethod">
         <br>
-        // A final local variable that can be captured.<br>
+        <mark>// A final local variable that can be captured.</mark><br>
         final int num = 10;<br><br>
-        // Block Lambda Expression<br>
+        <mark>// Block Lambda Expression</mark><br>
         MyFunc myLambda = (n) -> {<br>
-        &emsp;int v = num + n; // This use of num is OK. It does not modify num.<br>
-        &emsp;num++; // Illegal, this attempts to change the value of num<br>
+        &emsp;int v = num + n; <mark>// This use of num is OK. It does not modify num.</mark><br>
+        &emsp;num++; <mark>// Illegal, this attempts to change the value of num</mark><br>
         &emsp;return v;<br>
         }<br><br>
-        num = 9; // Also Illegal, Removes the effectively final status of the variable<br><br>
-        // Print the results<br>
+        num = 9; <mark>// Also Illegal, Removes the effectively final status of the variable</mark><br><br>
+        <mark>// Print the results</mark><br>
         System.out.println(myLambda.func(num));
         </div>
     </div>
@@ -2387,7 +2387,7 @@
             "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;<br>
             &lt;hibernate-mapping&gt;<br>
             &emsp;&lt;class name="com.training.hibernate.model.User" table="users"&gt;<br>
-            &emsp;&emsp;<!-- userID is getting mapped to the database column name UserID --><br>
+            &emsp;&emsp;<mark>&lt;!-- userID is getting mapped to the database column name UserID --&gt;</mark><br>
             &emsp;&emsp;&lt;id name="userID" type="int"&gt;<br>
             &emsp;&emsp;&emsp;&lt;column name="UserID" /&gt;<br>
             &emsp;&emsp;&emsp;&lt;generator class="assigned" /&gt;<br>
@@ -2410,20 +2410,20 @@
             "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;<br><br>
             &lt;hibernate-configuration&gt;<br>
             &emsp;&lt;session-factory&gt;<br>
-                &emsp;&emsp;&lt;!-- Database connection settings --&gt;<br>
+                &emsp;&emsp;<mark>&lt;!-- Database connection settings --&gt;</mark><br>
                 &emsp;&emsp;&lt;property name = "connection.driver_class"&gt;com.mysql.cj.jdbc.Driver&lt;/property&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.url"&gt;jdbc:mysql://localhost:3306/interview?serverTimezone=UTC&lt;/property&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.username"&gt;root&lt;/property&gt;<br>
                 &emsp;&emsp;&lt;property name = "connection.password"&gt;root&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;!-- JDBC connection pool (use the built-in) --&gt;<br>
+                &emsp;&emsp;<mark>&lt;!-- JDBC connection pool (use the built-in) --&gt;</mark><br>
                 &emsp;&emsp;&lt;property name="connection.pool_size"&gt;10&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;!-- SQL dialect --&gt;<br>
+                &emsp;&emsp;<mark>&lt;!-- SQL dialect --&gt;</mark><br>
                 &emsp;&emsp;&lt;property name="dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;&lt;!-- Enable Hibernate's automatic session context management --&gt;<br>
+                &emsp;&emsp;<mark>&lt;!-- Enable Hibernate's automatic session context management --&gt;</mark><br>
                 &emsp;&emsp;&lt;property name="current_session_context_class"&gt;thread&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;&lt;!-- Disable the second-level cache --&gt;<br>
+                &emsp;&emsp;<mark>&lt;!-- Disable the second-level cache --&gt;</mark><br>
                 &emsp;&emsp;&lt;property name="cache.provider_class"&gt;org.hibernate.cache.internal.NoCacheProvider&lt;/property&gt;<br><br>
-                &emsp;&emsp;&lt;&lt;!-- Echo all executed SQL to stdout make false in production --&gt;<br>
+                &emsp;&emsp;<mark>&lt;!-- Echo all executed SQL to stdout make false in production --&gt;</mark><br>
                 &emsp;&emsp;&lt;property name="show_sql"&gt;true&lt;/property&gt;<br><br>
                 &emsp;&emsp;&lt;mapping resource="User.hbm.xml" /&gt;<br>
                 &emsp;&lt;/session-factory&gt;<br>
@@ -2433,18 +2433,18 @@
         <p>For code reuse purposes we can separate our session factory from the main class.</p>
         <div class="code">
             public class HibernateUtility {<br>
-            &emsp;<div class="comment">// Get service registry<br>
-            &emsp;// Get meta data<br>
-            &emsp;// Get session factory<br>
-            &emsp;// Open the session</div><br><br>
+            &emsp;<mark>// Get service registry</mark><br>
+            &emsp;<mark>// Get meta data</mark><br>
+            &emsp;<mark>// Get session factory</mark><br>
+            &emsp;<mark>// Open the session</mark><br><br>
             &emsp;public SessionFactory sessionFactory;<br><br>
             &emsp;private Metadata getMetadata() {<br>
             &emsp;&emsp;return new MetadataSources(getServiceRegistry()).buildMetadata();<br>
             &emsp;}<br><br>
             &emsp;private ServiceRegistry getServiceRegistry() {<br>
-            &emsp;&emsp;<div class="comment">// Specify the file name:<br>
-            &emsp;&emsp;// return new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();<br>
-            &emsp;&emsp;// Search for the file:</div><br>
+            &emsp;&emsp;<mark>// Specify the file name:</mark><br>
+            &emsp;&emsp;<mark>// return new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();</mark><br>
+            &emsp;&emsp;<mark>// Search for the file:</mark><br>
             &emsp;&emsp;return new StandardServiceRegistryBuilder().configure().build();<br>
             &emsp;}<br><br>
             &emsp;public Session getSession() {<br>
@@ -2463,47 +2463,47 @@
         <div class="code">
             public class MainProgram {<br>
             &emsp;public static void main(String[] args) {<br><br>
-            &emsp;&emsp;<div class="comment">// Access our SessionFactory methods</div><br>
+            &emsp;&emsp;<mark>// Access our SessionFactory methods</mark><br>
             &emsp;&emsp;HibernateUtility util = new HibernateUtility();<br>
-            &emsp;&emsp;<div class="comment">// Open a new Session</div><br>
+            &emsp;&emsp;<mark>// Open a new Session</mark><br>
             &emsp;&emsp;Session session = util.getSession();<br>
-            &emsp;&emsp;<div class="comment">// Begin a transaction that can rollback our changes if something goes wrong</div><br>
+            &emsp;&emsp;<mark>// Begin a transaction that can rollback our changes if something goes wrong</mark><br>
             &emsp;&emsp;Transaction tx = session.beginTransaction();<br><br>
-            &emsp;&emsp;<div class="comment">// Create new User object, enter the transient state</div><br>
+            &emsp;&emsp;<mark>// Create new User object, enter the transient state</mark><br>
             &emsp;&emsp;User user = new User(1, "first", "last");<br><br>
             &emsp;&emsp;try {<br>
-            &emsp;&emsp;&emsp;<div class="comment">// Check Session Connection</div><br>
+            &emsp;&emsp;&emsp;<mark>// Check Session Connection</mark><br>
             &emsp;&emsp;&emsp;System.out.println(session.isConnected());<br>
-            &emsp;&emsp;&emsp;<div class="comment">// Insert our user into the database, enter the persistent state</div><br>
+            &emsp;&emsp;&emsp;<mark>// Insert our user into the database, enter the persistent state</mark><br>
             &emsp;&emsp;&emsp;session.save(user);<br>
             &emsp;&emsp;} catch (Exception e) {<br>
-            &emsp;&emsp;&emsp;tx.rollback(); <div class="comment">// rollback changes to the database</div><br>
+            &emsp;&emsp;&emsp;tx.rollback(); <mark>// rollback changes to the database</mark><br>
             &emsp;&emsp;}<br><br>
-            &emsp;&emsp;<div class="comment">// Commit changes to the database</div><br>
+            &emsp;&emsp;<mark>// Commit changes to the database</mark><br>
             &emsp;&emsp;tx.commit();<br>
-            &emsp;&emsp;<div class="comment">// Close the connection, enter the detached state</div><br>
+            &emsp;&emsp;<mark>// Close the connection, enter the detached state</mark><br>
             &emsp;&emsp;session.close();<br><br>
-            &emsp;&emsp;<div class="comment">// Update the user while in a detached state</div><br>
+            &emsp;&emsp;<mark>// Update the user while in a detached state</mark><br>
             &emsp;&emsp;user.setFirstName("Ravie");<br>
             &emsp;&emsp;user.setLastName("Krieslslk");<br><br>
-            &emsp;&emsp;<div class="comment">// Open a new Session</div><br>
+            &emsp;&emsp;<mark>// Open a new Session</mark>><br>
             &emsp;&emsp;Session session2 = util.getSession();<br>
             &emsp;&emsp;Transaction tx2 = session2.beginTransaction();<br><br>
             &emsp;&emsp;try {<br>
-            &emsp;&emsp;&emsp;<div class="comment">// We need to use saveOrUpdate() here to avoid a duplicate entry<br>
-            &emsp;&emsp;&emsp;// Update the user, enter the persistent state<br>
-            &emsp;&emsp;&emsp;// session2.saveOrUpdate(user);<br><br>
-            &emsp;&emsp;&emsp;// We can use merge if we know the user exists and needs to update<br>
-            &emsp;&emsp;&emsp;// session2.merge(user);<br><br>
-            &emsp;&emsp;&emsp;// If we use refresh, we can get a fresh copy of the object from the<br>
-            &emsp;&emsp;&emsp;// database and forget about the changes made while in the detached state.</div><br>
+            &emsp;&emsp;&emsp;<mark>// We need to use saveOrUpdate() here to avoid a duplicate entry</mark><br>
+            &emsp;&emsp;&emsp;<mark>// Update the user, enter the persistent state</mark><br>
+            &emsp;&emsp;&emsp;<mark>// session2.saveOrUpdate(user);</mark><br><br>
+            &emsp;&emsp;&emsp;<mark>// We can use merge if we know the user exists and needs to update</mark><br>
+            &emsp;&emsp;&emsp;<mark>// session2.merge(user);</mark><br><br>
+            &emsp;&emsp;&emsp;<mark>// If we use refresh, we can get a fresh copy of the object from the</mark><br>
+            &emsp;&emsp;&emsp;<mark>// database and forget about the changes made while in the detached state.</mark><br>
             &emsp;&emsp;&emsp;session2.refresh(user);<br><br>
-            &emsp;&emsp;&emsp;<div class="comment">// Print the user (User class should override toString() for desired results)</div><br>
+            &emsp;&emsp;&emsp;<mark>// Print the user (User class should override toString() for desired results)</mark><br>
             &emsp;&emsp;&emsp;System.out.println(user);<br><br>
             &emsp;&emsp;} catch (Exception e) {<br>
-            &emsp;&emsp;&emsp;tx2.rollback(); <div class="comment">// Undo changes to the database</div><br>
+            &emsp;&emsp;&emsp;tx2.rollback(); <mark>// Undo changes to the database</mark><br>
             &emsp;&emsp;}<br><br>
-            &emsp;&emsp;<div class="comment">// Commit changes to the database</div><br>
+            &emsp;&emsp;<mark>// Commit changes to the database</mark><br>
             &emsp;&emsp;tx2.commit();<br>
             &emsp;&emsp;<mark>// Close the Session</mark><br>
             &emsp;&emsp;session2.close();<br>
@@ -2530,7 +2530,7 @@
                 <li>The transient objects exist in the heap memory.</li>
             </ul>
             <div class="code">
-                // Here, object enters the transient state.<br>
+                <mark>// Here, object enters the transient state.</mark><br>
                 Employee e = new Employee();
             </div>
             <h3>Persistent State</h3>
@@ -3534,9 +3534,6 @@
     <button class="collapsible">Core Java: Basics of Java Interview Questions</button>
     <div class="content">
         <p>https://www.javatpoint.com/corejava-interview-questions</p>
-        <p>file:///F:/Java%20J2EE%20Training%20Docs/9781788996624/Package/index.html</p>
-        <p>file:///F:/Java%20J2EE%20Training%20Docs/Spring%20MVC%20Full%20Application/9781783286539/Package/index.html</p>
-        <p>file:///F:/Java%20J2EE%20Training%20Docs/Spring%20Micro%20Services/Package/index.html</p>
         <button class="collapsible">What is Java?</button>
         <div class="content">
             <p>Java is the high-level, object-oriented, robust, secure programming language, platform-independent, high performance, Multithreaded, and portable programming language. It was developed by James Gosling in June 1991. It can also be known as the platform as it provides its own JRE and API.</p>
@@ -3853,12 +3850,12 @@
                 &emsp;class Student {<br>
                 &emsp;&emsp;int id;<br>
                 &emsp;&emsp;String name;<br>
-                &emsp;//constructor to initialize integer and string<br>
+                &emsp;<mark>//constructor to initialize integer and string</mark><br>
                 &emsp;Student6(int i,String n){<br>
                 &emsp;&emsp;id = i;<br>
                 &emsp;&emsp;name = n;<br>
                 &emsp;}<br>
-                &emsp;//constructor to initialize another object<br>
+                &emsp;<mark>//constructor to initialize another object</mark><br>
                 &emsp;Student(Student s){<br>
                 &emsp;&emsp;id = s.id;<br>
                 &emsp;&emsp;name =s.name;<br>
