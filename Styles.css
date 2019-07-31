@@ -62,8 +62,10 @@ tr:nth-child(even) {
 }
 
 mark {
+    background-color: #dddddd;
     color: green;
 }
+
 .comment {
     color: green;
 }
