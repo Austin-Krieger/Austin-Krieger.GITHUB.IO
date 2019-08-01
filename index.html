@@ -2377,6 +2377,8 @@
             <li>Declare getter and setter methods: Hibernate recognizes the method by getter and setter method names by default.</li>
             <li>Prefer non-final class: Hibernate uses the concept of proxies, that depends on the persistent class. The application programmer will not be able to use proxies for lazy association fetching.</li>
         </ul>
+        <button class="collapsible">User Class</button>
+        <div class="content">
         <div class="code">
             public class User {<br><br>
             &emsp;private int userID;<br>
@@ -2401,6 +2403,7 @@
             &emsp;&emsp;this.lastName = lastName;<br>
             &emsp;}<br>
             }
+        </div>
         </div>
         <h3>Create the mapping file for Persistent class</h3>
         <p>The mapping file name conventionally, should be class_name.hbm.xml. There are many elements of the mapping file.</p>
@@ -2475,7 +2478,9 @@
         </div>
         <h3>Create the Configuration file</h3>
         <p>The configuration file contains information about the database and mapping file. Conventionally, its name should be hibernate.cfg.xml</p>
-        <div class="code">
+        <button class="collapsible">Configuration File</button>
+        <div class="content">
+            <div class="code">
             &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
             &lt;!DOCTYPE hibernate-configuration PUBLIC<br>
             "-//Hibernate/Hibernate Configuration DTD 3.0//EN"<br>
@@ -2500,6 +2505,7 @@
                 &emsp;&emsp;&lt;mapping resource="User.hbm.xml" /&gt;<br>
                 &emsp;&lt;/session-factory&gt;<br>
             &lt;/hibernate-configuration&gt;
+            </div>
         </div>
         <h3>Create the utility class that opens sessions</h3>
         <p>For code reuse purposes we can separate our session factory from the main class.</p>
@@ -2615,7 +2621,9 @@
         </div>
         <h3>Create the class that retrieves or stores the object</h3>
         <p>In this class, we are simply storing the user object to the database</p>
-        <div class="code">
+        <button class="collapsible">MainProgram Class</button>
+        <div class="content">
+            <div class="code">
             public class MainProgram {<br>
             &emsp;public static void main(String[] args) {<br><br>
             &emsp;&emsp;<mark>// Access our SessionFactory methods</mark><br>
@@ -2665,6 +2673,7 @@
             &emsp;}<br>
             }
         </div>
+    </div>
     </div>
     &nbsp;
     <button class="collapsible">Hibernate Queries</button>
