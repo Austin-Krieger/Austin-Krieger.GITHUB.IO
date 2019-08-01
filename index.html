@@ -2671,8 +2671,10 @@
     <div class="content">
         <button class="collapsible">HQL</button>
         <div class="content">
+            <button class="collapsible">Get All Users</button>
+            <div class="content">
             <div class="code">
-                public class HQLExample {<br><br>
+                public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
                 &emsp;example.getAllUsers();<br>
@@ -2702,29 +2704,127 @@
                 &emsp;}<br>
                 }
             </div>
+            </div>
         </div>
         &nbsp;
         <button class="collapsible">Criteria Queries</button>
         <div class="content">
+            <button class="collapsible">Get All Users</button>
+            <div class="content">
             <div class="code">
-                public class HQLExample {<br><br>
+                public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
-                &emsp;example.getAllUsers();<br>
+                &emsp;example.getAllUsersUsingCriteriaQuery();<br>
                 }<br><br>
                 private HibernateUtility utility = new HibernateUtility();<br><br>
+                public void getAllUsersUsingCriteriaQuery() {<br>
+                &emsp;Session session = null;<br>
+                &emsp;Transaction tx = null;<br><br>
+                &emsp;try {<br>
+                &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                &emsp;&emsp;<mark>// Get criteria builder, Prepare criteria query</mark><br>
+                &emsp;&emsp;CriteriaBuilder builder = session.getCriteriaBuilder();<br>
+                &emsp;&emsp;<mark>// Expecting a type of User.class (user objects)</mark><br>
+                &emsp;&emsp;CriteriaQuery&lt;User&gt; query = builder.createQuery(User.class);<br><br>
+                &emsp;&emsp;<mark>// Specifying firstName or age will require changing this to string or int</mark><br>
+                &emsp;&emsp;Root&lt;User&gt; root = query.from(User.class);<br>
+                &emsp;&emsp;<mark>// Add a where clause</mark><br>
+                &emsp;&emsp;query.select(root).where(builder.equal(root.get("userID"), 1));<br><br>
+                &emsp;&emsp;Query q = session.createQuery(query);<br>
+                &emsp;&emsp;List&lt;User&gt; users = q.getResultList();<br><br>
+                &emsp;&emsp;<mark>// Print the users</mark><br>
+                &emsp;&emsp;for (User user : users) {<br>
+                &emsp;&emsp;&emsp;System.out.println(user);<br>
+                &emsp;&emsp;}<br><br>
+                &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                &emsp;} catch (Exception e) {<br>
+                &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                &emsp;} finally {<br>
+                &emsp;&emsp;session.close(); <mark>// Close the session</mark><br>
+                &emsp;}<br>
+                }
+            </div>
+            </div>
+            &nbsp;
+            <button class="collapsible">Select First and Last Names</button>
+            <div class="content">
+            <div class="code">
+                public class HQLExample {<br>
+                &emsp;public static void main(String[] args) {<br>
+                &emsp;HQLExample example = new HQLExample();<br>
+                &emsp;example.getAllUsersUsingCriteriaQuery();<br>
+                }<br><br>
+                private HibernateUtility utility = new HibernateUtility();<br><br>
+                public void getAllUsersUsingCriteriaQuery() {<br>
+                &emsp;Session session = null;<br>
+                &emsp;Transaction tx = null;<br><br>
+                &emsp;try {<br>
+                &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                &emsp;&emsp;<mark>// Get criteria builder, Prepare criteria query</mark><br>
+                &emsp;&emsp;CriteriaBuilder builder = session.getCriteriaBuilder();<br>
+                &emsp;&emsp;CriteriaQuery&lt;Object[]&gt; query = builder.createQuery(Object[].class);<br><br>
+                &emsp;&emsp;Root&lt;User&gt; root = query.from(User.class);<br>
+                &emsp;&emsp;query.multiselect(root.get("firstName"), root.get("lastName"));<br><br>
+                &emsp;&emsp;Query q = session.createQuery(query);<br>
+                &emsp;&emsp;List<&lt;Object[]&gt; fullname = q.getResultList();<br><br>
+                &emsp;&emsp;<mark>// Print the users</mark><br>
+                &emsp;&emsp;for (User user : users) {<br>
+                &emsp;&emsp;&emsp;System.out.println(user);<br>
+                &emsp;&emsp;}<br><br>
+                &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                &emsp;} catch (Exception e) {<br>
+                &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                &emsp;} finally {<br>
+                &emsp;&emsp;session.close(); <mark>// Close the session</mark><br>
+                &emsp;}<br>
+                }
+            </div>
             </div>
         </div>
         &nbsp;
         <button class="collapsible">Named Queries</button>
         <div class="content">
+            <p>First we will need to add a Named Query to our User class:</p>
             <div class="code">
-                public class HQLExample {<br><br>
+                @Entity // Defines that this Class can be mapped to a table<br>
+                @Table(name = "users") // User class should connect to the users Table in the Database<br>
+                @NamedQuery(name = "get_All_Users", query = "From User") // A Named Query for printing all users<br>
+                public class User {
+            </div>
+            <button class="collapsible">Get all Users</button>
+            <div class="content">
+            <div class="code">
+                public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
-                &emsp;example.getAllUsers();<br>
+                &emsp;example.getAllUsersWithNamedQuery();<br>
                 }<br><br>
                 private HibernateUtility utility = new HibernateUtility();<br><br>
+                public void getAllUsersWithNamedQuery() {<br>
+                &emsp;Session session = null;<br>
+                &emsp;Transaction tx = null;<br><br>
+                &emsp;try {<br>
+                &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                &emsp;&emsp;List&lt;User&gt; users = session.getNamedQuery("get_All_Users").getResultList();<br><br>
+                &emsp;&emsp;<mark>// Print the users</mark><br>
+                &emsp;&emsp;for (User user : users) {<br>
+                &emsp;&emsp;&emsp;System.out.println(user);<br>
+                &emsp;&emsp;}<br><br>
+                &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                &emsp;} catch (Exception e) {<br>
+                &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                &emsp;} finally {<br>
+                &emsp;&emsp;session.close();<mark>// Close the session</mark><br>
+                &emsp;}<br>
+                }
+            </div>
             </div>
         </div>
     </div>
