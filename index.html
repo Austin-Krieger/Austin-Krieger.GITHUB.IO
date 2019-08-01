@@ -2667,6 +2667,68 @@
         </div>
     </div>
     &nbsp;
+    <button class="collapsible">Hibernate Queries</button>
+    <div class="content">
+        <button class="collapsible">HQL</button>
+        <div class="content">
+            <div class="code">
+                public class HQLExample {<br><br>
+                &emsp;public static void main(String[] args) {<br>
+                &emsp;HQLExample example = new HQLExample();<br>
+                &emsp;example.getAllUsers();<br>
+                }<br><br>
+                private HibernateUtility utility = new HibernateUtility();<br><br>
+                public void getAllUsers() {<br>
+                &emsp;Session session = null;<br>
+                &emsp;Transaction tx = null;<br><br>
+                &emsp;try {<br>
+                &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                &emsp;&emsp;String hql = "FROM User"; <mark>// FROM User objects, this is case sensitive</mark><br>
+                &emsp;&emsp;<mark>// FROM com.training.hibernate.model.User (also works)</mark><br><br>
+                &emsp;&emsp;<mark>// Create a Query object and add the users to a List collection</mark><br>
+                &emsp;&emsp;Query query = session.createQuery(hql);<br>
+                &emsp;&emsp;List&lt;User&gt; users = query.getResultList();<br><br>
+                &emsp;&emsp;<mark>// Print the users</mark><br>
+                &emsp;&emsp;for (User user : users) {<br>
+                &emsp;&emsp;&emsp;System.out.println(user);<br>
+                &emsp;&emsp;}<br><br>
+                &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                &emsp;} catch (Exception e) {<br>
+                &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                &emsp;} finally {<br>
+                &emsp;&emsp;session.close(); <mark>// Close the session</mark><br>
+                &emsp;}<br>
+                }
+            </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">Criteria Queries</button>
+        <div class="content">
+            <div class="code">
+                public class HQLExample {<br><br>
+                &emsp;public static void main(String[] args) {<br>
+                &emsp;HQLExample example = new HQLExample();<br>
+                &emsp;example.getAllUsers();<br>
+                }<br><br>
+                private HibernateUtility utility = new HibernateUtility();<br><br>
+            </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">Named Queries</button>
+        <div class="content">
+            <div class="code">
+                public class HQLExample {<br><br>
+                &emsp;public static void main(String[] args) {<br>
+                &emsp;HQLExample example = new HQLExample();<br>
+                &emsp;example.getAllUsers();<br>
+                }<br><br>
+                private HibernateUtility utility = new HibernateUtility();<br><br>
+            </div>
+        </div>
+    </div>
+    &nbsp;
     <button class="collapsible">Hibernate Lifecycle</button>
     <div class="content">
         <h3>Hibernate Lifecycle</h3>
