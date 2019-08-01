@@ -2829,6 +2829,22 @@
         </div>
     </div>
     &nbsp;
+    <button class="collapsible">Log Interceptor</button>
+    <div class="content">
+        <p>To add a Log Interceptor to our program we first need to create a class that extends EmptyInterceptor.</p>
+        <p>We can then use Eclipse's Source -> Override/Implement methods to add the methods we want.</p>
+        <div class="code">
+            public class LogInterceptor extends EmptyInterceptor {<br><br>
+            &emsp;@Override<br>
+            &emsp;public void afterTransactionBegin(Transaction tx) {<br>
+            &emsp;&emsp;super.afterTransactionBegin(tx);<br>
+            &emsp;}<br><br>
+            .....
+        </div>
+        <p>We can then Add on to our Utility class and have a working log interceptor.</p>
+        <p>We need only add on to our getSession() and getSessionFactory() methods. Example shown in the Hibernate Example section above.</p>
+    </div>
+    &nbsp;
     <button class="collapsible">Hibernate Lifecycle</button>
     <div class="content">
         <h3>Hibernate Lifecycle</h3>
