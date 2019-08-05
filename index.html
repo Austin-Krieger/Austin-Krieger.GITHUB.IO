@@ -1271,14 +1271,32 @@
 &nbsp;
 <button class="collapsible">Interfaces</button>
 <div class="content">
-    <p>Creating an Interface: Right Click -> Create -> Interface -> Package (com.usm.training.java.basics.interfaces) -> Name (IVehicle)</p>
-    <div class="code">interface Player { <br>&emsp; final int id = 10; <br>&emsp; int move(); <br> }</div>
+    <p><b>Interface:</b> Using Interfaces you can specify what a class must do, but not how it does it.</p>
+    <p>Creating an Interface in Eclipse:</p>
+    <ol>
+        <li>Right Click your Project/Package name in the Project Explorer</li>
+        <li>Create -> Interface</li>
+        <li>Give it a Package Name (com.training.java.basics.interfaces)</li>
+        <li>Give it a Name (IVehicle)</li>
+    </ol>
+    <p><b>Naming Convention for Interfaces:</b> Start with a capital "I" followed by the name of the interface "Vehicle".</p>
+    <div class="code">interface IPlayer { <br>&emsp; final int id = 10; <br>&emsp; int move(); <br> }</div>
+    <h3>Functional Interfaces</h3>
+    <p>A functional interface is an interface that specifies only one abstract method.</p>
+    <p>An interface method is abstract only if it does not specify a default implementation.</p>
+    <p>Using Default Methods however, it is possible to specify the behaviour for a method declared in an interface.</p>
+    <p>Non-default interface methods are implicitly abstract, so there is no need to use the abstract modifier (although you can specify it, if you like).</p>
+    <div class="code">
+        &emsp;interface INumber { <br>
+        &emsp;&emsp;double getValue();<br>
+        &emsp;}
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">Abstract Class Vs Interface</button>
 <div class="content">
-    <p>Abstract class: A class where we won't have a full implementations (not a blueprint).</p>
-    <p>Interface: Using Interfaces you can specify what a class must do, but not how it does it.</p>
+    <p><b>Abstract class:</b> A class where we won't have a full implementations (not a blueprint).</p>
+    <p><b>Interface:</b> Using Interfaces you can specify what a class must do, but not how it does it.</p>
     <h2>Major Difference</h2>
     <p>Abstract Classes can have partial implementations.</p>
     <ol>
@@ -1312,9 +1330,10 @@
     <p>Errors are the conditions which cannot get recovered by any handling techniques  and cause the program to terminate at runtime.</p>
     <h3>Exceptions:</h3>
     <p>Is something that causes an abnormal flow in your program and it can no longer continue.</p>
-    <p>Abnormal Flow Example: You wrote a method to divide two number, but it was dividing by zero, so it throws an exception.</p>
+    <p><b>Abnormal Flow Example:</b> You wrote a method to divide two number, but it was dividing by zero, so it throws an exception.</p>
     <p>Exceptions are the conditions that occur at runtime and may cause the termination of the program. But they are recoverable using try, catch and throw keywords.</p>
     <p>Exceptions are abnormal conditions that arise in a code sequence at run time.</p>
+    <h3>Checked & Unchecked</h3>
     <p>Checked Exceptions: are the exceptions that are checked at compile time. If some code within a method throws a checked exception, then the method must either handle the exception or it must specify the exception using throws keyword.</p>
     <p>Unchecked: are the exceptions that are not checked at compiled time.</p>
     <h3>Checked (Compile-time) Exceptions Defined in java.lang</h3>
@@ -1458,11 +1477,11 @@
             <td>They are defined in java.lang.Exception package</td>
         </tr>
         <tr>
-            <td>Examples:<br>
+            <td><b>Examples:</b><br>
                 java.lang.StackOverflowError, java.lang.OutOfMemoryError</td>
-            <td>Examples:<br>
-                Checked Exceptions:<br> SQLException, IOException
-                <br>Unchecked Exceptions:<br> ArrayIndexOutOfBoundException, NullPointerException, ArithmeticException.</td>
+            <td><b>Examples:</b><br>
+                <b>Checked Exceptions:</b><br> SQLException, IOException
+                <br><b>Unchecked Exceptions:</b><br> ArrayIndexOutOfBoundException, NullPointerException, ArithmeticException.</td>
         </tr>
     </table>
     <h3>Managing Exceptions</h3>
@@ -1565,7 +1584,7 @@
             <td>Specify a description of the exception</td>
         </tr>
     </table>
-    <h4>toString()</h4>
+    <h3>toString()</h3>
     <p>Defined by Throwable and inherited by Exception, displays the name of the exception followed by a colon and the description.</p>
     <p>By overriding toString( ), you can prevent the exception name and colon from being displayed.</p>
     <h3>Chained Exceptions</h3>
@@ -2780,6 +2799,7 @@
             (int n, int d) -> (n % d) == 0
         </div>
     </div>
+    &nbsp;
     <button class="collapsible">Block Lambda Expressions</button>
     <div class="content">
         <h3>Block Lambda Expressions</h3>
@@ -2804,6 +2824,7 @@
             </div>
         </div>
     </div>
+    &nbsp;
     <button class="collapsible">Functional Interfaces</button>
     <div class="content">
         <h3>Functional Interfaces</h3>
