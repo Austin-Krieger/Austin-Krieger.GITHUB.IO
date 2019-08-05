@@ -89,86 +89,86 @@
             <td>Java is considered to be more dynamic than C or C++ since it is designed to adapt to an evolving environment. Java programs can carry an extensive amount of run-time information that can be used to verify and resolve accesses to objects at run-time</td>
         </tr>
     </table>
-</div>
-&nbsp;
-<button class="collapsible">JRE, JDK and JVM</button>
-<div class="content">
-    <h2>Running your Java Program</h2>
-    <p>Source Code is given to the compiler which Generates Byte code (.class files) which are given to the JVM (interprets the byte code) and the program executes.</p>
-    <p>Anytime you want to run your program you need to have your JRE</p>
-    <table>
-        <tr>
-            <td>JRE (Java Runtime Environment)</td>
-            <td>Provides the libraries, the JVM, and other components to run applications written in Java. In short the JRE enables Java bytecode to run on any platform.</td>
-        </tr>
-        <tr>
-            <td>JDK (Java Development Kit)</td>
-            <td>Contains everything that is in the JRE as well as the Compilers and Debuggers necessary for developing Java Applications. In short the JRE is used to develop Java applications/programs.</td>
-        </tr>
-        <tr>
-            <td>JVM (Java Virtual Machine)</td>
-            <td>Sits in between the compiler and the CPU and interprets the bytecode into readable machine language for the CPU. In short the JVM Interpret the byte codes and performs the execution on it.</td>
-        </tr>
-    </table>
-    <p>Byte Code: When we compile the Java program it generates byte code (.class files), which can be interpreted by the JVM.</p>
-    <h3>JVM</h3>
-    <ul>
-        <li>The Java Virtual Machine is an abstract layer between a Java program and the platform that Java program is running on.</li>
-        <li>JVM is platform dependent and available for specific platforms (Operating Systems).</li>
-        <li>JVM cannot understand Java (source code). It can only understand the bytecode (.class file) we get from compiling our .java source file.</li>
-        <li>The compiled bytecode doesn't run on CPU directly, JVM sits in between and interprets the bytecode into readable machine language for the CPU.</li>
-    </ul>
-    <h3>JRE</h3>
-    <ul>
-        <li>Provides the libraries, the JVM, and other components to run applications written in Java.</li>
-        <li>Enables Java bytecode to run on any platform.</li>
-        <li>JRE enables Java bytecode to run on any platform. Bytecodes are interpreted by the JVM, at runtime classes found in the JRE when they need to perform actions, they cannot do by themselves.</li>
-        <li>Platform Dependent</li>
-    </ul>
-    <h3>JDK</h3>
-    <ul>
-        <li>A superset of the JRE, containing everything that is in the JRE, it also includes development tools such as the compilers and debuggers necessary for developing java applications.</li>
-        <li>Platform Dependent</li>
-    </ul>
-    <h2>Programming Paradigms</h2>
-    <ol>
-        <li>Process-Oriented Model: A program is a series of linear steps (that is, code).</li>
+    &nbsp;
+    <button class="collapsible">JRE, JDK and JVM</button>
+    <div class="content">
+        <h2>Running your Java Program</h2>
+        <p>Source Code is given to the compiler which Generates Byte code (.class files) which are given to the JVM (interprets the byte code) and the program executes.</p>
+        <p>Anytime you want to run your program you need to have your JRE</p>
+        <table>
+            <tr>
+                <td>JRE (Java Runtime Environment)</td>
+                <td>Provides the libraries, the JVM, and other components to run applications written in Java. In short the JRE enables Java bytecode to run on any platform.</td>
+            </tr>
+            <tr>
+                <td>JDK (Java Development Kit)</td>
+                <td>Contains everything that is in the JRE as well as the Compilers and Debuggers necessary for developing Java Applications. In short the JRE is used to develop Java applications/programs.</td>
+            </tr>
+            <tr>
+                <td>JVM (Java Virtual Machine)</td>
+                <td>Sits in between the compiler and the CPU and interprets the bytecode into readable machine language for the CPU. In short the JVM Interpret the byte codes and performs the execution on it.</td>
+            </tr>
+        </table>
+        <p>Byte Code: When we compile the Java program it generates byte code (.class files), which can be interpreted by the JVM.</p>
+        <h3>JVM</h3>
+        <ul>
+            <li>The Java Virtual Machine is an abstract layer between a Java program and the platform that Java program is running on.</li>
+            <li>JVM is platform dependent and available for specific platforms (Operating Systems).</li>
+            <li>JVM cannot understand Java (source code). It can only understand the bytecode (.class file) we get from compiling our .java source file.</li>
+            <li>The compiled bytecode doesn't run on CPU directly, JVM sits in between and interprets the bytecode into readable machine language for the CPU.</li>
+        </ul>
+        <h3>JRE</h3>
+        <ul>
+            <li>Provides the libraries, the JVM, and other components to run applications written in Java.</li>
+            <li>Enables Java bytecode to run on any platform.</li>
+            <li>JRE enables Java bytecode to run on any platform. Bytecodes are interpreted by the JVM, at runtime classes found in the JRE when they need to perform actions, they cannot do by themselves.</li>
+            <li>Platform Dependent</li>
+        </ul>
+        <h3>JDK</h3>
+        <ul>
+            <li>A superset of the JRE, containing everything that is in the JRE, it also includes development tools such as the compilers and debuggers necessary for developing java applications.</li>
+            <li>Platform Dependent</li>
+        </ul>
+        <h2>Programming Paradigms</h2>
+        <ol>
+            <li>Process-Oriented Model: A program is a series of linear steps (that is, code).</li>
             <ul>
                 <li>Characterized as code acting on data.</li>
                 <li>Includes Procedural Languages such as C.</li>
                 <li>To manage increasing complexity, the second approach was conceived</li>
             </ul>
-        <li>Object-Oriented Programming: Organizes a program around its data (that is, objects) and a set of well-defined interfaces to that data.</li>
+            <li>Object-Oriented Programming: Organizes a program around its data (that is, objects) and a set of well-defined interfaces to that data.</li>
             <ul>
                 <li>Characterized as data controlling access to code.</li>
                 <li>By switching the controlling entity to data, you can achieve several organizational benefits.</li>
                 <li>OOP is a programming language model in which programs are organized around data, or objects, rather than functions and logic.</li>
                 <li>OOP helps us reduce complexity, promote code reuse, and prevent code redundancies.</li>
             </ul>
-    </ol>
-    <h2>The Java Programming Language Platforms</h2>
-    <ul>
-        <li>Java Platform, Standard Edition (Java SE)</li>
-        <li>Java Platform, Enterprise Edition (Java EE)</li>
-        <li>Java Platform, Micro Edition (Java ME)</li>
-        <li>JavaFX</li>
-    </ul>
-    <p>All of the above platforms consist of a Java Virtual Machine (JVM) and an application programming interface (API).</p>
-    <p>The Java Virtual Machine is a program, for a particular hardware and software platform, that runs Java technology applications.</p>
-    <p>An API is a collection of interfaces components that you can use to create other software components or applications.</p>
-    <h3>Java SE (Java Standard Edition)</h3>
-    <p>This is the core Java programming platform. It contains all of the libraries and APIs that any Java programmer should learn (java.lang, java.io, java.math, java.net, java.util, etc…).When most people think of the Java programming language, they think of the Java SE API. Java SE’s API provides the core functionality of the Java programming language. It defines everything from the basic types and objects of the Java programming language to high-level classes that are used for networking, security, database access, graphical user interface (GUI) development, and XML parsing.</p>
-    <p>In addition to the core API, the Java SE platform consists of a virtual machine, development tools, deployment technologies, and other class libraries and toolkits commonly used in Java technology applications.</p>
-    <h3>Java EE (Java Enterprise Edition)</h3>
-    <p>The Java EE platform is built on top of the Java SE platform. The Java EE platform provides an API and runtime environment for developing and running large-scale, multi-tiered, scalable, reliable, and secure network applications.</p>
-    <h3>Java ME (Java Micro Edition)</h3>
-    <p>The Java ME platform provides an API and a small-footprint virtual machine for running Java programming language applications on small devices, like mobile phones. The API is a subset of the Java SE API, along with special class libraries useful for small device application development. Java ME applications are often clients of Java EE platform services.</p>
-    <h3>JavaFX</h3>
-    <p>JavaFX is a platform for creating rich internet applications using a lightweight user-interface API. JavaFX applications use hardware-accelerated graphics and media engines to take advantage of higher-performance clients and a modern look-and-feel as well as high-level APIs for connecting to networked data sources. JavaFX applications may be clients of Java EE platform services.</p>
-    <p style="font-weight: bold;">Packages: Essentially a grouping of classes.</p>
-    <ul>
-        <li>Used to segregate the code for easy import and export.</li>
-    </ul>
+        </ol>
+        <h2>The Java Programming Language Platforms</h2>
+        <ul>
+            <li>Java Platform, Standard Edition (Java SE)</li>
+            <li>Java Platform, Enterprise Edition (Java EE)</li>
+            <li>Java Platform, Micro Edition (Java ME)</li>
+            <li>JavaFX</li>
+        </ul>
+        <p>All of the above platforms consist of a Java Virtual Machine (JVM) and an application programming interface (API).</p>
+        <p>The Java Virtual Machine is a program, for a particular hardware and software platform, that runs Java technology applications.</p>
+        <p>An API is a collection of interfaces components that you can use to create other software components or applications.</p>
+        <h3>Java SE (Java Standard Edition)</h3>
+        <p>This is the core Java programming platform. It contains all of the libraries and APIs that any Java programmer should learn (java.lang, java.io, java.math, java.net, java.util, etc…).When most people think of the Java programming language, they think of the Java SE API. Java SE’s API provides the core functionality of the Java programming language. It defines everything from the basic types and objects of the Java programming language to high-level classes that are used for networking, security, database access, graphical user interface (GUI) development, and XML parsing.</p>
+        <p>In addition to the core API, the Java SE platform consists of a virtual machine, development tools, deployment technologies, and other class libraries and toolkits commonly used in Java technology applications.</p>
+        <h3>Java EE (Java Enterprise Edition)</h3>
+        <p>The Java EE platform is built on top of the Java SE platform. The Java EE platform provides an API and runtime environment for developing and running large-scale, multi-tiered, scalable, reliable, and secure network applications.</p>
+        <h3>Java ME (Java Micro Edition)</h3>
+        <p>The Java ME platform provides an API and a small-footprint virtual machine for running Java programming language applications on small devices, like mobile phones. The API is a subset of the Java SE API, along with special class libraries useful for small device application development. Java ME applications are often clients of Java EE platform services.</p>
+        <h3>JavaFX</h3>
+        <p>JavaFX is a platform for creating rich internet applications using a lightweight user-interface API. JavaFX applications use hardware-accelerated graphics and media engines to take advantage of higher-performance clients and a modern look-and-feel as well as high-level APIs for connecting to networked data sources. JavaFX applications may be clients of Java EE platform services.</p>
+        <p style="font-weight: bold;">Packages: Essentially a grouping of classes.</p>
+        <ul>
+            <li>Used to segregate the code for easy import and export.</li>
+        </ul>
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">Object Oriented Programming Principles</button>
@@ -577,12 +577,94 @@
         </tr>
     </table>
     <p>Abstract Method (general form): abstract type name (parameter-list);</p>
+    <h3>Static Block</h3>
     <p>Static Block: Like a static method, but without a name.</p>
     <ol>
         <li>Called whenever the class is being loaded by the JVM and executed even before the main method.</li>
         <li>Executed once when the class is being loaded, we cannot call static blocks.</li>
         <li>Not part of the object, but part of the class.</li>
     </ol>
+    <div class="code">
+        class Test {<br>
+        &emsp;static int i;<br><br>
+        &emsp;<mark>// start of static block</mark><br>
+        &emsp;static {<br>
+        &emsp;&emsp;i = 10;<br>
+        &emsp;&emsp;System.out.println("static block called");<br>
+        &emsp;}<br>
+        &emsp;<mark>// end of static block</mark><br>
+        }<br><br>
+        class Main {<br>
+        &emsp;public static void main(String args[]) {<br>
+        &emsp;&emsp;<mark>// Although we don't have an object of Test, static block is</mark><br>
+        &emsp;&emsp;<mark>// called because i is being accessed in the following statement.</mark><br>
+        &emsp;&emsp;System.out.println(Test.i);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <p>Example of static blocks being called before constructors:</p>
+    <div class="code">
+        class Test {<br>
+        &emsp;static int i;<br>
+        &emsp;static {<br>
+        &emsp;&emsp;i = 10;<br>
+        &emsp;&emsp;System.out.println("static block called ");<br>
+        &emsp;}<br><br>
+        &emsp;Test(){<br>
+        &emsp;&emsp;System.out.println("Constructor called");<br>
+        &emsp;}<br>
+        }<br><br>
+        class Main {<br>
+        &emsp;public static void main(String args[]) {<br>
+        &emsp;// Although we have two objects, static block is executed only once.<br>
+        &emsp;Test t1 = new Test();<br>
+        &emsp;Test t2 = new Test();<br>
+        &emsp;}<br>
+        }
+    </div>
+    <h3>Java Class Methods</h3>
+    <div class="code">
+        public class MyClass {<br>
+        &emsp;<mark>// Static method</mark><br>
+        &emsp;static void myStaticMethod() {<br>
+        &emsp;&emsp;System.out.println("Static methods can be called without creating objects");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Public method</mark><br>
+        &emsp;public void myPublicMethod() {<br>
+        &emsp;&emsp;System.out.println("Public methods must be called by creating objects");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Main method</mark><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;myStaticMethod(); <mark>// Call the static method</mark><br>
+        &emsp;&emsp;<mark>// myPublicMethod(); This would compile an error</mark><br><br>
+        &emsp;&emsp;MyClass myObj = new MyClass(); <mark>// Create an object of MyClass</mark><br>
+        &emsp;&emsp;myObj.myPublicMethod(); <mark>// Call the public method on the object</mark><br>
+        &emsp;}<br>
+        }
+    </div>
+    <p>The dot (.) is used to access the object's attributes and methods.</p>
+    <p>To call a method in Java, write the method name followed by a set of parentheses (), followed by a semicolon (;).</div>
+    <p>A class must have a matching filename (MyClass and MyClass.java).</p>
+    <h3>Using Multiple Classes</h3>
+    <div class="code">
+        public class Car {<br>
+        &emsp;public void fullThrottle() {<br>
+        &emsp;&emsp;System.out.println("The car is going as fast as it can!");<br>
+        &emsp;}<br><br>
+        &emsp;public void speed(int maxSpeed) {<br>
+        &emsp;&emsp;System.out.println("Max speed is: " + maxSpeed);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <div class="code">
+        class OtherClass {<br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;Car myCar = new Car(); &emsp;// Create a myCar object<br>
+        &emsp;&emsp;myCar.fullThrottle();  &emsp;// Call the fullThrottle() method<br>
+        &emsp;&emsp;myCar.speed(200);      &emsp;// Call the speed() method<br>
+        &emsp;}<br>
+        }
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">Constructors</button>
@@ -594,6 +676,31 @@
         <li><b>Default Constructor:</b> In Java, a default constructor is the one which does not take any inputs. In other words, default constructors are the no argument constructors which will be created by default in case you no other constructor is defined by the user. Its main purpose is to initialize the instance variables with the default values. Also, it is majorly used for object creation.</li>
         <li><b>Parameterized Constructor:</b> The parameterized constructor in Java, is the constructor which is capable of initializing the instance variables with the provided values. In other words, the constructors which take the arguments are called parameterized constructors.</li>
     </ol>
+    <h3>What is a constructor overloading in Java?</h3>
+    <p>In Java, constructor overloading is a technique of adding any number of constructors to a class each having a different parameter list. The compiler uses the number of parameters and their types in the list to differentiate the overloaded constructors.</p>
+    <div class="code">
+        <mark>// Create a class</mark><br>
+        public class MyClass {<br>
+        &emsp;int x; <mark>// Create a class attribute</mark><br><br>
+        &emsp;<mark>// Create a class constructor for MyClass</mark><br>
+        &emsp;public MyClass() {<br>
+        &emsp;&emsp;x = 5; <mark>// Set the initial value for the class attribute x</mark><br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Parameterized Constructor</mark><br>
+        &emsp;public MyClass(int y) {<br>
+        &emsp;&emsp;x = y;<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will call the constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj1 = new MyClass();<br><br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will call the parameterized constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj2 = new MyClass(5);<br>
+        &emsp;&emsp;<mark>// Print the value of x</mark><br>
+        &emsp;&emsp;System.out.println(myObj1.x);<br>
+        &emsp;&emsp;System.out.println(myObj2.x);<br>
+        &emsp;}<br>
+        }
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">Keywords</button>
