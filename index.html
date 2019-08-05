@@ -2560,9 +2560,9 @@
         &emsp;&lt;T extends Number&gt; GenCons(T arg) { <mark>// generic constructor</mark><br>
         &emsp;&emsp;val = arg.doubleValue();<br>
         &emsp;}<br>
-        }
+        }<br><br>
         <div class="mainMethod">
-            GenCons test = new GenCons(100);
+            <br>GenCons test = new GenCons(100);<br>
             GenCons test2 = new GenCons(123.5F);
         </div>
     </div>
@@ -2622,7 +2622,7 @@
         &emsp;V getob2() { return ob2; }<br>
         }<br><br>
         <div class="mainMethod">
-            <mark>// Create a Gen2 object for String and Integer.</mark><br>
+            <br><mark>// Create a Gen2 object for String and Integer.</mark><br>
             Gen2&lt;String, Integer&gt; x = new Gen2&lt;String, Integer&gt;("Value is: ", 99);
         </div>
     </div>
@@ -2688,18 +2688,20 @@
     <p>There are a few restrictions that you need to keep in mind when using generics.</p>
     <table>
         <tr>
-            <td>Creating objects of a type parameter</td>
+            <th>Creating objects of a type parameter</th>
             <td>It is not possible to create an instance of a type parameter.</td>
         </tr>
         <tr>
-            <td>Static members</td>
+            <th>Static members</th>
             <td>No static member can use a type parameter declared by the enclosing class.</td>
         </tr>
         <tr>
-            <td>Exceptions</td>
+            <th>Exceptions</th>
+            <td></td>
         </tr>
         <tr>
-            <td>Arrays</td>
+            <th>Arrays</th>
+            <td></td>
         </tr>
     </table>
     <h3>Type Parameters Can’t Be Instantiated</h3>
