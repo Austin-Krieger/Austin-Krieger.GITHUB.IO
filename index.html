@@ -31,7 +31,7 @@
     <div class="back" id="Q2Back" onclick="hideAnswer('Q2Front', 'Q2Back')"><p>Classloader is a subsystem of JVM which is used to load class files. Whenever we run the java program, it is loaded first by the classloader. There are three built-in classloaders in Java: Bootstrap, Extension, System/Application.</p></div>
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
-<a href="FlashCards.html"><button class="collapsible">Interview Questions (Randomized)</button></a>
+<!-- <a href="FlashCards.html"><button class="collapsible">Interview Questions (Randomized)</button></a> -->
 &nbsp;
 <button class="collapsible">Features of Java</button>
 <div class="content">
@@ -404,6 +404,18 @@
         Type identifier [ = value ][, identifier [ = value ] ...];<br>
         int value1 = 12, value2 = 24;
     </div>
+    <h3>Java Identifiers</h3>
+    <p>All Java variables must be identified with unique names known as identifiers.</p>
+    <p>Identifiers can be short names (like x and y) or more descriptive names "recommended" (age, sum, totalVolume).</p>
+    <p>The general rules for constructing names for variables (unique identifiers) are:</p>
+    <ul>
+        <li>Names can contain letters, digits, underscores, and dollar signs</li>
+        <li>Names should begin with a letter</li>
+        <li>Names can also begin with $ and _</li>
+        <li>Names are case sensitive ("myVar" and "myvar" are different variables)</li>
+        <li>Names should start with a lowercase letter and it cannot contain whitespace</li>
+        <li>Reserved words (like Java keywords, such as int or String) cannot be used as names</li>
+    </ul>
     <table>
         <tr>
             <th rowspan="2">Instance Variables</th>
@@ -1224,9 +1236,9 @@
     <h2>Classes</h2>
     <ul>
         <li>A template for an object, also known as a "blueprint"</li>
-        <li>General form:</li>
-        <div class="code">class className { <br>&emsp; type instance-variable1; <br> }</div>
+        <p>General form:</p>
     </ul>
+    <div class="code">class className { <br>&emsp; type instance-variable1; <br> }</div>
     <div class="code">
         public class MyClass {<br>
         &emsp;int x = 5;<br><br>
@@ -1271,7 +1283,16 @@
 &nbsp;
 <button class="collapsible">Interfaces</button>
 <div class="content">
-    <p><b>Interface:</b> Using Interfaces you can specify what a class must do, but not how it does it.</p>
+    <h3>Interfaces</h3>
+    <p>An interface is a completely "abstract class" that is used to group related methods with empty bodies.</p>
+    <ul>
+        <li>Using Interfaces you can specify what a class must do, but not how it does it.</li>
+        <li>A class implements an interface, thereby inheriting the abstract methods of the interface.</li>
+        <li>Along with abstract methods, an interface may also contain constants, default methods, static methods, and nested types. Method bodies exist only for default methods and static methods.</li>
+        <li>Unless the class that implements the interface is abstract, all the methods of the interface need to be defined in the class.</li>
+    </ul>
+    <h3>Similarities with a Class</h3>
+    <h3>Differences from a Class</h3>
     <p>Creating an Interface in Eclipse:</p>
     <ol>
         <li>Right Click your Project/Package name in the Project Explorer</li>
@@ -1281,6 +1302,43 @@
     </ol>
     <p><b>Naming Convention for Interfaces:</b> Start with a capital "I" followed by the name of the interface "Vehicle".</p>
     <div class="code">interface IPlayer { <br>&emsp; final int id = 10; <br>&emsp; int move(); <br> }</div>
+    <p>To access the interface methods, the interface must be "implemented" by another class with the implements keyword (instead of extends).</p>
+    <p>The body of the interface is provided by the implementing class</p>
+    <div class="code">
+        <mark>// Interface</mark><br>
+        interface IAnimal {<br>
+        &emsp;public void animalSound(); <mark>// interface method (does not have a body)</mark><br>
+        &emsp;public void sleep(); <mark>// interface method (does not have a body)</mark><br>
+        }<br><br>
+        <mark>// Pig "implements" the Animal interface</mark><br>
+        class Pig implements IAnimal {<br>
+        &emsp;public void animalSound() {<br>
+        &emsp;&emsp;<mark>// The body of animalSound() is provided here</mark><br>
+        &emsp;&emsp;System.out.println("The pig says: wee wee");<br>
+        &emsp;}<br><br>
+        &emsp;public void sleep() {<br>
+        &emsp;&emsp;<mark>// The body of sleep() is provided here</mark><br>
+        &emsp;&emsp;System.out.println("Zzz");<br>
+        &emsp;}<br>
+        }
+    </div>
+    <h3>Notes on Interfaces:</h3>
+    <ul>
+        <li>Like abstract classes, interfaces cannot be used to create objects (in the example above, it is not possible to create an "Animal" object in the MyMainClass)</li>
+        <li>Interface methods do not have a body - the body is provided by the "implement" class</li>
+        <li>On implementation of an interface, you must override all of its methods</li>
+        <li>Interface methods are by default abstract and public</li>
+        <li>Interface attributes are by default public, static and final</li>
+        <li>An interface cannot contain a constructor (as it cannot be used to create objects)</li>
+    </ul>
+    <h3>Why and when to use Interfaces</h3>
+    <ol>
+        <li>To achieve security - hide certain details and only show the important details of an object (interface).</li>
+        <li>Java does not support "multiple inheritance" (a class can only inherit from one superclass). However, it can be achieved with interfaces, because the class can implement multiple interfaces. Note: To implement multiple interfaces, separate them with a comma.</li>
+    </ol>
+    <div class="code">
+        class DemoClass implements FirstInterface, SecondInterface {
+    </div>
     <h3>Functional Interfaces</h3>
     <p>A functional interface is an interface that specifies only one abstract method.</p>
     <p>An interface method is abstract only if it does not specify a default implementation.</p>
