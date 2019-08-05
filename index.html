@@ -928,7 +928,20 @@
 &nbsp;
 <button class="collapsible">Keywords</button>
 <div class="content">
+    <p>Java has a set of keywords that are reserved words that cannot be used as variables, methods, classes, or any other identifiers:</p>
     <table>
+        <tr>
+            <th>Keyword</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>abstract</td>
+            <td>A non-access modifier. Used for classes and methods: An abstract class cannot be used to create objects (to access it, it must be inherited from another class). An abstract method can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from)</td>
+        </tr>
+        <tr>
+            <td>assert</td>
+            <td>For debugging</td>
+        </tr>
         <tr>
             <th rowspan="2">Static</th>
             <td>Allows a method to be called without having to instantiate a particular instance of the class.</td>
@@ -955,13 +968,13 @@
         </tr>
         <tr>
             <th rowspan="2">Import</th>
-            <td>Loads packages.</td>
+            <td>Used to import a package, class or interface.</td>
         </tr>
         <tr>
             <td>General Form: import pkg1.[pkg2].(classname|*);</td>
         </tr>
         <tr>
-            <th rowspan="2">Interface</th>
+            <th>Interface</th>
             <td>Can be used to fully abstract a class' interface from its implementation.</td>
         </tr>
     </table>
@@ -975,6 +988,31 @@
         <li>General form:</li>
         <div class="code">class className { <br>&emsp; type instance-variable1; <br> }</div>
     </ul>
+    <div class="code">
+        public class MyClass {<br>
+        &emsp;int x = 5;<br><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;MyClass myObj = new MyClass();<br>
+        &emsp;&emsp;System.out.println(myObj.x);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <h3>Using Multiple Classes</h3>
+    <p>You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the attributes and methods, while the other class holds the main() method (code to be executed)).</p>
+    <p>Remember that the name of the java file should match the class name.</p>
+    <div class="code">
+        public class MyClass {<br>
+        &emsp;int x = 5;<br>
+        }
+    </div>
+    <div class="code">
+        class OtherClass {<br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;MyClass myObj = new MyClass();<br>
+        &emsp;&emsp;System.out.println(myObj.x);<br>
+        &emsp;}<br>
+        }
+    </div>
     <p>Members: "The methods and variables defined within a class"</p>
     <h3>Final Class</h3>
     <p>Making a class final means that class can't be extended.</p>
