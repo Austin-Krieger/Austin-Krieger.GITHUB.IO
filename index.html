@@ -1290,20 +1290,39 @@
         <li>A class implements an interface, thereby inheriting the abstract methods of the interface.</li>
         <li>Along with abstract methods, an interface may also contain constants, default methods, static methods, and nested types. Method bodies exist only for default methods and static methods.</li>
         <li>Unless the class that implements the interface is abstract, all the methods of the interface need to be defined in the class.</li>
+        <li>An interface is implicitly abstract. You do not need to use the abstract keyword while declaring an interface.</li>
+        <li>Each method in an interface is also implicitly abstract, so the abstract keyword is not needed.</li>
+        <li>Methods in an interface are implicitly public.</li>
     </ul>
     <h3>Similarities with a Class</h3>
+    <ul>
+        <li>An interface can contain any number of methods.</li>
+        <li>An interface is written in a file with a .java extension, with the name of the interface matching the name of the file.</li>
+        <li>The byte code of an interface appears in a .class file.</li>
+        <li>Interfaces appear in packages, and their corresponding bytecode file must be in a directory structure that matches the package name.</li>
+    </ul>
     <h3>Differences from a Class</h3>
-    <p>Creating an Interface in Eclipse:</p>
-    <ol>
-        <li>Right Click your Project/Package name in the Project Explorer</li>
-        <li>Create -> Interface</li>
-        <li>Give it a Package Name (com.training.java.basics.interfaces)</li>
-        <li>Give it a Name (IVehicle)</li>
-    </ol>
+    <ul>
+        <li>You cannot instantiate an interface.</li>
+        <li>An interface does not contain any constructors.</li>
+        <li>All of the methods in an interface are abstract.</li>
+        <li>An interface cannot contain instance fields. The only fields that can appear in an interface must be declared both static and final.</li>
+        <li>An interface is not extended by a class; it is implemented by a class.</li>
+        <li>An interface can extend multiple interfaces.</li>
+    </ul>
+    <h3>Declaring Interfaces</h3>
+    <p>The interface keyword is used to declare an interface.</p>
     <p><b>Naming Convention for Interfaces:</b> Start with a capital "I" followed by the name of the interface "Vehicle".</p>
     <div class="code">interface IPlayer { <br>&emsp; final int id = 10; <br>&emsp; int move(); <br> }</div>
+    <div class="code">
+        public interface NameOfInterface {<br>
+        <mark>// Any number of final, static fields</mark><br>
+        <mark>// Any number of abstract method declarations</mark><br>
+        }
+    </div>
     <p>To access the interface methods, the interface must be "implemented" by another class with the implements keyword (instead of extends).</p>
     <p>The body of the interface is provided by the implementing class</p>
+    <p>A class uses the implements keyword to implement an interface. The implements keyword appears in the class declaration following the extends portion of the declaration.</p>
     <div class="code">
         <mark>// Interface</mark><br>
         interface IAnimal {<br>
@@ -1322,10 +1341,27 @@
         &emsp;}<br>
         }
     </div>
+    <h3>Overriding Interface Methods</h3>
+    <ul>
+        <li>Checked exceptions should not be declared on implementation methods other than the ones declared by the interface method or subclasses of those declared by the interface method.</li>
+        <li>The signature of the interface method and the same return type or subtype should be maintained when overriding the methods.</li>
+        <li>An implementation class itself can be abstract and if so, interface methods need not be implemented.</li>
+    </ul>
+    <h3>Implementing Interfaces</h3>
+    <ul>
+        <li>A class can implement more than one interface at a time.</li>
+        <li>A class can extend only one class, but implement many interfaces.</li>
+        <li>An interface can extend another interface, in a similar way as a class can extend another class.</li>
+    </ul>
+    <h3>Extending Interfaces</h3>
+    <p>An interface can extend another interface in the same way that a class can extend another class. The extends keyword is used to extend an interface, and the child interface inherits the methods of the parent interface.</p>
+    <h3>Extending Multiple Interfaces</h3>
+    <p>A Java class can only extend one parent class. Multiple inheritance is not allowed. Interfaces are not classes, however, and an interface can extend more than one parent interface.</p>
+    <p>The extends keyword is used once, and the parent interfaces are declared in a comma-separated list.</p>
     <h3>Notes on Interfaces:</h3>
     <ul>
         <li>Like abstract classes, interfaces cannot be used to create objects (in the example above, it is not possible to create an "Animal" object in the MyMainClass)</li>
-        <li>Interface methods do not have a body - the body is provided by the "implement" class</li>
+        <li>Interface methods do not have a body - the body is provided by the "implements" class</li>
         <li>On implementation of an interface, you must override all of its methods</li>
         <li>Interface methods are by default abstract and public</li>
         <li>Interface attributes are by default public, static and final</li>
@@ -1349,6 +1385,8 @@
         &emsp;&emsp;double getValue();<br>
         &emsp;}
     </div>
+    <h3>Marker Interface</h3>
+    <p>It is an empty interface (no field or methods). Examples of marker interface are Serializable, Clonnable and Remote interface. All these interfaces are empty interfaces.</p>
 </div>
 &nbsp;
 <button class="collapsible">Abstract Class Vs Interface</button>
