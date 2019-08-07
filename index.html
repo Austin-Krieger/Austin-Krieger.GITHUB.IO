@@ -526,6 +526,77 @@
     </div>
     </div>
 </div>
+<button class="collapsible">String</button>
+<div class="content">
+    <h3>concat() Method</h3>
+    <p>The Java String concat() method concatenates one string to the end of another string. This method returns a string with the value of the string passed into the method, appended to the end of the string.</p>
+    <div class="code">
+        String s = "Java";<br>
+        s = s.concat("! is the best.");<br>
+        System.out.println(s);
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        Java! is the best.
+    </div>
+    <h3>+ Operator</h3>
+    <p>+ operator is used to concatenate strings on either side.</p>
+    <div class="code">
+        String s1 = "Java";<br>
+        String s2 = "! is the best.";<br>
+        String s3 = s1 + s2;<br>
+        System.out.println(s3);
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        Java! is the best.
+    </div>
+    <h3>Difference between concat() and + operator</h3>
+    <p>Although concat() and + operator are both used for concatenation of strings, but there are some differences between them:</p>
+
+    <table>
+        <tr>
+            <th>Points</th>
+            <th>concat() Method</th>
+            <th>+ Operator</th>
+        </tr>
+        <tr>
+            <td>Definition</td>
+            <td>A concat() method is method to combine two strings .</td>
+            <td>+ operator used to concatenate any number of strings.</td>
+        </tr>
+        <tr>
+            <td>Number of arguments</td>
+            <td>concat() method takes only one argument of string and concat it with other string.</td>
+            <td>+ operator takes any number of arguments and concatenates all the strings.</td>
+        </tr>
+        <tr>
+            <td>Type of arguments</td>
+            <td>strong>concat() method takes only string arguments, if there is any other type is given in arguments then it will raise an error.</td>
+            <td>+ operator takes any type and converts to string type and then concatenates the strings.</td>
+        </tr>
+        <tr>
+            <td>concat() method raises java.lang.NullPointer Exception</td>
+            <td>concat() method throws NullPointer Exception when string is concatenated with null</td>
+            <td>+ operator did not raise any Exception when the string is concatenated with null.</td>
+        </tr>
+        <tr>
+            <td>Creates a new String object</td>
+            <td>concat() method takes concatenates two strings and return new string object only string length is greater than 0, otherwise it returns same object.</td>
+            <td>+ operator creates a new string object every time irrespective of length of string.</td>
+        </tr>
+        <tr>
+            <td>NullPointer Exception</td>
+            <td>In concat() method raises NullPointer Exception when string is concatenated with null .</td>
+            <td>+ operator concatenates string with without any error.</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>concat() method is better than + operator because it creates a new object only when the string length is greater than zero(0) but + operator always a creates a new string irrespective of length of string.</td>
+            <td>+ operator always a creates a new string irrespective of length of string therefore it takes more memory.</td>
+        </tr>
+    </table>
+</div>
 &nbsp;
 <button class="collapsible">Access Modifiers</button>
 <div class="content">
