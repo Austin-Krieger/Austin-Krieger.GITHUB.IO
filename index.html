@@ -530,6 +530,13 @@
 &nbsp;
 <button class="collapsible">String</button>
 <div class="content">
+    <h3>Strings</h3>
+    <p>Strings are used for storing text. A String variable contains a collection of characters surrounded by double quotes</p>
+    <div class="code">
+        String greeting = "Hello";
+    </div>
+    <h3>String Length</h3>
+    <p>A String in Java is actually an object, which contain methods that can perform certain operations on strings. For example, the length of a string can be found with the length() method.</p>
     <h3>String Methods</h3>
     <button class="collapsible">String Methods</button>
     <div class="content">
@@ -731,6 +738,7 @@
         </tr>
     </table>
     </div>
+    <p>Java counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third ..</p>
     <h3>concat() Method</h3>
     <p>The Java String concat() method concatenates one string to the end of another string. This method returns a string with the value of the string passed into the method, appended to the end of the string.</p>
     <div class="code">
@@ -799,6 +807,66 @@
             <td>+ operator always a creates a new string irrespective of length of string therefore it takes more memory.</td>
         </tr>
     </table>
+    <h3>Special Characters</h3>
+    <p>Because strings must be written within quotes, Java will misunderstand this string, and generate an error</p>
+    <div class="code">
+        String txt = "We are the so-called "Vikings" from the north.";
+    </div>
+    <p>To avoid this problem we have the backslash excape character. (\)</p>
+    <tabl>
+        <tr>
+            <th>Escape Character</th>
+            <th>Result</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>\'</td>
+            <td>'</td>
+            <td>Single quote</td>
+        </tr>
+        <tr>
+            <td>\"</td>
+            <td>"</td>
+            <td>Double quote</td>
+        </tr>
+        <tr>
+            <td>\\</td>
+            <td>\</td>
+            <td>Backslash</td>
+        </tr>
+        <tr>
+            <td>\n</td>
+            <td>New Line</td>
+            <td>Text after \n will print on the next line</td>
+        </tr>
+        <tr>
+            <td>\r</td>
+            <td>Carriage Return</td>
+            <td>Text after \r will print on the next line</td>
+        </tr>
+        <tr>
+            <td>\t</td>
+            <td>Tab</td>
+            <td>Insert 4 spaces</td>
+        </tr>
+        <tr>
+            <td>\b</td>
+            <td>Backspace</td>
+            <td>Delete a character</td>
+        </tr>
+        <tr>
+            <td>\f</td>
+            <td>Form Feed</td>
+            <td>Form Feed</td>
+        </tr>
+    </tabl>
+    <h3>Adding Numbers and Strings</h3>
+    <p>If you add a number and a string, the result will be a string concatenation.</p>
+    <div class="code">
+        String x = "10";<br>
+        int y = 20;<br>
+        String z = x + y; <mark>// z will be 1020 (a String)</mark>
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">Access Modifiers</button>
