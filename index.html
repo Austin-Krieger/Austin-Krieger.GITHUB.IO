@@ -174,10 +174,11 @@
 <button class="collapsible">Object Oriented Programming Principles</button>
 <div class="content">
 <h2>Object Oriented Programming Principles</h2>
-<button class="collapsible"> Abstraction </button>
+<button class="collapsible">Abstraction</button>
 <div class="content">
     <p>Abstraction</p>
     <ul>
+        <li>Data abstraction is the process of hiding certain details and showing only essential information to the user. Abstraction can be achieved with either abstract classes or interfaces.</li>
         <li>Managing the complexity of a system through the use of hierarchical classifications.</li>
         <li>On a high level we are hiding the functionality of the underlying systems.</li>
         <li>From the outside, a car is a single object, once inside, you see that the car consists of several subsystems: steering, brakes, sounds system, and so on.</li>
@@ -529,6 +530,204 @@
 &nbsp;
 <button class="collapsible">String</button>
 <div class="content">
+    <h3>String Methods</h3>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Return Type</th>
+        </tr>
+        <tr>
+            <td>charAt()</td>
+            <td>Returns the character at the specified index (position)</td>
+            <td>char</td>
+        </tr>
+        <tr>
+            <td>codePointAt()</td>
+            <td>Returns the Unicode of the character at the specified index</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>codePointBefore()</td>
+            <td>Returns the Unicode of the character before the specified index</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>codePointCount()</td>
+            <td>Returns the Unicode in the specified text range of this String</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>compareTo()</td>
+            <td>Compares two strings lexicographically</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>compareToIgnoreCase()</td>
+            <td>Compares two strings lexicographically, ignoring case differences</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>concat()</td>
+            <td>Appends a string to the end of another string</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>contains()</td>
+            <td>Checks whether a string contains a sequence of characters</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>contentEquals()</td>
+            <td>Checks whether a string contains the exact same sequence of characters of the specified CharSequence or StringBuffer</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>copyValueOf()</td>
+            <td>Returns a String that represents the characters of the character array</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>endsWith()</td>
+            <td>Checks whether a string ends with the specified character(s)</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>equals()</td>
+            <td>Compares two strings. Returns true if the strings are equal, and false if not</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>equalsIgnoreCase()</td>
+            <td>Compares two strings, ignoring case considerations</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>format()</td>
+            <td>Returns a formatted string using the specified locale, format string, and arguments</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>getBytes()</td>
+            <td>Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array</td>
+            <td>byte[]</td>
+        </tr>
+        <tr>
+            <td>getChars()</td>
+            <td>Copies characters from a string to an array of chars</td>
+            <td>void</td>
+        </tr>
+        <tr>
+            <td>hashCode()</td>
+            <td>Returns the hash code of a string</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>indexOf()</td>
+            <td>Returns the position of the first found occurrence of specified characters in a string</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>intern()</td>
+            <td>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>isEmpty()</td>
+            <td>Checks whether a string is empty or not</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>lastIndexOf()</td>
+            <td>Returns the position of the last found occurrence of specified characters in a string</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>length()</td>
+            <td>Returns the length of a specified string</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>matches()</td>
+            <td>Searches a string for a match against a regular expression, and returns the matches</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>offsetByCodePoints()</td>
+            <td>Returns the index within this String that is offset from the given index by codePointOffset code points</td>
+            <td>int</td>
+        </tr>
+        <tr>
+            <td>regionMatches()</td>
+            <td>Tests if two string regions are equal	</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>replace()</td>
+            <td>Searches a string for a specified value, and returns a new string where the specified values are replaced</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>replaceFirst()</td>
+            <td>Replaces the first occurrence of a substring that matches the given regular expression with the given replacement</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>replaceAll()</td>
+            <td>Replaces each substring of this string that matches the given regular expression with the given replacement</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>split()</td>
+            <td>Splits a string into an array of substrings</td>
+            <td>String[]</td>
+        </tr>
+        <tr>
+            <td>startsWith()</td>
+            <td>Checks whether a string starts with specified characters</td>
+            <td>boolean</td>
+        </tr>
+        <tr>
+            <td>subSequence()</td>
+            <td>Returns a new character sequence that is a subsequence of this sequence</td>
+            <td>CharSequence</td>
+        </tr>
+        <tr>
+            <td>substring()</td>
+            <td>Extracts the characters from a string, beginning at a specified start position, and through the specified number of character</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>toCharArray()</td>
+            <td>Converts this string to a new character array</td>
+            <td>char[]</td>
+        </tr>
+        <tr>
+            <td>toLowerCase()</td>
+            <td>Converts a string to lower case letters</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>toString()</td>
+            <td>Returns the value of a String object</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>toUpperCase()</td>
+            <td>Converts a string to upper case letters</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>trim()</td>
+            <td>Removes whitespace from both ends of a string</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>valueOf()</td>
+            <td>Returns the primitive value of a String object</td>
+            <td>String</td>
+        </tr>
+    </table>
     <h3>concat() Method</h3>
     <p>The Java String concat() method concatenates one string to the end of another string. This method returns a string with the value of the string passed into the method, appended to the end of the string.</p>
     <div class="code">
@@ -687,7 +886,9 @@
             <td>You can require that certain methods be overridden by subclasses by specifying the abstract type modifier.</td>
         </tr>
     </table>
-    <p>Abstract Method (general form): abstract type name (parameter-list);</p>
+    <h3>Abstract Method</h3>
+    <p>Can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).</p>
+    <p><b>general form:</b> abstract type name (parameter-list);</p>
     <h3>Static Block</h3>
     <p>Static Block: Like a static method, but without a name.</p>
     <ol>
@@ -1335,9 +1536,14 @@
     <h2>Classes</h2>
     <ul>
         <li>A template for an object, also known as a "blueprint"</li>
-        <p>General form:</p>
+        <li>Everything in Java is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.</li>
     </ul>
+    <p>General form:</p>
     <div class="code">class className { <br>&emsp; type instance-variable1; <br> }</div>
+    <h3>Create a Class</h3>
+    <p>To create a class, use the keyword class.</p>
+    <h3>Create an Object</h3>
+    <p>In Java, an object is created from a class. To create an object, specify the class name, followed by the object name and use the keyword new.</p>
     <div class="code">
         public class MyClass {<br>
         &emsp;int x = 5;<br><br>
@@ -1364,10 +1570,35 @@
         }
     </div>
     <p>Members: "The methods and variables defined within a class"</p>
+    <h3>Class Attributes</h3>
+    <p>Class attributes are variables within a class</p>
+    <h3>Accessing Attributes</h3>
+    <p>You can access attributes by creating an object of the class, and by using the dot syntax (.)</p>
+    <div class="code">
+        public class MyClass {<br>
+        &emsp;int x = 5;<br><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;MyClass myObj = new MyClass();<br>
+        &emsp;&emsp;System.out.println(myObj.x);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <h3>Modify Attributes</h3>
+    <p>You can also modify or override existing attribute values.</p>
+    <p>If you don't want the ability to override existing values, declare the attribute as final</p>
+    <ul>
+        <li>The final keyword is useful when you want a variable to always store the same value, like PI (3.14159...).</li>
+        <li>The final keyword is called a "modifier".</li>
+    </ul>
+    <h3>Multiple Objects</h3>
+    <p>If you create multiple objects of one class, you can change the attribute values in one object, without affecting the attribute values in the other.</p>
+    <h3>Multiple Attributes</h3>
+    <p>You can specify as many attributes as you want.</p>
     <h3>Final Class</h3>
     <p>Making a class final means that class can't be extended.</p>
     <h3>Abstract Class</h3>
     <p>A class where we won't have a full implementations (not a blueprint).</p>
+    <p>A restricted class that cannot be used to create objects (to access it, it must be inherited from another class).</p>
     <h3>Concrete Class</h3>
     <p>Will have a full implementation (a blueprint).</p>
     <h3>Implementation</h3>
@@ -1378,6 +1609,79 @@
         <li>We can’t have more than a single object for such classes.</li>
         <li>Singleton classes are employed extensively in concepts like Networking and Database Connectivity.</li>
     </ul>
+    <h3>Java Class Methods</h3>
+    <div class="code">
+        public class MyClass {<br>
+        &emsp;<mark>// Static method</mark><br>
+        &emsp;static void myStaticMethod() {<br>
+        &emsp;&emsp;System.out.println("Static methods can be called without creating objects");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Public method</mark><br>
+        &emsp;public void myPublicMethod() {<br>
+        &emsp;&emsp;System.out.println("Public methods must be called by creating objects");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Main method</mark><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;myStaticMethod(); <mark>// Call the static method</mark><br>
+        &emsp;&emsp;<mark>// myPublicMethod(); This would compile an error</mark><br><br>
+        &emsp;&emsp;MyClass myObj = new MyClass(); <mark>// Create an object of MyClass</mark><br>
+        &emsp;&emsp;myObj.myPublicMethod(); <mark>// Call the public method on the object</mark><br>
+        &emsp;}<br>
+        }
+    </div>
+    <p>The dot (.) is used to access the object's attributes and methods.</p>
+    <p>To call a method in Java, write the method name followed by a set of parentheses (), followed by a semicolon (;).</p>
+    <p>A class must have a matching filename (MyClass and MyClass.java).</p>
+    <h3>Using Multiple Classes</h3>
+    <div class="code">
+        public class Car {<br>
+        &emsp;public void fullThrottle() {<br>
+        &emsp;&emsp;System.out.println("The car is going as fast as it can!");<br>
+        &emsp;}<br><br>
+        &emsp;public void speed(int maxSpeed) {<br>
+        &emsp;&emsp;System.out.println("Max speed is: " + maxSpeed);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <div class="code">
+        class OtherClass {<br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;Car myCar = new Car();  <mark>// Create a myCar object</mark><br>
+        &emsp;&emsp;myCar.fullThrottle();  &emsp;&emsp;<mark>// Call the fullThrottle() method</mark><br>
+        &emsp;&emsp;myCar.speed(200);        &emsp;&emsp;<mark>// Call the speed() method</mark><br>
+        &emsp;}<br>
+        }
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        The car is going as fast as it can!<br>
+        Max speed is: 200
+    </div>
+    <h3>Java Inner Classes</h3>
+    <p>In Java, it is also possible to nest classes (a class within a class). The purpose of nested classes is to group classes that belong together, which makes your code more readable and maintainable.</p>
+    <p>To access the inner class, create an object of the outer class, and then create an object of the inner class</p>
+    <div class="code">
+        class OuterClass {<br>
+        &emsp;int x = 10;<br><br>
+        &emsp;class InnerClass {<br>
+        &emsp;&emsp;int y = 5;<br>
+        &emsp;}<br>
+        }<br><br>
+        public class MyMainClass {<br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;OuterClass myOuter = new OuterClass();<br>
+        &emsp;&emsp;OuterClass.InnerClass myInner = myOuter.new InnerClass();<br>
+        &emsp;&emsp;System.out.println(myInner.y + myOuter.x);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <h3>Private Inner Class</h3>
+    <p>Unlike a "regular" class, an inner class can be private or protected. If you don't want outside objects to access the inner class, declare the class as private</p>
+    <h3>Static Inner Class</h3>
+    <p>An inner class can also be static, which means that you can access it without creating an object of the outer class.</p>
+    <p>Just like static attributes and methods, a static inner class does not have access to members of the outer class.</p>
+    <h3>Access Outer Class From Inner Class</h3>
+    <p>One advantage of inner classes, is that they can access attributes and methods of the outer class.</p>
 </div>
 &nbsp;
 <button class="collapsible">Interfaces</button>
@@ -3275,6 +3579,7 @@
         <li>Then the servlet container handles multiple requests by spawning multiple threads, each thread executing the service() method of a single instance of the servlet.</li>
     </ul>
     <div class="center"><img src="images/servlet-lifecycle.jpg" alt="Servlet Lifecycle Image"></div>
+    <br>
     <button class="collapsible">HelloWorld Application</button>
     <div class="content">
         <h3>HelloWorld Application</h3>
@@ -3307,7 +3612,7 @@
             &emsp;&emsp;System.out.println("this is the service method.");<br><br>
             &emsp;&emsp;response.setContentType("text/html");<br>
             &emsp;&emsp;PrintWriter out = response.getWriter();<br>
-            &emsp;&emsp;out.println("<B>Hello World!</B>");<br>
+            &emsp;&emsp;out.println("&lt;b&gt;Hello World!&lt;/b&gt;");<br>
             &emsp;}<br>
             }
         </div>
