@@ -3618,6 +3618,13 @@
         &emsp;throws ServletException, IOException {<br>
         }
     </div>
+    <h3>GET Method</h3>
+    <p>The GET method sends the encoded user information appended to the page request. The page and the encoded information are separated by the ? (question mark) symbol.</p>
+    <div class="code">
+        http://www.test.com/hello?key1 = value1&key2 = value2
+    </div>
+    <p>The GET method is the default method to pass information from browser to web server and it produces a long string that appears in your browser's Location:box. Never use the GET method if you have password or other sensitive information to pass to the server. The GET method has size limitation: only 1024 characters can be used in a request string.</p>
+    <p>This information is passed using QUERY_STRING header and will be accessible through QUERY_STRING environment variable and Servlet handles this type of requests using doGet() method.</p>
     <h3>The doGet() Method</h3>
     <p>A GET request results from a normal request for a URL or from an HTML form that has no METHOD specified and it should be handled by doGet() method.</p>
     <div class="code">
@@ -3626,6 +3633,9 @@
         &emsp;<mark>// Servlet code</mark><br>
         }
     </div>
+    <h3>POST Method</h3>
+    <p>This packages the information in exactly the same way as GET method, but instead of sending it as a text string after a ? (question mark) in the URL it sends it as a separate message.</p>
+    <p>his message comes to the backend program in the form of the standard input which you can parse and use for your processing. Servlet handles this type of requests using doPost() method.</p>
     <h3>The doPost() Method</h3>
     <p>A POST request results from an HTML form that specifically lists POST as the METHOD and it should be handled by doPost() method.</p>
     <div class="code">
@@ -3651,6 +3661,218 @@
     </ul>
     <div class="center"><img src="images/servlet-lifecycle.jpg" alt="Servlet Lifecycle Image"></div>
     <br>
+    <h3>Reading Form Data using Servlet</h3>
+    <p>Servlets handles form data parsing automatically using the following methods depending on the situation.</p>
+    <ul>
+        <li><b>getParameter():</b> You call request.getParameter() method to get the value of a form parameter.</li>
+        <li><b>getParameterValues():</b> Call this method if the parameter appears more than once and returns multiple values, for example checkbox.</li>
+        <li><b>getParameterNames():</b> Call this method if you want a complete list of all parameters in the current request.</li>
+    </ul>
+    <p>note: http://www.phpform.org/ is a good resource for generating html forms with css and javascript.</p>
+    <button class="collapsible">GET Method Example using URL</button>
+    <div class="content">
+        <p>Here is a simple URL which will pass two values to HelloForm program using GET method.</p>
+        <b>http://localhost:8080/HelloForm?first_name = Austin&last_name = Krieger</b>
+        <div class="code">
+            public class HelloForm extends HttpServlet {<br><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = <mark>"Using GET Method to Read Form Data";</mark><br>
+            &emsp;&emsp;String docType =<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;ul&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;First Name&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("first_name") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;Last Name&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("last_name") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;/ul&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;" +<br>
+            &emsp;&emsp;&emsp;"&lt;/html&gt;"</mark><br>
+            &emsp;&emsp;);<br>
+            &emsp;}<br>
+            }
+        </div>
+        <p>Add the mapping to your web.xml file</p>
+        <div class="code">
+            &lt;servlet&gt;<br>
+            &lt;servlet-name&gt;HelloForm&lt;/servlet-name&gt;<br>
+            &lt;servlet-class&gt;HelloForm&lt;/servlet-class&gt;<br>
+            &lt;/servlet&gt;<br><br>
+            &lt;servlet-mapping&gt;<br>
+            &lt;servlet-name&gt;HelloForm&lt;/servlet-name&gt;<br>
+            &lt;url-pattern&gt;/HelloForm&lt;/url-pattern&gt;<br>
+            &lt;/servlet-mapping&gt;
+        </div>
+        <p>Lastly, add the application to your tomcat server and type in the url shown above.</p>
+        <button class="collapsible">Applying an HTML Form</button>
+        <div class="content">
+            <p>Inside your WebContent folder, add a new html document. "Hello.htm"</p>
+            <div class="code">
+                &lt;html&gt;<br>
+                &emsp;&lt;body&gt;<br>
+                &emsp;&emsp;&lt;form action = "HelloForm" method = "GET"&gt;<br>
+                &emsp;&emsp;&emsp;First Name: &lt;input type = "text" name = "first_name"&gt;<br>
+                &emsp;&emsp;&emsp;&lt;br /&gt;<br>
+                &emsp;&emsp;&emsp;Last Name: &lt;input type = "text" name = "last_name" /&gt;<br>
+                &emsp;&emsp;&emsp;&lt;input type = "submit" value = "Submit" /&gt;<br>
+                &emsp;&emsp;&lt;/form&gt;<br>
+                &emsp;&lt;/body&gt;<br>
+                &lt;/html&gt;
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <button class="collapsible">POST Method Example using Form</button>
+    <div class="content">
+        <p>For this example we need only change the form action to POST and call doGet() from the doPost Method.</p>
+        <div class="code">
+            <mark>// Method to handle POST method request.</mark><br>
+            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;throws ServletException, IOException {<br><br>
+            &emsp;doGet(request, response);<br>
+            }
+        </div>
+        <div class="code">
+            &lt;html&gt;<br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;form action = "HelloForm" method = "POST"&gt;<br>
+            &emsp;&emsp;&emsp;First Name: &lt;input type = "text" name = "first_name"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;br /&gt;<br>
+            &emsp;&emsp;&emsp;Last Name: &lt;input type = "text" name = "last_name" /&gt;<br>
+            &emsp;&emsp;&emsp;&lt;input type = "submit" value = "Submit" /&gt;<br>
+            &emsp;&emsp;&lt;/form&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Passing Checkbox Data to Servlet</button>
+    <div class="content">
+        <div class="code">
+            &lt;html&gt;<br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;form action = "CheckBox" method = "POST" target = "_blank"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;input type = "checkbox" name = "maths" checked = "checked" /&gt; Maths
+            &emsp;&emsp;&emsp;&lt;input type = "checkbox" name = "physics"  /&gt; Physics
+            &emsp;&emsp;&emsp;&lt;input type = "checkbox" name = "chemistry" checked = "checked" /&gt; Chemistry
+            &emsp;&emsp;&emsp;&lt;input type = "submit" value = "Select Subject" /&gt;
+            &emsp;&emsp;&lt;/form&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+        <div class="code">
+            public class CheckBox extends HttpServlet {<br><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = <mark>"Reading Checkbox Data";</mark><br>
+            &emsp;&emsp;String docType =<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;ul&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;Maths Flag&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("maths") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;Physics Flag&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("physics") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;Chemistry Flag&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("chemistry") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;/ul&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;" +<br>
+            &emsp;&emsp;&emsp;"&lt;/html&gt;"</mark><br>
+            &emsp;&emsp;);<br>
+            &emsp;}<br>
+            }<br><br>
+            <mark>// Method to handle POST method request.</mark><br>
+            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;throws ServletException, IOException {<br><br>
+            &emsp;doGet(request, response);<br>
+            }
+        </div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Reading All Form Parameters</button>
+    <div class="content">
+        <p>Following is the generic example which uses getParameterNames() method of HttpServletRequest to read all the available form parameters. This method returns an Enumeration that contains the parameter names in an unspecified order</p>
+        <p>Once we have an Enumeration, we can loop down the Enumeration in standard way by, using hasMoreElements() method to determine when to stop and using nextElement() method to get each parameter name.</p>
+        <div class="code">
+            public class ReadParams extends HttpServlet {<br><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = <mark>"Reading All Form Parameters";</mark><br>
+            &emsp;&emsp;String docType =<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;table width = \"100%\" border = \"1\" align = \"center\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr bgcolor = \"#949494\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;th&gt;Param Name&lt;/th&gt;"<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;th&gt;Param Value(s)&lt;/th&gt;\n"+<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;/tr&gt;\n"<br></mark>
+            &emsp;&emsp;);<br><br>
+            &emsp;&emsp;Enumeration paramNames = request.getParameterNames();<br><br>
+            &emsp;&emsp;While(paramNames.hasMoreElements()) {<br>
+            &emsp;&emsp;&emsp;String paramName = (String)paramNames.nextElement();<br>
+            &emsp;&emsp;&emsp;out.print("&lt;tr&gt;&lt;td&gt;" + paramName + "&lt;/td&gt;\n&lt;td&gt;");<br>
+            &emsp;&emsp;&emsp;String[] paramValues = request.getParameterValues(paramName);<br><br>
+            &emsp;&emsp;&emsp;&emsp;<mark>// Read single valued data</mark><br>
+            &emsp;&emsp;&emsp;&emsp;if (paramValues.length == 1) {<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;String paramValue = paramValues[0];<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;if (paramValue.length() == 0)<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;out.println("&lt;i&gt;No Value&lt;/i&gt;");<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;else<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;out.println(paramValue);<br>
+            &emsp;&emsp;&emsp;&emsp;} else {<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;<mark>// Read multiple valued data</mark><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;out.println("&lt;ul&gt;");<br><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;for(int i = 0; i < paramValues.length; i++) {<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;out.println("&lt;li&gt;" + paramValues[i]);<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;out.println("&lt;/ul&gt;");<br>
+            &emsp;&emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;out.println("&lt;/tr&gt;\n&lt;/table&gt;\n&lt;/body&gt;&lt;/html&gt;");<br>
+            &emsp;&emsp;}<br><br>
+            <mark>// Method to handle POST method request.</mark><br>
+            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;throws ServletException, IOException {<br><br>
+            &emsp;doGet(request, response);<br>
+            }
+        </div>
+        <p>Now apply the form from the previous example:</p>
+        <div class="code">
+            &lt;html&gt;<br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;form action = "CheckBox" method = "POST" target = "_blank"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;input type = "checkbox" name = "maths" checked = "checked" /&gt; Maths
+            &emsp;&emsp;&emsp;&lt;input type = "checkbox" name = "physics"  /&gt; Physics
+            &emsp;&emsp;&emsp;&lt;input type = "checkbox" name = "chemistry" checked = "checked" /&gt; Chemistry
+            &emsp;&emsp;&emsp;&lt;input type = "submit" value = "Select Subject" /&gt;
+            &emsp;&emsp;&lt;/form&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+    </div>
+    &nbsp;
     <button class="collapsible">HelloWorld Application</button>
     <div class="content">
         <h3>HelloWorld Application</h3>
