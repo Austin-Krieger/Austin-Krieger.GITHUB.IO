@@ -4617,19 +4617,21 @@
     <br>
     <button class="collapsible">HTTP Status Code Example</button>
     <div class="content">
-        public class showError extends HttpServlet {<br><br>
-        &emsp;<mark>// Method to handle GET method request.</mark><br>
-        &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
-        &emsp;&emsp;throws ServletException, IOException {<br><br>
-        &emsp;&emsp;<mark>// Set error code and reason.</mark><br>
-        &emsp;&emsp;response.sendError(407, "Need authentication!!!" );<br>
-        &emsp;}<br><br>
-        &emsp;// Method to handle POST method request.<br>
-        &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
-        &emsp;&emsp;throws ServletException, IOException {<br><br>
-        &emsp;&emsp;doGet(request, response);<br>
-        &emsp;}<br>
-        }
+        <div class="code">
+            public class showError extends HttpServlet {<br><br>
+            &emsp;<mark>// Method to handle GET method request.</mark><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;<mark>// Set error code and reason.</mark><br>
+            &emsp;&emsp;response.sendError(407, "Need authentication!!!" );<br>
+            &emsp;}<br><br>
+            &emsp;// Method to handle POST method request.<br>
+            &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;doGet(request, response);<br>
+            &emsp;}<br>
+            }
+        </div>
     </div>
 </div>
 &nbsp;
