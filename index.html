@@ -3593,6 +3593,14 @@
         <li><b>Security Service:</b> Handles authorization and authentication of resource access.</li>
         <li><b>Session Management:</b> Maintains a session by appending a session ID to the URL path.</li>
     </ul>
+    <h3>Architecture Diagram</h3>
+    <p>Example of a typical servlet life-cycle scenario.</p>
+    <ul>
+        <li>First the HTTP requests coming to the server are delegated to the servlet container.</li>
+        <li>The servlet container loads the servlet before invoking the service() method.</li>
+        <li>Then the servlet container handles multiple requests by spawning multiple threads, each thread executing the service() method of a single instance of the servlet.</li>
+    </ul>
+    <div class="center"><img src="images/servlet-lifecycle.jpg" alt="Servlet Lifecycle Image"></div>
     </div>
     &nbsp;
     <button class="collapsible">Servlet Life Cycle</button>
@@ -3725,15 +3733,7 @@
         <p>After adding the project to our server and starting it up, we can go to localhost:8080/HelloWorld/HelloWorld</p>
         <p>We should now see "Hello World!" printed in the browser.</p>
     </div>
-    <h3>Architecture Diagram</h3>
-    <p>Example of a typical servlet life-cycle scenario.</p>
-    <ul>
-        <li>First the HTTP requests coming to the server are delegated to the servlet container.</li>
-        <li>The servlet container loads the servlet before invoking the service() method.</li>
-        <li>Then the servlet container handles multiple requests by spawning multiple threads, each thread executing the service() method of a single instance of the servlet.</li>
-    </ul>
-    <div class="center"><img src="images/servlet-lifecycle.jpg" alt="Servlet Lifecycle Image"></div>
-    <br>
+    &nbsp;
     <button class="collapsible">Reading Form Data using Servlet</button>
     <div class="content">
     <h3>Reading Form Data using Servlet</h3>
