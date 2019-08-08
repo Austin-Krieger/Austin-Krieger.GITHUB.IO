@@ -4183,98 +4183,169 @@
                 <th>Description</th>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Allow</td>
+                <td>This header specifies the request methods (GET, POST, etc.) that the server supports.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Cache-Control</td>
+                <td>This header specifies the circumstances in which the response document can safely be cached. It can have values public, private or no-cache etc. Public means document is cacheable, Private means document is for a single user and can only be stored in private (non-shared) caches and nocache means document should never be cached.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Connection</td>
+                <td>This header instructs the browser whether to use persistent in HTTP connections or not. A value of close instructs the browser not to use persistent HTTP connections and keepalive means using persistent connections.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Content-Disposition</td>
+                <td>This header lets you request that the browser ask the user to save the response to disk in a file of the given name.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Content-Encoding</td>
+                <td>This header specifies the way in which the page was encoded during transmission.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Content-Language</td>
+                <td>This header signifies the language in which the document is written. For example en, en-us, ru, etc</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Content-Length</td>
+                <td>This header indicates the number of bytes in the response. This information is needed only if the browser is using a persistent (keep-alive) HTTP connection.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Content-Type</td>
+                <td>This header gives the MIME (Multipurpose Internet Mail Extension) type of the response document.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Expires</td>
+                <td>This header specifies the time at which the content should be considered out-of-date and thus no longer be cached.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Last-Modified</td>
+                <td>This header indicates when the document was last changed. The client can then cache the document and supply a date by an If-Modified-Since request header in later requests.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Location</td>
+                <td>This header should be included with all responses that have a status code in the 300s. This notifies the browser of the document address. The browser automatically reconnects to this location and retrieves the new document.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Refresh</td>
+                <td>This header specifies how soon the browser should ask for an updated page. You can specify time in number of seconds after which a page would be refreshed.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>Retry-After</td>
+                <td>This header can be used in conjunction with a 503 (Service Unavailable) response to tell the client how soon it can repeat its request.</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
+                <td>Set-Cookie</td>
+                <td>This header specifies a cookie associated with the page.</td>
             </tr>
         </table>
+    </div>
+    <h3>Methods to Set HTTP Response</h3>
+    <p>There are following methods which can be used to set HTTP response header in your servlet program. These methods are available with HttpServletResponse object.</p>
+    <button class="collapsible">Show Table</button>
+    <div class="content">
+        <table>
+            <tr>
+                <th>Header</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>String encodeRedirectURL(String url)</td>
+                <td>Encodes the specified URL for use in the sendRedirect method or, if encoding is not needed, returns the URL unchanged.</td>
+            </tr>
+            <tr>
+                <td>String encodeURL(String url)</td>
+                <td>Encodes the specified URL by including the session ID in it, or, if encoding is not needed, returns the URL unchanged.</td>
+            </tr>
+            <tr>
+                <td>boolean containsHeader(String name)</td>
+                <td>Returns a Boolean indicating whether the named response header has already been set.</td>
+            </tr>
+            <tr>
+                <td>boolean isCommitted()</td>
+                <td>Returns a Boolean indicating if the response has been committed.</td>
+            </tr>
+            <tr>
+                <td>void addCookie(Cookie cookie)</td>
+                <td>Adds the specified cookie to the response.</td>
+            </tr>
+            <tr>
+                <td>void addDateHeader(String name, long date)</td>
+                <td>Adds a response header with the given name and date-value.</td>
+            </tr>
+            <tr>
+                <td>void addHeader(String name, String value)</td>
+                <td>Adds a response header with the given name and value.</td>
+            </tr>
+            <tr>
+                <td>void addIntHeader(String name, int value)</td>
+                <td>Adds a response header with the given name and integer value.</td>
+            </tr>
+            <tr>
+                <td>void flushBuffer()</td>
+                <td>Forces any content in the buffer to be written to the client.</td>
+            </tr>
+            <tr>
+                <td>void reset()</td>
+                <td>Clears any data that exists in the buffer as well as the status code and headers.</td>
+            </tr>
+            <tr>
+                <td>void resetBuffer()</td>
+                <td>Clears the content of the underlying buffer in the response without clearing headers or status code.</td>
+            </tr>
+            <tr>
+                <td>void sendError(int sc)</td>
+                <td>Sends an error response to the client using the specified status code and clearing the buffer.</td>
+            </tr>
+            <tr>
+                <td>void sendError(int sc, String msg)</td>
+                <td>Sends an error response to the client using the specified status.</td>
+            </tr>
+            <tr>
+                <td>void sendRedirect(String location)</td>
+                <td>Sends a temporary redirect response to the client using the specified redirect location URL.</td>
+            </tr>
+            <tr>
+                <td>void setBufferSize(int size)</td>
+                <td>Sets the preferred buffer size for the body of the response.</td>
+            </tr>
+            <tr>
+                <td>void setCharacterEncoding(String charset)</td>
+                <td>Sets the character encoding (MIME charset) of the response being sent to the client, for example, to UTF-8.</td>
+            </tr>
+            <tr>
+                <td>void setContentLength(int len)</td>
+                <td>Sets the length of the content body in the response In HTTP servlets, this method sets the HTTP Content-Length header.</td>
+            </tr>
+            <tr>
+                <td>void setContentType(String type)</td>
+                <td>Sets the content type of the response being sent to the client, if the response has not been committed yet.</td>
+            </tr>
+            <tr>
+                <td>void setDateHeader(String name, long date)</td>
+                <td>Sets a response header with the given name and date-value.</td>
+            </tr>
+            <tr>
+                <td>void setHeader(String name, String value)</td>
+                <td>Sets a response header with the given name and value.</td>
+            </tr>
+            <tr>
+                <td>void setIntHeader(String name, int value)</td>
+                <td>Sets a response header with the given name and integer value</td>
+            </tr>
+            <tr>
+                <td>void setLocale(Locale loc)</td>
+                <td>Sets the locale of the response, if the response has not been committed yet.</td>
+            </tr>
+            <tr>
+                <td>void setStatus(int sc)</td>
+                <td>Sets the status code for this response</td>
+            </tr>
+        </table>
+    </div>
+    <button class="collapsible">HTTP Header Response Example</button>
+    <div class="content">
+        
     </div>
 </div>
 &nbsp;
