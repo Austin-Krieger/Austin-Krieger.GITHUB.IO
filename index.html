@@ -3938,6 +3938,241 @@
             &lt;/html&gt;
         </div>
     </div>
+    <h3>Client HTTP Request</h3>
+    <p>When a browser requests for a web page, it sends lot of information to the web server which cannot be read directly because this information travel as a part of header of HTTP request.</p>
+    <button class="collapsible">Show Table</button>
+    <div class="content">
+    <table>
+        <tr>
+            <th>Header</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Accept</td>
+            <td>This header specifies the MIME types that the browser or other clients can handle. Values of image/png or image/jpeg are the two most common possibilities.</td>
+        </tr>
+        <tr>
+            <td>Accept-Charset</td>
+            <td>This header specifies the character sets the browser can use to display the information. For example ISO-8859-1.</td>
+        </tr>
+        <tr>
+            <td>Accept-Encoding</td>
+            <td>This header specifies the types of encodings that the browser knows how to handle. Values of gzip or compress are the two most common possibilities.</td>
+        </tr>
+        <tr>
+            <td>Accept-Language</td>
+            <td>This header specifies the client's preferred languages in case the servlet can produce results in more than one language. For example en, en-us, ru, etc</td>
+        </tr>
+        <tr>
+            <td>Authorization</td>
+            <td>This header is used by clients to identify themselves when accessing password-protected Web pages.</td>
+        </tr>
+        <tr>
+            <td>Connection</td>
+            <td>This header indicates whether the client can handle persistent HTTP connections. Persistent connections permit the client or other browser to retrieve multiple files with a single request. A value of Keep-Alive means that persistent connections should be used.</td>
+        </tr>
+        <tr>
+            <td>Content-Length</td>
+            <td>This header is applicable only to POST requests and gives the size of the POST data in bytes.</td>
+        </tr>
+        <tr>
+            <td>Cookie</td>
+            <td>This header returns cookies to servers that previously sent them to the browser.</td>
+        </tr>
+        <tr>
+            <td>Host</td>
+            <td>This header specifies the host and port as given in the original URL.</td>
+        </tr>
+        <tr>
+            <td>If-Modified-Since</td>
+            <td>This header indicates that the client wants the page only if it has been changed after the specified date. The server sends a code, 304 which means Not Modified header if no newer result is available.</td>
+        </tr>
+        <tr>
+            <td>If-Unmodified-Since</td>
+            <td>This header is the reverse of If-Modified-Since; it specifies that the operation should succeed only if the document is older than the specified date.</td>
+        </tr>
+        <tr>
+            <td>Referer</td>
+            <td>This header indicates the URL of the referring Web page. For example, if you are at Web page 1 and click on a link to Web page 2, the URL of Web page 1 is included in the Referrer header when the browser requests Web page 2.</td>
+        </tr>
+        <tr>
+            <td>User-Agent</td>
+            <td>This header identifies the browser or other client making the request and can be used to return different content to different types of browsers.</td>
+        </tr>
+    </table>
+    </div>
+    <h3>Methods to read HTTP Header</h3>
+    <button class="collapsible">Show Table</button>
+    <div class="content">
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Cookie[] getCookies()</td>
+            <td>Returns an array containing all of the Cookie objects the client sent with this request.</td>
+        </tr>
+        <tr>
+            <td>Enumeration getAttributeNames()</td>
+            <td>Returns an Enumeration containing the names of the attributes available to this request.</td>
+        </tr>
+        <tr>
+            <td>Enumeration getHeaderNames()</td>
+            <td>Returns an enumeration of all the header names this request contains.</td>
+        </tr>
+        <tr>
+            <td>Enumeration getParameterNames()</td>
+            <td>Returns an Enumeration of String objects containing the names of the parameters contained in this request</td>
+        </tr>
+        <tr>
+            <td>HttpSession getSession()</td>
+            <td>Returns the current session associated with this request, or if the request does not have a session, creates one.</td>
+        </tr>
+        <tr>
+            <td>HttpSession getSession(boolean create)</td>
+            <td>Returns the current HttpSession associated with this request or, if if there is no current session and value of create is true, returns a new session.</td>
+        </tr>
+        <tr>
+            <td>Locale getLocale()</td>
+            <td>Returns the preferred Locale that the client will accept content in, based on the Accept-Language header.</td>
+        </tr>
+        <tr>
+            <td>Object getAttribute(String name)</td>
+            <td>Returns the value of the named attribute as an Object, or null if no attribute of the given name exists.</td>
+        </tr>
+        <tr>
+            <td>ServletInputStream getInputStream()</td>
+            <td>Retrieves the body of the request as binary data using a ServletInputStream.</td>
+        </tr>
+        <tr>
+            <td>String getAuthType()</td>
+            <td>Returns the name of the authentication scheme used to protect the servlet, for example, "BASIC" or "SSL," or null if the JSP was not protected.</td>
+        </tr>
+        <tr>
+            <td>String getCharacterEncoding()</td>
+            <td>Returns the name of the character encoding used in the body of this request.</td>
+        </tr>
+        <tr>
+            <td>String getContentType()</td>
+            <td>Returns the MIME type of the body of the request, or null if the type is not known.</td>
+        </tr>
+        <tr>
+            <td>String getContextPath()</td>
+            <td>Returns the portion of the request URI that indicates the context of the request.</td>
+        </tr>
+        <tr>
+            <td>String getHeader(String name)</td>
+            <td>Returns the value of the specified request header as a String.</td>
+        </tr>
+        <tr>
+            <td>String getMethod()</td>
+            <td>Returns the name of the HTTP method with which this request was made, for example, GET, POST, or PUT.</td>
+        </tr>
+        <tr>
+            <td>String getParameter(String name)</td>
+            <td>Returns the value of a request parameter as a String, or null if the parameter does not exist.</td>
+        </tr>
+        <tr>
+            <td>String getPathInfo()</td>
+            <td>Returns any extra path information associated with the URL the client sent when it made this request</td>
+        </tr>
+        <tr>
+            <td>String getProtocol()</td>
+            <td>Returns the name and version of the protocol the request.</td>
+        </tr>
+        <tr>
+            <td>String getQueryString()</td>
+            <td>Returns the query string that is contained in the request URL after the path.</td>
+        </tr>
+        <tr>
+            <td>String getRemoteAddr()</td>
+            <td>Returns the Internet Protocol (IP) address of the client that sent the request.</td>
+        </tr>
+        <tr>
+            <td>String getRemoteHost()</td>
+            <td>Returns the fully qualified name of the client that sent the request.</td>
+        </tr>
+        <tr>
+            <td>String getRemoteUser()</td>
+            <td>Returns the login of the user making this request, if the user has been authenticated, or null if the user has not been authenticated.</td>
+        </tr>
+        <tr>
+            <td>String getRequestURI()</td>
+            <td>Returns the part of this request's URL from the protocol name up to the query string in the first line of the HTTP request.</td>
+        </tr>
+        <tr>
+            <td>String getRequestedSessionId()</td>
+            <td>Returns the session ID specified by the client.</td>
+        </tr>
+        <tr>
+            <td>String getServletPath()</td>
+            <td>Returns the part of this request's URL that calls the JSP.</td>
+        </tr>
+        <tr>
+            <td>String[] getParameterValues(String name)</td>
+            <td>Returns an array of String objects containing all of the values the given request parameter has, or null if the parameter does not exist.</td>
+        </tr>
+        <tr>
+            <td>boolean isSecure()</td>
+            <td>Returns a Boolean indicating whether this request was made using a secure channel, such as HTTPS.</td>
+        </tr>
+        <tr>
+            <td>int getContentLength()</td>
+            <td>Returns the length, in bytes, of the request body and made available by the input stream, or -1 if the length is not known.</td>
+        </tr>
+        <tr>
+            <td>int getIntHeader(String name)</td>
+            <td>Returns the value of the specified request header as an int.</td>
+        </tr>
+        <tr>
+            <td>int getServerPort()</td>
+            <td>Returns the port number on which this request was received.</td>
+        </tr>
+    </table>
+    </div>
+    &nbsp;
+    <button class="collapsible">HTTP Header Request Example</button>
+    <div class="content">
+        <p>Following is the example which uses getHeaderNames() method of HttpServletRequest to read the HTTP header information. This method returns an Enumeration that contains the header information associated with the current HTTP request.</p>
+        <p>Once we have an Enumeration, we can loop down the Enumeration in the standard manner, using hasMoreElements() method to determine when to stop and using nextElement() method to get each parameter name</p>
+        <div class="code">
+            public class DisplayHeader extends HttpServlet {<br><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = <mark>"Reading All Form Parameters";</mark><br>
+            &emsp;&emsp;String docType =<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;table width = \"100%\" border = \"1\" align = \"center\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr bgcolor = \"#949494\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;th&gt;Header Name&lt;/th&gt;"<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;th&gt;Header Value(s)&lt;/th&gt;\n"+<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;/tr&gt;\n"<br></mark>
+            &emsp;&emsp;);<br><br>
+            &emsp;&emsp;Enumeration headerNames = request.getHeaderNames();<br><br>
+            &emsp;&emsp;While(headerNames.hasMoreElements()) {<br>
+            &emsp;&emsp;&emsp;String paramName = (String)headerNames.nextElement();<br>
+            &emsp;&emsp;&emsp;out.print("&lt;tr&gt;&lt;td&gt;" + paramName + "&lt;/td&gt;\n&lt;td&gt;");<br>
+            &emsp;&emsp;&emsp;String paramValue = request.getHeader(paramName);<br>
+            &emsp;&emsp;&emsp;out.println("&lt;td&gt; " + paramValue + "&lt;/td&gt;&lt;/tr&gt;\n");<br>
+            &emsp;&emsp;}<br>
+            &emsp;&emsp;out.println("&lt;/table&gt;\n&lt;/body&gt;&lt;/html&gt;");<br>
+            &emsp;&emsp;}<br><br>
+            <mark>// Method to handle POST method request.</mark><br>
+            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;throws ServletException, IOException {<br><br>
+            &emsp;doGet(request, response);<br>
+            }
+        </div>
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">JDBC (API), Hibernate and ORM Frameworks</button>
