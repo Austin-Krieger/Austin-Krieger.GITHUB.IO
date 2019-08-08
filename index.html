@@ -4389,6 +4389,247 @@
             }
         </div>
     </div>
+    <h3>HTTP Status Codes</h3>
+    <button class="collapsible">Show Table</button>
+    <div class="content">
+    <table>
+        <tr>
+            <th>Code</th>
+            <th>Message</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>Continue</td>
+            <td>Only a part of the request has been received by the server, but as long as it has not been rejected, the client should continue with the request</td>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Switching Protocols</td>
+            <td>The server switches protocol.</td>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>OK</td>
+            <td>The request is OK</td>
+        </tr>
+        <tr>
+            <td>201</td>
+            <td>Created</td>
+            <td>The request is complete, and a new resource is created</td>
+        </tr>
+        <tr>
+            <td>202</td>
+            <td>Accepted</td>
+            <td>The request is accepted for processing, but the processing is not complete.</td>
+        </tr>
+        <tr>
+            <td>203</td>
+            <td>Non-authoritative Information</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>204</td>
+            <td>No Content</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>205</td>
+            <td>Reset Content</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>206</td>
+            <td>Partial Content</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>300</td>
+            <td>Multiple Choices</td>
+            <td>A link list. The user can select a link and go to that location. Maximum five addresses</td>
+        </tr>
+        <tr>
+            <td>301</td>
+            <td>Moved Permanently</td>
+            <td>The requested page has moved to a new url</td>
+        </tr>
+        <tr>
+            <td>302</td>
+            <td>Found</td>
+            <td>The requested page has moved temporarily to a new url</td>
+        </tr>
+        <tr>
+            <td>303</td>
+            <td>See Other</td>
+            <td>The requested page can be found under a different url</td>
+        </tr>
+        <tr>
+            <td>304</td>
+            <td>Not Modified</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>305</td>
+            <td>Use Proxy</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>306</td>
+            <td>Unused</td>
+            <td>This code was used in a previous version. It is no longer used, but the code is reserved</td>
+        </tr>
+        <tr>
+            <td>307</td>
+            <td>Temporary Redirect</td>
+            <td>The requested page has moved temporarily to a new url.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request</td>
+            <td>The server did not understand the request</td>
+        </tr>
+        <tr>
+            <td>402</td>
+            <td>Payment Required</td>
+            <td>You cannot use this code yet</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Forbidden</td>
+            <td>Access is forbidden to the requested page</td>
+        </tr>
+        <tr>
+            <td>404</td>
+            <td>Not Found</td>
+            <td>The server cannot find the requested page.</td>
+        </tr>
+        <tr>
+            <td>405</td>
+            <td>Method Not Allowed</td>
+            <td>The method specified in the request is not allowed.</td>
+        </tr>
+        <tr>
+            <td>406</td>
+            <td>Not Acceptable</td>
+            <td>The server can only generate a response that is not accepted by the client.</td>
+        </tr>
+        <tr>
+            <td>407</td>
+            <td>Proxy Authentication Required</td>
+            <td>You must authenticate with a proxy server before this request can be served.</td>
+        </tr>
+        <tr>
+            <td>408</td>
+            <td>Request Timeout</td>
+            <td>The request took longer than the server was prepared to wait.</td>
+        </tr>
+        <tr>
+            <td>409</td>
+            <td>Conflict</td>
+            <td>The request could not be completed because of a conflict.</td>
+        </tr>
+        <tr>
+            <td>410</td>
+            <td>Gone</td>
+            <td>The requested page is no longer available.</td>
+        </tr>
+        <tr>
+            <td>411</td>
+            <td>Length Required</td>
+            <td>The "Content-Length" is not defined. The server will not accept the request without it.</td>
+        </tr>
+        <tr>
+            <td>412</td>
+            <td>Precondition Failed</td>
+            <td>The precondition given in the request evaluated to false by the server.</td>
+        </tr>
+        <tr>
+            <td>413</td>
+            <td>Request Entity Too Large</td>
+            <td>The server will not accept the request, because the request entity is too large.</td>
+        </tr>
+        <tr>
+            <td>414</td>
+            <td>Request-url Too Long</td>
+            <td>The server will not accept the request, because the url is too long. Occurs when you convert a "post" request to a "get" request with a long query information.</td>
+        </tr>
+        <tr>
+            <td>415</td>
+            <td>Unsupported Media Type</td>
+            <td>The server will not accept the request, because the media type is not supported.</td>
+        </tr>
+        <tr>
+            <td>417</td>
+            <td>Expectation Failed</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>Internal Server Error</td>
+            <td>The request was not completed. The server met an unexpected condition.</td>
+        </tr>
+        <tr>
+            <td>501</td>
+            <td>Not Implemented</td>
+            <td>The request was not completed. The server did not support the functionality required.</td>
+        </tr>
+        <tr>
+            <td>502</td>
+            <td>Bad Gateway</td>
+            <td>The request was not completed. The server received an invalid response from the upstream server.</td>
+        </tr>
+        <tr>
+            <td>503</td>
+            <td>Service Unavailable</td>
+            <td>The request was not completed. The server is temporarily overloading or down.</td>
+        </tr>
+        <tr>
+            <td>504</td>
+            <td>Gateway Timeout</td>
+            <td>The gateway has timed out.</td>
+        </tr>
+        <tr>
+            <td>505</td>
+            <td>HTTP Version Not Supported</td>
+            <td>The server does not support the "http protocol" version.</td>
+        </tr>
+    </table>
+    </div>
+    <h3>Methods to Set HTTP Status Code</h3>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>public void setStatus(int statusCode)</td>
+            <td>This method sets an arbitrary status code. The setStatus method takes an int (the status code) as an argument. If your response includes a special status code and a document, be sure to call setStatus before actually returning any of the content with the PrintWriter.</td>
+        </tr>
+        <tr>
+            <td>public void sendRedirect(String url)</td>
+            <td>This method generates a 302 response along with a Location header giving the URL of the new document.</td>
+        </tr>
+        <tr>
+            <td>public void sendError(int code, String message)</td>
+            <td>This method sends a status code (usually 404) along with a short message that is automatically formatted inside an HTML document and sent to the client.</td>
+        </tr>
+    </table>
+    <button class="collapsible">HTTP Status Code Example</button>
+    <div class="content">
+        public class showError extends HttpServlet {<br><br>
+        &emsp;<mark>// Method to handle GET method request.</mark><br>
+        &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+        &emsp;&emsp;throws ServletException, IOException {<br><br>
+        &emsp;&emsp;<mark>// Set error code and reason.</mark><br>
+        &emsp;&emsp;response.sendError(407, "Need authentication!!!" );<br>
+        &emsp;}<br><br>
+        &emsp;// Method to handle POST method request.<br>
+        &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+        &emsp;&emsp;throws ServletException, IOException {<br><br>
+        &emsp;&emsp;doGet(request, response);<br>
+        &emsp;}<br>
+        }
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">JDBC (API), Hibernate and ORM Frameworks</button>
