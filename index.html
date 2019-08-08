@@ -3743,7 +3743,7 @@
             public class HelloForm extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
-            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
             &emsp;&emsp;response.setContentType("text/html");<br><br>
             &emsp;&emsp;PrintWriter out = response.getWriter();<br>
             &emsp;&emsp;String title = <mark>"Using GET Method to Read Form Data";</mark><br>
@@ -3838,7 +3838,7 @@
             public class CheckBox extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
-            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
             &emsp;&emsp;response.setContentType("text/html");<br><br>
             &emsp;&emsp;PrintWriter out = response.getWriter();<br>
             &emsp;&emsp;String title = <mark>"Reading Checkbox Data";</mark><br>
@@ -3861,11 +3861,11 @@
             &emsp;&emsp;&emsp;"&lt;/html&gt;"</mark><br>
             &emsp;&emsp;);<br>
             &emsp;}<br>
-            }<br><br>
-            <mark>// Method to handle POST method request.</mark><br>
-            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
-            &emsp;throws ServletException, IOException {<br><br>
-            &emsp;doGet(request, response);<br>
+            &emsp;<mark>// Method to handle POST method request.</mark><br>
+            &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;doGet(request, response);<br>
+            &emsp;}
             }
         </div>
     </div>
@@ -3878,7 +3878,7 @@
             public class ReadParams extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
-            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
             &emsp;&emsp;response.setContentType("text/html");<br><br>
             &emsp;&emsp;PrintWriter out = response.getWriter();<br>
             &emsp;&emsp;String title = <mark>"Reading All Form Parameters";</mark><br>
@@ -3918,10 +3918,11 @@
             &emsp;&emsp;&emsp;}<br>
             &emsp;&emsp;&emsp;out.println("&lt;/tr&gt;\n&lt;/table&gt;\n&lt;/body&gt;&lt;/html&gt;");<br>
             &emsp;&emsp;}<br><br>
-            <mark>// Method to handle POST method request.</mark><br>
-            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
-            &emsp;throws ServletException, IOException {<br><br>
-            &emsp;doGet(request, response);<br>
+            &emsp;<mark>// Method to handle POST method request.</mark><br>
+            &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;doGet(request, response);<br>
+            &emsp;}
             }
         </div>
         <p>Now apply the form from the previous example:</p>
@@ -4140,7 +4141,7 @@
             public class DisplayHeader extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
-            &emsp;&emsp;// Set response content type<br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
             &emsp;&emsp;response.setContentType("text/html");<br><br>
             &emsp;&emsp;PrintWriter out = response.getWriter();<br>
             &emsp;&emsp;String title = <mark>"Reading All Form Parameters";</mark><br>
@@ -4166,10 +4167,11 @@
             &emsp;&emsp;}<br>
             &emsp;&emsp;out.println("&lt;/table&gt;\n&lt;/body&gt;&lt;/html&gt;");<br>
             &emsp;&emsp;}<br><br>
-            <mark>// Method to handle POST method request.</mark><br>
-            public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
-            &emsp;throws ServletException, IOException {<br><br>
-            &emsp;doGet(request, response);<br>
+            &emsp;<mark>// Method to handle POST method request.</mark><br>
+            &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;doGet(request, response);<br>
+            &emsp;}
             }
         </div>
     </div>
@@ -4344,9 +4346,48 @@
         </table>
     </div>
     &nbsp;
-    <button class="collapsible">HTTP Header Response Example</button>
+    <button class="collapsible">HTTP Header Response Example (Get Current Time, Auto Refresh)</button>
     <div class="content">
-        
+        <h3>HTTP Header Response Example</h3>
+        <p>We would use setIntHeader() method to set Refresh header.</p>
+        <div class="code">
+            public class Refresh extends HttpServlet {<br><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;<mark>// Set refresh, autoload time as 5 seconds</mark><br>
+            &emsp;&emsp;response.setIntHeader("Refresh", 5);<br><br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;<mark>// Get current time</mark><br>
+            &emsp;&emsp;Calendar calendar = new GregorianCalendar();<br>
+            &emsp;&emsp;String am_pm;<br>
+            &emsp;&emsp;int hour = calendar.get(Calendar.HOUR);<br>
+            &emsp;&emsp;int minute = calendar.get(Calendar.MINUTE);<br>
+            &emsp;&emsp;int second = calendar.get(Calendar.SECOND);<br><br>
+            &emsp;&emsp;if(calendar.get(Calendar.AM_PM) == 0)<br>
+            &emsp;&emsp;&emsp;am_pm = "AM";<br>
+            &emsp;&emsp;else<br>
+            &emsp;&emsp;&emsp;am_pm = "PM";<br><br>
+            &emsp;&emsp;String CT = hour+":"+ minute +":"+ second +" "+ am_pm;<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = <mark>"Reading All Form Parameters";</mark><br>
+            &emsp;&emsp;String docType =<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;<mark>"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+            &emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+            &emsp;&emsp;&emsp;"&lt;p&gt;Current Time is: " + CT + "&lt;/p&gt;\n"</mark><br>
+            &emsp;&emsp;);<br>
+            &emsp;}<br><br>
+            &emsp;<mark>// Method to handle POST method request.</mark><br>
+            &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;doGet(request, response);<br>
+            &emsp;}
+            }
+        </div>
     </div>
 </div>
 &nbsp;
