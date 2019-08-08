@@ -4160,7 +4160,7 @@
             &emsp;&emsp;Enumeration headerNames = request.getHeaderNames();<br><br>
             &emsp;&emsp;While(headerNames.hasMoreElements()) {<br>
             &emsp;&emsp;&emsp;String paramName = (String)headerNames.nextElement();<br>
-            &emsp;&emsp;&emsp;out.print("&lt;tr&gt;&lt;td&gt;" + paramName + "&lt;/td&gt;\n&lt;td&gt;");<br>
+            &emsp;&emsp;&emsp;out.print("&lt;tr&gt;&lt;td&gt;" + paramName + "&lt;/td&gt;\n");<br>
             &emsp;&emsp;&emsp;String paramValue = request.getHeader(paramName);<br>
             &emsp;&emsp;&emsp;out.println("&lt;td&gt; " + paramValue + "&lt;/td&gt;&lt;/tr&gt;\n");<br>
             &emsp;&emsp;}<br>
