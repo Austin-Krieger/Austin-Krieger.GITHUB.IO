@@ -4718,16 +4718,16 @@
         <p>Filters are defined and then mapped to a URL or Servlet, in much the same way as Servlet is defined and then mapped to a URL pattern. Create the following entry for filter tag in the deployment descriptor file web.xml</p>
         <div class="code">
             &lt;filter&gt;<br>
-            &lt;filter-name&gt;LogFilter&lt;/filter-name&gt;<br>
-            &lt;filter-class&gt;LogFilter&lt;/filter-class&gt;<br>
+            &emsp;&lt;filter-name&gt;LogFilter&lt;/filter-name&gt;<br>
+            &emsp;&lt;filter-class&gt;LogFilter&lt;/filter-class&gt;<br>
             &lt;init-param&gt;<br>
-            &lt;param-name&gt;test-param&lt;/param-name&gt;<br>
-            &lt;param-value&gt;Initialization Paramter&lt;/param-value&gt;<br>
+            &emsp;&lt;param-name&gt;test-param&lt;/param-name&gt;<br>
+            &emsp;&lt;param-value&gt;Initialization Paramter&lt;/param-value&gt;<br>
             &lt;/init-param&gt;<br>
             &lt;/filter&gt;<br><br>
             &lt;filter-mapping&gt;<br>
-            &lt;filter-name>LogFilter&lt;/filter-name&gt;<br>
-            &lt;url-pattern>/*&lt;/url-pattern&gt;<br>
+            &emsp;&lt;filter-name>LogFilter&lt;/filter-name&gt;<br>
+            &emsp;&lt;url-pattern>/*&lt;/url-pattern&gt;<br>
             &lt;/filter-mapping&gt;
         </div>
         <p>The above filter would apply to all the servlets because we specified /* in our configuration. You can specicy a particular servlet path if you want to apply filter on few servlets only.</p>
