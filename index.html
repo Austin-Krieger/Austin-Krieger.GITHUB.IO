@@ -4695,22 +4695,22 @@
         <div class="code">
             public class LogFilter implements Filter  {<br>
             &emsp;public void  init(FilterConfig config) throws ServletException {<br><br>
-            &emsp;&emsp;// Get init parameter<br>
+            &emsp;&emsp;<mark>// Get init parameter</mark><br>
             &emsp;&emsp;String testParam = config.getInitParameter("test-param");<br>
-            &emsp;&emsp;//Print the init parameter<br>
+            &emsp;&emsp;<mark>//Print the init parameter</mark><br>
             &emsp;&emsp;System.out.println("Test Param: " + testParam);<br>
             &emsp;}<br><br>
             &emsp;public void  doFilter(ServletRequest request, ServletResponse response,<br>
             &emsp;&emsp;FilterChain chain) throws java.io.IOException, ServletException {<br>
-            &emsp;&emsp;// Get the IP address of client machine.<br>
+            &emsp;&emsp;<mark>// Get the IP address of client machine.</mark><br>
             &emsp;&emsp;String ipAddress = request.getRemoteAddr();<br><br>
-            &emsp;&emsp;// Log the IP address and current timestamp.<br>
+            &emsp;&emsp;<mark>// Log the IP address and current timestamp.</mark><br>
             &emsp;&emsp;System.out.println("IP "+ ipAddress + ", Time " + new Date().toString());<br><br>
-            &emsp;&emsp;// Pass request back down the filter chain<br>
+            &emsp;&emsp;<mark>// Pass request back down the filter chain</mark><br>
             &emsp;&emsp;chain.doFilter(request,response);<br>
             &emsp;}<br><br>
             &emsp;public void destroy( ) {<br>
-            &emsp;&emsp;/* Called before the Filter instance is removed from service by the web container*/<br>
+            &emsp;&emsp;<mark>/* Called before the Filter instance is removed from service by the web container*/</mark><br>
             &emsp;}<br>
             }
         </div>
@@ -4813,10 +4813,10 @@
     <p>This example would give you basic understanding of Exception Handling in Servlet, but you can write more sophisticated filter applications using the same concept.</p>
     <div class="code">
         public class ErrorHandler extends HttpServlet {<br><br>
-        &emsp;// Method to handle GET method request.<br>
+        &emsp;<mark>// Method to handle GET method request.</mark><br>
         &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
         &emsp;&emsp;throws ServletException, IOException {<br><br>
-        &emsp;&emsp;// Analyze the servlet exception<br>
+        &emsp;&emsp;<mark>// Analyze the servlet exception</mark><br>
         &emsp;&emsp;Throwable throwable = (Throwable)<br>
         &emsp;&emsp;request.getAttribute("javax.servlet.error.exception");<br>
         &emsp;&emsp;Integer statusCode = (Integer)<br>
@@ -4825,13 +4825,13 @@
         &emsp;&emsp;request.getAttribute("javax.servlet.error.servlet_name");<br><br>
         &emsp;&emsp;if (servletName == null) {<br>
         &emsp;&emsp;&emsp;servletName = "Unknown";<br>
-        &emsp;&emsp;}<br>
+        &emsp;&emsp;}<br><br>
         &emsp;&emsp;String requestUri = (String)<br>
         &emsp;&emsp;request.getAttribute("javax.servlet.error.request_uri");<br><br>
         &emsp;&emsp;if (requestUri == null) {<br>
         &emsp;&emsp;&emsp;requestUri = "Unknown";<br>
         &emsp;&emsp;}<br><br>
-        &emsp;&emsp;// Set response content type<br>
+        &emsp;&emsp;<mark>// Set response content type</mark><br>
         &emsp;&emsp;response.setContentType("text/html");<br><br>
         &emsp;&emsp;PrintWriter out = response.getWriter();<br>
         &emsp;&emsp;String title = "Error/Exception Information";<br>
