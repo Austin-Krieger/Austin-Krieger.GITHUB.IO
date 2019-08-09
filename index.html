@@ -4658,7 +4658,228 @@
     </div>
     <button class="collapsible">Filters</button>
     <div class="content">
-        
+        <h3>Filters</h3>
+        <p>Servlet Filters are Java classes that can be used in Servlet Programming for the following purposes:</p>
+        <ul>
+            <li>To intercept requests from a client before they access a resource at back end.</li>
+            <li>To manipulate responses from server before they are sent back to the client.</li>
+        </ul>
+        <p>Filters are deployed in the deployment descriptor file web.xml and then map to either servlet names or URL patterns in your application's deployment descriptor.</p>
+        <p>When the web container starts up your web application, it creates an instance of each filter that you have declared in the deployment descriptor. The filters execute in the order that they are declared in the deployment descriptor.</p>
+        <h3>Servlet Filter Methods</h3>
+        <p>A filter is simply a Java class that implements the javax.servlet.Filter interface. The javax.servlet.Filter interface defines three methods.</p>
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>public void doFilter (ServletRequest, ServletResponse, FilterChain)</td>
+                <td>This method is called by the container each time a request/response pair is passed through the chain due to a client request for a resource at the end of the chain.</td>
+            </tr>
+            <tr>
+                <td>public void init(FilterConfig filterConfig)</td>
+                <td>This method is called by the web container to indicate to a filter that it is being placed into service.</td>
+            </tr>
+            <tr>
+                <td>public void destroy()</td>
+                <td>This method is called by the web container to indicate to a filter that it is being taken out of service.</td>
+            </tr>
+        </table>
+        <button class="collapsible">Servlet Filter Example</button>
+        <div class="content">
+        <h3>Servlet Filter Example</h3>
+        <p>Print the clients IP address and current date time.</p>
+        <div class="code">
+            public class LogFilter implements Filter  {<br>
+            &emsp;public void  init(FilterConfig config) throws ServletException {<br><br>
+            &emsp;&emsp;// Get init parameter<br>
+            &emsp;&emsp;String testParam = config.getInitParameter("test-param");<br>
+            &emsp;&emsp;//Print the init parameter<br>
+            &emsp;&emsp;System.out.println("Test Param: " + testParam);<br>
+            &emsp;}<br><br>
+            &emsp;public void  doFilter(ServletRequest request, ServletResponse response,<br>
+            &emsp;&emsp;FilterChain chain) throws java.io.IOException, ServletException {<br>
+            &emsp;&emsp;// Get the IP address of client machine.<br>
+            &emsp;&emsp;String ipAddress = request.getRemoteAddr();<br><br>
+            &emsp;&emsp;// Log the IP address and current timestamp.<br>
+            &emsp;&emsp;System.out.println("IP "+ ipAddress + ", Time " + new Date().toString());<br><br>
+            &emsp;&emsp;// Pass request back down the filter chain<br>
+            &emsp;&emsp;chain.doFilter(request,response);<br>
+            &emsp;}<br><br>
+            &emsp;public void destroy( ) {<br>
+            &emsp;&emsp;/* Called before the Filter instance is removed from service by the web container*/<br>
+            &emsp;}<br>
+            }
+        </div>
+        <h3>Servlet Filter Mapping in Web.xml</h3>
+        <p>Filters are defined and then mapped to a URL or Servlet, in much the same way as Servlet is defined and then mapped to a URL pattern. Create the following entry for filter tag in the deployment descriptor file web.xml</p>
+        <div class="code">
+            &lt;filter&gt;<br>
+            &lt;filter-name&gt;LogFilter&lt;/filter-name&gt;<br>
+            &lt;filter-class&gt;LogFilter&lt;/filter-class&gt;<br>
+            &lt;init-param&gt;<br>
+            &lt;param-name&gt;test-param&lt;/param-name&gt;<br>
+            &lt;param-value&gt;Initialization Paramter&lt;/param-value&gt;<br>
+            &lt;/init-param&gt;<br>
+            &lt;/filter&gt;<br><br>
+            &lt;filter-mapping&gt;<br>
+            &lt;filter-name>LogFilter&lt;/filter-name&gt;<br>
+            &lt;url-pattern>/*&lt;/url-pattern&gt;<br>
+            &lt;/filter-mapping&gt;
+        </div>
+        <p>The above filter would apply to all the servlets because we specified /* in our configuration. You can specicy a particular servlet path if you want to apply filter on few servlets only.</p>
+        <p>Your web application may define several different filters with a specific purpose. Consider, you define two filters AuthenFilter and LogFilter. Rest of the process would remain as explained above except you need to create a different mapping.</p>
+        <h3>Filter Order</h3>
+        <p>The order of filter-mapping elements in web.xml determines the order in which the web container applies the filter to the servlet. To reverse the order of the filter, you just need to reverse the filter-mapping elements in the web.xml file.</p>
+        </div>
+    </div>
+    <h3>Error Handling</h3>
+    <p>When a servlet throws an exception, the web container searches the configurations in web.xml that use the exception-type element for a match with the thrown exception type.</p>
+    <p>You would have to use the error-page element in web.xml to specify the invocation of servlets in response to certain exceptions or HTTP status codes.</p>
+    <div class="code">
+        <mark>&lt;!-- servlet definition --&gt;</mark><br>
+        &lt;servlet&gt;<br>
+        &emsp;&lt;servlet-name&gt;ErrorHandler&lt;/servlet-name&gt;<br>
+        &emsp;&lt;servlet-class&gt;ErrorHandler&lt;/servlet-class&gt;<br>
+        &lt;/servlet&gt;<br><br>
+        <mark>&lt;!-- servlet mappings --&gt;</mark><br>
+        &lt;servlet-mapping&gt;<br>
+        &emsp;&lt;servlet-name&gt;ErrorHandler&lt;/servlet-name&gt;<br>
+        &emsp;&lt;url-pattern&gt;/ErrorHandler&lt;/url-pattern&gt;<br>
+        &lt;/servlet-mapping&gt;<br><br>
+        <mark>&lt;!-- error-code related error pages --&gt;</mark><br>
+        &lt;error-page&gt;<br>
+        &emsp;&lt;error-code&gt;404&lt;/error-code&gt;<br>
+        &emsp;&lt;location&gt;/ErrorHandler&lt;/location&gt;<br>
+        &lt;/error-page&gt;<br><br>
+        &lt;error-page&gt;<br>
+        &emsp;&lt;error-code&gt;403&lt;/error-code&gt;<br>
+        &emsp;&lt;location&gt;/ErrorHandler&lt;/location&gt;<br>
+        &lt;/error-page&gt;<br><br>
+        <mark>&lt;!-- exception-type related error pages --&gt;</mark><br>
+        &lt;error-page&gt;<br>
+        &emsp;&lt;exception-type&gt;<br>
+        &emsp;&emsp;javax.servlet.ServletException<br>
+        &emsp;&lt;/exception-type &gt;<br>
+        &emsp;&lt;location&gt;/ErrorHandler&lt;/location&gt;<br>
+        &lt;/error-page&gt;<br><br>
+        &lt;error-page&gt;<br>
+        <mark>&lt;!-- A generic Error Handler will use java.lang.Throwable --&gt;</mark><br>
+        &emsp;&lt;exception-type&gt;java.io.IOException&lt;/exception-type &gt;<br>
+        &emsp;&lt;location&gt;/ErrorHandler&lt;/location&gt;<br>
+        &lt;/error-page&gt;
+    </div>
+    <h3>Request Attributes</h3>
+    <p>List of request attributes that an error-handling servlet can access to analyze the nature of error/exception.</p>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>javax.servlet.error.status_code</td>
+            <td>This attribute give status code which can be stored and analyzed after storing in a java.lang.Integer data type.</td>
+        </tr>
+        <tr>
+            <td>javax.servlet.error.exception_type</td>
+            <td>This attribute gives information about exception type which can be stored and analysed after storing in a java.lang.Class data type.</td>
+        </tr>
+        <tr>
+            <td>javax.servlet.error.message</td>
+            <td>This attribute gives information exact error message which can be stored and analyzed after storing in a java.lang.String data type.</td>
+        </tr>
+        <tr>
+            <td>javax.servlet.error.request_uri</td>
+            <td>This attribute gives information about URL calling the servlet and it can be stored and analysed after storing in a java.lang.String data type.</td>
+        </tr>
+        <tr>
+            <td>javax.servlet.error.exception</td>
+            <td>This attribute gives information about the exception raised, which can be stored and analysed.</td>
+        </tr>
+        <tr>
+            <td>javax.servlet.error.servlet_name</td>
+            <td>This attribute gives servlet name which can be stored and analyzed after storing in a java.lang.String data type.</td>
+        </tr>
+    </table>
+    <button class="collapsible">Error Handler Servlet Example</button>
+    <div class="content">
+    <p>This example would give you basic understanding of Exception Handling in Servlet, but you can write more sophisticated filter applications using the same concept.</p>
+    <div class="code">
+        public class ErrorHandler extends HttpServlet {<br><br>
+        &emsp;// Method to handle GET method request.<br>
+        &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+        &emsp;&emsp;throws ServletException, IOException {<br><br>
+        &emsp;&emsp;// Analyze the servlet exception<br>
+        &emsp;&emsp;Throwable throwable = (Throwable)<br>
+        &emsp;&emsp;request.getAttribute("javax.servlet.error.exception");<br>
+        &emsp;&emsp;Integer statusCode = (Integer)<br>
+        &emsp;&emsp;request.getAttribute("javax.servlet.error.status_code");<br>
+        &emsp;&emsp;String servletName = (String)<br>
+        &emsp;&emsp;request.getAttribute("javax.servlet.error.servlet_name");<br><br>
+        &emsp;&emsp;if (servletName == null) {<br>
+        &emsp;&emsp;&emsp;servletName = "Unknown";<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;String requestUri = (String)<br>
+        &emsp;&emsp;request.getAttribute("javax.servlet.error.request_uri");<br><br>
+        &emsp;&emsp;if (requestUri == null) {<br>
+        &emsp;&emsp;&emsp;requestUri = "Unknown";<br>
+        &emsp;&emsp;}<br><br>
+        &emsp;&emsp;// Set response content type<br>
+        &emsp;&emsp;response.setContentType("text/html");<br><br>
+        &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+        &emsp;&emsp;String title = "Error/Exception Information";<br>
+        &emsp;&emsp;String docType =<br>
+        &emsp;&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " +<br>
+        &emsp;&emsp;&emsp;"transitional//en\">\n";<br><br>
+        &emsp;&emsp;out.println(docType +<br>
+        &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+        &emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+        &emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n");<br><br>
+        &emsp;&emsp;if (throwable == null && statusCode == null) {<br>
+        &emsp;&emsp;&emsp;out.println("&lt;h2&gt;Error information is missing&lt;/h2&gt;");<br>
+        &emsp;&emsp;&emsp;out.println("Please return to the &lt;a href=\"" +<br>
+        &emsp;&emsp;&emsp;&emsp;response.encodeURL("http://localhost:8080/") +<br>
+        &emsp;&emsp;&emsp;&emsp;"\"&gt;Home Page&lt;/a&gt;.");<br>
+        &emsp;&emsp;} else if (statusCode != null) {<br>
+        &emsp;&emsp;&emsp;out.println("The status code : " + statusCode);<br>
+        &emsp;&emsp;} else {<br>
+        &emsp;&emsp;&emsp;out.println("&lt;h2&gt;Error information&lt;/h2&gt;");<br>
+        &emsp;&emsp;&emsp;out.println("Servlet Name : " + servletName + "&lt;/br&gt;&lt;/br&gt;");<br>
+        &emsp;&emsp;&emsp;out.println("Exception Type : " + throwable.getClass( ).getName( ) + "&lt;/br&gt;&lt;/br&gt;");<br>
+        &emsp;&emsp;&emsp;out.println("The request URI: " + requestUri + "&lt;br&gt;&lt;br&gt;");<br>
+        &emsp;&emsp;&emsp;out.println("The exception message: " + throwable.getMessage( ));<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;out.println("&lt;/body&gt;");<br>
+        &emsp;&emsp;out.println("&lt;/html&gt;");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Method to handle POST method request.</mark><br>
+        &emsp;public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
+        &emsp;&emsp;throws ServletException, IOException {<br><br>
+        &emsp;&emsp;doGet(request, response);<br>
+        &emsp;}<br>
+        }
+    </div>
+    <p>Add the following configuration in web.xml to handle exceptions</p>
+    <div class="code">
+        &lt;servlet&gt;<br>
+        &emsp;&lt;servlet-name&gt;ErrorHandler&lt;/servlet-name&gt;<br>
+        &emsp;&lt;servlet-class&gt;ErrorHandler&lt;/servlet-class&gt;<br>
+        &lt;/servlet&gt;<br><br>
+        <mark>&lt;!-- servlet mappings --&gt;</mark><br>
+        &lt;servlet-mapping&gt;<br>
+        &emsp;&lt;servlet-name&gt;ErrorHandler&lt;/servlet-name&gt;<br>
+        &emsp;&lt;url-pattern&gt;/ErrorHandler&lt;/url-pattern&gt;<br>
+        &lt;/servlet-mapping&gt;<br><br>
+        &lt;error-page&gt;<br>
+        &emsp;&lt;error-code&gt;404&lt;/error-code&gt;<br>
+        &emsp;&lt;location&gt;/ErrorHandler&lt;/location&gt;<br>
+        &lt;/error-page&gt;<br><br>
+        &lt;error-page&gt;<br>
+        &emsp;&lt;exception-type&gt;java.lang.Throwable&lt;/exception-type &gt;<br>
+        &emsp;&lt;location&gt;/ErrorHandler&lt;/location&gt;<br>
+        &lt;/error-page&gt;
+    </div>
     </div>
 </div>
 &nbsp;
