@@ -93,7 +93,6 @@ mark {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #555555;
-    border-radius: 10px;
 }
 
 /* Handle on hover */
