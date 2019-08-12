@@ -20,6 +20,17 @@
         element1.style.transform = "perspective(600px) rotateY(0deg)";
         element2.style.transform = "perspective(600px) rotateY(180deg)";
     }
+
+    function myFunction(el1) {
+        /* Get the text field */
+        var copyText = document.getElementById(el1);
+        /* Select the text field */
+        copyText.select();
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+    }
 </script>
 <body>
 <h1 style="text-align:center;">Learning Java</h1><br>
@@ -5076,8 +5087,8 @@
         </ul>
         <button class="collapsible">Delete Cookie Example</button>
         <div class="content">
-        <div class="code">
-            <p>
+        <div class="code" id="DeleteCookie"><p>
+        <button onclick="myFunction('DeleteCookie')">Copy</button>
             public class ReadCookies extends HttpServlet {<br><br>
             &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
