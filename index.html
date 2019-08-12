@@ -29,6 +29,20 @@
         /* Copy the text inside the text field */
         document.execCommand("copy");
     }
+
+    function copyText(containerID) {
+        if (document.selection) { // IE
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+        }
+        document.execCommand("copy");
+    }
 </script>
 <body>
 <h1 style="text-align:center;">Learning Java</h1><br>
@@ -5083,11 +5097,11 @@
             <li>Set cookie age as zero using setMaxAge() method to delete an existing cookie</li>
             <li>Add this cookie back into response header.</li>
         </ul>
-        <button class="collapsible">Delete Cookie Example</button>
+        <button class="collapsible">Delete Cookies Example</button>
         <div class="content">
         <div class="code" id="DeleteCookie"><p>
-        <button onclick="myFunction('DeleteCookie')">Copy</button><br>
-            public class ReadCookies extends HttpServlet {<br><br>
+        <button onclick="copyText('DeleteCookie')">Copy</button><br>
+            public class DeleteCookies extends HttpServlet {<br><br>
             &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
             &emsp;&emsp;Cookie cookie = null;<br>
@@ -5097,7 +5111,7 @@
             &emsp;&emsp;<mark>// Set response content type</mark><br>
             &emsp;&emsp;response.setContentType("text/html");<br><br>
             &emsp;&emsp;PrintWriter out = response.getWriter();<br>
-            &emsp;&emsp;String title = "Reading Cookies Example";<br>
+            &emsp;&emsp;String title = "Delete Cookies Example";<br>
             &emsp;&emsp;String docType =<br>
             <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
             &emsp;&emsp;out.println(docType +<br>
