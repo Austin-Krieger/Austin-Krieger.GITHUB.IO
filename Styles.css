@@ -59,7 +59,12 @@ tr:nth-child(even) {
     margin: 20px;
     width: 90%;
     font-family: Arial, sans-serif;
-    overflow-x: auto;
+    resize: horizontal;
+    overflow-x: scroll;
+}
+
+.code p {
+    width: 1000px;
 }
 
 mark {
