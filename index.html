@@ -5263,6 +5263,288 @@
         </p>
         </div>
         </div>
+        &nbsp;
+        <button class="collapsible">Session Tracking</button>
+        <div class="content">
+            <h3>Session Tracking</h3>
+            <p>HTTP is a "stateless" protocol which means each time a client retrieves a Web page, the client opens a separate connection to the Web server and the server automatically does not keep any record of previous client request.</p>
+            <p>To maintain session between web client and web server we can use Cookies, Hidden Form Fields, URL Rewriting and The HttpSession Object.</p>
+            <h3>Cookies</h3>
+            <p>A webserver can assign a unique session ID as a cookie to each web client and for subsequent requests from the client they can be recognized using the recieved cookie.</p>
+            <p>This may not be an effective way because many times the browser does not support a cookie.</p>
+            <h3>Hidden Form Fields</h3>
+            <p>A web server can send a hidden HTML form field along with a unique session ID.</p>
+            <div class="code" id="hiddenFormFields"><button class="copy" onclick="copyText('hiddenFormFields')">Copy</button><br><p>
+                &lt;input type = "hidden" name = "sessionid" value = "12345"&gt;
+            </p>
+            </div>
+            <p>This entry means that, when the form is submitted, the specified name and value are automatically included in the GET or POST data.</p>
+            <p>This could be an effective way of keeping track of the session but clicking on a regular (&lt;a href...&gt;) hypertext link does not result in a form submission, so hidden form fields also cannot support general session tracking.</p>
+            <h3>URL Rewriting</h3>
+            <p>You can append some extra data on the end of each URL that identifies the session, and the server can associate that session identifier with data it has stored about that session.</p>
+            <p>For example, with http://tutorialspoint.com/file.htm;sessionid = 12345, the session identifier is attached as sessionid = 12345 which can be accessed at the web server to identify the client.</p>
+            <p>URL rewriting is a better way to maintain sessions and it works even when browsers don't support cookies. The drawback of URL re-writing is that you would have to generate every URL dynamically to assign a session ID, even in case of a simple static HTML page.</p>
+            <h3>The HttpSession Object</h3>
+            <p>Servlet provides HttpSession Interface which provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user.</p>
+            <p>The servlet container uses this interface to create a session between an HTTP client and an HTTP server. The session persists for a specified time period, across more than one connection or page request from the user.</p>
+            <p>You would get HttpSession object by calling the public method getSession() of HttpServletRequest.</p>
+            <div class="code" id="sessionObject"><button class="copy" onclick="copyText('sessionObject')">Copy</button><br><p>
+                HttpSession session = request.getSession();
+            </p>
+            </div>
+            <p>You need to call request.getSession() before you send any document content to the client.</p>
+            <div class="scrollableTable">
+                <table>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>public Object getAttribute(String name)</td>
+                        <td>This method returns the object bound with the specified name in this session, or null if no object is bound under the name.</td>
+                    </tr>
+                    <tr>
+                        <td>public Enumeration getAttributeNames()</td>
+                        <td>This method returns an Enumeration of String objects containing the names of all the objects bound to this session.</td>
+                    </tr>
+                    <tr>
+                        <td>public long getCreationTime()</td>
+                        <td>This method returns the time when this session was created, measured in milliseconds since midnight January 1, 1970 GMT.</td>
+                    </tr>
+                    <tr>
+                        <td>public String getId()</td>
+                        <td>This method returns a string containing the unique identifier assigned to this session.</td>
+                    </tr>
+                    <tr>
+                        <td>public long getLastAccessedTime()</td>
+                        <td>This method returns the last accessed time of the session, in the format of milliseconds since midnight January 1, 1970 GMT.</td>
+                    </tr>
+                    <tr>
+                        <td>public int getMaxInactiveInterval()</td>
+                        <td>This method returns the maximum time interval (seconds), that the servlet container will keep the session open between client accesses.</td>
+                    </tr>
+                    <tr>
+                        <td>public void invalidate()</td>
+                        <td>This method invalidates this session and unbinds any objects bound to it.</td>
+                    </tr>
+                    <tr>
+                        <td>public boolean isNew()</td>
+                        <td>This method returns true if the client does not yet know about the session or if the client chooses not to join the session.</td>
+                    </tr>
+                    <tr>
+                        <td>public void removeAttribute(String name)</td>
+                        <td>This method removes the object bound with the specified name from this session.</td>
+                    </tr>
+                    <tr>
+                        <td>public void setAttribute(String name, Object value)</td>
+                        <td>This method binds an object to this session, using the name specified.</td>
+                    </tr>
+                    <tr>
+                        <td>public void setMaxInactiveInterval(int interval)</td>
+                        <td>This method specifies the time, in seconds, between client requests before the servlet container will invalidate this session.</td>
+                    </tr>
+                </table>
+            </div>
+            &nbsp;
+            <button class="collapsible">Session Tracking Example</button>
+            <div class="content">
+            <h3>Session Tracking Example</h3>
+            <p>This example describes how to use the HttpSession object to find out the creation time and the last-accessed time for a session. We would associate a new session with the request if one does not already exist.</p>
+            <div class="code" id="sessionTracking"><button class="copy" onclick="copyText('sessionTracking')">Copy</button><br><p>
+                public class SessionTrack extends HttpServlet {<br><br>
+                &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+                &emsp;&emsp;throws ServletException, IOException {<br><br>
+                &emsp;&emsp;<mark>// Create a session object if it is already not  created.</mark><br>
+                &emsp;&emsp;HttpSession session = request.getSession(true);<br><br>
+                &emsp;&emsp;<mark>// Get session creation time.</mark><br>
+                &emsp;&emsp;Date createTime = new Date(session.getCreationTime());<br><br>
+                &emsp;&emsp;<mark>// Get last access time of this web page.</mark><br>
+                &emsp;&emsp;Date lastAccessTime = new Date(session.getLastAccessedTime());<br><br>
+                &emsp;&emsp;String title = "Welcome Back to my website";<br>
+                &emsp;&emsp;Integer visitCount = new Integer(0);<br>
+                &emsp;&emsp;String visitCountKey = new String("visitCount");<br>
+                &emsp;&emsp;String userIDKey = new String("userID");<br>
+                &emsp;&emsp;String userID = new String("ABCD");<br><br>
+                &emsp;&emsp;<mark>// Check if this is new comer on your web page.</mark><br>
+                &emsp;&emsp;if (session.isNew()) {<br>
+                &emsp;&emsp;&emsp;title = "Welcome to my website";<br>
+                &emsp;&emsp;&emsp;session.setAttribute(userIDKey, userID);<br>
+                &emsp;&emsp;} else {<br>
+                &emsp;&emsp;&emsp;visitCount = (Integer)session.getAttribute(visitCountKey);<br>
+                &emsp;&emsp;&emsp;visitCount = visitCount + 1;<br>
+                &emsp;&emsp;&emsp;userID = (String)session.getAttribute(userIDKey);<br>
+                &emsp;&emsp;}<br>
+                &emsp;&emsp;session.setAttribute(visitCountKey,  visitCount);<br><br>
+                &emsp;&emsp;<mark>// Set response content type</mark><br>
+                &emsp;&emsp;response.setContentType("text/html");<br>
+                &emsp;&emsp;PrintWriter out = response.getWriter();<br><br>
+                &emsp;&emsp;String docType =<br>
+                &emsp;&emsp;&emsp;<mark>"&lt;!doctype html public \"-//w3c//dtd html 4.0 " +<br>
+                &emsp;&emsp;&emsp;"transitional//en\"&gt;\n";</mark><br><br>
+                &emsp;&emsp;out.println(docType +<br>
+                &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h2 align = \"center\"&gt;Session Infomation&lt;/h2&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;table border = \"1\" align = \"center\"&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr bgcolor = \"#949494\"&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;th&gt;Session info&lt;/th&gt;&lt;th&gt;value&lt;/th&gt;<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;id&lt;/td&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;" + session.getId() + "&lt;/td&gt;<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;Creation Time&lt;/td&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;" + createTime + "  &lt;/td&gt;<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;Time of Last Access&lt;/td&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;" + lastAccessTime + "  &lt;/td&gt;<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;User ID&lt;/td&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;" + userID + "  &lt;/td&gt;<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;\n" +<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"&lt;tr&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;Number of visits&lt;/td&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;td&gt;" + visitCount + "&lt;/td&gt;<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/tr&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;/table&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
+                &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+                &emsp;&emsp;);<br>
+                &emsp;}<br>
+                }
+            </p>
+            </div>
+            <p>Create appropriate entry in web.xml file and go to http://localhost:8080/SessionTrack</p>
+            </div>
+            <h3>Deleting Session Data</h3>
+            <ul>
+                <li><b>Remove a particular attribute</b> − You can call public void removeAttribute(String name) method to delete the value associated with a particular key.</li>
+                <li><b>Delete the whole session</b> − You can call public void invalidate() method to discard an entire session.</li>
+                <li><b>Setting Session timeout</b> − You can call public void setMaxInactiveInterval(int interval) method to set the timeout for a session individually.</li>
+                <li><b>Log the user out</b> − The servers that support servlets 2.4, you can call logout to log the client out of the Web server and invalidate all sessions belonging to all the users.</li>
+                <li><b>web.xml Configuration</b> − If you are using Tomcat, apart from the above mentioned methods, you can configure session time out in web.xml file as follows.</li>
+            </ul>
+            <div class="code" id="sessionTimeout"><button class="copy" onclick="copyText('sessionTimeout')">Copy</button><br><p>
+                &lt;session-config&gt;
+                &lt;session-timeout&gt;15&lt;/session-timeout&gt;
+                &lt;/session-config&gt;
+            </p>
+            </div>
+            <p>The timeout is expressed as minutes, and overrides the default timeout which is 30 minutes in Tomcat.</p>
+            <p>The getMaxInactiveInterval( ) method in a servlet returns the timeout period for that session in seconds. So if your session is configured in web.xml for 15 minutes, getMaxInactiveInterval( ) returns 900.</p>
+        </div>
+        &nbsp;
+        <button class="collapsible">Page Redirection</button>
+        <div class="content">
+            <p>Page redirection is a technique where the client is sent to a new location other than requested. Page redirection is generally used when a document moves to a new location or may be because of load balancing.</p>
+            <p>The simplest way of redirecting a request to another page is using method sendRedirect() of response object.</p>
+            <div class="code" id="pageRedirect1"><button class="copy" onclick="copyText('pageRedirect1')">Copy</button><br><p>
+                public void HttpServletResponse.sendRedirect(String location)<br>
+                throws IOException
+            </p>
+            </div>
+            <p>This method sends back the response to the browser along with the status code and new page location. You can also use setStatus() and setHeader() methods together to achieve the same.</p>
+            <div class="code" id="pageRedirect2"><button class="copy" onclick="copyText('pageRedirect2')">Copy</button><br><p>
+                String site = "http://www.newpage.com" ;<br>
+                response.setStatus(response.SC_MOVED_TEMPORARILY);<br>
+                response.setHeader("Location", site);
+            </p>
+            </div>
+            &nbsp;
+            <button class="collapsible">Page Redirect Example</button>
+            <div class="content">
+                <h3>Page Redirect Example</h3>
+                <div class="code" id="pageRedirect3"><button class="copy" onclick="copyText('pageRedirect3')">Copy</button><br><p>
+                    public class PageRedirect extends HttpServlet {<br><br>
+                    &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+                    &emsp;&emsp;throws ServletException, IOException {<br><br>
+                    &emsp;&emsp;<mark>// Set response content type</mark><br>
+                    &emsp;&emsp;response.setContentType("text/html");<br><br>
+                    &emsp;&emsp;<mark>// New location to be redirected</mark><br>
+                    &emsp;&emsp;String site = new String("http://www.photofuntoos.com");<br>
+                    &emsp;&emsp;response.setStatus(response.SC_MOVED_TEMPORARILY);<br>
+                    &emsp;&emsp;response.setHeader("Location", site);<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+                <p>Web.xml</p>
+                <div class="code" id="pageRedirect4"><button class="copy" onclick="copyText('pageRedirect4')">Copy</button><br><p>
+                    &lt;servlet&gt;<br>
+                    &emsp;&lt;servlet-name&gt;PageRedirect&lt;/servlet-name&gt;<br>
+                    &emsp;&lt;servlet-class&gt;PageRedirect&lt;/servlet-class&gt;<br>
+                    &lt;/servlet&gt;<br><br>
+                    &lt;servlet-mapping&gt;<br>
+                    &emsp;&lt;servlet-name&gt;PageRedirect&lt;/servlet-name&gt;<br>
+                    &emsp;&lt;url-pattern&gt;/PageRedirect&lt;/url-pattern&gt;<br>
+                    &lt;/servlet-mapping&gt;
+                </p></div>
+                <p>Now call this servlet using URL http://localhost:8080/PageRedirect. This would redirect you to URL http://www.photofuntoos.com</p>
+            </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">Debugging</button>
+        <div class="content">
+            <h3>Servlet Debugging</h3>
+            <p>Servlets tend to involve a large amount of client/server interaction, making errors likely but hard to reproduce.</p>
+            <h3>System.out.println()</h3>
+            <p>System.out.println() is easy to use as a marker to test whether a certain piece of code is being executed or not. We can print out variable values as well.</p>
+            <ul>
+                <li>Since the System object is part of the core Java objects, it can be used everywhere without the need to install any extra classes. This includes Servlets, JSP, RMI, EJB's, ordinary Beans and classes, and standalone applications.</li>
+                <li>Stopping at breakpoints technique stops the normal execution hence takes more time. Whereas writing to System.out doesn't interfere much with the normal execution flow of the application, which makes it very valuable when timing is crucial.</li>
+            </ul>
+            <p>All the messages generated by System.out.println(""); syntax would be logged in web server log file.</p>
+            <h3>Message Logging</h3>
+            <p>It is always great idea to use proper logging method to log all the debug, warning and error messages using a standard logging method.</p>
+            <div class="code" id="debugging1"><button class="copy" onclick="copyText('debugging1')">Copy</button><br><p>
+                public class ContextLog extends HttpServlet {<br>
+                &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+                &emsp;&emsp;throws ServletException, java.io.IOException {<br><br>
+                &emsp;&emsp;String par = request.getParameter("par1");<br><br>
+                &emsp;&emsp;<mark>//Call the two ServletContext.log methods</mark><br>
+                &emsp;&emsp;ServletContext context = getServletContext( );<br><br>
+                &emsp;&emsp;if (par == null || par.equals(""))<br>
+                &emsp;&emsp;&emsp;<mark>//log version with Throwable parameter</mark><br>
+                &emsp;&emsp;&emsp;context.log("No message received:", new IllegalStateException("Missing parameter"));<br>
+                &emsp;&emsp;else<br>
+                &emsp;&emsp;&emsp;context.log("Here is the visitor's message: " + par);<br><br>
+                &emsp;&emsp;response.setContentType("text/html");<br>
+                &emsp;&emsp;java.io.PrintWriter out = response.getWriter( );<br>
+                &emsp;&emsp;String title = "Context Log";<br>
+                &emsp;&emsp;String docType =<br>
+                &emsp;&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";<br><br>
+                &emsp;&emsp;out.println(docType +<br>
+                &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h2 align = \"center\"&gt;Messages sent&lt;/h2&gt;\n" +<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
+                &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+                &emsp;&emsp;);<br>
+                &emsp;} <mark>//doGet</mark><br>
+                }
+            </p></div>
+            <p>The ServletContext logs its text messages to the servlet container's log file. With Tomcat these logs are found in &lt;Tomcat-installation-directory&gt;/logs.</p>
+            <p>The log files do give an indication of new emerging bugs or the frequency of problems. For that reason it's good to use the log() function in the catch clause of exceptions which should normally not occur.</p>
+            <h3>Using Comments</h3>
+            <p>Comments in your code can help the debugging process in various ways. Comments can be used in lots of other ways in the debugging process.</p>
+            <p>The Servlet uses Java comments and single line (// ...) and multiple line (/* ... */) comments can be used to temporarily remove parts of your Java code. If the bug disappears, take a closer look at the code you just commented and find out the problem.</p>
+            <h3>Client and Server Headers</h3>
+            <p>Sometimes when a servlet doesn't behave as expected, it's useful to look at the raw HTTP request and response. If you're familiar with the structure of HTTP, you can read the request and response and see exactly what exactly is going with those headers.</p>
+            <h3>Important Debugging Tips</h3>
+            <ul>
+                <li>Remember that server_root/classes doesn't reload and that server_root/servlets probably does.</li>
+                <li>Ask a browser to show the raw content of the page it is displaying. This can help identify formatting problems. It's usually an option under the View menu.</li>
+                <li>Make sure the browser isn't caching a previous request's output by forcing a full reload of the page. With Netscape Navigator, use Shift-Reload; with Internet Explorer use Shift-Refresh.</li>
+                <li>Verify that your servlet's init() method takes a ServletConfig parameter and calls super.init(config) right away.</li>
+            </ul>
+        </div>
     </div>
 </div>
 &nbsp;
