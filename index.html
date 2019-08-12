@@ -415,7 +415,7 @@
     <p>The basic unit of storage in a Java program.</p>
     <h2>Declaring a Variable</h2>
     <p>Variables must be declared before they can be used.</p>
-    <div class="code" id="variables1"><button class="copy" onclick="copyText('variables1')">Copy</button><p>
+    <div class="code" id="variables1"><button class="copy" onclick="copyText('variables1')">Copy</button><br><p>
         Type identifier [ = value ][, identifier [ = value ] ...];<br>
         int value1 = 12, value2 = 24;
     </p>
@@ -485,12 +485,12 @@
                 <li>Otherwise if either operand is int, the other operand is promoted to int.</li>
                 <li>If neither operand is double, float, long or int, both operands are promoted to int.</li>
             </ol>
-            <div class="code" id="variables2"><button class="copy" onclick="copyText('variables2')">Copy</button><p>byte b = 10; <br> long l = 1 + 8; <br> double d = b * 2.5 + l; <br><br> System.out.println("I = " + i); <br> System.out.println("J = " + j); <br> System.out.println("K =" + k); <br><br> <b>Output:</b> <br><br>I = 10 <br>J = 9 <br>K = 34.0</p></div>
+            <div class="code" id="variables2"><button class="copy" onclick="copyText('variables2')">Copy</button><br><p>byte b = 10; <br> long l = 1 + 8; <br> double d = b * 2.5 + l; <br><br> System.out.println("I = " + i); <br> System.out.println("J = " + j); <br> System.out.println("K =" + k); <br><br> <b>Output:</b> <br><br>I = 10 <br>J = 9 <br>K = 34.0</p></div>
         </ul>
         <ul>
             <li style="font-weight: bold;">Explicit type conversion: (target-type) value</li>
         </ul>
-        <div class="code" id="variables3"><button class="copy" onclick="copyText('variables3')">Copy</button><p>int a; <br> byte b; <br> b = (byte) a;</p></div>
+        <div class="code" id="variables3"><button class="copy" onclick="copyText('variables3')">Copy</button><br><p>int a; <br> byte b; <br> b = (byte) a;</p></div>
     </ul>
     </div>
     &nbsp;
@@ -505,41 +505,41 @@
     </ul>
     <h3>One-Dimensional Arrays</h3>
     <p>One-dimensional arrays are essentially lists of like-types variables.</p>
-    <div class="code" id="arrays1"><button class="copy" onclick="copyText('arrays1')">Copy</button><p>
+    <div class="code" id="arrays1"><button class="copy" onclick="copyText('arrays1')">Copy</button><br><p>
         type var-name[]; or type[] var-name;
     </p>
     </div>
     <p>The base type of the array determines what type of data the array will hold and new is a special operator that allocates memory.</p>
-    <div class="code" id="arrays2"><button class="copy" onclick="copyText('arrays2')">Copy</button><p>
+    <div class="code" id="arrays2"><button class="copy" onclick="copyText('arrays2')">Copy</button><br><p>
         array-var = new type[size];
     </p>
     </div>
     <p>type specifies the type of data being allocated and size specifies the number of elements.</p>
     <p>array-var is the array variable that is linked to the array.</p>
-    <div class="code" id="arrays3"><button class="copy" onclick="copyText('arrays3')">Copy</button><p>
+    <div class="code" id="arrays3"><button class="copy" onclick="copyText('arrays3')">Copy</button><br><p>
         month_days = new int[12]; <mark>// Create a new integer array</mark><br>
         month_days[1] = 28; <mark>// Give index 1 a value of 28</mark>
     </p>
     </div>
     <p>Combine the declaration of the array with the allocation of the array.</p>
-    <div class="code" id="arrays4"><button class="copy" onclick="copyText('arrays4')">Copy</button><p>
+    <div class="code" id="arrays4"><button class="copy" onclick="copyText('arrays4')">Copy</button><br><p>
         int month_days[] = new int[12];
     </p>
     </div>
     <p>Arrays can also be initialized when they are declared.</p>
-    <div class="code" id="arrays5"><button class="copy" onclick="copyText('arrays5')">Copy</button><p>
+    <div class="code" id="arrays5"><button class="copy" onclick="copyText('arrays5')">Copy</button><br><p>
         int month_days[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     </p>
     </div>
     <h3>Multidimensional Arrays</h3>
     <p>Multidimensional Arrays are "Arrays of Arrays"</p>
-    <div class="code" id="arrays6"><button class="copy" onclick="copyText('arrays6')">Copy</button><p>
+    <div class="code" id="arrays6"><button class="copy" onclick="copyText('arrays6')">Copy</button><br><p>
         <mark>// Allocate a 4 by 5 array and assign it to twoD</mark><br>
         int twoD[][] = new int [4][5];
     </p>
     </div>
     <p>When you allocate the memory for a multi-dimentional array, you need only specify the memory for the first (leftmost) dimension. You can allocate the memory for the remaining dimensions separately.</p>
-    <div class="code" id="arrays7"><button class="copy" onclick="copyText('arrays7')">Copy</button><p>
+    <div class="code" id="arrays7"><button class="copy" onclick="copyText('arrays7')">Copy</button><br><p>
         int twoD[][] = new int[4][];<br>
         twoD[0] = new int[5];<br>
         twoD[1] = new int[5];<br>
@@ -554,7 +554,7 @@
 <div class="content">
     <h3>Strings</h3>
     <p>Strings are used for storing text. A String variable contains a collection of characters surrounded by double quotes</p>
-    <div class="code" id="string1"><button class="copy" onclick="copyText('string1')">Copy</button><p>
+    <div class="code" id="string1"><button class="copy" onclick="copyText('string1')">Copy</button><br><p>
         String greeting = "Hello";
     </p>
     </div>
@@ -764,20 +764,20 @@
     <p>Java counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third ..</p>
     <h3>concat() Method</h3>
     <p>The Java String concat() method concatenates one string to the end of another string. This method returns a string with the value of the string passed into the method, appended to the end of the string.</p>
-    <div class="code" id="string2"><button class="copy" onclick="copyText('string2')">Copy</button><p>
+    <div class="code" id="string2"><button class="copy" onclick="copyText('string2')">Copy</button><br><p>
         String s = "Java";<br>
         s = s.concat("! is the best.");<br>
         System.out.println(s);
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="string3"><button class="copy" onclick="copyText('string3')">Copy</button><p>
+    <div class="code" id="string3"><button class="copy" onclick="copyText('string3')">Copy</button><br><p>
         Java! is the best.
     </p>
     </div>
     <h3>+ Operator</h3>
     <p>+ operator is used to concatenate strings on either side.</p>
-    <div class="code" id="string4"><button class="copy" onclick="copyText('string4')">Copy</button><p>
+    <div class="code" id="string4"><button class="copy" onclick="copyText('string4')">Copy</button><br><p>
         String s1 = "Java";<br>
         String s2 = "! is the best.";<br>
         String s3 = s1 + s2;<br>
@@ -785,7 +785,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="string5"><button class="copy" onclick="copyText('string5')">Copy</button><p>
+    <div class="code" id="string5"><button class="copy" onclick="copyText('string5')">Copy</button><br><p>
         Java! is the best.
     </p>
     </div>
@@ -836,7 +836,7 @@
     </table></div>
     <h3>Special Characters</h3>
     <p>Because strings must be written within quotes, Java will misunderstand this string, and generate an error</p>
-    <div class="code" id="string6"><button class="copy" onclick="copyText('string6')">Copy</button><p>
+    <div class="code" id="string6"><button class="copy" onclick="copyText('string6')">Copy</button><br><p>
         String txt = "We are the so-called "Vikings" from the north.";
     </p>
     </div>
@@ -890,7 +890,7 @@
     </table></div>
     <h3>Adding Numbers and Strings</h3>
     <p>If you add a number and a string, the result will be a string concatenation.</p>
-    <div class="code" id="string8"><button class="copy" onclick="copyText('string8')">Copy</button><p>
+    <div class="code" id="string8"><button class="copy" onclick="copyText('string8')">Copy</button><br><p>
         String x = "10";<br>
         int y = 20;<br>
         String z = x + y; <mark>// z will be 1020 (a String)</mark>
@@ -963,7 +963,7 @@
     </ul>
     <h3>Return Values</h3>
     <p>If you want the method to return a value, you can use a primitive data type (such as int, char, etc.) instead of void, and use the return keyword inside the method.</p>
-    <div class="code" id="method1"><button class="copy" onclick="copyText('method1')">Copy</button><p>
+    <div class="code" id="method1"><button class="copy" onclick="copyText('method1')">Copy</button><br><p>
         static int myMethod(int x) {<br>
         &emsp;return 5 + x;<br>
         }
@@ -997,7 +997,7 @@
         <li>Executed once when the class is being loaded, we cannot call static blocks.</li>
         <li>Not part of the object, but part of the class.</li>
     </ol>
-    <div class="code" id="method2"><button class="copy" onclick="copyText('method2')">Copy</button><p>
+    <div class="code" id="method2"><button class="copy" onclick="copyText('method2')">Copy</button><br><p>
         class Test {<br>
         &emsp;static int i;<br><br>
         &emsp;<mark>// start of static block</mark><br>
@@ -1017,7 +1017,7 @@
     </p>
     </div>
     <p>Example of static blocks being called before constructors:</p>
-    <div class="code" id="method3"><button class="copy" onclick="copyText('method3')">Copy</button><p>
+    <div class="code" id="method3"><button class="copy" onclick="copyText('method3')">Copy</button><br><p>
         class Test {<br>
         &emsp;static int i;<br>
         &emsp;static {<br>
@@ -1038,7 +1038,7 @@
     </p>
     </div>
     <h3>Java Class Methods</h3>
-    <div class="code" id="method4"><button class="copy" onclick="copyText('method4')">Copy</button><p>
+    <div class="code" id="method4"><button class="copy" onclick="copyText('method4')">Copy</button><br><p>
         public class MyClass {<br>
         &emsp;<mark>// Static method</mark><br>
         &emsp;static void myStaticMethod() {<br>
@@ -1062,7 +1062,7 @@
     <p>To call a method in Java, write the method name followed by a set of parentheses (), followed by a semicolon (;).</p>
     <p>A class must have a matching filename (MyClass and MyClass.java).</p>
     <h3>Using Multiple Classes</h3>
-    <div class="code" id="method5"><button class="copy" onclick="copyText('method5')">Copy</button><p>
+    <div class="code" id="method5"><button class="copy" onclick="copyText('method5')">Copy</button><br><p>
         public class Car {<br>
         &emsp;public void fullThrottle() {<br>
         &emsp;&emsp;System.out.println("The car is going as fast as it can!");<br>
@@ -1073,7 +1073,7 @@
         }
     </p>
     </div>
-    <div class="code" id="method6"><button class="copy" onclick="copyText('method6')">Copy</button><p>
+    <div class="code" id="method6"><button class="copy" onclick="copyText('method6')">Copy</button><br><p>
         class OtherClass {<br>
         &emsp;public static void main(String[] args) {<br>
         &emsp;&emsp;Car myCar = new Car();  <mark>// Create a myCar object</mark><br>
@@ -1084,7 +1084,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="method7"><button class="copy" onclick="copyText('method7')">Copy</button><p>
+    <div class="code" id="method7"><button class="copy" onclick="copyText('method7')">Copy</button><br><p>
         The car is going as fast as it can!<br>
         Max speed is: 200
     </p>
@@ -1102,7 +1102,7 @@
     </ol>
     <h3>What is constructor overloading in Java?</h3>
     <p>In Java, constructor overloading is a technique of adding any number of constructors to a class each having a different parameter list. The compiler uses the number of parameters and their types in the list to differentiate the overloaded constructors.</p>
-    <div class="code" id="constructor1"><button class="copy" onclick="copyText('constructor1')">Copy</button><p>
+    <div class="code" id="constructor1"><button class="copy" onclick="copyText('constructor1')">Copy</button><br><p>
         <mark>// Create a class</mark><br>
         public class MyClass {<br>
         &emsp;int x; <mark>// Create a class attribute</mark><br><br>
@@ -1127,7 +1127,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="constructor2"><button class="copy" onclick="copyText('constructor2')">Copy</button><p>
+    <div class="code" id="constructor2"><button class="copy" onclick="copyText('constructor2')">Copy</button><br><p>
         5<br>
         5
     </p>
@@ -1143,7 +1143,7 @@
     <p>Copy Constructor in java class is a special type of constructor that takes the same class as an argument. Copy constructor is used to provide a copy of the specified object.</p>
     <p>Copy constructor is an easy alternative to java cloning mechanism.</p>
     <p>Copy constructor is helpful when we want to copy an object that is heavy to instantiate.</p>
-    <div class="code" id="constructor3"><button class="copy" onclick="copyText('constructor3')">Copy</button><p>
+    <div class="code" id="constructor3"><button class="copy" onclick="copyText('constructor3')">Copy</button><br><p>
         <mark>// Create a class</mark><br>
         public class MyClass {<br>
         &emsp;int x; <mark>// Create a class attribute</mark><br><br>
@@ -1175,7 +1175,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="constructor4"><button class="copy" onclick="copyText('constructor4')">Copy</button><p>
+    <div class="code" id="constructor4"><button class="copy" onclick="copyText('constructor4')">Copy</button><br><p>
         5<br>
         5<br>
         5
@@ -1194,7 +1194,7 @@
         <li>Constructor chaining can be achieved in any order.</li>
     </ol>
     <h3>Constructor Chaining using this() Keyword</h3>
-    <div class="code" id="constructor5"><button class="copy" onclick="copyText('constructor5')">Copy</button><p>
+    <div class="code" id="constructor5"><button class="copy" onclick="copyText('constructor5')">Copy</button><br><p>
         class Temp {<br>
         &emsp;<mark>// default constructor 1</mark><br>
         &emsp;<mark>// default constructor will call another constructor</mark><br>
@@ -1222,14 +1222,14 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="constructor6"><button class="copy" onclick="copyText('constructor6')">Copy</button><p>
+    <div class="code" id="constructor6"><button class="copy" onclick="copyText('constructor6')">Copy</button><br><p>
         default<br>
         5<br>
         80
     </p>
     </div>
     <h3>Constructor Chaining using super() keyword</h3>
-    <div class="code" id="constructor7"><button class="copy" onclick="copyText('constructor7')">Copy</button><p>
+    <div class="code" id="constructor7"><button class="copy" onclick="copyText('constructor7')">Copy</button><br><p>
         class Base {<br>
         &emsp;String name;<br><br>
         &emsp;<mark>// constructor 1</mark><br>
@@ -1264,14 +1264,14 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="constructor8"><button class="copy" onclick="copyText('constructor8')">Copy</button><p>
+    <div class="code" id="constructor8"><button class="copy" onclick="copyText('constructor8')">Copy</button><br><p>
         Calling parameterized constructor of base<br>
         Calling parameterized constructor of derived
     </p>
     </div>
     <h3>Init Block</h3>
     <p>When we want certain common resources to be executed with every constructor we can put the code in the init block. Init block is always executed before any constructor, whenever a constructor is used for creating a new object.</p>
-    <div class="code" id="constructor9"><button class="copy" onclick="copyText('constructor9')">Copy</button><p>
+    <div class="code" id="constructor9"><button class="copy" onclick="copyText('constructor9')">Copy</button><br><p>
         class Temp {<br>
         &emsp;<mark>// block to be executed before any constructor.</mark><br>
         &emsp;{<br>
@@ -1295,7 +1295,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="constructor10"><button class="copy" onclick="copyText('constructor10')">Copy</button><p>
+    <div class="code" id="constructor10"><button class="copy" onclick="copyText('constructor10')">Copy</button><br><p>
         init block<br>
         default<br>
         init block<br>
@@ -1304,7 +1304,7 @@
     </div>
     <h3>Why Constructors are not inherited in Java</h3>
     <p>Constructors are special and have same name as class name. So if constructors were inherited in child class then child class would contain a parent class constructor which is against the constraint that constructor should have same name as class name.</p>
-    <div class="code" id="constructor11"><button class="copy" onclick="copyText('constructor11')">Copy</button><p>
+    <div class="code" id="constructor11"><button class="copy" onclick="copyText('constructor11')">Copy</button><br><p>
         class Parent {<br>
         &emsp;public Parent() {<br>
         &emsp;}<br><br>
@@ -1326,7 +1326,7 @@
     <h3>Inheritance and Constructors</h3>
     <p>In Java, constructor of base class with no argument gets automatically called in derived class constructor.</p>
     <p>But, if we want to call parameterized contructor of base class, then we can call it using super(). The point to note is base class constructor call must be the first line in derived class constructor.</p>
-    <div class="code" id="constructor12"><button class="copy" onclick="copyText('constructor12')">Copy</button><p>
+    <div class="code" id="constructor12"><button class="copy" onclick="copyText('constructor12')">Copy</button><br><p>
         class Base {<br>
         &emsp;int x;<br><br>
         &emsp;Base(int x) {<br>
@@ -1352,7 +1352,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="constructor13"><button class="copy" onclick="copyText('constructor13')">Copy</button><p>
+    <div class="code" id="constructor13"><button class="copy" onclick="copyText('constructor13')">Copy</button><br><p>
         x = 10, y = 20
     </p>
     </div>
@@ -1659,12 +1659,12 @@
         <li>Everything in Java is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.</li>
     </ul>
     <p>General form:</p>
-    <div class="code" id="class1"><button class="copy" onclick="copyText('class1')">Copy</button><p>class className { <br>&emsp; type instance-variable1; <br> }</p></div>
+    <div class="code" id="class1"><button class="copy" onclick="copyText('class1')">Copy</button><br><p>class className { <br>&emsp; type instance-variable1; <br> }</p></div>
     <h3>Create a Class</h3>
     <p>To create a class, use the keyword class.</p>
     <h3>Create an Object</h3>
     <p>In Java, an object is created from a class. To create an object, specify the class name, followed by the object name and use the keyword new.</p>
-    <div class="code" id="class2"><button class="copy" onclick="copyText('class2')">Copy</button><p>
+    <div class="code" id="class2"><button class="copy" onclick="copyText('class2')">Copy</button><br><p>
         public class MyClass {<br>
         &emsp;int x = 5;<br><br>
         &emsp;public static void main(String[] args) {<br>
@@ -1677,13 +1677,13 @@
     <h3>Using Multiple Classes</h3>
     <p>You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the attributes and methods, while the other class holds the main() method (code to be executed)).</p>
     <p>Remember that the name of the java file should match the class name.</p>
-    <div class="code" id="class3"><button class="copy" onclick="copyText('class3')">Copy</button><p>
+    <div class="code" id="class3"><button class="copy" onclick="copyText('class3')">Copy</button><br><p>
         public class MyClass {<br>
         &emsp;int x = 5;<br>
         }
     </p>
     </div>
-    <div class="code" id="class4"><button class="copy" onclick="copyText('class4')">Copy</button><p>
+    <div class="code" id="class4"><button class="copy" onclick="copyText('class4')">Copy</button><br><p>
         class OtherClass {<br>
         &emsp;public static void main(String[] args) {<br>
         &emsp;&emsp;MyClass myObj = new MyClass();<br>
@@ -1697,7 +1697,7 @@
     <p>Class attributes are variables within a class</p>
     <h3>Accessing Attributes</h3>
     <p>You can access attributes by creating an object of the class, and by using the dot syntax (.)</p>
-    <div class="code" id="class5"><button class="copy" onclick="copyText('class5')">Copy</button><p>
+    <div class="code" id="class5"><button class="copy" onclick="copyText('class5')">Copy</button><br><p>
         public class MyClass {<br>
         &emsp;int x = 5;<br><br>
         &emsp;public static void main(String[] args) {<br>
@@ -1734,7 +1734,7 @@
         <li>Singleton classes are employed extensively in concepts like Networking and Database Connectivity.</li>
     </ul>
     <h3>Java Class Methods</h3>
-    <div class="code" id="class6"><button class="copy" onclick="copyText('class6')">Copy</button><p>
+    <div class="code" id="class6"><button class="copy" onclick="copyText('class6')">Copy</button><br><p>
         public class MyClass {<br>
         &emsp;<mark>// Static method</mark><br>
         &emsp;static void myStaticMethod() {<br>
@@ -1758,7 +1758,7 @@
     <p>To call a method in Java, write the method name followed by a set of parentheses (), followed by a semicolon (;).</p>
     <p>A class must have a matching filename (MyClass and MyClass.java).</p>
     <h3>Using Multiple Classes</h3>
-    <div class="code" id="class7"><button class="copy" onclick="copyText('class7')">Copy</button><p>
+    <div class="code" id="class7"><button class="copy" onclick="copyText('class7')">Copy</button><br><p>
         public class Car {<br>
         &emsp;public void fullThrottle() {<br>
         &emsp;&emsp;System.out.println("The car is going as fast as it can!");<br>
@@ -1769,7 +1769,7 @@
         }
     </p>
     </div>
-    <div class="code" id="class8"><button class="copy" onclick="copyText('class8')">Copy</button><p>
+    <div class="code" id="class8"><button class="copy" onclick="copyText('class8')">Copy</button><br><p>
         class OtherClass {<br>
         &emsp;public static void main(String[] args) {<br>
         &emsp;&emsp;Car myCar = new Car();  <mark>// Create a myCar object</mark><br>
@@ -1780,7 +1780,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="class9"><button class="copy" onclick="copyText('class9')">Copy</button><p>
+    <div class="code" id="class9"><button class="copy" onclick="copyText('class9')">Copy</button><br><p>
         The car is going as fast as it can!<br>
         Max speed is: 200
     </p>
@@ -1788,7 +1788,7 @@
     <h3>Java Inner Classes</h3>
     <p>In Java, it is also possible to nest classes (a class within a class). The purpose of nested classes is to group classes that belong together, which makes your code more readable and maintainable.</p>
     <p>To access the inner class, create an object of the outer class, and then create an object of the inner class</p>
-    <div class="code" id="class10"><button class="copy" onclick="copyText('class10')">Copy</button><p>
+    <div class="code" id="class10"><button class="copy" onclick="copyText('class10')">Copy</button><br><p>
         class OuterClass {<br>
         &emsp;int x = 10;<br><br>
         &emsp;class InnerClass {<br>
@@ -1845,8 +1845,8 @@
     <h3>Declaring Interfaces</h3>
     <p>The interface keyword is used to declare an interface.</p>
     <p><b>Naming Convention for Interfaces:</b> Start with a capital "I" followed by the name of the interface "Player".</p>
-    <div class="code" id="interface1"><button class="copy" onclick="copyText('interface1')">Copy</button><p>interface IPlayer { <br>&emsp; final int id = 10; <br>&emsp; int move(); <br> }</p></div>
-    <div class="code" id="interface2"><button class="copy" onclick="copyText('interface2')">Copy</button><p>
+    <div class="code" id="interface1"><button class="copy" onclick="copyText('interface1')">Copy</button><br><p>interface IPlayer { <br>&emsp; final int id = 10; <br>&emsp; int move(); <br> }</p></div>
+    <div class="code" id="interface2"><button class="copy" onclick="copyText('interface2')">Copy</button><br><p>
         public interface NameOfInterface {<br>
         &emsp;<mark>// Any number of final, static fields</mark><br>
         &emsp;<mark>// Any number of abstract method declarations</mark><br>
@@ -1856,7 +1856,7 @@
     <p>To access the interface methods, the interface must be "implemented" by another class with the implements keyword (instead of extends).</p>
     <p>The body of the interface is provided by the implementing class</p>
     <p>A class uses the implements keyword to implement an interface. The implements keyword appears in the class declaration following the extends portion of the declaration.</p>
-    <div class="code" id="interface3"><button class="copy" onclick="copyText('interface3')">Copy</button><p>
+    <div class="code" id="interface3"><button class="copy" onclick="copyText('interface3')">Copy</button><br><p>
         <mark>// Interface</mark><br>
         interface IAnimal {<br>
         &emsp;public void animalSound(); <mark>// interface method (does not have a body)</mark><br>
@@ -1906,7 +1906,7 @@
         <li>To achieve security - hide certain details and only show the important details of an object (interface).</li>
         <li>Java does not support "multiple inheritance" (a class can only inherit from one superclass). However, it can be achieved with interfaces, because the class can implement multiple interfaces. Note: To implement multiple interfaces, separate them with a comma.</li>
     </ol>
-    <div class="code" id="interface4"><button class="copy" onclick="copyText('interface4')">Copy</button><p>
+    <div class="code" id="interface4"><button class="copy" onclick="copyText('interface4')">Copy</button><br><p>
         class DemoClass implements FirstInterface, SecondInterface {
     </p>
     </div>
@@ -1915,7 +1915,7 @@
     <p>An interface method is abstract only if it does not specify a default implementation.</p>
     <p>Using Default Methods however, it is possible to specify the behaviour for a method declared in an interface.</p>
     <p>Non-default interface methods are implicitly abstract, so there is no need to use the abstract modifier (although you can specify it, if you like).</p>
-    <div class="code" id="interface5"><button class="copy" onclick="copyText('interface5')">Copy</button><p>
+    <div class="code" id="interface5"><button class="copy" onclick="copyText('interface5')">Copy</button><br><p>
         &emsp;interface INumber { <br>
         &emsp;&emsp;double getValue();<br>
         &emsp;}
@@ -2143,7 +2143,7 @@
         </tr>
     </table></div>
     <p>General Form:</p>
-    <div class="code" id="managingExceptions1"><button class="copy" onclick="copyText('managingExceptions1')">Copy</button><p>
+    <div class="code" id="managingExceptions1"><button class="copy" onclick="copyText('managingExceptions1')">Copy</button><br><p>
         try {<br>
         &emsp;<mark>// block of code to monitor for errors</mark><br>
         }<br>
@@ -2165,7 +2165,7 @@
     <p>In some cases, more than one exception could be raised by a single piece of code.</p>
     <p>You can specify two or more catch clauses, each catching a different type of exception.</p>
     <p>When you use multiple catch statements, it is important to remember that exception subclasses must come before any of their superclasses otherwise they will never run (unreachable code).</p>
-    <div class="code" id="managingExceptions2"><button class="copy" onclick="copyText('managingExceptions2')">Copy</button><p>
+    <div class="code" id="managingExceptions2"><button class="copy" onclick="copyText('managingExceptions2')">Copy</button><br><p>
         try {<br>
         &emsp;<mark>//...</mark><br>
         } catch (SQLException | ClassNotFoundException e) {<br>
@@ -2177,7 +2177,7 @@
     <h3>Nested Try Statements</h3>
     <p>Each time a try statement is entered, the context of that exception is pushed on the stack.</p>
     <p>If the outer try/catch passes it moves inward and if that fails it moves back out If an inner try statement does not have a catch handler for a particular exception, the stack is unwound and the next try statement’s catch handlers are inspected for a match.</p>
-    <div class="code" id="managingExceptions3"><button class="copy" onclick="copyText('managingExceptions3')">Copy</button><p>
+    <div class="code" id="managingExceptions3"><button class="copy" onclick="copyText('managingExceptions3')">Copy</button><br><p>
         try { <mark>// last</mark><br>
         &emsp;try { <mark>// second</mark><br>
         &emsp;&emsp;try { <mark>// check here first</mark><br>
@@ -2196,7 +2196,7 @@
     <p>A throws clause lists the types of exceptions that a method might throw.</p>
     <p>This is necessary for all exceptions, except those of type Error or RuntimeException, or any of their subclasses.</p>
     <p>General Form:</p>
-    <div class="code" id="managingExceptions4"><button class="copy" onclick="copyText('managingExceptions4')">Copy</button><p>
+    <div class="code" id="managingExceptions4"><button class="copy" onclick="copyText('managingExceptions4')">Copy</button><br><p>
         type method-name(parameter-list) throws exception-list {<br>
         &emsp;<mark>// body of method</mark><br>
         }
@@ -2244,7 +2244,7 @@
         </tr>
     </table></div>
     <h3>Creating Custom Exceptions</h3>
-    <div class="code" id="managingExceptions5"><button class="copy" onclick="copyText('managingExceptions5')">Copy</button><p>
+    <div class="code" id="managingExceptions5"><button class="copy" onclick="copyText('managingExceptions5')">Copy</button><br><p>
         public class InvalidUserException extends Exception {<br>
         &emsp;public InvalidUserException(String errorMessage) {<br>
         &emsp;&emsp;super(errorMessage);<br>
@@ -2564,7 +2564,7 @@
     <ol>
         <li>void countDown() <mark>// Each call to countDown() decrements the count associated with the invoking object.</mark></li>
     </ol>
-        <div class="code" id="concurrency1"><button class="copy" onclick="copyText('concurrency1')">Copy</button><p>
+        <div class="code" id="concurrency1"><button class="copy" onclick="copyText('concurrency1')">Copy</button><br><p>
             import java.util.concurrent.CountDownLatch;<br>
             public class CDLDemo {<br>
             public static void main(String[] args) {<br><br>
@@ -2623,7 +2623,7 @@
     <p>Second form waits only for the period of time specified by wait.</p>
     <p>A CyclicBarrier can be reused because it will release waiting threads each time the specified number of threads calls await().</p>
     <p>For Example: This will create a new CyclicBarrier and perform the first 3 thread executions, reach the barrier, and then perform the next 3, and reach the barrier again.</p>
-    <div class="code" id="concurrency2"><button class="copy" onclick="copyText('concurrency2')">Copy</button><p>
+    <div class="code" id="concurrency2"><button class="copy" onclick="copyText('concurrency2')">Copy</button><br><p>
         CyclicBarrier cb = new CyclicBarrier(3, new BarAction());<br>
         &emsp;new MyThread(cb, "A");<br>
         &emsp;new MyThread(cb, "B");<br>
@@ -2729,7 +2729,7 @@
         <p>Once the thread has delegated the task to the ExecutorService, the thread continues its own execution independent of the execution of that task.</p>
         <p>The ExecutorService then executes the task concurrently, independently of the thread that submitted the task.</p>
         <h3>Example:</h3>
-        <div class="code" id="concurrency3"><button class="copy" onclick="copyText('concurrency3')">Copy</button><p>
+        <div class="code" id="concurrency3"><button class="copy" onclick="copyText('concurrency3')">Copy</button><br><p>
             <mark>// First an ExecutorService is created using the Executors newFixedThreadPool() factory method. This creates a thread pool with 10 threads executing tasks.</mark><br>
             ExecutorService executorService = Executors.newFixedThreadPool(10);<br><br>
             <mark>// Second, an anonymous implementation of the Runnable interface is passed to the execute() method. This causes the Runnable to be executed by one of the threads in the ExecutorService.</mark><br>
@@ -2807,14 +2807,14 @@
         <h3>Runnable vs. Callable</h3>
         <p>Both interfaces represents a task that can be executed concurrently by a thread or an ExecutorService. Both interfaces only have a single method.</p>
         <p>Runnable Interface Declaration</p>
-        <div class="code" id="concurrency4"><button class="copy" onclick="copyText('concurrency4')">Copy</button><p>
+        <div class="code" id="concurrency4"><button class="copy" onclick="copyText('concurrency4')">Copy</button><br><p>
             public interface Runnable {<br>
             &emsp;public void run();<br>
             }
         </p>
         </div>
         <p>Callable Interface Declaration</p>
-        <div class="code" id="concurrency5"><button class="copy" onclick="copyText('concurrency5')">Copy</button><p>
+        <div class="code" id="concurrency5"><button class="copy" onclick="copyText('concurrency5')">Copy</button><br><p>
             public interface Callable{<br>
             &emsp;public Object call() throws Exception;<br>
             }
@@ -2846,7 +2846,7 @@
         <h3>Java Callable Interface Definition</h3>
         <p>The Java Callable interface is quite simple, it contains a single method named call().</p>
         <p>The call() method is called in order to execute the asynchronous task. The call() method can return a result. If the task is executed asynchronously, the result is typically propagated back to the creator of the task via a Java Future.</p>
-        <div class="code" id="concurrency6"><button class="copy" onclick="copyText('concurrency6')">Copy</button><p>
+        <div class="code" id="concurrency6"><button class="copy" onclick="copyText('concurrency6')">Copy</button><br><p>
             public interface Callable&lt;V&gt; {<br>
             &emsp;V call() throws Exception;<br>
             }
@@ -2879,7 +2879,7 @@
         <p>future.cancel();</p>
         <h3>Check if task is done.</h3>
         <p>You can check if the asynchronous task is done (and a result available) by calling the Future isDone() method.</p>
-        <div class="code" id="concurrency7"><button class="copy" onclick="copyText('concurrency7')">Copy</button><p>
+        <div class="code" id="concurrency7"><button class="copy" onclick="copyText('concurrency7')">Copy</button><br><p>
             if(future.isDone()) {<br>
             &emsp;Object result = future.get();<br>
             } else {<br>
@@ -2889,7 +2889,7 @@
         </div>
         <h3>Check if task is cancelled</h3>
         <p>It is also possible to check if the asynchronous task represented by a Java Future is cancelled.</p>
-        <div class="code" id="concurrency8"><button class="copy" onclick="copyText('concurrency8')">Copy</button><p>
+        <div class="code" id="concurrency8"><button class="copy" onclick="copyText('concurrency8')">Copy</button><br><p>
             if(future.isCancelled()) {<br><br>
             } else {<br><br>
             }
@@ -2910,7 +2910,7 @@
             <p>If the internal queue of tasks is full, and corePoolSize threads or more are running, but less than maximumPoolSize threads are running, then a new thread is created to execute the task.</p>
         <h3>Creating a ThreadPoolExecutor</h3>
         <p>The ThreadPoolExecutor has several constructors available</p>
-            <div class="code" id="concurrency9"><button class="copy" onclick="copyText('concurrency9')">Copy</button><p>
+            <div class="code" id="concurrency9"><button class="copy" onclick="copyText('concurrency9')">Copy</button><br><p>
                 int corePoolSize = 5;<br>
                 int maxPoolSize = 10;<br>
                 long keepAliveTime = 5000;<br>
@@ -2931,7 +2931,7 @@
         <p>ScheduledThreadPoolExecutor</p>
             <h3>Creating a ScheduledExecutorService</h3>
             <p>How you create an ScheduledExecutorService depends on the implementation you use. However, you can use the Executors factory class to create ScheduledExecutorService instances too.</p>
-            <div class="code" id="concurrency10"><button class="copy" onclick="copyText('concurrency10')">Copy</button><p>ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);</p></div>
+            <div class="code" id="concurrency10"><button class="copy" onclick="copyText('concurrency10')">Copy</button><br><p>ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);</p></div>
         <h3>ScheduledExecutorService Usage</h3>
         <p>Once you have created a ScheduledExecutorService you use it by calling one of its methods:</p>
         <div class="scrollableTable"><table>
@@ -2968,21 +2968,21 @@
        <h3>"shutdown()</h3>
             <p>To terminate the threads inside the ExecutorService you call its shutdown() method.</p>
             <p>The ExecutorService will not shut down immediately, but it will no longer accept new tasks, and once all threads have finished current tasks, the ExecutorService shuts down.</p>
-            <div class="code" id="concurrency11"><button class="copy" onclick="copyText('concurrency11')">Copy</button><p>
+            <div class="code" id="concurrency11"><button class="copy" onclick="copyText('concurrency11')">Copy</button><br><p>
                 executorService.shutdown();
             </p>
             </div>
             <h3>"shutdownNow()</h3>
             <p>If you want to shut down the ExecutorService immediately, you can call the shutdownNow() method.</p>
             <p>This will attempt to stop all executing tasks right away, and skips all submitted but non-processed tasks.</p>
-            <div class="code" id="concurrency12"><button class="copy" onclick="copyText('concurrency12')">Copy</button><p>
+            <div class="code" id="concurrency12"><button class="copy" onclick="copyText('concurrency12')">Copy</button><br><p>
                 executorService.shutdownNow();
             </p>
             </div>
             <h3>"awaitTermination()</h3>
             <p>The ExecutorService awaitTermination() method will block the thread calling it until either the ExecutorService has shutdown completely, or until a given time out occurs.</p>
             <p>The awaitTermination() method is typically called after calling shutdown() or shutdownNow().</p>
-            <div class="code" id="concurrency13"><button class="copy" onclick="copyText('concurrency13')">Copy</button><p>
+            <div class="code" id="concurrency13"><button class="copy" onclick="copyText('concurrency13')">Copy</button><br><p>
                 executorService.shutdown();<br>
                 executorService.awaitTermination();
             </p>
@@ -3151,7 +3151,7 @@
     <p>A class, interface, or method that operates on a parameterized type is called generic, as in generic class or generic method.</p>
     <p>In pre-generics code, generalized classes, interfaces, and methods used Object references to operate on various types of objects. The problem was that they could not do so with type safety. Generics added the type safety that was lacking.</p>
     <p>With generics, all casts are automatic and implicit. Thus, generics expanded your ability to reuse code and let you do so safely and easily.</p>
-    <div class="code" id="generics1"><button class="copy" onclick="copyText('generics1')">Copy</button><p>
+    <div class="code" id="generics1"><button class="copy" onclick="copyText('generics1')">Copy</button><br><p>
         <mark>// Here, T is the name of a type parameter. This name is used as a placeholder for the actual type that will be passed to Gen when an object is created.</mark><br>
         class Gen&lt;T&gt; {
     </p>
@@ -3166,7 +3166,7 @@
     <h3>How Generics Improves Type Safety</h3>
     <p>Generics automatically ensure the type safety of all operations involving Gen. In the process, they eliminate the need for you to enter casts and to type-check code by hand.</p>
     <h3>Generic Class</h3>
-    <div class="code" id="generics2"><button class="copy" onclick="copyText('generics2')">Copy</button><p>
+    <div class="code" id="generics2"><button class="copy" onclick="copyText('generics2')">Copy</button><br><p>
         <mark>// General Form</mark><br>
         class class-name&lt;type-param-list&gt; { <mark>// ...</mark><br>
         <mark>// Full Syntax</mark><br>
@@ -3177,7 +3177,7 @@
     <p>Sometimes it is useful to limit the types that can be passed to a type parameter.</p>
     <p>When specifying a type parameter, you can create an upper bound that declares the superclass from which all type arguments must be derived.</p>
     <p>This is accomplished through the use of an extends clause when specifying the type parameter.</p>
-    <div class="code" id="generics3"><button class="copy" onclick="copyText('generics3')">Copy</button><p>
+    <div class="code" id="generics3"><button class="copy" onclick="copyText('generics3')">Copy</button><br><p>
         <mark>// This specifies that T can only be replaced by superclass, or subclasses of superclass.</mark><br>
         &lt;T extends superclass&gt;<br>
         <mark>// Here, the type argument for T must be either Number, or a class derived from Number.</mark><br>
@@ -3186,7 +3186,7 @@
     </div>
     <p>When a bound includes an interface type, only type arguments that implement that interface are legal.</p>
     <p>When specifying a bound that has a class and an interface, or multiple interfaces, use the & operator to connect them.</p>
-    <div class="code" id="generics4"><button class="copy" onclick="copyText('generics4')">Copy</button><p>
+    <div class="code" id="generics4"><button class="copy" onclick="copyText('generics4')">Copy</button><br><p>
         <mark>// Here, T is bounded by a class called MyClass and an interface called MyInterface.</mark><br>
         class Gen&lt;T extends MyClass & MyInterface> { <mark>// ...</mark>
     </p>
@@ -3195,7 +3195,7 @@
     <h3>Using Wildcard Arguments</h3>
     <p>The wildcard argument is specified by the ?, and it represents an unknown type.</p>
     <p>Assume that you want to add a method called sameAvg() that determines if two Stats objects contain arrays that yield the same average, no matter what type of numeric data each object holds.</p>
-    <div class="code" id="generics5"><button class="copy" onclick="copyText('generics5')">Copy</button><p>
+    <div class="code" id="generics5"><button class="copy" onclick="copyText('generics5')">Copy</button><br><p>
         <mark>// Determine if two averages are the same.</mark><br>
         <mark>// Here, Stats&lt;?&gt; matches any Stats object, allowing any two Stats objects to have their averages compared.</mark><br>
         boolean sameAvg(Stats&lt;?&gt; ob) {<br>
@@ -3208,12 +3208,12 @@
     <h3>Bounded Wildcards</h3>
     <p>A bounded wildcard is especially important when you are creating a generic type that will operate on a class hierarchy.</p>
     <p>In general, to establish an upper bound for a wildcard, use the following type of wildcard expression:</p>
-    <div class="code" id="generics6"><button class="copy" onclick="copyText('generics6')">Copy</button><p>
+    <div class="code" id="generics6"><button class="copy" onclick="copyText('generics6')">Copy</button><br><p>
 		&lt;? extends superclass&gt;
     </p>
     </div>
     <p>You can also specify a lower bound for a wildcard by adding a super clause to a wildcard declaration. Here is its general form:</p>
-	<div class="code" id="generics7"><button class="copy" onclick="copyText('generics7')">Copy</button><p>
+	<div class="code" id="generics7"><button class="copy" onclick="copyText('generics7')">Copy</button><br><p>
         &lt;? super subclass&gt;
     </p>
     </div>
@@ -3222,7 +3222,7 @@
     <p>However, it is possible to declare a generic method that uses one or more type parameters of its own.</p>
     <p>Furthermore, it is possible to create a generic method that is enclosed within a non-generic class.</p>
     <p>Here is the syntax for a generic method:</p>
-    <div class="code" id="generics8"><button class="copy" onclick="copyText('generics8')">Copy</button><p>
+    <div class="code" id="generics8"><button class="copy" onclick="copyText('generics8')">Copy</button><br><p>
         &lt;type-param-list&gt; ret-type meth-name (param-list) { <mark>// ...</mark>
     </p>
     </div>
@@ -3230,7 +3230,7 @@
     <p>For a generic method, the type parameter list precedes the return type.</p>
     <h3>Generic Constructors</h3>
     <p>It is possible for constructors to be generic, even if their class is not.</p>
-    <div class="code" id="generics9"><button class="copy" onclick="copyText('generics9')">Copy</button><p>
+    <div class="code" id="generics9"><button class="copy" onclick="copyText('generics9')">Copy</button><br><p>
         class GenCons { <mark>// non-generic class</mark><br>
         &emsp;private double val;<br>
         &emsp;&lt;T extends Number&gt; GenCons(T arg) { <mark>// generic constructor</mark><br>
@@ -3247,7 +3247,7 @@
     <p>Therefore, even though GenCons is not a generic class, its constructor is generic.</p>
     <h3>Generic Interfaces</h3>
     <p>In addition to generic classes and methods, you can also have generic interfaces.</p>
-    <div class="code" id="generics10"><button class="copy" onclick="copyText('generics10')">Copy</button><p>
+    <div class="code" id="generics10"><button class="copy" onclick="copyText('generics10')">Copy</button><br><p>
         <mark>// A Min/Max interface.</mark><br>
         interface MinMax&lt;T extends Comparable&lt;T&gt;&gt; {<br>
         &emsp;T min();<br>
@@ -3256,21 +3256,21 @@
     </p>
     </div>
     <p>In general, if a class implements a generic interface, then that class must also be generic, at least to the extent that it takes a type parameter that is passed to the interface.</p>
-    <div class="code" id="generics11"><button class="copy" onclick="copyText('generics11')">Copy</button><p>
+    <div class="code" id="generics11"><button class="copy" onclick="copyText('generics11')">Copy</button><br><p>
         <mark>// Generalized Syntax for a Generic Interface</mark><br>
         interface interface-name&lt;type-param-list&gt; { // …<br>
         <mark>// Here, type-param-list is a comma-separated list of type parameters.</mark>
     </p>
     </div>
     <p>When a generic interface is implemented, you must specify the type arguments.</p>
-    <div class="code" id="generics12"><button class="copy" onclick="copyText('generics12')">Copy</button><p>
+    <div class="code" id="generics12"><button class="copy" onclick="copyText('generics12')">Copy</button><br><p>
         class class-name&lt;type-param-list&gt; implements interface-name&lt;type-arg-list&gt;
     </p>
     </div>
     <h3>Raw Types and Legacy Code</h3>
     <p>To handle the transition to generics, Java allows a generic class to be used without any type arguments. This creates a raw type for the class.</p>
     <p>The main drawback to using the raw type is that the type safety of generics is lost.</p>
-    <div class="code" id="generics13"><button class="copy" onclick="copyText('generics13')">Copy</button><p>
+    <div class="code" id="generics13"><button class="copy" onclick="copyText('generics13')">Copy</button><br><p>
         <mark>// Create a raw-type Gen object and give it a Double value.</mark><br>
         Gen raw = new Gen(new Double(98.6));
     </p>
@@ -3281,7 +3281,7 @@
     <p>Generic classes can be part of a class hierarchy in just the same way as a non-generic class.</p>
     <p>Thus, a generic class can act as a superclass or be a subclass.</p>
     <p>The key difference between generic and non-generic hierarchies is that in a generic hierarchy, any type arguments needed by a generic superclass must be passed up the hierarchy by all subclasses.</p>
-    <div class="code" id="generics14"><button class="copy" onclick="copyText('generics14')">Copy</button><p>
+    <div class="code" id="generics14"><button class="copy" onclick="copyText('generics14')">Copy</button><br><p>
         <mark>// A simple generic class hierarchy.</mark><br>
         class Gen&lt;T&gt; {<br>
         &emsp;T ob;<br>
@@ -3318,7 +3318,7 @@
     <p>You can cast one instance of a generic class into another only if the two are otherwise compatible and their type arguments are the same.</p>
     <h3>Overriding Methods in a Generic Class</h3>
     <p>A method in a generic class can be overridden just like any other method.</p>
-    <div class="code" id="generics15"><button class="copy" onclick="copyText('generics15')">Copy</button><p>
+    <div class="code" id="generics15"><button class="copy" onclick="copyText('generics15')">Copy</button><br><p>
         class Gen2&lt;T&gt; extends Gen&lt;T&gt; {<br>
         &emsp;<mark>// Override getob() which exists in the parent class</mark><br>
         &emsp;T getob() {<br>
@@ -3330,7 +3330,7 @@
     </div>
     <h3>Type Inference with Generics</h3>
     <p>Beginning with JDK 7, it is possible to shorten the syntax used to create an instance of a generic type.</p>
-    <div class="code" id="generics16"><button class="copy" onclick="copyText('generics16')">Copy</button><p>
+    <div class="code" id="generics16"><button class="copy" onclick="copyText('generics16')">Copy</button><br><p>
         MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;Integer, String&gt;(98, "A String");<br>
         <mark>// Can be re-written as:</mark><br>
         MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;&gt;(98, "A String");
@@ -3353,7 +3353,7 @@
     <h3>Ambiguity Errors</h3>
     <p>The inclusion of generics gives rise to a new type of error that you must guard against: ambiguity.</p>
     <p>Ambiguity errors occur when erasure causes two seemingly distinct generic declarations to resolve to the same erased type, causing a conflict.</p>
-    <div class="code" id="generics17"><button class="copy" onclick="copyText('generics17')">Copy</button><p>
+    <div class="code" id="generics17"><button class="copy" onclick="copyText('generics17')">Copy</button><br><p>
         <mark>// These two overloaded methods are ambiguous and will not compile.</mark><br>
         void set(T o) {<br>
         &emsp;ob1 = o;<br>
@@ -3364,7 +3364,7 @@
     </p>
     </div>
     <p>It is perfectly correct (in principle) to construct a MyGenClass object as shown here:</p>
-    <div class="code" id="generics18"><button class="copy" onclick="copyText('generics18')">Copy</button><p>
+    <div class="code" id="generics18"><button class="copy" onclick="copyText('generics18')">Copy</button><br><p>
         MyGenClass&lt;String, String&gt; obj = new MyGenClass&lt;String, String&gt;()
     </p>
     </div>
@@ -3392,7 +3392,7 @@
     </table></div>
     <h3>Type Parameters Can’t Be Instantiated</h3>
     <p>It is not possible to create an instance of a type parameter.</p>
-    <div class="code" id="generics19"><button class="copy" onclick="copyText('generics19')">Copy</button><p>
+    <div class="code" id="generics19"><button class="copy" onclick="copyText('generics19')">Copy</button><br><p>
         <mark>// Can't create an instance of T.</mark><br>
         class Gen&lt;T&gt; {<br>
         &emsp;T ob;<br>
@@ -3409,14 +3409,14 @@
     <p>There are two important generics restrictions that apply to arrays.</p>
     <p>First, you cannot instantiate an array whose element type is a type parameter.</p>
     <p>Second, you cannot create an array of type-specific generic references.</p>
-    <div class="code" id="generics20"><button class="copy" onclick="copyText('generics20')">Copy</button><p>
+    <div class="code" id="generics20"><button class="copy" onclick="copyText('generics20')">Copy</button><br><p>
         T vals[]; <mark>// OK</mark><br>
         vals = new T[10]; <mark>// can't create an array of T</mark>
     </p>
     </div>
     <p>The reason you can’t create an array of T is that there is no way for the compiler to know what type of array to actually create.</p>
     <p>You can create an array of references to a generic type if you use a wildcard, however, as shown here:</p>
-    <div class="code" id="generics21"><button class="copy" onclick="copyText('generics21')">Copy</button><p>
+    <div class="code" id="generics21"><button class="copy" onclick="copyText('generics21')">Copy</button><br><p>
         Gen&lt;?&gt; gens[] = new Gen&lt;?&gt;[10]; <mark>// OK</mark>
     </p>
     </div>
@@ -3454,7 +3454,7 @@
     <button class="collapsible">Single Expression Lambdas</button>
     <div class="content">
         <h3>Lambdas that define a single expression</h3>
-        <div class="code" id="lambdas1"><button class="copy" onclick="copyText('lambdas1')">Copy</button><p>
+        <div class="code" id="lambdas1"><button class="copy" onclick="copyText('lambdas1')">Copy</button><br><p>
             <mark>// This lambda expression takes no parameter, thus the parameter list is empty.</mark><br>
             () -> 123.45 <mark>// Returns the constant value 123.45</mark><br>
             (n) -> (n % 2) == 0 <mark>// Returns true if the value of parameter n is even.</mark>
@@ -3462,12 +3462,12 @@
         </div>
         <p>The body of the lambdas shown in the preceding examples consist of a single expression. These types of lambda bodies are referred to as expression bodies or expression lambdas. In an expression body, the code on the right side of the lambda operator must consist of a single expression.</p>
         <p>When a lambda expression has only one parameter, it is not necessary to surround the parameter name with parentheses when it is specified on the left side of the lambda operator.</p>
-        <div class="code" id="lambdas2"><button class="copy" onclick="copyText('lambdas2')">Copy</button><p>
+        <div class="code" id="lambdas2"><button class="copy" onclick="copyText('lambdas2')">Copy</button><br><p>
             n -> (n % 2) == 0
         </p>
         </div>
         <p>If you need to explicitly declare the type of a parameter, then all of the parameters must have declared types. For example, this is legal:</p>
-        <div class="code" id="lambdas3"><button class="copy" onclick="copyText('lambdas3')">Copy</button><p>
+        <div class="code" id="lambdas3"><button class="copy" onclick="copyText('lambdas3')">Copy</button><br><p>
             (int n, int d) -> (n % d) == 0
         </p>
         </div>
@@ -3480,7 +3480,7 @@
         <p>A block lambda is easy to create. Simply enclose the body within braces as you would any other block of statements.</p>
         <p>One key difference between single and block lambdas, however, is that you must explicitly use a return statement to return a value. This is necessary because a block lambda body does not represent a single expression.</p>
         <p>When a return statement occurs within a lambda expression, it simply causes a return from the lambda. It does not cause an enclosing method to return.</p>
-        <div class="code" id="lambdas4"><button class="copy" onclick="copyText('lambdas4')">Copy</button><p>
+        <div class="code" id="lambdas4"><button class="copy" onclick="copyText('lambdas4')">Copy</button><br><p>
             interface NumericFunc {<br>
             &emsp;int func(int n);<br>
             }<br><br>
@@ -3506,7 +3506,7 @@
         <p>An interface method is abstract only if it does not specify a default implementation.</p>
         <p>Using Default Methods however, it is possible to specify the behaviour for a method declared in an interface.</p>
         <p>Non-default interface methods are implicitly abstract, so there is no need to use the abstract modifier (although you can specify it, if you like).</p>
-        <div class="code" id="lambdas5"><button class="copy" onclick="copyText('lambdas5')">Copy</button><p>
+        <div class="code" id="lambdas5"><button class="copy" onclick="copyText('lambdas5')">Copy</button><br><p>
         &emsp;interface MyNumber { <br>
         &emsp;&emsp;double getValue();<br>
         &emsp;}
@@ -3516,7 +3516,7 @@
     <p>A lambda expression forms the implementation of the abstract method defined by the functional interface that specifies its target type.</p>
     <p>As a result, a lambda expression can be specified only in a context in which a target type is defined.</p>
     <p>Target type contexts include variable initialization, return statements, and method arguments, to name a few.</p>
-    <div class="code" id="lambdas6"><button class="copy" onclick="copyText('lambdas6')">Copy</button><p>
+    <div class="code" id="lambdas6"><button class="copy" onclick="copyText('lambdas6')">Copy</button><br><p>
         <mark>// Create a reference to a MyNumber instance.</mark><br>
         MyNumber myNum;<br>
         <mark>// Use a lambda in an assignment context.</mark><br>
@@ -3527,14 +3527,14 @@
     <h3>Generic Functional Interfaces</h3>
     <p>A lambda expression, itself, cannot specify type parameters. Thus, a lambda expression cannot be generic. However, the functional interface associated with a lambda expression can be generic.</p>
     <p>Create a Generic Functional Interface:</p>
-    <div class="code" id="lambdas7"><button class="copy" onclick="copyText('lambdas7')">Copy</button><p>
+    <div class="code" id="lambdas7"><button class="copy" onclick="copyText('lambdas7')">Copy</button><br><p>
         &emsp;interface GenInt&lt;T&gt; {<br>
         &emsp;&emsp;T meth(T t);<br>
         &emsp;}
     </p>
     </div>
     <p>Using your Generic Functional Interface:</p>
-    <div class="code" id="lambdas8"><button class="copy" onclick="copyText('lambdas8')">Copy</button><p>
+    <div class="code" id="lambdas8"><button class="copy" onclick="copyText('lambdas8')">Copy</button><br><p>
         GenInt&lt;Integer&gt; numGenInt = (i) -> {<br>
             &emsp;return i;<br>
         };<br><br>
@@ -3552,7 +3552,7 @@
     <p>A lambda expression may only use local variables that are effectively final. An effectively final variable is one whose value does not change after it is first assigned.</p>
     <p>It is important to understand that a local variable of the enclosing scope cannot be modified by the lambda expression. Doing so would remove its effectively final status, thus rendering it illegal for capture.</p>
     <p>It is important to emphasize that a lambda expression can use and modify an instance variable from its invoking class. It just can’t use a local variable of its enclosing scope unless that variable is effectively final.</p>
-    <div class="code" id="lambdas9"><button class="copy" onclick="copyText('lambdas9')">Copy</button><p>
+    <div class="code" id="lambdas9"><button class="copy" onclick="copyText('lambdas9')">Copy</button><br><p>
         interface MyFunc {<br>
         &emsp;int func(int n);<br>
         }<br><br>
@@ -3582,12 +3582,12 @@
     <p>This method reference can be used anywhere in which it is compatible with its target type.</p>
     <h3>Method References to Instance Methods</h3>
     <p>To pass a reference to an instance method on a specific object.</p>
-    <div class="code" id="lambdas10"><button class="copy" onclick="copyText('lambdas10')">Copy</button><p>
+    <div class="code" id="lambdas10"><button class="copy" onclick="copyText('lambdas10')">Copy</button><br><p>
         objRef::methodName
     </p>
     </div>
     <p>It is also possible to handle a situation in which you want to specify an instance method that can be used with any object of a given class, not just a specified object. In this case, you will create a method reference as shown here:</p>
-    <div class="code" id="lambdas11"><button class="copy" onclick="copyText('lambdas11')">Copy</button><p>
+    <div class="code" id="lambdas11"><button class="copy" onclick="copyText('lambdas11')">Copy</button><br><p>
         ClassName::instanceMethodName
     </p>
     </div>
@@ -3596,12 +3596,12 @@
     <p>You can use method references with generic classes and/or generic methods.</p>
     <h3>Constructor References</h3>
     <p>Similar to the way that you can create references to methods, you can create references to constructors.</p>
-    <div class="code" id="lambdas12"><button class="copy" onclick="copyText('lambdas12')">Copy</button><p>
+    <div class="code" id="lambdas12"><button class="copy" onclick="copyText('lambdas12')">Copy</button><br><p>
         classname::new
     </p>
     </div>
     <p>To create a constructor reference for an array, use this construct:</p>
-    <div class="code" id="lambdas13"><button class="copy" onclick="copyText('lambdas13')">Copy</button><p>
+    <div class="code" id="lambdas13"><button class="copy" onclick="copyText('lambdas13')">Copy</button><br><p>
         type[]::new
     </p>
     </div>
@@ -3730,7 +3730,7 @@
     <p>The init method is called only once. It is called only when the servlet is created, and not called for any user requests afterwards. So, it is used for one-time initializations, just as with the init method of applets.</p>
     <p>The servlet is normally created when a user first invokes a URL corresponding to the servlet, but you can also specify that the servlet be loaded when the server is first started.</p>
     <p>When a user invokes a servlet, a single instance of each servlet gets created, with each user request resulting in a new thread that is handed off to doGet or doPost as appropriate. The init() method simply creates or loads some data that will be used throughout the life of the servlet.</p>
-    <div class="code" id="servlets1"><button class="copy" onclick="copyText('servlets1')">Copy</button><p>
+    <div class="code" id="servlets1"><button class="copy" onclick="copyText('servlets1')">Copy</button><br><p>
         public void init() throws ServletException {<br>
         &emsp;<mark>// Initialization code...</mark><br>
         }
@@ -3741,7 +3741,7 @@
     <p>Each time the server receives a request for a servlet, the server spawns a new thread and calls service. The service() method checks the HTTP request type (GET, POST, PUT, DELETE, etc.) and calls doGet, doPost, doPut, doDelete, etc. methods as appropriate.</p>
     <p>The service () method is called by the container and service method invokes doGet, doPost, doPut, doDelete, etc. methods as appropriate. So you have nothing to do with service() method but you override either doGet() or doPost() depending on what type of request you receive from the client.</p>
     <p>The doGet() and doPost() are most frequently used methods with in each service request. Here is the signature of these two methods.</p>
-    <div class="code" id="servlets2"><button class="copy" onclick="copyText('servlets2')">Copy</button><p>
+    <div class="code" id="servlets2"><button class="copy" onclick="copyText('servlets2')">Copy</button><br><p>
         public void service(ServletRequest request, ServletResponse response)<br>
         &emsp;throws ServletException, IOException {<br>
         }
@@ -3749,7 +3749,7 @@
     </div>
     <h3>GET Method</h3>
     <p>The GET method sends the encoded user information appended to the page request. The page and the encoded information are separated by the ? (question mark) symbol.</p>
-    <div class="code" id="servlets3"><button class="copy" onclick="copyText('servlets3')">Copy</button><p>
+    <div class="code" id="servlets3"><button class="copy" onclick="copyText('servlets3')">Copy</button><br><p>
         http://www.test.com/hello?key1 = value1&key2 = value2
     </p>
     </div>
@@ -3757,7 +3757,7 @@
     <p>This information is passed using QUERY_STRING header and will be accessible through QUERY_STRING environment variable and Servlet handles this type of requests using doGet() method.</p>
     <h3>The doGet() Method</h3>
     <p>A GET request results from a normal request for a URL or from an HTML form that has no METHOD specified and it should be handled by doGet() method.</p>
-    <div class="code" id="servlets4"><button class="copy" onclick="copyText('servlets4')">Copy</button><p>
+    <div class="code" id="servlets4"><button class="copy" onclick="copyText('servlets4')">Copy</button><br><p>
         public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
         &emsp;throws ServletException, IOException {<br>
         &emsp;<mark>// Servlet code</mark><br>
@@ -3769,7 +3769,7 @@
     <p>his message comes to the backend program in the form of the standard input which you can parse and use for your processing. Servlet handles this type of requests using doPost() method.</p>
     <h3>The doPost() Method</h3>
     <p>A POST request results from an HTML form that specifically lists POST as the METHOD and it should be handled by doPost() method.</p>
-    <div class="code" id="servlets5"><button class="copy" onclick="copyText('servlets5')">Copy</button><p>
+    <div class="code" id="servlets5"><button class="copy" onclick="copyText('servlets5')">Copy</button><br><p>
         public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
         &emsp;throws ServletException, IOException {<br>
         &emsp;<mark>// Servlet code</mark><br>
@@ -3779,7 +3779,7 @@
     <h3>The destroy() Method</h3>
     <p>The destroy() method is called only once at the end of the life cycle of a servlet. This method gives your servlet a chance to close database connections, halt background threads, write cookie lists or hit counts to disk, and perform other such cleanup activities.</p>
     <p>After the destroy() method is called, the servlet object is marked for garbage collection.</p>
-    <div class="code" id="servlets6"><button class="copy" onclick="copyText('servlets6')">Copy</button><p>
+    <div class="code" id="servlets6"><button class="copy" onclick="copyText('servlets6')">Copy</button><br><p>
         public void destroy() {<br>
         &emsp;<mark>// Finalization code...</mark><br>
         }
@@ -3798,7 +3798,7 @@
             <li>Next we select what methods we want to be generated by Eclipse</li>
             <li>Check: init, service and destroy (doGet and doPost are not necessary for this application)</li>
         </ul>
-        <div class="code" id="servlets7"><button class="copy" onclick="copyText('servlets7')">Copy</button><p>
+        <div class="code" id="servlets7"><button class="copy" onclick="copyText('servlets7')">Copy</button><br><p>
             @WebServlet(description = "Print Hello World in your Browser", urlPatterns = { "/HelloWorld" })<br>
             public class HelloWorld extends HttpServlet {<br>
             &emsp;private static final long serialVersionUID = 1L;<br><br>
@@ -3825,7 +3825,7 @@
         </p>
         </div>
         <p>Example web.xml file with a welcome-file-list</p>
-        <div class="code" id="servlets8"><button class="copy" onclick="copyText('servlets8')">Copy</button><p>
+        <div class="code" id="servlets8"><button class="copy" onclick="copyText('servlets8')">Copy</button><br><p>
             &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
             &lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0"&gt;<br>
             &emsp;&lt;display-name>HelloWorld&lt;/display-name&gt;<br>
@@ -3841,7 +3841,7 @@
         </p>
         </div>
         <p>We can also provide the mapping inside our web.xml file instead of the annotation we have in our HelloWorld Servlet.</p>
-        <div class="code" id="servlets9"><button class="copy" onclick="copyText('servlets9')">Copy</button><p>
+        <div class="code" id="servlets9"><button class="copy" onclick="copyText('servlets9')">Copy</button><br><p>
             &lt;servlet&gt;<br>
             &lt;servlet-name&gt;HelloWorld&lt;/servlet-name&gt;<br>
             &lt;servlet-class&gt;HelloWorld&lt;/servlet-class&gt;<br>
@@ -3870,7 +3870,7 @@
     <div class="content">
         <p>Here is a simple URL which will pass two values to HelloForm program using GET method.</p>
         <b>http://localhost:8080/HelloForm?first_name = Austin&last_name = Krieger</b>
-        <div class="code" id="servlets10"><button class="copy" onclick="copyText('servlets10')">Copy</button><p>
+        <div class="code" id="servlets10"><button class="copy" onclick="copyText('servlets10')">Copy</button><br><p>
             public class HelloForm extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -3899,7 +3899,7 @@
         </p>
         </div>
         <p>Add the mapping to your web.xml file</p>
-        <div class="code" id="servlets11"><button class="copy" onclick="copyText('servlets11')">Copy</button><p>
+        <div class="code" id="servlets11"><button class="copy" onclick="copyText('servlets11')">Copy</button><br><p>
             &lt;servlet&gt;<br>
             &lt;servlet-name&gt;HelloForm&lt;/servlet-name&gt;<br>
             &lt;servlet-class&gt;HelloForm&lt;/servlet-class&gt;<br>
@@ -3914,7 +3914,7 @@
         <button class="collapsible">Applying an HTML Form</button>
         <div class="content">
             <p>Inside your WebContent folder, add a new html document. "Hello.htm"</p>
-            <div class="code" id="servlets12"><button class="copy" onclick="copyText('servlets12')">Copy</button><p>
+            <div class="code" id="servlets12"><button class="copy" onclick="copyText('servlets12')">Copy</button><br><p>
                 &lt;html&gt;<br>
                 &emsp;&lt;body&gt;<br>
                 &emsp;&emsp;&lt;form action = "HelloForm" method = "GET"&gt;<br>
@@ -3933,7 +3933,7 @@
     <button class="collapsible">POST Method Example using Form</button>
     <div class="content">
         <p>For this example we need only change the form action to POST and call doGet() from the doPost Method.</p>
-        <div class="code" id="servlets13"><button class="copy" onclick="copyText('servlets13')">Copy</button><p>
+        <div class="code" id="servlets13"><button class="copy" onclick="copyText('servlets13')">Copy</button><br><p>
             <mark>// Method to handle POST method request.</mark><br>
             public void doPost(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;throws ServletException, IOException {<br><br>
@@ -3941,7 +3941,7 @@
             }
         </p>
         </div>
-        <div class="code" id="servlets14"><button class="copy" onclick="copyText('servlets14')">Copy</button><p>
+        <div class="code" id="servlets14"><button class="copy" onclick="copyText('servlets14')">Copy</button><br><p>
             &lt;html&gt;<br>
             &emsp;&lt;body&gt;<br>
             &emsp;&emsp;&lt;form action = "HelloForm" method = "POST"&gt;<br>
@@ -3958,7 +3958,7 @@
     &nbsp;
     <button class="collapsible">Passing Checkbox Data to Servlet</button>
     <div class="content">
-        <div class="code" id="servlets15"><button class="copy" onclick="copyText('servlets15')">Copy</button><p>
+        <div class="code" id="servlets15"><button class="copy" onclick="copyText('servlets15')">Copy</button><br><p>
             &lt;html&gt;<br>
             &emsp;&lt;body&gt;<br>
             &emsp;&emsp;&lt;form action = "CheckBox" method = "POST" target = "_blank"&gt;<br>
@@ -3971,7 +3971,7 @@
             &lt;/html&gt;
         </p>
         </div>
-        <div class="code" id="servlets16"><button class="copy" onclick="copyText('servlets16')">Copy</button><p>
+        <div class="code" id="servlets16"><button class="copy" onclick="copyText('servlets16')">Copy</button><br><p>
             public class CheckBox extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -4012,7 +4012,7 @@
     <div class="content">
         <p>Following is the generic example which uses getParameterNames() method of HttpServletRequest to read all the available form parameters. This method returns an Enumeration that contains the parameter names in an unspecified order</p>
         <p>Once we have an Enumeration, we can loop down the Enumeration in standard way by, using hasMoreElements() method to determine when to stop and using nextElement() method to get each parameter name.</p>
-        <div class="code" id="servlets17"><button class="copy" onclick="copyText('servlets17')">Copy</button><p>
+        <div class="code" id="servlets17"><button class="copy" onclick="copyText('servlets17')">Copy</button><br><p>
             public class ReadParams extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -4065,7 +4065,7 @@
         </p>
         </div>
         <p>Now apply the form from the previous example:</p>
-        <div class="code" id="servlets18"><button class="copy" onclick="copyText('servlets18')">Copy</button><p>
+        <div class="code" id="servlets18"><button class="copy" onclick="copyText('servlets18')">Copy</button><br><p>
             &lt;html&gt;<br>
             &emsp;&lt;body&gt;<br>
             &emsp;&emsp;&lt;form action = "CheckBox" method = "POST" target = "_blank"&gt;<br>
@@ -4282,7 +4282,7 @@
     <div class="content">
         <p>Following is the example which uses getHeaderNames() method of HttpServletRequest to read the HTTP header information. This method returns an Enumeration that contains the header information associated with the current HTTP request.</p>
         <p>Once we have an Enumeration, we can loop down the Enumeration in the standard manner, using hasMoreElements() method to determine when to stop and using nextElement() method to get each parameter name</p>
-        <div class="code" id="servlets19"><button class="copy" onclick="copyText('servlets19')">Copy</button><p>
+        <div class="code" id="servlets19"><button class="copy" onclick="copyText('servlets19')">Copy</button><br><p>
             public class DisplayHeader extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -4500,7 +4500,7 @@
     <div class="content">
         <h3>HTTP Header Response Example</h3>
         <p>We would use setIntHeader() method to set Refresh header.</p>
-        <div class="code" id="servlets20"><button class="copy" onclick="copyText('servlets20')">Copy</button><p>
+        <div class="code" id="servlets20"><button class="copy" onclick="copyText('servlets20')">Copy</button><br><p>
             public class Refresh extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -4772,7 +4772,7 @@
     <br>
     <button class="collapsible">HTTP Status Code Example</button>
     <div class="content">
-        <div class="code" id="servlets21"><button class="copy" onclick="copyText('servlets21')">Copy</button><p>
+        <div class="code" id="servlets21"><button class="copy" onclick="copyText('servlets21')">Copy</button><br><p>
             public class showError extends HttpServlet {<br><br>
             &emsp;<mark>// Method to handle GET method request.</mark><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
@@ -4826,7 +4826,7 @@
         <div class="content">
         <h3>Servlet Filter Example</h3>
         <p>Print the clients IP address and current date time.</p>
-        <div class="code" id="servlets22"><button class="copy" onclick="copyText('servlets22')">Copy</button><p>
+        <div class="code" id="servlets22"><button class="copy" onclick="copyText('servlets22')">Copy</button><br><p>
             public class LogFilter implements Filter  {<br>
             &emsp;public void  init(FilterConfig config) throws ServletException {<br><br>
             &emsp;&emsp;<mark>// Get init parameter</mark><br>
@@ -4851,7 +4851,7 @@
         </div>
         <h3>Servlet Filter Mapping in Web.xml</h3>
         <p>Filters are defined and then mapped to a URL or Servlet, in much the same way as Servlet is defined and then mapped to a URL pattern. Create the following entry for filter tag in the deployment descriptor file web.xml</p>
-        <div class="code" id="servlets23"><button class="copy" onclick="copyText('servlets23')">Copy</button><p>
+        <div class="code" id="servlets23"><button class="copy" onclick="copyText('servlets23')">Copy</button><br><p>
             &lt;filter&gt;<br>
             &emsp;&lt;filter-name&gt;LogFilter&lt;/filter-name&gt;<br>
             &emsp;&lt;filter-class&gt;LogFilter&lt;/filter-class&gt;<br>
@@ -4878,7 +4878,7 @@
     <h3>Error Handling</h3>
     <p>When a servlet throws an exception, the web container searches the configurations in web.xml that use the exception-type element for a match with the thrown exception type.</p>
     <p>You would have to use the error-page element in web.xml to specify the invocation of servlets in response to certain exceptions or HTTP status codes.</p>
-    <div class="code" id="servlets24"><button class="copy" onclick="copyText('servlets24')">Copy</button><p>
+    <div class="code" id="servlets24"><button class="copy" onclick="copyText('servlets24')">Copy</button><br><p>
         <mark>&lt;!-- servlet definition --&gt;</mark><br>
         &lt;servlet&gt;<br>
         &emsp;&lt;servlet-name&gt;ErrorHandler&lt;/servlet-name&gt;<br>
@@ -4948,7 +4948,7 @@
     <button class="collapsible">Error Handler Servlet Example</button>
     <div class="content">
     <p>This example would give you basic understanding of Exception Handling in Servlet, but you can write more sophisticated filter applications using the same concept.</p>
-    <div class="code" id="servlets25"><button class="copy" onclick="copyText('servlets25')">Copy</button><p>
+    <div class="code" id="servlets25"><button class="copy" onclick="copyText('servlets25')">Copy</button><br><p>
         public class ErrorHandler extends HttpServlet {<br><br>
         &emsp;<mark>// Method to handle GET method request.</mark><br>
         &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
@@ -5005,7 +5005,7 @@
     </p>
     </div>
     <p>Add the following configuration in web.xml to handle exceptions</p>
-    <div class="code" id="servlets26"><button class="copy" onclick="copyText('servlets26')">Copy</button><p>
+    <div class="code" id="servlets26"><button class="copy" onclick="copyText('servlets26')">Copy</button><br><p>
         &lt;servlet&gt;<br>
         &emsp;&lt;servlet-name&gt;ErrorHandler&lt;/servlet-name&gt;<br>
         &emsp;&lt;servlet-class&gt;ErrorHandler&lt;/servlet-class&gt;<br>
@@ -5100,28 +5100,28 @@
         </table></div>
         <h3>Setting Cookies with Servlet</h3>
         <p><b>1. Creating a Cookie object: </b>You call the Cookie constructor with a cookie name and a cookie value, both of which are strings.</p>
-        <div class="code" id="servlets27"><button class="copy" onclick="copyText('servlets27')">Copy</button><p>
+        <div class="code" id="servlets27"><button class="copy" onclick="copyText('servlets27')">Copy</button><br><p>
             Cookie cookie = new Cookie("key","value");
         </p>
         </div>
         <p>Neither the name nor the value should contain white space or any of the following:</p>
-        <div class="code" id="servlets28"><button class="copy" onclick="copyText('servlets28')">Copy</button><p>
+        <div class="code" id="servlets28"><button class="copy" onclick="copyText('servlets28')">Copy</button><br><p>
             [ ] ( ) = , " / ? @ : ;
         </p>
         </div>
         <p><b>2. Setting the maximum age: </b>You use setMaxAge to specify how long (in seconds) the cookie should be valid. Following would set up a cookie for 24 hours.</p>
-        <div class="code" id="servlets29"><button class="copy" onclick="copyText('servlets29')">Copy</button><p>
+        <div class="code" id="servlets29"><button class="copy" onclick="copyText('servlets29')">Copy</button><br><p>
             cookie.setMaxAge(60 * 60 * 24);
         </p>
         </div>
         <p><b>3. Sending the Cookie into the HTTP response headers: </b>You use response.addCookie to add cookies in the HTTP response header.</p>
-        <div class="code" id="servlets30"><button class="copy" onclick="copyText('servlets30')">Copy</button><p>
+        <div class="code" id="servlets30"><button class="copy" onclick="copyText('servlets30')">Copy</button><br><p>
             response.addCookie(cookie);
         </p>
         </div>
         <button class="collapsible">Set Cookies Example</button>
         <div class="content">
-        <div class="code" id="servlets31"><button class="copy" onclick="copyText('servlets31')">Copy</button><p>
+        <div class="code" id="servlets31"><button class="copy" onclick="copyText('servlets31')">Copy</button><br><p>
             public class HelloForm extends HttpServlet {<br><br>
             &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -5159,7 +5159,7 @@
         </p>
         </div>
         <p>Add the appropriate entry in web.xml file and use this HTML page.</p>
-        <div class="code" id="servlets32"><button class="copy" onclick="copyText('servlets32')">Copy</button><p>
+        <div class="code" id="servlets32"><button class="copy" onclick="copyText('servlets32')">Copy</button><br><p>
             &lt;html&gt;<br>
             &emsp;&lt;body&gt;<br>
             &emsp;&emsp;&lt;form action = "HelloForm" method = "GET"&gt;<br>
@@ -5178,7 +5178,7 @@
         <div class="content">
             <h3>Reading Cookies with Servlet</h3>
             <p>To read cookies, you need to create an array of javax.servlet.http.Cookie objects by calling the getCookies() method of HttpServletRequest. Then cycle through the array, and use getName() and getValue() methods to access each cookie and associated value.</p>
-            <div class="code" id="servlets33"><button class="copy" onclick="copyText('servlets33')">Copy</button><p>
+            <div class="code" id="servlets33"><button class="copy" onclick="copyText('servlets33')">Copy</button><br><p>
                 public class ReadCookies extends HttpServlet {<br><br>
                 &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
                 &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -5222,7 +5222,7 @@
         </ul>
         <button class="collapsible">Delete Cookies Example</button>
         <div class="content">
-        <div class="code" id="DeleteCookie"><button class="copy" onclick="copyText('DeleteCookie')">Copy</button><p>
+        <div class="code" id="DeleteCookie"><button class="copy" onclick="copyText('DeleteCookie')">Copy</button><br><p>
             public class DeleteCookies extends HttpServlet {<br><br>
             &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -5321,7 +5321,7 @@
         <p>Once the project is created open the pom.xml file and add the necessary dependencies.</p>
         <button class="collapsible">POM File</button>
         <div class="content">
-        <div class="code" id="hibernate1"><button class="copy" onclick="copyText('hibernate1')">Copy</button><p>
+        <div class="code" id="hibernate1"><button class="copy" onclick="copyText('hibernate1')">Copy</button><br><p>
             &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;<br>
             &emsp;&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;<br>
             &emsp;&lt;groupId&gt;com.training.maven&lt;/groupId&gt;<br>
@@ -5355,7 +5355,7 @@
         </ul>
         <button class="collapsible">User Class</button>
         <div class="content">
-        <div class="code" id="hibernate2"><button class="copy" onclick="copyText('hibernate2')">Copy</button><p>
+        <div class="code" id="hibernate2"><button class="copy" onclick="copyText('hibernate2')">Copy</button><br><p>
             public class User {<br><br>
             &emsp;private int userID;<br>
             &emsp;private String firstName;<br>
@@ -5393,7 +5393,7 @@
         </ul>
         <button class="collapsible">XML Based</button>
         <div class="content">
-        <div class="code" id="hibernate3"><button class="copy" onclick="copyText('hibernate3')">Copy</button><p>
+        <div class="code" id="hibernate3"><button class="copy" onclick="copyText('hibernate3')">Copy</button><br><p>
             &lt;?xml version="1.0"?&gt;<br>
             &lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"<br>
             "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;<br>
@@ -5418,7 +5418,7 @@
         &nbsp;
         <button class="collapsible">Annotation Based</button>
         <div class="content">
-            <div class="code" id="hibernate4"><button class="copy" onclick="copyText('hibernate4')">Copy</button><p>
+            <div class="code" id="hibernate4"><button class="copy" onclick="copyText('hibernate4')">Copy</button><br><p>
                 @Entity <mark>// Defines that this Class can be mapped to a table</mark><br>
                 @Table(name = "users") <mark>// User class should connect to the users table in the database</mark><br>
                 public class User {<br><br>
@@ -5459,7 +5459,7 @@
         <p>The configuration file contains information about the database and mapping file. Conventionally, its name should be hibernate.cfg.xml</p>
         <button class="collapsible">Configuration File</button>
         <div class="content">
-            <div class="code" id="hibernate5"><button class="copy" onclick="copyText('hibernate5')">Copy</button><p>
+            <div class="code" id="hibernate5"><button class="copy" onclick="copyText('hibernate5')">Copy</button><br><p>
                 &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
                 &lt;!DOCTYPE hibernate-configuration PUBLIC<br>
                 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"<br>
@@ -5491,7 +5491,7 @@
         <p>For code reuse purposes we can separate our session factory from the main class.</p>
         <button class="collapsible">XML Based</button>
         <div class="content">
-        <div class="code" id="hibernate6"><button class="copy" onclick="copyText('hibernate6')">Copy</button><p>
+        <div class="code" id="hibernate6"><button class="copy" onclick="copyText('hibernate6')">Copy</button><br><p>
             public class HibernateUtility {<br>
             &emsp;<mark>// Get service registry</mark><br>
             &emsp;<mark>// Get meta data</mark><br>
@@ -5523,7 +5523,7 @@
         &nbsp;
         <button class="collapsible">Annotation Based</button>
         <div class="content">
-            <div class="code" id="hibernate7"><button class="copy" onclick="copyText('hibernate7')">Copy</button><p>
+            <div class="code" id="hibernate7"><button class="copy" onclick="copyText('hibernate7')">Copy</button><br><p>
                 public class HibernateUtility {<br>
                 &emsp;<mark>// Get service registry</mark><br>
                 &emsp;<mark>// Get meta data</mark><br>
@@ -5563,7 +5563,7 @@
         &nbsp;
         <button class="collapsible">Annotation Based (With Log Interceptor)</button>
         <div class="content">
-            <div class="code" id="hibernate8"><button class="copy" onclick="copyText('hibernate8')">Copy</button><p>
+            <div class="code" id="hibernate8"><button class="copy" onclick="copyText('hibernate8')">Copy</button><br><p>
                 public class HibernateUtility {<br>
                 &emsp;<mark>// Get service registry</mark><br>
                 &emsp;<mark>// Get meta data</mark><br>
@@ -5606,7 +5606,7 @@
         <p>In this class, we are simply storing the user object to the database</p>
         <button class="collapsible">MainProgram Class</button>
         <div class="content">
-            <div class="code" id="hibernate9"><button class="copy" onclick="copyText('hibernate9')">Copy</button><p>
+            <div class="code" id="hibernate9"><button class="copy" onclick="copyText('hibernate9')">Copy</button><br><p>
             public class MainProgram {<br>
             &emsp;public static void main(String[] args) {<br><br>
             &emsp;&emsp;<mark>// Access our SessionFactory methods</mark><br>
@@ -5666,7 +5666,7 @@
         <div class="content">
             <button class="collapsible">Get All Users</button>
             <div class="content">
-            <div class="code" id="hibernate10"><button class="copy" onclick="copyText('hibernate10')">Copy</button><p>
+            <div class="code" id="hibernate10"><button class="copy" onclick="copyText('hibernate10')">Copy</button><br><p>
                 public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
@@ -5705,7 +5705,7 @@
         <div class="content">
             <button class="collapsible">Get All Users</button>
             <div class="content">
-            <div class="code" id="hibernate11"><button class="copy" onclick="copyText('hibernate11')">Copy</button><p>
+            <div class="code" id="hibernate11"><button class="copy" onclick="copyText('hibernate11')">Copy</button><br><p>
                 public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
@@ -5746,7 +5746,7 @@
             &nbsp;
             <button class="collapsible">Select First and Last Names</button>
             <div class="content">
-            <div class="code" id="hibernate12"><button class="copy" onclick="copyText('hibernate12')">Copy</button><p>
+            <div class="code" id="hibernate12"><button class="copy" onclick="copyText('hibernate12')">Copy</button><br><p>
                 public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
@@ -5786,7 +5786,7 @@
         <button class="collapsible">Named Queries</button>
         <div class="content">
             <p>First we will need to add a Named Query to our User class:</p>
-            <div class="code" id="hibernate13"><button class="copy" onclick="copyText('hibernate13')">Copy</button><p>
+            <div class="code" id="hibernate13"><button class="copy" onclick="copyText('hibernate13')">Copy</button><br><p>
                 @Entity // Defines that this Class can be mapped to a table<br>
                 @Table(name = "users") // User class should connect to the users Table in the Database<br>
                 @NamedQuery(name = "get_All_Users", query = "From User") // A Named Query for printing all users<br>
@@ -5795,7 +5795,7 @@
             </div>
             <button class="collapsible">Get all Users</button>
             <div class="content">
-            <div class="code" id="hibernate14"><button class="copy" onclick="copyText('hibernate14')">Copy</button><p>
+            <div class="code" id="hibernate14"><button class="copy" onclick="copyText('hibernate14')">Copy</button><br><p>
                 public class HQLExample {<br>
                 &emsp;public static void main(String[] args) {<br>
                 &emsp;HQLExample example = new HQLExample();<br>
@@ -5831,7 +5831,7 @@
     <div class="content">
         <p>To add a Log Interceptor to our program we first need to create a class that extends EmptyInterceptor.</p>
         <p>We can then use Eclipse's Source -> Override/Implement methods to add the methods we want.</p>
-        <div class="code" id="hibernate15"><button class="copy" onclick="copyText('hibernate15')">Copy</button><p>
+        <div class="code" id="hibernate15"><button class="copy" onclick="copyText('hibernate15')">Copy</button><br><p>
             public class LogInterceptor extends EmptyInterceptor {<br><br>
             &emsp;@Override<br>
             &emsp;public void afterTransactionBegin(Transaction tx) {<br>
@@ -5861,7 +5861,7 @@
                 <li>Hence, modifications in the data don't affect any changes in the database.</li>
                 <li>The transient objects exist in the heap memory.</li>
             </ul>
-            <div class="code" id="hibernate16"><button class="copy" onclick="copyText('hibernate16')">Copy</button><p>
+            <div class="code" id="hibernate16"><button class="copy" onclick="copyText('hibernate16')">Copy</button><br><p>
                 <mark>// Here, object enters the transient state.</mark><br>
                 Employee e = new Employee();
             </p>
@@ -5873,7 +5873,7 @@
                 <li>Each Object represents the row of the database table so, modifications to the data make changes in the database.</li>
             </ul>
             <p>The following methods are used to put an object in the persistent state:</p>
-            <div class="code" id="hibernate17"><button class="copy" onclick="copyText('hibernate17')">Copy</button><p>
+            <div class="code" id="hibernate17"><button class="copy" onclick="copyText('hibernate17')">Copy</button><br><p>
                 session.save(e);<br>
                 session.persist(e);<br>
                 session.update(e);<br>
@@ -5890,7 +5890,7 @@
                 <li>To associate the detached object with the new Hibernate Session, we can use methods such as: load(), merge(), refresh(), update() or save() on a new session with the reference of the detached object.</li>
             </ul>
             <p>The following methods are used to put an object in the detached state:</p>
-            <div class="code" id="hibernate18"><button class="copy" onclick="copyText('hibernate18')">Copy</button><p>
+            <div class="code" id="hibernate18"><button class="copy" onclick="copyText('hibernate18')">Copy</button><br><p>
                 session.close();<br>
                 session.clear();<br>
                 session.detach(e);<br>
@@ -5905,7 +5905,7 @@
 <div class="content">
     <h3>Design Pattern of Singleton classes</h3>
     <p>The constructor of singleton class would be private so there must be another way to get the instance of that class. This problem is resolved using a class member instance and a factory method to return the class member.</p>
-    <div class="code" id="design1"><button class="copy" onclick="copyText('design1')">Copy</button><p>
+    <div class="code" id="design1"><button class="copy" onclick="copyText('design1')">Copy</button><br><p>
         class MySingleton {<br>
         &emsp;static MySingleton instance = null;<br>
         &emsp;public int x = 10;<br><br>
@@ -5932,7 +5932,7 @@
     </p>
     </div>
     <p>Output:</p>
-    <div class="code" id="design2"><button class="copy" onclick="copyText('design2')">Copy</button><p>
+    <div class="code" id="design2"><button class="copy" onclick="copyText('design2')">Copy</button><br><p>
         Value of a.x = 20<br>
         Value of b.x = 20
     </p>
@@ -6088,7 +6088,7 @@
             <li>Identity</li>
         </ol>
         <p>An object is created using the ‘new’ keyword.</p>
-        <div class="code" id="interview1"><button class="copy" onclick="copyText('interview1')">Copy</button><p>
+        <div class="code" id="interview1"><button class="copy" onclick="copyText('interview1')">Copy</button><br><p>
             ClassName obj = new ClassName();
         </p>
         </div>
@@ -7044,7 +7044,7 @@
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
         <div class="content">
-            <div class="code" id="interview2"><button class="copy" onclick="copyText('interview2')">Copy</button><p>
+            <div class="code" id="interview2"><button class="copy" onclick="copyText('interview2')">Copy</button><br><p>
                 class Test {<br>
                 &emsp;public static void main (String args[]) {<br>
                 &emsp;&emsp;System.out.println(10 + 20 + "Javatpoint");<br>
@@ -7054,7 +7054,7 @@
             </p>
             </div>
             <p>The output of the above code will be:</p>
-            <div class="code" id="interview3"><button class="copy" onclick="copyText('interview3')">Copy</button><p>
+            <div class="code" id="interview3"><button class="copy" onclick="copyText('interview3')">Copy</button><br><p>
                 30Javatpoint<br>
                 Javatpoint1020
             </p>
@@ -7065,7 +7065,7 @@
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
         <div class="content">
-            <div class="code" id="interview4"><button class="copy" onclick="copyText('interview4')">Copy</button><p>
+            <div class="code" id="interview4"><button class="copy" onclick="copyText('interview4')">Copy</button><br><p>
                 class Test {<br>
                 &emsp;public static void main (String args[]) {<br>
                 &emsp;&emsp;System.out.println(10 * 20 + "Javatpoint");<br>
@@ -7075,7 +7075,7 @@
             </p>
             </div>
             <p>The output of the above code will be:</p>
-            <div class="code" id="interview5"><button class="copy" onclick="copyText('interview5')">Copy</button><p>
+            <div class="code" id="interview5"><button class="copy" onclick="copyText('interview5')">Copy</button><br><p>
                 200Javatpoint<br>
                 Javatpoint200
             </p>
@@ -7086,7 +7086,7 @@
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
         <div class="content">
-            <div class="code" id="interview6"><button class="copy" onclick="copyText('interview6')">Copy</button><p>
+            <div class="code" id="interview6"><button class="copy" onclick="copyText('interview6')">Copy</button><br><p>
                 class Test {<br>
                 &emsp;public static void main (String args[]) {<br>
                 &emsp;&emsp;for(int i=0; 0; i++) {<br>
@@ -7150,7 +7150,7 @@
         <button class="collapsible">What is the purpose of a default constructor?</button>
         <div class="content">
             <p>The purpose of the default constructor is to assign the default value to the objects. The java compiler creates a default constructor implicitly if there is no constructor in the class.</p>
-            <div class="code" id="interview7"><button class="copy" onclick="copyText('interview7')">Copy</button><p>
+            <div class="code" id="interview7"><button class="copy" onclick="copyText('interview7')">Copy</button><br><p>
                 class Student{<br>
                 &emsp;int id;<br>
                 &emsp;String name;<br><br>
@@ -7167,7 +7167,7 @@
             </p>
             </div>
             <p>Output:</p>
-            <div class="code" id="interview8"><button class="copy" onclick="copyText('interview8')">Copy</button><p>
+            <div class="code" id="interview8"><button class="copy" onclick="copyText('interview8')">Copy</button><br><p>
                 0 null<br>
                 0 null
             </p>
@@ -7193,7 +7193,7 @@
         <button class="collapsible">Can we overload the constructors?</button>
         <div class="content">
             <p>Yes, the constructors can be overloaded by changing the number of arguments accepted by the constructor or by changing the data type of the parameters.</p>
-            <div class="code" id="interview9"><button class="copy" onclick="copyText('interview9')">Copy</button><p>
+            <div class="code" id="interview9"><button class="copy" onclick="copyText('interview9')">Copy</button><br><p>
                 class Test {<br>
                 &emsp;int i;<br>
                 &emsp;public Test(int k) {<br>
@@ -7229,7 +7229,7 @@
                 <li>By assigning the values of one object into another</li>
                 <li>By clone() method of Object class</li>
             </ul>
-            <div class="code" id="interview10"><button class="copy" onclick="copyText('interview10')">Copy</button><p>
+            <div class="code" id="interview10"><button class="copy" onclick="copyText('interview10')">Copy</button><br><p>
                 &emsp;class Student {<br>
                 &emsp;&emsp;int id;<br>
                 &emsp;&emsp;String name;<br>
@@ -7256,7 +7256,7 @@
             </p>
             </div>
             <p>Output:</p>
-            <div class="code" id="interview11"><button class="copy" onclick="copyText('interview11')">Copy</button><p>
+            <div class="code" id="interview11"><button class="copy" onclick="copyText('interview11')">Copy</button><br><p>
                 111 Karan<br>
                 111 Karen
             </p>
@@ -7295,7 +7295,7 @@
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
         <div class="content">
-            <div class="code" id="interview12"><button class="copy" onclick="copyText('interview12')">Copy</button><p>
+            <div class="code" id="interview12"><button class="copy" onclick="copyText('interview12')">Copy</button><br><p>
                 public class Test {<br>
                 &emsp;Test(int a, int b) {<br>
                 &emsp;&emsp;System.out.println("a = "+a+" b = "+b);<br>
@@ -7312,7 +7312,7 @@
             </p>
             </div>
             <p>Output:</p>
-            <div class="code" id="interview13"><button class="copy" onclick="copyText('interview13')">Copy</button><p>
+            <div class="code" id="interview13"><button class="copy" onclick="copyText('interview13')">Copy</button><br><p>
                 a = 10 b = 15
             </p>
             </div>
@@ -7321,7 +7321,7 @@
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
         <div class="content">
-            <div class="code" id="interview14"><button class="copy" onclick="copyText('interview14')">Copy</button><p>
+            <div class="code" id="interview14"><button class="copy" onclick="copyText('interview14')">Copy</button><br><p>
                 class Test {<br>
                 &emsp;int i;<br>
                 }<br>
@@ -7338,7 +7338,7 @@
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
         <div class="content">
-            <div class="code" id="interview15"><button class="copy" onclick="copyText('interview15')">Copy</button><p>
+            <div class="code" id="interview15"><button class="copy" onclick="copyText('interview15')">Copy</button><br><p>
                 class Test {<br>
                 &emsp;int test_a, test_b;<br>
                 &emsp;Test(int a, int b) {<br>
@@ -7361,7 +7361,7 @@
         <button class="collapsible">What is the static variable?</button>
         <div class="content">
             <p>The static variable is used to refer to the common property of all objects (that is not unique for each object), e.g., The company name of employees, college name of students, etc. Static variable gets memory only once in the class area at the time of class loading. Using a static variable makes your program more memory efficient (it saves memory). Static variable belongs to the class rather than the object.</p>
-            <div class="code" id="interview16"><button class="copy" onclick="copyText('interview16')">Copy</button><p>
+            <div class="code" id="interview16"><button class="copy" onclick="copyText('interview16')">Copy</button><br><p>
                 class Student{<br>
                 &emsp;int rollno;<br>
                 &emsp;String name;<br>
@@ -7383,7 +7383,7 @@
             </p>
             </div>
             <p>Output:</p>
-            <div class="code" id="interview17"><button class="copy" onclick="copyText('interview17')">Copy</button><p>
+            <div class="code" id="interview17"><button class="copy" onclick="copyText('interview17')">Copy</button><br><p>
                 111 Karan ITS<br>
                 222 Aryan ITS
             </p>

@@ -68,6 +68,14 @@ tr:nth-child(even) {
     user-select: none;
     background-color: #777777;
     color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+.copy:hover {
+    background-color: #dddddd;
+    color: #777777;
 }
 
 .code p {
