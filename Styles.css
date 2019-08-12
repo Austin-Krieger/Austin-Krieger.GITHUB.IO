@@ -100,6 +100,10 @@ mark {
     background: #303030;
 }
 
+.scrollableTable {
+    overflow-x: auto;
+}
+
 .flip3D {
     width: 49%;
     height: 200px;

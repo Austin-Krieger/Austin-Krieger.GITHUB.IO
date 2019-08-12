@@ -49,7 +49,7 @@
 &nbsp;
 <button class="collapsible">Features of Java</button>
 <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Feature</th>
             <th>Description</th>
@@ -102,14 +102,14 @@
             <td>Dynamic</td>
             <td>Java is considered to be more dynamic than C or C++ since it is designed to adapt to an evolving environment. Java programs can carry an extensive amount of run-time information that can be used to verify and resolve accesses to objects at run-time</td>
         </tr>
-    </table>
+    </table></div>
     &nbsp;
     <button class="collapsible">JRE, JDK and JVM</button>
     <div class="content">
         <h2>Running your Java Program</h2>
         <p>Source Code is given to the compiler which Generates Byte code (.class files) which are given to the JVM (interprets the byte code) and the program executes.</p>
         <p>Anytime you want to run your program you need to have your JRE</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>JRE (Java Runtime Environment)</td>
                 <td>Provides the libraries, the JVM, and other components to run applications written in Java. In short the JRE enables Java bytecode to run on any platform.</td>
@@ -122,7 +122,7 @@
                 <td>JVM (Java Virtual Machine)</td>
                 <td>Sits in between the compiler and the CPU and interprets the bytecode into readable machine language for the CPU. In short the JVM Interpret the byte codes and performs the execution on it.</td>
             </tr>
-        </table>
+        </table></div>
         <p>Byte Code: When we compile the Java program it generates byte code (.class files), which can be interpreted by the JVM.</p>
         <h3>JVM</h3>
         <ul>
@@ -289,7 +289,7 @@
     <h2>Primitive Types (8): byte, short, int, long, char, float, double, boolean</h2>
     <p>Not object-oriented, found in most other languages, the reason for their non-object-oriented existence is for efficiency.</p>
     <p>Java does not support unsigned, positive-only integers.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td colspan="2" style="background-color: black; color: white;">Four Integer Types</td>
         </tr>
@@ -358,7 +358,7 @@
         <tr>
             <td>boolean t = true;</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Wrapper Class</h3>
     <p>The primitive data types (integers, floats, doubles, ...) are not objects, so their corresponding object versions are called wrapper classes.</p>
     <h3>Wrapper Type</h3>
@@ -366,7 +366,7 @@
     <h2>Literals</h2>
     <h3>Integer Literals</h3>
     <p>Any whole number value is an integer literal.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>base 10 numbers</td>
             <td>(decimal)</td>
@@ -379,7 +379,7 @@
             <td>base 16 numbers</td>
             <td>(hexadecimal) signified by a leading 0x or 0X</td>
         </tr>
-    </table>
+    </table></div>
     <p>Assigning an integer literal to one of java's other integer types is easy as long as the literal value is within the range of the target type.</p>
     <p>You can assign an integer literal to a long variable by explicitly telling the compiler that the literal value is of type long.</p>
     <h3>Floating-Point Literals</h3>
@@ -432,7 +432,7 @@
         <li>Names should start with a lowercase letter and it cannot contain whitespace</li>
         <li>Reserved words (like Java keywords, such as int or String) cannot be used as names</li>
     </ul>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th rowspan="2">Instance Variables</th>
             <td>"The data, or variables, defined within a class"</td>
@@ -454,7 +454,7 @@
         <tr>
             <td>A variable that has been allocated "statically", meaning that its lifetime (or "extent") is the entire run of the program.</td>
         </tr>
-    </table>
+    </table></div>
     <p style="font-weight: bold;">Dynamically Initializing Variables:</p>
     <ul>
         <li>Java allows variable to be initialized dynamically, using any expression valid at the time the variable is declared.</li>
@@ -563,7 +563,7 @@
     <h3>String Methods</h3>
     <button class="collapsible">String Methods</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Method</th>
             <th>Description</th>
@@ -759,7 +759,7 @@
             <td>Returns the primitive value of a String object</td>
             <td>String</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     <p>Java counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third ..</p>
     <h3>concat() Method</h3>
@@ -792,7 +792,7 @@
     <h3>Difference between concat() and + operator</h3>
     <p>Although concat() and + operator are both used for concatenation of strings, but there are some differences between them:</p>
 
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Points</th>
             <th>concat() Method</th>
@@ -833,7 +833,7 @@
             <td>concat() method is better than + operator because it creates a new object only when the string length is greater than zero(0) but + operator always a creates a new string irrespective of length of string.</td>
             <td>+ operator always a creates a new string irrespective of length of string therefore it takes more memory.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Special Characters</h3>
     <p>Because strings must be written within quotes, Java will misunderstand this string, and generate an error</p>
     <div class="code" id="string6"><button class="copy" onclick="copyText('string6')">Copy</button><p>
@@ -841,7 +841,7 @@
     </p>
     </div>
     <p>To avoid this problem we have the backslash excape character. (\)</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Escape Character</th>
             <th>Result</th>
@@ -887,7 +887,7 @@
             <td>Form Feed</td>
             <td>Form Feed</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Adding Numbers and Strings</h3>
     <p>If you add a number and a string, the result will be a string concatenation.</p>
     <div class="code" id="string8"><button class="copy" onclick="copyText('string8')">Copy</button><p>
@@ -906,7 +906,7 @@
     <p>Without a modifier a class is assumed package-private and visible only within its own package.</p>
     <p>Public: class is visible to all classes everywhere.</p>
     <h3>Member level</h3>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th rowspan="2">Public</th>
             <td>That member may be accessed by any code within its package.</td>
@@ -935,7 +935,7 @@
         <tr>
             <td>Example: People with whom you live can access.</td>
         </tr>
-    </table>
+    </table></div>
     <p>Example a 10 year old could understand: Cookies left on the counter are for anyone and cookies in the cookie jar are private/protected.</p>
 </div>
 &nbsp;
@@ -969,7 +969,7 @@
         }
     </p>
     </div>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Finalize Method</th>
             <td>Method which will be called during garbage collection process before data is removed from memory.</td>
@@ -986,7 +986,7 @@
             <th>Abstract Method</th>
             <td>You can require that certain methods be overridden by subclasses by specifying the abstract type modifier.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Abstract Method</h3>
     <p>Can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).</p>
     <p><b>general form:</b> abstract type name (parameter-list);</p>
@@ -1363,7 +1363,7 @@
     <p>Java has a set of keywords that are reserved words that cannot be used as variables, methods, classes, or any other identifiers:</p>
     <button class="collapsible">A - C</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Keyword</th>
             <th>Description</th>
@@ -1412,12 +1412,12 @@
             <th>const</th>
             <td>Defines a constant. (use final instead)</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     &nbsp;
     <button class="collapsible">D - F</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Keyword</th>
             <th>Description</th>
@@ -1478,12 +1478,12 @@
             <th>for</th>
             <td>Create a for loop</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     &nbsp;
     <button class="collapsible">G - P</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Keyword</th>
             <th>Description</th>
@@ -1554,12 +1554,12 @@
             <th>public</th>
             <td>An access modifier used for classes, attributes, methods and constructors, making them accessible by any other class</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     &nbsp;
     <button class="collapsible">Q - T</button>
     <div class="content">
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Keyword</th>
                 <th>Description</th>
@@ -1619,12 +1619,12 @@
                 <th>try</th>
                 <td>Creates a try...catch statement</td>
             </tr>
-        </table>
+        </table></div>
     </div>
     &nbsp;
     <button class="collapsible">U - Z</button>
     <div class="content">
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Keyword</th>
                 <th>Description</th>
@@ -1645,7 +1645,7 @@
                 <th>while</th>
                 <td>Creates a while loop</td>
             </tr>
-        </table>
+        </table></div>
     </div>
     <p>true, false, and null are not keywords, but they are literals and reserved words that cannot be used as identifiers.</p>
     </div>
@@ -1969,7 +1969,7 @@
     <p>Checked Exceptions: are the exceptions that are checked at compile time. If some code within a method throws a checked exception, then the method must either handle the exception or it must specify the exception using throws keyword.</p>
     <p>Unchecked: are the exceptions that are not checked at compiled time.</p>
     <h3>Checked (Compile-time) Exceptions Defined in java.lang</h3>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Exception</th>
             <th>Meaning</th>
@@ -2006,9 +2006,9 @@
             <td>ReflectiveOperationException</td>
             <td>Superclass of reflection-related exceptions.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Unchecked (Runtime) Exception Defined in java.lang</h3>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Exception</th>
             <th>Meaning</th>
@@ -2081,9 +2081,9 @@
             <td>UnsupportedOperationException</td>
             <td>An unsupported operation was encountered.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Errors vs Exceptions</h3>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Errors</th>
             <th>Exceptions</th>
@@ -2115,11 +2115,11 @@
                 <b>Checked Exceptions:</b><br> SQLException, IOException
                 <br><b>Unchecked Exceptions:</b><br> ArrayIndexOutOfBoundException, NullPointerException, ArithmeticException.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Managing Exceptions</h3>
     <p>When an exceptional condition arises, an object representing that exception is created and thrown in the method that caused the error.</p>
     <p>Exception Handling is managed through five keywords: try, catch, throw, throws, and finally.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>Try block</td>
             <td>Encloses the code that you want to monitor for run-time errors.</td>
@@ -2141,7 +2141,7 @@
             <td>Finally block</td>
             <td>Always runs, any code that absolutely must be executed after a try block.</td>
         </tr>
-    </table>
+    </table></div>
     <p>General Form:</p>
     <div class="code" id="managingExceptions1"><button class="copy" onclick="copyText('managingExceptions1')">Copy</button><p>
         try {<br>
@@ -2210,7 +2210,7 @@
     <p>Define a subclass of Exception which is a subclass of Throwable.</p>
     <p>Your subclasses don’t need to actually implement anything, it is their existence in the type system that allows you to use them as exceptions.</p>
     <p>Exception defines four public constructors: The other two are defined in the next section "Chained Exceptions"</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>Exception()</td>
             <td>Creates an exception that has no description</td>
@@ -2219,13 +2219,13 @@
             <td>Exception(String msg)</td>
             <td>Specify a description of the exception</td>
         </tr>
-    </table>
+    </table></div>
     <h3>toString()</h3>
     <p>Defined by Throwable and inherited by Exception, displays the name of the exception followed by a colon and the description.</p>
     <p>By overriding toString( ), you can prevent the exception name and colon from being displayed.</p>
     <h3>Chained Exceptions</h3>
     <p>Allows you to associate another exception with an exception, this second exception describes the cause of the first exception.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>Throwable(Throwable causeExc)</td>
             <td>causeExc is the underlying reason that an exception occurred</td>
@@ -2242,7 +2242,7 @@
             <td>Throwable initCause(Throwable causeExc)</td>
             <td>Associates causeExc with the invoking exception and returns a reference to the exception, causeExc can only be set once / called once per exception object.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Creating Custom Exceptions</h3>
     <div class="code" id="managingExceptions5"><button class="copy" onclick="copyText('managingExceptions5')">Copy</button><p>
         public class InvalidUserException extends Exception {<br>
@@ -2297,7 +2297,7 @@
     <p>&emsp;private volatile String spaces;</p>
     <h3>Daemon Thread</h3>
     <p>Low priority thread that keeps running in the background to perform background tasks like (garbage collection).</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>setDaemon()</td>
             <td>Set to true on a thread to make it a daemon thread.</td>
@@ -2306,7 +2306,7 @@
             <td>isDaemon()</td>
             <td>Check if a thread is a daemon thread.</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Thread Priority</h3>
     <p>Thread priority gives a thread more cpu preference. The default value is 5.</p>
 </div>
@@ -2314,7 +2314,7 @@
 <button class="collapsible">Concurrency</button>
 <div class="content">
     <h2 style="border-bottom: 2px solid black;">The Concurrency Utilities</h2>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>Semaphore</td>
             <td>Controls access to a shared resource through the use of a counter.</td>
@@ -2379,7 +2379,7 @@
             <td>Atomic Operations</td>
             <td>Methods that get, set, or compare the value of a variable in one uninterruptible (that is, atomic) operation.</td>
         </tr>
-    </table>
+    </table></div>
     &nbsp;
     <button class="collapsible"> Concurrency Overview </button>
     <div class="content">
@@ -2399,7 +2399,7 @@
         <li>The Fork/Join Framework</li>
     </ul>
     <h2>Synchronizers</h2>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>Semaphore</td>
             <td>Controls access to a shared resource through the use of a counter.</td>
@@ -2429,13 +2429,13 @@
             <td>Phaser</td>
             <td>Synchronizes threads that advance through multiple phases of an operation.</td>
         </tr>
-    </table>
+    </table></div>
     <h2>Executors</h2>
     <p>Manage thread execution.</p>
     <p>At the top of the executor hierarchy is the Executor interface, which is used to initiate a thread.</p>
     <h2>ExecutorService</h2>
     <p>Extends Executor and provides methods that manage execution.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>ThreadPoolExecutor</td>
         </tr>
@@ -2445,12 +2445,12 @@
         <tr>
             <td>ForkJoinPool</td>
         </tr>
-    </table>
+    </table></div>
     <h2>The Future and Callable Interfaces</h2>
     <p>Future contains a value that is returned by a thread after it executes. "its value gets defined in the future", when the thread terminates.</p>
     <p>Callable defines a thread that returns a value.</p>
     <h2>Concurrent Collection Classes</h2>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>ArrayBlockingQueue</td>
         </tr>
@@ -2493,7 +2493,7 @@
         <tr>
             <td>SynchronousQueue</td>
         </tr>
-    </table>
+    </table></div>
     <p>These collections work much like the other collections except that they provide concurrency support.</p>
     <h2>TimeUnit Enumeration</h2>
     <p>To better handle thread timing, java.util.concurrent define the TimeUnit enumeration.</p>
@@ -2503,7 +2503,7 @@
     <h2>java.util.concurrent.locks</h2>
     <p>Provides an alternative to the use of synchronized methods.</p>
     <p>At the core of this alternative is the Lock interface, which defines the basic mechanism used to acquire and relinquish access to an object.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <td>lock()</td>
         </tr>
@@ -2513,7 +2513,7 @@
         <tr>
             <td>unlock()</td>
         </tr>
-    </table>
+    </table></div>
     <p>The advantage to using these methods is greater control over synchronization.</p>
         <h2>ThreadLocal</h2>
         <p>Every thread has its own ThreadLocal variable and they can use it's get() and set() methods to get the default value or change it's value local to the Thread.</p>
@@ -2660,7 +2660,7 @@
             <li>Final phase, confirms payment and determines estimated shipping time.</li>
         </ol>
         <p>A Phaser works a bit like a CyclicBarrier, described earlier, except that it supports multiple phases. As a result, Phaser lets you define a synchronization object that waits until a specific phase has completed.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>Phaser()</td>
                 <td></td>
@@ -2693,7 +2693,7 @@
                 <td>protected boolean onAdvance(int phase, int numParties)</td>
                 <td>It is possible to take control of precisely what happens when a phase advance occurs. To terminate the phaser, onAdvance() must return true. To keep the phaser alive, onAdvance() must return false.</td>
             </tr>
-        </table>
+        </table></div>
         <ol>
             <li>First, create a new instance of Phaser.</li>
             <li>Next, register one or more parties with the phaser, either by calling register() or by specifying the number of parties in the constructor.</li>
@@ -2711,7 +2711,7 @@
     <h3>ExecutorService</h3>
         <p>The ExecutorService interface extends Executor by adding methods that help manage and control the execution of threads.</p>
         <p>Represents an asynchronous execution mechanism which is capable of executing tasks concurrently in the background.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>ThreadPoolExecutor</td>
                 <td>Implements the Executor and ExecutorService interfaces and provides support for a managed pool of threads.</td>
@@ -2724,7 +2724,7 @@
                 <td>ForkJoinPool</td>
                 <td>Implements the Executor and ExecutorService interfaces and is used by the Fork/Join Framework.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>Task Delegation</h3>
         <p>Once the thread has delegated the task to the ExecutorService, the thread continues its own execution independent of the execution of that task.</p>
         <p>The ExecutorService then executes the task concurrently, independently of the thread that submitted the task.</p>
@@ -2753,7 +2753,7 @@
         <p>Provides a set of threads that is used to execute various tasks. Instead of each task using its own thread, the threads in the pool are used.</p>
         <p>This reduces the overhead associated with creating many separate threads.</p>
         <p>Most often you will want to obtain an executor by calling one of the following static factory methods defined by the Executors utility class.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>static ExecutorService newCachedThreadPool()</td>
                 <td>Creates a thread pool that adds threads as needed but reuses threads if possible.</td>
@@ -2766,10 +2766,10 @@
                 <td>static ScheduledExecutorService newScheduledThreadPool(int numThreads)</td>
                 <td>Creates a thread pool that supports thread scheduling.</td>
             </tr>
-        </table>
+        </table></div>
         <p>Each returns a reference to an ExecutorService that can be used to manage the pool.</p>
         <h3>Creating an ExecutorService</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>ExecutorService executorService1 = Executors.newSingleThreadExecutor();</td>
             </tr>
@@ -2779,10 +2779,10 @@
             <tr>
                 <td>ExecutorService executorService3 = Executors.newScheduledThreadPool(10);</td>
             </tr>
-        </table>
+        </table></div>
         <h3>ExecutorService Usage</h3>
         <p>There are a few different ways to delegate tasks for execution to an ExecutorService.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>execute(Runnable)</td>
                 <td>Takes a java.lang.Runnable object and executes it asynchronously.</td>
@@ -2803,7 +2803,7 @@
                 <td>invokeAll(...)</td>
                 <td>Invokes all of the Callable objects you pass to it in the collection passed as a parameter. Returns a list of Future objects via which you can obtain the results of the executions of each Callable.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>Runnable vs. Callable</h3>
         <p>Both interfaces represents a task that can be executed concurrently by a thread or an ExecutorService. Both interfaces only have a single method.</p>
         <p>Runnable Interface Declaration</p>
@@ -2934,7 +2934,7 @@
             <div class="code" id="concurrency10"><button class="copy" onclick="copyText('concurrency10')">Copy</button><p>ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);</p></div>
         <h3>ScheduledExecutorService Usage</h3>
         <p>Once you have created a ScheduledExecutorService you use it by calling one of its methods:</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>schedule (Callable task, long delay, TimeUnit timeunit)</td>
                 <td>This method schedules the given Callable for execution after the given delay. The method returns a ScheduledFuture which you can use to either cancel the task before it has started executing, or obtain the result once it is executed.</td>
@@ -2955,7 +2955,7 @@
                     In the scheduleAtFixedRate() method the period is interpreted as a delay between the start of the previous execution, until the start of the next execution.
                     In this method, however, the period is interpreted as the delay between the end of the previous execution, until the start of the next. The delay is thus between finished executions, not between the beginning of executions.</td>
             </tr>
-        </table>
+        </table></div>
         </div>
         <button class="collapsible">ExecutorService Shutdown</button>
         <div class="content">
@@ -2994,7 +2994,7 @@
     <h2>TimeUnit Enumeration</h2>
         <p>TimeUnit is an enumeration that is used to specify the granularity (or resolution) of the timing.</p>
         <p>TimeUnit is defined within java.util.concurrent.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>DAYS</td>
             </tr>
@@ -3016,9 +3016,9 @@
             <tr>
                 <td>NANOSECONDS</td>
             </tr>
-        </table>
+        </table></div>
         <h3>TimeUnit enumeration defines various methods that convert between units.</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>long convert(long tval, TimeUnit tu)</td>
             </tr>
@@ -3043,10 +3043,10 @@
             <tr>
                 <td>long toMinutes(long tval)</td>
             </tr>
-        </table>
+        </table></div>
         <p>The convert() method converts tval into the specified unit and returns the result.</p>
         <h3>TimeUnit also defines the following time methods:</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>void sleep(long delay) throws InterruptedExecution</td>
                 <td>Pauses execution</td>
@@ -3059,7 +3059,7 @@
                 <td>void timedWait(Object obj, long delay) throws InterruptedExecution</td>
                 <td></td>
             </tr>
-        </table>
+        </table></div>
     </div>
     <button class="collapsible"> Locks </button>
     <div class="content">
@@ -3069,7 +3069,7 @@
         <p>Before accessing a shared resource, the lock that protects that resource is acquired.</p>
         <p>When access to the resource is complete, the lock is released.</p>
         <p>If a second thread attempts to acquire the lock when it is in use by another thread, the second thread will suspend until the lock is released.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>lock()</td>
                 <td>To acquire a lock. If the lock is unavailable, lock() will wait.</td>
@@ -3082,7 +3082,7 @@
                 <td>tryLock()</td>
                 <td>To see if a lock is available, and to acquire it if it is.</td>
             </tr>
-        </table>
+        </table></div>
         <p>The newCondition() method returns a Condition object associated with the lock.</p>
         <p>Using a Condition, you gain detailed control of the lock through methods such as await() and signal(), which provide functionality similar to Object.wait() and Object.notify().</p>
         <h3>ReentrantLock</h3>
@@ -3096,7 +3096,7 @@
         </ul>
         <h3>StampedLock</h3>
         <p>Lock acquisition methods return a stamp that is used to release a lock or to check if the lock is still valid.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>void lock()</td>
                 <td>Waits until the invoking lock can be acquired.</td>
@@ -3121,7 +3121,7 @@
                 <td>void unlock()</td>
                 <td>Releases the lock.</td>
             </tr>
-        </table>
+        </table></div>
     </div>
     <button class="collapsible"> Atomic Operations </button>
     <div class="content">
@@ -3372,7 +3372,7 @@
     <p>Often, the solution to ambiguity involves the restructuring of the code, because ambiguity frequently means that you have a conceptual error in your design.</p>
     <h3>Generic Restrictions</h3>
     <p>There are a few restrictions that you need to keep in mind when using generics.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Creating objects of a type parameter</th>
             <td>It is not possible to create an instance of a type parameter.</td>
@@ -3389,7 +3389,7 @@
             <th>Arrays</th>
             <td></td>
         </tr>
-    </table>
+    </table></div>
     <h3>Type Parameters Can’t Be Instantiated</h3>
     <p>It is not possible to create an instance of a type parameter.</p>
     <div class="code" id="generics19"><button class="copy" onclick="copyText('generics19')">Copy</button><p>
@@ -3634,7 +3634,7 @@
         <li>javax.servlet(Basic)</li>
         <li>javax.servlet.http(Advance)</li>
     </ul>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Component</th>
             <th>Type</th>
@@ -3685,7 +3685,7 @@
             <td>Interface</td>
             <td>javax.servlet.*</td>
         </tr>
-    </table>
+    </table></div>
     <h3>Advantages of a Java Servlet</h3>
     <ul>
         <li>Servlet is faster than CGI as it does not involve the creation of a new process for every new request received.</li>
@@ -4087,7 +4087,7 @@
     <p>When a browser requests for a web page, it sends lot of information to the web server which cannot be read directly because this information travel as a part of header of HTTP request.</p>
     <button class="collapsible">Show Table</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Header</th>
             <th>Description</th>
@@ -4144,13 +4144,13 @@
             <td>User-Agent</td>
             <td>This header identifies the browser or other client making the request and can be used to return different content to different types of browsers.</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     <h3>Methods to read HTTP Header</h3>
     <p>There are following methods which can be used to read HTTP header in your servlet program. These methods are available with HttpServletRequest object.</p>
     <button class="collapsible">Show Table</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Method</th>
             <th>Description</th>
@@ -4275,7 +4275,7 @@
             <td>int getServerPort()</td>
             <td>Returns the port number on which this request was received.</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     &nbsp;
     <button class="collapsible">HTTP Header Request Example</button>
@@ -4329,7 +4329,7 @@
     <p>Following is a summary of the most useful HTTP 1.1 response headers which go back to the browser from web server side and you would use them very frequently in web programming.</p>
     <button class="collapsible">Show Table</button>
     <div class="content">
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Header</th>
                 <th>Description</th>
@@ -4390,13 +4390,13 @@
                 <td>Set-Cookie</td>
                 <td>This header specifies a cookie associated with the page.</td>
             </tr>
-        </table>
+        </table></div>
     </div>
     <h3>Methods to Set HTTP Response</h3>
     <p>There are following methods which can be used to set HTTP response header in your servlet program. These methods are available with HttpServletResponse object.</p>
     <button class="collapsible">Show Table</button>
     <div class="content">
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Header</th>
                 <th>Description</th>
@@ -4493,7 +4493,7 @@
                 <td>void setStatus(int sc)</td>
                 <td>Sets the status code for this response</td>
             </tr>
-        </table>
+        </table></div>
     </div>
     &nbsp;
     <button class="collapsible">HTTP Header Response Example (Get Current Time, Auto Refresh)</button>
@@ -4547,7 +4547,7 @@
     <h3>HTTP Status Codes</h3>
     <button class="collapsible">Show Table</button>
     <div class="content">
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Code</th>
             <th>Message</th>
@@ -4748,10 +4748,10 @@
             <td>HTTP Version Not Supported</td>
             <td>The server does not support the "http protocol" version.</td>
         </tr>
-    </table>
+    </table></div>
     </div>
     <h3>Methods to Set HTTP Status Code</h3>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Method</th>
             <th>Description</th>
@@ -4768,7 +4768,7 @@
             <td>public void sendError(int code, String message)</td>
             <td>This method sends a status code (usually 404) along with a short message that is automatically formatted inside an HTML document and sent to the client.</td>
         </tr>
-    </table>
+    </table></div>
     <br>
     <button class="collapsible">HTTP Status Code Example</button>
     <div class="content">
@@ -4803,7 +4803,7 @@
         <p>When the web container starts up your web application, it creates an instance of each filter that you have declared in the deployment descriptor. The filters execute in the order that they are declared in the deployment descriptor.</p>
         <h3>Servlet Filter Methods</h3>
         <p>A filter is simply a Java class that implements the javax.servlet.Filter interface. The javax.servlet.Filter interface defines three methods.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Method</th>
                 <th>Description</th>
@@ -4820,7 +4820,7 @@
                 <td>public void destroy()</td>
                 <td>This method is called by the web container to indicate to a filter that it is being taken out of service.</td>
             </tr>
-        </table>
+        </table></div>
         &nbsp;
         <button class="collapsible">Servlet Filter Example</button>
         <div class="content">
@@ -4914,7 +4914,7 @@
     </div>
     <h3>Request Attributes</h3>
     <p>List of request attributes that an error-handling servlet can access to analyze the nature of error/exception.</p>
-    <table>
+    <div class="scrollableTable"><table>
         <tr>
             <th>Attribute</th>
             <th>Description</th>
@@ -4943,7 +4943,7 @@
             <td>javax.servlet.error.servlet_name</td>
             <td>This attribute gives servlet name which can be stored and analyzed after storing in a java.lang.String data type.</td>
         </tr>
-    </table>
+    </table></div>
     &nbsp;
     <button class="collapsible">Error Handler Servlet Example</button>
     <div class="content">
@@ -5044,7 +5044,7 @@
         <p>If the browser is configured to store cookies, it will then keep this information until the expiry date. If the user points the browser at any page that matches the path and domain of the cookie, it will resend the cookie to the server.</p>
         <p>A servlet will then have access to the cookie through the request method request.getCookies() which returns an array of Cookie objects.</p>
         <h3>Servlet Cookies Methods</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Method</th>
                 <th>Description</th>
@@ -5097,7 +5097,7 @@
                 <td>public String getComment()</td>
                 <td>This method returns the comment describing the purpose of this cookie, or null if the cookie has no comment.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>Setting Cookies with Servlet</h3>
         <p><b>1. Creating a Cookie object: </b>You call the Cookie constructor with a cookie name and a cookie value, both of which are strings.</p>
         <div class="code" id="servlets27"><button class="copy" onclick="copyText('servlets27')">Copy</button><p>
@@ -5949,7 +5949,7 @@
         <p>JDK (Java Development Kit): The tool necessary to compile, document and package Java programs.</p>
         <p>JRE (Java Runtime Environment): Refers to the runtime environment in which Java bytecode can be executed.</p>
         <p>JVM (Java Virtual Machine): Provides a runtime environment in which Java bytecode can be executed.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>JRE (Java Runtime Environment)</td>
                 <td>Used to run Java applications/programs</td>
@@ -5962,7 +5962,7 @@
                 <td>JVM (Java Virtual Machine)</td>
                 <td>Interpret the byte codes and performs the execution on it</td>
             </tr>
-        </table>
+        </table></div>
         <h3>Explain public static void main(String args[]) in Java</h3>
         <p>main() in Java is the entry point for any Java program.</p>
         <ul>
@@ -5986,7 +5986,7 @@
         <p>Equals() method is defined in Object class in Java and used for checking equality of two objects defined by business logic.</p>
         <p>“==” or equality operator in Java is a binary operator provided by Java programming language and used to compare primitives and objects. When comparing objects it only compare the memory locations of each.</p>
         <h3>What are the differences between Heap and Stack Memory in Java?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Features</th>
                 <th>Stack</th>
@@ -6017,7 +6017,7 @@
                 <td>Stack memory only contains local primitive and reference variables to objects in heap space.</td>
                 <td>Whenever an object is created, it’s always stored in the Heap space.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is a package in Java? List down various advantages of packages.</h3>
         <p>Packages in Java, are the collection of related classes and interfaces which are bundled together. By using packages, developers can easily modularize the code and optimize its reuse. Also, the code within the packages can be imported by other classes and reused.</p>
         <ul>
@@ -6033,7 +6033,7 @@
         <p>JIT stands for Just-In-Time compiler in Java. It is a program that helps in converting the Java bytecode into instructions that are sent directly to the processor. By default, the JIT compiler is enabled in Java and is activated whenever a Java method is invoked. The JIT compiler then compiles the bytecode of the invoked method into native machine code, compiling it “just in time” to execute. Once the method has been compiled, the JVM summons the compiled code of that method directly rather than interpreting it. This is why it is often responsible for the performance optimization of Java applications at the run time.</p>
         <h3>What are access modifiers in Java?</h3>
         <p>In Java, access modifiers are special keywords which are used to restrict the access of a class, constructor, data member and method in another class.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Modifier</th>
                 <th>Default</th>
@@ -6076,7 +6076,7 @@
                 <td>NO</td>
                 <td>YES</td>
             </tr>
-        </table>
+        </table></div>
         <h3>Define a Java Class.</h3>
         <p>The Blueprint for an Object.</p>
         <p>A class in Java is a blueprint which includes all your data.  A class contains fields (variables) and methods to describe the behavior of an object.</p>
@@ -6117,7 +6117,7 @@
         <p>In Java, a local variable is typically used inside a method, constructor, or a block and has only local scope. Thus, this variable can be used only within the scope of a block. The best benefit of having a local variable is that other methods in the class won’t be even aware of that variable.</p>
         <p>instance variable in Java, is a variable which is bounded to its object itself. These variables are declared within a class, but outside a method. Every object of that class will create it’s own copy of the variable while using it. Thus, any changes made to the variable won’t reflect in any other instances of that class and will be bound to that particular instance only.</p>
         <h3>Differentiate between the constructors and methods in Java?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Methods</th>
                 <th>Constructors</th>
@@ -6142,7 +6142,7 @@
                 <td>Method name may or may not be same as class name</td>
                 <td>Constructor name must always be the same as the class name</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is final keyword in Java?</h3>
         <ul>
             <li>final variable: When the final keyword is used with a variable then its value can’t be changed once assigned. In case the no value has been assigned to the final variable then using only the class constructor a value can be assigned to it.</li>
@@ -6150,7 +6150,7 @@
             <li>final class: When a class is declared as final in Java, it can’t be extended by any subclass class but it can extend other class.</li>
         </ul>
         <h3>What is the difference between break and continue statements?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Break</th>
                 <th>Continue</th>
@@ -6167,14 +6167,14 @@
                 <td>It terminates the innermost enclosing loop or switch immediately</td>
                 <td>A continue within a loop nested with a switch will cause the next loop iteration to execute</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is an infinite loop in Java? Explain with an example.</h3>
         <p>An infinite loop is an instruction sequence in Java that loops endlessly when a functional exit isn’t met. This type of loop can be the result of a programming error or may also be a deliberate action based on the application behavior. An infinite loop will terminate automatically once the application exits.</p>
         <p>Infinite loops can occur in loop statements where you forgot to add on to the variable that keeps track of iterations.</p>
         <p>If you have two methods that call each other, you can get a deadlock situation.</p>
         <h3>What is the difference between this() and super() in Java?</h3>
         <p>In Java, super() and this(), both are special keywords that are used to call the constructor.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>this()</th>
                 <th>super()</th>
@@ -6199,11 +6199,11 @@
                 <td>Must be the first line of a block</td>
                 <td>Must be the first line of a block</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is Java String Pool?</h3>
         <p>Java String pool refers to a collection of Strings which are stored in heap memory. In this, whenever a new object is created, String pool first checks whether the object is already present in the pool or not. If it is present, then the same reference is returned to the variable else new object will be created in the String pool and the respective reference will be returned.</p>
         <h3>Differentiate between static and non-static methods in Java.`</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Static Method</th>
                 <th>Non-Static Method</th>
@@ -6220,7 +6220,7 @@
                 <td>They can’t access any non-static instance variables or methods</td>
                 <td>It can access any static method and any static variable without creating an instance of the class</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is constructor chaining in Java?</h3>
         <p>In Java, constructor chaining is the process of calling one constructor from another with respect to the current object. Constructor chaining is possible only through legacy where a subclass constructor is responsible for invoking the superclass’ constructor first. There could be any number of classes in the constructor chain. Constructor chaining can be achieved in two ways:</p>
         <ol>
@@ -6228,7 +6228,7 @@
             <li>From base class using super()</li>
         </ol>
         <h3>Difference between String, String Builder, and String Buffer.</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Factor</th>
                 <th>String</th>
@@ -6259,7 +6259,7 @@
                 <td>Slow</td>
                 <td>Fast</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is a classloader in Java?</h3>
         <p>The Java ClassLoader is a subset of JVM (Java Virtual Machine) that is responsible for loading the class files. Whenever a Java program is executed it is first loaded by the classloader. Java provides three built-in classloaders:</p>
         <ol>
@@ -6270,7 +6270,7 @@
         <h3>Why Java Strings are immutable in nature?</h3>
         <p>In Java, string objects are immutable in nature which simply means once the String object is created its state cannot be modified. Whenever you try to update the value of that object instead of updating the values of that particular object, Java creates a new string object. Java String objects are immutable as String objects are generally cached in the String pool. Since String literals are usually shared between multiple clients, action from one client might affect the rest. It enhances security, caching, synchronization, and performance of the application.</p>
         <h3>What is the difference between an array and an array list?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Array</th>
                 <th>ArrayList</th>
@@ -6295,7 +6295,7 @@
                 <td>Arrays can contain primitive data types as well as objects</td>
                 <td>Arraylists can contain only objects, no primitive data types are allowed</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is a Map in Java?</h3>
         <p>In Java, Map is an interface of Util package which maps unique keys to values. The Map interface is not a subset of the main Collection interface and thus it behaves little different from the other collection types.</p>
         <ol>
@@ -6339,7 +6339,7 @@
             <li>It can have constructors and static methods also.</li>
             <li>It can have final methods which will force the subclass not to change the body of the method.</li>
         </ul>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Abstract Class</th>
                 <th>Interfaces</th>
@@ -6376,7 +6376,7 @@
                 <td>Abstract classes are fast</td>
                 <td>Interfaces are slow as it requires extra indirection to find the corresponding method in the actual class</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is inheritance in Java?</h3>
         <p>Inheritance in Java is the concept where the properties of one class can be inherited by the other. It helps to reuse the code and establish a relationship between different classes. Inheritance is performed between two types of classes:</p>
         <ol>
@@ -6442,7 +6442,7 @@
             <li>Most of the times, web applications are accessed using HTTP protocol and thats why we mostly extend HttpServlet class. Servlet API hierarchy is shown in below image.</li>
         </ul>
         <h3>What are the differences between Get and Post methods?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>GET</th>
                 <th>POST</th>
@@ -6467,11 +6467,11 @@
                 <td>It is more efficient and used than Post</td>
                 <td>It is less efficient and used</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is Request Dispatcher?</h3>
         <p>RequestDispatcher interface is used to forward the request to another resource that can be HTML, JSP or another servlet in same application. We can also use this to include the content of another resource to the response.</p>
         <h3>What are the differences between forward() method and sendRedirect() methods?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>forward() method</th>
                 <th>SendRedirect() method</th>
@@ -6488,7 +6488,7 @@
                 <td>forward() method works within the server only.</td>
                 <td>sendRedirect() method works within and outside the server.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is the life-cycle of a servlet?</h3>
         <ol>
             <li>Servlet is loaded</li>
@@ -6505,7 +6505,7 @@
             <li>Similarly HttpServletResponse addCookie(Cookie c) method is provided to attach cookie in response header, there are no getter methods for cookie.</li>
         </ul>
         <h3>What are the differences between ServletContext vs ServletConfig?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>ServletConfig</th>
                 <th>ServletContext</th>
@@ -6530,7 +6530,7 @@
                 <td>for example shopping cart of a user is a specific to particular user so here we can use servlet config	</td>
                 <td>To get the MIME type of a file or application session related information is stored using servlet context object.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What are the different methods of session management in servlets?</h3>
         <p>Session is a conversational state between client and server and it can consists of multiple request and response between client and server. Since HTTP and Web Server both are stateless, the only way to maintain a session is when some unique information about the session (session id) is passed between server and client in every request and response.</p>
         <p>Some of the common ways of session management in servlets are:</p>
@@ -6639,7 +6639,7 @@
         <div class="center"><img src="images/Dispatcher-Servlet-768x632.png" alt="Dispatcher Servlet Image"></div>
         <p>ContextLoaderListener, on the other hand, is the listener to start up and shut down the WebApplicationContext in Spring root. Some of its important functions includes tying up the lifecycle of Application Context to the lifecycle of the ServletContext and automating the creation of ApplicationContext.</p>
         <h3>What are the differences between constructor injection and setter injection?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Constructor Injection</th>
                 <th>Setter Injection</th>
@@ -6660,10 +6660,10 @@
                 <td>Better for too many properties</td>
                 <td>Better for a few properties.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is autowiring in Spring? What are the autowiring modes?</h3>
         <p>Autowiring enables the programmer to inject the bean automatically. We don’t need to write explicit injection logic.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Mode</th>
                 <th>Description</th>
@@ -6684,7 +6684,7 @@
                 <td>constructor</td>
                 <td>It injects the bean using constructor</td>
             </tr>
-        </table>
+        </table></div>
         <h3>How to handle exceptions in Spring MVC Framework?</h3>
         <p>Controller Based: We can define exception handler methods in our controller classes. All we need is to annotate these methods with @ExceptionHandler annotation.</p>
         <p>Global Exception Handler: Exception Handling is a cross-cutting concern and Spring provides @ControllerAdvice annotation that we can use with any class to define our global exception handler.</p>
@@ -6722,7 +6722,7 @@
             <li>For database vendor specific feature, hibernate is suitable because we can also execute native sql queries.</li>
         </ol>
         <h3>What are the differences between get and load methods?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>get()</th>
                 <th>load()</th>
@@ -6743,7 +6743,7 @@
                 <td>It should be used if you are not sure about the existence of instance.</td>
                 <td>It should be used if you are sure that the instance exists.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What are the advantages of Hibernate over JDBC?</h3>
         <ul>
             <li>Hibernate removes a lot of boiler-plate code that comes with JDBC API, the code looks cleaner and readable.</li>
@@ -6787,7 +6787,7 @@
         <p>Finally is used to place important code, it will be executed whether the exception is handled or not.</p>
         <p>Finalize is used to perform clean up processing just before the object is garbage collected.</p>
         <h3>What are the differences between throw and throws?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>throw keyword</th>
                 <th>throws keyword</th>
@@ -6812,7 +6812,7 @@
                 <td>You cannot throw multiple exception</td>
                 <td>You can declare multiple exception e.g. public void method()throws IOException,SQLException.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is exception hierarchy in java?</h3>
         <p>Throwable is a parent class of all Exception classes. There are two types of Exceptions: Checked exceptions and UncheckedExceptions or RunTimeExceptions. Both type of exceptions extends Exception class whereas errors are further classified into Virtual Machine error and Assertion error.</p>
         <h3>How to create a custom Exception?</h3>
@@ -6827,7 +6827,7 @@
             <li>void printStackTrace() – This method prints the stack trace information to the standard error stream, this method is overloaded and we can pass PrintStream or PrintWriter as an argument to write the stack trace information to the file or stream.</li>
         </ol>
         <h3>What are the differences between processes and threads?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th></th>
                 <th>Process</th>
@@ -6868,7 +6868,7 @@
                 <td>Processes are independent.</td>
                 <td>Threads are dependent.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is a finally block? Is there a case when finally will not execute?</h3>
         <p>Finally block is a block which always executes a set of statements. It is always associated with a try block regardless of any exception that occurs or not.</p>
         <p>Yes, finally will not be executed if the program exits either by calling System.exit() or by causing a fatal error that causes the process to abort.</p>
@@ -7265,7 +7265,7 @@
         &nbsp;
         <button class="collapsible">What are the differences between the constructors and methods?</button>
         <div class="content">
-            <table>
+            <div class="scrollableTable"><table>
                 <tr>
                     <th>Java Constructor</th>
                     <th>Java Method</th>
@@ -7290,7 +7290,7 @@
                     <td>The constructor name must be same as the class name.</td>
                     <td>The method name may or may not be same as class name.</td>
                 </tr>
-            </table>
+            </table></div>
         </div>
         &nbsp;
         <button class="collapsible">What is the output of the following Java program?</button>
@@ -7511,7 +7511,7 @@
             <li>Class name or instance is separated from the method name by a double colon.</li>
         </ul>
         <h3>What are the types of method reference?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <th>Kind</th>
                 <th>Example</th>
@@ -7537,7 +7537,7 @@
                 <td>ClassName::new</td>
                 <td>classname::new</td>
             </tr>
-        </table>
+        </table></div></div>
     </div>
     &nbsp;
     <button class="collapsible">Servlets</button>
@@ -7634,7 +7634,7 @@
         <p>Java DataBase Connectivity API allows us to work with relational databases. JDBC API interfaces and classes are part of java.sql and javax.sql package. We can use JDBC API to get the database connection, run SQL queries and stored procedures in the database server and process the results.</p>
         <h3>What are different types of JDBC Drivers?</h3>
         <p>There are four types of JDBC drivers.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>JDBC-ODBC Bridge plus ODBC Driver (Type 1)</td>
                 <td>Uses ODBC driver to connect to database. We should have ODBC drivers installed to connect to database, that’s why this driver is almost obsolete.</td>
@@ -7651,7 +7651,7 @@
                 <td>Direct-to-Database Pure Java Driver (Type 4)</td>
                 <td>Converts the JDBC calls to the network protocol understood by the database server. This solution is simple and suitable for database connectivity over the network. However for this solution, we should use database specific drivers, for example OJDBC jars by Oracle for Oracle DB and MySQL Connector/J for MySQL databases.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>How does JDBC API help us achieve a loose coupling between Java Program and JDBC Drivers API?</h3>
         <p>JDBC API uses Java Reflection API to achieve loose coupling between java programs and JDBC Drivers. All the programming is done in terms of JDBC API and Driver comes in picture only when it’s loaded through reflection using Class.forName() method.</p>
         <h3>What is JDBC Connection? Explain the steps to get a Database connection.</h3>
@@ -7717,7 +7717,7 @@
         </ol>
         <h3>What are different types of ResultSet?</h3>
         <p>There are three types of ResultSet object.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>ResultSet.TYPE_FORWARD_ONLY</td>
                 <td>This is the default type and cursor can only move forward in the result set.</td>
@@ -7730,9 +7730,9 @@
                 <td>ResultSet.TYPE_SCROLL_SENSITIVE</td>
                 <td>The cursor can move forward and backward, and the result set is sensitive to changes made by others to the database after the result set was created.</td>
             </tr>
-        </table>
+        </table></div>
         <p>Based on the concurrency there are two types of ResultSet object.</p>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>ResultSet.CONCUR_READ_ONLY</td>
                 <td>The result set is read only, this is the default concurrency type.</td>
@@ -7741,7 +7741,7 @@
                 <td>ResultSet.CONCUR_UPDATABLE</td>
                 <td>We can use ResultSet update method to update the rows data.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What is the difference between ResultSet and RowSet?</h3>
         <p>RowSet objects are derived from ResultSet, so they have all the features of ResultSet with some additional features. One of the huge benefit of RowSet is that they can be disconnected and that makes it lightweight and easy to transfer over a network.</p>
         <p>Whether to use ResultSet or RowSet depends on your requirements but if you are planning to use ResultSet for longer duration, then a disconnected RowSet is better choice to free database resources.</p>
@@ -7871,7 +7871,7 @@
         <h3>What is hibernate mapping file?</h3>
         <p>A Hibernate mapping file is used to define the entity bean fields and database table column mappings. We know that JPA annotations can be used for mapping but sometimes XML mapping file comes in handy when we are using third party classes and we can’t use annotations.</p>
         <h3>Name some important annotations used for Hibernate mapping?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>javax.persistence.Entity</td>
                 <td>Used with model classes to specify that they are entity beans.</td>
@@ -7912,7 +7912,7 @@
                 <td>javax.persistence.PrimaryKeyJoinColumn</td>
                 <td>Used to define the property for foreign key. Used with org.hibernate.annotations.GenericGenerator and org.hibernate.annotations.Parameter</td>
             </tr>
-        </table>
+        </table></div>
         <h3>Is Hibernate SessionFactory thread safe?</h3>
         <p>Internal state of SessionFactory is immutable, so it’s thread safe.</p>
         <h3>What is Hibernate Session and how to get it?</h3>
@@ -7943,7 +7943,7 @@
         <h3>What is use of Hibernate Session merge() call?</h3>
         <p>merge can be used to get a fresh copy of an entity, discarding changes made while in a detached state and returning an object in a persistent state.</p>
         <h3>What is difference between Hibernate save(), saveOrUpdate() and persist() methods?</h3>
-        <table>
+        <div class="scrollableTable"><table>
             <tr>
                 <td>save()</td>
                 <td>Hibernate save can be used to save entity to database. Problem with save() is that it can be invoked without a transaction and if we have mapping entities, then only the primary object gets saved causing data inconsistencies. Also save returns the generated id immediately.</td>
@@ -7956,7 +7956,7 @@
                 <td>saveOrUpdate()</td>
                 <td>Hibernate saveOrUpdate results in insert or update queries based on the provided data. If the data is present in the database, update query is executed. We can use saveOrUpdate() without transaction also, but again you will face the issues with mapped objects not getting saved if session is not flushed.</td>
             </tr>
-        </table>
+        </table></div>
         <h3>What will happen if we don’t have a no-args constructor in Entity bean?</h3>
         <p>Hibernate uses Reflection API to create instance of Entity beans, usually when you call get() or load() methods. The method Class.newInstance() is used for this and it requires no-args constructor. So if you won’t have no-args constructor in entity beans, hibernate will fail to instantiate it and you will get HibernateException.</p>
         <h3>What are the collection types in Hibernate?</h3>
