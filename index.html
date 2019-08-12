@@ -28,8 +28,6 @@
         copyText.select();
         /* Copy the text inside the text field */
         document.execCommand("copy");
-        /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
     }
 </script>
 <body>
@@ -5088,7 +5086,7 @@
         <button class="collapsible">Delete Cookie Example</button>
         <div class="content">
         <div class="code" id="DeleteCookie"><p>
-        <button onclick="myFunction('DeleteCookie')">Copy</button>
+        <button onclick="myFunction('DeleteCookie')">Copy</button><br>
             public class ReadCookies extends HttpServlet {<br><br>
             &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
