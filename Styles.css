@@ -92,14 +92,14 @@ mark {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 5px #777777;
-    background: #777777;
+    box-shadow: inset 0 0 5px #f1f1f1;
+    background: #555555;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555555;
+    background: #303030;
 }
 
 .flip3D {
