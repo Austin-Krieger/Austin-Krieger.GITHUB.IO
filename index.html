@@ -4888,6 +4888,235 @@
     </div>
     </div>
     </div>
+    &nbsp;
+    <button class="collapsible">Cookie Handling</button>
+    <div class="content">
+        <h3>Cookies</h3>
+        <p>Cookies are text files stored on the client computer and they are kept for various information tracking purpose.</p>
+        <p>There are three steps involved in identifying returning users:</p>
+        <ul>
+            <li>Server script sends a set of cookies to the browser. For example name, age, or identification number etc.</li>
+            <li>Browser stores this information on local machine for future use.</li>
+            <li>The next time the browser sends any request to the web server it sends cookie information to the server and the server uses that information to identify the user.</li>
+        </ul>
+        <h3>The Anatomy of a Cookie</h3>
+        <p>Cookies are usually set in an HTTP header (although JavaScript can also set a cookie directly on a browser).</p>
+        <p>The Set-Cookie header contains a name value pair, a GMT date, a path and a domain. The name and value will be URL encoded. The expires field is an instruction to the browser to "forget" the cookie after the given time and date.</p>
+        <p>If the browser is configured to store cookies, it will then keep this information until the expiry date. If the user points the browser at any page that matches the path and domain of the cookie, it will resend the cookie to the server.</p>
+        <p>A servlet will then have access to the cookie through the request method request.getCookies() which returns an array of Cookie objects.</p>
+        <h3>Servlet Cookies Methods</h3>
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>public void setDomain(String pattern)</td>
+                <td>This method sets the domain to which cookie applies, for example tutorialspoint.com.</td>
+            </tr>
+            <tr>
+                <td>public String getDomain()</td>
+                <td>This method gets the domain to which cookie applies, for example tutorialspoint.com.</td>
+            </tr>
+            <tr>
+                <td>public void setMaxAge(int expiry)</td>
+                <td>This method sets how much time (in seconds) should elapse before the cookie expires. If you don't set this, the cookie will last only for the current session.</td>
+            </tr>
+            <tr>
+                <td>public int getMaxAge()</td>
+                <td>This method returns the maximum age of the cookie, specified in seconds, By default, -1 indicating the cookie will persist until browser shutdown.</td>
+            </tr>
+            <tr>
+                <td>public String getName()</td>
+                <td>This method returns the name of the cookie. The name cannot be changed after creation.</td>
+            </tr>
+            <tr>
+                <td>public void setValue(String newValue)</td>
+                <td>This method sets the value associated with the cookie</td>
+            </tr>
+            <tr>
+                <td>public String getValue()</td>
+                <td>This method gets the value associated with the cookie.</td>
+            </tr>
+            <tr>
+                <td>public void setPath(String uri)</td>
+                <td>This method sets the path to which this cookie applies. If you don't specify a path, the cookie is returned for all URLs in the same directory as the current page as well as all subdirectories.</td>
+            </tr>
+            <tr>
+                <td>public String getPath()</td>
+                <td>This method gets the path to which this cookie applies.</td>
+            </tr>
+            <tr>
+                <td>public void setSecure(boolean flag)</td>
+                <td>This method sets the boolean value indicating whether the cookie should only be sent over encrypted (i.e. SSL) connections.</td>
+            </tr>
+            <tr>
+                <td>public void setComment(String purpose)</td>
+                <td>This method specifies a comment that describes a cookie's purpose. The comment is useful if the browser presents the cookie to the user.</td>
+            </tr>
+            <tr>
+                <td>public String getComment()</td>
+                <td>This method returns the comment describing the purpose of this cookie, or null if the cookie has no comment.</td>
+            </tr>
+        </table>
+        <h3>Setting Cookies with Servlet</h3>
+        <p><b>1. Creating a Cookie object: </b>You call the Cookie constructor with a cookie name and a cookie value, both of which are strings.</p>
+        <div class="code">
+            Cookie cookie = new Cookie("key","value");
+        </div>
+        <p>Neither the name nor the value should contain white space or any of the following:</p>
+        <div class="code">
+            [ ] ( ) = , " / ? @ : ;
+        </div>
+        <p><b>2. Setting the maximum age: </b>You use setMaxAge to specify how long (in seconds) the cookie should be valid. Following would set up a cookie for 24 hours.</p>
+        <div class="code">
+            cookie.setMaxAge(60 * 60 * 24);
+        </div>
+        <p><b>3. Sending the Cookie into the HTTP response headers: </b>You use response.addCookie to add cookies in the HTTP response header.</p>
+        <div class="code">
+            response.addCookie(cookie);
+        </div>
+        <button class="collapsible">Set Cookies Example</button>
+        <div class="content">
+        <div class="code">
+            public class HelloForm extends HttpServlet {<br><br>
+            &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;<mark>// Create cookies for first and last names.</mark><br>
+            &emsp;&emsp;Cookie firstName = new Cookie("first_name", request.getParameter("first_name"));<br>
+            &emsp;&emsp;Cookie lastName = new Cookie("last_name", request.getParameter("last_name"));<br><br>
+            &emsp;&emsp;<mark>// Set expiry date after 24 Hrs for both the cookies.</mark><br>
+            &emsp;&emsp;firstName.setMaxAge(60*60*24);<br>
+            &emsp;&emsp;lastName.setMaxAge(60*60*24);<br><br>
+            &emsp;&emsp;<mark>// Add both the cookies in the response header.</mark><br>
+            &emsp;&emsp;response.addCookie( firstName );<br>
+            &emsp;&emsp;response.addCookie( lastName );<br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = "Setting Cookies Example";<br>
+            &emsp;&emsp;String docType =<br>
+            <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&lt;title&gt;" + title + "&lt;/title&gt;<br>
+            &emsp;&emsp;&emsp;&emsp;&lt;/head&gt;\n" +<br><br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;ul&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;First Name&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("first_name") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"  &lt;li&gt;&lt;b&gt;Last Name&lt;/b&gt;: "<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ request.getParameter("last_name") + "\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;/ul&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
+            &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+            &emsp;&emsp;);<br>
+            &emsp;}<br>
+            }
+        </div>
+        <p>Add the appropriate entry in web.xml file and use this HTML page.</p>
+        <div class="code">
+            &lt;html&gt;<br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;form action = "HelloForm" method = "GET"&gt;<br>
+            &emsp;&emsp;&emsp;First Name: &lt;input type = "text" name = "first_name"&gt;<br>
+            &emsp;&emsp;&emsp;&lt;br /&gt;<br>
+            &emsp;&emsp;&emsp;Last Name: &lt;input type = "text" name = "last_name" /&gt;<br>
+            &emsp;&emsp;&emsp;&lt;input type = "submit" value = "Submit" /&gt;<br>
+            &emsp;&emsp;&lt;/form&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">Reading Cookies Example</button>
+        <div class="content">
+            <h3>Reading Cookies with Servlet</h3>
+            <p>To read cookies, you need to create an array of javax.servlet.http.Cookie objects by calling the getCookies() method of HttpServletRequest. Then cycle through the array, and use getName() and getValue() methods to access each cookie and associated value.</p>
+            <div class="code">
+                public class ReadCookies extends HttpServlet {<br><br>
+                &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+                &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
+                &emsp;&emsp;Cookie cookie = null;<br>
+                &emsp;&emsp;Cookie[] cookies = null;<br><br>
+                &emsp;&emsp;<mark>// Get an array of Cookies associated with this domain</mark><br>
+                &emsp;&emsp;cookies = request.getCookies();<br>
+                &emsp;&emsp;<mark>// Set response content type</mark><br>
+                &emsp;&emsp;response.setContentType("text/html");<br><br>
+                &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+                &emsp;&emsp;String title = "Reading Cookies Example";<br>
+                &emsp;&emsp;String docType =<br>
+                <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+                &emsp;&emsp;out.println(docType +<br>
+                &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+                &emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+                &emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" );<br><br>
+                &emsp;&emsp;&emsp;if( cookies != null ) {<br>
+                &emsp;&emsp;&emsp;&emsp; out.println("&lt;h2&gt; Found Cookies Name and Value&lt;/h2&gt;");<br><br>
+                &emsp;&emsp;&emsp;&emsp;for (int i = 0; i < cookies.length; i++) {<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;cookie = cookies[i];<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Name: " + cookie.getName() + ", ");<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Value: " + cookie.getValue( ) + " &lt;br/&gt;");<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                &emsp;&emsp;&emsp;} else {<br>
+                &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt;No cookies founds&lt;/h2&gt;");<br>
+                &emsp;&emsp;&emsp;}<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
+                &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+                &emsp;&emsp;);<br>
+                &emsp;}<br>
+                }
+            </div>
+        </div>
+        <h3>Delete Cookies with Servlet</h3>
+        <ul>
+            <li>Read an already existing cookie and store it in Cookie object.</li>
+            <li>Set cookie age as zero using setMaxAge() method to delete an existing cookie</li>
+            <li>Add this cookie back into response header.</li>
+        </ul>
+        <div class="code">
+            <div class="code">
+                public class ReadCookies extends HttpServlet {<br><br>
+                &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+                &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
+                &emsp;&emsp;Cookie cookie = null;<br>
+                &emsp;&emsp;Cookie[] cookies = null;<br><br>
+                &emsp;&emsp;<mark>// Get an array of Cookies associated with this domain</mark><br>
+                &emsp;&emsp;cookies = request.getCookies();<br>
+                &emsp;&emsp;<mark>// Set response content type</mark><br>
+                &emsp;&emsp;response.setContentType("text/html");<br><br>
+                &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+                &emsp;&emsp;String title = "Reading Cookies Example";<br>
+                &emsp;&emsp;String docType =<br>
+                <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+                &emsp;&emsp;out.println(docType +<br>
+                &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+                &emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+                &emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" );<br><br>
+                &emsp;&emsp;&emsp;if( cookies != null ) {<br>
+                &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt; Cookies Name and Value&lt;/h2&gt;");<br><br>
+                &emsp;&emsp;&emsp;&emsp;for (int i = 0; i < cookies.length; i++) {<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;cookie = cookies[i];<br><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;if((cookie.getName( )).compareTo("first_name") == 0 ) {<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookie.setMaxAge(0);<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;response.addCookie(cookie);<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;out.print("Deleted cookie : " + cookie.getName( ) + "&lt;br/&gt;");<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Name: " + cookie.getName() + ", ");<br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Value: " + cookie.getValue( ) + " &lt;br/&gt;");<br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+                &emsp;&emsp;&emsp;} else {<br>
+                &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt;No cookies founds&lt;/h2&gt;");<br>
+                &emsp;&emsp;&emsp;}<br>
+                &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
+                &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+                &emsp;&emsp;);<br>
+                &emsp;}<br>
+                }
+        </div>
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">JDBC (API), Hibernate and ORM Frameworks</button>
