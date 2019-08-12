@@ -66,16 +66,17 @@ tr:nth-child(even) {
 .copy {
     float: right;
     user-select: none;
-    background-color: #777777;
-    color: white;
+    background-color: #dddddd;
+    color: #777777;
     border: none;
     text-align: center;
     text-decoration: none;
+    padding: 5px;
 }
 
 .copy:hover {
-    background-color: #dddddd;
-    color: #777777;
+    background-color: #777777;
+    color: white;
 }
 
 .code p {
