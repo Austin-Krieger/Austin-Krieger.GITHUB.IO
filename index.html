@@ -5077,44 +5077,43 @@
             <li>Add this cookie back into response header.</li>
         </ul>
         <div class="code">
-            <div class="code">
-                public class ReadCookies extends HttpServlet {<br><br>
-                &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
-                &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
-                &emsp;&emsp;Cookie cookie = null;<br>
-                &emsp;&emsp;Cookie[] cookies = null;<br><br>
-                &emsp;&emsp;<mark>// Get an array of Cookies associated with this domain</mark><br>
-                &emsp;&emsp;cookies = request.getCookies();<br>
-                &emsp;&emsp;<mark>// Set response content type</mark><br>
-                &emsp;&emsp;response.setContentType("text/html");<br><br>
-                &emsp;&emsp;PrintWriter out = response.getWriter();<br>
-                &emsp;&emsp;String title = "Reading Cookies Example";<br>
-                &emsp;&emsp;String docType =<br>
-                <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
-                &emsp;&emsp;out.println(docType +<br>
-                &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
-                &emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
-                &emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" );<br><br>
-                &emsp;&emsp;&emsp;if( cookies != null ) {<br>
-                &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt; Cookies Name and Value&lt;/h2&gt;");<br><br>
-                &emsp;&emsp;&emsp;&emsp;for (int i = 0; i < cookies.length; i++) {<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;cookie = cookies[i];<br><br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;if((cookie.getName( )).compareTo("first_name") == 0 ) {<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookie.setMaxAge(0);<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;response.addCookie(cookie);<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;out.print("Deleted cookie : " + cookie.getName( ) + "&lt;br/&gt;");<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;}<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Name: " + cookie.getName() + ", ");<br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Value: " + cookie.getValue( ) + " &lt;br/&gt;");<br>
-                &emsp;&emsp;&emsp;&emsp;}<br>
-                &emsp;&emsp;&emsp;} else {<br>
-                &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt;No cookies founds&lt;/h2&gt;");<br>
-                &emsp;&emsp;&emsp;}<br>
-                &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
-                &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
-                &emsp;&emsp;);<br>
-                &emsp;}<br>
-                }
+            public class ReadCookies extends HttpServlet {<br><br>
+            &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
+            &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
+            &emsp;&emsp;Cookie cookie = null;<br>
+            &emsp;&emsp;Cookie[] cookies = null;<br><br>
+            &emsp;&emsp;<mark>// Get an array of Cookies associated with this domain</mark><br>
+            &emsp;&emsp;cookies = request.getCookies();<br>
+            &emsp;&emsp;<mark>// Set response content type</mark><br>
+            &emsp;&emsp;response.setContentType("text/html");<br><br>
+            &emsp;&emsp;PrintWriter out = response.getWriter();<br>
+            &emsp;&emsp;String title = "Reading Cookies Example";<br>
+            &emsp;&emsp;String docType =<br>
+            <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
+            &emsp;&emsp;out.println(docType +<br>
+            &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
+            &emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" );<br><br>
+            &emsp;&emsp;&emsp;if( cookies != null ) {<br>
+            &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt; Cookies Name and Value&lt;/h2&gt;");<br><br>
+            &emsp;&emsp;&emsp;&emsp;for (int i = 0; i < cookies.length; i++) {<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;cookie = cookies[i];<br><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;if((cookie.getName( )).compareTo("first_name") == 0 ) {<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookie.setMaxAge(0);<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;response.addCookie(cookie);<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;out.print("Deleted cookie : " + cookie.getName( ) + "&lt;br/&gt;");<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Name: " + cookie.getName() + ", ");<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;out.print("Value: " + cookie.getValue( ) + " &lt;br/&gt;");<br>
+            &emsp;&emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;} else {<br>
+            &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt;No cookies founds&lt;/h2&gt;");<br>
+            &emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
+            &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+            &emsp;&emsp;);<br>
+            &emsp;}<br>
+            }
         </div>
     </div>
 </div>
