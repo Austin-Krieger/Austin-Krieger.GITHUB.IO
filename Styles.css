@@ -59,7 +59,7 @@ tr:nth-child(even) {
     margin: 20px;
     width: 90%;
     font-family: Arial, sans-serif;
-    resize: horizontal;
+    /*resize: horizontal;*/
     overflow-x: scroll;
 }
 
