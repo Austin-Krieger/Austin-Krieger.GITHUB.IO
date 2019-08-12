@@ -14,28 +14,19 @@
         element2.style.transform = "perspective(600px) rotateY(0deg)";
     }
 
-    function hideAnswer(el1, el2){
+    function hideAnswer(el1, el2) {
         var element1 = document.getElementById(el1);
         var element2 = document.getElementById(el2);
         element1.style.transform = "perspective(600px) rotateY(0deg)";
         element2.style.transform = "perspective(600px) rotateY(180deg)";
     }
 
-    function myFunction(el1) {
-        /* Get the text field */
-        var copyText = document.getElementById(el1);
-        /* Select the text field */
-        copyText.select();
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-    }
-
-    function copyText(containerID) {
-        if (document.selection) { // IE
+    function copyText(containerid) {
+        if (document.selection) {
             var range = document.body.createTextRange();
             range.moveToElementText(document.getElementById(containerid));
             range.select();
-        } else if (window.getSelection) {
+        } else if (window.getSelection()) {
             var range = document.createRange();
             range.selectNode(document.getElementById(containerid));
             window.getSelection().removeAllRanges();
@@ -5099,8 +5090,9 @@
         </ul>
         <button class="collapsible">Delete Cookies Example</button>
         <div class="content">
+        <button onclick="copyText('DeleteCookie')">Copy</button>
         <div class="code" id="DeleteCookie">
-        <button onclick="copyText('DeleteCookie')">Copy</button><p>
+        <p>
             public class DeleteCookies extends HttpServlet {<br><br>
             &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
             &emsp;&emsp;&emsp;throws ServletException, IOException {<br><br>
@@ -5138,7 +5130,7 @@
             &emsp;&emsp;);<br>
             &emsp;}<br>
             }
-            </p>
+        </p>
         </div>
         </div>
     </div>
