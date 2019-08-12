@@ -63,6 +63,10 @@ tr:nth-child(even) {
     overflow-x: scroll;
 }
 
+.copy {
+    float: right;
+}
+
 .code p {
     width: 1000px;
 }
