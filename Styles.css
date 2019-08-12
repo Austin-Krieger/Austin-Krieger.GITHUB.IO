@@ -93,6 +93,7 @@ mark {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 5px #777777;
+    background: #777777;
     border-radius: 10px;
 }
 
