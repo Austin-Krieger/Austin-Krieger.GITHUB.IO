@@ -4998,10 +4998,8 @@
             &emsp;&emsp;String docType =<br>
             <mark>&emsp;&emsp;"&lt;!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\"&gt;\n";</mark><br><br>
             &emsp;&emsp;out.println(docType +<br>
-            &emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
-            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;<br>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&lt;title&gt;" + title + "&lt;/title&gt;<br>
-            &emsp;&emsp;&emsp;&emsp;&lt;/head&gt;\n" +<br><br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;html&gt;\n" +<br>
+            &emsp;&emsp;&emsp;&emsp;"&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +<br>
             &emsp;&emsp;&emsp;&emsp;"&lt;body bgcolor = \"#f0f0f0\"&gt;\n" +<br>
             &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;h1 align = \"center\"&gt;" + title + "&lt;/h1&gt;\n" +<br>
             &emsp;&emsp;&emsp;&emsp;&emsp;"&lt;ul&gt;\n" +<br>
@@ -5063,8 +5061,8 @@
                 &emsp;&emsp;&emsp;} else {<br>
                 &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt;No cookies founds&lt;/h2&gt;");<br>
                 &emsp;&emsp;&emsp;}<br>
-                &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
-                &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+                &emsp;&emsp;&emsp;out.println("&lt;/body&gt;");<br>
+                &emsp;&emsp;&emsp;out.println("&lt;/html&gt;");<br>
                 &emsp;&emsp;);<br>
                 &emsp;}<br>
                 }
@@ -5076,6 +5074,8 @@
             <li>Set cookie age as zero using setMaxAge() method to delete an existing cookie</li>
             <li>Add this cookie back into response header.</li>
         </ul>
+        <button class="collapsible">Delete Cookie Example</button>
+        <div class="content">
         <div class="code">
             public class ReadCookies extends HttpServlet {<br><br>
             &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
@@ -5109,11 +5109,12 @@
             &emsp;&emsp;&emsp;} else {<br>
             &emsp;&emsp;&emsp;&emsp;out.println("&lt;h2&gt;No cookies founds&lt;/h2&gt;");<br>
             &emsp;&emsp;&emsp;}<br>
-            &emsp;&emsp;&emsp;&emsp;"&lt;/body&gt;<br>
-            &emsp;&emsp;&emsp;&lt;/html&gt;"<br>
+            &emsp;&emsp;&emsp;out.println("&lt;/body&gt;");<br>
+            &emsp;&emsp;&emsp;out.println("&lt;/html&gt;");<br>
             &emsp;&emsp;);<br>
             &emsp;}<br>
             }
+        </div>
         </div>
     </div>
 </div>
