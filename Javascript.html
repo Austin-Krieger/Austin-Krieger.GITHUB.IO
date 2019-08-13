@@ -1269,22 +1269,100 @@
     &nbsp;
     <button class="collapsible">Page Redirect</button>
     <div class="content">
-
+        <h3>What is Page Redirection?</h3>
+        <p>You might have encountered a situation where you clicked a URL to reach a page X but internally you were directed to another page Y. It happens due to page redirection. This concept is different from JavaScript Page Refresh.</p>
+        <div class="code" id="javascript31"><button class="copy" onclick="copyText('javascript31')">Copy</button><br><p>
+            function Redirect() {<br>
+            &emsp;window.location = "https://austin-krieger.github.io/index.html";<br>
+            }<br><br>
+            <mark>// Redirect the user after 10 seconds</mark><br>
+            document.write("You will be redirected to the home page in 10 sec.");<br>
+            setTimeout('Redirect()', 10000);
+        </p></div>
     </div>
     &nbsp;
     <button class="collapsible">Dialog Boxes</button>
     <div class="content">
-
+        <h3>Alert Dialog Box</h3>
+        <p>An alert dialog box is mostly used to give a warning message to the users. For example, if one input field requires to enter some text but the user does not provide any input, then as a part of validation, you can use an alert box to give a warning message.</p>
+        <div class="code" id="javascript32"><button class="copy" onclick="copyText('javascript32')">Copy</button><br><p>
+        function Warn() {<br>
+        &emsp;alert ("This is a warning message!");<br>
+        &emsp;document.write ("This is a warning message!");<br>
+        }
+        </p></div>
+        <h3>Confirmation Dialog Box</h3>
+        <p>A confirmation dialog box is mostly used to take user's consent on any option. It displays a dialog box with two buttons: OK and Cancel.</p>
+        <p>If the user clicks on the OK button, the window method confirm() will return true. If the user clicks on the Cancel button, then confirm() returns false.</p>
+        <div class="code" id="javascript33"><button class="copy" onclick="copyText('javascript33')">Copy</button><br><p>
+            function getConfirmation() {<br>
+            &emsp;var retVal = confirm("Do you want to continue ?");<br>
+            &emsp;if( retVal == true ) {<br>
+            &emsp;&emsp;document.write ("User wants to continue!");<br>
+            &emsp;&emsp;return true;<br>
+            &emsp;} else {<br>
+            &emsp;&emsp;document.write ("User does not want to continue!");<br>
+            &emsp;&emsp;return false;<br>
+            &emsp;}<br>
+            }
+        </p></div>
+        <h3>Prompt Dialog Box</h3>
+        <p>The prompt dialog box is very useful when you want to pop-up a text box to get user input. Thus, it enables you to interact with the user. The user needs to fill in the field and then click OK.</p>
+        <p>This dialog box is displayed using a method called prompt() which takes two parameters: (i) a label which you want to display in the text box and (ii) a default string to display in the text box.</p>
+        <p>This dialog box has two buttons: OK and Cancel. If the user clicks the OK button, the window method prompt() will return the entered value from the text box. If the user clicks the Cancel button, the window method prompt() returns null.</p>
+        <div class="code" id="javascript34"><button class="copy" onclick="copyText('javascript34')">Copy</button><br><p>
+            function getValue() {<br>
+            &emsp;var retVal = prompt("Enter your name : ", "your name here");<br>
+            &emsp;document.write("You have entered : " + retVal);<br>
+            }
+        </p></div>
     </div>
     &nbsp;
     <button class="collapsible">Void Keyword</button>
     <div class="content">
-
-    </div>
+        <h3>Void Keyword</h3>
+        <p>void is an important keyword in JavaScript which can be used as a unary operator that appears before its single operand, which may be of any type. This operator specifies an expression to be evaluated without returning a value.</p>
+        <div class="code" id="javascript35"><button class="copy" onclick="copyText('javascript35')">Copy</button><br><p>
+            void func()<br>
+            javascript:void func()<br>
+            or:<br>
+            void(func())<br>
+            javascript:void(func())
+        </p></div>
+        <p>The most common use of this operator is in a client-side javascript: URL, where it allows you to evaluate an expression for its side-effects without the browser displaying the value of the evaluated expression.</p>
+        <p>Here the expression alert ('Warning!!!') is evaluated but it is not loaded back into the current document</p>
+        <div class="code" id="javascript36"><button class="copy" onclick="copyText('javascript36')">Copy</button><br><p>
+            &lt;body&gt;<br>
+            &lt;p&gt;Click the following, This won't react at all...&lt;/p&gt;<br>
+            &lt;a href = "javascript:void(alert('Warning!!!'))">Click me!&lt;/a&gt;<br>
+            &lt;/body&gt;
+        </p></div>
+        <p>Another use of void is to purposely generate the undefined value.</p>
+        <div class="code" id="javascript37"><button class="copy" onclick="copyText('javascript37')">Copy</button><br><p>
+            function getValue() {<br>
+            &emsp;var a,b,c;<br><br>
+            &emsp;a = void ( b = 5, c = 7 );<br>
+            &emsp;document.write('a = ' + a + ' b = ' + b +' c = ' + c );<br>
+            }
+        </p></div>
+        </div>
     &nbsp;
     <button class="collapsible">Page Printing</button>
     <div class="content">
-
+        <h3>Page Printing</h3>
+        <p>Many times you would like to place a button on your webpage to print the content of that web page via an actual printer. JavaScript helps you to implement this functionality using the print function of window object.</p>
+        <p>The JavaScript print function window.print() prints the current web page when executed. You can call this function directly using the onclick event.</p>
+        <div class="code" id="javascript38"><button class="copy" onclick="copyText('javascript38')">Copy</button><br><p>
+            &lt;form&gt;<br>
+            &emsp;&lt;input type = "button" value = "Print" onclick = "window.print()" /&gt;<br>
+            &lt;/form&gt;
+        </p></div>
+        <p>Although it serves the purpose of getting a printout, it is not a recommended way. A printer friendly page is really just a page with text, no images, graphics, or advertising.</p>
+        <p>You can make a page printer friendly in the following ways:</p>
+        <ul>
+            <li>Make a copy of the page and leave out unwanted text and graphics, then link to that printer friendly page from the original.</li>
+            <li>If you do not want to keep an extra copy of a page, then you can mark your printable text using proper comments like &lt;!-- PRINT STARTS HERE --&gt;..... &lt;!-- PRINT ENDS HERE --&gt; and then you can use PERL or any other script in the background to purge printable text and display for final printing.</li>
+        </ul>
     </div>
     <button class="collapsible"></button>
     <div class="content">
