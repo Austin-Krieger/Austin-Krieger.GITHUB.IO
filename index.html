@@ -12,43 +12,51 @@
 </script>
 <body>
 <!-- <a href="FlashCards.html"><button class="collapsible">Interview Questions (Randomized)</button></a> -->
-<table>
-    <tr>
-        <td><button class="redirect" onclick="location.href = 'Features.html';">Features of Java</button></td>
-        <td><button class="redirect">Object Oriented Principals</button></td>
-        <td><button class="redirect">Data Types Variables & Arrays</button></td>
-        <td><button class="redirect">String</button></td>
-    </tr>
-    <tr>
-        <td><button class="redirect">Access Modifiers</button></td>
-        <td><button class="redirect">Methods</button></td>
-        <td><button class="redirect">Constructors</button></td>
-        <td><button class="redirect">Keywords</button></td>
-    </tr>
-    <tr>
-        <td><button class="redirect">Classes</button></td>
-        <td><button class="redirect">Interfaces</button></td>
-        <td><button class="redirect">Abstract Class Vs Interface</button></td>
-        <td><button class="redirect">Exception Handling</button></td>
-    </tr>
-    <tr>
-        <td><button class="redirect">Multi-threaded Programming</button></td>
-        <td><button class="redirect">Collections Framework</button></td>
-        <td><button class="redirect">Generics</button></td>
-        <td><button class="redirect">Lambda Expressions</button></td>
-    </tr>
-    <tr>
-        <td><button class="redirect">Servlets</button></td>
-        <td><button class="redirect">JDBC</button></td>
-        <td><button class="redirect">Hibernate</button></td>
-        <td><button class="redirect">Design Patters</button></td>
-    </tr>
-    <tr>
-        <td><button class="redirect">Agile</button></td>
-        <td><button class="redirect">Javascript</button></td>
-        <td><button class="redirect">React</button></td>
-        <td><button class="redirect">Interview Questions</button></td>
-    </tr>
-</table>
+    <button class="redirect" onclick="location.href = 'Features.html';">Features of Java</button>
+    <button class="redirect" onclick="location.href = 'OOP.html';">Object Oriented Principals</button>
+    <button class="redirect" onclick="location.href = 'DataTypesVariablesArrays.html';">Data Types Variables & Arrays</button>
+    <button class="redirect" onclick="location.href = 'String.html';">String</button>
+    <br>
+    <button class="redirect" onclick="location.href = 'AccessModifiers.html';">Access Modifiers</button>
+    <button class="redirect" onclick="location.href = 'Methods.html';">Methods</button>
+    <button class="redirect" onclick="location.href = 'Constructors.html';">Constructors</button>
+    <button class="redirect" onclick="location.href = 'Keywords.html';">Keywords</button>
+    <br>
+    <button class="redirect" onclick="location.href = 'Classes.html';">Classes</button>
+    <button class="redirect" onclick="location.href = 'Interfaces.html';">Interfaces</button>
+    <button class="redirect" onclick="location.href = 'AbstractVsInterface.html';">Abstract Class Vs Interface</button>
+    <button class="redirect" onclick="location.href = 'ExceptionHandling.html';">Exception Handling</button>
+    <br>
+    <button class="redirect" onclick="location.href = 'MultiThreadedProgramming.html';">Multi-threaded Programming</button>
+    <button class="redirect" onclick="location.href = 'Collections.html';">Collections Framework</button>
+    <button class="redirect" onclick="location.href = 'Generics.html';">Generics</button>
+    <button class="redirect" onclick="location.href = 'LambdaExpressions.html';">Lambda Expressions</button>
+    <br>
+    <button class="redirect" onclick="location.href = 'Servlets.html';">Servlets</button>
+    <button class="redirect" onclick="location.href = 'JDBC.html';">JDBC</button>
+    <button class="redirect" onclick="location.href = 'Hibernate.html';">Hibernate</button>
+    <button class="redirect" onclick="location.href = 'DesignPatterns.html';">Design Patters</button>
+    <br>
+    <button class="redirect" onclick="location.href = 'Agile.html';">Agile</button>
+    <button class="redirect" onclick="location.href = 'Javascript.html';">Javascript</button>
+    <button class="redirect" onclick="location.href = 'React.html';">React</button>
+    <button class="redirect" onclick="location.href = 'InterviewQuestions.html';">Interview Questions</button>
 </body>
+<script>
+    <!-- Javascript controlling the click functionality for the collapsible boxes -->
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
 </html>
