@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Exception Handling</button>
+<button class="collapsible" id="autoClickBtn">Exception Handling</button>
 <div class="content">
     <h2>Exception Handling</h2>
     <div class="center"><img src="images/exception-in-java.png" alt="Exception Hierarchy Image"></div>
@@ -335,6 +335,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

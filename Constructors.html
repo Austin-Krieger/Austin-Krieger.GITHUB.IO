@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Constructors</button>
+<button class="collapsible" id="autoClickBtn">Constructors</button>
 <div class="content">
     <h2>Constructors</h2>
     <p>In Java, constructor refers to a block of code which is used to initialize an object. It must have the same name as that of the class. Also, it has no return type and it is automatically called when an object is created.</p>
@@ -300,6 +300,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

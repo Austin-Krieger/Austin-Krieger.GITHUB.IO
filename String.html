@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">String</button>
+<button class="collapsible" id="autoClickBtn">String</button>
 <div class="content">
     <h3>Strings</h3>
     <p>Strings are used for storing text. A String variable contains a collection of characters surrounded by double quotes</p>
@@ -381,6 +381,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

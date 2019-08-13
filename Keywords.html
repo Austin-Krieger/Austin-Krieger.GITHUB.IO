@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Keywords</button>
+<button class="collapsible" id="autoClickBtn">Keywords</button>
 <div class="content">
     <p>Java has a set of keywords that are reserved words that cannot be used as variables, methods, classes, or any other identifiers:</p>
     <button class="collapsible">A - C</button>
@@ -325,6 +325,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

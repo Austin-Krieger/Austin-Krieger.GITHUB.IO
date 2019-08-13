@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Generics</button>
+<button class="collapsible" id="autoClickBtn">Generics</button>
 <div class="content">
     <h3>Generics</h3>
     <p>Through the use of generics, it is possible to create classes, interfaces, and methods that will work in a type-safe manner with various kinds of data.</p>
@@ -317,6 +317,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

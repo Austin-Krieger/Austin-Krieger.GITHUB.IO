@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Collections Framework</button>
+<button class="collapsible" id="autoClickBtn">Collections Framework</button>
 <div class="content">
     <h3>Collections Framework</h3>
     <p>The collections framework was designed to meet several goals.</p>
@@ -94,6 +94,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

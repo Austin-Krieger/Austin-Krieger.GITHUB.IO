@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Methods</button>
+<button class="collapsible" id="autoClickBtn">Methods</button>
 <div class="content">
     <h3>Methods</h3>
     <p>A method is a block of code which only runs when it is called.</p>
@@ -185,6 +185,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

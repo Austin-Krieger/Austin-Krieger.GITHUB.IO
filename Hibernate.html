@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Hibernate</button>
+<button class="collapsible" id="autoClickBtn">Hibernate</button>
 <div class="content">
     <button class="collapsible">Hibernate</button>
     <div class="content">
@@ -668,6 +668,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

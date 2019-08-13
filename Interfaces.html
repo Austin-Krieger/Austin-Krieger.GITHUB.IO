@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Interfaces</button>
+<button class="collapsible" id="autoClickBtn">Interfaces</button>
 <div class="content">
     <h3>Interfaces</h3>
     <p>An interface is a completely "abstract class" that is used to group related methods with empty bodies.</p>
@@ -145,6 +145,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

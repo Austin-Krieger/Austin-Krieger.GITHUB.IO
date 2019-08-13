@@ -20,7 +20,7 @@
 &nbsp;
 <button class="collapsible">Data Types, Variables and Arrays</button>
 <div class="content">
-    <button class="collapsible">Data Types</button>
+    <button class="collapsible" id="autoClickBtn">Data Types</button>
     <div class="content">
         <h2>Primitive Types (8): byte, short, int, long, char, float, double, boolean</h2>
         <p>Not object-oriented, found in most other languages, the reason for their non-object-oriented existence is for efficiency.</p>
@@ -301,6 +301,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

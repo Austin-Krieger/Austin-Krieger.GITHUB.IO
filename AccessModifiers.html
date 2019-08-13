@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Access Modifiers</button>
+<button class="collapsible" id="autoClickBtn">Access Modifiers</button>
 <div class="content">
     <h2>Access Modifiers</h2>
     <p>Allow the programmer to control the visibility of class members.</p>
@@ -74,6 +74,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>

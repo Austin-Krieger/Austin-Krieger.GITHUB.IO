@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Features of Java</button>
+<button class="collapsible" id="autoClickBtn">Features of Java</button>
 <div class="content">
     <div class="scrollableTable"><table>
         <tr>
@@ -171,6 +171,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>
