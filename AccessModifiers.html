@@ -18,6 +18,45 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-
+<button class="collapsible">Access Modifiers</button>
+<div class="content">
+    <h2>Access Modifiers</h2>
+    <p>Allow the programmer to control the visibility of class members.</p>
+    <h3>Class level</h3>
+    <p>Without a modifier a class is assumed package-private and visible only within its own package.</p>
+    <p>Public: class is visible to all classes everywhere.</p>
+    <h3>Member level</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th rowspan="2">Public</th>
+            <td>That member may be accessed by any code within its package.</td>
+        </tr>
+        <tr>
+            <td>Example: Your name, birthday, things that anyone can access.</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Private</th>
+            <td>That member can only be accessed by other members of its class, unless a public interface is provided (getters/setters).</td>
+        </tr>
+        <tr>
+            <td>Example: Only you have access to this information.</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Protected</th>
+            <td>Can be accessed within the same package or classes that subclass your class directly from other packages.</td>
+        </tr>
+        <tr>
+            <td>Example: Parents and relatives can access.</td>
+        </tr>
+        <tr>
+            <th rowspan="2">No Modifier (default)</th>
+            <td>Can be accessed from anywhere within the same package.</td>
+        </tr>
+        <tr>
+            <td>Example: People with whom you live can access.</td>
+        </tr>
+    </table></div>
+    <p>Example a 10 year old could understand: Cookies left on the counter are for anyone and cookies in the cookie jar are private/protected.</p>
+</div>
 </body>
 </html>

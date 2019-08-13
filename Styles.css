@@ -74,6 +74,25 @@ tr:nth-child(even) {
     padding: 5px;
 }
 
+.redirect {
+    background-color: #777777;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    /*display: inline-block;*/
+    cursor: pointer;
+}
+
+.redirect:hover {
+    border-width: 5px;
+    border-color: #999;
+    border-style: inset;
+}
+
 .copy:hover {
     background-color: #777777;
     color: white;

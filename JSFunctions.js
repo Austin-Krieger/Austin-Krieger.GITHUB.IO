@@ -25,3 +25,19 @@ function copyText(containerid) {
     }
     document.execCommand("copy");
 }
+
+<!-- Javascript controlling the click functionality for the collapsible boxes -->
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}

@@ -18,6 +18,288 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
+<button class="collapsible">Generics</button>
+<div class="content">
+    <h3>Generics</h3>
+    <p>Through the use of generics, it is possible to create classes, interfaces, and methods that will work in a type-safe manner with various kinds of data.</p>
+    <p>With generics, you can define an algorithm once, independently of any specific type of data, and then apply that algorithm to a wide variety of data types without any additional effort.</p>
+    <h3>What are Generics?</h3>
+    <p>At its core, the term generics means parameterized types.</p>
+    <p>Parameterized types are important because they enable you to create classes, interfaces, and methods in which the type of data upon which they operate is specified as a parameter.</p>
+    <p>A class, interface, or method that operates on a parameterized type is called generic, as in generic class or generic method.</p>
+    <p>In pre-generics code, generalized classes, interfaces, and methods used Object references to operate on various types of objects. The problem was that they could not do so with type safety. Generics added the type safety that was lacking.</p>
+    <p>With generics, all casts are automatic and implicit. Thus, generics expanded your ability to reuse code and let you do so safely and easily.</p>
+    <div class="code" id="generics1"><button class="copy" onclick="copyText('generics1')">Copy</button><br><p>
+        <mark>// Here, T is the name of a type parameter. This name is used as a placeholder for the actual type that will be passed to Gen when an object is created.</mark><br>
+        class Gen&lt;T&gt; {
+    </p>
+    </div>
+    <p>Type safety: means that a program cannot perform an operation on an object unless that operation is valid for that object.</p>
+    <h3>Erasure</h3>
+    <p>The compiler removes all generic type information, substituting the necessary casts, to make your code behave as if a specific version of Gen were created.</p>
+    <h3>Generics works only with Reference Types</h3>
+    <p>When declaring an instance of a generic type, the type argument passed to the type parameter must be a reference type. You cannot use a primitive type, such as int or char.</p>
+    <h3>Generic Types differ based on their Type Arguments</h3>
+    <p>A key point to understand about generic types is that a reference of one specific version of a generic type is not type compatible with another version of the same generic type.</p>
+    <h3>How Generics Improves Type Safety</h3>
+    <p>Generics automatically ensure the type safety of all operations involving Gen. In the process, they eliminate the need for you to enter casts and to type-check code by hand.</p>
+    <h3>Generic Class</h3>
+    <div class="code" id="generics2"><button class="copy" onclick="copyText('generics2')">Copy</button><br><p>
+        <mark>// General Form</mark><br>
+        class class-name&lt;type-param-list&gt; { <mark>// ...</mark><br>
+        <mark>// Full Syntax</mark><br>
+        class-name&lt;type-arg-list&gt; var-name = new class-name&lt;type-arg-list&gt;(cons-arg-list);
+    </p>
+    </div>
+    <h3>Bounded Types</h3>
+    <p>Sometimes it is useful to limit the types that can be passed to a type parameter.</p>
+    <p>When specifying a type parameter, you can create an upper bound that declares the superclass from which all type arguments must be derived.</p>
+    <p>This is accomplished through the use of an extends clause when specifying the type parameter.</p>
+    <div class="code" id="generics3"><button class="copy" onclick="copyText('generics3')">Copy</button><br><p>
+        <mark>// This specifies that T can only be replaced by superclass, or subclasses of superclass.</mark><br>
+        &lt;T extends superclass&gt;<br>
+        <mark>// Here, the type argument for T must be either Number, or a class derived from Number.</mark><br>
+        class Stats&lt;T extends Number&gt; {
+    </p>
+    </div>
+    <p>When a bound includes an interface type, only type arguments that implement that interface are legal.</p>
+    <p>When specifying a bound that has a class and an interface, or multiple interfaces, use the & operator to connect them.</p>
+    <div class="code" id="generics4"><button class="copy" onclick="copyText('generics4')">Copy</button><br><p>
+        <mark>// Here, T is bounded by a class called MyClass and an interface called MyInterface.</mark><br>
+        class Gen&lt;T extends MyClass & MyInterface> { <mark>// ...</mark>
+    </p>
+    </div>
+    <p>Any type argument passed to T must be a subclass of MyClass and implement MyInterface.</p>
+    <h3>Using Wildcard Arguments</h3>
+    <p>The wildcard argument is specified by the ?, and it represents an unknown type.</p>
+    <p>Assume that you want to add a method called sameAvg() that determines if two Stats objects contain arrays that yield the same average, no matter what type of numeric data each object holds.</p>
+    <div class="code" id="generics5"><button class="copy" onclick="copyText('generics5')">Copy</button><br><p>
+        <mark>// Determine if two averages are the same.</mark><br>
+        <mark>// Here, Stats&lt;?&gt; matches any Stats object, allowing any two Stats objects to have their averages compared.</mark><br>
+        boolean sameAvg(Stats&lt;?&gt; ob) {<br>
+        &emsp;if(average() == ob.average())<br>
+        &emsp;&emsp;return true;<br>
+        &emsp;return false;<br>
+        }
+    </p>
+    </div>
+    <h3>Bounded Wildcards</h3>
+    <p>A bounded wildcard is especially important when you are creating a generic type that will operate on a class hierarchy.</p>
+    <p>In general, to establish an upper bound for a wildcard, use the following type of wildcard expression:</p>
+    <div class="code" id="generics6"><button class="copy" onclick="copyText('generics6')">Copy</button><br><p>
+        &lt;? extends superclass&gt;
+    </p>
+    </div>
+    <p>You can also specify a lower bound for a wildcard by adding a super clause to a wildcard declaration. Here is its general form:</p>
+    <div class="code" id="generics7"><button class="copy" onclick="copyText('generics7')">Copy</button><br><p>
+        &lt;? super subclass&gt;
+    </p>
+    </div>
+    <h3>Creating a Generic Method</h3>
+    <p>Methods inside a generic class can make use of a class’ type parameter and are, therefore, automatically generic relative to the type parameter.</p>
+    <p>However, it is possible to declare a generic method that uses one or more type parameters of its own.</p>
+    <p>Furthermore, it is possible to create a generic method that is enclosed within a non-generic class.</p>
+    <p>Here is the syntax for a generic method:</p>
+    <div class="code" id="generics8"><button class="copy" onclick="copyText('generics8')">Copy</button><br><p>
+        &lt;type-param-list&gt; ret-type meth-name (param-list) { <mark>// ...</mark>
+    </p>
+    </div>
+    <p>In all cases, type-param-list is a comma-separated list of type parameters.</p>
+    <p>For a generic method, the type parameter list precedes the return type.</p>
+    <h3>Generic Constructors</h3>
+    <p>It is possible for constructors to be generic, even if their class is not.</p>
+    <div class="code" id="generics9"><button class="copy" onclick="copyText('generics9')">Copy</button><br><p>
+        class GenCons { <mark>// non-generic class</mark><br>
+        &emsp;private double val;<br>
+        &emsp;&lt;T extends Number&gt; GenCons(T arg) { <mark>// generic constructor</mark><br>
+        &emsp;&emsp;val = arg.doubleValue();<br>
+        &emsp;}<br>
+        }<br><br>
+    </p>
+        <div class="mainMethod">
+            <br>GenCons test = new GenCons(100);<br>
+            GenCons test2 = new GenCons(123.5F);
+        </div>
+    </div>
+    <p>Because GenCons() specifies a parameter of a generic type, which must be a subclass of Number, GenCons() can be called with any numeric type, including Integer, Float, or Double.</p>
+    <p>Therefore, even though GenCons is not a generic class, its constructor is generic.</p>
+    <h3>Generic Interfaces</h3>
+    <p>In addition to generic classes and methods, you can also have generic interfaces.</p>
+    <div class="code" id="generics10"><button class="copy" onclick="copyText('generics10')">Copy</button><br><p>
+        <mark>// A Min/Max interface.</mark><br>
+        interface MinMax&lt;T extends Comparable&lt;T&gt;&gt; {<br>
+        &emsp;T min();<br>
+        &emsp;T max();<br>
+        }
+    </p>
+    </div>
+    <p>In general, if a class implements a generic interface, then that class must also be generic, at least to the extent that it takes a type parameter that is passed to the interface.</p>
+    <div class="code" id="generics11"><button class="copy" onclick="copyText('generics11')">Copy</button><br><p>
+        <mark>// Generalized Syntax for a Generic Interface</mark><br>
+        interface interface-name&lt;type-param-list&gt; { // …<br>
+        <mark>// Here, type-param-list is a comma-separated list of type parameters.</mark>
+    </p>
+    </div>
+    <p>When a generic interface is implemented, you must specify the type arguments.</p>
+    <div class="code" id="generics12"><button class="copy" onclick="copyText('generics12')">Copy</button><br><p>
+        class class-name&lt;type-param-list&gt; implements interface-name&lt;type-arg-list&gt;
+    </p>
+    </div>
+    <h3>Raw Types and Legacy Code</h3>
+    <p>To handle the transition to generics, Java allows a generic class to be used without any type arguments. This creates a raw type for the class.</p>
+    <p>The main drawback to using the raw type is that the type safety of generics is lost.</p>
+    <div class="code" id="generics13"><button class="copy" onclick="copyText('generics13')">Copy</button><br><p>
+        <mark>// Create a raw-type Gen object and give it a Double value.</mark><br>
+        Gen raw = new Gen(new Double(98.6));
+    </p>
+    </div>
+    <p>You should limit the use of raw types to those cases in which you must mix legacy code with newer, generic code.</p>
+    <p>Raw types are simply a transitional feature and not something that should be used for new code.</p>
+    <h3>Generic Class Hierarchies</h3>
+    <p>Generic classes can be part of a class hierarchy in just the same way as a non-generic class.</p>
+    <p>Thus, a generic class can act as a superclass or be a subclass.</p>
+    <p>The key difference between generic and non-generic hierarchies is that in a generic hierarchy, any type arguments needed by a generic superclass must be passed up the hierarchy by all subclasses.</p>
+    <div class="code" id="generics14"><button class="copy" onclick="copyText('generics14')">Copy</button><br><p>
+        <mark>// A simple generic class hierarchy.</mark><br>
+        class Gen&lt;T&gt; {<br>
+        &emsp;T ob;<br>
+        &emsp;Gen(T o) { ob = o; }<br>
+        &emsp;<mark>// Return ob.</mark><br>
+        &emsp;T getob() { return ob; }<br>
+        }<br><br>
 
+        <mark>// A subclass of Gen.</mark><br>
+        class Gen2&lt;T&gt; extends Gen&lt;T&gt; {<br>
+        &emsp;Gen2(T o) { super(o); }<br>
+        }<br><br>
+
+        <mark>// A subclass of Gen that defines a second type parameter, called V.</mark><br>
+        class Gen2&lt;T, V&gt; extends Gen&lt;T&gt; {<br>
+        &emsp;V ob2;<br>
+        &emsp;Gen2(T o, V o2) { super(o); ob2 = o2; }<br>
+        &emsp;<mark>// Return the second ob</mark><br>
+        &emsp;V getob2() { return ob2; }<br>
+        }<br><br>
+    </p>
+        <div class="mainMethod">
+            <br><mark>// Create a Gen2 object for String and Integer.</mark><br>
+            Gen2&lt;String, Integer&gt; x = new Gen2&lt;String, Integer&gt;("Value is: ", 99);
+        </div>
+    </div>
+    <h3>A Generic Subclass</h3>
+    <p>It is perfectly acceptable for a non-generic class to be the superclass of a generic subclass.</p>
+    <h3>Run-Time Type Comparisons Within a Generic Hierarchy</h3>
+    <p>instanceof determines if an object is an instance of a class.</p>
+    <p>The instanceof operator can be applied to objects of generic classes.</p>
+    <p>It returns true if an object is of the specified type or can be cast to the specified type.</p>
+    <h3>Casting</h3>
+    <p>You can cast one instance of a generic class into another only if the two are otherwise compatible and their type arguments are the same.</p>
+    <h3>Overriding Methods in a Generic Class</h3>
+    <p>A method in a generic class can be overridden just like any other method.</p>
+    <div class="code" id="generics15"><button class="copy" onclick="copyText('generics15')">Copy</button><br><p>
+        class Gen2&lt;T&gt; extends Gen&lt;T&gt; {<br>
+        &emsp;<mark>// Override getob() which exists in the parent class</mark><br>
+        &emsp;T getob() {<br>
+        &emsp;&emsp;System.out.print("Gen2's getob(): ");<br>
+        &emsp;&emsp;return ob;<br>
+        &emsp;}
+        }
+    </p>
+    </div>
+    <h3>Type Inference with Generics</h3>
+    <p>Beginning with JDK 7, it is possible to shorten the syntax used to create an instance of a generic type.</p>
+    <div class="code" id="generics16"><button class="copy" onclick="copyText('generics16')">Copy</button><br><p>
+        MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;Integer, String&gt;(98, "A String");<br>
+        <mark>// Can be re-written as:</mark><br>
+        MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;&gt;(98, "A String");
+    </p>
+    </div>
+    <p>Diamond Operator: <> is an empty type argument list.</p>
+    <p>The principal advantage of this type-inference syntax is that it shortens what are sometimes quite long declaration statements.</p>
+    <h3>Erasure</h3>
+    <p>Any changes to the syntax of the Java language, or to the JVM, had to avoid breaking older code.</p>
+    <p>The way Java implements generics while satisfying this constraint is through the use of erasure.</p>
+    <p>When your Java code is compiled, all generic type information is removed (erased).</p>
+    <p>This means replacing type parameters with their bound type, which is Object if no explicit bound is specified, and then applying the appropriate casts (as determined by the type arguments) to maintain type compatibility with the types specified by the type arguments.</p>
+    <p>The compiler also enforces this type compatibility.</p>
+    <p>This approach to generics means that no type parameters exist at run time.</p>
+    <p>They are simply a source-code mechanism.</p>
+    <h3>Bridge Methods</h3>
+    <p>Occasionally, the compiler will need to add a bridge method to a class to handle situations in which the type erasure of an overriding method in a subclass does not produce the same erasure as the method in the superclass.</p>
+    <p>In this case, a method is generated that uses the type erasure of the superclass, and this method calls the method that has the type erasure specified by the subclass.</p>
+    <p>Bridge methods only occur at the bytecode level, are not seen by you, and are not available for your use.</p>
+    <h3>Ambiguity Errors</h3>
+    <p>The inclusion of generics gives rise to a new type of error that you must guard against: ambiguity.</p>
+    <p>Ambiguity errors occur when erasure causes two seemingly distinct generic declarations to resolve to the same erased type, causing a conflict.</p>
+    <div class="code" id="generics17"><button class="copy" onclick="copyText('generics17')">Copy</button><br><p>
+        <mark>// These two overloaded methods are ambiguous and will not compile.</mark><br>
+        void set(T o) {<br>
+        &emsp;ob1 = o;<br>
+        }<br><br>
+        void set(V o) {<br>
+        &emsp;ob2 = o;<br>
+        }
+    </p>
+    </div>
+    <p>It is perfectly correct (in principle) to construct a MyGenClass object as shown here:</p>
+    <div class="code" id="generics18"><button class="copy" onclick="copyText('generics18')">Copy</button><br><p>
+        MyGenClass&lt;String, String&gt; obj = new MyGenClass&lt;String, String&gt;()
+    </p>
+    </div>
+    <p>In this case, both T and V will be replaced by String. This makes both versions of set() identical, which is, of course, an error.</p>
+    <p>Often, the solution to ambiguity involves the restructuring of the code, because ambiguity frequently means that you have a conceptual error in your design.</p>
+    <h3>Generic Restrictions</h3>
+    <p>There are a few restrictions that you need to keep in mind when using generics.</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Creating objects of a type parameter</th>
+            <td>It is not possible to create an instance of a type parameter.</td>
+        </tr>
+        <tr>
+            <th>Static members</th>
+            <td>No static member can use a type parameter declared by the enclosing class.</td>
+        </tr>
+        <tr>
+            <th>Exceptions</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Arrays</th>
+            <td></td>
+        </tr>
+    </table></div>
+    <h3>Type Parameters Can’t Be Instantiated</h3>
+    <p>It is not possible to create an instance of a type parameter.</p>
+    <div class="code" id="generics19"><button class="copy" onclick="copyText('generics19')">Copy</button><br><p>
+        <mark>// Can't create an instance of T.</mark><br>
+        class Gen&lt;T&gt; {<br>
+        &emsp;T ob;<br>
+        &emsp;Gen() {<br>
+        &emsp;&emsp;ob = new T(); <mark>// Illegal!!!</mark><br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>The compiler does not know what type of object to create. T is simply a placeholder.</p>
+    <h3>Restrictions on Static Members</h3>
+    <p>No static member can use a type parameter declared by the enclosing class.</p>
+    <h3>Generic Array Restrictions</h3>
+    <p>There are two important generics restrictions that apply to arrays.</p>
+    <p>First, you cannot instantiate an array whose element type is a type parameter.</p>
+    <p>Second, you cannot create an array of type-specific generic references.</p>
+    <div class="code" id="generics20"><button class="copy" onclick="copyText('generics20')">Copy</button><br><p>
+        T vals[]; <mark>// OK</mark><br>
+        vals = new T[10]; <mark>// can't create an array of T</mark>
+    </p>
+    </div>
+    <p>The reason you can’t create an array of T is that there is no way for the compiler to know what type of array to actually create.</p>
+    <p>You can create an array of references to a generic type if you use a wildcard, however, as shown here:</p>
+    <div class="code" id="generics21"><button class="copy" onclick="copyText('generics21')">Copy</button><br><p>
+        Gen&lt;?&gt; gens[] = new Gen&lt;?&gt;[10]; <mark>// OK</mark>
+    </p>
+    </div>
+    <h3>Generic Exception Restriction</h3>
+    <p>A generic class cannot extend Throwable. This means that you cannot create generic exception classes.</p>
+</div>
 </body>
 </html>

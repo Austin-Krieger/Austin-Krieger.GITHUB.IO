@@ -18,6 +18,42 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-
+<button class="collapsible">Design Patterns</button>
+<div class="content">
+    <h3>Design Pattern of Singleton classes</h3>
+    <p>The constructor of singleton class would be private so there must be another way to get the instance of that class. This problem is resolved using a class member instance and a factory method to return the class member.</p>
+    <div class="code" id="design1"><button class="copy" onclick="copyText('design1')">Copy</button><br><p>
+        class MySingleton {<br>
+        &emsp;static MySingleton instance = null;<br>
+        &emsp;public int x = 10;<br><br>
+        &emsp;<mark>// private constructor can't be accessed outside the class</mark><br>
+        &emsp;private MySingleton() { }<br><br>
+        &emsp;<mark>// Factory method to provide the users with instances</mark><br>
+        &emsp;static public MySingleton getInstance() {<br>
+        &emsp;&emsp;if (instance == null) {<br>
+        &emsp;&emsp;instance = new MySingleton();<br>
+        &emsp;&emsp;}<br><br>
+        &emsp;&emsp;return instance;<br>
+        &emsp;}<br>
+        }<br><br>
+        <mark>// Driver Class</mark><br>
+        class Main {<br>
+        &emsp;public static void main(String args[]) {<br>
+        &emsp;&emsp;MySingleton a = MySingleton.getInstance();<br>
+        &emsp;&emsp;MySingleton b = MySingleton.getInstance();<br>
+        &emsp;&emsp;a.x += 10;<br>
+        &emsp;&emsp;System.out.println("Value of a.x = " + a.x);<br>
+        &emsp;&emsp;System.out.println("Value of b.x = " + b.x);<br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="design2"><button class="copy" onclick="copyText('design2')">Copy</button><br><p>
+        Value of a.x = 20<br>
+        Value of b.x = 20
+    </p>
+    </div>
+</div>
 </body>
 </html>

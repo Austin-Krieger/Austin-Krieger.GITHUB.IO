@@ -18,6 +18,306 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-
+<button class="collapsible">Exception Handling</button>
+<div class="content">
+    <h2>Exception Handling</h2>
+    <div class="center"><img src="images/exception-in-java.png" alt="Exception Hierarchy Image"></div>
+    <h3>Errors:</h3>
+    <p>Errors are the conditions which cannot get recovered by any handling techniques  and cause the program to terminate at runtime.</p>
+    <h3>Exceptions:</h3>
+    <p>Is something that causes an abnormal flow in your program and it can no longer continue.</p>
+    <p><b>Abnormal Flow Example:</b> You wrote a method to divide two number, but it was dividing by zero, so it throws an exception.</p>
+    <p>Exceptions are the conditions that occur at runtime and may cause the termination of the program. But they are recoverable using try, catch and throw keywords.</p>
+    <p>Exceptions are abnormal conditions that arise in a code sequence at run time.</p>
+    <h3>Checked & Unchecked</h3>
+    <p>Checked Exceptions: are the exceptions that are checked at compile time. If some code within a method throws a checked exception, then the method must either handle the exception or it must specify the exception using throws keyword.</p>
+    <p>Unchecked: are the exceptions that are not checked at compiled time.</p>
+    <h3>Checked (Compile-time) Exceptions Defined in java.lang</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Exception</th>
+            <th>Meaning</th>
+        </tr>
+        <tr>
+            <td>ClassNotFoundException</td>
+            <td>Class not found.</td>
+        </tr>
+        <tr>
+            <td>CloneNotSupportedException</td>
+            <td>Attempt to clone an object that does not implement the Cloneable interface.</td>
+        </tr>
+        <tr>
+            <td>IllegalAccessException</td>
+            <td>Access to a class is denied.</td>
+        </tr>
+        <tr>
+            <td>InstantiationException</td>
+            <td>Attempt to create an object of an abstract class or interface.</td>
+        </tr>
+        <tr>
+            <td>InterruptedException</td>
+            <td>One thread has been interrupted by another thread.</td>
+        </tr>
+        <tr>
+            <td>NoSuchFieldException</td>
+            <td>A requested field does not exist.</td>
+        </tr>
+        <tr>
+            <td>NoSuchMethodException</td>
+            <td>A requested method does not exist.</td>
+        </tr>
+        <tr>
+            <td>ReflectiveOperationException</td>
+            <td>Superclass of reflection-related exceptions.</td>
+        </tr>
+    </table></div>
+    <h3>Unchecked (Runtime) Exception Defined in java.lang</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Exception</th>
+            <th>Meaning</th>
+        </tr>
+        <tr>
+            <td>ArithmeticException</td>
+            <td>Arithmetic error, such as divide-by-zero.</td>
+        </tr>
+        <tr>
+            <td>ArrayIndexOutOfBoundsException</td>
+            <td>Array index is out-of-bounds.</td>
+        </tr>
+        <tr>
+            <td>ArrayStoreException</td>
+            <td>Assignment to an array element of an incompatible type.</td>
+        </tr>
+        <tr>
+            <td>ClassCastException</td>
+            <td>Invalid cast.</td>
+        </tr>
+        <tr>
+            <td>EnumConstantNotPresentException</td>
+            <td>An attempt is made to use an undefined enumeration value.</td>
+        </tr>
+        <tr>
+            <td>IllegalArgumentException</td>
+            <td>Illegal argument used to invoke a method.</td>
+        </tr>
+        <tr>
+            <td>IllegalMonitorStateException</td>
+            <td>Illegal monitor operation, such as waiting on an unlocked thread.</td>
+        </tr>
+        <tr>
+            <td>IllegalStateException</td>
+            <td>Environment or application is in incorrect state.</td>
+        </tr>
+        <tr>
+            <td>IllegalThreadStateException</td>
+            <td>Requested operation not compatible with current thread state.</td>
+        </tr>
+        <tr>
+            <td>IndexOutOfBoundsException</td>
+            <td>Some type of index is out-of-bounds.</td>
+        </tr>
+        <tr>
+            <td>NegativeArraySizeException</td>
+            <td>Array created with a negative size.</td>
+        </tr>
+        <tr>
+            <td>NullPointerException</td>
+            <td>Invalid use of a null reference.</td>
+        </tr>
+        <tr>
+            <td>NumberFormatException</td>
+            <td>Invalid conversion of a string to a numeric format.</td>
+        </tr>
+        <tr>
+            <td>SecurityException</td>
+            <td>Attempt to violate security.</td>
+        </tr>
+        <tr>
+            <td>StringIndexOutOfBounds</td>
+            <td>Attempt to index outside the bounds of a string.</td>
+        </tr>
+        <tr>
+            <td>TypeNotPresentException</td>
+            <td>Type not found.</td>
+        </tr>
+        <tr>
+            <td>UnsupportedOperationException</td>
+            <td>An unsupported operation was encountered.</td>
+        </tr>
+    </table></div>
+    <h3>Errors vs Exceptions</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Errors</th>
+            <th>Exceptions</th>
+        </tr>
+        <tr>
+            <td>Recovering from Error is not possible.</td>
+            <td>We can recover from exceptions by either using try-catch block or throwing exceptions back to caller.</td>
+        </tr>
+        <tr>
+            <td>All errors in java are unchecked type.</td>
+            <td>Exceptions include both checked as well as unchecked type.</td>
+        </tr>
+        <tr>
+            <td>Errors are mostly caused by the environment in which program is running.</td>
+            <td>Program itself is responsible for causing exceptions.</td>
+        </tr>
+        <tr>
+            <td>Errors occur at runtime and not known to the compiler.</td>
+            <td>All exceptions occur at runtime but checked exceptions are known to compiler while unchecked are not.</td>
+        </tr>
+        <tr>
+            <td>They are defined in java.lang.Error package.</td>
+            <td>They are defined in java.lang.Exception package</td>
+        </tr>
+        <tr>
+            <td><b>Examples:</b><br>
+                java.lang.StackOverflowError, java.lang.OutOfMemoryError</td>
+            <td><b>Examples:</b><br>
+                <b>Checked Exceptions:</b><br> SQLException, IOException
+                <br><b>Unchecked Exceptions:</b><br> ArrayIndexOutOfBoundException, NullPointerException, ArithmeticException.</td>
+        </tr>
+    </table></div>
+    <h3>Managing Exceptions</h3>
+    <p>When an exceptional condition arises, an object representing that exception is created and thrown in the method that caused the error.</p>
+    <p>Exception Handling is managed through five keywords: try, catch, throw, throws, and finally.</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <td>Try block</td>
+            <td>Encloses the code that you want to monitor for run-time errors.</td>
+        </tr>
+        <tr>
+            <td>Catch clause</td>
+            <td>Specifies the exception type that you wish to catch. If an error occurs within a try block it is thrown, your code can catch this exception using catch and handle it in some manner.
+                <br>Goal: To resolve the exceptional condition and then continue on as if the error had never happened.</td>
+        </tr>
+        <tr>
+            <td>Throw keyword</td>
+            <td>Used to manually throw and exception.</td>
+        </tr>
+        <tr>
+            <td>Throws clause</td>
+            <td>Specifies any exception that is thrown out of a method.</td>
+        </tr>
+        <tr>
+            <td>Finally block</td>
+            <td>Always runs, any code that absolutely must be executed after a try block.</td>
+        </tr>
+    </table></div>
+    <p>General Form:</p>
+    <div class="code" id="managingExceptions1"><button class="copy" onclick="copyText('managingExceptions1')">Copy</button><br><p>
+        try {<br>
+        &emsp;<mark>// block of code to monitor for errors</mark><br>
+        }<br>
+        catch (ExceptionType1 exOb) {<br>
+        &emsp;<mark>// exception handler for ExceptionType1</mark><br>
+        }<br>
+        catch (ExceptionType2 exOb) {<br>
+        &emsp;<mark>// exception handler for ExceptionType2</mark><br>
+        }<br>
+        &emsp;<mark>// ...</mark><br>
+        finally {<br>
+        &emsp;<mark>// block of code to be executed after try block ends</mark><br>
+        }
+    </p>
+    </div>
+    <p>Try Catch Blocks can be written in multiple forms: try/catch, try/catch/finally, and try/finally.</p>
+    <h3>Multiple Catch Clauses</h3>
+    <p>Multi-catch: feature allows two or more exceptions to be caught by the same catch clause each multi-catch parameter is implicitly final.</p>
+    <p>In some cases, more than one exception could be raised by a single piece of code.</p>
+    <p>You can specify two or more catch clauses, each catching a different type of exception.</p>
+    <p>When you use multiple catch statements, it is important to remember that exception subclasses must come before any of their superclasses otherwise they will never run (unreachable code).</p>
+    <div class="code" id="managingExceptions2"><button class="copy" onclick="copyText('managingExceptions2')">Copy</button><br><p>
+        try {<br>
+        &emsp;<mark>//...</mark><br>
+        } catch (SQLException | ClassNotFoundException e) {<br>
+        &emsp;e.printStackTrace();<br>
+        }
+    </p>
+    </div>
+    <p>Stack Trace: What are the actions that have lead to the corresponding exception? Clearly tells you how the program proceeded into that exception.</p>
+    <h3>Nested Try Statements</h3>
+    <p>Each time a try statement is entered, the context of that exception is pushed on the stack.</p>
+    <p>If the outer try/catch passes it moves inward and if that fails it moves back out If an inner try statement does not have a catch handler for a particular exception, the stack is unwound and the next try statement’s catch handlers are inspected for a match.</p>
+    <div class="code" id="managingExceptions3"><button class="copy" onclick="copyText('managingExceptions3')">Copy</button><br><p>
+        try { <mark>// last</mark><br>
+        &emsp;try { <mark>// second</mark><br>
+        &emsp;&emsp;try { <mark>// check here first</mark><br>
+        &emsp;&emsp;&emsp;<mark>//...</mark><br>
+        &emsp;&emsp;} catch () {<br>
+        &emsp;} catch () {<br>
+        } catch () {<br>
+        &emsp;<mark>//...</mark><br>
+        }
+    </p>
+    </div>
+    <h3>Throw</h3>
+    <p>Used to throw an exception explicitly</p>
+    <p>General Form: throw new ThrowableInstance();</p>
+    <h3>Throws</h3>
+    <p>A throws clause lists the types of exceptions that a method might throw.</p>
+    <p>This is necessary for all exceptions, except those of type Error or RuntimeException, or any of their subclasses.</p>
+    <p>General Form:</p>
+    <div class="code" id="managingExceptions4"><button class="copy" onclick="copyText('managingExceptions4')">Copy</button><br><p>
+        type method-name(parameter-list) throws exception-list {<br>
+        &emsp;<mark>// body of method</mark><br>
+        }
+    </p>
+    </div>
+    <h3>Finally</h3>
+    <p>Creates a block of code that will execute after a try/catch block has completed and before the code following the try/catch block.</p>
+    <p>Will execute whether or not an exception is thrown.</p>
+    <h3>Creating your own exception subclasses</h3>
+    <p>To handle situations specific to your application.</p>
+    <p>Define a subclass of Exception which is a subclass of Throwable.</p>
+    <p>Your subclasses don’t need to actually implement anything, it is their existence in the type system that allows you to use them as exceptions.</p>
+    <p>Exception defines four public constructors: The other two are defined in the next section "Chained Exceptions"</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <td>Exception()</td>
+            <td>Creates an exception that has no description</td>
+        </tr>
+        <tr>
+            <td>Exception(String msg)</td>
+            <td>Specify a description of the exception</td>
+        </tr>
+    </table></div>
+    <h3>toString()</h3>
+    <p>Defined by Throwable and inherited by Exception, displays the name of the exception followed by a colon and the description.</p>
+    <p>By overriding toString( ), you can prevent the exception name and colon from being displayed.</p>
+    <h3>Chained Exceptions</h3>
+    <p>Allows you to associate another exception with an exception, this second exception describes the cause of the first exception.</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <td>Throwable(Throwable causeExc)</td>
+            <td>causeExc is the underlying reason that an exception occurred</td>
+        </tr>
+        <tr>
+            <td>Throwable(String msg, Throwable causeExc)</td>
+            <td>Allows you to specify a description at the same time that you specify a cause exception.</td>
+        </tr>
+        <tr>
+            <td>Throwable getCause()</td>
+            <td>Returns the exception that underlies the current exception.</td>
+        </tr>
+        <tr>
+            <td>Throwable initCause(Throwable causeExc)</td>
+            <td>Associates causeExc with the invoking exception and returns a reference to the exception, causeExc can only be set once / called once per exception object.</td>
+        </tr>
+    </table></div>
+    <h3>Creating Custom Exceptions</h3>
+    <div class="code" id="managingExceptions5"><button class="copy" onclick="copyText('managingExceptions5')">Copy</button><br><p>
+        public class InvalidUserException extends Exception {<br>
+        &emsp;public InvalidUserException(String errorMessage) {<br>
+        &emsp;&emsp;super(errorMessage);<br>
+        &emsp;}<br>
+        }<br><br>
+        <mark>// Throw the error somewhere else in the code</mark><br>
+        throw new InvalidUserException("The supplied user was not valid.");
+    </p>
+    </div>
+</div>
 </body>
 </html>

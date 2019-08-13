@@ -18,6 +18,639 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-
+<button class="collapsible">Hibernate</button>
+<div class="content">
+    <button class="collapsible">Hibernate</button>
+    <div class="content">
+        <button class="collapsible">About</button>
+        <div class="content">
+            <h3>What is Hibernate?</h3>
+            <p>Hibernate is an open-source and lightweight <b>ORM</b> tool that is used to store, manipulate, and retrieve data from a database.</p>
+            <h3>What is ORM?</h3>
+            <p>ORM is an acronym for Object/Relational mapping. It is a programming strategy to map objects with the data stored in the database. It simplifies data creation, manipulation and access.</p>
+            <h3>What is JPA?</h3>
+            <p>Java Persistence API (JPA) is a java specification that provides certain functionality and standards to ORM tools. The javax.persistence package contains the JPA classes and interfaces.</p>
+            <h3>Hibernate Architecture</h3>
+            <div class="center"><img src="images/hibernate-architecture.jpg" alt="Hibernate Architecture"></div>
+            <p>Hibernate architecture comprises of many interfaces.</p>
+            <ul>
+                <li>Configuration</li>
+                <li>SessionFactory</li>
+                <li>Session</li>
+                <li>Query</li>
+                <li>Criteria</li>
+                <li>Transaction</li>
+            </ul>
+            <h3>SessionFactory</h3>
+            <p>The SessionFactory is a factory of sessions and clients of the ConnectionProvider. The org.hibernate.SessionFactory interface provides factory method to get the Session object.</p>
+            <h3>Session</h3>
+            <ul>
+                <li>The Session object provides an interface between the application and the data stored in the database.</li>
+                <li>It is a short-lived object and wraps the JDBC connection.</li>
+                <li>It is a factory of Transaction, Query and Criteria.</li>
+                <li>It holds a first-level cache of data.</li>
+                <li>The org.hibernate.Session interface provides methods to insert, update and delete the object. It also provides factory methods for Transaction, Query and Criteria.</li>
+            </ul>
+            <h3>Transaction</h3>
+            <p>The transaction object specifies the atomic unit of work. It is optional. The org.hibernate.Transaction interface provides methods for transaction management.</p>
+            <h3>ConnectionProvider</h3>
+            <p>It is a factory of JDBC connections. It abstracts the application from DriverManager or DataSource. It is optional.</p>
+            <h3>TransactionFactory</h3>
+            <p>It is a factory of Transaction. It is optional.</p>
+        </div>
+        &nbsp;
+        <button class="collapsible">Hibernate Example</button>
+        <div class="content">
+            <ol>
+                <li>Load the Dependencies (jar files).</li>
+                <li>Create the Persistent class.</li>
+                <li>Create the mapping file for Persistent class.</li>
+                <li>Create the Configuration file.</li>
+                <li>Create the class that retrieves or stores the persistent object.</li>
+                <li>Run the application.</li>
+            </ol>
+            <h3>Create a new Maven Project "Hibernate Example"</h3>
+            <p>Once the project is created open the pom.xml file and add the necessary dependencies.</p>
+            <button class="collapsible">POM File</button>
+            <div class="content">
+                <div class="code" id="hibernate1"><button class="copy" onclick="copyText('hibernate1')">Copy</button><br><p>
+                    &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;<br>
+                    &emsp;&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;<br>
+                    &emsp;&lt;groupId&gt;com.training.maven&lt;/groupId&gt;<br>
+                    &emsp;&lt;artifactId&gt;HibernateExample&lt;/artifactId&gt;<br>
+                    &emsp;&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;<br><br>
+                    &emsp;&lt;dependencies&gt;<br>
+                    &emsp;&emsp;&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;<br>
+                    &emsp;&emsp;&lt;dependency&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;groupId&gt;mysql&lt;/groupId&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;version&gt;8.0.16&lt;/version&gt;<br>
+                    &emsp;&emsp;&lt;/dependency&gt;<br><br>
+                    &emsp;&emsp;&lt;!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core --&gt;<br>
+                    &emsp;&emsp;&lt;dependency&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;groupId&gt;org.hibernate&lt;/groupId&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;version&gt;5.4.3.Final&lt;/version&gt;<br>
+                    &emsp;&emsp;&lt;/dependency&gt;<br>
+                    &emsp;&lt;/dependencies&gt;<br>
+                    &lt;/project&gt;
+                </p>
+                </div>
+            </div>
+            <h3>Create the Persistent class</h3>
+            <p>A simple Persistent class should follow some rules:</p>
+            <ul>
+                <li>A no-arg constructor: It is recommended that you have a default constructor with at least package visibility so that hibernate can create the instance of the Persistent class by newInstance() method.</li>
+                <li>Provide an identifier property: It is better to assign an attribute as id. This attribute behaves as a primary key in database.</li>
+                <li>Declare getter and setter methods: Hibernate recognizes the method by getter and setter method names by default.</li>
+                <li>Prefer non-final class: Hibernate uses the concept of proxies, that depends on the persistent class. The application programmer will not be able to use proxies for lazy association fetching.</li>
+            </ul>
+            <button class="collapsible">User Class</button>
+            <div class="content">
+                <div class="code" id="hibernate2"><button class="copy" onclick="copyText('hibernate2')">Copy</button><br><p>
+                    public class User {<br><br>
+                    &emsp;private int userID;<br>
+                    &emsp;private String firstName;<br>
+                    &emsp;private String lastName;<br><br>
+                    &emsp;public int getId() {<br>
+                    &emsp;&emsp;return id;<br>
+                    &emsp;}<br><br>
+                    &emsp;public void setId(int id) {<br>
+                    &emsp;&emsp;this.id = id;<br>
+                    &emsp;}<br><br>
+                    &emsp;public String getFirstName() {<br>
+                    &emsp;&emsp;return firstName;<br>
+                    &emsp;}<br><br>
+                    &emsp;public void setFirstName(String firstName) {<br>
+                    &emsp;&emsp;this.firstName = firstName;<br>
+                    &emsp;}<br><br>
+                    &emsp;public String getLastName() {<br>
+                    &emsp;&emsp;return lastName;<br>
+                    &emsp;}<br><br>
+                    &emsp;public void setLastName(String lastName) {<br>
+                    &emsp;&emsp;this.lastName = lastName;<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+            </div>
+            <h3>Create the mapping file for Persistent class</h3>
+            <p>The mapping file name conventionally, should be class_name.hbm.xml. There are many elements of the mapping file.</p>
+            <ul>
+                <li>hibernate-mapping: It is the root element in the mapping file that contains all the mapping elements.</li>
+                <li>class: It is the sub-element of the hibernate-mapping element. It specifies the Persistent class.</li>
+                <li>id: It is the sub-element of class. It specifies the primary key attribute in the class.</li>
+                <li>generator: It is the sub-element of id. It is used to generate the primary key. There are many generator classes such as assigned, increment, hilo, sequence, native etc. We will learn all the generator classes later.</li>
+                <li>property: It is the sub-element of class that specifies the property name of the Persistent class.</li>
+            </ul>
+            <button class="collapsible">XML Based</button>
+            <div class="content">
+                <div class="code" id="hibernate3"><button class="copy" onclick="copyText('hibernate3')">Copy</button><br><p>
+                    &lt;?xml version="1.0"?&gt;<br>
+                    &lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"<br>
+                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;<br>
+                    &lt;hibernate-mapping&gt;<br>
+                    &emsp;&lt;class name="com.training.hibernate.model.User" table="users"&gt;<br>
+                    &emsp;&emsp;<mark>&lt;!-- userID is getting mapped to the database column name UserID --&gt;</mark><br>
+                    &emsp;&emsp;&lt;id name="userID" type="int"&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;column name="UserID" /&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;generator class="assigned" /&gt;<br>
+                    &emsp;&emsp;&lt;/id&gt;<br><br>
+                    &emsp;&emsp;&lt;property name="firstName" type="java.lang.String"&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;column name="FirstName" /&gt;<br>
+                    &emsp;&emsp;&lt;/property&gt;<br><br>
+                    &emsp;&emsp;&lt;property name="lastName" type="java.lang.String"&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;column name="LastName" /&gt;<br>
+                    &emsp;&emsp;&lt;/property&gt;<br><br>
+                    &emsp;&lt;/class&gt;<br>
+                    &lt;/hibernate-mapping&gt;
+                </p>
+                </div>
+            </div>
+            &nbsp;
+            <button class="collapsible">Annotation Based</button>
+            <div class="content">
+                <div class="code" id="hibernate4"><button class="copy" onclick="copyText('hibernate4')">Copy</button><br><p>
+                    @Entity <mark>// Defines that this Class can be mapped to a table</mark><br>
+                    @Table(name = "users") <mark>// User class should connect to the users table in the database</mark><br>
+                    public class User {<br><br>
+                    &emsp;@Id <mark>// maps the primary key</mark><br>
+                    &emsp;@GeneratedValue(strategy = GenerationType.IDENTITY)<mark>// auto_increment the user id</mark><br>
+                    &emsp;@Column(name = "UserID") <mark>// name should match the column name in the database</mark><br>
+                    &emsp;private int userID;<br>
+                    &emsp;@Column(name = "FirstName")<br>
+                    &emsp;private String firstName;<br>
+                    &emsp;@Column(name = "UserID")<br>
+                    &emsp;private String LastName;<br><br>
+                    &emsp;public int getId() {<br>
+                    &emsp;&emsp;return id;<br>
+                    &emsp;}<br><br>
+                    &emsp;public void setId(int id) {<br>
+                    &emsp;&emsp;this.id = id;<br>
+                    &emsp;}<br><br>
+                    &emsp;public String getFirstName() {<br>
+                    &emsp;&emsp;return firstName;<br>
+                    &emsp;}<br><br>
+                    &emsp;public void setFirstName(String firstName) {<br>
+                    &emsp;&emsp;this.firstName = firstName;<br>
+                    &emsp;}<br><br>
+                    &emsp;public String getLastName() {<br>
+                    &emsp;&emsp;return lastName;<br>
+                    &emsp;}<br><br>
+                    &emsp;public void setLastName(String lastName) {<br>
+                    &emsp;&emsp;this.lastName = lastName;<br>
+                    &emsp;}<br><br>
+                    &emsp;<mark>// You need a no-argument constructor because Hibernate creates proxy objects</mark><br>
+                    &emsp;public User() {<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+            </div>
+            <h3>Create the Configuration file</h3>
+            <p>The configuration file contains information about the database and mapping file. Conventionally, its name should be hibernate.cfg.xml</p>
+            <button class="collapsible">Configuration File</button>
+            <div class="content">
+                <div class="code" id="hibernate5"><button class="copy" onclick="copyText('hibernate5')">Copy</button><br><p>
+                    &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+                    &lt;!DOCTYPE hibernate-configuration PUBLIC<br>
+                    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"<br>
+                    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;<br><br>
+                    &lt;hibernate-configuration&gt;<br>
+                    &emsp;&lt;session-factory&gt;<br>
+                    &emsp;&emsp;<mark>&lt;!-- Database connection settings --&gt;</mark><br>
+                    &emsp;&emsp;&lt;property name = "connection.driver_class"&gt;com.mysql.cj.jdbc.Driver&lt;/property&gt;<br>
+                    &emsp;&emsp;&lt;property name = "connection.url"&gt;jdbc:mysql://localhost:3306/interview?serverTimezone=UTC&lt;/property&gt;<br>
+                    &emsp;&emsp;&lt;property name = "connection.username"&gt;root&lt;/property&gt;<br>
+                    &emsp;&emsp;&lt;property name = "connection.password"&gt;root&lt;/property&gt;<br><br>
+                    &emsp;&emsp;<mark>&lt;!-- JDBC connection pool (use the built-in) --&gt;</mark><br>
+                    &emsp;&emsp;&lt;property name="connection.pool_size"&gt;10&lt;/property&gt;<br><br>
+                    &emsp;&emsp;<mark>&lt;!-- SQL dialect --&gt;</mark><br>
+                    &emsp;&emsp;&lt;property name="dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;<br><br>
+                    &emsp;&emsp;<mark>&lt;!-- Enable Hibernate's automatic session context management --&gt;</mark><br>
+                    &emsp;&emsp;&lt;property name="current_session_context_class"&gt;thread&lt;/property&gt;<br><br>
+                    &emsp;&emsp;<mark>&lt;!-- Disable the second-level cache --&gt;</mark><br>
+                    &emsp;&emsp;&lt;property name="cache.provider_class"&gt;org.hibernate.cache.internal.NoCacheProvider&lt;/property&gt;<br><br>
+                    &emsp;&emsp;<mark>&lt;!-- Echo all executed SQL to stdout make false in production --&gt;</mark><br>
+                    &emsp;&emsp;&lt;property name="show_sql"&gt;true&lt;/property&gt;<br><br>
+                    &emsp;&emsp;&lt;mapping resource="User.hbm.xml" /&gt;<br>
+                    &emsp;&lt;/session-factory&gt;<br>
+                    &lt;/hibernate-configuration&gt;
+                </p>
+                </div>
+            </div>
+            <h3>Create the utility class that opens sessions</h3>
+            <p>For code reuse purposes we can separate our session factory from the main class.</p>
+            <button class="collapsible">XML Based</button>
+            <div class="content">
+                <div class="code" id="hibernate6"><button class="copy" onclick="copyText('hibernate6')">Copy</button><br><p>
+                    public class HibernateUtility {<br>
+                    &emsp;<mark>// Get service registry</mark><br>
+                    &emsp;<mark>// Get meta data</mark><br>
+                    &emsp;<mark>// Get session factory</mark><br>
+                    &emsp;<mark>// Open the session</mark><br><br>
+                    &emsp;public SessionFactory sessionFactory;<br><br>
+                    &emsp;private Metadata getMetadata() {<br>
+                    &emsp;&emsp;return new MetadataSources(getServiceRegistry()).buildMetadata();<br>
+                    &emsp;}<br><br>
+                    &emsp;private ServiceRegistry getServiceRegistry() {<br>
+                    &emsp;&emsp;<mark>// Specify the file name:</mark><br>
+                    &emsp;&emsp;<mark>// return new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();</mark><br>
+                    &emsp;&emsp;<mark>// Search for the file:</mark><br>
+                    &emsp;&emsp;return new StandardServiceRegistryBuilder().configure().build();<br>
+                    &emsp;}<br><br>
+                    &emsp;public Session getSession() {<br>
+                    &emsp;&emsp;if (this.sessionFactory == null) {<br>
+                    &emsp;&emsp;&emsp;getSessionFactory();<br>
+                    &emsp;&emsp;}<br><br>
+                    &emsp;&emsp;return this.sessionFactory.openSession();<br>
+                    &emsp;}<br><br>
+                    &emsp;private void getSessionFactory() {<br>
+                    &emsp;&emsp;this.sessionFactory = getMetadata().buildSessionFactory();<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+            </div>
+            &nbsp;
+            <button class="collapsible">Annotation Based</button>
+            <div class="content">
+                <div class="code" id="hibernate7"><button class="copy" onclick="copyText('hibernate7')">Copy</button><br><p>
+                    public class HibernateUtility {<br>
+                    &emsp;<mark>// Get service registry</mark><br>
+                    &emsp;<mark>// Get meta data</mark><br>
+                    &emsp;<mark>// Get session factory</mark><br>
+                    &emsp;<mark>// Open the session</mark><br><br>
+                    &emsp;public SessionFactory sessionFactory;<br><br>
+                    &emsp;private Metadata getMetadata() {<br>
+                    &emsp;&emsp;<mark>// Specify the mapping class</mark><br>
+                    &emsp;&emsp;return new MetadataSources(getServiceRegistry()).addAnnotatedClass(User.class).buildMetadata();<br>
+                    &emsp;}<br><br>
+                    &emsp;private ServiceRegistry getServiceRegistry() {<br>
+                    &emsp;&emsp;<mark>// With this we no longer need hibernate.cfg.xml file</mark><br>
+                    &emsp;&emsp;StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();<br>
+                    &emsp;&emsp;Map&lt;String, String&gt; settings = new HashMap();<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/interview?serverTimezone=UTC");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.username", "root");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.password", "root");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.show_sql", "true");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.hbm2ddl.auto", "update");<br>
+                    &emsp;&emsp;serviceRegistryBuilder.applySettings(settings);<br><br>
+                    &emsp;&emsp;return serviceRegistryBuilder.build();
+                    &emsp;}<br><br>
+                    &emsp;public Session getSession() {<br>
+                    &emsp;&emsp;if (this.sessionFactory == null) {<br>
+                    &emsp;&emsp;&emsp;getSessionFactory();<br>
+                    &emsp;&emsp;}<br><br>
+                    &emsp;&emsp;return this.sessionFactory.openSession();<br>
+                    &emsp;}<br><br>
+                    &emsp;private void getSessionFactory() {<br>
+                    &emsp;&emsp;this.sessionFactory = getMetadata().buildSessionFactory();<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+            </div>
+            &nbsp;
+            <button class="collapsible">Annotation Based (With Log Interceptor)</button>
+            <div class="content">
+                <div class="code" id="hibernate8"><button class="copy" onclick="copyText('hibernate8')">Copy</button><br><p>
+                    public class HibernateUtility {<br>
+                    &emsp;<mark>// Get service registry</mark><br>
+                    &emsp;<mark>// Get meta data</mark><br>
+                    &emsp;<mark>// Get session factory</mark><br>
+                    &emsp;<mark>// Open the session</mark><br><br>
+                    &emsp;public SessionFactory sessionFactory;<br><br>
+                    &emsp;private Metadata getMetadata() {<br>
+                    &emsp;&emsp;<mark>// Specify the mapping class</mark><br>
+                    &emsp;&emsp;return new MetadataSources(getServiceRegistry()).addAnnotatedClass(User.class).buildMetadata();<br>
+                    &emsp;}<br><br>
+                    &emsp;private ServiceRegistry getServiceRegistry() {<br>
+                    &emsp;&emsp;<mark>// With this we no longer need hibernate.cfg.xml file</mark><br>
+                    &emsp;&emsp;StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();<br>
+                    &emsp;&emsp;Map&lt;String, String&gt; settings = new HashMap();<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/interview?serverTimezone=UTC");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.username", "root");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.password", "root");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.show_sql", "true");<br>
+                    &emsp;&emsp;settings.put("hibernate.connection.hbm2ddl.auto", "update");<br>
+                    &emsp;&emsp;serviceRegistryBuilder.applySettings(settings);<br><br>
+                    &emsp;&emsp;return serviceRegistryBuilder.build();
+                    &emsp;}<br><br>
+                    &emsp;public Session getSession() {<br>
+                    &emsp;&emsp;if (this.sessionFactory == null) {<br>
+                    &emsp;&emsp;&emsp;getSessionFactory();<br>
+                    &emsp;&emsp;}<br><br>
+                    &emsp;&emsp;<mark>// Apply interceptor to a particular session</mark><br>
+                    &emsp;&emsp;return this.sessionFactory.withOptions().interceptor(new LogInterceptor()).openSession();<br>
+                    &emsp;}<br><br>
+                    &emsp;private void getSessionFactory() {<br>
+                    &emsp;&emsp;<mark>// Apply interceptor to all sessions</mark><br>
+                    &emsp;&emsp;this.sessionFactory = getMetadata().getSessionFactoryBuilder().applyInterceptor(new LogInterceptor()).build();<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+            </div>
+            <h3>Create the class that retrieves or stores the object</h3>
+            <p>In this class, we are simply storing the user object to the database</p>
+            <button class="collapsible">MainProgram Class</button>
+            <div class="content">
+                <div class="code" id="hibernate9"><button class="copy" onclick="copyText('hibernate9')">Copy</button><br><p>
+                    public class MainProgram {<br>
+                    &emsp;public static void main(String[] args) {<br><br>
+                    &emsp;&emsp;<mark>// Access our SessionFactory methods</mark><br>
+                    &emsp;&emsp;HibernateUtility util = new HibernateUtility();<br>
+                    &emsp;&emsp;<mark>// Open a new Session</mark><br>
+                    &emsp;&emsp;Session session = util.getSession();<br>
+                    &emsp;&emsp;<mark>// Begin a transaction that can rollback our changes if something goes wrong</mark><br>
+                    &emsp;&emsp;Transaction tx = session.beginTransaction();<br><br>
+                    &emsp;&emsp;<mark>// Create new User object, enter the transient state</mark><br>
+                    &emsp;&emsp;User user = new User(1, "first", "last");<br><br>
+                    &emsp;&emsp;try {<br>
+                    &emsp;&emsp;&emsp;<mark>// Check Session Connection</mark><br>
+                    &emsp;&emsp;&emsp;System.out.println(session.isConnected());<br>
+                    &emsp;&emsp;&emsp;<mark>// Insert our user into the database, enter the persistent state</mark><br>
+                    &emsp;&emsp;&emsp;session.save(user);<br>
+                    &emsp;&emsp;} catch (Exception e) {<br>
+                    &emsp;&emsp;&emsp;tx.rollback(); <mark>// rollback changes to the database</mark><br>
+                    &emsp;&emsp;}<br><br>
+                    &emsp;&emsp;<mark>// Commit changes to the database</mark><br>
+                    &emsp;&emsp;tx.commit();<br>
+                    &emsp;&emsp;<mark>// Close the connection, enter the detached state</mark><br>
+                    &emsp;&emsp;session.close();<br><br>
+                    &emsp;&emsp;<mark>// Update the user while in a detached state</mark><br>
+                    &emsp;&emsp;user.setFirstName("Ravie");<br>
+                    &emsp;&emsp;user.setLastName("Krieslslk");<br><br>
+                    &emsp;&emsp;<mark>// Open a new Session</mark>><br>
+                    &emsp;&emsp;Session session2 = util.getSession();<br>
+                    &emsp;&emsp;Transaction tx2 = session2.beginTransaction();<br><br>
+                    &emsp;&emsp;try {<br>
+                    &emsp;&emsp;&emsp;<mark>// We need to use saveOrUpdate() here to avoid a duplicate entry</mark><br>
+                    &emsp;&emsp;&emsp;<mark>// Update the user, enter the persistent state</mark><br>
+                    &emsp;&emsp;&emsp;<mark>// session2.saveOrUpdate(user);</mark><br><br>
+                    &emsp;&emsp;&emsp;<mark>// We can use merge if we know the user exists and needs to update</mark><br>
+                    &emsp;&emsp;&emsp;<mark>// session2.merge(user);</mark><br><br>
+                    &emsp;&emsp;&emsp;<mark>// If we use refresh, we can get a fresh copy of the object from the</mark><br>
+                    &emsp;&emsp;&emsp;<mark>// database and forget about the changes made while in the detached state.</mark><br>
+                    &emsp;&emsp;&emsp;session2.refresh(user);<br><br>
+                    &emsp;&emsp;&emsp;<mark>// Print the user (User class should override toString() for desired results)</mark><br>
+                    &emsp;&emsp;&emsp;System.out.println(user);<br><br>
+                    &emsp;&emsp;} catch (Exception e) {<br>
+                    &emsp;&emsp;&emsp;tx2.rollback(); <mark>// Undo changes to the database</mark><br>
+                    &emsp;&emsp;}<br><br>
+                    &emsp;&emsp;<mark>// Commit changes to the database</mark><br>
+                    &emsp;&emsp;tx2.commit();<br>
+                    &emsp;&emsp;<mark>// Close the Session</mark><br>
+                    &emsp;&emsp;session2.close();<br>
+                    &emsp;}<br>
+                    }
+                </p>
+                </div>
+            </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">Hibernate Queries</button>
+        <div class="content">
+            <button class="collapsible">HQL</button>
+            <div class="content">
+                <button class="collapsible">Get All Users</button>
+                <div class="content">
+                    <div class="code" id="hibernate10"><button class="copy" onclick="copyText('hibernate10')">Copy</button><br><p>
+                        public class HQLExample {<br>
+                        &emsp;public static void main(String[] args) {<br>
+                        &emsp;HQLExample example = new HQLExample();<br>
+                        &emsp;example.getAllUsers();<br>
+                        }<br><br>
+                        private HibernateUtility utility = new HibernateUtility();<br><br>
+                        public void getAllUsers() {<br>
+                        &emsp;Session session = null;<br>
+                        &emsp;Transaction tx = null;<br><br>
+                        &emsp;try {<br>
+                        &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                        &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                        &emsp;&emsp;String hql = "FROM User"; <mark>// FROM User objects, this is case sensitive</mark><br>
+                        &emsp;&emsp;<mark>// FROM com.training.hibernate.model.User (also works)</mark><br><br>
+                        &emsp;&emsp;<mark>// Create a Query object and add the users to a List collection</mark><br>
+                        &emsp;&emsp;Query query = session.createQuery(hql);<br>
+                        &emsp;&emsp;List&lt;User&gt; users = query.getResultList();<br><br>
+                        &emsp;&emsp;<mark>// Print the users</mark><br>
+                        &emsp;&emsp;for (User user : users) {<br>
+                        &emsp;&emsp;&emsp;System.out.println(user);<br>
+                        &emsp;&emsp;}<br><br>
+                        &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                        &emsp;} catch (Exception e) {<br>
+                        &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                        &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                        &emsp;} finally {<br>
+                        &emsp;&emsp;session.close(); <mark>// Close the session</mark><br>
+                        &emsp;}<br>
+                        }
+                    </p>
+                    </div>
+                </div>
+            </div>
+            &nbsp;
+            <button class="collapsible">Criteria Queries</button>
+            <div class="content">
+                <button class="collapsible">Get All Users</button>
+                <div class="content">
+                    <div class="code" id="hibernate11"><button class="copy" onclick="copyText('hibernate11')">Copy</button><br><p>
+                        public class HQLExample {<br>
+                        &emsp;public static void main(String[] args) {<br>
+                        &emsp;HQLExample example = new HQLExample();<br>
+                        &emsp;example.getAllUsersUsingCriteriaQuery();<br>
+                        }<br><br>
+                        private HibernateUtility utility = new HibernateUtility();<br><br>
+                        public void getAllUsersUsingCriteriaQuery() {<br>
+                        &emsp;Session session = null;<br>
+                        &emsp;Transaction tx = null;<br><br>
+                        &emsp;try {<br>
+                        &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                        &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                        &emsp;&emsp;<mark>// Get criteria builder, Prepare criteria query</mark><br>
+                        &emsp;&emsp;CriteriaBuilder builder = session.getCriteriaBuilder();<br>
+                        &emsp;&emsp;<mark>// Expecting a type of User.class (user objects)</mark><br>
+                        &emsp;&emsp;CriteriaQuery&lt;User&gt; query = builder.createQuery(User.class);<br><br>
+                        &emsp;&emsp;<mark>// Specifying firstName or age will require changing this to string or int</mark><br>
+                        &emsp;&emsp;Root&lt;User&gt; root = query.from(User.class);<br>
+                        &emsp;&emsp;<mark>// Add a where clause</mark><br>
+                        &emsp;&emsp;query.select(root).where(builder.equal(root.get("userID"), 1));<br><br>
+                        &emsp;&emsp;Query q = session.createQuery(query);<br>
+                        &emsp;&emsp;List&lt;User&gt; users = q.getResultList();<br><br>
+                        &emsp;&emsp;<mark>// Print the users</mark><br>
+                        &emsp;&emsp;for (User user : users) {<br>
+                        &emsp;&emsp;&emsp;System.out.println(user);<br>
+                        &emsp;&emsp;}<br><br>
+                        &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                        &emsp;} catch (Exception e) {<br>
+                        &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                        &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                        &emsp;} finally {<br>
+                        &emsp;&emsp;session.close(); <mark>// Close the session</mark><br>
+                        &emsp;}<br>
+                        }
+                    </p>
+                    </div>
+                </div>
+                &nbsp;
+                <button class="collapsible">Select First and Last Names</button>
+                <div class="content">
+                    <div class="code" id="hibernate12"><button class="copy" onclick="copyText('hibernate12')">Copy</button><br><p>
+                        public class HQLExample {<br>
+                        &emsp;public static void main(String[] args) {<br>
+                        &emsp;HQLExample example = new HQLExample();<br>
+                        &emsp;example.getAllUsersUsingCriteriaQuery();<br>
+                        }<br><br>
+                        private HibernateUtility utility = new HibernateUtility();<br><br>
+                        public void getAllUsersUsingCriteriaQuery() {<br>
+                        &emsp;Session session = null;<br>
+                        &emsp;Transaction tx = null;<br><br>
+                        &emsp;try {<br>
+                        &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                        &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                        &emsp;&emsp;<mark>// Get criteria builder, Prepare criteria query</mark><br>
+                        &emsp;&emsp;CriteriaBuilder builder = session.getCriteriaBuilder();<br>
+                        &emsp;&emsp;CriteriaQuery&lt;Object[]&gt; query = builder.createQuery(Object[].class);<br><br>
+                        &emsp;&emsp;Root&lt;User&gt; root = query.from(User.class);<br>
+                        &emsp;&emsp;query.multiselect(root.get("firstName"), root.get("lastName"));<br><br>
+                        &emsp;&emsp;Query q = session.createQuery(query);<br>
+                        &emsp;&emsp;List<&lt;Object[]&gt; fullname = q.getResultList();<br><br>
+                        &emsp;&emsp;<mark>// Print the users</mark><br>
+                        &emsp;&emsp;for (User user : users) {<br>
+                        &emsp;&emsp;&emsp;System.out.println(user);<br>
+                        &emsp;&emsp;}<br><br>
+                        &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                        &emsp;} catch (Exception e) {<br>
+                        &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                        &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                        &emsp;} finally {<br>
+                        &emsp;&emsp;session.close(); <mark>// Close the session</mark><br>
+                        &emsp;}<br>
+                        }
+                    </p>
+                    </div>
+                </div>
+            </div>
+            &nbsp;
+            <button class="collapsible">Named Queries</button>
+            <div class="content">
+                <p>First we will need to add a Named Query to our User class:</p>
+                <div class="code" id="hibernate13"><button class="copy" onclick="copyText('hibernate13')">Copy</button><br><p>
+                    @Entity // Defines that this Class can be mapped to a table<br>
+                    @Table(name = "users") // User class should connect to the users Table in the Database<br>
+                    @NamedQuery(name = "get_All_Users", query = "From User") // A Named Query for printing all users<br>
+                    public class User {
+                </p>
+                </div>
+                <button class="collapsible">Get all Users</button>
+                <div class="content">
+                    <div class="code" id="hibernate14"><button class="copy" onclick="copyText('hibernate14')">Copy</button><br><p>
+                        public class HQLExample {<br>
+                        &emsp;public static void main(String[] args) {<br>
+                        &emsp;HQLExample example = new HQLExample();<br>
+                        &emsp;example.getAllUsersWithNamedQuery();<br>
+                        }<br><br>
+                        private HibernateUtility utility = new HibernateUtility();<br><br>
+                        public void getAllUsersWithNamedQuery() {<br>
+                        &emsp;Session session = null;<br>
+                        &emsp;Transaction tx = null;<br><br>
+                        &emsp;try {<br>
+                        &emsp;&emsp;session = utility.getSession(); <mark>// Get a session from the session factory</mark><br>
+                        &emsp;&emsp;tx = session.beginTransaction(); <mark>// Begin a transaction</mark><br><br>
+                        &emsp;&emsp;List&lt;User&gt; users = session.getNamedQuery("get_All_Users").getResultList();<br><br>
+                        &emsp;&emsp;<mark>// Print the users</mark><br>
+                        &emsp;&emsp;for (User user : users) {<br>
+                        &emsp;&emsp;&emsp;System.out.println(user);<br>
+                        &emsp;&emsp;}<br><br>
+                        &emsp;&emsp;tx.commit(); <mark>// Commit changes to the database</mark><br>
+                        &emsp;} catch (Exception e) {<br>
+                        &emsp;&emsp;tx.rollback(); <mark>// Rollback the changes made to the database</mark><br>
+                        &emsp;&emsp;e.printStackTrace(); <mark>// Print the stack trace</mark><br>
+                        &emsp;} finally {<br>
+                        &emsp;&emsp;session.close();<mark>// Close the session</mark><br>
+                        &emsp;}<br>
+                        }
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">Log Interceptor</button>
+        <div class="content">
+            <p>To add a Log Interceptor to our program we first need to create a class that extends EmptyInterceptor.</p>
+            <p>We can then use Eclipse's Source -> Override/Implement methods to add the methods we want.</p>
+            <div class="code" id="hibernate15"><button class="copy" onclick="copyText('hibernate15')">Copy</button><br><p>
+                public class LogInterceptor extends EmptyInterceptor {<br><br>
+                &emsp;@Override<br>
+                &emsp;public void afterTransactionBegin(Transaction tx) {<br>
+                &emsp;&emsp;super.afterTransactionBegin(tx);<br>
+                &emsp;}<br><br>
+                .....
+            </p>
+            </div>
+            <p>We can then Add on to our Utility class and have a working log interceptor.</p>
+            <p>We need only add on to our getSession() and getSessionFactory() methods. Example shown in the Hibernate Example section above.</p>
+        </div>
+        &nbsp;
+        <button class="collapsible">Hibernate Lifecycle</button>
+        <div class="content">
+            <h3>Hibernate Lifecycle</h3>
+            <div class="center"><img src="images/hibernate-lifecycle.png" alt="Hibernate Lifecycle"></div>
+            <p>The Hibernate lifecycle contains the following states:</p>
+            <ul>
+                <li>Transient</li>
+                <li>Persistent</li>
+                <li>Detached</li>
+            </ul>
+            <h3>Transient State</h3>
+            <ul>
+                <li>The transient state is the initial state of an object.</li>
+                <li>Here, an object is not associated with the Session. So, the transient state is not related to any database.</li>
+                <li>Hence, modifications in the data don't affect any changes in the database.</li>
+                <li>The transient objects exist in the heap memory.</li>
+            </ul>
+            <div class="code" id="hibernate16"><button class="copy" onclick="copyText('hibernate16')">Copy</button><br><p>
+                <mark>// Here, object enters the transient state.</mark><br>
+                Employee e = new Employee();
+            </p>
+            </div>
+            <h3>Persistent State</h3>
+            <ul>
+                <li>As soon as the object is associated with the Session, it enters the persistent state.</li>
+                <li>We can say that an object is in the persistence state when we save or persist it.</li>
+                <li>Each Object represents the row of the database table so, modifications to the data make changes in the database.</li>
+            </ul>
+            <p>The following methods are used to put an object in the persistent state:</p>
+            <div class="code" id="hibernate17"><button class="copy" onclick="copyText('hibernate17')">Copy</button><br><p>
+                session.save(e);<br>
+                session.persist(e);<br>
+                session.update(e);<br>
+                session.saveOrUpdate(e);<br>
+                session.lock(e);<br>
+                session.merge(e);
+            </p>
+            </div>
+            <h3>Detached State</h3>
+            <ul>
+                <li>Once we either close the session or clear its cache, then the object enters into the detached state.</li>
+                <li>An object is no longer associated with the Session, modification in the data don't affect the database.</li>
+                <li>Detached objects still have a representation in the database. If we want to persist changes made to a detached object, it is required to re-open the Session.</li>
+                <li>To associate the detached object with the new Hibernate Session, we can use methods such as: load(), merge(), refresh(), update() or save() on a new session with the reference of the detached object.</li>
+            </ul>
+            <p>The following methods are used to put an object in the detached state:</p>
+            <div class="code" id="hibernate18"><button class="copy" onclick="copyText('hibernate18')">Copy</button><br><p>
+                session.close();<br>
+                session.clear();<br>
+                session.detach(e);<br>
+                session.evict(e);
+            </p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
