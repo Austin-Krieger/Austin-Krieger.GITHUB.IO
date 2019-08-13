@@ -7,548 +7,10 @@
     <link rel="stylesheet" type="text/css" href="Styles.css">
 </head>
 <script type="text/javascript">
-    function showAnswer(el1, el2){
-        var element1 = document.getElementById(el1);
-        var element2 = document.getElementById(el2);
-        element1.style.transform = "perspective(600px) rotateY(-180deg)";
-        element2.style.transform = "perspective(600px) rotateY(0deg)";
-    }
 
-    function hideAnswer(el1, el2) {
-        var element1 = document.getElementById(el1);
-        var element2 = document.getElementById(el2);
-        element1.style.transform = "perspective(600px) rotateY(0deg)";
-        element2.style.transform = "perspective(600px) rotateY(180deg)";
-    }
-
-    function copyText(containerid) {
-        if (document.selection) {
-            var range = document.body.createTextRange();
-            range.moveToElementText(document.getElementById(containerid));
-            range.select();
-        } else if (window.getSelection()) {
-            var range = document.createRange();
-            range.selectNode(document.getElementById(containerid));
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-        }
-        document.execCommand("copy");
-    }
 </script>
 <body>
-<h1 style="text-align:center;">Learning Java</h1><br>
-<div class="flip3D" style="float: left;">
-    <div class="back" id="Q1Back" onclick="hideAnswer('Q1Front', 'Q1Back')"><p>Java is the high-level, object-oriented, robust, secure programming language, platform-independent, high performance, Multithreaded, and portable programming language.</p></div>
-    <div class="front" id="Q1Front" onclick="showAnswer('Q1Front', 'Q1Back')"><p>What is Java?</p></div>
-</div>
-<div class="flip3D" style="float: right;">
-    <div class="back" id="Q2Back" onclick="hideAnswer('Q2Front', 'Q2Back')"><p>Classloader is a subsystem of JVM which is used to load class files. Whenever we run the java program, it is loaded first by the classloader. There are three built-in classloaders in Java: Bootstrap, Extension, System/Application.</p></div>
-    <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
-</div>
 <!-- <a href="FlashCards.html"><button class="collapsible">Interview Questions (Randomized)</button></a> -->
-&nbsp;
-<button class="collapsible">Features of Java</button>
-<div class="content">
-    <div class="scrollableTable"><table>
-        <tr>
-            <th>Feature</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Object Oriented</td>
-            <td>Java can be easily extended since it is based on the Object model</td>
-        </tr>
-        <tr>
-            <td>Platform Independent</td>
-            <td>Java is compiled into platform independent byte code, which is interpreted by the JVM</td>
-        </tr>
-        <tr>
-            <td>Simple</td>
-            <td>Java is designed to be easy to learn</td>
-        </tr>
-        <tr>
-            <td>Secure</td>
-            <td>With Java's secure feature it enables to develop virus-free, tamper-free systems. Authentication techniques are based on public-key encryption</td>
-        </tr>
-        <tr>
-            <td>Architecture-neutral</td>
-            <td>Java compiler generates an architecture-neutral object file format known as byte code, so the users installed JVM will execute the code</td>
-        </tr>
-        <tr>
-            <td>Portable</td>
-            <td>Being architecture-neutral and having no implementation dependent aspects of the specification makes Java portable</td>
-        </tr>
-        <tr>
-            <td>Robust</td>
-            <td>Java makes an effort to eliminate error-prone situations by emphasizing mainly on compile time error checking and runtime checking</td>
-        </tr>
-        <tr>
-            <td>Multithreaded</td>
-            <td>With Java's multithreaded feature it is possible to write programs that can perform many tasks simultaneously. This design feature allows the developers to construct interactive applications that can run smoothly</td>
-        </tr>
-        <tr>
-            <td>Interpreted</td>
-            <td>Java byte code is translated on the fly to native machine instructions and is not stored anywhere. The development process is more rapid and analytical since the linking is an incremental and light-weight process</td>
-        </tr>
-        <tr>
-            <td>High Performance</td>
-            <td>With the use of Just-In-Time compilers, Java enables high performance</td>
-        </tr>
-        <tr>
-            <td>Distributed</td>
-            <td>Java is designed for the distributed environment of the internet</td>
-        </tr>
-        <tr>
-            <td>Dynamic</td>
-            <td>Java is considered to be more dynamic than C or C++ since it is designed to adapt to an evolving environment. Java programs can carry an extensive amount of run-time information that can be used to verify and resolve accesses to objects at run-time</td>
-        </tr>
-    </table></div>
-    &nbsp;
-    <button class="collapsible">JRE, JDK and JVM</button>
-    <div class="content">
-        <h2>Running your Java Program</h2>
-        <p>Source Code is given to the compiler which Generates Byte code (.class files) which are given to the JVM (interprets the byte code) and the program executes.</p>
-        <p>Anytime you want to run your program you need to have your JRE</p>
-        <div class="scrollableTable"><table>
-            <tr>
-                <td>JRE (Java Runtime Environment)</td>
-                <td>Provides the libraries, the JVM, and other components to run applications written in Java. In short the JRE enables Java bytecode to run on any platform.</td>
-            </tr>
-            <tr>
-                <td>JDK (Java Development Kit)</td>
-                <td>Contains everything that is in the JRE as well as the Compilers and Debuggers necessary for developing Java Applications. In short the JRE is used to develop Java applications/programs.</td>
-            </tr>
-            <tr>
-                <td>JVM (Java Virtual Machine)</td>
-                <td>Sits in between the compiler and the CPU and interprets the bytecode into readable machine language for the CPU. In short the JVM Interpret the byte codes and performs the execution on it.</td>
-            </tr>
-        </table></div>
-        <p>Byte Code: When we compile the Java program it generates byte code (.class files), which can be interpreted by the JVM.</p>
-        <h3>JVM</h3>
-        <ul>
-            <li>The Java Virtual Machine is an abstract layer between a Java program and the platform that Java program is running on.</li>
-            <li>JVM is platform dependent and available for specific platforms (Operating Systems).</li>
-            <li>JVM cannot understand Java (source code). It can only understand the bytecode (.class file) we get from compiling our .java source file.</li>
-            <li>The compiled bytecode doesn't run on CPU directly, JVM sits in between and interprets the bytecode into readable machine language for the CPU.</li>
-        </ul>
-        <h3>JRE</h3>
-        <ul>
-            <li>Provides the libraries, the JVM, and other components to run applications written in Java.</li>
-            <li>Enables Java bytecode to run on any platform.</li>
-            <li>JRE enables Java bytecode to run on any platform. Bytecodes are interpreted by the JVM, at runtime classes found in the JRE when they need to perform actions, they cannot do by themselves.</li>
-            <li>Platform Dependent</li>
-        </ul>
-        <h3>JDK</h3>
-        <ul>
-            <li>A superset of the JRE, containing everything that is in the JRE, it also includes development tools such as the compilers and debuggers necessary for developing java applications.</li>
-            <li>Platform Dependent</li>
-        </ul>
-        <h2>Programming Paradigms</h2>
-        <ol>
-            <li>Process-Oriented Model: A program is a series of linear steps (that is, code).</li>
-            <ul>
-                <li>Characterized as code acting on data.</li>
-                <li>Includes Procedural Languages such as C.</li>
-                <li>To manage increasing complexity, the second approach was conceived</li>
-            </ul>
-            <li>Object-Oriented Programming: Organizes a program around its data (that is, objects) and a set of well-defined interfaces to that data.</li>
-            <ul>
-                <li>Characterized as data controlling access to code.</li>
-                <li>By switching the controlling entity to data, you can achieve several organizational benefits.</li>
-                <li>OOP is a programming language model in which programs are organized around data, or objects, rather than functions and logic.</li>
-                <li>OOP helps us reduce complexity, promote code reuse, and prevent code redundancies.</li>
-            </ul>
-        </ol>
-        <h2>The Java Programming Language Platforms</h2>
-        <ul>
-            <li>Java Platform, Standard Edition (Java SE)</li>
-            <li>Java Platform, Enterprise Edition (Java EE)</li>
-            <li>Java Platform, Micro Edition (Java ME)</li>
-            <li>JavaFX</li>
-        </ul>
-        <p>All of the above platforms consist of a Java Virtual Machine (JVM) and an application programming interface (API).</p>
-        <p>The Java Virtual Machine is a program, for a particular hardware and software platform, that runs Java technology applications.</p>
-        <p>An API is a collection of interfaces components that you can use to create other software components or applications.</p>
-        <h3>Java SE (Java Standard Edition)</h3>
-        <p>This is the core Java programming platform. It contains all of the libraries and APIs that any Java programmer should learn (java.lang, java.io, java.math, java.net, java.util, etc…).When most people think of the Java programming language, they think of the Java SE API. Java SE’s API provides the core functionality of the Java programming language. It defines everything from the basic types and objects of the Java programming language to high-level classes that are used for networking, security, database access, graphical user interface (GUI) development, and XML parsing.</p>
-        <p>In addition to the core API, the Java SE platform consists of a virtual machine, development tools, deployment technologies, and other class libraries and toolkits commonly used in Java technology applications.</p>
-        <h3>Java EE (Java Enterprise Edition)</h3>
-        <p>The Java EE platform is built on top of the Java SE platform. The Java EE platform provides an API and runtime environment for developing and running large-scale, multi-tiered, scalable, reliable, and secure network applications.</p>
-        <h3>Java ME (Java Micro Edition)</h3>
-        <p>The Java ME platform provides an API and a small-footprint virtual machine for running Java programming language applications on small devices, like mobile phones. The API is a subset of the Java SE API, along with special class libraries useful for small device application development. Java ME applications are often clients of Java EE platform services.</p>
-        <h3>JavaFX</h3>
-        <p>JavaFX is a platform for creating rich internet applications using a lightweight user-interface API. JavaFX applications use hardware-accelerated graphics and media engines to take advantage of higher-performance clients and a modern look-and-feel as well as high-level APIs for connecting to networked data sources. JavaFX applications may be clients of Java EE platform services.</p>
-        <p style="font-weight: bold;">Packages: Essentially a grouping of classes.</p>
-        <ul>
-            <li>Used to segregate the code for easy import and export.</li>
-        </ul>
-    </div>
-</div>
-&nbsp;
-<button class="collapsible">Object Oriented Programming Principles</button>
-<div class="content">
-<h2>Object Oriented Programming Principles</h2>
-<button class="collapsible">Abstraction</button>
-<div class="content">
-    <p>Abstraction</p>
-    <ul>
-        <li>Data abstraction is the process of hiding certain details and showing only essential information to the user. Abstraction can be achieved with either abstract classes or interfaces.</li>
-        <li>Managing the complexity of a system through the use of hierarchical classifications.</li>
-        <li>On a high level we are hiding the functionality of the underlying systems.</li>
-        <li>From the outside, a car is a single object, once inside, you see that the car consists of several subsystems: steering, brakes, sounds system, and so on.</li>
-        <li>People do not think of a car as a set of thousands of parts, but a well defined object with its own unique behaviour.</li>
-        <li>People can ignore the details of how the engine, and braking systems work and instead utilize the object as a whole.</li>
-    </ul>
-    <p>Example:</p>
-    <ul>
-        <p>Thinking of it as a folder structure on your operating system: Car would be the first folder and inside you would see folders for all of its subsystems inside the Sound System folder their could be folders for the Radio, CD player, and MP3 Systems and so on</p>
-    </ul>
-</div>
-<button class="collapsible"> Encapsulation </button>
-<div class="content">
-    <p>Encapsulation</p>
-    <ul>
-        <li>The mechanism that binds together code and the data it manipulates, and keeps both safe from outside interference and misuse.</li>
-        <li>In Java, the basis of encapsulation is the class which defines the structure and behaviour that will be shared by a set of objects.</li>
-        <li>"A class is a logical construct, an object has physical reality"</li>
-    </ul>
-    <p>Example:</p>
-    <ul>
-        <p>A protective wrapper that prevents the code and data from being arbitrarily accessed by other code defined outside the wrapper.</p>
-        <p>The gear-shift lever is a well-defined interface to the transmission in your vehicle, you can't affect the transmission by using the turn signal or windshield wipers.</p>
-    </ul>
-</div>
-<button class="collapsible"> Inheritance </button>
-<div class="content">
-    <h3>Inheritance</h3>
-    <ul>
-        <li>The process by which one object acquires the properties of another object.</li>
-        <li>Useful when you are not changing the implementations, but the definitions.</li>
-        <li>The object can inherit its general properties from its parent.</li>
-        <li>A deeply inherited subclass inherits all of the attributes form each of its ancestors in the class hierarchy.</li>
-        <li>Inheritance interacts with encapsulation as well. If a given class encapsulates some attributes, then any subclass will have the same attributes plus any that it adds as part of its specialization.</li>
-    </ul>
-    <h3>Multiple Inheritance</h3>
-    <p>A class can inherit properties of more than one parent class. However, there is a problem associated with this known as the "Diamond Problem".</p>
-    <h3>The Diamond Problem</h3>
-    <p>When more than one parent class has a method of the same name the compiler cannot determine which super classes' method to use; causing a compilation error.</p>
-    <h3>Tight Coupling</h3>
-    <p>Tight Coupling: this is bad because, changing something in class A could change the functionality of class B which is extending it, and returning incorrect values. This is making the system rigged and no longer extensible.</p>
-    <p>Example:</p>
-    <ul>
-        <p>A golden retriever is part of the classification dog, which is in turn a part of the mammal class, which is under the larger class animal.</p>
-    </ul>
-</div>
-<button class="collapsible"> Polymorphism </button>
-<div class="content">
-    <p>Polymorphism</p>
-    <ul>
-        <li>A feature that allows one interface to be used for a general class of actions.</li>
-        <li>The specific action is determined by the exact nature of the situation.</li>
-        <li>This helps reduce complexity by allowing the same interface to be used to specify a general class of actions.</li>
-        <li>It is the compiler's job to select the specific action (that is, method) as it applies to each situation.</li>
-    </ul>
-    <p>Example:</p>
-    <ul>
-        <p>A dog's sense of smell is polymorphic:</p>
-        <ul>
-            <p>If the dog smells a cat, it will bark and run after it.</p>
-            <p>If the dog smells food, it will salivate and run to its bowl.</p>
-        </ul>
-    </ul>
-    <h2>Two Types:</h2>
-    <ul>
-        <p>Static/Compile-Time Polymorphism:</p>
-        <ul>
-            <p>Specifying different forms during compile time.</p>
-            <p>Method Overloading</p>
-        </ul>
-        <p>Dynamic/Runtime Polymorphism:</p>
-        <ul>
-            <p>Method Overriding</p>
-        </ul>
-    </ul>
-    <h2>Dynamic Method Dispatch:</h2>
-    <ul>
-        <p>The mechanism by which a call to an overridden method is resolved at runtime rather than compile time.</p>
-        <p>This is how Java implements runtime polymorphism.</p>
-    </ul>
-</div>
-<p>Polymorphism, Encapsulation, and Inheritance Working Together:</p>
-<ul>
-    <li>A well-designed hierarchy of classes is the basis for reusing the code in which you have invested time and effort developing and testing.</li>
-    <li>Encapsulation allows you to migrate your implementations over time without breaking the code that depends on the public interface of your classes.</li>
-    <li>Polymorphism allows you to create clean, sensible, readable, and resilient code.</li>
-</ul>
-</div>
-&nbsp;
-<button class="collapsible">Data Types, Variables and Arrays</button>
-<div class="content">
-<button class="collapsible">Data Types</button>
-<div class="content">
-    <h2>Primitive Types (8): byte, short, int, long, char, float, double, boolean</h2>
-    <p>Not object-oriented, found in most other languages, the reason for their non-object-oriented existence is for efficiency.</p>
-    <p>Java does not support unsigned, positive-only integers.</p>
-    <div class="scrollableTable"><table>
-        <tr>
-            <td colspan="2" style="background-color: black; color: white;">Four Integer Types</td>
-        </tr>
-        <tr>
-            <td rowspan="2">byte</td>
-            <td>(8 bit) -128 to 127</td>
-        </tr>
-        <tr>
-            <td>byte b = 127;</td>
-        </tr>
-        <tr>
-            <td rowspan="2">short</td>
-            <td>(16 bit) -32,768 to 32,767</td>
-        </tr>
-        <tr>
-            <td>short s = 32767;</td>
-        </tr>
-        <tr>
-            <td rowspan="2">int</td>
-            <td>(32 bit) -2,147,483,648 to 2,147,483,647</td>
-        </tr>
-        <tr>
-            <td>int i = 2147483647;</td>
-        </tr>
-        <tr>
-            <td rowspan="2">long</td>
-            <td>(64 bit) -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
-        </tr>
-        <tr>
-            <td>long l = 9223372036854775807;</td>
-        </tr>
-        <tr>
-            <td colspan="2" style="background-color: black; color: white;">Floating-point Numbers (#'s with fractional precision)</td>
-        </tr>
-        <tr>
-            <td rowspan="2">float</td>
-            <td>(32 bit) 1.4e to 3.4e+038</td>
-        </tr>
-        <tr>
-            <td>float f = 1.1754890;</td>
-        </tr>
-        <tr>
-            <td rowspan="2">double</td>
-            <td>(64 bit) 4.9e-324 to 1.8e+308</td>
-        </tr>
-        <tr>
-            <td>double d = 2.2738490948485;</td>
-        </tr>
-        <tr>
-            <td colspan="2" style="background-color: black; color: white;">Characters (Represent symbols in a character set)</td>
-        </tr>
-        <tr>
-            <td rowspan="2">char</td>
-            <td>(16 bits rather than the usual 8-bits in other languages) 0 to 65,536</td>
-        </tr>
-        <tr>
-            <td>char c = 'a';</td>
-        </tr>
-        <tr>
-            <td colspan="2" style="background-color: black; color: white;">Boolean (Special type for representing True/False)</td>
-        </tr>
-        <tr>
-            <td rowspan="2">boolean</td>
-            <td>True / False</td>
-        </tr>
-        <tr>
-            <td>boolean t = true;</td>
-        </tr>
-    </table></div>
-    <h3>Wrapper Class</h3>
-    <p>The primitive data types (integers, floats, doubles, ...) are not objects, so their corresponding object versions are called wrapper classes.</p>
-    <h3>Wrapper Type</h3>
-    <p>The object version of the primitive data types for example "Double" is the object version of double.</p>
-    <h2>Literals</h2>
-    <h3>Integer Literals</h3>
-    <p>Any whole number value is an integer literal.</p>
-    <div class="scrollableTable"><table>
-        <tr>
-            <td>base 10 numbers</td>
-            <td>(decimal)</td>
-        </tr>
-        <tr>
-            <td>base 8 numbers</td>
-            <td>(octal) denoted by a leading zero, Range: 0-7</td>
-        </tr>
-        <tr>
-            <td>base 16 numbers</td>
-            <td>(hexadecimal) signified by a leading 0x or 0X</td>
-        </tr>
-    </table></div>
-    <p>Assigning an integer literal to one of java's other integer types is easy as long as the literal value is within the range of the target type.</p>
-    <p>You can assign an integer literal to a long variable by explicitly telling the compiler that the literal value is of type long.</p>
-    <h3>Floating-Point Literals</h3>
-    <p>Represent decimal values with a fractional component and can be expressed in standard or scientific notation.</p>
-    <p>To specify a float literal you must append an F or f to the constant.</p>
-    <p>To Explicity specify a double literal you must append a D or d to the constant, but doing so is redundant.</p>
-    <h3>Boolean Literals</h3>
-    <p>Boolean Literals do not convert into any numerical representation, they can have the values true or false.</p>
-    <h3>Character Literals</h3>
-    <p>Represented inside a pair of single quotes 'a', 'z', '@'.</p>
-    <ul>
-        <li>\ddd Octal character ddd</li>
-        <li>\uxxxx Hexadecimal Unicode character xxxx</li>
-        <li>\' Single-quote</li>
-        <li>\" Double-quote</li>
-        <li>\n Newline</li>
-        <li>\\ Backslash</li>
-        <li>\r Carriage return</li>
-        <li>\f Form feed</li>
-        <li>\t Tab</li>
-        <li>\b Backspace</li>
-    </ul>
-    <p>Octal notation: '\141' is the letter 'a'</p>
-    <p>Hexadecimal notation: '\u0061' is the ISO-Latin-1 'a'</p>
-    <h3>String Literals</h3>
-    <p>Specified by enclosing a sequence of characters in a pair of double quotes. "Hello World!"</p>
-    <p>Strings must begin and end on the same line, there is no line-continuation escape sequence.</p>
-</div>
-&nbsp;
-<button class="collapsible">Variables</button>
-<div class="content">
-    <h2>Variables</h2>
-    <p>The basic unit of storage in a Java program.</p>
-    <h2>Declaring a Variable</h2>
-    <p>Variables must be declared before they can be used.</p>
-    <div class="code" id="variables1"><button class="copy" onclick="copyText('variables1')">Copy</button><br><p>
-        Type identifier [ = value ][, identifier [ = value ] ...];<br>
-        int value1 = 12, value2 = 24;
-    </p>
-    </div>
-    <h3>Java Identifiers</h3>
-    <p>All Java variables must be identified with unique names known as identifiers.</p>
-    <p>Identifiers can be short names (like x and y) or more descriptive names "recommended" (age, sum, totalVolume).</p>
-    <p>The general rules for constructing names for variables (unique identifiers) are:</p>
-    <ul>
-        <li>Names can contain letters, digits, underscores, and dollar signs</li>
-        <li>Names should begin with a letter</li>
-        <li>Names can also begin with $ and _</li>
-        <li>Names are case sensitive ("myVar" and "myvar" are different variables)</li>
-        <li>Names should start with a lowercase letter and it cannot contain whitespace</li>
-        <li>Reserved words (like Java keywords, such as int or String) cannot be used as names</li>
-    </ul>
-    <div class="scrollableTable"><table>
-        <tr>
-            <th rowspan="2">Instance Variables</th>
-            <td>"The data, or variables, defined within a class"</td>
-        </tr>
-        <tr>
-            <td>Each instance/object of a class contains its own copy of these variables</td>
-        </tr>
-        <tr>
-            <th rowspan="2">Local Variables</th>
-            <td>A variable declared inside the body of the method/block. Only visible within that method/blcok.</td>
-        </tr>
-        <tr>
-            <td>Braces indicate the scope of this variable (where it can be seen and used).</td>
-        </tr>
-        <tr>
-            <th rowspan="2">Static Variables (Class Variables)</th>
-            <td>Exist without creating an object and share the same value among all objects created from the same class.</td>
-        </tr>
-        <tr>
-            <td>A variable that has been allocated "statically", meaning that its lifetime (or "extent") is the entire run of the program.</td>
-        </tr>
-    </table></div>
-    <p style="font-weight: bold;">Dynamically Initializing Variables:</p>
-    <ul>
-        <li>Java allows variable to be initialized dynamically, using any expression valid at the time the variable is declared.</li>
-        <li>double c = Math.sqrt(a * a + b * b);</li>
-    </ul>
-    <p style="font-weight: bold;">Scope and Lifetime of Variables:</p>
-    <ul>
-        <li>All variables have a scope, which defines their visibility and lifetime.</li>
-        <li>Variables are created when their scope is entered and destroyed when their scope is left.</li>
-        <li>A variable will not hold its value once it has gone out of scope.</li>
-    </ul>
-    <p style="font-weight: bold;">Conversion and Casting:</p>
-    <ul>
-        <li>Assign a value of one type to a variable of another type.</li>
-        <li>If the two types are compatible then Java will perform the conversion automatically or "implicitly".</li>
-        <li>Not all types are compatible, but it is still possible to perform the conversion explicitly using a cast.</li>
-        <ul>
-            <li style="font-weight: bold;">Implicit type conversion: "Automatic Type Conversion" Occurs when:</li>
-            <ul>
-                <li>Two types are compatible.</li>
-                <li>The target type is larger than the source type.</li>
-            </ul>
-            <br>
-            <ol>
-                <li>If one of the operands is double, the other is promoted to double before the operation is carried out.</li>
-                <li>Otherwise, if one of the operands is float, the other is promoted to float before the operation is carried out.</li>
-                <li>Otherwise, if one of the operands is long, the other is promoted to long before the operation is carried out.</li>
-                <li>Otherwise if either operand is int, the other operand is promoted to int.</li>
-                <li>If neither operand is double, float, long or int, both operands are promoted to int.</li>
-            </ol>
-            <div class="code" id="variables2"><button class="copy" onclick="copyText('variables2')">Copy</button><br><p>byte b = 10; <br> long l = 1 + 8; <br> double d = b * 2.5 + l; <br><br> System.out.println("I = " + i); <br> System.out.println("J = " + j); <br> System.out.println("K =" + k); <br><br> <b>Output:</b> <br><br>I = 10 <br>J = 9 <br>K = 34.0</p></div>
-        </ul>
-        <ul>
-            <li style="font-weight: bold;">Explicit type conversion: (target-type) value</li>
-        </ul>
-        <div class="code" id="variables3"><button class="copy" onclick="copyText('variables3')">Copy</button><br><p>int a; <br> byte b; <br> b = (byte) a;</p></div>
-    </ul>
-    </div>
-    &nbsp;
-    <button class="collapsible">Arrays</button>
-    <div class="content">
-    <h3>Arrays</h3>
-    <ul></ul>
-        <li>An array is a group of like-typed variables that are referred to by a common name.</li>
-        <li>Arrays of any type can be created and may have one or more dimensions.</li>
-        <li>A specific element in an array is accessed by its index, and indexes start at 0</li>
-        <li>Arrays offer a convenient means of grouping related information.</li>
-    </ul>
-    <h3>One-Dimensional Arrays</h3>
-    <p>One-dimensional arrays are essentially lists of like-types variables.</p>
-    <div class="code" id="arrays1"><button class="copy" onclick="copyText('arrays1')">Copy</button><br><p>
-        type var-name[]; or type[] var-name;
-    </p>
-    </div>
-    <p>The base type of the array determines what type of data the array will hold and new is a special operator that allocates memory.</p>
-    <div class="code" id="arrays2"><button class="copy" onclick="copyText('arrays2')">Copy</button><br><p>
-        array-var = new type[size];
-    </p>
-    </div>
-    <p>type specifies the type of data being allocated and size specifies the number of elements.</p>
-    <p>array-var is the array variable that is linked to the array.</p>
-    <div class="code" id="arrays3"><button class="copy" onclick="copyText('arrays3')">Copy</button><br><p>
-        month_days = new int[12]; <mark>// Create a new integer array</mark><br>
-        month_days[1] = 28; <mark>// Give index 1 a value of 28</mark>
-    </p>
-    </div>
-    <p>Combine the declaration of the array with the allocation of the array.</p>
-    <div class="code" id="arrays4"><button class="copy" onclick="copyText('arrays4')">Copy</button><br><p>
-        int month_days[] = new int[12];
-    </p>
-    </div>
-    <p>Arrays can also be initialized when they are declared.</p>
-    <div class="code" id="arrays5"><button class="copy" onclick="copyText('arrays5')">Copy</button><br><p>
-        int month_days[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    </p>
-    </div>
-    <h3>Multidimensional Arrays</h3>
-    <p>Multidimensional Arrays are "Arrays of Arrays"</p>
-    <div class="code" id="arrays6"><button class="copy" onclick="copyText('arrays6')">Copy</button><br><p>
-        <mark>// Allocate a 4 by 5 array and assign it to twoD</mark><br>
-        int twoD[][] = new int [4][5];
-    </p>
-    </div>
-    <p>When you allocate the memory for a multi-dimentional array, you need only specify the memory for the first (leftmost) dimension. You can allocate the memory for the remaining dimensions separately.</p>
-    <div class="code" id="arrays7"><button class="copy" onclick="copyText('arrays7')">Copy</button><br><p>
-        int twoD[][] = new int[4][];<br>
-        twoD[0] = new int[5];<br>
-        twoD[1] = new int[5];<br>
-        twoD[2] = new int[5];<br>
-        twoD[3] = new int[5];
-    </p>
-    </div>
-    </div>
-</div>
 &nbsp;
 <button class="collapsible">String</button>
 <div class="content">
@@ -7450,13 +6912,87 @@
     &nbsp;
     <button class="collapsible">Events</button>
     <div class="content">
-
+        <h3>What is an Event?</h3>
+        <p>JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page.</p>
+        <p>When the page loads, it is called an event. When the user clicks a button, that click too is an event. Other examples include events like pressing any key, closing a window, resizing a window, etc.</p>
+        <p>Developers can use these events to execute JavaScript coded responses, which cause buttons to close windows, messages to be displayed to users, data to be validated, and virtually any other type of response imaginable.</p>
+        <p>Events are a part of the Document Object Model (DOM) Level 3 and every HTML element contains a set of events which can trigger JavaScript Code.</p>
+        <h3>onclick Event Type</h3>
+        <p>This is the most frequently used event type which occurs when a user clicks the left button of his mouse. You can put your validation, warning etc., against this event type.</p>
+        <div class="code" id="javascript23"><button class="copy" onclick="copyText('javascript23')">Copy</button><br><p>
+            &lt;form&gt;
+            &lt;input type = "button" onclick = "sayHello()" value = "Say Hello" /&gt;
+            &lt;/form&gt;
+        </p></div>
+        <h3>onsubmit Event Type</h3>
+        <p>onsubmit is an event that occurs when you try to submit a form. You can put your form validation against this event type.</p>
+        <div class="code" id="javascript24"><button class="copy" onclick="copyText('javascript24')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &emsp;&lt;head&gt;<br>
+            &emsp;&emsp;&lt;script type = "text/javascript"&gt;<br>
+            &emsp;&emsp;&emsp;function validation() {<br>
+            &emsp;&emsp;&emsp;&emsp;<mark>// All validation goes here</mark><br>
+            &emsp;&emsp;&emsp;&emsp;.........<br>
+            &emsp;&emsp;&emsp;&emsp;return either true or false<br>
+            &emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&lt;/script&gt;<br>
+            &emsp;&lt;/head&gt;<br><br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;form method = "POST" action = "t.cgi" onsubmit = "return validate()"&gt;<br>
+            &emsp;&emsp;&emsp;.......<br>
+            &emsp;&emsp;&emsp;&lt;input type = "submit" value = "Submit" /&gt;<br>
+            &emsp;&emsp;&lt;/form&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <h3>onmouseover and onmouseout</h3>
+        <p>These two event types will help you create nice effects with images or even with text as well. The onmouseover event triggers when you bring your mouse over any element and the onmouseout triggers when you move your mouse out from that element.</p>
+        <div class="code" id="javascript25"><button class="copy" onclick="copyText('javascript25')">Copy</button><br><p>
+            &lt;p&gt;Bring your mouse inside the division to see the result:&lt;/p&gt;
+            &lt;div onmouseover = "over()" onmouseout = "out()"&gt;
+            &lt;h2&gt; This is inside the division &lt;/h2&gt;
+            &lt;/div&gt;
+        </p></div>
+        <h3>HTML 5 Standard Events</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Attribute</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Offline</td>
+                <td>Triggers when the document goes offline</td>
+            </tr>
+            <tr>
+                <td>Onabort</td>
+                <td>Triggers on an abort event</td>
+            </tr>
+            <tr>
+                <td>onafterprint</td>
+                <td>Triggers before the document loads</td>
+            </tr>
+            <tr>
+                <td>onbeforeprint</td>
+                <td>Triggers before the document is printed</td>
+            </tr>
+            <tr>
+                <td>onblur</td>
+                <td>Triggers when the window loses focus</td>
+            </tr>
+            <tr>
+                <td>oncanplay</td>
+                <td>Triggers when media can start play, but might have to stop for buffering</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
     &nbsp;
     <button class="collapsible">Cookies</button>
     <div class="content">
-        <h3>What is an Event?</h3>
-        <p></p>
+
     </div>
     &nbsp;
     <button class="collapsible">Page Redirect</button>
