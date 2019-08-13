@@ -20,8 +20,12 @@ td, th {
 }
 
 tr:nth-child(even) {
-     background-color: #dddddd;
- }
+    background-color: #dddddd;
+}
+
+.containButtons {
+    padding: 18px;
+}
 
 .collapsible {
     background-color: #777777;
