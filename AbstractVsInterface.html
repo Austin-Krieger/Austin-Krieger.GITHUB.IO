@@ -18,7 +18,7 @@
     <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
 </div>
 &nbsp;
-<button class="collapsible">Abstract Class Vs Interface</button>
+<button class="collapsible" id="autoClickBtn">Abstract Class Vs Interface</button>
 <div class="content">
     <p><b>Abstract class:</b> A class where we won't have a full implementations (not a blueprint).</p>
     <p><b>Interface:</b> Using Interfaces you can specify what a class must do, but not how it does it.</p>
@@ -62,6 +62,10 @@
                 content.style.display = "block";
             }
         });
+    }
+
+    window.onload = function(){
+        document.getElementById('autoClickBtn').click();
     }
 </script>
 </html>
