@@ -6645,7 +6645,661 @@
 &nbsp;
 <button class="collapsible">Javascript</button>
 <div class="content">
+    <button class="collapsible">Overview</button>
+    <div class="content">
+    <h3>What is JavaScript?</h3>
+        <p>JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages. It is an interpreted programming language with object-oriented capabilities.</p>
+        <ul>
+            <li>JavaScript is a lightweight, interpreted programming language.</li>
+            <li>Designed for creating network-centric applications.</li>
+            <li>Complementary to and integrated with Java.</li>
+            <li>Complementary to and integrated with HTML.</li>
+            <li>Open and cross-platform</li>
+        </ul>
+        <h3>Client-Side JavaScript</h3>
+        <p>Client-side JavaScript is the most common form of the language. The script should be included in or referenced by an HTML document for the code to be interpreted by the browser.</p>
+        <h3>Advantages of JavaScript</h3>
+        <ul>
+            <li><b>Less server interaction</b> − You can validate user input before sending the page off to the server. This saves server traffic, which means less load on your server.</li>
+            <li><b>Immediate feedback to the visitors</b> − They don't have to wait for a page reload to see if they have forgotten to enter something.</li>
+            <li><b>Increased interactivity</b> − You can create interfaces that react when the user hovers over them with a mouse or activates them via the keyboard.</li>
+            <li><b>Richer interfaces</b> − You can use JavaScript to include such items as drag-and-drop components and sliders to give a Rich Interface to your site visitors.</li>
+        </ul>
+        <h3>Enabling in Chrome</h3>
+        <ul>
+            <li>Click the Chrome menu at the top right hand corner of your browser.</li>
+            <li>Select Settings.</li>
+            <li>Click Show advanced settings at the end of the page.</li>
+            <li>Under the Privacy section, click the Content settings button.</li>
+            <li>In the "Javascript" section, select "Do not allow any site to run JavaScript" or "Allow all sites to run JavaScript (recommended)".</li>
+        </ul>
+        <h3>Placement</h3>
+        <p>There is a flexibility given to include JavaScript code anywhere in an HTML document. However the most preferred ways to include JavaScript in an HTML file.</p>
+        <ul>
+            <li>Script in &lt;head&gt;...&lt;/head&gt; section.</li>
+            <li>Script in &lt;body&gt;...&lt;/body&gt; section.</li>
+            <li>Script in &lt;body&gt;...&lt;/body&gt; and &lt;head&gt;...&lt;/head&gt; sections.</li>
+            <li>Script in an external file and then include in &lt;head>...&lt;/head&gt; section.</li>
+        </ul>
+        <div class="code" id="overview1"><button class="copy" onclick="copyText('overview1')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &emsp;&lt;head&gt;<br>
+            <mark>// External File</mark><br>
+            &lt;script type = "text/javascript" src = "filename.js" &gt;&lt;/script&gt;<br>
+            <mark>// Script in head section</mark><br>
+            &emsp;&emsp;&lt;script type = "text/javascript"&gt;<br>
+            &emsp;&emsp;&emsp;JavaScript Code...<br>
+            &emsp;&emsp;&lt;/script&gt;<br>
+            &emsp;&lt;/head&gt;<br>
+            &lt;body&gt;<br>
+            &emsp;Body Code...<br>
+            <mark>// Script in body section</mark><br>
+            &emsp;&lt;script type = "text/javascript"&gt;<br>
+            &emsp;&emsp;JavaScript Code...<br>
+            &emsp;&lt;/script&gt;<br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Syntax</button>
+    <div class="content">
+        <h3>Syntax</h3>
+        <p>JavaScript can be implemented using JavaScript statements that are placed within the &lt;script&gt;... &lt;/script&gt; HTML tags in a web page.</p>
+        <p>You can place the &lt;script&gt; tags, containing your JavaScript, anywhere within your web page, but it is normally recommended that you should keep it within the &lt;head&gt; tags.</p>
+        <p>The &lt;script&gt; tag alerts the browser program to start interpreting all the text between these tags as a script.</p>
+        <p>The script tag takes two important attributes:</p>
+        <ul>
+            <li><b>Language</b> − This attribute specifies what scripting language you are using. Typically, its value will be javascript. Although recent versions of HTML (and XHTML, its successor) have phased out the use of this attribute.</li>
+            <li><b>Type</b> − This attribute is what is now recommended to indicate the scripting language in use and its value should be set to "text/javascript".</li>
+        </ul>
+        <div class="code" id="javascript1"><button class="copy" onclick="copyText('javascript1')">Copy</button><br><p>
+            &lt;script language = "javascript" type = "text/javascript"&gt;<br>
+                &emsp;JavaScript code<br>
+            &lt;/script&gt;
+        </p></div>
+        <p>In the following example we call a function document.write which writes a string into our HTML document.</p>
+        <div class="code" id="javascript2"><button class="copy" onclick="copyText('javascript2')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &lt;body&gt;<br>
+            &lt;script language = "javascript" type = "text/javascript"&gt;<br>
+            &emsp;document.write("Hello World!")<br>
+            &lt;/script&gt;<br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <h3>Whitespace and Line Breaks</h3>
+        <p>JavaScript ignores spaces, tabs, and newlines that appear in JavaScript programs. You can use spaces, tabs, and newlines freely in your program and you are free to format and indent your programs in a neat and consistent way that makes the code easy to read and understand.</p>
+        <h3>Semicolons are Optional</h3>
+        <p>Simple statements in JavaScript are generally followed by a semicolon character, just as they are in C, C++, and Java. JavaScript, however, allows you to omit this semicolon if each of your statements are placed on a separate line.</p>
+        <h3>Case Sensitivity</h3>
+        <p>JavaScript is a case-sensitive language. This means that the language keywords, variables, function names, and any other identifiers must always be typed with a consistent capitalization of letters.</p>
+        <h3>Comments in JavaScript</h3>
+        <ul>
+            <li>Any text between a // and the end of a line is treated as a comment and is ignored by JavaScript.</li>
+            <li>Any text between the characters /* and */ is treated as a comment. This may span multiple lines.</li>
+            <li>JavaScript also recognizes the HTML comment opening sequence &lt;!--. JavaScript treats this as a single-line comment, just as it does the // comment.</li>
+            <li>The HTML comment closing sequence --&gt; is not recognized by JavaScript so it should be written as //--&gt;.</li>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible">Datatypes & Variables</button>
+    <div class="content">
+        <h3>JavaScript Datatypes</h3>
+        <p>JavaScript allows you to work with three primitive data types:</p>
+        <ul>
+            <li><b>Numbers:</b> 123, 120.50 etc.</li>
+            <li><b>Strings</b> of text</li>
+            <li><b>Boolean</b> (true or false)</li>
+        </ul>
+        <p>JavaScript also defines two trivial data types, null and undefined, each of which defines only a single value.</p>
+        <p>In addition to these primitive data types, JavaScript supports a composite data type known as object.</p>
+        <p>All numbers in JavaScript are represented as floating-point values. JavaScript represents numbers using the 64-bit floating-point format defined by the IEEE 754 standard.</p>
+        <h3>Variables</h3>
+        <p>Variables can be thought of as named containers. You can place data into these containers and then refer to the data simply by naming the container.</p>
+        <p>Before you use a variable in a JavaScript program, you must declare it. Variables are declared with the var keyword.</p>
+        <div class="code" id="javascript3"><button class="copy" onclick="copyText('javascript3')">Copy</button><br><p>
+            &lt;script type = "text/javascript"&gt;<br>
+            &emsp;var money;<br>
+            &emsp;var name;<br>
+            <mark>// You can also declare multiple variables on the same line.</mark>
+            &emsp;var money, name;<br>
+            &lt;/script&gt;
+        </p></div>
+        <p>Storing a value in a variable is called variable initialization. You can do variable initialization at the time of variable creation or at a later point in time when you need that variable.</p>
+        <p>JavaScript is untyped language. This means that a JavaScript variable can hold a value of any data type.</p>
+        <p>The value type of a variable can change during the execution of a program and JavaScript takes care of it automatically.</p>
+        <h3>JavaScript Variable Scope</h3>
+        <p>The scope of a variable is the region of your program in which it is defined. JavaScript variables have only two scopes.</p>
+        <ul>
+            <li><b>Global Variables</b> − A global variable has global scope which means it can be defined anywhere in your JavaScript code.</li>
+            <li><b>Local Variables</b> − A local variable will be visible only within a function where it is defined. Function parameters are always local to that function.</li>
+        </ul>
+        <p>Within the body of a function, a local variable takes precedence over a global variable with the same name. If you declare a local variable or function parameter with the same name as a global variable, you effectively hide the global variable.</p>
+        <div class="code" id="javascript4"><button class="copy" onclick="copyText('javascript4')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &emsp;&lt;body onload = checkscope();&gt;<br>
+            &emsp;&emsp;&lt;script language = "javascript" type = "text/javascript"&gt;<br>
+            &emsp;&emsp;&emsp;var myVar = "global"; <mark>// Declare a global variable</mark><br>
+            &emsp;&emsp;&emsp;function checkscope() {<br>
+            &emsp;&emsp;&emsp;&emsp;var myVar = "local"; <mark>// Declare a local variable</mark><br>
+            &emsp;&emsp;&emsp;&emsp;document.write(myVar);<br>
+            &emsp;&emsp;&lt;/script&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <h3>Variable Names</h3>
+        <p>Keep the following rules in mind.</p>
+        <ul>
+            <li>You should not use any of the JavaScript reserved keywords as a variable name. For example, break or boolean variable names are not valid.</li>
+            <li>JavaScript variable names should not start with a numeral (0-9). They must begin with a letter or an underscore character. For example, 123test is an invalid variable name but _123test is a valid one.</li>
+            <li>JavaScript variable names are case-sensitive. For example, Name and name are two different variables.</li>
+        </ul>
+        <h3>JavaScript Reserved Words</h3>
+        <table class="scrollableTable">
+            <tr>
+                <td>abstract</td>
+                <td>else</td>
+                <td>instanceof</td>
+                <td>switch</td>
+            </tr>
+            <tr>
+                <td>boolean</td>
+                <td>enum</td>
+                <td>int</td>
+                <td>synchronized</td>
+            </tr>
+            <tr>
+                <td>break</td>
+                <td>export</td>
+                <td>interface</td>
+                <td>this</td>
+            </tr>
+            <tr>
+                <td>byte</td>
+                <td>extends</td>
+                <td>long</td>
+                <td>throw</td>
+            </tr>
+            <tr>
+                <td>case</td>
+                <td>false</td>
+                <td>native</td>
+                <td>throws</td>
+            </tr>
+            <tr>
+                <td>catch</td>
+                <td>finally</td>
+                <td>null</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>class</td>
+                <td>float</td>
+                <td>package</td>
+                <td>try</td>
+            </tr>
+            <tr>
+                <td>const</td>
+                <td>for</td>
+                <td>private</td>
+                <td>typeof</td>
+            </tr>
+            <tr>
+                <td>continue</td>
+                <td>function</td>
+                <td>protected</td>
+                <td>var</td>
+            </tr>
+            <tr>
+                <td>debugger</td>
+                <td>goto</td>
+                <td>public</td>
+                <td>void</td>
+            </tr>
+            <tr>
+                <td>default</td>
+                <td>if</td>
+                <td>return</td>
+                <td>volatile</td>
+            </tr>
+            <tr>
+                <td>delete</td>
+                <td>implements</td>
+                <td>short</td>
+                <td>while</td>
+            </tr>
+            <tr>
+                <td>do</td>
+                <td>import</td>
+                <td>static</td>
+                <td>with</td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>in</td>
+                <td>super</td>
+                <td></td>
+            </tr>
+        </table>
+        </div>
+    &nbsp;
+    <button class="collapsible">Operators</button>
+    <div class="content">
+        <h3>What is an Operator?</h3>
+        <p>Let us take a simple expression 4 + 5 is equal to 9. Here 4 and 5 are called operands and ‘+’ is called the operator. JavaScript supports the following types of operators.</p>
+        <ul>
+            <li>Arithmetic Operators</li>
+            <li>Comparison Operators</li>
+            <li>Logical (or Relational) Operators</li>
+            <li>Assignment Operators</li>
+            <li>Conditional (or ternary) Operators</li>
+        </ul>
+        <h3>Arithmetic Operators</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>+ (Addition)</td>
+                <td>Adds two operands</td>
+            </tr>
+            <tr>
+                <td>- (Subtraction)</td>
+                <td>Subtracts the second operand from the first</td>
+            </tr>
+            <tr>
+                <td>* (Multiplication)</td>
+                <td>Multiply both operands</td>
+            </tr>
+            <tr>
+                <td>/ (Division)</td>
+                <td>Divide the numerator by the denominator</td>
+            </tr>
+            <tr>
+                <td>% (Modulus)</td>
+                <td>Outputs the remainder of an integer division</td>
+            </tr>
+            <tr>
+                <td>++ (Increment)</td>
+                <td>Increases an integer value by one</td>
+            </tr>
+            <tr>
+                <td>-- (Decrement)</td>
+                <td>Decreases an integer value by one</td>
+            </tr>
+        </table>
+        <p>Addition operator (+) works for Numeric as well as Strings. e.g. "a" + 10 will give "a10".</p>
+        <button class="collapsible">Arithmetic Operator Examples</button>
+        <div class="content">
+        <div class="code" id="javascript5"><button class="copy" onclick="copyText('javascript5')">Copy</button><br><p>
+            var a = 33;<br>
+            var b = 10;<br>
+            var c = "Test";<br>
+            var linebreak = "&lt;br /&gt;";<br><br>
+            document.write("a + b = ");<br>
+            result = a + b;<br>
+            document.write(result);<br>
+            document.write(linebreak);<br><br>
+            document.write("a - b = ");<br>
+            result = a - b;<br>
+            document.write(result);<br>
+            document.write(linebreak);<br><br>
+            document.write("a / b = ");<br>
+            result = a / b;<br>
+            document.write(result);<br>
+            document.write(linebreak);<br><br>
+            document.write("a % b = ");<br>
+            result = a % b;<br>
+            document.write(result);<br>
+            document.write(linebreak);<br><br>
+            document.write("a + b + c = ");<br>
+            result = a + b + c;<br>
+            document.write(result);<br>
+            document.write(linebreak);<br><br>
+            a = ++a;<br>
+            document.write("++a = ");<br>
+            result = ++a;<br>
+            document.write(result);<br>
+            document.write(linebreak);<br><br>
+            b = --b;<br>
+            document.write("--b = ");<br>
+            result = --b;<br>
+            document.write(result);<br>
+            document.write(linebreak);
+        </p></div>
+        </div>
+        <h3>Comparison Operators</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>== (Equal)</td>
+                <td>Checks if the value of two operands are equal or not, if yes, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td>!= (Not Equal)</td>
+                <td>Checks if the value of two operands are equal or not, if the values are not equal, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td>> (Greater Than)</td>
+                <td>Checks if the value of the left operand is greater than the value of the right operand, if yes, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td>< (Less Than)</td>
+                <td>Checks if the value of the left operand is less than the value of the right operand, if yes, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td>>= (Greater than or Equal to)</td>
+                <td>Checks if the value of the left operand is greater than or equal to the value of the right operand, if yes, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td><= (Less than or Equal to)</td>
+                <td>Checks if the value of the left operand is less than or equal to the value of the right operand, if yes, then the condition becomes true.</td>
+            </tr>
+        </table>
+        <button class="collapsible">Comparison Operator Examples</button>
+        <div class="content">
+            <div class="code" id="javascript6"><button class="copy" onclick="copyText('javascript6')">Copy</button><br><p>
+                var a = 10;<br>
+                var b = 20;<br>
+                var linebreak = "&lt;br /&gt;";<br><br>
+                document.write("(a == b) => ");<br>
+                result = (a == b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a < b) => ");<br>
+                result = (a < b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a > b) => ");<br>
+                result = (a > b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a != b) => ");<br>
+                result = (a != b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a >= b) => ");<br>
+                result = (a >= b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a <= b) => ");<br>
+                result = (a <= b);<br>
+                document.write(result);<br>
+                document.write(linebreak);
+            </p></div>
+            </div>
+        <h3>Logical Operators</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&& (Logical AND)</td>
+                <td>If both the operands are non-zero, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td>|| (Logical OR)</td>
+                <td>If any of the two operands are non-zero, then the condition becomes true.</td>
+            </tr>
+            <tr>
+                <td>! (Logical NOT)</td>
+                <td>Reverses the logical state of its operand. If a condition is true, then the Logical NOT operator will make it false.</td>
+            </tr>
+        </table>
+        <button class="collapsible">Logical Operator Examples</button>
+        <div class="content">
+            <div class="code" id="javascript7"><button class="copy" onclick="copyText('javascript7')">Copy</button><br><p>
+                var a = true;<br>
+                var b = false;<br>
+                var linebreak = "&lt;br /&gt;";<br><br>
+                document.write("(a && b) => ");<br>
+                result = (a && b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a || b) => ");<br>
+                result = (a || b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("!(a && b) => ");<br>
+                result = (!(a && b));<br>
+                document.write(result);<br>
+                document.write(linebreak);
+            </p></div>
+        </div>
+        <h3>Bitwise Operators</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>& (Bitwise AND)</td>
+                <td>It performs a Boolean AND operation on each bit of its integer arguments.</td>
+            </tr>
+            <tr>
+                <td>| (BitWise OR)</td>
+                <td>It performs a Boolean OR operation on each bit of its integer arguments.</td>
+            </tr>
+            <tr>
+                <td>^ (Bitwise XOR)</td>
+                <td>It performs a Boolean exclusive OR operation on each bit of its integer arguments. Exclusive OR means that either operand one is true or operand two is true, but not both.</td>
+            </tr>
+            <tr>
+                <td>~ (Bitwise Not)</td>
+                <td>It is a unary operator and operates by reversing all the bits in the operand.</td>
+            </tr>
+            <tr>
+                <td><< (Left Shift)</td>
+                <td>It moves all the bits in its first operand to the left by the number of places specified in the second operand. New bits are filled with zeros. Shifting a value left by one position is equivalent to multiplying it by 2, shifting two positions is equivalent to multiplying by 4, and so on.</td>
+            </tr>
+            <tr>
+                <td>>> (Right Shift)</td>
+                <td>Binary Right Shift Operator. The left operand’s value is moved right by the number of bits specified by the right operand.</td>
+            </tr>
+            <tr>
+                <td>>>> (Right shift with Zero)</td>
+                <td>This operator is just like the >> operator, except that the bits shifted in on the left are always zero.</td>
+            </tr>
+        </table>
+        <button class="collapsible">Bitwise Operator Examples</button>
+        <div class="content">
+            <div class="code" id="javascript8"><button class="copy" onclick="copyText('javascript8')">Copy</button><br><p>
+                var a = 2; // Bit presentation 10<br>
+                var b = 3; // Bit presentation 11<br>
+                var linebreak = "&lt;br /&gt;";<br><br>
+                document.write("(a & b) => ");<br>
+                result = (a & b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a | b) => ");<br>
+                result = (a | b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a ^ b) => ");<br>
+                result = (a ^ b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(~b) => ");<br>
+                result = (~b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a << b) => ");<br>
+                result = (a << b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("(a >> b) => ");<br>
+                result = (a >> b);<br>
+                document.write(result);<br>
+                document.write(linebreak);
+            </p></div>
+        </div>
+        <h3>Assignment Operators</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>= (Simple Assignment )</td>
+                <td>Assigns values from the right side operand to the left side operand</td>
+            </tr>
+            <tr>
+                <td>+= (Add and Assignment)</td>
+                <td>It adds the right operand to the left operand and assigns the result to the left operand.</td>
+            </tr>
+            <tr>
+                <td>−= (Subtract and Assignment)</td>
+                <td>It subtracts the right operand from the left operand and assigns the result to the left operand.</td>
+            </tr>
+            <tr>
+                <td>*= (Multiply and Assignment)</td>
+                <td>It multiplies the right operand with the left operand and assigns the result to the left operand.</td>
+            </tr>
+            <tr>
+                <td>/= (Divide and Assignment)</td>
+                <td>It divides the left operand with the right operand and assigns the result to the left operand.</td>
+            </tr>
+            <tr>
+                <td>%= (Modules and Assignment)</td>
+                <td>It takes modulus using two operands and assigns the result to the left operand.</td>
+            </tr>
+        </table>
+        <p>Same logic applies to Bitwise operators so they will become like <<=, >>=, >>=, &=, |= and ^=.</p>
+        <button class="collapsible">Assignment Operator Examples</button>
+        <div class="content">
+            <div class="code" id="javascript9"><button class="copy" onclick="copyText('javascript9')">Copy</button><br><p>
+                var a = 33;<br>
+                var b = 10;<br>
+                var linebreak = "&lt;br /&gt;";<br><br>
+                document.write("Value of a => (a = b) => ");<br>
+                result = (a = b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("Value of a => (a += b) => ");<br>
+                result = (a += b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("Value of a => (a -= b) => ");<br>
+                result = (a -= b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("Value of a => (a *= b) => ");<br>
+                result = (a *= b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("Value of a => (a /= b) => ");<br>
+                result = (a /= b);<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write("Value of a => (a %= b) => ");<br>
+                result = (a %= b);<br>
+                document.write(result);<br>
+                document.write(linebreak);
+            </p></div>
+        </div>
+        <h3>Miscellaneous Operator</h3>
+        <p>The conditional operator (? :) and the typeof operator.</p>
+        <p>The conditional operator first evaluates an expression for a true or false value and then executes one of the two given statements depending upon the result of the evaluation.</p>
+        <table class="scrollableTable">
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>? : (Conditional )</td>
+                <td>If Condition is true? Then value X : Otherwise value Y</td>
+            </tr>
+        </table>
+        <h3>typeof Operator</h3>
+        <p>The typeof operator is a unary operator that is placed before its single operand, which can be of any type. Its value is a string indicating the data type of the operand.</p>
+        <p>The typeof operator evaluates to "number", "string", or "boolean" if its operand is a number, string, or boolean value and returns true or false based on the evaluation.</p>
+        <table class="scrollableTable">
+            <tr>
+                <th>Type</th>
+                <th>String Returned by typeof</th>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td>"number"</td>
+            </tr>
+            <tr>
+                <td>String</td>
+                <td>"string"</td>
+            </tr>
+            <tr>
+                <td>Boolean</td>
+                <td>"boolean"</td>
+            </tr>
+            <tr>
+                <td>Object</td>
+                <td>"object"</td>
+            </tr>
+            <tr>
+                <td>Function</td>
+                <td>"function"</td>
+            </tr>
+            <tr>
+                <td>Undefined</td>
+                <td>"undefined"</td>
+            </tr>
+            <tr>
+                <td>Null</td>
+                <td>"object"</td>
+            </tr>
+        </table>
+        <button class="collapsible">Miscellaneous Operator Examples</button>
+        <div class="content">
+            <h3>Conditional Operator (? :)</h3>
+            <div class="code" id="javascript10"><button class="copy" onclick="copyText('javascript10')">Copy</button><br><p>
+                var a = 10;<br>
+                var b = 20;<br>
+                var linebreak = "&lt;br /&gt;";<br><br>
+                document.write ("((a > b) ? 100 : 200) => ");<br>
+                result = (a > b) ? 100 : 200;<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                document.write ("((a < b) ? 100 : 200) => ");<br>
+                result = (a < b) ? 100 : 200;<br>
+                document.write(result);<br>
+                document.write(linebreak);
+            </p></div>
+            <h3>typeof Operator</h3>
+            <div class="code" id="javascript11"><button class="copy" onclick="copyText('javascript11')">Copy</button><br><p>
+                var a = 10;<br>
+                var b = "String";<br>
+                var linebreak = "&lt;br /&gt;";<br><br>
+                result = (typeof b == "string" ? "B is String" : "B is Numeric");<br>
+                document.write("Result => ");<br>
+                document.write(result);<br>
+                document.write(linebreak);<br><br>
+                result = (typeof a == "string" ? "A is String" : "A is Numeric");<br>
+                document.write("Result => ");<br>
+                document.write(result);<br>
+                document.write(linebreak);
+            </p></div>
+            </div>
+        </div>
+    &nbsp;
+    <button class="collapsible"></button>
+    <div class="content">
 
+    </div>
+    &nbsp;
+    <button class="collapsible"></button>
+    <div class="content">
+
+    </div>
+    &nbsp;
+    <button class="collapsible"></button>
+    <div class="content">
+
+    </div>
 </div>
 &nbsp;
 <button class="collapsible">Interview Questions</button>
