@@ -7286,16 +7286,206 @@
             </div>
         </div>
     &nbsp;
-    <button class="collapsible"></button>
+    <button class="collapsible">JavaScript for...in loop</button>
+    <div class="content">
+        <h3>JavaScript for...in loop</h3>
+        <p>The for...in loop is used to loop through an object's properties.</p>
+        <p>JavaScript also has if..else, for & while loops, and switch case statements that work the same as in other programming languages.</p>
+        <div class="code" id="javascript12"><button class="copy" onclick="copyText('javascript12')">Copy</button><br><p>
+            for (variablename in object) {<br>
+            &emsp;statement or block to execute<br>
+            }
+        </p></div>
+        <p>In each iteration, one property from object is assigned to variablename and this loop continues till all the properties of the object are exhausted.</p>
+        <div class="code" id="javascript13"><button class="copy" onclick="copyText('javascript13')">Copy</button><br><p>
+            var aProperty;<br>
+            document.write("Navigator Object Properties&lt;br /&gt; ");<br>
+            for (aProperty in navigator) {<br>
+            &emsp;document.write(aProperty);<br>
+            &emsp;document.write("&lt;br /&gt;");<br>
+            }<br>
+            document.write ("Exiting from the loop!");
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Loop Control</button>
+    <div class="content">
+        <h3>Loop Control</h3>
+        <p>JavaScript provides break and continue statements. These statements are used to immediately come out of any loop or to start the next iteration of any loop respectively.</p>
+        <h3>The break Statement</h3>
+        <p>The break statement, which was briefly introduced with the switch statement, is used to exit a loop early, breaking out of the enclosing curly braces.</p>
+        <h3>The continue Statement</h3>
+        <p>The continue statement tells the interpreter to immediately start the next iteration of the loop and skip the remaining code block. When a continue statement is encountered, the program flow moves to the loop check expression immediately and if the condition remains true, then it starts the next iteration, otherwise the control comes out of the loop.</p>
+        <h3>Using Labels to Control the Flow</h3>
+        <p>A label can be used with break and continue to control the flow more precisely. A label is simply an identifier followed by a colon (:) that is applied to a statement or a block of code.</p>
+        <p>Line breaks are not allowed between the ‘continue’ or ‘break’ statement and its label name. Also, there should not be any other statement in between a label name and associated loop.</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Loop Control Examples</button>
+    <div class="content">
+        <div class="code" id="javascript14"><button class="copy" onclick="copyText('javascript14')">Copy</button><br><p>
+            document.write("Entering the loop!&lt;br /&gt; ");<br>
+            outerloop: <mark>// This is the label name</mark><br>
+            for (var i = 0; i < 5; i++) {<br>
+            &emsp;document.write("Outerloop: " + i + "&lt;br /&gt;");<br>
+            &emsp;innerloop:<br>
+            &emsp;for (var j = 0; j < 5; j++) {<br>
+            &emsp;&emsp;if (j > 3 ) break ; <mark>// Quit the innermost loop</mark><br>
+            &emsp;&emsp;if (i == 2) break innerloop; <mark>// Do the same thing</mark><br>
+            &emsp;&emsp;if (i == 4) break outerloop; <mark>// Quit the outer loop</mark><br>
+            &emsp;&emsp;document.write("Innerloop: " + j + " &lt;br /&gt;");<br>
+            &emsp;}<br>
+            }<br>
+            document.write("Exiting the loop!&lt;br /&gt; ");
+        </p></div>
+        <div class="code" id="javascript15"><button class="copy" onclick="copyText('javascript15')">Copy</button><br><p>
+            document.write("Entering the loop!&lt;br /&gt; ");<br>
+            outerloop: <mark>// This is the label name</mark><br>
+            for (var i = 0; i < 3; i++) {<br>
+            &emsp;document.write("Outerloop: " + i + "&lt;br /&gt;");<br>
+            &emsp;for (var j = 0; j < 5; j++) {<br>
+            &emsp;&emsp;if (j == 3) {<br>
+            &emsp;&emsp;&emsp;continue outerloop;<br>
+            &emsp;&emsp;}<br>
+            &emsp;&emsp;document.write("Innerloop: " + j + "&lt;br /&gt;");<br>
+            &emsp;}<br>
+            }<br>
+            document.write("Exiting the loop!&lt;br /&gt; ");
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Functions</button>
+    <div class="content">
+        <h3>Functions</h3>
+        <p>A function is a group of reusable code which can be called anywhere in your program. This eliminates the need of writing the same code again and again. It helps programmers in writing modular codes. Functions allow a programmer to divide a big program into a number of small and manageable functions.</p>
+        <h3>Function Definition</h3>
+        <p>Before we use a function, we need to define it. The most common way to define a function in JavaScript is by using the function keyword, followed by a unique function name, a list of parameters (that might be empty), and a statement block surrounded by curly braces.</p>
+        <div class="code" id="javascript16"><button class="copy" onclick="copyText('javascript16')">Copy</button><br><p>
+            <mark>// Syntax</mark><br>
+            function functionname(parameter-list) {<br>
+            &emsp;statements<br>
+            }<br><br>
+            <mark>// Example</mark><br>
+            function sayHello() {<br>
+            &emsp;alert("Hello there");<br>
+            }
+        </p></div>
+        <h3>Calling a Function</h3>
+        <p>To invoke a function somewhere later in the script, you would simply need to write the name of that function.</p>
+        <div class="code" id="javascript17"><button class="copy" onclick="copyText('javascript17')">Copy</button><br><p>
+            &lt;body&gt;<br>
+            &lt;p>Click the following button to call the function&lt;/p&gt;<br>
+            &lt;form&gt;<br>
+            &emsp;&lt;input type = "button" onclick = "sayHello()" value = "Say Hello"&gt;<br>
+            &lt;/form&gt;<br>
+            &lt;p>Use different text in write method and then try...&lt;/p&gt;<br>
+            &lt;/body&gt;
+        </p></div>
+        <h3>Function Parameters</h3>
+        <p>Till now, we have seen functions without parameters. But there is a facility to pass different parameters while calling a function. These passed parameters can be captured inside the function and any manipulation can be done over those parameters. A function can take multiple parameters separated by comma.</p>
+        <div class="code" id="javascript18"><button class="copy" onclick="copyText('javascript18')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &emsp;&lt;head&gt;<br>
+            &emsp;&emsp;&lt;script type = "text/javascript"&gt;<br>
+            &emsp;&emsp;&emsp;function sayHello(name, age) {<br>
+            &emsp;&emsp;&emsp;&emsp;document.write(name + " is " + age + " years old.");<br>
+            &emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&lt;/script&gt;<br>
+            &emsp;&lt;/head&gt;<br><br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;p>Click the following button to call the function&lt;/p&gt;<br>
+            &emsp;&emsp;&lt;form&gt;<br>
+            &emsp;&emsp;&emsp;&lt;input type = "button" onclick = "sayHello('Austin', 24)" value = "Say Hello"&gt;<br>
+            &emsp;&emsp;&lt;/form&gt;<br>
+            &emsp;&emsp;&lt;p>Use different text in write method and then try...&lt;/p&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <h3>The return Statement</h3>
+        <p>A JavaScript function can have an optional return statement. This is required if you want to return a value from a function. This statement should be the last statement in a function.</p>
+        <div class="code" id="javascript19"><button class="copy" onclick="copyText('javascript19')">Copy</button><br><p>
+            function concatenate(first, last) {<br>
+            &emsp;var full;<br>
+            &emsp;full = first + last;<br>
+            &emsp;return full;<br>
+            }<br><br>
+            function secondFunction() {<br>
+            &emsp;var result;<br>
+            &emsp;result = concatenate('Zara', 'Ali');<br>
+            &emsp;document.write (result );<br>
+            }
+        </p></div>
+        <h3>Nested Functions</h3>
+        <p>JavaScript 1.2 allows function definitions to be nested within other functions as well. Still there is a restriction that function definitions may not appear within loops or conditionals. These restrictions on function definitions apply only to function declarations with the function statement.</p>
+        <div class="code" id="javascript20"><button class="copy" onclick="copyText('javascript20')">Copy</button><br><p>
+            function hypotenuse(a, b) {<br>
+            &emsp;function square(x) { return x*x; }<br>
+            &emsp;return Math.sqrt(square(a) + square(b));<br>
+            }
+        </p></div>
+        <h3>Function() Constructor</h3>
+        <p>The function statement is not the only way to define a new function; you can define your function dynamically using Function() constructor along with the new operator.</p>
+        <div class="code" id="javascript21"><button class="copy" onclick="copyText('javascript21')">Copy</button><br><p>
+            <mark>// Syntax</mark><br>
+            var variablename = new Function(Arg1, Arg2..., "Function Body");<br><br>
+            <mark>// Example</mark><br>
+            var func = new Function("x", "y", "return x * y;");
+        </p></div>
+        <p>The Function() constructor expects any number of string arguments. The last argument is the body of the function – it can contain arbitrary JavaScript statements, separated from each other by semicolons.</p>
+        <p>Notice that the Function() constructor is not passed any argument that specifies a name for the function it creates. The unnamed functions created with the Function() constructor are called anonymous functions.</p>
+        <h3>Function Literals</h3>
+        <p>JavaScript 1.2 introduces the concept of function literals which is another new way of defining functions. A function literal is an expression that defines an unnamed function.</p>
+        <p>The syntax for a function literal is much like a function statement, except that it is used as an expression rather than a statement and no function name is required.</p>
+        <div class="code" id="javascript22"><button class="copy" onclick="copyText('javascript22')">Copy</button><br><p>
+            <mark>// Syntax</mark><br>
+            var variablename = function(Argument List) {<br>
+            &emsp;Function Body<br>
+            };<br><br>
+            <mark>// Example</mark><br>
+            var func = function(x,y) {<br>
+            &emsp;return x * y<br>
+            };
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Events</button>
     <div class="content">
 
     </div>
     &nbsp;
-    <button class="collapsible"></button>
+    <button class="collapsible">Cookies</button>
+    <div class="content">
+        <h3>What is an Event?</h3>
+        <p></p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Page Redirect</button>
     <div class="content">
 
     </div>
     &nbsp;
+    <button class="collapsible">Dialog Boxes</button>
+    <div class="content">
+
+    </div>
+    &nbsp;
+    <button class="collapsible">Void Keyword</button>
+    <div class="content">
+
+    </div>
+    &nbsp;
+    <button class="collapsible">Page Printing</button>
+    <div class="content">
+
+    </div>
+    <button class="collapsible"></button>
+    <div class="content">
+
+    </div>
+    <button class="collapsible"></button>
+    <div class="content">
+
+    </div>
     <button class="collapsible"></button>
     <div class="content">
 
