@@ -2620,12 +2620,89 @@
         <p>When a syntax error occurs in JavaScript, only the code contained within the same thread as the syntax error is affected and the rest of the code in other threads gets executed assuming nothing in them depends on the code containing the error.</p>
         <h3>Runtime Errors</h3>
         <p>Runtime errors, also called exceptions, occur during execution (after compilation/interpretation).</p>
-
+        <div class="code" id="javascript55"><button class="copy" onclick="copyText('javascript55')">Copy</button><br><p>
+            &lt;script type = "text/javascript"&gt;<br>
+            window.printme();<br>
+            &lt;/script&gt;
+        </p></div>
+        <p>Exceptions also affect the thread in which they occur, allowing other JavaScript threads to continue normal execution.</p>
+        <h3>Logical Errors</h3>
+        <p>Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected.</p>
+        <p>You cannot catch those errors, because it depends on your business requirement what type of logic you want to put in your program.</p>
+        <h3>try...catch...finally</h3>
+        <p>The latest versions of JavaScript added exception handling capabilities. JavaScript implements the try...catch...finally construct as well as the throw operator to handle exceptions.</p>
+        <p>You can catch programmer-generated and runtime exceptions, but you cannot catch JavaScript syntax errors.</p>
+        <div class="code" id="javascript56"><button class="copy" onclick="copyText('javascript56')">Copy</button><br><p>
+            &lt;script type = "text/javascript"&gt;<br>
+            <mark>// Syntax</mark><br>
+            try {<br>
+            &emsp;<mark>// Code to run</mark><br>
+            &emsp;[break;]<br>
+            }<br><br>
+            catch ( e ) {<br>
+            &emsp;<mark>// Code to run if an exception occurs</mark><br>
+            &emsp;<mark>// alert("Error: " + e.description);</mark><br>
+            &emsp;[break;]<br>
+            }<br><br>
+            [ finally {<br>
+            &emsp;<mark>// Code that is always executed regardless of</mark><br>
+            &emsp;<mark>// an exception occurring</mark><br>
+            }]<br>
+            &lt;/script&gt;
+        </p></div>
+        <p>The try block must be followed by either exactly one catch block or one finally block (or one of both). When an exception occurs in the try block, the exception is placed in e and the catch block is executed. The optional finally block executes unconditionally after try/catch.</p>
+        <h3>throw Statement</h3>
+        <p>You can use throw statement to raise your built-in exceptions or your customized exceptions. Later these exceptions can be captured and you can take an appropriate action.</p>
+        <div class="code" id="javascript57"><button class="copy" onclick="copyText('javascript57')">Copy</button><br><p>
+            &lt;script type = "text/javascript"&gt;<br>
+            &emsp;function myFunc() {<br>
+            &emsp;&emsp;var a = 100;<br>
+            &emsp;&emsp;var b = 0;<br><br>
+            &emsp;&emsp;try {<br>
+            &emsp;&emsp;&emsp;if ( b == 0 ) {<br>
+            &emsp;&emsp;&emsp;&emsp;throw( "Divide by zero error." );<br>
+            &emsp;&emsp;&emsp;} else {<br>
+            &emsp;&emsp;&emsp;&emsp;var c = a / b;<br>
+            &emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;}<br>
+            &emsp;&emsp;catch ( e ) {<br>
+            &emsp;&emsp;&emsp;alert("Error: " + e );<br>
+            &emsp;&emsp;}<br>
+            &emsp;}<br>
+            &lt;/script&gt;
+        </p></div>
+        <p>You can raise an exception in one function using a string, integer, Boolean, or an object and then you can capture that exception either in the same function, or in another function using a try...catch block.</p>
+        <h3>onerror() Method</h3>
+        <p>The onerror event handler was the first feature to facilitate error handling in JavaScript. The error event is fired on the window object whenever an exception occurs on the page.</p>
+        <div class="code" id="javascript58"><button class="copy" onclick="copyText('javascript58')">Copy</button><br><p>
+            window.onerror = function () {<br>
+            &emsp;alert("An error occurred.");<br>
+            }
+        </p></div>
+        <p>The onerror event handler provides three pieces of information to identify the exact nature of the error:</p>
+        <ul>
+            <li><b>Error message</b> − The same message that the browser would display for the given error</li>
+            <li><b>URL</b> − The file in which the error occurred</li>
+            <li><b>Line number</b> − The line number in the given URL that caused the error</li>
+        </ul>
+        <div class="code" id="javascript59"><button class="copy" onclick="copyText('javascript59')">Copy</button><br><p>
+            window.onerror = function (msg, url, line) {<br>
+            &emsp;alert("Message : " + msg );<br><br>
+            &emsp;alert("url : " + url );<br>
+            &emsp;alert("Line number : " + line );<br>
+            }
+        </p></div>
+        <p>You can use an onerror method, as shown below, to display an error message in case there is any problem in loading an image.</p>
+        <div class="code" id="javascript60"><button class="copy" onclick="copyText('javascript60')">Copy</button><br><p>
+            &lt;img src="myimage.gif" onerror="alert('An error occurred loading the image.')" /&gt;
+        </p></div>
+        <p>You can use onerror with many HTML tags to display appropriate messages in case of errors.</p>
     </div>
     &nbsp;
     <button class="collapsible">Validations</button>
     <div class="content">
-
+        <h3>JavaScript Form Validation</h3>
+        <p></p>
     </div>
     &nbsp;
     <button class="collapsible">Animation</button>
