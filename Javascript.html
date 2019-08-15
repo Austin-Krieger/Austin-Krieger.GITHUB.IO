@@ -2800,7 +2800,7 @@
             <li>Page-in or Page-out</li>
             <li>Object movements</li>
         </ul>
-        <p>JavaScript can be used to move a number of DOM elements (<img />, <div> or any other HTML element) around the page according to some sort of pattern determined by a logical equation or function.</p>
+        <p>JavaScript can be used to move a number of DOM elements (&lt;img /&gt;, &lt;div&gt; or any other HTML element) around the page according to some sort of pattern determined by a logical equation or function.</p>
         <p>JavaScript provides the following functions to be frequently used in animation programs.</p>
         <ul>
             <li><b>setTimeout(function, duration)</b> − This function calls function after duration milliseconds from now.</li>
@@ -2911,19 +2911,141 @@
         </p></div>
     </div>
     &nbsp;
-    <button class="collapsible">Multimedia</button>
-    <div class="content">
-
-    </div>
-    &nbsp;
     <button class="collapsible">Debugging</button>
     <div class="content">
-
+        <h3>JavaScript Debugging</h3>
+        <p>Every now and then, developers commit mistakes while coding. A mistake in a program or a script is referred to as a bug.</p>
+        <p>The process of finding and fixing bugs is called debugging and is a normal part of the development process. This section covers tools and techniques that can help you with debugging tasks..</p>
+        <p>Browsers like Firefox, Netscape, and Mozilla send error messages to a special window called the JavaScript Console or Error Console. To view the console, select Tools → Error Console or Web Development.</p>
+        <p>Error notifications that show up on Console or through Internet Explorer dialog boxes are the result of both syntax and runtime errors. These error notification include the line number at which the error occurred.</p>
+        <p>If you are using Firefox, then you can click on the error available in the error console to go to the exact line in the script having error.</p>
+        <h3>How to debug a Script</h3>
+        <h4>Use a JavaScript Validator</h4>
+        <ul>
+            <li>One way to check your JavaScript code for strange bugs is to run it through a program that checks it to make sure it is valid and that it follows the official syntax rules of the language. These programs are called validating parsers or just validators for short, and often come with commercial HTML and JavaScript editors.</li>
+            <li>The most convenient validator for JavaScript is Douglas Crockford's JavaScript Lint, which is available for free at Douglas Crockford's JavaScript Lint.</li>
+            <li>Simply visit that web page, paste your JavaScript (Only JavaScript) code into the text area provided, and click the jslint button. This program will parse through your JavaScript code, ensuring that all the variable and function definitions follow the correct syntax. It will also check JavaScript statements, such as if and while, to ensure they too follow the correct format</li>
+        </ul>
+        <h4>Add Debugging Code to Your Programs</h4>
+        <p>You can use the alert() or document.write() methods in your program to debug your code.</p>
+        <h4>Use a JavaScript Debugger</h4>
+        <ul>
+            <li>A debugger is an application that places all aspects of script execution under the control of the programmer. Debuggers provide fine-grained control over the state of the script through an interface that allows you to examine and set values as well as control the flow of execution.</li>
+            <li>Once a script has been loaded into a debugger, it can be run one line at a time or instructed to halt at certain breakpoints. Once execution is halted, the programmer can examine the state of the script and its variables in order to determine if something is amiss. You can also watch variables for changes in their values.</li>
+        </ul>
+        <h3>Useful Tips for Developers</h3>
+        <ul>
+            <li>Use plenty of comments. Comments enable you to explain why you wrote the script the way you did and to explain particularly difficult sections of code.</li>
+            <li>Always use indentation to make your code easy to read. Indenting statements also makes it easier for you to match up beginning and ending tags, curly braces, and other HTML and script elements.</li>
+            <li>Write modular code. Whenever possible, group your statements into functions. Functions let you group related statements, and test and reuse portions of code with minimal effort.</li>
+            <li>Be consistent in the way you name your variables and functions. Try using names that are long enough to be meaningful and that describe the contents of the variable or the purpose of the function.</li>
+            <li>Use consistent syntax when naming variables and functions. In other words, keep them all lowercase or all uppercase; if you prefer Camel-Back notation, use it consistently.</li>
+            <li>Test long scripts in a modular fashion. In other words, do not try to write the entire script before testing any portion of it. Write a piece and get it to work before adding the next portion of code.</li>
+            <li>Use descriptive variable and function names and avoid using single-character names.</li>
+            <li>Watch your quotation marks. Remember that quotation marks are used in pairs around strings and that both quotation marks must be of the same style (either single or double).</li>
+            <li>Watch your equal signs. You should not used a single = for comparison purpose.</li>
+            <li>Declare variables explicitly using the var keyword.</li>
+        </ul>
     </div>
     &nbsp;
     <button class="collapsible">Browsers</button>
     <div class="content">
-
+        <h3>JavaScript Browser Compatibility</h3>
+        <p>It is important to understand the differences between different browsers in order to handle each in the way it is expected. So it is important to know which browser your web page is running in.</p>
+        <p>To get information about the browser your webpage is currently running in, use the built-in navigator object.</p>
+        <h3>Navigator Properties</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Property</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>appCodeName</td>
+                <td>This property is a string that contains the code name of the browser, Netscape for Netscape and Microsoft Internet Explorer for Internet Explorer.</td>
+            </tr>
+            <tr>
+                <td>appVersion</td>
+                <td>This property is a string that contains the version of the browser as well as other useful information such as its language and compatibility.</td>
+            </tr>
+            <tr>
+                <td>language</td>
+                <td>This property contains the two-letter abbreviation for the language that is used by the browser. Netscape only.</td>
+            </tr>
+            <tr>
+                <td>mimTypes[]</td>
+                <td>This property is an array that contains all MIME types supported by the client. Netscape only.</td>
+            </tr>
+            <tr>
+                <td>platform[]</td>
+                <td>This property is a string that contains the platform for which the browser was compiled."Win32" for 32-bit Windows operating systems</td>
+            </tr>
+            <tr>
+                <td>plugins[]</td>
+                <td>This property is an array containing all the plug-ins that have been installed on the client. Netscape only.</td>
+            </tr>
+            <tr>
+                <td>userAgent[]</td>
+                <td>This property is a string that contains the code name and version of the browser. This value is sent to the originating server to identify the client.</td>
+            </tr>
+        </table>
+        <h3>Navigator Methods</h3>
+        <table class="scrollableTable">
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>javaEnabled()</td>
+                <td>This method determines if JavaScript is enabled in the client. If JavaScript is enabled, this method returns true; otherwise, it returns false.</td>
+            </tr>
+            <tr>
+                <td>plugings.refresh</td>
+                <td>This method makes newly installed plug-ins available and populates the plugins array with all new plug-in names. Netscape only.</td>
+            </tr>
+            <tr>
+                <td>preference(name,value)</td>
+                <td>This method allows a signed script to get and set some Netscape preferences. If the second parameter is omitted, this method will return the value of the specified preference; otherwise, it sets the value. Netscape only.</td>
+            </tr>
+            <tr>
+                <td>taintEnabled()</td>
+                <td>This method returns true if data tainting is enabled; false otherwise.</td>
+            </tr>
+        </table>
+        <h3>Browser Detection</h3>
+        <div class="code" id="javascript68"><button class="copy" onclick="copyText('javascript68')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &emsp;&lt;head&gt;<br>
+            &emsp;&emsp;&lt;title&gt;Browser Detection Example&lt;/title&gt;<br>
+            &emsp;&lt;/head&gt;<br>
+            &emsp;&lt;body&gt;<br>
+            &emsp;&emsp;&lt;script type = "text/javascript"&gt;<br>
+            &emsp;&emsp;&emsp;var userAgent = navigator.userAgent;<br>
+            &emsp;&emsp;&emsp;var opera = (userAgent.indexOf('Opera') != -1);<br>
+            &emsp;&emsp;&emsp;var ie = (userAgent.indexOf('MSIE') != -1);<br>
+            &emsp;&emsp;&emsp;var gecko = (userAgent.indexOf('Gecko') != -1);<br>
+            &emsp;&emsp;&emsp;var netscape = (userAgent.indexOf('Mozilla') != -1);<br>
+            &emsp;&emsp;&emsp;var version = navigator.appVersion;<br><br>
+            &emsp;&emsp;&emsp;if (opera) {<br>
+            &emsp;&emsp;&emsp;&emsp;document.write("Opera based browser");<br>
+            &emsp;&emsp;&emsp;&emsp;// Keep your opera specific URL here.<br>
+            &emsp;&emsp;&emsp;} else if (gecko) {<br>
+            &emsp;&emsp;&emsp;&emsp;document.write("Mozilla based browser");<br>
+            &emsp;&emsp;&emsp;&emsp;// Keep your gecko specific URL here.<br>
+            &emsp;&emsp;&emsp;} else if (ie) {<br>
+            &emsp;&emsp;&emsp;&emsp;document.write("IE based browser");<br>
+            &emsp;&emsp;&emsp;&emsp;// Keep your IE specific URL here.<br>
+            &emsp;&emsp;&emsp;} else if (netscape) {<br>
+            &emsp;&emsp;&emsp;&emsp;document.write("Netscape based browser");<br>
+            &emsp;&emsp;&emsp;&emsp;// Keep your Netscape specific URL here.<br>
+            &emsp;&emsp;&emsp;} else {<br>
+            &emsp;&emsp;&emsp;&emsp;document.write("Unknown browser");<br>
+            &emsp;&emsp;&emsp;}<br><br>
+            &emsp;&emsp;&emsp;// You can include version to along with any above condition.<br>
+            &emsp;&emsp;&emsp;document.write("&lt;br /&gt; Browser version info : " + version );<br>
+            &emsp;&emsp;&lt;/script&gt;<br>
+            &emsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
     </div>
 </div>
 </div>
