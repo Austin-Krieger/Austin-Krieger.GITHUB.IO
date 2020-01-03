@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/DataTypesVariablesArrays.html">Previous</a>
+    <a href="../Java/AccessModifiers.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">String</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">String</button>
+<div class="content">
+    <h3>Strings</h3>
+    <p>Strings are used for storing text. A String variable contains a collection of characters surrounded by double quotes</p>
+    <div class="code" id="string1"><button class="copy" onclick="copyText('string1')">Copy</button><br><p>
+        String greeting = "Hello";
+    </p>
+    </div>
+    <h3>String Length</h3>
+    <p>A String in Java is actually an object, which contain methods that can perform certain operations on strings. For example, the length of a string can be found with the length() method.</p>
+    <h3>String Methods</h3>
+    <button class="collapsible">String Methods</button>
+    <div class="content">
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+                <th>Return Type</th>
+            </tr>
+            <tr>
+                <td>charAt()</td>
+                <td>Returns the character at the specified index (position)</td>
+                <td>char</td>
+            </tr>
+            <tr>
+                <td>codePointAt()</td>
+                <td>Returns the Unicode of the character at the specified index</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>codePointBefore()</td>
+                <td>Returns the Unicode of the character before the specified index</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>codePointCount()</td>
+                <td>Returns the Unicode in the specified text range of this String</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>compareTo()</td>
+                <td>Compares two strings lexicographically</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>compareToIgnoreCase()</td>
+                <td>Compares two strings lexicographically, ignoring case differences</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>concat()</td>
+                <td>Appends a string to the end of another string</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>contains()</td>
+                <td>Checks whether a string contains a sequence of characters</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>contentEquals()</td>
+                <td>Checks whether a string contains the exact same sequence of characters of the specified CharSequence or StringBuffer</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>copyValueOf()</td>
+                <td>Returns a String that represents the characters of the character array</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>endsWith()</td>
+                <td>Checks whether a string ends with the specified character(s)</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>equals()</td>
+                <td>Compares two strings. Returns true if the strings are equal, and false if not</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>equalsIgnoreCase()</td>
+                <td>Compares two strings, ignoring case considerations</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>format()</td>
+                <td>Returns a formatted string using the specified locale, format string, and arguments</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>getBytes()</td>
+                <td>Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array</td>
+                <td>byte[]</td>
+            </tr>
+            <tr>
+                <td>getChars()</td>
+                <td>Copies characters from a string to an array of chars</td>
+                <td>void</td>
+            </tr>
+            <tr>
+                <td>hashCode()</td>
+                <td>Returns the hash code of a string</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>indexOf()</td>
+                <td>Returns the position of the first found occurrence of specified characters in a string</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>intern()</td>
+                <td>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>isEmpty()</td>
+                <td>Checks whether a string is empty or not</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>lastIndexOf()</td>
+                <td>Returns the position of the last found occurrence of specified characters in a string</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>length()</td>
+                <td>Returns the length of a specified string</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>matches()</td>
+                <td>Searches a string for a match against a regular expression, and returns the matches</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>offsetByCodePoints()</td>
+                <td>Returns the index within this String that is offset from the given index by codePointOffset code points</td>
+                <td>int</td>
+            </tr>
+            <tr>
+                <td>regionMatches()</td>
+                <td>Tests if two string regions are equal	</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>replace()</td>
+                <td>Searches a string for a specified value, and returns a new string where the specified values are replaced</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>replaceFirst()</td>
+                <td>Replaces the first occurrence of a substring that matches the given regular expression with the given replacement</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>replaceAll()</td>
+                <td>Replaces each substring of this string that matches the given regular expression with the given replacement</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>split()</td>
+                <td>Splits a string into an array of substrings</td>
+                <td>String[]</td>
+            </tr>
+            <tr>
+                <td>startsWith()</td>
+                <td>Checks whether a string starts with specified characters</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>subSequence()</td>
+                <td>Returns a new character sequence that is a subsequence of this sequence</td>
+                <td>CharSequence</td>
+            </tr>
+            <tr>
+                <td>substring()</td>
+                <td>Extracts the characters from a string, beginning at a specified start position, and through the specified number of character</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>toCharArray()</td>
+                <td>Converts this string to a new character array</td>
+                <td>char[]</td>
+            </tr>
+            <tr>
+                <td>toLowerCase()</td>
+                <td>Converts a string to lower case letters</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>toString()</td>
+                <td>Returns the value of a String object</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>toUpperCase()</td>
+                <td>Converts a string to upper case letters</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>trim()</td>
+                <td>Removes whitespace from both ends of a string</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td>valueOf()</td>
+                <td>Returns the primitive value of a String object</td>
+                <td>String</td>
+            </tr>
+        </table></div>
+    </div>
+    <p>Java counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third ..</p>
+    <h3>concat() Method</h3>
+    <p>The Java String concat() method concatenates one string to the end of another string. This method returns a string with the value of the string passed into the method, appended to the end of the string.</p>
+    <div class="code" id="string2"><button class="copy" onclick="copyText('string2')">Copy</button><br><p>
+        String s = "Java";<br>
+        s = s.concat("! is the best.");<br>
+        System.out.println(s);
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="string3"><button class="copy" onclick="copyText('string3')">Copy</button><br><p>
+        Java! is the best.
+    </p>
+    </div>
+    <h3>+ Operator</h3>
+    <p>+ operator is used to concatenate strings on either side.</p>
+    <div class="code" id="string4"><button class="copy" onclick="copyText('string4')">Copy</button><br><p>
+        String s1 = "Java";<br>
+        String s2 = "! is the best.";<br>
+        String s3 = s1 + s2;<br>
+        System.out.println(s3);
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="string5"><button class="copy" onclick="copyText('string5')">Copy</button><br><p>
+        Java! is the best.
+    </p>
+    </div>
+    <h3>Difference between concat() and + operator</h3>
+    <p>Although concat() and + operator are both used for concatenation of strings, but there are some differences between them:</p>
+
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Points</th>
+            <th>concat() Method</th>
+            <th>+ Operator</th>
+        </tr>
+        <tr>
+            <td>Definition</td>
+            <td>A concat() method is method to combine two strings .</td>
+            <td>+ operator used to concatenate any number of strings.</td>
+        </tr>
+        <tr>
+            <td>Number of arguments</td>
+            <td>concat() method takes only one argument of string and concat it with other string.</td>
+            <td>+ operator takes any number of arguments and concatenates all the strings.</td>
+        </tr>
+        <tr>
+            <td>Type of arguments</td>
+            <td>strong>concat() method takes only string arguments, if there is any other type is given in arguments then it will raise an error.</td>
+            <td>+ operator takes any type and converts to string type and then concatenates the strings.</td>
+        </tr>
+        <tr>
+            <td>concat() method raises java.lang.NullPointer Exception</td>
+            <td>concat() method throws NullPointer Exception when string is concatenated with null</td>
+            <td>+ operator did not raise any Exception when the string is concatenated with null.</td>
+        </tr>
+        <tr>
+            <td>Creates a new String object</td>
+            <td>concat() method takes concatenates two strings and return new string object only string length is greater than 0, otherwise it returns same object.</td>
+            <td>+ operator creates a new string object every time irrespective of length of string.</td>
+        </tr>
+        <tr>
+            <td>NullPointer Exception</td>
+            <td>In concat() method raises NullPointer Exception when string is concatenated with null .</td>
+            <td>+ operator concatenates string with without any error.</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>concat() method is better than + operator because it creates a new object only when the string length is greater than zero(0) but + operator always a creates a new string irrespective of length of string.</td>
+            <td>+ operator always a creates a new string irrespective of length of string therefore it takes more memory.</td>
+        </tr>
+    </table></div>
+    <h3>Special Characters</h3>
+    <p>Because strings must be written within quotes, Java will misunderstand this string, and generate an error</p>
+    <div class="code" id="string6"><button class="copy" onclick="copyText('string6')">Copy</button><br><p>
+        String txt = "We are the so-called "Vikings" from the north.";
+    </p>
+    </div>
+    <p>To avoid this problem we have the backslash excape character. (\)</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Escape Character</th>
+            <th>Result</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>\'</td>
+            <td>'</td>
+            <td>Single quote</td>
+        </tr>
+        <tr>
+            <td>\"</td>
+            <td>"</td>
+            <td>Double quote</td>
+        </tr>
+        <tr>
+            <td>\\</td>
+            <td>\</td>
+            <td>Backslash</td>
+        </tr>
+        <tr>
+            <td>\n</td>
+            <td>New Line</td>
+            <td>Text after \n will print on the next line</td>
+        </tr>
+        <tr>
+            <td>\r</td>
+            <td>Carriage Return</td>
+            <td>Text after \r will print on the next line</td>
+        </tr>
+        <tr>
+            <td>\t</td>
+            <td>Tab</td>
+            <td>Insert 4 spaces</td>
+        </tr>
+        <tr>
+            <td>\b</td>
+            <td>Backspace</td>
+            <td>Delete a character</td>
+        </tr>
+        <tr>
+            <td>\f</td>
+            <td>Form Feed</td>
+            <td>Form Feed</td>
+        </tr>
+    </table></div>
+    <h3>Adding Numbers and Strings</h3>
+    <p>If you add a number and a string, the result will be a string concatenation.</p>
+    <div class="code" id="string8"><button class="copy" onclick="copyText('string8')">Copy</button><br><p>
+        String x = "10";<br>
+        int y = 20;<br>
+        String z = x + y; <mark>// z will be 1020 (a String)</mark>
+    </p>
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>

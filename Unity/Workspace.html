@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unity Workspace</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Unity Workspace</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Unity Workspace</button>
+<div class="content">
+    <button class="collapsible">Unity Editor Interface</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2>Unity Editor Interface</h2>
+        <div class="center"><img src="../images/UnityImages/UnityEditorInterface.jpg" alt="Unity Workspace Image"></div>
+        <h2>Project Window</h2>
+        <p>The Project window lists all the files and directories in your current Project. These files include all the images, sounds, 3D models and other items used in your Project. They are collectively known as Assets.</p>
+        <div class="center"><img src="../images/UnityImages/ProjectWindow.jpg" alt="Project Window Image"></div>
+        <h2>Console Window</h2>
+        <p>The Console window shows you the warnings and errors that your game is producing, and can give you useful information for fixing those errors. By default, the Console window tab is next to the Project window tab. You can move it by dragging and dropping the Console tab to dock the window next to the Project window.</p>
+        <div class="center"><img src="../images/UnityImages/ConsoleWindow.jpg" alt="Console Window Image"></div>
+        <h2>Hierarchy Window</h2>
+        <p>In Unity, games are made up of Scenes (Levels). Within every Scene, you have a list of objects that have a place within that Scene (The characters &amp; environment objects). These objects are called GameObjects in Unity.</p>
+        <div class="center"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Hierarchy Window Image"></div>
+        <h2>Scene View</h2>
+        <p>The Scene view is a live preview window. It shows your currently loaded Scenes and all the GameObjects in the Hierarchy window. You can use this window to place and move GameObjects in your Scene. Clicking on a GameObject in the Scene view will highlight it in the Hierarchy window.</p>
+        <div class="center"><img src="../images/UnityImages/SceneView.jpg" alt="Scene View Window Image"></div>
+        <h2>Game Window</h2>
+        <p>The Game view is hidden as a tab next to the Scene view by default. While the Scene view allows you to move GameObjects and look around your entire Scene, the Game view shows you what the player will see when they play the game. This is determined by what the camera in your Scene is looking at.</p>
+        <p>Currently there is nothing visible in the Scene, so you can’t see anything in the example image.</p>
+        <div class="center"><img src="../images/UnityImages/GameWindow.jpg" alt="Scene View Window Image"></div>
+        <h2>Inspector Window</h2>
+        <p>When you select a GameObject in another window, the Inspector window will display all of the data relating to that object. Unity uses an Object - Component model, which means that you can add different components to GameObjects to change their features. For example, a Camera component allows the player to have a view into the scene.</p>
+        <p>All GameObjects start with a Transform component that allows you to specify their position and rotation in the Scene. Other components are optional and you can add them as needed.</p>
+        <div class="center"><img src="../images/UnityImages/InspectorWindow.jpg" alt="Inspector Window Image"></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Toolbar and NAvigation UI</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">The Toolbar</h2>
+        <p>The toolbar includes a range of useful tool buttons to help you design and test your game.</p>
+        <img src="../images/UnityImages/Toolbar.jpg" alt="Toolbar Image" style="width: 100%; border: 2px solid #555;"><br><br>
+        <div style="width: 100%; overflow-x: scroll;"><img src="../images/UnityImages/Toolbar.jpg" alt="Toolbar Image" style="height: 40px;"></div><br>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Play buttons</h2>
+        <div class="center"><img src="../images/UnityImages/PlayButtons.jpg" alt="Play Buttons Image" style="max-height: 40px;"></div>
+        <h3>Play</h3>
+        <p>Play is used to test the Scene which is currently loaded in the Hierarchy window, and enables you to try out your game live in the Editor.</p>
+        <h3>Pause</h3>
+        <p>Pause allows you to pause the game playing in the Game window. This helps you spot visual problems or gameplay issues that you wouldn't otherwise see.</p>
+        <h3>Step</h3>
+        <p>Step is used to walk through the paused scene frame by frame. This works well when you're looking for live changes in the game world that it would be helpful to see in real time.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Manipulating Objects</h2>
+        <p>These tools move and manipulate the GameObjects in the Scene window. You can click on the buttons to activate them, or use a shortcut key.</p>
+        <div class="center"><img src="../images/UnityImages/ManipulatingObjects.jpg" alt="Manipulating Objects Image" style="max-height: 40px;"></div>
+        <h2 style="float: left;">Hand Tool</h2>
+        <img src="../images/UnityImages/HandTool.jpg" alt="Hand Tool Image" style="max-height: 20px; position: relative; top: 22px; padding-left: 10px;">
+        <div style="clear: both; margin-bottom: -10px;"></div>
+        <p>You can use this tool to move your Scene around in the window. You can also use middle click with the mouse to access the tool.</p>
+        <h2 style="float: left;">Move Tool</h2>
+        <img src="../images/UnityImages/MoveTool.jpg" alt="Move Tool Image" style="max-height: 20px; position: relative; top: 22px; padding-left: 10px;">
+        <div style="clear: both; margin-bottom: -10px;"></div>
+        <p>This tool enables you to select items and move them individually.</p>
+        <h2 style="float: left;">Rotate Tool</h2>
+        <img src="../images/UnityImages/RotateTool.jpg" alt="Rotate Tool Image" style="max-height: 20px; position: relative; top: 22px; padding-left: 10px;">
+        <div style="clear: both; margin-bottom: -10px;"></div>
+        <p>Select items and rotate them with this tool.</p>
+        <h2 style="float: left;">Scale Tool</h2>
+        <img src="../images/UnityImages/ScaleTool.jpg" alt="Scale Tool Image" style="max-height: 20px; position: relative; top: 22px; padding-left: 10px;">
+        <div style="clear: both; margin-bottom: -10px;"></div>
+        <p>This tool is used to scale your GameObjects up and down.</p>
+        <h2 style="float: left;">Rect Transform Tool</h2>
+        <img src="../images/UnityImages/RectTransformTool.jpg" alt="Rect Transform Tool Image" style="max-height: 20px; position: relative; top: 22px; padding-left: 10px;">
+        <div style="clear: both; margin-bottom: -10px;"></div>
+        <p>This tool combines moving, scaling and rotation into a single tool that's specialized for 2D and UI.</p>
+        <h2 style="float: left;">Rotate, Move or Scale</h2>
+        <img src="../images/UnityImages/RotateMoveScale.jpg" alt="Rotate, Move or Scale Tool Image" style="max-height: 20px; position: relative; top: 22px; padding-left: 10px;">
+        <div style="clear: both; margin-bottom: -10px;"></div>
+        <p>This tool also enables you to move, rotate, or scale GameObjects, but is more specialized for 3D.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Shortcuts</h2>
+        <div class="columns">
+            <div class="shortcutIcon">
+            <img src="../images/UnityImages/HandTool.jpg" alt="Hand Tool Image"><p>Shortcut Q</p><br>
+            <img src="../images/UnityImages/MoveTool.jpg" alt="Move Tool Image"><p>Shortcut W</p><br>
+            <img src="../images/UnityImages/RotateTool.jpg" alt="Rotate Tool Image"><p>Shortcut E</p><br>
+            </div>
+            <div class="shortcutIcon">
+            <img src="../images/UnityImages/ScaleTool.jpg" alt="Scale Tool Image"><p>Shortcut R</p><br>
+            <img src="../images/UnityImages/RectTransformTool.jpg" alt="Rect Transform Tool Image"><p>Shortcut T</p><br>
+            <img src="../images/UnityImages/RotateMoveScale.jpg" alt="Rotate, Move or Scale Tool Image"><p>Shortcut Y</p><br>
+            </div>
+        </div>
+        <h2>Shortcut F</h2><p>Enables you to focus on a selected object. If you forget where a GameObject is in you Scene, just select it in the Hierarchy, move your cursor over to the Scene window, and press F to center it in the Scene window.</p>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+body {
+    background-color: #777777;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 2px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.containButtons {
+    padding: 18px;
+}
+
+.collapsible {
+    background-color: #777777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: 2px solid black;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555555;
+}
+
+.content0 {
+    display: none;
+    overflow: hidden;
+}
+
+.content0 .collapsible{
+    background-color: #dddddd;
+    color: black;
+    padding-left: 30px;
+}
+
+.content {
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 18px;
+}
+
+.code {
+    padding: 18px;
+    border-radius: 20px;
+    background-color: #dddddd;
+    margin: 20px;
+    width: 90%;
+    font-family: Arial, sans-serif;
+    /*resize: horizontal;*/
+    overflow-x: scroll;
+}
+
+.copy {
+    float: right;
+    user-select: none;
+    background-color: #dddddd;
+    color: #777777;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.redirect {
+    background-color: #777777;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    align: center;
+    text-decoration: none;
+    border: 2px solid black;
+    font-size: 16px;
+    margin: 4px 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.redirect:hover {
+    background-color: #555555;
+}
+
+.copy:hover {
+    background-color: #777777;
+    color: white;
+}
+
+.code p {
+    width: 1000px;
+}
+
+mark {
+    background-color: #dddddd;
+    color: green;
+}
+
+.mainMethod {
+    border-top: 1px solid black;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #777777;
+    color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #555555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #303030;
+}
+
+.scrollableTable {
+    overflow-x: auto;
+}
+
+.flip3D {
+    width: 49%;
+    height: 200px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.front {
+    position: absolute;
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    background-color: #dddddd;
+    width: 48%;
+    height: 200px;
+    border: 2px solid #f1f1f1;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+    transition:  -webkit-transform .5s linear 0s;
+}
+
+.back {
+    position: absolute;
+    transform: perspective(600px) rotateY(180deg);
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    background-color: #dddddd;
+    width: 48%;
+    height: 200px;
+    border: 2px solid #f1f1f1;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+    transition:  -webkit-transform .5s linear 0s;
+}
+
+.front p {
+    padding: 5px;
+    height: 77%;
+    color: black;
+}
+
+.back p {
+    padding: 5px;
+    height: 77%;
+    color: black;
+}
+
+.center {
+    margin: auto;
+    max-width: 700px;
+}
+
+.center img {
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+}
+
+.columns {
+    width: 100%;
+}
+
+.columns div {
+    width: 49%;
+    float: left;
+}
+
+.shortcutIcon img {
+    float: left;
+    max-height: 40px;
+    position: relative;
+    top: 2px;
+    padding-right: 10px;
+    z-index: inherit;
+}

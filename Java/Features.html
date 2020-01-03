@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/OOP.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Features of Java</h1>
+<!--<div class="flip3D" style="float: left;">
+    <div class="back" id="Q1Back" onclick="hideAnswer('Q1Front', 'Q1Back')"><p>Java is the high-level, object-oriented, robust, secure programming language, platform-independent, high performance, Multithreaded, and portable programming language.</p></div>
+    <div class="front" id="Q1Front" onclick="showAnswer('Q1Front', 'Q1Back')"><p>What is Java?</p></div>
+</div>
+<div class="flip3D" style="float: right;">
+    <div class="back" id="Q2Back" onclick="hideAnswer('Q2Front', 'Q2Back')"><p>Classloader is a subsystem of JVM which is used to load class files. Whenever we run the java program, it is loaded first by the classloader. There are three built-in classloaders in Java: Bootstrap, Extension, System/Application.</p></div>
+    <div class="front" id="Q2Front" onclick="showAnswer('Q2Front', 'Q2Back')"><p>What is classloader?</p></div>
+</div>
+&nbsp;-->
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Features of Java</button>
+<div class="content">
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Feature</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Object Oriented</td>
+            <td>Java can be easily extended since it is based on the Object model</td>
+        </tr>
+        <tr>
+            <td>Platform Independent</td>
+            <td>Java is compiled into platform independent byte code, which is interpreted by the JVM</td>
+        </tr>
+        <tr>
+            <td>Simple</td>
+            <td>Java is designed to be easy to learn</td>
+        </tr>
+        <tr>
+            <td>Secure</td>
+            <td>With Java's secure feature it enables to develop virus-free, tamper-free systems. Authentication techniques are based on public-key encryption</td>
+        </tr>
+        <tr>
+            <td>Architecture-neutral</td>
+            <td>Java compiler generates an architecture-neutral object file format known as byte code, so the users installed JVM will execute the code</td>
+        </tr>
+        <tr>
+            <td>Portable</td>
+            <td>Being architecture-neutral and having no implementation dependent aspects of the specification makes Java portable</td>
+        </tr>
+        <tr>
+            <td>Robust</td>
+            <td>Java makes an effort to eliminate error-prone situations by emphasizing mainly on compile time error checking and runtime checking</td>
+        </tr>
+        <tr>
+            <td>Multithreaded</td>
+            <td>With Java's multithreaded feature it is possible to write programs that can perform many tasks simultaneously. This design feature allows the developers to construct interactive applications that can run smoothly</td>
+        </tr>
+        <tr>
+            <td>Interpreted</td>
+            <td>Java byte code is translated on the fly to native machine instructions and is not stored anywhere. The development process is more rapid and analytical since the linking is an incremental and light-weight process</td>
+        </tr>
+        <tr>
+            <td>High Performance</td>
+            <td>With the use of Just-In-Time compilers, Java enables high performance</td>
+        </tr>
+        <tr>
+            <td>Distributed</td>
+            <td>Java is designed for the distributed environment of the internet</td>
+        </tr>
+        <tr>
+            <td>Dynamic</td>
+            <td>Java is considered to be more dynamic than C or C++ since it is designed to adapt to an evolving environment. Java programs can carry an extensive amount of run-time information that can be used to verify and resolve accesses to objects at run-time</td>
+        </tr>
+    </table></div>
+    &nbsp;
+    <button class="collapsible">JRE, JDK and JVM</button>
+    <div class="content">
+        <h2>Running your Java Program</h2>
+        <p>Source Code is given to the compiler which Generates Byte code (.class files) which are given to the JVM (interprets the byte code) and the program executes.</p>
+        <p>Anytime you want to run your program you need to have your JRE</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <td>JRE (Java Runtime Environment)</td>
+                <td>Provides the libraries, the JVM, and other components to run applications written in Java. In short the JRE enables Java bytecode to run on any platform.</td>
+            </tr>
+            <tr>
+                <td>JDK (Java Development Kit)</td>
+                <td>Contains everything that is in the JRE as well as the Compilers and Debuggers necessary for developing Java Applications. In short the JRE is used to develop Java applications/programs.</td>
+            </tr>
+            <tr>
+                <td>JVM (Java Virtual Machine)</td>
+                <td>Sits in between the compiler and the CPU and interprets the bytecode into readable machine language for the CPU. In short the JVM Interpret the byte codes and performs the execution on it.</td>
+            </tr>
+        </table></div>
+        <p>Byte Code: When we compile the Java program it generates byte code (.class files), which can be interpreted by the JVM.</p>
+        <h3>JVM</h3>
+        <ul>
+            <li>The Java Virtual Machine is an abstract layer between a Java program and the platform that Java program is running on.</li>
+            <li>JVM is platform dependent and available for specific platforms (Operating Systems).</li>
+            <li>JVM cannot understand Java (source code). It can only understand the bytecode (.class file) we get from compiling our .java source file.</li>
+            <li>The compiled bytecode doesn't run on CPU directly, JVM sits in between and interprets the bytecode into readable machine language for the CPU.</li>
+        </ul>
+        <h3>JRE</h3>
+        <ul>
+            <li>Provides the libraries, the JVM, and other components to run applications written in Java.</li>
+            <li>Enables Java bytecode to run on any platform.</li>
+            <li>JRE enables Java bytecode to run on any platform. Bytecodes are interpreted by the JVM, at runtime classes found in the JRE when they need to perform actions, they cannot do by themselves.</li>
+            <li>Platform Dependent</li>
+        </ul>
+        <h3>JDK</h3>
+        <ul>
+            <li>A superset of the JRE, containing everything that is in the JRE, it also includes development tools such as the compilers and debuggers necessary for developing java applications.</li>
+            <li>Platform Dependent</li>
+        </ul>
+        <h2>Programming Paradigms</h2>
+        <ol>
+            <li>Process-Oriented Model: A program is a series of linear steps (that is, code).</li>
+            <ul>
+                <li>Characterized as code acting on data.</li>
+                <li>Includes Procedural Languages such as C.</li>
+                <li>To manage increasing complexity, the second approach was conceived</li>
+            </ul>
+            <li>Object-Oriented Programming: Organizes a program around its data (that is, objects) and a set of well-defined interfaces to that data.</li>
+            <ul>
+                <li>Characterized as data controlling access to code.</li>
+                <li>By switching the controlling entity to data, you can achieve several organizational benefits.</li>
+                <li>OOP is a programming language model in which programs are organized around data, or objects, rather than functions and logic.</li>
+                <li>OOP helps us reduce complexity, promote code reuse, and prevent code redundancies.</li>
+            </ul>
+        </ol>
+        <h2>The Java Programming Language Platforms</h2>
+        <ul>
+            <li>Java Platform, Standard Edition (Java SE)</li>
+            <li>Java Platform, Enterprise Edition (Java EE)</li>
+            <li>Java Platform, Micro Edition (Java ME)</li>
+            <li>JavaFX</li>
+        </ul>
+        <p>All of the above platforms consist of a Java Virtual Machine (JVM) and an application programming interface (API).</p>
+        <p>The Java Virtual Machine is a program, for a particular hardware and software platform, that runs Java technology applications.</p>
+        <p>An API is a collection of interfaces components that you can use to create other software components or applications.</p>
+        <h3>Java SE (Java Standard Edition)</h3>
+        <p>This is the core Java programming platform. It contains all of the libraries and APIs that any Java programmer should learn (java.lang, java.io, java.math, java.net, java.util, etc…).When most people think of the Java programming language, they think of the Java SE API. Java SE’s API provides the core functionality of the Java programming language. It defines everything from the basic types and objects of the Java programming language to high-level classes that are used for networking, security, database access, graphical user interface (GUI) development, and XML parsing.</p>
+        <p>In addition to the core API, the Java SE platform consists of a virtual machine, development tools, deployment technologies, and other class libraries and toolkits commonly used in Java technology applications.</p>
+        <h3>Java EE (Java Enterprise Edition)</h3>
+        <p>The Java EE platform is built on top of the Java SE platform. The Java EE platform provides an API and runtime environment for developing and running large-scale, multi-tiered, scalable, reliable, and secure network applications.</p>
+        <h3>Java ME (Java Micro Edition)</h3>
+        <p>The Java ME platform provides an API and a small-footprint virtual machine for running Java programming language applications on small devices, like mobile phones. The API is a subset of the Java SE API, along with special class libraries useful for small device application development. Java ME applications are often clients of Java EE platform services.</p>
+        <h3>JavaFX</h3>
+        <p>JavaFX is a platform for creating rich internet applications using a lightweight user-interface API. JavaFX applications use hardware-accelerated graphics and media engines to take advantage of higher-performance clients and a modern look-and-feel as well as high-level APIs for connecting to networked data sources. JavaFX applications may be clients of Java EE platform services.</p>
+        <p style="font-weight: bold;">Packages: Essentially a grouping of classes.</p>
+        <ul>
+            <li>Used to segregate the code for easy import and export.</li>
+        </ul>
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>

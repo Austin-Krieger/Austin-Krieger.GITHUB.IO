@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/Methods.html">Previous</a>
+    <a href="../Java/Keywords.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Constructors</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Constructors</button>
+<div class="content">
+    <h2>Constructors</h2>
+    <p>In Java, constructor refers to a block of code which is used to initialize an object. It must have the same name as that of the class. Also, it has no return type and it is automatically called when an object is created.</p>
+    <p>There are two types of constructors:</p>
+    <ol>
+        <li><b>Default Constructor:</b> In Java, a default constructor is the one which does not take any inputs. In other words, default constructors are the no argument constructors which will be created by default in case you no other constructor is defined by the user. Its main purpose is to initialize the instance variables with the default values. Also, it is majorly used for object creation.</li>
+        <li><b>Parameterized Constructor:</b> The parameterized constructor in Java, is the constructor which is capable of initializing the instance variables with the provided values. In other words, the constructors which take the arguments are called parameterized constructors.</li>
+    </ol>
+    <h3>What is constructor overloading in Java?</h3>
+    <p>In Java, constructor overloading is a technique of adding any number of constructors to a class each having a different parameter list. The compiler uses the number of parameters and their types in the list to differentiate the overloaded constructors.</p>
+    <div class="code" id="constructor1"><button class="copy" onclick="copyText('constructor1')">Copy</button><br><p>
+        <mark>// Create a class</mark><br>
+        public class MyClass {<br>
+        &emsp;int x; <mark>// Create a class attribute</mark><br><br>
+        &emsp;<mark>// Create a class constructor for MyClass</mark><br>
+        &emsp;public MyClass() {<br>
+        &emsp;&emsp;x = 5; <mark>// Set the initial value for the class attribute x</mark><br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Parameterized Constructor</mark><br>
+        &emsp;public MyClass(int y) {<br>
+        &emsp;&emsp;x = y;<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will call the constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj1 = new MyClass();<br><br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will call the parameterized constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj2 = new MyClass(5);<br><br>
+        &emsp;&emsp;<mark>// Print the value of x</mark><br>
+        &emsp;&emsp;System.out.println(myObj1.x);<br>
+        &emsp;&emsp;System.out.println(myObj2.x);<br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="constructor2"><button class="copy" onclick="copyText('constructor2')">Copy</button><br><p>
+        5<br>
+        5
+    </p>
+    </div>
+    <h3>Private Constructors</h3>
+    <p>If a constructor is made private, then it can only be accessed inside the class.</p>
+    <p>There are various scenarios where we can use private constructors. The major ones are</p>
+    <ol>
+        <li>Internal Constructor chaining</li>
+        <li>Singleton class design pattern</li>
+    </ol>
+    <h3>Copy Constructor</h3>
+    <p>Copy Constructor in java class is a special type of constructor that takes the same class as an argument. Copy constructor is used to provide a copy of the specified object.</p>
+    <p>Copy constructor is an easy alternative to java cloning mechanism.</p>
+    <p>Copy constructor is helpful when we want to copy an object that is heavy to instantiate.</p>
+    <div class="code" id="constructor3"><button class="copy" onclick="copyText('constructor3')">Copy</button><br><p>
+        <mark>// Create a class</mark><br>
+        public class MyClass {<br>
+        &emsp;int x; <mark>// Create a class attribute</mark><br><br>
+        &emsp;<mark>// Create a class constructor for MyClass</mark><br>
+        &emsp;public MyClass() {<br>
+        &emsp;&emsp;x = 5; <mark>// Set the initial value for the class attribute x</mark><br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Parameterized Constructor</mark><br>
+        &emsp;public MyClass(int y) {<br>
+        &emsp;&emsp;x = y;<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// Copy Constructor</mark><br>
+        &emsp;public MyClass(MyClass m) {<br>
+        &emsp;&emsp;x = m.x<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will call the constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj1 = new MyClass();<br><br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will call the parameterized constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj2 = new MyClass(5);<br><br>
+        &emsp;&emsp;<mark>// Create an object of class MyClass (This will use the copy constructor)</mark><br>
+        &emsp;&emsp;MyClass myObj3 = new MyClass(myObj2);<br><br>
+        &emsp;&emsp;<mark>// Print the value of x</mark><br>
+        &emsp;&emsp;System.out.println(myObj1.x);<br>
+        &emsp;&emsp;System.out.println(myObj2.x);<br>
+        &emsp;&emsp;System.out.println(myObj3.x);<br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="constructor4"><button class="copy" onclick="copyText('constructor4')">Copy</button><br><p>
+        5<br>
+        5<br>
+        5
+    </p>
+    </div>
+    <h3>Constructor Chaining</h3>
+    <p>Constructor chaining can be done in two ways:</p>
+    <ul>
+        <li>Within same class: It can be done using this() keyword for constructors in same class</li>
+        <li>From base class: by using super() keyword to call constructor from the base class.</li>
+    </ul>
+    <p>Rules of constructor chaining:</p>
+    <ol>
+        <li>The this() expression should always be the first line of the constructor.</li>
+        <li>There should be at-least be one constructor without the this() keyword (constructor 3 in above example).</li>
+        <li>Constructor chaining can be achieved in any order.</li>
+    </ol>
+    <h3>Constructor Chaining using this() Keyword</h3>
+    <div class="code" id="constructor5"><button class="copy" onclick="copyText('constructor5')">Copy</button><br><p>
+        class Temp {<br>
+        &emsp;<mark>// default constructor 1</mark><br>
+        &emsp;<mark>// default constructor will call another constructor</mark><br>
+        &emsp;<mark>// using this keyword from same class</mark><br><br>
+        &emsp;Temp() {<br>
+        &emsp;&emsp;<mark>// calls constructor 2</mark><br>
+        &emsp;&emsp;this(5);<br>
+        &emsp;&emsp;System.out.println("The Default constructor");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// parameterized constructor 2</mark><br>
+        &emsp;Temp(int x) {<br>
+        &emsp;&emsp;<mark>// calls constructor 3</mark><br>
+        &emsp;&emsp;this(5, 15);<br>
+        &emsp;&emsp;System.out.println(x);<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// parameterized constructor 3</mark><br>
+        &emsp;Temp(int x, int y) {<br>
+        &emsp;&emsp;System.out.println(x * y);<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String args[]) {<br>
+        &emsp;&emsp;<mark>// invokes default constructor first</mark><br>
+        &emsp;&emsp;new Temp();<br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="constructor6"><button class="copy" onclick="copyText('constructor6')">Copy</button><br><p>
+        default<br>
+        5<br>
+        80
+    </p>
+    </div>
+    <h3>Constructor Chaining using super() keyword</h3>
+    <div class="code" id="constructor7"><button class="copy" onclick="copyText('constructor7')">Copy</button><br><p>
+        class Base {<br>
+        &emsp;String name;<br><br>
+        &emsp;<mark>// constructor 1</mark><br>
+        &emsp;Base() {<br>
+        &emsp;&emsp;this("");<br>
+        &emsp;&emsp;System.out.println("No-argument constructor of" + " base class");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// constructor 2</mark><br>
+        &emsp;Base(String name) {<br>
+        &emsp;&emsp;this.name = name;<br>
+        &emsp;&emsp;System.out.println("Calling parameterized constructor" + " of base");<br>
+        &emsp;}<br>
+        }<br><br>
+        class Derived extends Base {<br>
+        &emsp;<mark>// constructor 3</mark><br>
+        &emsp;Derived() {<br>
+        &emsp;&emsp;System.out.println("No-argument constructor " + "of derived");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// parameterized constructor 4</mark><br>
+        &emsp;Derived(String name) {<br>
+        &emsp;&emsp;<mark>// invokes base class constructor 2</mark><br>
+        &emsp;&emsp;super(name);<br>
+        &emsp;&emsp;System.out.println("Calling parameterized " + "constructor of derived");<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String args[]) {<br>
+        &emsp;&emsp;<mark>// calls parameterized constructor 4</mark><br>
+        &emsp;&emsp;Derived obj = new Derived("test");<br><br>
+        &emsp;&emsp;<mark>// Calls No-argument constructor</mark><br>
+        &emsp;&emsp;<mark>// Derived obj = new Derived();</mark><br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="constructor8"><button class="copy" onclick="copyText('constructor8')">Copy</button><br><p>
+        Calling parameterized constructor of base<br>
+        Calling parameterized constructor of derived
+    </p>
+    </div>
+    <h3>Init Block</h3>
+    <p>When we want certain common resources to be executed with every constructor we can put the code in the init block. Init block is always executed before any constructor, whenever a constructor is used for creating a new object.</p>
+    <div class="code" id="constructor9"><button class="copy" onclick="copyText('constructor9')">Copy</button><br><p>
+        class Temp {<br>
+        &emsp;<mark>// block to be executed before any constructor.</mark><br>
+        &emsp;{<br>
+        &emsp;&emsp;System.out.println("init block");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// no-arg constructor</mark><br>
+        &emsp;Temp() {<br>
+        &emsp;&emsp;System.out.println("default");<br>
+        &emsp;}<br><br>
+        &emsp;<mark>// constructor with one argument.</mark><br>
+        &emsp;Temp(int x) {<br>
+        &emsp;&emsp;System.out.println(x);<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String args[]) {<br>
+        &emsp;&emsp;<mark>// Object creation by calling no-argument constructor.</mark><br>
+        &emsp;&emsp;new Temp();<br><br>
+        &emsp;&emsp;<mark>// Object creation by calling parameterized constructor with one parameter.</mark><br>
+        &emsp;&emsp;new Temp(10);<br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="constructor10"><button class="copy" onclick="copyText('constructor10')">Copy</button><br><p>
+        init block<br>
+        default<br>
+        init block<br>
+        10
+    </p>
+    </div>
+    <h3>Why Constructors are not inherited in Java</h3>
+    <p>Constructors are special and have same name as class name. So if constructors were inherited in child class then child class would contain a parent class constructor which is against the constraint that constructor should have same name as class name.</p>
+    <div class="code" id="constructor11"><button class="copy" onclick="copyText('constructor11')">Copy</button><br><p>
+        class Parent {<br>
+        &emsp;public Parent() {<br>
+        &emsp;}<br><br>
+        &emsp;public void print() {<br>
+        &emsp;}<br>
+        }<br><br>
+        public class Child extends Parent {<br>
+        &emsp;public Parent() {<br>
+        &emsp;}<br><br>
+        &emsp;public void print() {<br>
+        &emsp;}<br><br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;Child c1 = new Child(); <mark>// allowed</mark><br>
+        &emsp;&emsp;Child c2 = new Parent(); <mark>// not allowed</mark><br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <h3>Inheritance and Constructors</h3>
+    <p>In Java, constructor of base class with no argument gets automatically called in derived class constructor.</p>
+    <p>But, if we want to call parameterized contructor of base class, then we can call it using super(). The point to note is base class constructor call must be the first line in derived class constructor.</p>
+    <div class="code" id="constructor12"><button class="copy" onclick="copyText('constructor12')">Copy</button><br><p>
+        class Base {<br>
+        &emsp;int x;<br><br>
+        &emsp;Base(int x) {<br>
+        &emsp;&emsp;this.x = x;<br>
+        &emsp;}<br>
+        }<br><br>
+        class Derived extends Base {<br>
+        &emsp;int y;<br><br>
+        &emsp;Derived(int x, int y) {<br>
+        &emsp;&emsp;super(x);<br>
+        &emsp;&emsp;this.y = y;<br>
+        &emsp;}<br><br>
+        &emsp;void Display() {<br>
+        &emsp;&emsp;System.out.println("x = " + x + ", y = " + y);<br>
+        &emsp;}<br>
+        }<br><br>
+        public class Main {<br>
+        &emsp;public static void main(String[] args) {<br>
+        &emsp;&emsp;Derived d = new Derived(10, 20);<br>
+        &emsp;&emsp;d.Display();<br>
+        &emsp;}<br>
+        }
+    </p>
+    </div>
+    <p>Output:</p>
+    <div class="code" id="constructor13"><button class="copy" onclick="copyText('constructor13')">Copy</button><br><p>
+        x = 10, y = 20
+    </p>
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>

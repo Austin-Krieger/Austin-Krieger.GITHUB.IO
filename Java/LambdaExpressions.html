@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/Generics.html">Previous</a>
+    <a href="../Java/Servlets.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Lambda Expressions</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Lambda Expressions</button>
+<div class="content">
+    <h2>Lambda Expressions</h2>
+    <p>Added in JDK 8, Lambda Expressions significantly enhanced Java because of two primary reasons.</p>
+    <ol>
+        <li>They add new syntax elements that increase the expressive power of the language. In the process, they streamline the way that certain common constructs are implemented.</li>
+        <li>The addition of lambda expressions resulted in new capabilities being incorporated into the API library.</li>
+    </ol>
+    <h3>Introducing Lambda Expressions</h3>
+    <p>The key to understanding Java’s implementation of lambda expressions are two constructs.</p>
+    <ol>
+        <li>The first is the lambda expression itself.</li>
+        <li>The second is the functional interface.</li>
+    </ol>
+    <p>A lambda expression is, essentially, an anonymous (that is, unnamed) method. However, this method is not executed on its own. Instead, it is used to implement a method defined by a functional interface. Thus, a lambda expression results in a form of anonymous class.</p>
+    <p>Lambda expressions are also commonly referred to as closures.</p>
+    <h3>Functional Interface</h3>
+    <p>A functional interface is an interface that contains one and only one abstract method.</p>
+    <p>Normally, this method specifies the intended purpose of the interface. Thus, a functional interface typically represents a single action.</p>
+    <p>For example, the standard interface Runnable is a functional interface because it defines only one method: run().</p>
+    <h3>Lambda Expression Fundamentals</h3>
+    <p>"->" is known as the lambda operator or the arrow operator. This operator can be verbalized as "becomes" or "goes to".</p>
+    <p>It divides a lambda expression into two parts.</p>
+    <ul>
+        <li>The left side specifies any parameters required by the lambda expression. (If no parameters are needed, an empty parameter list is used.)</li>
+        <li>The right side is the lambda body, which specifies the actions of the lambda expression.</li>
+    </ul>
+    <button class="collapsible">Single Expression Lambdas</button>
+    <div class="content">
+        <h3>Lambdas that define a single expression</h3>
+        <div class="code" id="lambdas1"><button class="copy" onclick="copyText('lambdas1')">Copy</button><br><p>
+            <mark>// This lambda expression takes no parameter, thus the parameter list is empty.</mark><br>
+            () -> 123.45 <mark>// Returns the constant value 123.45</mark><br>
+            (n) -> (n % 2) == 0 <mark>// Returns true if the value of parameter n is even.</mark>
+        </p>
+        </div>
+        <p>The body of the lambdas shown in the preceding examples consist of a single expression. These types of lambda bodies are referred to as expression bodies or expression lambdas. In an expression body, the code on the right side of the lambda operator must consist of a single expression.</p>
+        <p>When a lambda expression has only one parameter, it is not necessary to surround the parameter name with parentheses when it is specified on the left side of the lambda operator.</p>
+        <div class="code" id="lambdas2"><button class="copy" onclick="copyText('lambdas2')">Copy</button><br><p>
+            n -> (n % 2) == 0
+        </p>
+        </div>
+        <p>If you need to explicitly declare the type of a parameter, then all of the parameters must have declared types. For example, this is legal:</p>
+        <div class="code" id="lambdas3"><button class="copy" onclick="copyText('lambdas3')">Copy</button><br><p>
+            (int n, int d) -> (n % d) == 0
+        </p>
+        </div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Block Lambda Expressions</button>
+    <div class="content">
+        <h3>Block Lambda Expressions</h3>
+        <p>Lambdas that have block bodies are sometimes referred to as block lambdas.</p>
+        <p>A block lambda is easy to create. Simply enclose the body within braces as you would any other block of statements.</p>
+        <p>One key difference between single and block lambdas, however, is that you must explicitly use a return statement to return a value. This is necessary because a block lambda body does not represent a single expression.</p>
+        <p>When a return statement occurs within a lambda expression, it simply causes a return from the lambda. It does not cause an enclosing method to return.</p>
+        <div class="code" id="lambdas4"><button class="copy" onclick="copyText('lambdas4')">Copy</button><br><p>
+            interface NumericFunc {<br>
+            &emsp;int func(int n);<br>
+            }<br><br>
+        </p>
+            <div class="mainMethod">
+                <br>
+                <mark>// This block lambda computes the factorial of an int value.</mark><br>
+                NumericFunc factorial = (n) -> {<br>
+                &emsp;int result = 1;<br>
+                &emsp;for(int i=1; i <= n; i++)<br>
+                &emsp;&emsp;result = i * result;<br>
+                &emsp;&emsp;return result;<br>
+                };<br><br>
+                System.out.println("The factorial of 3 is " + factorial.func(3));
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Functional Interfaces</button>
+    <div class="content">
+        <h3>Functional Interfaces</h3>
+        <p>A functional interface is an interface that specifies only one abstract method.</p>
+        <p>An interface method is abstract only if it does not specify a default implementation.</p>
+        <p>Using Default Methods however, it is possible to specify the behaviour for a method declared in an interface.</p>
+        <p>Non-default interface methods are implicitly abstract, so there is no need to use the abstract modifier (although you can specify it, if you like).</p>
+        <div class="code" id="lambdas5"><button class="copy" onclick="copyText('lambdas5')">Copy</button><br><p>
+            &emsp;interface MyNumber { <br>
+            &emsp;&emsp;double getValue();<br>
+            &emsp;}
+        </p>
+        </div>
+    </div>
+    <p>A lambda expression forms the implementation of the abstract method defined by the functional interface that specifies its target type.</p>
+    <p>As a result, a lambda expression can be specified only in a context in which a target type is defined.</p>
+    <p>Target type contexts include variable initialization, return statements, and method arguments, to name a few.</p>
+    <div class="code" id="lambdas6"><button class="copy" onclick="copyText('lambdas6')">Copy</button><br><p>
+        <mark>// Create a reference to a MyNumber instance.</mark><br>
+        MyNumber myNum;<br>
+        <mark>// Use a lambda in an assignment context.</mark><br>
+        myNum = () -> 123.45;<br>
+    </p>
+    </div>
+    <p>In general, the type and number of the lambda expression’s parameters must be compatible with the method’s parameters; the return types must be compatible; and any exceptions thrown by the lambda expression must be acceptable to the method.</p>
+    <h3>Generic Functional Interfaces</h3>
+    <p>A lambda expression, itself, cannot specify type parameters. Thus, a lambda expression cannot be generic. However, the functional interface associated with a lambda expression can be generic.</p>
+    <p>Create a Generic Functional Interface:</p>
+    <div class="code" id="lambdas7"><button class="copy" onclick="copyText('lambdas7')">Copy</button><br><p>
+        &emsp;interface GenInt&lt;T&gt; {<br>
+        &emsp;&emsp;T meth(T t);<br>
+        &emsp;}
+    </p>
+    </div>
+    <p>Using your Generic Functional Interface:</p>
+    <div class="code" id="lambdas8"><button class="copy" onclick="copyText('lambdas8')">Copy</button><br><p>
+        GenInt&lt;Integer&gt; numGenInt = (i) -> {<br>
+        &emsp;return i;<br>
+        };<br><br>
+        System.out.println("Number = " + numGenInt.meth(1234));
+    </p>
+    </div>
+    <h3>Passing Lambda Expressions as Arguments:</h3>
+    <p>To pass a lambda expression as an argument, the type of the parameter receiving the lambda expression argument must be of a functional interface type compatible with the lambda.</p>
+    <h3>Lambda Expressions and Exceptions</h3>
+    <p>A lambda expression can throw an exception. However, if it throws a checked exception, then that exception must be compatible with the exception(s) listed in the throws clause of the abstract method in the functional interface.</p>
+    <h3>Lambda Expressions and Variable Capture</h3>
+    <p>Variables defined by the enclosing scope of a lambda expression are accessible within the lambda expression.</p>
+    <p>Thus, a lambda expression can obtain or set the value of an instance or static variable and call a method defined by its enclosing class.</p>
+    <p>When a lambda expression uses a local variable from its enclosing scope, a special situation is created that is referred to as a variable capture.</p>
+    <p>A lambda expression may only use local variables that are effectively final. An effectively final variable is one whose value does not change after it is first assigned.</p>
+    <p>It is important to understand that a local variable of the enclosing scope cannot be modified by the lambda expression. Doing so would remove its effectively final status, thus rendering it illegal for capture.</p>
+    <p>It is important to emphasize that a lambda expression can use and modify an instance variable from its invoking class. It just can’t use a local variable of its enclosing scope unless that variable is effectively final.</p>
+    <div class="code" id="lambdas9"><button class="copy" onclick="copyText('lambdas9')">Copy</button><br><p>
+        interface MyFunc {<br>
+        &emsp;int func(int n);<br>
+        }<br><br>
+    </p>
+        <div class="mainMethod">
+            <br>
+            <mark>// A final local variable that can be captured.</mark><br>
+            final int num = 10;<br><br>
+            <mark>// Block Lambda Expression</mark><br>
+            MyFunc myLambda = (n) -> {<br>
+            &emsp;int v = num + n; <mark>// This use of num is OK. It does not modify num.</mark><br>
+            &emsp;num++; <mark>// Illegal, this attempts to change the value of num</mark><br>
+            &emsp;return v;<br>
+            }<br><br>
+            num = 9; <mark>// Also Illegal, Removes the effectively final status of the variable</mark><br><br>
+            <mark>// Print the results</mark><br>
+            System.out.println(myLambda.func(num));
+        </div>
+    </div>
+    <h3>Method References</h3>
+    <p>A method reference provides a way to refer to a method without executing it.</p>
+    <p>When evaluated, a method reference also creates an instance of the functional interface.</p>
+    <p>Method References to Static Methods</p>
+    <p>&emsp;ClassName::methodName</p>
+    <p>The "::" is a new separator that has been added to Java by JDK 8.</p>
+    <p>:: can be used for Static Methods, Non-static Methods and Constructors.</p>
+    <p>This method reference can be used anywhere in which it is compatible with its target type.</p>
+    <h3>Method References to Instance Methods</h3>
+    <p>To pass a reference to an instance method on a specific object.</p>
+    <div class="code" id="lambdas10"><button class="copy" onclick="copyText('lambdas10')">Copy</button><br><p>
+        objRef::methodName
+    </p>
+    </div>
+    <p>It is also possible to handle a situation in which you want to specify an instance method that can be used with any object of a given class, not just a specified object. In this case, you will create a method reference as shown here:</p>
+    <div class="code" id="lambdas11"><button class="copy" onclick="copyText('lambdas11')">Copy</button><br><p>
+        ClassName::instanceMethodName
+    </p>
+    </div>
+    <p>Here, the name of the class is used instead of a specific object, even though an instance method is specified. With this form, the first parameter of the functional interface matches the invoking object and the second parameter matches the parameter specified by the method.</p>
+    <h3>Method References with Generics</h3>
+    <p>You can use method references with generic classes and/or generic methods.</p>
+    <h3>Constructor References</h3>
+    <p>Similar to the way that you can create references to methods, you can create references to constructors.</p>
+    <div class="code" id="lambdas12"><button class="copy" onclick="copyText('lambdas12')">Copy</button><br><p>
+        classname::new
+    </p>
+    </div>
+    <p>To create a constructor reference for an array, use this construct:</p>
+    <div class="code" id="lambdas13"><button class="copy" onclick="copyText('lambdas13')">Copy</button><br><p>
+        type[]::new
+    </p>
+    </div>
+    <h3>Predefined Functional Interfaces</h3>
+    <p>java.util.function contains several predefined ones such as the Runnable Interface.</p>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>

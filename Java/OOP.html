@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/Features.html">Previous</a>
+    <a href="../Java/DataTypesVariablesArrays.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Object Oriented Programming Principals</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Object Oriented Programming Principles</button>
+<div class="content">
+    <h2>Object Oriented Programming Principles</h2>
+    <button class="collapsible">Abstraction</button>
+    <div class="content">
+        <p>Abstraction</p>
+        <ul>
+            <li>Data abstraction is the process of hiding certain details and showing only essential information to the user. Abstraction can be achieved with either abstract classes or interfaces.</li>
+            <li>Managing the complexity of a system through the use of hierarchical classifications.</li>
+            <li>On a high level we are hiding the functionality of the underlying systems.</li>
+            <li>From the outside, a car is a single object, once inside, you see that the car consists of several subsystems: steering, brakes, sounds system, and so on.</li>
+            <li>People do not think of a car as a set of thousands of parts, but a well defined object with its own unique behaviour.</li>
+            <li>People can ignore the details of how the engine, and braking systems work and instead utilize the object as a whole.</li>
+        </ul>
+        <p>Example:</p>
+        <ul>
+            <p>Thinking of it as a folder structure on your operating system: Car would be the first folder and inside you would see folders for all of its subsystems inside the Sound System folder their could be folders for the Radio, CD player, and MP3 Systems and so on</p>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible"> Encapsulation </button>
+    <div class="content">
+        <p>Encapsulation</p>
+        <ul>
+            <li>The mechanism that binds together code and the data it manipulates, and keeps both safe from outside interference and misuse.</li>
+            <li>In Java, the basis of encapsulation is the class which defines the structure and behaviour that will be shared by a set of objects.</li>
+            <li>"A class is a logical construct, an object has physical reality"</li>
+        </ul>
+        <p>Example:</p>
+        <ul>
+            <p>A protective wrapper that prevents the code and data from being arbitrarily accessed by other code defined outside the wrapper.</p>
+            <p>The gear-shift lever is a well-defined interface to the transmission in your vehicle, you can't affect the transmission by using the turn signal or windshield wipers.</p>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible"> Inheritance </button>
+    <div class="content">
+        <h3>Inheritance</h3>
+        <ul>
+            <li>The process by which one object acquires the properties of another object.</li>
+            <li>Useful when you are not changing the implementations, but the definitions.</li>
+            <li>The object can inherit its general properties from its parent.</li>
+            <li>A deeply inherited subclass inherits all of the attributes form each of its ancestors in the class hierarchy.</li>
+            <li>Inheritance interacts with encapsulation as well. If a given class encapsulates some attributes, then any subclass will have the same attributes plus any that it adds as part of its specialization.</li>
+        </ul>
+        <h3>Multiple Inheritance</h3>
+        <p>A class can inherit properties of more than one parent class. However, there is a problem associated with this known as the "Diamond Problem".</p>
+        <h3>The Diamond Problem</h3>
+        <p>When more than one parent class has a method of the same name the compiler cannot determine which super classes' method to use; causing a compilation error.</p>
+        <h3>Tight Coupling</h3>
+        <p>Tight Coupling: this is bad because, changing something in class A could change the functionality of class B which is extending it, and returning incorrect values. This is making the system rigged and no longer extensible.</p>
+        <p>Example:</p>
+        <ul>
+            <p>A golden retriever is part of the classification dog, which is in turn a part of the mammal class, which is under the larger class animal.</p>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible"> Polymorphism </button>
+    <div class="content">
+        <p>Polymorphism</p>
+        <ul>
+            <li>A feature that allows one interface to be used for a general class of actions.</li>
+            <li>The specific action is determined by the exact nature of the situation.</li>
+            <li>This helps reduce complexity by allowing the same interface to be used to specify a general class of actions.</li>
+            <li>It is the compiler's job to select the specific action (that is, method) as it applies to each situation.</li>
+        </ul>
+        <p>Example:</p>
+        <ul>
+            <p>A dog's sense of smell is polymorphic:</p>
+            <ul>
+                <p>If the dog smells a cat, it will bark and run after it.</p>
+                <p>If the dog smells food, it will salivate and run to its bowl.</p>
+            </ul>
+        </ul>
+        <h2>Two Types:</h2>
+        <ul>
+            <p>Static/Compile-Time Polymorphism:</p>
+            <ul>
+                <p>Specifying different forms during compile time.</p>
+                <p>Method Overloading</p>
+            </ul>
+            <p>Dynamic/Runtime Polymorphism:</p>
+            <ul>
+                <p>Method Overriding</p>
+            </ul>
+        </ul>
+        <h2>Dynamic Method Dispatch:</h2>
+        <ul>
+            <p>The mechanism by which a call to an overridden method is resolved at runtime rather than compile time.</p>
+            <p>This is how Java implements runtime polymorphism.</p>
+        </ul>
+    </div>
+    <p>Polymorphism, Encapsulation, and Inheritance Working Together:</p>
+    <ul>
+        <li>A well-designed hierarchy of classes is the basis for reusing the code in which you have invested time and effort developing and testing.</li>
+        <li>Encapsulation allows you to migrate your implementations over time without breaking the code that depends on the public interface of your classes.</li>
+        <li>Polymorphism allows you to create clean, sensible, readable, and resilient code.</li>
+    </ul>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>

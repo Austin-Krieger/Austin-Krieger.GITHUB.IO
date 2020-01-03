@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/OOP.html">Previous</a>
+    <a href="../Java/String.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Data Types, Variables &amp; Arrays</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Data Types, Variables and Arrays</button>
+<div class="content">
+    <button class="collapsible" id="autoClickBtn">Data Types</button>
+    <div class="content">
+        <h2>Primitive Types (8): byte, short, int, long, char, float, double, boolean</h2>
+        <p>Not object-oriented, found in most other languages, the reason for their non-object-oriented existence is for efficiency.</p>
+        <p>Java does not support unsigned, positive-only integers.</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <td colspan="2" style="background-color: black; color: white;">Four Integer Types</td>
+            </tr>
+            <tr>
+                <td rowspan="2">byte</td>
+                <td>(8 bit) -128 to 127</td>
+            </tr>
+            <tr>
+                <td>byte b = 127;</td>
+            </tr>
+            <tr>
+                <td rowspan="2">short</td>
+                <td>(16 bit) -32,768 to 32,767</td>
+            </tr>
+            <tr>
+                <td>short s = 32767;</td>
+            </tr>
+            <tr>
+                <td rowspan="2">int</td>
+                <td>(32 bit) -2,147,483,648 to 2,147,483,647</td>
+            </tr>
+            <tr>
+                <td>int i = 2147483647;</td>
+            </tr>
+            <tr>
+                <td rowspan="2">long</td>
+                <td>(64 bit) -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+            </tr>
+            <tr>
+                <td>long l = 9223372036854775807;</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color: black; color: white;">Floating-point Numbers (#'s with fractional precision)</td>
+            </tr>
+            <tr>
+                <td rowspan="2">float</td>
+                <td>(32 bit) 1.4e to 3.4e+038</td>
+            </tr>
+            <tr>
+                <td>float f = 1.1754890;</td>
+            </tr>
+            <tr>
+                <td rowspan="2">double</td>
+                <td>(64 bit) 4.9e-324 to 1.8e+308</td>
+            </tr>
+            <tr>
+                <td>double d = 2.2738490948485;</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color: black; color: white;">Characters (Represent symbols in a character set)</td>
+            </tr>
+            <tr>
+                <td rowspan="2">char</td>
+                <td>(16 bits rather than the usual 8-bits in other languages) 0 to 65,536</td>
+            </tr>
+            <tr>
+                <td>char c = 'a';</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color: black; color: white;">Boolean (Special type for representing True/False)</td>
+            </tr>
+            <tr>
+                <td rowspan="2">boolean</td>
+                <td>True / False</td>
+            </tr>
+            <tr>
+                <td>boolean t = true;</td>
+            </tr>
+        </table></div>
+        <h3>Wrapper Class</h3>
+        <p>The primitive data types (integers, floats, doubles, ...) are not objects, so their corresponding object versions are called wrapper classes.</p>
+        <h3>Wrapper Type</h3>
+        <p>The object version of the primitive data types for example "Double" is the object version of double.</p>
+        <h2>Literals</h2>
+        <h3>Integer Literals</h3>
+        <p>Any whole number value is an integer literal.</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <td>base 10 numbers</td>
+                <td>(decimal)</td>
+            </tr>
+            <tr>
+                <td>base 8 numbers</td>
+                <td>(octal) denoted by a leading zero, Range: 0-7</td>
+            </tr>
+            <tr>
+                <td>base 16 numbers</td>
+                <td>(hexadecimal) signified by a leading 0x or 0X</td>
+            </tr>
+        </table></div>
+        <p>Assigning an integer literal to one of java's other integer types is easy as long as the literal value is within the range of the target type.</p>
+        <p>You can assign an integer literal to a long variable by explicitly telling the compiler that the literal value is of type long.</p>
+        <h3>Floating-Point Literals</h3>
+        <p>Represent decimal values with a fractional component and can be expressed in standard or scientific notation.</p>
+        <p>To specify a float literal you must append an F or f to the constant.</p>
+        <p>To Explicity specify a double literal you must append a D or d to the constant, but doing so is redundant.</p>
+        <h3>Boolean Literals</h3>
+        <p>Boolean Literals do not convert into any numerical representation, they can have the values true or false.</p>
+        <h3>Character Literals</h3>
+        <p>Represented inside a pair of single quotes 'a', 'z', '@'.</p>
+        <ul>
+            <li>\ddd Octal character ddd</li>
+            <li>\uxxxx Hexadecimal Unicode character xxxx</li>
+            <li>\' Single-quote</li>
+            <li>\" Double-quote</li>
+            <li>\n Newline</li>
+            <li>\\ Backslash</li>
+            <li>\r Carriage return</li>
+            <li>\f Form feed</li>
+            <li>\t Tab</li>
+            <li>\b Backspace</li>
+        </ul>
+        <p>Octal notation: '\141' is the letter 'a'</p>
+        <p>Hexadecimal notation: '\u0061' is the ISO-Latin-1 'a'</p>
+        <h3>String Literals</h3>
+        <p>Specified by enclosing a sequence of characters in a pair of double quotes. "Hello World!"</p>
+        <p>Strings must begin and end on the same line, there is no line-continuation escape sequence.</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Variables</button>
+    <div class="content">
+        <h2>Variables</h2>
+        <p>The basic unit of storage in a Java program.</p>
+        <h2>Declaring a Variable</h2>
+        <p>Variables must be declared before they can be used.</p>
+        <div class="code" id="variables1"><button class="copy" onclick="copyText('variables1')">Copy</button><br><p>
+            Type identifier [ = value ][, identifier [ = value ] ...];<br>
+            int value1 = 12, value2 = 24;
+        </p>
+        </div>
+        <h3>Java Identifiers</h3>
+        <p>All Java variables must be identified with unique names known as identifiers.</p>
+        <p>Identifiers can be short names (like x and y) or more descriptive names "recommended" (age, sum, totalVolume).</p>
+        <p>The general rules for constructing names for variables (unique identifiers) are:</p>
+        <ul>
+            <li>Names can contain letters, digits, underscores, and dollar signs</li>
+            <li>Names should begin with a letter</li>
+            <li>Names can also begin with $ and _</li>
+            <li>Names are case sensitive ("myVar" and "myvar" are different variables)</li>
+            <li>Names should start with a lowercase letter and it cannot contain whitespace</li>
+            <li>Reserved words (like Java keywords, such as int or String) cannot be used as names</li>
+        </ul>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th rowspan="2">Instance Variables</th>
+                <td>"The data, or variables, defined within a class"</td>
+            </tr>
+            <tr>
+                <td>Each instance/object of a class contains its own copy of these variables</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Local Variables</th>
+                <td>A variable declared inside the body of the method/block. Only visible within that method/blcok.</td>
+            </tr>
+            <tr>
+                <td>Braces indicate the scope of this variable (where it can be seen and used).</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Static Variables (Class Variables)</th>
+                <td>Exist without creating an object and share the same value among all objects created from the same class.</td>
+            </tr>
+            <tr>
+                <td>A variable that has been allocated "statically", meaning that its lifetime (or "extent") is the entire run of the program.</td>
+            </tr>
+        </table></div>
+        <p style="font-weight: bold;">Dynamically Initializing Variables:</p>
+        <ul>
+            <li>Java allows variable to be initialized dynamically, using any expression valid at the time the variable is declared.</li>
+            <li>double c = Math.sqrt(a * a + b * b);</li>
+        </ul>
+        <p style="font-weight: bold;">Scope and Lifetime of Variables:</p>
+        <ul>
+            <li>All variables have a scope, which defines their visibility and lifetime.</li>
+            <li>Variables are created when their scope is entered and destroyed when their scope is left.</li>
+            <li>A variable will not hold its value once it has gone out of scope.</li>
+        </ul>
+        <p style="font-weight: bold;">Conversion and Casting:</p>
+        <ul>
+            <li>Assign a value of one type to a variable of another type.</li>
+            <li>If the two types are compatible then Java will perform the conversion automatically or "implicitly".</li>
+            <li>Not all types are compatible, but it is still possible to perform the conversion explicitly using a cast.</li>
+            <ul>
+                <li style="font-weight: bold;">Implicit type conversion: "Automatic Type Conversion" Occurs when:</li>
+                <ul>
+                    <li>Two types are compatible.</li>
+                    <li>The target type is larger than the source type.</li>
+                </ul>
+                <br>
+                <ol>
+                    <li>If one of the operands is double, the other is promoted to double before the operation is carried out.</li>
+                    <li>Otherwise, if one of the operands is float, the other is promoted to float before the operation is carried out.</li>
+                    <li>Otherwise, if one of the operands is long, the other is promoted to long before the operation is carried out.</li>
+                    <li>Otherwise if either operand is int, the other operand is promoted to int.</li>
+                    <li>If neither operand is double, float, long or int, both operands are promoted to int.</li>
+                </ol>
+                <div class="code" id="variables2"><button class="copy" onclick="copyText('variables2')">Copy</button><br><p>byte b = 10; <br> long l = 1 + 8; <br> double d = b * 2.5 + l; <br><br> System.out.println("I = " + i); <br> System.out.println("J = " + j); <br> System.out.println("K =" + k); <br><br> <b>Output:</b> <br><br>I = 10 <br>J = 9 <br>K = 34.0</p></div>
+            </ul>
+            <ul>
+                <li style="font-weight: bold;">Explicit type conversion: (target-type) value</li>
+            </ul>
+            <div class="code" id="variables3"><button class="copy" onclick="copyText('variables3')">Copy</button><br><p>int a; <br> byte b; <br> b = (byte) a;</p></div>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible">Arrays</button>
+    <div class="content">
+        <h3>Arrays</h3>
+        <li>An array is a group of like-typed variables that are referred to by a common name.</li>
+        <li>Arrays of any type can be created and may have one or more dimensions.</li>
+        <li>A specific element in an array is accessed by its index, and indexes start at 0</li>
+        <li>Arrays offer a convenient means of grouping related information.</li>
+        <h3>One-Dimensional Arrays</h3>
+        <p>One-dimensional arrays are essentially lists of like-types variables.</p>
+        <div class="code" id="arrays1"><button class="copy" onclick="copyText('arrays1')">Copy</button><br><p>
+            type var-name[]; or type[] var-name;
+        </p>
+        </div>
+        <p>The base type of the array determines what type of data the array will hold and new is a special operator that allocates memory.</p>
+        <div class="code" id="arrays2"><button class="copy" onclick="copyText('arrays2')">Copy</button><br><p>
+            array-var = new type[size];
+        </p>
+        </div>
+        <p>type specifies the type of data being allocated and size specifies the number of elements.</p>
+        <p>array-var is the array variable that is linked to the array.</p>
+        <div class="code" id="arrays3"><button class="copy" onclick="copyText('arrays3')">Copy</button><br><p>
+            month_days = new int[12]; <mark>// Create a new integer array</mark><br>
+            month_days[1] = 28; <mark>// Give index 1 a value of 28</mark>
+        </p>
+        </div>
+        <p>Combine the declaration of the array with the allocation of the array.</p>
+        <div class="code" id="arrays4"><button class="copy" onclick="copyText('arrays4')">Copy</button><br><p>
+            int month_days[] = new int[12];
+        </p>
+        </div>
+        <p>Arrays can also be initialized when they are declared.</p>
+        <div class="code" id="arrays5"><button class="copy" onclick="copyText('arrays5')">Copy</button><br><p>
+            int month_days[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        </p>
+        </div>
+        <h3>Multidimensional Arrays</h3>
+        <p>Multidimensional Arrays are "Arrays of Arrays"</p>
+        <div class="code" id="arrays6"><button class="copy" onclick="copyText('arrays6')">Copy</button><br><p>
+            <mark>// Allocate a 4 by 5 array and assign it to twoD</mark><br>
+            int twoD[][] = new int [4][5];
+        </p>
+        </div>
+        <p>When you allocate the memory for a multi-dimentional array, you need only specify the memory for the first (leftmost) dimension. You can allocate the memory for the remaining dimensions separately.</p>
+        <div class="code" id="arrays7"><button class="copy" onclick="copyText('arrays7')">Copy</button><br><p>
+            int twoD[][] = new int[4][];<br>
+            twoD[0] = new int[5];<br>
+            twoD[1] = new int[5];<br>
+            twoD[2] = new int[5];<br>
+            twoD[3] = new int[5];
+        </p>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>

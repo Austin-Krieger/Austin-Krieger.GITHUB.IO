@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Java</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../Java/DesignPatterns.html">Previous</a>
+    <a href="../Java/Javascript.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Agile</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Agile Methodologies</button>
+<div class="content">
+    <h3>What is Agile?</h3>
+    <ul>
+        <li>A methodology that delivers software or value incrementally from the start of the project.</li>
+        <li>It works by breaking projects down into little bits of user functionality called user stories, prioritizing them, and then continuously delivering them in short 2-week cycles called sprints (iterations).</li>
+        <li>Agile is an iterative process in which you deliver value through a basic solution and improve on it over time.</li>
+        <li>Throughout the whole process you have constant communication with your customer to ensure they are happy with every product you give them.</li>
+        <li>Instead of building a website over the course of months you would start with a basic page to get a proof of concept and then add on to it over time.</li>
+    </ul>
+    <h3>How is it different?</h3>
+    <ul>
+        <li>Analysis, design, coding, and testing are continuous activities.</li>
+        <li>Embraces changes in scope when reasonable and required, since you are building iteratively, you are able to provide more flexibility to your end user and customer and keep them involved from the beginning.</li>
+    </ul>
+    <h3>Sprints</h3>
+    <p>Short 2-week cycles for delivering little bits of user functionality called user stories.</p>
+    <h3>MVP</h3>
+    <p><b>MVP or minimum viable product:</b> the minimum you can deliver which satisfies the basic requirement.</p>
+    <p>Includes all must haves and excludes all nice to haves. (no bells and whistles)</p>
+    <h3>Documentation</h3>
+    <p>Documentation is kept short and simple.</p>
+    <h3>Role Blur</h3>
+    <p>Everyone on the team can be involved in testing, not just the people that would normally do it because that's their official role.</p>
+    <p>Agile still has official roles for team assignments and tasks, but allows roles to blur, overlap or compliment one another.</p>
+    <h3>Planning</h3>
+    <p>Planning is adaptive in agile, priorities can change depending on what the team defines. Requirements can change and the team is open to those changes.</p>
+    <h3>Agile Principles:</h3>
+    <ol>
+        <li>Customer satisfaction by early and continuous delivery of useful software.</li>
+        <li>Welcome changing requirements, even late in development.</li>
+        <li>Working software is delivered frequently (weeks rather than months).</li>
+        <li>Close, daily cooperation between business people and developers.</li>
+        <li>Projects are built around motivated individuals, who should be trusted.</li>
+        <li>Face-to-face conversation is the best form of communication (co-location).</li>
+        <li>Working software is the principal measure of progress.</li>
+        <li>Sustainable development, able to maintain a constant pace.</li>
+        <li>Continuous attention to technical excellence and good design.</li>
+        <li>Simplicity - only build what is really essential.</li>
+        <li>Self-organizing teams.</li>
+        <li>Regular adaptation to changing circumstances.</li>
+    </ol>
+    <h3>User Stories</h3>
+    <p>Product features, requirements or tasks that add value to the customer.</p>
+    <h3>Story Points</h3>
+    <p>Story points are a relative unit of measure to assess whether a user story is big or small [1(low), 2(medium), 3(high)].</p>
+    <h3>Velocity</h3>
+    <p>The speed of execution (Stories / Sprint)</p>
+    <p>Velocity is the number of story points a team delivers over a sprint. What you actually delivered in story points</p>
+    <h3>Product Backlog</h3>
+    <p>Contains all the user stories that will be part of the product over time.</p>
+    <h3>Sprint Backlog</h3>
+    <p>Set of Backlog items selected to be delivered over a period of time. (the amount of work you will do over those two weeks)</p>
+    <h3>Retrospective</h3>
+    <p>The process of reflecting on your mistakes and how you can improve and do things differently.</p>
+    <h3>Value</h3>
+    <p>Something the customer would actually pay for or would find really valuable or important.</p>
+    <p>If something doesn't provide value to the customer then it should remain as a task, sub-task or requirement.</p>
+    <h3>Swimlanes</h3>
+    <p>A visual representation of stories vs status on the agile board. (To Do, Doing, Done)</p>
+    <p>Swimlanes let the team see progress on individual stories while highlighting specific areas that need attention.</p>
+    <h3>The Agile Team</h3>
+    <ol>
+        <li><b>Product Owner: </b>Represents the end customer or person who represents the end customers. Defines what is valuable and prioritises tasks.</li>
+        <li><b>Scrum Master: </b>Team leader, project manager, lead developer. The team agrees on who this is and rotates if they want.</li>
+        <li><b>Delivery Team: </b>The people in charge of execution or part of the project's implementation (In charge of getting the work done)</li>
+    </ol>
+    <h3>Burn Down Chart</h3>
+    <p>Chart that shows the remaining work to be done, progress over time and the team's velocity.</p>
+    <h3>Kaban/Agile Board (Trello)</h3>
+    <p>A visual representation of the work the team is doing in a sprint (To Do, Doing, Done)</p>
+    <h3>Agile Rituals (Deliver, Reflect, Adjust)</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Ritual</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Sprint Planning</td>
+            <td>Meeting where the team defines which user stories they will work on in an upcoming sprint.<br>
+                Defining scope of work, priorities and what you believe is achievable during the next sprints.<br>
+                Scrum Master facilitates this meeting, but everyone participates.<br>
+                Team reviews the backlog and picks the user stories they will work on over the next sprint.</td>
+        </tr>
+        <tr>
+            <td>Daily Stand-ups</td>
+            <td>15 min daily meeting where people stand up near the Kanban board and share what they did yesterday, what they are doing today and impediments (if any).<br>
+                These have a sense of informality and function as a round table.<br>
+                Scrum Master facilitates the meeting and listens with special attention for impediments as it is his job to remove them.</td>
+        </tr>
+        <tr>
+            <td>Sprint Review (Demo/Showcase)</td>
+            <td>Meeting where the team presents what they have delivered over a sprint to the product owner.<br>
+                Generally internal with everyone on the team (occasionally with the product owner) and more for the teams reflection.<br>
+                Most of the time though the internal will be kept seperate.</td>
+        </tr>
+        <tr>
+            <td>Retrospectives</td>
+            <td>Meeting done after sprints to review, revise and adjust (similar to a lesson's learned, but in real time, not just at the end of the project).
+                What went well? What didn't? What should you do differently in the next sprint?</td>
+        </tr>
+    </table>
+    </div>
+    <h3>Before you start doing Agile:</h3>
+    <ol>
+        <li>Define who will be part of the team and which role each person will play.</li>
+        <li>Agree with the team on days and times for the Agile rituals.</li>
+        <li>Get your physical or digital tools ready. (Trello, Kanban board)</li>
+        <li>Make sure you have done the due diligence required for the project (e.g. business case, budget, key requirements, ...)</li>
+        <li>Determine any constraints that are part of your project (budget, time, business cycle, ...)</li>
+        <li>Define which days you will release, test and sprint (e.g. releases or push to production will be done on a Thursday morning)</li>
+    </ol>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+</html>
