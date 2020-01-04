@@ -134,7 +134,7 @@
         </ol>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Save the Scene</h2>
         <p>When a new Project is created, Unity automatically creates an empty Scene called "Untitled".</p>
-        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Untitle Scene Image"></div>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Untitle Scene Image"></div>
         <p>Go to <b>File > Save</b> or press <b>Ctrl/Cmd + S</b>, then select where you want to save the file. A folder named Scenes is generally used, so let's save this Scene in that folder as "MainScene".</p>
         <p>You will see this creates a Scene Asset called MainScene in the Project window.</p>
         <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/MainScene.jpg" alt="Main Scene Image"></div>
@@ -155,7 +155,7 @@
             <p>Models are made up of a mesh of triangles, and a Mesh Renderer "renders" that mesh so you can see it. A Skinned Mesh Renderer is a special type of Mesh Renderer that allows the mesh to change shape based on the positions and rotations of all of a model’s bones. These bones are child GameObjects of the model. The characters bones are all children of the Root GameObject.</p>
             <li>In the Hierarchy, select the <b>Root</b> GameObject. Hold alt/Option and click the arrow to the left of its name to expand all its child GameObjects. Each of these GameObjects represents a part of the character's body (RightLeg/Hips/Spine/Neck/LeftShoulder/etc.)</li>
             <li>In the Hierarchy, select the GameObject called LeftForeArm. In its Transform component, find the Rotation field and change the Y value to 90. You will see that the left arm has bent 90 degrees.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/LeftForearm.jpg" alt="Left Forearm Transform Image"></div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/LeftForearm.jpg" alt="Left Forearm Transform Image"></div>
             <p>The Animator component on the character's parent GameObject will change the rotation of all the bone GameObject Tranform components, and these changes will happen together to animate the character.</p>
             <li>Collapse all the GameObjects again by holding alt/Option and clicking the arrow next to the name of the parent GameObject.</li>
         </ol>
@@ -189,8 +189,60 @@
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create the Animator Controller</h2>
         <ol>
             <li>In the Project Window, find the <b>Assets > Animation > Animators</b> folder. Right click on it and select <b>Create > Animator Controller</b>.</li>
-            <li></li>
-            <li></li>
+            <li>Name the Animator Controller, then double click on it to open it for editing in the Animator window.</li>
+            <p>The Animator window has two main sections:</p>
+            <ul>
+                <li>A panel for editing Animator Layers and Animator Parameters on the left.</li>
+                <li>An area which displays the state machine itself on the right.</li>
+            </ul>
+            <li>Click the <b>Parameters</b> tab on the top left of the Animator window.</li>
+            <p>The Animator Controller's state machine makes decisions based on the current values of its <b>Animator Parameters</b>. These Animator Parameters have values set by script. You will need one parameter for every independent variable which can affect the animation that the character is playing.</p>
+            <p>There are four types of parameter:</p>
+            <ul>
+                <li>A <b>float</b> parameter has the value of a floating point variable (a number with a decimal place).</li>
+                <li>An <b>int</b> parameter has the value of an integer (a number without a decimal place).</li>
+                <li>A <b>bool</b> parameter has the value of a boolean (which can be true or false).</li>
+                <li>A <b>trigger</b> parameter is a special type of parameter which doesn't hold a value - this causes a change from one animation to another.</li>
+            </ul>
+            <p>In this case, you know that the character is either walking or stationary, so a bool parameter makes the most sense.</p>
+            <li>Click the <b>+</b> button and select <b>Bool</b> from the drop-down to create a new Bool Animator Parameter.</li>
+            <li>Name the new Animator Parameter "IsWalking". The spelling and capitalisation is important for the scripting later.</li>
+            <p>This is the default value for the parameter.  Without player input your character is going to be stationary, so IsWalking should be false. This means you don’t need to change anything here.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set Up the Animations</h2>
+        <ol>
+            <li>In the Project window, go to the <b>Assets > Animation > Animation</b> window.</li><p>A slider on the bottom right can change the folder from icon view to list view.</p>
+            <li>The list of animations should have a naming convention such as "PlayerCharacter@Idle", "PlayerCharacter@Walk" and so on.</li>
+            <li>In order to use these animations in your Animator Controller, drag them from the Project window to the Animator window. Start with Idle.</li>
+            <li>Animations exist in an Animator Controller in <b>Animator States</b>. When you dragged in the Idle and Walkanimations, the Animator Controller created two states containing them and named them after the animations.</li>
+            <p>An Animator State is part of the state machine that an Animator Controller contains. The state machine contains logic which determines which state is the current state. The current state then determines the animation that is being played.</p>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Animator Default State Image" style="max-height: 150px;"></div>
+            <p>The default state is displayed in orange (Idle). Your state machine now has two states in it, but no logic to define which state should play. Currently, the state machine will start in the default state and never change, so the character will always be idle. We will need to make <b>Animator Transitions</b>.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create Animator Transitions</h2>
+        <ol>
+            <li>Right click on the Idle state and select <b>Make Transition</b>. This starts a transition that follows the mouse cursor.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Make Transition Image" style="max-height: 150px;"></div>
+            <p>To finish creating the transition, click on the Walk state.</p>
+            <li>Your character needs to be able to change back to idle from walking, so repeat this process to create a trainsition from Walk to Idle.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Transition.JPG" alt="Transition Image" style="max-height: 200px;"></div>
+            <li>The state machine now has a way of transitioning between the two animations, but it doesn't yet know when to transition. Select the transition from Idle to Walk by clicking on the connecting line.</li>
+            <li>In the inspector, look at the settings from this transition. The first thing you need to change is the <b>Has Exit Time checkbox</b>.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HasExitTime.JPG" alt="Has Exit Time Image" style="max-height: 150px;"></div>
+            <p>If Has Exit Time is true (the checkbox is enabled) then after a certain amount of time has passed the transition will automatically be taken and the state machine will play the next state. So, <b>disable</b> the <b>Has Exit Time checkbox</b>.</p>
+            <p>You will now see a warning, because there is no longer a reason to ever take this transition. We need to provide one by adding a <b>Condition</b>.</p>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/ConditionsWarning.JPG" alt="Condition Warning Image" style="max-height: 150px;"></div>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add Conditions to your Transition</h2>
+        <ol>
+            <li>Click the <b>+</b> button beneath the (currently empty) Conditions list.</li>
+            <li>The transition from Idle to Walk is required when the character is walking - that is, when <b>IsWalking</b> is true.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/IsWalkingCondition.JPG" alt="Is Walking Condition Image" style="max-height: 150px;"></div>
+            <p>Next, you need to set up the transition from Walk to Idle.</p>
+            <li>Select the transition from <b>Walk to Idle</b> in the Animator window. <b>Disable</b> the <b>Has Exit Time checkbox</b> - as before, you don't want the state to change after a certain amount of time, just when you want it to.</li>
+            <li>Now that the Has Exit Time checkbox is disabled, you need to create another Condition.</li>
+            <p>This Condition should also check IsWalking, but this time the value should be set as false.  If the character is not walking then it should transition from Walk to Idle.</p>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/WalkTransition.JPG" alt="Walk Transition Image" style="max-height: 150px;"></div>
         </ol>
     </div>
 </div>
