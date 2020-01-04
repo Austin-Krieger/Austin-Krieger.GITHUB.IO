@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Unity Workspace</title>
+    <title>Learning Unity</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
@@ -91,6 +91,93 @@
             </div>
         </div>
         <h2>Shortcut F</h2><p>Enables you to focus on a selected object. If you forget where a GameObject is in you Scene, just select it in the Hierarchy, move your cursor over to the Scene window, and press F to center it in the Scene window.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Navigating with the mouse</h2>
+        <p>When you're in the Scene window, you can also:</p>
+        <ul>
+            <li>Left click to select your GameObject in the Scene.</li>
+            <li>Middle click and drag to move the Scene view's camera using the hand tool.</li>
+            <li>Right click and drag to rotate the Scene view's camera using flythrough mode - a variation on the hand tool. While doing this, you can also move the camera left and right using A and D, forward and back using W and S, and down and up using Q and E.</li>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible">Layouts</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Default Layouts</h2>
+        <p>You can lay out your Editor in several ways. Each layout has its own advantages and you'll find out which layout works best for you.</p>
+        <p>To switch layouts, select Windows > Layouts (or use the Layouts drop-down menu in the top right corner of the Editor). You can choose from the following layouts:</p>
+        <h3>2 by 3</h3>
+        <p>This layout lets you see both your Scene view and Game view together with your Inspector, Project view and Hierarchy in columns to the right.</p>
+        <h3>4 Split</h3>
+        <p>This layout is good for looking at 3D models from different angles.</p>
+        <h3>Tall</h3>
+        <p>This layout makes the Scene view and Inspector nice and clear.</p>
+        <h3>Wide</h3>
+        <p>This layout pushes the Hierarchy, Project window and Assets to the bottom of the Editor.</p>
+        <h3>Default</h3>
+        <p>This layout makes your Scene or Game view take up most of the Editor, and there's also room for your Assets, Hierarchy and Inspector on either side.</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Creating a Project</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Creating a Project</h2>
+        <ol>
+            <li>Open the Unity Hub.</li>
+            <li>Log in with your Unity account.</li>
+            <li>Click the New button in the top right corner.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/UnityHub.JPG" alt="Unity Hub Image"></div>
+            <li>Enter a Project name.</li>
+            <li>Set the Unity Version.</li>
+            <li>Choose the folder where you want to save your Project.</li>
+            <li>Choose your Template (2D/3D)</li>
+            <li>Click Create project.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/NewProject.JPG" alt="Unity New Project Image"></div>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Save the Scene</h2>
+        <p>When a new Project is created, Unity automatically creates an empty Scene called "Untitled".</p>
+        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Untitle Scene Image"></div>
+        <p>Go to <b>File > Save</b> or press <b>Ctrl/Cmd + S</b>, then select where you want to save the file. A folder named Scenes is generally used, so let's save this Scene in that folder as "MainScene".</p>
+        <p>You will see this creates a Scene Asset called MainScene in the Project window.</p>
+        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/MainScene.jpg" alt="Main Scene Image"></div>
+        <p>You now have a Scene to work in. Remember to press <b>Ctrl/Cmd + S</b> regularly to save your changes. <b>"Save early, Save often!"</b>.</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Add a Character Model</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adding a Character Model</h2>
+        <p>Import a character model from your own files or from the asset store.</p>
+        <ol>
+            <li>In the Project window, go to the <b>Assets > Models > Characters</b> folder and find the model you wish to add to your Scene.</li>
+            <li>Drag the model from the Project window into the Scene view. This enables you to choose exactly where you want to place the model. (You can also drag models into the Hierarchy to create GameObjects at the default position.)</li>
+            <li>With your cursor over the Scene view, press <b>F</b> to focus.<p>You should now see the model in the scene!</p></li>
+            <li>In the Hierarchy window, find the GameObject. If there is an arrow next to the name of the GameObject - this means that the GameObject has children.</li>
+            <li>Click on the arrow to expand and see its children.</li>
+            <p>Select the child GameObject with the same name as your character. This GameObject should have a component called a <b>Skinned Mesh Renderer.</b>. This is what enables you to see the character.</p>
+            <p>Models are made up of a mesh of triangles, and a Mesh Renderer "renders" that mesh so you can see it. A Skinned Mesh Renderer is a special type of Mesh Renderer that allows the mesh to change shape based on the positions and rotations of all of a model’s bones. These bones are child GameObjects of the model. The characters bones are all children of the Root GameObject.</p>
+            <li>In the Hierarchy, select the <b>Root</b> GameObject. Hold alt/Option and click the arrow to the left of its name to expand all its child GameObjects. Each of these GameObjects represents a part of the character's body (RightLeg/Hips/Spine/Neck/LeftShoulder/etc.)</li>
+            <li>In the Hierarchy, select the GameObject called LeftForeArm. In its Transform component, find the Rotation field and change the Y value to 90. You will see that the left arm has bent 90 degrees.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/LeftForearm.jpg" alt="Left Forearm Transform Image"></div>
+            <p>The Animator component on the character's parent GameObject will change the rotation of all the bone GameObject Tranform components, and these changes will happen together to animate the character.</p>
+            <li>Collapse all the GameObjects again by holding alt/Option and clicking the arrow next to the name of the parent GameObject.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Prefabs</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What are Prefabs?</h2>
+        <p>Prefabs are a special type of Asset that represent a GameObject or collection of GameObjects with components that are already set up. They're like a blueprint which you can use to easily make instances of the same thing. Each instance of a prefab is linked to the Prefab Asset, so changing the Asset will change all versions of the Prefab in all Scenes. This also means that if you go on to make mulitple level for a game, you won't need to remake a character for every level - you can just instantiate a new Prefab.</p>
+        <p>Prefabs can be identified in the Hierarchy by their blue name and icon:</p>
+        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Prefab.jpg" alt="Prefab Image" style="max-height: 100px;"></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Making a Prefab</h2>
+        <ol>
+            <li>Drag the GameObject from the Hierarchy into the <b>Assets > Prefab</b> folder in the Project window. A dialogue box will appear asking if you want to make an Original Prefab or a Prefab Variant - select <b>Original Prefab</b>.</li>
+            <p>Dragging a GameObject like this makes it a Prefab regardless of the folder it is dragged into. Best practice would be to place them in a folder named Prefabs.</p>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/PrefabDialogueBox.JPG" alt="Prefab Dialogue Box Image" style="max-height: 150px;"></div>
+            <li>Now the Prefab has been created, any changes you make will be reflected on the instance of the GameObject in the Scene. In order to make changes to a Prefab, you will need to open the Prefab for editing in Prefab Mode.</li>
+            <li>Click on the Prefab and in the Inspector window you will see a button that reads "Open Prefab". Clicking on this button will put the Unity Editor in Prefab Mode.</li>
+            <p>This mode takes you out of your current Scene and puts you in a temporary Scene with just the Prefab. The Scene has changed slighlty; at the top there is a new bar with <b>Scenes | Prefab Name</b> on the left and a checkbox labeled Auto Save on the right.</p>
+            <li>Disable the <b>Auto Save</b> checkbox. A Save button will appear so you can manually save any changes that you make to the Prefab.</li>
+            <li>The Hierarchy window also has a new bar at the top. The arrow on the left will take you back along the breadcrumn. If you clicked it now, it would take you back to MainScene.</li>
+        </ol>
     </div>
 </div>
 </div>
