@@ -137,7 +137,7 @@
         <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Untitle Scene Image"></div>
         <p>Go to <b>File > Save</b> or press <b>Ctrl/Cmd + S</b>, then select where you want to save the file. A folder named Scenes is generally used, so let's save this Scene in that folder as "MainScene".</p>
         <p>You will see this creates a Scene Asset called MainScene in the Project window.</p>
-        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/MainScene.jpg" alt="Main Scene Image"></div>
+        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/MainScene.jpg" alt="Main Scene Image"></div>
         <p>You now have a Scene to work in. Remember to press <b>Ctrl/Cmd + S</b> regularly to save your changes. <b>"Save early, Save often!"</b>.</p>
     </div>
     &nbsp;
@@ -177,6 +177,20 @@
             <p>This mode takes you out of your current Scene and puts you in a temporary Scene with just the Prefab. The Scene has changed slighlty; at the top there is a new bar with <b>Scenes | Prefab Name</b> on the left and a checkbox labeled Auto Save on the right.</p>
             <li>Disable the <b>Auto Save</b> checkbox. A Save button will appear so you can manually save any changes that you make to the Prefab.</li>
             <li>The Hierarchy window also has a new bar at the top. The arrow on the left will take you back along the breadcrumn. If you clicked it now, it would take you back to MainScene.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Animate your character</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Animating your character</h2>
+        <p>Two important animations to have for your player character are a walking animation and an idle animation for when the player is walking and not walking respectively.</p>
+        <p>Select your player character GameObject and take a look at its Animator component in the Inspector. The first property is called Controller. This takes a reference to a type of Asset called an Animator Controller, which your're going to use to get the characer moving.</p>
+        <p>Animator Controllers contain a <b>state machine</b> which determines what animation the Animator component should be setting for its hierarchy at any given time. This animation is based on animation clips which have been set up on the Animator Controller.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create the Animator Controller</h2>
+        <ol>
+            <li>In the Project Window, find the <b>Assets > Animation > Animators</b> folder. Right click on it and select <b>Create > Animator Controller</b>.</li>
+            <li></li>
+            <li></li>
         </ol>
     </div>
 </div>
