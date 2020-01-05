@@ -446,7 +446,44 @@
         </p></div>
         <p>The new line of code is instructing the computer to create a Vector3 variable called m_Movement that you can use wherever you want in the PlayerMovement class.</p>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Naming Conventions</h2>
-        <p></p>
+        <p>But what does m_ mean at the beginning of the name? This is part of something called a naming convention. Naming conventions are used to identify a particular object or class of object. All variables start with a lowercase letter but subsequent words start with an uppercase letter - this is called camelCase.</p>
+        <p>The exception to this is non-public member variables, which start with the m_ prefix and all words start with an uppercase letter - this is called PascalCase. Member variables are ones that belong to a class rather than a specific method. The m_ part of the non-public member variables comes from them being 'member' variables.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the Values for your Variable</h2>
+        <p>Now that you have a variable to store the movement for the character, you need to set the value for it. Since this could change every frame, you need to set it every frame — you should do this in the Update method.</p>
+        <div class="code" id="MovementSet"><button class="copy" onclick="copyText('MovementSet')">Copy</button><br><p>
+            m_Movement.Set(horizontal, 0f, vertical);
+        </p></div>
+        <p>Vectors in 3D space have three values — this Set method assigns a value to each. It has three parameters, one for each coordinate of the vector. The movement vector now has a value of the horizontal input in the x axis, 0 in the y axis and the vertical input in the z axis. There’s also an f after the 0 for the second parameter, which is instructing the computer to treat that number as a float.</p>
+        <p>Now you need to fix a small problem. The movement vector is made up of two numbers that can have a maximum value of 1. If they both have a value of 1, the length of the vector (known as its magnitude) will be greater than 1. This is the relation between sides of a triangle described by Pythagoras’ theorem.</p>
+        <div class="center" style="padding: 10px; max-width: 200px;"><img src="../images/UnityImages/TriangleDiagram.jpg" alt="Triangle Diagram Image"></div>
+        <p>This means that your character will move faster diagonally than it will along a single axis. In order to make sure this doesn’t happen, you need to ensure the movement vector always has the same magnitude. You can do this by normalizing it. Normalizing a vector means keeping the vector’s direction the same, but changing its magnitude to 1.</p>
+        <p>Add the following script beneath the previous line you wrote, to call a method on the vector itself:</p>
+        <div class="code" id="Normalize"><button class="copy" onclick="copyText('Normalize')">Copy</button><br><p>
+            m_Movement.Normalize ();
+        </p></div>
+        <p>Your full script should now look like this:</p>
+        <div class="code" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
+            using System.Collections;<br>
+            using System.Collections.Generic;<br>
+            using UnityEngine;<br><br>
+            public class PlayerMovement : MonoBehaviour<br>
+            {<br>
+            &emsp;Vector3 m_Movement;<br><br>
+            &emsp;<mark>// Start is called before the first frame update</mark><br>
+            &emsp;void Start()<br>
+            &emsp;{<br><br>
+            &emsp;}<br><br>
+            &emsp;<mark>// Update is called once per frame</mark><br>
+            &emsp;void Update()<br>
+            &emsp;{<br>
+            &emsp;&emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
+            &emsp;&emsp;float vertical = Input.GetAxis ("Vertical");<br><br>
+            &emsp;&emsp;m_Movement.Set(horizontal, 0f, vertical);<br>
+            &emsp;&emsp;m_Movement.Normalize ();<br>
+            &emsp;}<br>
+            }
+        </p>
+        </div>
     </div>
 </div>
 </div>
