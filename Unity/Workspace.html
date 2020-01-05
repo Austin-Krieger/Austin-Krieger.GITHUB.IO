@@ -339,7 +339,7 @@
             <li>Find or create the <b>Assets > Scripts</b> folder in the Project window. Right-click on the folder and choose <b>Create > C# Script</b>. Name the script <b>"PlayerMovement"</b>.</li>
             <p><b>Note:</b> Scripts that are going to be used as a component need to have the same name on the asset as the class name in the script itself.  When Unity creates a script file, it gives it a class name which matches what the Asset was first named. However, when the Asset is renamed, the class name does not change. </p>
             <li>Select your script, and look at the Inspector window. You should see the following code:</li>
-            <div class="code" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
+            <div class="unityCode" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
                 using System.Collections;<br>
                 using System.Collections.Generic;<br>
                 using UnityEngine;<br><br>
@@ -364,14 +364,14 @@
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the default script</h2>
         <ol>
             <li>The first three lines of code are called using directives.</li>
-            <div class="code" id="FirstThreeLines"><button class="copy" onclick="copyText('FirstThreeLines')">Copy</button><br><p>
+            <div class="unityCode" id="FirstThreeLines"><button class="copy" onclick="copyText('FirstThreeLines')">Copy</button><br><p>
                 using System.Collections;<br>
                 using System.Collections.Generic;<br>
                 using UnityEngine;
             </p></div>
             <p>They allow you to use code implemented elsewhere within this script file. For example, the word "MonoBehaviour" in the next line would not be usable if you didn’t have "using UnityEngine;" here.  In most cases, the using directives that are included by Unity by default are enough, so you don’t need to worry about these.</p>
             <li>The next line is:</li>
-            <div class="code" id="FirstThreeLines"><button class="copy" onclick="copyText('FirstThreeLines')">Copy</button><br><p>
+            <div class="unityCode" id="Monobehaviour"><button class="copy" onclick="copyText('Monobehaviour')">Copy</button><br><p>
                 public class PlayerMovement : MonoBehaviour
             </p></div>
             <p>This is the start of a class declaration. Classes are like the plans for instances which are called Objects. When a class is instantiated (for example, by attaching a script as a component to a GameObject), that instance is called an object. Objects are the building blocks of code, and they exist throughout the work you’ve already done!</p>
@@ -380,12 +380,12 @@
             <p>Braces are an essential part of the C# language, as they define code blocks. Code blocks are lines of code which exist between an open and close brace. Braces must always exist in pairs.</p>
             <p>For the class declaration code block, the close brace is at the bottom but there are two more code blocks within the class declaration. The two code blocks contained in the class declaration are indented. Indentation is not technically necessary, but is very helpful in defining where code blocks begin and end.</p>
             <li>The next line is:</li>
-            <div class="code" id="Comment"><button class="copy" onclick="copyText('Comment')">Copy</button><br><p>
+            <div class="unityCode" id="Comment"><button class="copy" onclick="copyText('Comment')">Copy</button><br><p>
                 <mark>// Start is called before the first frame update</mark>
             </p></div>
             <p>Any text that is preceded by a double forward slash like this is known as a comment. A comment is anything that you want to be completely ignored by the computer. In most cases, they work as a sort of label to explain something about the code around them.  In this case, the comment gives a very brief explanation of what is declared below it.</p>
             <li>After the comment is the start of the first method declaration:</li>
-            <div class="code" id="StartMethod"><button class="copy" onclick="copyText('StartMethod')">Copy</button><br><p>
+            <div class="unityCode" id="StartMethod"><button class="copy" onclick="copyText('StartMethod')">Copy</button><br><p>
                 void Start()
             </p></div>
             <p>Let’s return to the factory analogy. If a class is a factory, then a method is a machine within that factory. Methods can take in data, perform an operation, and then give out (or return) data.</p>
@@ -407,7 +407,7 @@
         <p>It makes sense to move the character using the arrow keys or WASD, so the script needs to check the values of those specific keys on the keyboard. It could check whether or not each of those keys are individually either held or not and decide what the character should do (or not), but there’s an alternative that’ll make this a little easier.</p>
         <p>Unity has an input manager that defines various buttons and axes which can be found by name. For example, it has an axis called Horizontal, which is represented by the A and D keys and the left and right keys. So by checking that, the player’s computer could decide whether the character should move left or right.</p>
         <p>Let's get started by adding the following inside the Update method:</p>
-        <div class="code" id="NewUpdateMethod"><button class="copy" onclick="copyText('NewUpdateMethod')">Copy</button><br><p>
+        <div class="unityCode" id="NewUpdateMethod"><button class="copy" onclick="copyText('NewUpdateMethod')">Copy</button><br><p>
             <mark>// Update is called once per frame</mark><br>
             void Update()<br>
             {<br>
@@ -426,7 +426,7 @@
         <p>The data type for this piece of information is called a string. This refers to a string of characters, for example a word or sentence. By putting speech marks around the word Horizontal, you are instructing the computer that it should be treated like a string.</p>
         <p>Once the computer has retrieved the value of the axis it will need to store it somewhere. To the left of method call, you have introduced a new float variable called horizontal and set it equal to the value found from GetAxis.</p>
         <p>Next, add another line of code to find the value of the axis called Vertical and store that in a variable called vertical.</p>
-        <div class="code" id="NewUpdateMethod1"><button class="copy" onclick="copyText('NewUpdateMethod1')">Copy</button><br><p>
+        <div class="unityCode" id="NewUpdateMethod1"><button class="copy" onclick="copyText('NewUpdateMethod1')">Copy</button><br><p>
             <mark>// Update is called once per frame</mark><br>
             void Update()<br>
             {<br>
@@ -441,7 +441,7 @@
         <p>The scope of a variable is the area of code where it can be used. Usually this is as simple as the code block in which it is declared. For example, both float variables you just declared (horizontal and vertical) are in scope for the whole of the Update method, because that is the code block in which they were declared. They are said to be local to the Update method.</p>
         <p>If you want to use a variable in multiple different methods, you can create variables outside of the method’s scope. These are local to the class instead.</p>
         <p>Above the method definitions, add the following line:</p>
-        <div class="code" id="Vector3"><button class="copy" onclick="copyText('Vector3')">Copy</button><br><p>
+        <div class="unityCode" id="Vector3"><button class="copy" onclick="copyText('Vector3')">Copy</button><br><p>
             Vector3 m_Movement;
         </p></div>
         <p>The new line of code is instructing the computer to create a Vector3 variable called m_Movement that you can use wherever you want in the PlayerMovement class.</p>
@@ -450,7 +450,7 @@
         <p>The exception to this is non-public member variables, which start with the m_ prefix and all words start with an uppercase letter - this is called PascalCase. Member variables are ones that belong to a class rather than a specific method. The m_ part of the non-public member variables comes from them being 'member' variables.</p>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the Values for your Variable</h2>
         <p>Now that you have a variable to store the movement for the character, you need to set the value for it. Since this could change every frame, you need to set it every frame — you should do this in the Update method.</p>
-        <div class="code" id="MovementSet"><button class="copy" onclick="copyText('MovementSet')">Copy</button><br><p>
+        <div class="unityCode" id="MovementSet"><button class="copy" onclick="copyText('MovementSet')">Copy</button><br><p>
             m_Movement.Set(horizontal, 0f, vertical);
         </p></div>
         <p>Vectors in 3D space have three values — this Set method assigns a value to each. It has three parameters, one for each coordinate of the vector. The movement vector now has a value of the horizontal input in the x axis, 0 in the y axis and the vertical input in the z axis. There’s also an f after the 0 for the second parameter, which is instructing the computer to treat that number as a float.</p>
@@ -458,11 +458,11 @@
         <div class="center" style="padding: 10px; max-width: 200px;"><img src="../images/UnityImages/TriangleDiagram.jpg" alt="Triangle Diagram Image"></div>
         <p>This means that your character will move faster diagonally than it will along a single axis. In order to make sure this doesn’t happen, you need to ensure the movement vector always has the same magnitude. You can do this by normalizing it. Normalizing a vector means keeping the vector’s direction the same, but changing its magnitude to 1.</p>
         <p>Add the following script beneath the previous line you wrote, to call a method on the vector itself:</p>
-        <div class="code" id="Normalize"><button class="copy" onclick="copyText('Normalize')">Copy</button><br><p>
+        <div class="unityCode" id="Normalize"><button class="copy" onclick="copyText('Normalize')">Copy</button><br><p>
             m_Movement.Normalize ();
         </p></div>
         <p>Your full script should now look like this:</p>
-        <div class="code" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
+        <div class="unityCode" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
             using System.Collections;<br>
             using System.Collections.Generic;<br>
             using UnityEngine;<br><br>
@@ -484,6 +484,13 @@
             }
         </p>
         </div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the Animator component</h2>
+        <p></p>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 </div>
 </div>

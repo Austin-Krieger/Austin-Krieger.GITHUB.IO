@@ -62,8 +62,7 @@ tr:nth-child(even) {
     padding: 18px;
 }
 
-.code {
-    padding: 18px;
+.code, .unityCode {
     border-radius: 20px;
     background-color: #dddddd;
     margin: 20px;
@@ -82,6 +81,7 @@ tr:nth-child(even) {
     text-align: center;
     text-decoration: none;
     padding: 5px;
+    padding-right: 10px;
 }
 
 .redirect {
@@ -107,8 +107,11 @@ tr:nth-child(even) {
     color: white;
 }
 
-.code p {
+.code p, .unityCode p {
     width: 1000px;
+    padding-left: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 mark {
