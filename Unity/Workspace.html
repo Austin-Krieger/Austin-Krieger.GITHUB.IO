@@ -228,7 +228,7 @@
             <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Transition.JPG" alt="Transition Image" style="max-height: 200px;"></div>
             <li>The state machine now has a way of transitioning between the two animations, but it doesn't yet know when to transition. Select the transition from Idle to Walk by clicking on the connecting line.</li>
             <li>In the inspector, look at the settings from this transition. The first thing you need to change is the <b>Has Exit Time checkbox</b>.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HasExitTime.JPG" alt="Has Exit Time Image" style="max-height: 150px;"></div>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HasExitTime.JPG" alt="Has Exit Time Image" style="max-height: 220px;"></div>
             <p>If Has Exit Time is true (the checkbox is enabled) then after a certain amount of time has passed the transition will automatically be taken and the state machine will play the next state. So, <b>disable</b> the <b>Has Exit Time checkbox</b>.</p>
             <p>You will now see a warning, because there is no longer a reason to ever take this transition. We need to provide one by adding a <b>Condition</b>.</p>
             <div class="center" style="padding: 10px;"><img src="../images/UnityImages/ConditionsWarning.JPG" alt="Condition Warning Image" style="max-height: 150px;"></div>
@@ -237,13 +237,216 @@
         <ol>
             <li>Click the <b>+</b> button beneath the (currently empty) Conditions list.</li>
             <li>The transition from Idle to Walk is required when the character is walking - that is, when <b>IsWalking</b> is true.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/IsWalkingCondition.JPG" alt="Is Walking Condition Image" style="max-height: 150px;"></div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/IsWalkingCondition.JPG" alt="Is Walking Condition Image" style="max-height: 100px;"></div>
             <p>Next, you need to set up the transition from Walk to Idle.</p>
             <li>Select the transition from <b>Walk to Idle</b> in the Animator window. <b>Disable</b> the <b>Has Exit Time checkbox</b> - as before, you don't want the state to change after a certain amount of time, just when you want it to.</li>
             <li>Now that the Has Exit Time checkbox is disabled, you need to create another Condition.</li>
             <p>This Condition should also check IsWalking, but this time the value should be set as false.  If the character is not walking then it should transition from Walk to Idle.</p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/WalkTransition.JPG" alt="Walk Transition Image" style="max-height: 150px;"></div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/WalkTransition.JPG" alt="Walk Transition Image" style="max-height: 100px;"></div>
         </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Assign the Animator Controller to the Prefab</h2>
+        <ol>
+            <li>In the Project window, go to <b>Assets > Animation > Animators</b> and find your character Animator Controller.</li>
+            <li>Select the character GameObject in the Hierarchy, then drag the Animator Controller to the Controller property of its Animator component in the Inspector. Without doing this step the character won't move.</li>
+            <li>Remember to Save.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Make your Character React to Physics</h2>
+        <p>We don't want the player walking through walls in this case.</p>
+        <ol>
+            <li>Open the character Prefab for editing in Prefab Mode. In the Inspector, you'll find two components: a Transform and an Animator. In order to react to physics your character needs two more components: a Rigidbody and a Collider.</li>
+            <p>A <b>Rigidbody</b> component marks a GameObject as something that is part of the physics system that can move.</p>
+            <li>Click the <b>Add Component</b> button.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/AddComponent.jpg" alt="Add Component Image" style="max-height: 50px;"></div>
+            <li>In the search bar that appears, type “Rigidbody” and select this from the options that appear.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/Rigidbody.jpg" alt="Rigidbody Image" style="max-height: 500px;"></div>
+            <p>Since this is a 3D Project we want to make sure to choose Rigidbody and not Rigidbody 2D. To remove a component click on the cog in the top right of the component and select Remove Component.</p>
+            <li>Save your work.</li>
+            <li>Your character will now react to the effects of physics such as gravity. Press the play button to test the physics of the player and press play again to stop the test, since the physics isn't quite working correctly.</li>
+            <p>The Animator component has <b>Apply Root Motion</b> enabled. If it is Dissabled your character will fall forever (there is no floor), but let's leave it enabled for now.</p> 
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is Root Motion?</h2>
+        <p>Animations are used to move and rotate all the GameObjects within a particular hierarchy.  Most of these movements and rotations are done relative to their parents, however the parent GameObject of the hierarchy has no parent and therefore their movement is not relative. This parent GameObject can also be called the Root, and its movement is therefore called Root Motion.</p>
+        <p>The root GameObject is whichever GameObject the Animator component is on.</p>
+        <p>Apply Root Motion is enabled on your Animator component, so any movement of the root in the animation will be applied every frame.  Since the Animator is playing Idle there is no movement, so the Animator will apply no movement.  So why does the character GameObject move at all? This is due to the Update Mode of the Animator.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is the Update loop?</h2>
+        <p>Games work in a similar way to films and television: an image is displayed on a screen and this image changes many times per second giving the illusion of movement. We call these images frames; the process of drawing these frames to the screen is called rendering. For films and television the next image to show on screen is often predefined, but in games the next image can vary wildly because the user has influence over what happens next. Each image needs to be worked out based on the user input - and since this variation can happen every split second, the programming that works out what to display also works at this speed. This is called the Update loop.</p>
+        <p>Each time a frame is displayed, a number of things happen in order. All you need to know for now is that custom components have their Update method called, and a new image is rendered to the screen. These Updates vary in length, depending on the complexity of the computations and rendering. However, there is another separate loop that runs all the physics operations. This loop doesn’t vary how often it updates, and is therefore called the FixedUpdate.</p>
+        <p>An Animator component can change when it performs its Update. By default it performs this in line with rendering. This means that the Animator is moving the character in Update and the Rigidbody is simultaneously moving the character in Fixed Update.  This is what’s causing your problem, and it can easily be fixed!</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Fix Character Movement</h2>
+        <ol>
+            <li>Select your character in the Hierarchy and in the Inspector window click the Prefab Open button.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/PrefabOpen.jpg" alt="Prefab Open Image" style="max-height: 45px;"></div>
+            <li>Go to the Animator component. In the Update Mode property drop-down, select <b>Animate Physics</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/AnimatePhysicsl.jpg" alt="Animate Physics Image" style="max-height: 45px;"></div>
+            <p>This change will cause the Animator to move the character in time with physics. Now there should be no competition between update loops to move the character, and it will react to physics as it should.</p>
+            <li>Now we need to contrain the characters movement using physics. We don't want the character moving vertically after colliding with something.</li>
+            <li>Find the RigidBody component and click the arrow to expand the Contraints propterty.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Constraints.jpg" alt="Rigidbody Contraints Image"></div>
+            <p>These Contraint propterties restrict the directions in which the Rigidbody can move.</p>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Coordinates in Unity</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Coordinates in Unity</h2>
+        <p>Positions and directions in Unity work in 3D coordinates represented by x, y and z - together these make a vector. You’ll find out more about vectors later. A Scene has a global definition of these directions that you can see in the top right of the Scene window.</p>
+        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Coordniates.jpg" alt="Coordinates Image"></div>
+        <p>The colored arrows represent the positive direction of each axis, with the grey arrow opposite representing the negative direction:</p>
+        <ul>
+            <li>x-axis is red</li>
+            <li>y-axis is green</li>
+            <li>z-axis is blue</li>
+        </ul>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Positions and Rotation</h2>
+        <p>GameObjects without parents in the scene all have positions relative to the scene’s origin (0, 0, 0). GameObjects with parents all have positions relative to their parent.  However, since GameObjects can be rotated, a child’s relative (or local) position will be in their parent’s rotated coordinates. It is these local coordinates (or axes) that the Rigidbody Constraints refer to.</p>
+        <ol>
+            <li>Select the character GameObject, and then look at the Scene view. You will see that:</li>
+            <ul>
+                <li>the x-axis (red) is pointing to the character’s <b>right</b></li>
+                <li>the y-axis (green) is pointing <b>upward</b></li>
+                <li>the z-axis (blue) is pointing <b>forward</b></li>
+            </ul>
+            <li>So what constraints should your character have?</li>
+            <p>Your character needs to be able to move forward and from side to side, so there’s no need to constrain its x or z position. However, it’s important that it doesn’t move up and down; to stop that, enable the Freeze Position Y checkbox.</p>
+            <li>Rotation refers to a rotation around a specific axis. For example, if the character were rotated around its x-axis then it would look like it was lying down on its front or back.</li>
+            <p>If it were rotated around its z-axis, it would look like it was lying down on its side.</p>
+            <p>Our character shouldn’t move in either of these ways, so enable the Freeze Rotation X and Z checkboxes.</p>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Constraints2.jpg" alt="Constraints Image"></div>
+            <p>The Rigidbody component is now set up, and your character will react to the physics system. However, it doesn’t really have any physical presence in the Scene yet - nothing can bump into it and it can’t bump into anything else. In order for it to have a physical presence in the scene, it needs a <b>Collider.</b></p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add a Collider to your Character</h2>
+        <p>A Collider is a general term that covers a number of different components. Colliders define the shape of an object for the purpose of physical collisions, allowing your character to hit things and be hit. There are Collider components of many different shapes, but the simplest one that best fits our character is the Capsule Collider.</p>
+        <ol>
+            <li>Click the Add Component button in the Inspector window, and search for Capsule Collider. Select the <b>Capsule Collider</b> option, making sure not to click on Capsule Collider 2D.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/CapsuleCollider.jpg" alt="Capsule Collider Image"></div>
+            <p>Change the Capsule Collider's Height, Radius and Center properties to fit your character.</p>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Scripting</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is a script?</h2>
+        <p>A script is a text document containing a series of instructions for the computer.  These instructions are commonly called code.  The instructions are written in a way that the computer can understand, in this case using a programming language called C#.</p>
+        <p>C# defines the way the instructions are written and some of the words that are used.  Luckily, the words used often have a similar meaning in C# as they do in English.  For example, the first word we’ll come across in C# is "using" - this means that the script it is written is using code from somewhere else. Another example is "public", which means that anything can access something. There are too many examples to go through them all here.</p>
+        <p>MonoBehaviours are special types of scripts that can be attached to GameObjects just as components can. This is because they are a specific case of component that you can write yourself.</p>
+        <p>Scripts share some minor similarities with Prefabs:</p>
+        <ul>
+            <li>A script is created as an Asset, just like a Prefab is.</li>
+            <li>Adding a script to a GameObject as a component is actually instantiating that script, just as adding a Prefab to a scene is instantiating that Prefab.</li>
+        </ul>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Creating your First Script (PlayerMovement)</h2>
+        <ol>
+            <li>Find or create the <b>Assets > Scripts</b> folder in the Project window. Right-click on the folder and choose <b>Create > C# Script</b>. Name the script <b>"PlayerMovement"</b>.</li>
+            <p><b>Note:</b> Scripts that are going to be used as a component need to have the same name on the asset as the class name in the script itself.  When Unity creates a script file, it gives it a class name which matches what the Asset was first named. However, when the Asset is renamed, the class name does not change. </p>
+            <li>Select your script, and look at the Inspector window. You should see the following code:</li>
+            <div class="code" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
+                using System.Collections;<br>
+                using System.Collections.Generic;<br>
+                using UnityEngine;<br><br>
+                public class PlayerMovement : MonoBehaviour<br>
+                {<br>
+                &emsp;<mark>// Start is called before the first frame update</mark><br>
+                &emsp;void Start()<br>
+                &emsp;{<br><br>
+                &emsp;}<br><br>
+                &emsp;<mark>// Update is called once per frame</mark><br>
+                &emsp;void Update()<br>
+                &emsp;{<br><br>
+                &emsp;}<br>
+                }
+            </p>
+            </div>
+            <p>Find the line which starts <b>“public class PlayerMovement”</b>. This is what defines the class name. If your script doesn’t say PlayerMovement, delete the script Asset then create a new one named PlayerMovement.</p>
+            <li> Now you have created your script Asset, open it for editing. You can either double click on the Asset, or click the "Open…" button in the Inspector window.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/PlayerMovementInInspector.jpg" alt="Player Movement In Inspector Image"></div>
+            <p>Script editing is not done inside Unity - instead scripts open in another program called Visual Studio. Once that’s opened, you’ll be able to edit the script.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the default script</h2>
+        <ol>
+            <li>The first three lines of code are called using directives.</li>
+            <div class="code" id="FirstThreeLines"><button class="copy" onclick="copyText('FirstThreeLines')">Copy</button><br><p>
+                using System.Collections;<br>
+                using System.Collections.Generic;<br>
+                using UnityEngine;
+            </p></div>
+            <p>They allow you to use code implemented elsewhere within this script file. For example, the word "MonoBehaviour" in the next line would not be usable if you didn’t have "using UnityEngine;" here.  In most cases, the using directives that are included by Unity by default are enough, so you don’t need to worry about these.</p>
+            <li>The next line is:</li>
+            <div class="code" id="FirstThreeLines"><button class="copy" onclick="copyText('FirstThreeLines')">Copy</button><br><p>
+                public class PlayerMovement : MonoBehaviour
+            </p></div>
+            <p>This is the start of a class declaration. Classes are like the plans for instances which are called Objects. When a class is instantiated (for example, by attaching a script as a component to a GameObject), that instance is called an object. Objects are the building blocks of code, and they exist throughout the work you’ve already done!</p>
+            <p>Classes you have already met include Animator, Rigidbody, GameObject, and Transform. These exist in your game already. Another way to think of classes is that they are factory buildings: the factory takes an input, does a few things to it, and then produces an output afterward. We’ll return to this factory analogy with other code elements.</p>
+            <li>The next line is simply an open curly brace/bracket: {</li>
+            <p>Braces are an essential part of the C# language, as they define code blocks. Code blocks are lines of code which exist between an open and close brace. Braces must always exist in pairs.</p>
+            <p>For the class declaration code block, the close brace is at the bottom but there are two more code blocks within the class declaration. The two code blocks contained in the class declaration are indented. Indentation is not technically necessary, but is very helpful in defining where code blocks begin and end.</p>
+            <li>The next line is:</li>
+            <div class="code" id="Comment"><button class="copy" onclick="copyText('Comment')">Copy</button><br><p>
+                <mark>// Start is called before the first frame update</mark>
+            </p></div>
+            <p>Any text that is preceded by a double forward slash like this is known as a comment. A comment is anything that you want to be completely ignored by the computer. In most cases, they work as a sort of label to explain something about the code around them.  In this case, the comment gives a very brief explanation of what is declared below it.</p>
+            <li>After the comment is the start of the first method declaration:</li>
+            <div class="code" id="StartMethod"><button class="copy" onclick="copyText('StartMethod')">Copy</button><br><p>
+                void Start()
+            </p></div>
+            <p>Let’s return to the factory analogy. If a class is a factory, then a method is a machine within that factory. Methods can take in data, perform an operation, and then give out (or return) data.</p>
+            <p>All method declarations have the same format:</p>
+            <ul>
+                <li>First they state the return type. This is the type of data that is going to be given out when the method is finished. In this example, the return type is void.  This is a special C# word that means nothing — the method returns literally nothing.</li>
+                <li>After the return type comes the name of the method, in this case Start.</li>
+                <li>After the name there is a pair of open and close curved brace/brackets: (). Within these parentheses, methods have the chance to declare what type of data they want to take in. These pieces of data are called parameters. Since there is nothing between the parentheses, there are no parameters declared.</li>
+            </ul>
+            <p>These three pieces of information (the return type, name and parameters) form a method’s signature. In most cases, a method can have whatever signature you like. However, MonoBehaviour classes can use some special methods which need to have specific signatures. These special methods don’t need to be called from your code, and instead are called at specific times by Unity. Start is one example of a special method. It is called as soon as the GameObject it is on starts, which is usually as soon as the Scene starts. This makes it ideal for doing things like setup that you don’t want to repeat.</p>
+            <li>After the Start method signature is a code block. This defines all the code that is executed whenever the method is called. Calling a method is how you use it - you’ll do this yourself later. To return to the factory analogy: the method declaration is how the machine in the factory works, and calling the method is actually making use of that machine.</li>
+            <p>A method signature declaration followed by the code block are together known as a method definition. The terms method declaration and method definition are commonly interchanged when talking about C#, because they happen at the same time. The difference only really matters in other languages (such as C++).</p>
+            <li>Now is a good time to talk about the order in which things are written in a class. Keeping with the factory and machines analogy, it doesn’t matter where in your factory the machines are, but the order in which machines perform their operations is very important. In C# it doesn’t matter in which order methods are declared in a class, but the order in which methods perform their operations matters a lot.</li>
+            <li>The last two parts of the script are another comment and then another method definition. The Update method is another special method for MonoBehaviours. It is called every frame, before something is rendered to the screen. Now you have a basic understanding of some of the parts of the default script.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create variables for the Horizontal and Vertical axes</h2>
+        <p>Your PlayerMovement script needs to take user input and translate that into character movement.</p>
+        <p>The first thing you’re going to need to do is get some data from Unity’s input system. The script needs to check what’s happening with the input all the time, and since Update is called every frame it makes perfect sense to check the input there. But what specifically does it need to check?</p>
+        <p>It makes sense to move the character using the arrow keys or WASD, so the script needs to check the values of those specific keys on the keyboard. It could check whether or not each of those keys are individually either held or not and decide what the character should do (or not), but there’s an alternative that’ll make this a little easier.</p>
+        <p>Unity has an input manager that defines various buttons and axes which can be found by name. For example, it has an axis called Horizontal, which is represented by the A and D keys and the left and right keys. So by checking that, the player’s computer could decide whether the character should move left or right.</p>
+        <p>Let's get started by adding the following inside the Update method:</p>
+        <div class="code" id="NewUpdateMethod"><button class="copy" onclick="copyText('NewUpdateMethod')">Copy</button><br><p>
+            <mark>// Update is called once per frame</mark><br>
+            void Update()<br>
+            {<br>
+            &emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
+            }<br>
+        </p></div>
+        <p>In short, your new line of code is telling the computer, “Create a new float variable and call it horizontal; set that variable equal to the result of this method call.”</p>
+        <p>If classes are factories and methods are machines in those factories, variables are boxes containing stuff in those factories.  In other words, variables are a way of storing data. The data you need to store is the value of the horizontal input axis.  In Unity, input axes return a number between -1 and 1 — this type of data is called float. A float represents a number with decimal places.</p>
+        <p>There are a few pieces of important syntax (structure) in this line of code:</p>
+        <ul>
+            <li>In C#, an equal sign means assign whatever is on the right (the result of a method) to the variable on the left (a newly created float variable).</li>
+            <li>The full stop between Input and GetAxis allows the computer to access something inside the previous object (GetAxis is a method within Input, so to get from Input to GetAxis a full stop is used).</li>
+            <li>C# code is made up of things called statements. Each statement can contain one or more instructions to the computer, and can be thought of like sentences. The semicolon marks the end of the statement, and so functions like a full stop does at the end of a sentence.</li>
+        </ul>
+        <p>You have the class Input, and you are drilling into that to find the method called GetAxis. You are then calling that method by putting parentheses after the name. However, unlike Start and Update, GetAxis has a parameter - that is a piece of data it needs to perform its task. Specifically, GetAxis needs the name of the axis it’s trying to find the value of. You’re trying to find the Horizontal axis value here, so you have given that as a parameter.</p>
+        <p>The data type for this piece of information is called a string. This refers to a string of characters, for example a word or sentence. By putting speech marks around the word Horizontal, you are instructing the computer that it should be treated like a string.</p>
+        <p>Once the computer has retrieved the value of the axis it will need to store it somewhere. To the left of method call, you have introduced a new float variable called horizontal and set it equal to the value found from GetAxis.</p>
+        <p>Next, add another line of code to find the value of the axis called Vertical and store that in a variable called vertical.</p>
+        <div class="code" id="NewUpdateMethod1"><button class="copy" onclick="copyText('NewUpdateMethod1')">Copy</button><br><p>
+            <mark>// Update is called once per frame</mark><br>
+            void Update()<br>
+            {<br>
+            &emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
+            &emsp;float vertical = Input.GetAxis ("Vertical");<br>
+            }<br>
+        </p></div>
+        <p>You now have the values for both the horizontal and vertical axes. The next step is to combine them into a vector, so that they can be used to change position.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Make a Vector</h2>
+        <p>In Unity, 3D space is represented by three coordinates which together made a vector. The data type to represent a vector in Unity is called Vector3. This is what a GameObject’s position is represented by, and so you will need to make a Vector3 representing that change. The movement that the user input represents is fundamental to this class, and you may need to use it for other things too.</p>
+        <p>With this in mind, it’s important to consider the scope of the variable you need to create.</p>
+        <p>The scope of a variable is the area of code where it can be used. Usually this is as simple as the code block in which it is declared. For example, both float variables you just declared (horizontal and vertical) are in scope for the whole of the Update method, because that is the code block in which they were declared. They are said to be local to the Update method.</p>
+        <p>If you want to use a variable in multiple different methods, you can create variables outside of the method’s scope. These are local to the class instead.</p>
+        <p>Above the method definitions, add the following line:</p>
+        <div class="code" id="Vector3"><button class="copy" onclick="copyText('Vector3')">Copy</button><br><p>
+            Vector3 m_Movement;
+        </p></div>
+        <p>The new line of code is instructing the computer to create a Vector3 variable called m_Movement that you can use wherever you want in the PlayerMovement class.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Naming Conventions</h2>
+        <p></p>
     </div>
 </div>
 </div>
