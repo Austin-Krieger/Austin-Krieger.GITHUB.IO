@@ -485,12 +485,58 @@
         </p>
         </div>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the Animator component</h2>
-        <p></p>
+        <p>Now that you’ve created a movement vector, there are some other jobs that need to be done every frame. You need to instruct the computer to:</p>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Tell the Animator component whether or not the character is walking.</li>
+            <li>Get a rotation for the character from player input (similar to the way you got its movement).</li>
+            <li>Apply the movement and rotation to the character.</li>
         </ul>
+        <p>If there is any player input then your character should be walking, and if there is not then it should be idle.</p>
+        <ol>
+            <li>To start off, you need to write a line of code that determines whether or not there is horizontal input. Add the following code after the line normalizing the movement vector:</li>
+            <div class="unityCode" id="HorizontalInput"><button class="copy" onclick="copyText('HorizontalInput')">Copy</button><br><p>
+            bool hasHorizontalInput = !Mathf.Approximately (horizontal, 0f);
+            </p></div>
+            <p>Here you are creating a bool variable (one that can be either true or false) and calling it hasHorizontalInput. Then you’re setting that equal to the return value of a method. This method is called Approximately and is from the Mathf class. It takes two float parameters and returns a bool — true if the two floats are approximately equal and false otherwise. So in this scenario, the method will return true if the horizontal variable is approximately zero.</p>
+            <p>There’s another character in this line you haven’t encountered before: the exclamation mark in front of the method call. This is the logical negation operator and it inverts a bool, setting true to false and false to true. This means that hasHorizontalInput is being set to true when horizontal is not approximately equal to 0. In other words, hasHorizontalInput is true when horizontal is non-zero.</p>
+            <li>It’s not just the horizontal axis you care about, though. Add a similar line for the vertical axis:</li>
+            <div class="unityCode" id="VerticalInput"><button class="copy" onclick="copyText('VerticalInput')">Copy</button><br><p>
+            bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);
+            </p></div>
+            <li>Now that you know when you are getting input on the axes, you need to combine them into a single bool. Add the following line of code:</li>
+            <div class="unityCode" id="boolIsWalking"><button class="copy" onclick="copyText('boolIsWalking')">Copy</button><br><p>
+            bool isWalking = hasHorizontalInput || hasVerticalInput;
+            </p></div>
+            <p>This line is creating another new bool variable called isWalking, which is set to hasHorizontalInput OR hasVerticalInput. The two vertical lines are the logical or operator. This compares the bool on each side. If either of them or both of them are true then it equates to true, otherwise it equates to false. That means that if hasHorizontalInput or hasVerticalInput are true then isWalking is true, and otherwise it is false.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a variable to store a reference to the Animator component</h2>
+        <p>Next, you need to tell the Animator component whether or not the character should be walking using the bool you have just created. To do this, you need to access the Animator component.</p>
+        <p>Why do you need to do something special to access the Animator component, when you didn’t need to do it to call methods on Input or Mathf? This is due to the methods on Input and Mathf being static.</p>
+        <p>Static methods are methods which are called on a class’s type, rather than an instance of that class. There is no need to have a single instance of the Input class in order to determine axis values, because input is more of a global concept. As such, the methods which obtain those values have been made static. Likewise, the Mathf class is full of helper methods (methods which help another method perform its task) which don’t involve any specific data for a specific instance of Mathf, and so those methods have also been made static.</p>
+        <p>However, consider your m_Movement variable. You needed to set values specific to that particular instance of Vector3, so those methods were not static. The important thing to remember is that static methods are called using a type name and non-static methods (or 'instance' methods) are called using an instance name.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Get a reference to the Animator component</h2>
+        <p>Before you can access the Animator component you need a reference to it, and this is obtained using a method called GetComponent.  This reference will be used throughout the class and not just in a single method; it makes sense to keep it as member variable (like the movement vector) so its scope is local to the class.</p>
+        <p>At the top of the class, above the movement vector declaration but below the class declaration, add the following line:</p>
+        <div class="unityCode" id="Animator"><button class="copy" onclick="copyText('Animator')">Copy</button><br><p>
+        Animator m_Animator;
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the reference to the Animator component</h2>
+        <p>You’ve created a variable to store a reference to the Animator component, but so far you haven’t set this variable to anything and it’s empty. When a variable is empty in this way in C#, it is said that its value is null.  Whenever there could be a reference to something and there isn’t one, the reference is null.</p>
+        <p>You don’t want a null reference here, and so now you need to set up the reference properly. You also need to be able to access the Animator component in any method, so it’s important to set the reference as soon as possible. 
+        One of the earliest methods to be called on a MonoBehaviour is the Start method, so it makes perfect sense to set up the reference there. Add the following line to the Start method:</p>
+        <div class="unityCode" id="GetAnimatorComponent"><button class="copy" onclick="copyText('GetAnimatorComponent')">Copy</button><br><p>
+        void Start ()<br>
+        {<br>
+        &emsp;m_Animator = GetComponent&lt;Animator&gt;();<br>
+        }
+        </p></div>
+        <p>This line of code uses some familiar and some new syntax:</p>
+        <ol>
+            <li>The variable that you’re assigning to is on the left.</li>
+            <li>The name of a method is on the right (but it doesn’t have anything written before it).</li>
+            <li>There are angle-shaped brackets around Animator, before the parentheses that you have encountered before.</li>
+            <li>The line ends with a semicolon.</li>
+        </ol>
     </div>
 </div>
 </div>
