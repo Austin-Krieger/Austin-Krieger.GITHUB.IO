@@ -537,6 +537,410 @@
             <li>There are angle-shaped brackets around Animator, before the parentheses that you have encountered before.</li>
             <li>The line ends with a semicolon.</li>
         </ol>
+        <p>Why isn’t there a class before GetComponent? When you added that previously, you were accessing methods on other objects (for example, the Normalize method on the movement vector). However, GetComponent is something that you already have access to: it is part of MonoBehaviour, and so because your class is a MonoBehaviour you have access to it too.</p>
+        <p>Next, the angle brackets.  These have been added because the GetComponent method is generic. A generic method is one that has two different sets of parameters: normal parameters and type parameters. The parameters listed between the angle brackets are the type parameters.</p>
+        <p>In this scenario, GetComponent needs to know what type of component you're looking for. You’re looking for an Animator component, so the type parameter is Animator. The line of code is saying, "Get a reference to a component of type 'Animator', and assign it to the variable called m_Animator."</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the isWalking Animator Parameter</h2>
+        <p>Now that you have a reference to the Animator component, you can use it to set the IsWalking Animator Parameter.</p>
+        <p>Add the following new line of code below the creation of the isWalking variable in the Update method:</p>
+        <div class="unityCode" id="SetBool"><button class="copy" onclick="copyText('SetBool')">Copy</button><br><p>
+        m_Animator.SetBool ("IsWalking", isWalking);
+        </p></div>
+        <p>This code is calling the <b>SetBool method</b>  using the Animator component reference you just set up. <b>The first parameter is the name of the Animator Parameter that you want to set the value of, and the second is the value you want to set it to.</b> It’s important to get the spelling and capitalisation of the first parameter absolutely correct, otherwise the method won’t know which Animator Parameter to set the value of.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Rotation for Your Character</h2>
+        <p>In this game the character should only be able to walk forward, and so needs to face in the same direction as the movement. However, if the character flips quickly to the desired direction it’s going to look really weird, so you need to slow it down a little bit. But just how much should you slow it down?</p>
+        <p>A slightly easier way to frame that question is considering how fast the character should turn. To set this speed, you need to create a new variable.</p>
+        <p>Add the following line to the top of the class, above the Animator member variable:</p>
+        <div class="unityCode" id="TurnSpeed"><button class="copy" onclick="copyText('TurnSpeed')">Copy</button><br><p>
+        public float turnSpeed;
+        </p></div>
+        <p>You’ve added the word public before the variable declaration. In Unity, public member variables appear in the Inspector window and can therefore be tweaked.</p>
+        <p>You’ve also used camelCase (rather than PascalCase, with its m_ prefix). This is because the variable is public, and the Unity naming convention uses this format for public member variables. Naming conventions can be very useful, but there’s no technical reason for this.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Calculate your character’s forward vector</h2>
+        <p>Remember: you need the character to face its direction of movement. All Transform components have a forward vector, and so a good intermediary step would be to calculate what you want the character’s forward vector to be.</p>
+        <p>Add the following line at the bottom of the Update method:</p>
+        <div class="unityCode" id="desiredForward"><button class="copy" onclick="copyText('desiredForward')">Copy</button><br><p>
+        Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
+        </p></div>
+        <p>It’s quite a long and complicated-looking line of code, but it includes lots of familiar things. Let’s break it down:</p>
+        <ul>
+            <li>This code creates a Vector3 variable called desiredForward.</li>
+            <li>It sets it to the return of a method called RotateTowards, which is a static method from the Vector3 class. RotateTowards takes four parameters — the first two are Vector3s, and are the vectors that are being rotated from and towards respectively.</li>
+            <li>The code starts with transform.forward, and aims for the m_Movement variable. transform.forward is a shortcut to access the Transform component and get its forward vector.</li>
+            <li>The next two parameters are the amount of change between the starting vector and the target vector: first the change in angle (in radians) and then the change in magnitude. This code changes the angle by turnSpeed * Time.deltaTime and the magnitude by 0.</li>
+        </ul>
+        <p>Time.deltaTime is the time since the previous frame (you can also think of it as the time between frames). So why do you need to multiplying the turnSpeed by that?</p>
+        <p>Update is called every frame, and if your game is running at 60 frames per second then that means this method will be called 60 times in a second. There would be a very small change in each call, so that over the 60 frames you get the change you want for a second. But what about a game running at 30 frames per second? Only half of the method calls will have been made in the same time, so only half the turn will have happened. You don’t want the number of frames per second affecting how fast the character turns — that’s not good!</p>
+        <p>What about if instead of making the change per frame, you were dealing with a change per second? That would make things a lot easier. To do this, you need to multiply whatever change you want per second by the amount of time that a frame took. That’s exactly what this code does.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adjust the turnSpeed variable</h2>
+        <p>The turnSpeed variable is the angle in radians you want the character to turn per second. This is then multiplied by Time.deltaTime to get the amount the character should turn this frame. Radians are a different measurement of angle; they are similar to degrees, but are a more natural measurement. A circle has 2π radians in it, so approximately 6. Your character is always going to take the shortest turn, so the most the character will ever turn is about 3 radians.</p>
+        <p>Given that, a turnSpeed of 3 would mean it takes about a second for your character to completely turn around. That’s actually quite slow. A turn speed of 6 would mean it takes around half a second to turn around, which is still quite slow. Let’s try a value of 20 and see what that feels like — you can always change this later if you want to.</p>
+        <p>Change the line declaring the turnSpeed variable at the top of the class to:</p>
+        <div class="unityCode" id="TurnSpeed"><button class="copy" onclick="copyText('TurnSpeed')">Copy</button><br><p>
+        public float turnSpeed = 20f;
+        </p></div>
+        <p>Quaternions are a way of storing rotations; they get around some of the problems with storing rotations as a 3D vector.</p>
+        <p>You’ve given the Quaternion a default value of Quaternion.identity.  Normally, variables that are part of the class (member variables) rather than part of a specific method are set to their default value when an instance of the class is created. For example, a Vector3’s default value is to have x, y and z all set as 0. The same is true for a Quaternion. However, while a zero-vector makes sense (as it is no movement), a zero-quaternion does not make as much sense. Setting this value of Quaternion.identity is simply giving it a value of no rotation, which is a more sensible default.</p>
+        <p>Now that you have created a rotation variable, you can set it.  Below the desiredForward variable creation, add the following line:</p>
+        <div class="unityCode" id="QuaternionLookRotation"><button class="copy" onclick="copyText('QuaternionLookRotation')">Copy</button><br><p>
+        m_Rotation = Quaternion.LookRotation (desiredForward);
+        </p></div>
+        <p>This line simply calls the LookRotation method and creates a rotation looking in the direction of the given parameter.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Apply Movement and Rotation to your Character</h2>
+        <p>The final step is to apply the movement and the rotation to your character.  There are many ways you could do this, but since the character needs to be part of the physics system you need to move the Rigidbody instead of using any other technique.</p>
+        <p>In order to do this, you need a reference to the Rigidbody component. You can get that exactly as you did for the Animator component.</p>
+        <ol>
+            <li>Add the following line to your script immediately after the Animator variable declaration:</li>
+            <div class="unityCode" id="RigidBodyVariable"><button class="copy" onclick="copyText('RigidBodyVariable')">Copy</button><br><p>
+            Rigidbody m_Rigidbody;
+            </p></div>
+            <li>Add another line of code just after setting the reference of the Animator variable:</li>
+            <div class="unityCode" id="RigidBodyVariableSet"><button class="copy" onclick="copyText('RigidBodyVariableSet')">Copy</button><br><p>
+            m_Rigidbody = GetComponent&lt;Rigidbody&gt;();
+            </p></div>
+        </ol>
+        <p>Now that you have a reference to the Rigidbody, let’s think about the specifics of moving an animated character. The character has a fun Walk animation and it would be good to use the root motion for that. However, the animation doesn’t have any turning in it and if you tried to turn the Rigidbody in the Update method it might get overridden by the animation (which could lead to the character not turning when it should).</p>
+        <p>What you actually need is some of the root motion of the animation but not all of it — specifically, you need to apply the movement but not the rotation.  So how to change how root motion is applied from the Animator? Luckily, MonoBehaviours have a special method you can use to change how root motion is applied from the Animator.</p>
+        <p>Below the Update method, declare a new method:</p>
+        <div class="unityCode" id="OnAnimatorMove"><button class="copy" onclick="copyText('OnAnimatorMove')">Copy</button><br><p>
+        void OnAnimatorMove ()<br>
+        {<br><br>}
+        </p></div>
+        <p>This method allows you to apply root motion as you want, which means that movement and rotation can be applied separately.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Movement</h2>
+        <p>Add the following line to the new OnAnimatorMove method:</p>
+        <div class="unityCode" id="DeltaPositionMagnitude"><button class="copy" onclick="copyText('DeltaPositionMagnitude')">Copy</button><br><p>
+        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
+        </p></div>
+        <p>First, you’re using your reference to the Rigidbody component to call its MovePosition method, and passing in a single parameter: its new position. The new position starts off at the Rigidbody’s current position, and then you add a change to that — the movement vector multiplied by the magnitude of the Animator’s deltaPosition. But what does that mean?</p>
+        <p>The Animator’s deltaPosition is the change in position due to root motion that would have been applied to this frame. You’re taking the magnitude of that (the length of it) and multiplying by the movement vector which is in the actual direction we want the character to move.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Rotation</h2>
+        <p>Add the following line just below the MovePosition call in the OnAnimatorMove method:</p>
+        <div class="unityCode" id="RigidBodyMoveRotation"><button class="copy" onclick="copyText('RigidBodyMoveRotation')">Copy</button><br><p>
+        m_Rigidbody.MoveRotation (m_Rotation);
+        </p></div>
+        <p>This is very similar to the MovePosition call, except it applies to rotation. This time you’re not applying a change to rotation, you’re just directly setting the rotation.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Change your Update Method</h2>
+        <p>In the previous tutorial, you learned about the Update loop (used for rendering) and the FixedUpdate loop (which runs the physics operations). You’ve made sure that the Animator runs in time with the physics loop to avoid conflict between physics and the animation. However — now you’re overriding the root motion using OnAnimatorMove. This means that OnAnimatorMove is actually going to be called in time with physics, and not with rendering like your Update method.</p>
+        <p>The movement vector and rotation are set in Update. If OnAnimatorMove gets called first then you will have a problem, because a Quaternion without a value set doesn’t make any sense. To make sure the movement vector and rotation are set in time with OnAnimatorMove, change your Update method to a FixedUpdate method as follows:</p>
+        <div class="unityCode" id="FixedUpdate"><button class="copy" onclick="copyText('FixedUpdate')">Copy</button><br><p>
+        void FixedUpdate ()
+        </p></div>
+        <p>This is another special method that is called automatically by Unity, but this one is in time with physics. Instead of being called before every rendered frame, FixedUpdate is called before the physics system solves any collisions and other interactions that have happened. By default it is called exactly 50 times every second.</p>
+        <p>The completed script should look similar to this:</p>
+        <div class="unityCode" id="FinalPlayerMovementScript"><button class="copy" onclick="copyText('FinalPlayerMovementScript')">Copy</button><br><p>
+        using System.Collections;<br>
+        using System.Collections.Generic;<br>
+        using UnityEngine;<br><br>
+        public class PlayerMovement : MonoBehaviour<br>
+        {<br>
+        &emsp;public float turnSpeed = 20f;<br><br>
+        &emsp;Animator m_Animator;<br>
+        &emsp;Rigidbody m_Rigidbody;<br>
+        &emsp;Vector3 m_Movement;<br>
+        &emsp;Quaternion m_Rotation = Quaternion.identity;<br><br>
+        &emsp;void Start()<br>
+        &emsp;{<br>
+        &emsp;&emsp;m_Animator = GetComponent&lt;Animator&gt; ();<br>
+        &emsp;&emsp;m_Rigidbody = GetComponent&lt;Rigidbody&gt; ();<br>
+        &emsp;}<br><br>
+        &emsp;void FixedUpdate()<br>
+        &emsp;{<br>
+        &emsp;&emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
+        &emsp;&emsp;float vertical = Input.GetAxis ("Vertical");<br><br>
+        &emsp;&emsp;m_Movement.Set(horizontal, 0f, vertical);<br>
+        &emsp;&emsp;m_Movement.Normalize ();<br><br>
+        &emsp;&emsp;bool hasHorizontalInput = !Mathf.Approximately (horizontal, 0f);<br>
+        &emsp;&emsp;bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);<br>
+        &emsp;&emsp;bool isWalking = hasHorizontalInput || hasVerticalInput;<br>
+        &emsp;&emsp;m_Animator.SetBool ("IsWalking", isWalking);<br><br>
+        &emsp;&emsp;Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);<br>
+        &emsp;&emsp;m_Rotation = Quaternion.LookRotation (desiredForward);<br>
+        &emsp;}<br><br>
+        &emsp;void OnAnimatorMove ()<br>
+        &emsp;{<br>
+        &emsp;&emsp;m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);<br>
+        &emsp;&emsp;m_Rigidbody.MoveRotation (m_Rotation);<br>
+        &emsp;}<br>
+        }
+        </p></div>
+        <p>Remember: in C# the order in which methods are declared in a class doesn’t matter, so your methods may be arranged slightly differently.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Test your Changes</h2>
+        <p>We now need to add a script component to our character. You can add a script component by clicking the Add Component button in the Inspector window, buy you can also do this another way:</p>
+        <ol>
+            <li>Select the Character GameObject.</li>
+            <li>In the Inspector window, click Edit prefab to enter Prefab Mode.</li>
+            <li>In the Project window, go to Assets > Scripts and find the PlayerMovement script.</li>
+            <li>Drag the PlayerMovement script from the Project window to the Inspector window.</li>
+            <li>If your Prefab Mode is not set to Auto Save, click the Save button</li>
+            <li>Click the back arrow to return along the Prefab’s breadcrumb.</li>
+            <li>If the MainScene isn’t loaded, go to the Project window and load it by double clicking on the Scene Asset in the Assets > Scenes folder.</li>
+            <li>Select your Character GameObject in the Scene — you’ll see that it has all the components and settings you gave to its Prefab.</li>
+        </ol>
+        <p>Add your Environment.</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Lighting</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Light the Environment</h2>
+        <p>Lighting has a big impact on atmosphere — changing the lighting in your game is the first step toward creating a really spooky environment for players to explore.</p>
+        <p>Lights in Unity are simply GameObjects with a Light Component added. The Light Component contains settings which allow you to change the color and intensity of a light, as well as the ‘type’ of light and various more complex controls for shadows and Lightmapping.</p>
+        <p>Every new Scene in Unity comes with Directional Light, one of the two GameObjects created as default. Your Scene now also has a series of extra lights added by the Level Prefab.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Change the Directional Light in your Scene</h2>
+        <p>The Directional Light in your Scene is set to the Directional Type. Directional Type lights mimic very distant light objects, such as the Sun. They can be placed anywhere in the scene, and rotated to change the angle at which the light affects the scene.</p>
+        <div class="center" style="max-width: 250px;"><img src="../images/UnityImages/DirectionalLight.jpg" alt="Directional Light Image"></div>
+        <p>Let’s alter the Directional Light to feel more like moonlight and create some interesting shadows:</p>
+        <ol>
+            <li>In the Hierarchy window, select the Directional Light GameObject.</li>
+            <li> You’re going to change some of the properties of the Light component, starting with the Color, but first you need to understand how colors work.</li>
+            <p>In the Inspector, click on the Color property. Clicking on any Color property in Unity will open the Color picker window:</p>
+            <div class="center" style="max-width: 250px; padding: 10px;"><img src="../images/UnityImages/ColorPicker.jpg" alt="Color Picker Image"></div>
+            <li>The Color picker window gives you a number of different options to set the values for a color.</li>
+            <p>Each color is made from four channels:</p>
+            <ul>
+                <li>Red</li>
+                <li>Green</li>
+                <li>Blue</li>
+                <li>Alpha</li>
+            </ul>
+            <p>The amount of each of these channels that makes up a color can be represented in different ways. You can choose the representation using the drop-down menu just below the color ring. Check that the drop-down is set to RGB 0-255. This representation means that each channel is represented by an integer between 0 and 255.</p>
+            <li>Set the Color property of the Light Component to (225, 240, 250). This will create a very light blue light, rather than yellow.</li>
+            <li>In the Light component, increase the Intensity property to 2.</li>
+            <li>Now you can improve the quality of the spooky shadows in the haunted house. In the Light component, find the Realtime Shadows property. Change its Resolution property from Use Quality Settings to Very High Resolution.</li>
+            <li>Set the Realtime Shadows Bias and Normal Bias properties to 0.01.</li>
+            <li>In the Transform Component, set the Rotation property to (30, 20, 0). This will rotate the light so it shines through the windows of the house.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Global Illumination Lightmapping Effect</h2>
+        <p>There are two kinds of lighting in Unity which help you simulate real-world light behaviour: Direct and Indirect. Direct lighting is from a specific light source, such as the sun (the Directional Light in your Scene). Indirect lighting is the additional lighting that occurs when direct light bounces off surfaces.</p>
+        <p>This effect is most commonly created in Unity using the Global Illumination Lightmapping feature. Lightmapping simulates the bouncing of light within the Scene and writes (or ‘bakes’) it to an Asset stored within the Project. This takes time, but can result in really realistic-looking scenes.</p>
+        <p>To save some time you can use an approximation to create a similar effect:</p>
+        <ol>
+            <li>Go to the Window menu and select Rendering > Lighting Settings. Click and drag on the name tag, and dock it next to Inspector window.</li>
+            <p>The Lighting Settings window is the main control point for Unity’s Global Illumination features for the currently loaded scene. It also contains the settings for Environment Lighting, Reflections and Fog.</p>
+            <li>In the Realtime Lighting section, disable the Realtime Global Illumination checkbox. In the Mixed Lighting section, disable the Baked Global Illumination checkbox.</li>
+            <div class="center" style="padding: 10px; max-width: 450px;"><img src="../images/UnityImages/BakedGlobalLighting.jpg" alt="Baked Global Lighting Image"></div>
+            <li> In the Environment section, use the circle select button to the far right of the Skybox Material property to set it to None (a null reference). You don’t need a realistic sky for this game, and will use alternative lighting.</li>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/SkyboxEnvironment.jpg" alt="Skybox Environment Image" style="max-height: 45px;"></div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/MaterialList.jpg" alt="Skybox Material List Image"></div>
+            <li>In the Environment section, set the Environment Lighting Source to Gradient.</li>
+            <p>The Gradient is broken into three color fields:</p>
+            <ul>
+                <li>Sky, which controls the environment light that comes from above the scene.</li>
+                <li>Equator, which controls the light that travels from the horizon towards the middle of the scene.</li>
+                <li>Ground, which controls the light that comes from below the scene.</li>
+            </ul>
+            <p>You can think of the gradient as a big sphere that wraps around your whole Scene.</p>
+            <li>Set the Sky color to a lighter grey: (170, 180, 200) This will lift the overall brightness of the floors and objects like beds and tables.</li>
+            <li>Set the Equator color to a blue-grey: (90, 110, 130) This will lift the brightness of the walls and props.</li>
+            <li>Set the Ground color to black: (0, 0, 0) The Ground color can add up-light that would create a nice Global Illumination-style effect. However, this would be too bright for the haunted house you are creating.</li>
+            <li>Save your Scene.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Navigation Mesh</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adding a Navigation Mesh</h2>
+        <p>Haunted Houses should have ghosts roaming the halls. To help our ghosts find their way around, Unity has a built-in system called the NavMesh (short for Navigation Mesh). You learned that a Mesh is a collection of triangles that all fit together to define a shape. This mesh enables your character to be rendered to the screen. The NavMesh is an invisible shape over the ground that defines an area within which selected GameObjects can move. So, how do you decide which areas can and can’t be moved over?</p>
+        <p>When a GameObject is identified as Static, Unity’s navigation systems assume that it will not move. Your game’s environment is made up of many GameObjects with many Mesh Renderer Components. The combination of all the meshes from the Mesh Renderer Components whose GameObjects are marked as Static form the basis for the NavMesh.</p>
+        <p>To mark your environmental GameObjects as static:</p>
+        <ol>
+            <li>In the Hierarchy, select the Level GameObject.</li>
+            <li>In the Inspector, enable the Static checkbox.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/LevelStatic.jpg" alt="Level Static Checkbox Image"></div>
+            <li>A dialogue box will appear asking whether you wish to enable the static flags for all the child objects as well. Select Yes, change children.</li>
+            <li>Now the Level GameObject and all of its child GameObjects are marked as static, but you need to set one exception. There is a Ceiling Plane GameObject in the level design which is being used to cast shadows. If you include this in the bake, the ghosts might end up walking on the ceiling! As spooky as that sounds, it won’t work for this game.</li>
+            <p>In the Hierarchy window, expand the Level GameObject and its children.</p>
+            <li>Go to Level > Corridors > Dressing > Ceiling Plane and select the Ceiling Pane GameObject.</li>
+            <li>In the Inspector, disable the Static checkbox.</li>
+            <li>Go to File > Save and save your Scene.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create the NavMesh</h2>
+        <p>The process of creating a Nav Mesh is called baking. This is done from the Navigation window.</p>
+        <ol>
+            <li>In the Menu bar, go to Window > AI > Navigation to open the Navigation window. The window should dock itself with the Inspector window.  If it doesn’t, drag and dock it there.</li>
+            <li>There are 4 tabs at the top of the Navigation window: Agents, Areas, Bake and Object.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/NavigationBake.jpg" alt="Navigation Bake Image"></div>
+            <p>Select the Bake tab.</p>
+            <li>The Bake settings control the details of how the NavMesh will be constructed. The first settings refer to the agents that will traverse (the ghosts that will move around) the NavMesh — the NavMesh Agents. They specifically refer to the size of the agents and the terrain they can move across.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/BakedAgent.jpg" alt="Baked Agent Image"></div>
+            <p>The only setting you need to adjust for your game is the Agent Radius; the ghosts roaming the haunted house will be smaller than the default. Change the Agent Radius to 0.25.</p>
+            <li>Select the Bake button at the bottom of the window.</li>
+            <p>The bake process will take from a second to a few minutes, depending on the power of your computer. When it finishes, the environment in the Scene window will be covered in a light blue mesh. This is the area of the environment that the ghosts will be able to move around.</p>
+            <p>The NavMesh will only be visible when the Navigation window is open and active (if you switch to the Inspector tab, the mesh will disappear from the Scene view).  Don’t worry — even when you can’t see the NavMesh, it’s still there!</p>
+            <li>Remember to save your Scene to avoid losing any changes.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Camera</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the Camera Component</h2>
+        <p>In the previous tutorial, you created a level for your game. The character can now walk around the Scene, but this means that he sometimes wanders away from the camera. In this tutorial, you’ll adjust the camera settings to make sure this doesn’t happen. Scenes in Unity are made up of GameObjects which in turn have a collection of components attached to them. The way that the Scene is viewed by players is constructed in the same way. To view the Scene, a GameObject in the Scene must have a Camera component. When a new Scene is created, a GameObject is added called Main Camera which has a Camera component.</p>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CameraObject.jpg" alt="Camera Object Image"></div>
+        <p>The camera points down the GameObject’s z-axis and behaves exactly like all other GameObjects. In the Scene view, you can see a gizmo representing the camera’s frustum. The frustrum is a solid shape that looks like a pyramid with the top cut off parallel to the base. This is the shape of the region that can be seen and rendered by a perspective camera.</p>
+        <p>When you make a game, you have a few options to make sure that the camera followers the player character. One solution would be to write a script for this. However, Unity has a built-in solution to the problem: Cinemachine.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">How does Cinemachine work?</h2>
+        <p></p>
+        <ul>
+            <li>One or more ‘virtual’ cameras are created in a Scene.</li>
+            <li>These virtual cameras are managed by a component called the Cinemachine Brain.</li>
+            <li>The Cinemachine Brain is attached to the same GameObject as a Camera component — by default this will be the Main Camera GameObject.</li>
+            <li>The Cinemachine Brain manages all of the virtual cameras and decides which virtual camera (or combination of virtual cameras) the actual camera should follow.</li>
+        </ul>
+        <p>In your game, the camera will only ever be following the character, so you’ll only need one virtual camera. You’ll make sure that this virtual camera follows our character, and then the Main Camera GameObject will stick to that.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up a Virtual Camera using Cinemachine</h2>
+        <p>To set up a virtual camera using Cinemachine: In the Project window, go to Assets > Scenes and double click MainScene.</p>
+        <ol>
+            <li>In the Hierarchy, select the JohnLemon GameObject.</li>
+            <li>Move your cursor over the Scene window and press the F key.</li>
+            <li>In the top menu, go to Cinemachine > Create Virtual Camera.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/Cinemachine.jpg" alt="Cinemachine Image"></div>
+        </ol>
+        <p>This will create a new GameObject in the scene called CM vcam1.</p>
+        <p>This will be created at the focus point of the Scene window’s camera, so it should be right on top of the character. However, since you now have a virtual camera in the Scene it will have moved the Game window’s view, so you can no longer see your character in the Game window.</p>
+        <p>To fix this, you need to make sure the virtual camera is tracking the character by changing the Cinemachine Virtual Camera component settings.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Change the Cinemachine Virtual Camera Component Settings</h2>
+        <ol>
+            <li>In the Hierarchy, select CM vcam1.</li>
+            <li>In the Inspector, find the Cinemachine Virtual Camera component. This component has a lot of settings, but at the moment you just need to focus on three sections: the target references, the body and the aim.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CinemachineSettings.jpg" alt="Cinemachine Settings Image"></div>
+            <p>The target references section has two settings: Follow and Look At.  These are optional references to the Transform components of GameObjects. If you want your virtual camera to move, then it needs to know how to move. Specifically, it needs a reference to a Transform that it will follow.  Likewise, if you want your virtual camera to rotate then it needs to know what it has to rotate to look at.</p>
+            <p>The next section two sections are the Body and Aim. These are settings for how the camera moves and rotates respectively. You’re going to restrict the movement of the virtual camera, so it has the character in view all the time but doesn’t actually look at the character.</p>
+            <li>In the Aim section, change the drop-down menu at the top right from Composer to Do Nothing.</li>
+            <li>Drag and drop the JohnLemon GameObject from the Hierarchy window onto the Follow property of the Cinemachine Virtual Camera Component. This will change the Follow setting to reference the character's Transform.</li>
+            <li>In the Body section, change the drop-down at the top right of the section from Transposer to Framing Transposer. Changing the Body to a Framing Transposer will allow you to control the virtual camera’s position by giving it rules about where on screen its Follow target has to be.</li>
+            <p>To find out more about the different Body setting values, you can check the Cinemachine documentation (in the top menu bar, go to Cinemachine > About).</p>
+            <p>The Game window should now have several red and blue boxes on it.  These are guides for where on the screen the target can be.</p>
+            <li>Now let’s set the virtual camera at the correct angle. In the Hierarchy, select the CM vam1 GameObject. On the CM vam1 GameObject’s Transform component, set the Rotation around the x-axis to 45.</li> 
+            <p>Now the virtual camera is tilted down and looking at the character from above.  This is roughly the look you’re looking for. Why did the virtual camera move when you only changed the rotation? This is the power of Cinemachine!</p>
+            <p>You knew that you needed a more top-down angle to our camera, and the virtual camera worked out that if you wanted it to be tilted down, it needed to be higher up in order to have its target on screen.</p>
+            <li>Most of the default settings of the Framing Transposer are fine for your game.  The only one you need to change is the Camera Distance setting — the character is a little too small on the screen, so you need to move the virtual camera a little bit closer. Change the Camera Distance setting from 10 to 8.</li>
+            <li>In the Hierarchy, select CM vcam1 and rename it to VirtualCamera.</li>
+            <li>Deselect the VirtualCamera GameObject to remove the guidelines from the Game window.</li>
+            <li>Save the scene.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Post-Processing Effects</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add Post-Processing Effects</h2>
+        <p>Post-processing involves applying filters and effects to the game image before it’s rendered on screen (similar to filters that can be added to photos).</p>
+        <p>Generally, post-processing effects are grouped together and used on different areas of the game world. This means that when the camera is in a particular area, its designated set of processes are applied to the image.</p>
+        <p>Imagine that you are in a dark room and then step through a door outside into bright daylight.  Your eyes will take a while to adjust and everything will  seem much brighter than it usually does when you exit the room. In Unity, this could be simulated by having different groups of post processes applied in the room and outside it. The groups of post processes are Assets called Post-processing Profiles. The areas of the game world which have profiles assigned to them are Components called Post Process Volumes.</p>
+        <p>Sometimes, different cameras have different post-processes. To link a set of processes to a specific camera, a Post Process Layer component is added to the same GameObject as the Camera component. Layers are a way of organising GameObjects by behaviour.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Post-Processing Layer</h2>
+        <ol>
+            <li>In the Hierarchy, select the Main Camera GameObject.</li>
+            <li>In the Inspector, find the Layer property below the GameObject’s name.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/MainCameraLayerProperty.jpg" alt="Main Camera Layer Property Image"></div>
+            <p>A GameObject can only belong to one layer. The Main Camera is on the Default Layer. There are several options by default in Unity, but you can also create your own layers in the Tags &amp; Layers Manager.</p>
+            <li>In the Layer property drop-down, select Add Layer…</li>
+            <li>In the Tags &amp; Layers Manager there are 32 available Layers in (starting with 0 and ending with 31).</li>
+            <p>The first eight Layers are reserved for Unity’s default Layers, but the remaining 24 can be used for whatever you want.  Since you need a Layer for your Post Process Volume, it makes sense to create a Layer for all Post Process Volumes.</p>
+            <li>Add "PostProcessingVolumes" as User Layer 8.</li>
+            <li>In the Hierarchy, select the Main Camera GameObject. It will still be on the Default Layer.</li>
+            <p>This is because although you have created a new layer, you have not reassigned Main Camera to this.</p>
+            <li>Add a Post Process Layer component to Main Camera.</li>
+            <li>Change the Layer property from Nothing to PostProcessingVolumes using the drop-down menu.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Improve Image Quality with Anti-aliasing</h2>
+        <p>Before you move on to set up your volume and profile, let’s quickly consider anti-aliasing. Aliasing is when the edge of an object looks jagged and the pixel outline can be seen</p>
+        <p>Anti-aliasing is a post-processing effect that reduces the prominence of these jagged lines by surrounding them with pixels of intermediate shades of color.  There are several different algorithms for working out which pixels need adjusting and by how much — you’re going to use the simplest and most effective one.</p>
+        <ol>
+            <li>Make sure that the Game view is visible, so you can see the changes you are making in this section of the tutorial.</li>
+            <li>In the Post Process Layer component, change the Mode property dropdown from No Anti-aliasing to Fast Approximate Anti-aliasing (FXAA).</li>
+            <li>Enable the Fast Mode checkbox below the dropdown.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Post-Processing Volume</h2>
+        <ol>
+            <li>In the Hierarchy window, go to Create > Create Empty.</li>
+            <li>Name the new GameObject “GlobalPost”.</li>
+            <li>In the Inspector, set the Layer to PostProcessingVolumes.</li>
+            <li>Change the Transform component’s Position property to (0, 0, 0). This GameObject is going to be your global Post Process Volume. The global volume works as a default profile for the cameras it affects. Other non-global volumes could then override the effects of this one, but your game will not need any additional volumes.</li>
+            <li>Add a Post Process Volume Component to GlobalPost.</li>
+            <li>Enable the Is Global checkbox. </li>
+            <li>Click the New button to the far right of the Profile property. This will create a new Post-processing Profile. Its Asset will be saved in a new folder called MainScene_Profiles in Assets > Scenes.</li>
+            <li>Now that a Profile has been set, you will see more settings available in the Post Process Volume Component.</li>
+            <p>The Overrides subsection refers to the different effects that can override how the camera normally renders.  By default a profile has no effects, and so there is nothing in the Overrides subsection.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Color Grading Effect</h2>
+        <ol>
+            <li>Click the Add effect… button and select Unity > Color Grading.</li>
+            <p>Color Grading is a way of changing the brightness, contrast and colors of the rendered view. You can think of it like applying filters in photo editing software or Instagram. To make your game look spookier, you’re going to adjust the colors and brightness levels of the rendered view.</p>
+            <p>Note: The settings within this component are shortcuts to the Profile Asset; all changes to the Overrides subsection will change the Profile Asset and will not directly affect the Component.</p>
+            <li>Select the arrow next to Color Grading to expand its settings.</li>
+            <li>First, you need to Tonemap the scene. Tonemapping changes the output of the final rendered frame so that it's much easier to control lights and shadows.</li>
+            <p>Enable the Mode checkbox in the Tonemapping subsection. Using the drop-down menu, change its property from None to ACES. ACES tonemapping is an industry standard way of applying tonemapping.  It helps create a more film-like look for your projects.</p>
+            <li>You'll notice that the scene looks really dark now. This is because the ACES default exposure is zero (for more information, see the documentation). A good way to fix this is to use the Post-exposure feature.  Post-exposure is a way of adjusting the default exposure.</li>
+            <p>In the Tone subsection, enable the Post-exposure (EV) checkbox. Set the value to 1 to brighten your scene back up.</p>
+            <li>You can also make your scene a little spookier by changing some colours. Halfway down the Color Grading section, find the color circles called Trackballs.</li>
+            <li>Enable the Lift, Gamma and Gain checkboxes beneath each Trackball.</li>
+            <p>Lift affects the colours of your shadows, Gain changes the brightest highlights, and Gamma covers everything in the middle (or mid-range) of your image’s color.</p>
+            <li>Drag the circle in the center of the Trackballs to slightly adjust the color in your Game view. Drag the:</li>
+            <ul>
+                <li>Lift and Gamma Trackballs slightly toward the blue</li>
+                <li>Gain Trackball slightly toward the yellow</li>
+            </ul>
+            <p>This will add depth to the shadows and warmth to the lighting.</p>
+            <li>Collapse the Color Grading effect.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Bloom Effect</h2>
+        <p>Your lights are much more effective, but they don't look quite like real lights yet. Add the Bloom effect to give them a nice glow:</p>
+        <ol>
+            <li>Click the Add effect… button and select Unity > Bloom. Expand the Bloom effect section.</li>
+            <li>Select the All shortcut just below the section title — this will enable all the settings for Bloom. Currently nothing is actually glowing, as the Intensity isn't high enough.</li>
+            <li>Set the Intensity property to 2.5, to create a nice bright glow on the lights.</li>
+            <li>You might see some other brighter objects that you feel could also look nice with a little glow. You can add them to the Bloom effect using the Threshold property. Lowering this value adds less bright pixels to the effect. Set the Threshold to 0.75 to add more glow to the scene.</li>
+            <li>Collapse the Bloom effect.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Ambient Occlusion Effect</h2>
+        <p>The lights now feel bright, but it’s important to maintain the spooky atmosphere for this haunted house. A good way of darkening some of those corners and cracks is to use the Ambient Occlusion effect. Ambient Occlusion mimics the real-life effect of light not reaching tighter corners by darkening those areas.</p>
+        <ol>
+            <li>Click the Add effect… button and select Unity > Ambient Occlusion.  Expand the Ambient Occlusion effect section.</li>
+            <li>Click the Ambient Occlusion’s All shortcut to activate all the features that you need.</li>
+            <li>Like Bloom, you will need to set the Intensity before we can see it work. Set the Intensity property to 0.5, and you'll create a nice spooky shadow in the corners of the rooms.</li>
+            <li>You can spread this effect even further across the room by using the Thickness Modifier. Set the Thickness Modifier property to 3.5.</li>
+            <p>Now you should be able to see a big shadowy effect spreading behind some of the other props in the scene.</p>
+            <li>Collapse the Ambient Occlusion effect.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Vignette Effect</h2>
+        <p>Several effects simulate how a real camera would view the scene. The last few effects will change how such a camera’s lens would work. First, you’ll add the Vignette effect to darken the edges of the camera lens itself. This helps to focus in on the player and makes the game feel more claustrophobic.</p>
+        <ol>
+            <li> Click the Add effect… button and select Unity > Vignette. Expand the Vignette effect section.</li>
+            <li>Click the Vignette’s All shortcut to activate all the features that you need.</li>
+            <li>Like Bloom and Ambient Occlusion, the Vignette effect needs an Intensity. This will determine how far across the screen the effect spreads. Set the Intensity property to 0.5.</li>
+            <li>You can make feel even more claustrophobic and spooky by increasing the Smoothing. The Smoothness property determines the distance over which the effect fades towards the centre of the screen. Set the Smoothness property to 0.3.</li>
+            <li>Collapse the Vignette effect.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Lens Distortion Effect</h2>
+        <p>The final effect you need to add is Lens Distortion. This warps the final rendered frame and will help to make it feel like you're watching the game through a spy camera.</p>
+        <ol>
+            <li>Click the Add effect… button and select Unity > Lens Distortion.  Expand the Lens Distortion effect section.</li>
+            <li>Click the Lens Distortion’s All shortcut to activate all the features that you need.</li>
+            <li>As with the other effects, Intensity controls the strength of the effect. Have a go sliding the Intensity back and forth to get an idea of the effect. Then set the Intensity property to 35.</li>
+            <li>When you use this effect, it can sometimes create visual glitches at the edges of the screen where the image has been warped. To fix this, you can simply zoom into the rendered frame a little to remove the glitches from view.</li>
+            <p>Set the Scale property to 1.1 to fix this.</p>
+            <li>Save your Scene.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">User Interface</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the UI</h2>
+        <p>When the character reaches the exit the game should fade out and quit, but you need to be careful with this — quitting in the Unity Editor and quitting in the final built version of the game are different.</p>
+        <p>First, though, you need to make the game fade out. To do that, you’re going to use Unity’s UI (user interface) system.</p>
+        <ol>
+            <li>In the Hierarchy window, click the Create button. This can be used to create all sorts of basic GameObjects.</li>
+            <li>Go to UI > Image. A UI Image can be stretched across the player’s entire screen, and it;s opacity can be changed to create a fade effect. Perfect!</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/UIImage.jpg" alt="UI Image"></div>
+            <p>This will add a few new GameObjects to your Scene.</p>
+            <li>In the Scene window, click the 2D button in the top bar to enable 2D Mode. This will enable you to see the new GameObjects properly.</li>
+            <li>In the Hierarchy, select the Canvas GameObject. Place your cursor over the Scene and press F.</li>
+            <li>Zoom in to look at the Canvas and Image more closely. You can either use the scroll wheel or press Alt, right click, and drag.</li>
+            <li>In the Hierarchy, select the EventSystem GameObject.</li>
+            <p>This GameObject has components attached which work together to allow any UI elements on the screen to interact with user input. However, in your game the player doesn’t need to be able to interact with the UI.</p>
+            <li>Right click on the EventSystem GameObject and select Delete.</li>
+            <p>Next, you’ll use the two remaining GameObjects (Canvas and Image) to create the fade effect.</p>
+        </ol>
     </div>
 </div>
 </div>
