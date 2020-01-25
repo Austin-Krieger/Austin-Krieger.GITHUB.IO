@@ -174,6 +174,7 @@
             <div class="center" style="padding: 10px;"><img src="../images/UnityImages/PrefabDialogueBox.JPG" alt="Prefab Dialogue Box Image" style="max-height: 150px;"></div>
             <li>Now the Prefab has been created, any changes you make will be reflected on the instance of the GameObject in the Scene. In order to make changes to a Prefab, you will need to open the Prefab for editing in Prefab Mode.</li>
             <li>Click on the Prefab and in the Inspector window you will see a button that reads "Open Prefab". Clicking on this button will put the Unity Editor in Prefab Mode.</li>
+            <p>Alternatively, in the Hierarchy, click the arrow to the right of the GameObject.</p>
             <p>This mode takes you out of your current Scene and puts you in a temporary Scene with just the Prefab. The Scene has changed slighlty; at the top there is a new bar with <b>Scenes | Prefab Name</b> on the left and a checkbox labeled Auto Save on the right.</p>
             <li>Disable the <b>Auto Save</b> checkbox. A Save button will appear so you can manually save any changes that you make to the Prefab.</li>
             <li>The Hierarchy window also has a new bar at the top. The arrow on the left will take you back along the breadcrumn. If you clicked it now, it would take you back to MainScene.</li>
@@ -941,6 +942,299 @@
             <li>Right click on the EventSystem GameObject and select Delete.</li>
             <p>Next, you’ll use the two remaining GameObjects (Canvas and Image) to create the fade effect.</p>
         </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Configure the Canvas</h2>
+        <ol>
+            <li>In the Hierarchy, rename the Canvas to FaderCanvas.</li>
+            <li>In the Inspector, take a look at the components attached to FaderCanvas.</li>
+            <p>You should notice that its Transform component is different to the ones you’ve seen before. GameObjects that are part of the UI system need better control over their position, so have a Rect Transform component. For a Canvas at the root of a UI hierarchy, the Rect Transform settings are read only.</p>
+            <li>The Canvas component controls how UI elements which belong to that Canvas are rendered. This rendering is primarily controlled by the Render Mode setting. It has three potential modes:</li>
+            <ul>
+                <li>Screen Space - Overlay, where the Canvas fills the screen and all the UI elements of the canvas are rendered on top of everything else.</li>
+                <li>Screen Space - Camera, where the Canvas fills the screen but it is rendered to a specific camera and is subject to distance from the camera.</li>
+                <li>World Space, where the UI exists in the Scene and is rendered in front or behind other objects (for example, name tags above characters in a 3D world).</li>
+            </ul>
+            <p>You need to stretch an Image across the screen and have it rendered over the top of everything else. This means that the default Render Mode of Screen Space - Overlay is perfect for you.</p>
+            <li>The next component on the FaderCanvas GameObject is the Canvas Scaler.  This is used as an easy way of controlling the relative sizes of UI elements when they are displayed on different screen sizes. Your Image will be stretched across the entire screen, so you don’t need to worry about its relative scale.</li>
+            <p>Click the cog icon in the top right of the Canvas Scalar component to open the context menu. Select Remove Component.</p>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CanvasSliderRemoveComponent.jpg" alt="Canvas Scaler Remove Component Image"></div>
+            <li>The final component on the FaderCanvas GameObject is the Graphic Raycaster. This is used to detect UI events such as clicks.  It will determine which UI element was clicked on and send the event to that element so the appropriate component can react. The player won’t interact with the UI in your game, so this component is not needed.</li>
+            <p>Click the cog icon in the top right of the Graphic Raycaster component to open the context menu. Select Remove Component.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Stretch the Image</h2>
+        <ol>
+            <li>In the Hierarchy, select the Image GameObject.</li>
+            <li>Select the Rect Tool from the toolbar, or press T.</li>
+            <li>Hold on! Something funny is going on here. Why is the Image not where the Rect Tool says it is?</li>
+            <p>This is because the Scene window is using the post-processing you set up in the previous section.</p>
+            <li>Click the Effects button in the Scene window to enable all the effects, then click it again to disable all the effects.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the Rect Transform Component</h2>
+        <p>A 3D GameObject’s position is represented by a single point at the GameObject’s pivot. The position of this pivot point in a Transform component is relative to the GameObject’s parent. Rect Transforms work similarly, but since UI elements can represent an area there are some differences. Instead of the position of a Rect Transform being relative to a single pivot point on their parent, they are relative to an area of their parent. This area of the parent is represented by a Rect Transform’s Anchors.</p>
+        <p>You may have seen a gizmo in the Scene window which looks like a flower:</p>
+        <div class="center" style="padding: 10px; max-width: 100px;"><img src="../images/UnityImages/Flower.jpg" alt="Flower Image"></div>
+        <p>This is actually multiple points all pulled together. Each of these points is an anchor. The rectangle created by the four anchor points is a proportion of the total area of the parent.</p>
+        <div class="center" style="padding: 10px; max-width: 100px;"><img src="../images/UnityImages/ExpandedFlower.jpg" alt="Expanded Flower Image"></div>
+        <p>Your Image is a child of the FaderCanvas, which fills the entire screen.  This means that your Image’s position is relative to an area of the entire screen.</p>
+        <p>The position of UI elements is measured in pixels. This is very important, particularly because not all screens have the same number of pixels. This is what makes the anchor system so powerful — when the anchors are all together and they show a point, the Rect Transform shows a position in pixels that the UI element is offset from that point.</p>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform1.jpg" alt="Rect Transform 1 Image"></div>
+        <p>However, if the anchors are separated then the Rect Transform shows a pixel offset from the sides of the anchor area:</p>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform2.jpg" alt="Rect Transform 2 Image"></div>
+        <p>So how does this apply to your game?  Well, you need the whole screen to fade. That means your Image should cover the entire screen no matter what the screen shape or size is. In order to achieve this, you need to make sure that the anchor area is the entire screen and that there’s no offset from that area.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Configure the Rect Transform Component</h2>
+        <ol>
+            <li>In the Hierarchy window, select the Image GameObject.</li>
+            <li>In the Inspector, find the Rect Transform component. Expand the Anchors setting.</li>
+            <li>Set the minimum values for x and y to 0. Set the maximum values for x and y to 1.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform3.jpg" alt="Rect Transform 3 Image"></div>
+            <p>Remember that the Anchors are relative to their parent: 0 means the far left or bottom of the screen, 1 means the far right or top of the screen.</p>
+            <p>Now that you have set the Anchors, you should see that your Image’s position has changed. The position is now listed as Left, Top, Pos Z, Right and Bottom. Apart from Pos Z (which you can ignore), these are the distance of the GameObject from its Anchor area in pixels. A negative value indicates that the element is outside of the Anchor area. A value of zero means there’s no offset from the Anchor area.</p>
+            <p>In the example above, the left side of the Image is 394 pixels in from the left side of the anchor area; the right side of the Image is 942 pixels from the right side of the anchor area; the top side of the Image is 487 pixels from the top side of the anchor area and the bottom side of the Image is 145 pixels from the bottom of the anchor area.</p>
+            <li>Given that the Anchor area of your Image is now the whole screen, no offset is needed. On the Image’s Rect Transform, set the Left, Top, Right and Bottom properties to 0.</li>
+            <li>The Image is now stretched over the screen. This Image is the right size now, but it’s not the right color.</li>
+            <li>In the Inspector, find the Image component.</li>
+            <p>The first property is called Source Image. This allows you to display a specific picture  — if it is left blank then get a rectangle of solid color. This can be set with the Color property.</p>
+            <li>Open the Color picker window. Set the RGB channels to 0, leaving A at maximum (1 if the range is 0 to 1, or 255 if the range is 0 to 255). This will set the color to black.</li>
+            <p>A is the fourth channel making up Color: Alpha. The Alpha of a Color is how transparent it is. The lower the Alpha value, the more transparent the GameObject. Adjusting your Image’s Alpha will be the key to making fade in and out.</p>
+            <li>Click elsewhere in the Editor to close the picker window.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add a Victory Image</h2>
+        <ol>
+            <li>In the Hierarchy, rename your current Image GameObject to ExitImageBackground.</li>
+            <li>Right click the ExitImageBackground GameObject. From the context menu that appears, select UI > Image.</li>
+            <p>Right clicking on a GameObject to create another GameObject in this way automatically makes the newly created GameObject a child of the one that was clicked on. Because this new ExitImage GameObject is a child of the ExitImageBackground GameObject, it is rendered on top.</p>
+            <li>Rename this new Image GameObject to ExitImage.</li>
+            <li>Let’s add a picture. In the Inspector, find the Image component.</li>
+            <li>Click the circle select button for the Source Image property. In the dialogue box, search for and select your exit image.</li>
+            <li>There are now additional settings available in the Image component.</li>
+            <p>You will need these settings to fix an important problem: it will look best of the image fills as much of the screen as possible, but it needs to retain the correct aspect ratio. To see this problem, let’s resize the Rect Transform as we did with the parent.</p>
+            <li>In the Inspector, find the Rect Transform component. Expand the Anchors setting.</li>
+            <li>Set the minimum values for x and y to 0. Set the maximum values for x and y to 1.</li>
+            <li>Set the Left, Right, Top and Bottom properties to 0. The picture will now look stretched!</li>
+            <li>In the Image component, find the Image Type property. Enable the Preserve Aspect checkbox. This makes the Image as large as it can be within the Rect Transform without being squashed or stretched.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add a Canvas Group Component</h2>
+        <p>Next, let’s consider how to make these UI elements fade in and out when you want them to.  You already know that you can adjust the Alpha value of an Image component to make it fade out. But because there are now two images, you’ll need to change both of the colors instead of changing just one value. To help you do this, there’s a component called a Canvas Group.</p>
+        <p>A Canvas Group allows you to control some aspects of all the visible UI elements on a GameObject and all of its children.</p>
+        <ol>
+            <li>In the Hierarchy window, select the ExitImageBackground GameObject.</li>
+            <li>In the Inspector, add a Canvas Group component.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/CanvasGroup.jpg" alt="Canvas Group Image"></div>
+            <p>Change the Alpha property to 0.</p>
+            <li>Now you’re done with making the UI, let’s switch the Scene window back to the level. First, disable 2D Mode in the Scene window.</li>
+            <li>In the Hierarchy window, select the character GameObject. WIth your cursor over the Scene view, press F to focus.</li>
+            <li>In the Hierarchy window collapse the FaderCanvas GameObject.  Save the scene by pressing Ctrl + S on Windows or CMD + S on macOS.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a GameEnding Trigger</h2>
+        <p>The computer needs a way to recognise that the character has exited the haunted house, so that it knows when to change the value of the Canvas Group’s Alpha property. A common technique for detecting when a physical object (for example the JohnLemon character) has entered a specific area is to use a Trigger.</p>
+        <p>Triggers are Colliders that do not impede movement — instead they allow physical objects to pass through them freely, but report the triggering event so that other actions can happen.</p>
+        <ol>
+            <li>In the Hierarchy window, click on the Create menu and select Create Empty. Rename this GameObject to GameEnding.</li>
+            <li>Set the Position of the GameEnding’s Transform to (18, 1, 1.5).  This is in the middle of the level’s exit.</li>
+            <li>Now you need to add the Trigger. In the Inspector, add a Box Collider component to the GameEnding GameObject. (Be careful not to add a Box Collider 2D, as it won’t work!)</li>
+            <li>Enable the Is Trigger checkbox. This changes the Collider into a Trigger.</li>
+            <li>Next, you need to resize the Trigger so it covers the exit — the character will have to walk into it to escape. There are two ways to do this: click the Edit Collider button and resize the Box Collider in the Scene window, or set the Center and Size properties manually. Let’s try editing the Trigger in the Scene window.</li>
+            <p>Click the Edit Collider button; “handles” will appear on the sides of the Trigger in the Scene window.</p>
+            <li>To change any of the faces of the Box Collider, click and drag it to the position you would like. You need the Trigger to fill the corridor, so that the character can’t get out without moving through it. When you are finished, click the Edit Collider button again. When the Handles have disappeared from the Scene window, you are no longer editing the Collider.</li>
+            <li>Alternatively, you can set the Size of the Collider to (1, 1, 3.5). </li>
+            <p>You’ve now completed the Trigger, but you’ll need to write a script to use it.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a New Script</h2>
+        <ol>
+            <li>In the Project window, go to Asset > Scripts.</li>
+            <li>Go to the Create menu and select C# Script. Name the script “GameEnding”.</li>
+            <p>Remember that the Asset’s name must be exactly the same as the class name within the script. If you make a mistake, delete the Asset and create it again.</p>
+            <li>Drag the script Asset from the Project window onto the GameEnding GameObject in the Hierarchy window. This will add it as a component.</li>
+            <li>Now you can start editing the script to give it some functionality.  Double click on the script Asset to open it for editing.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Start the GameEnding Script</h2>
+        <ol>
+            <li>Remove the Start and Update methods and their comments.</li>
+            <li>Let’s think about the information you need:</li>
+            <p>First, you need the screen to fade out over a certain period of time. It should be a public variable, so you can adjust it from the Inspector. It should also allow for non-whole numbers, so the variable needs to be a float.</p>
+            <p>A reasonable default value for the fade to happen over is 1 second, so let’s set that as the default. Add the following line to your script, in between the braces:</p>
+            <div class="unityCode" id="GameEndScript"><button class="copy" onclick="copyText('GameEndScript')">Copy</button><br><p>
+                using System.Collections;<br>
+                using System.Collections.Generic;<br>
+                using UnityEngine;<br><br>
+                public class PlayerMovement : MonoBehaviour<br>
+                {<br>
+                &emsp;public float fadeDuration = 1f;<br>
+                }
+            </p></div>
+            <li>Next, you need to specify that the fade should happen when the player’s character hits the Trigger. To make sure that this only happens when the character hits the Trigger, you’ll need a reference to that GameObject. Again, this should be a public variable so you can adjust it from the Inspector.</li>
+            <div class="unityCode" id="VariableForPlayerObject"><button class="copy" onclick="copyText('VariableForPlayerObject')">Copy</button><br><p>
+                public GameObject player;
+            </p></div>
+            <li>One of the essential jobs of this class is to detect the player controlled GameObject. Next, you’re going to use another special method for MonoBehaviours called OnTriggerEnter. Add the following method definition below the variable declarations:</li>
+            <div class="unityCode" id="OnTriggerEnter"><button class="copy" onclick="copyText('OnTriggerEnter')">Copy</button><br><p>
+                void OnTriggerEnter (Collider other)<br>
+                {<br><br>
+                }<br>
+            </p></div>
+            <li>To make sure that the ending is only triggered when the character hits the Box Collider, add the following if statement to the OnTriggerEnter method, between the braces:</li>
+            <div class="unityCode" id="IfStatement"><button class="copy" onclick="copyText('IfStatement')">Copy</button><br><p>
+                if (other.gameObject == player)<br>
+                {<br><br>
+                }<br>
+            </p></div>
+            <p>This uses a new operator called the equivalency operator. It is represented by a double-equals and results in a bool. The returned value is true if the things on either side are identical, or false if they are not. The above code is instructing the computer, “If the other Collider’s GameObject (the one that entered the Trigger) is equivalent to our reference to the character’s GameObject, then do whatever is in the code block.”</p>
+            <p>Remember, in C# it doesn’t matter in which order methods are declared in a class — you may have used a slightly different order, and that’s fine.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add an Update Method</h2>
+        <p>Now you need to add code for the if statement which starts the UI fading in, then quits the game when it’s finished. There’s currently a problem: OnTriggerEnter is called only once when the Colliders first overlap. You need something that is called every frame, so you can gradually change the alpha of the Canvas Group.</p>
+        <ol>
+            <li>Add an Update method as follows below OnTriggerEnter:</li>
+            <div class="unityCode" id="EndGameUpdate"><button class="copy" onclick="copyText('EndGameUpdate')">Copy</button><br><p>
+                void Update ()<br>
+                {<br><br>
+                }<br>
+            </p></div>
+            <li>You need a way of knowing when to start fading the Canvas Group in. Since the Canvas Group should either be fading or not, a bool variable is perfect for this. Create a bool variable called m_IsPlayerAtExit as follows between the public variable declarations and the OnTriggerEnter definition:</li>
+            <div class="unityCode" id="IsPlayerAtExitVariable"><button class="copy" onclick="copyText('IsPlayerAtExitVariable')">Copy</button><br><p>
+                bool m_IsPlayerAtExit;
+            </p></div>
+            <li>Let’s use the bool! First it first needs to be set. Within the code block of the if statement in your OnTriggerEnter method, set m_IsPlayerAtExit to true as follows:</li>
+            <div class="unityCode" id="IsPlayerAtExitVariableTrue"><button class="copy" onclick="copyText('IsPlayerAtExitVariableTrue')">Copy</button><br><p>
+                m_IsPlayerAtExit = true;
+            </p></div>
+            <li>Now you’ve set the bool in OnTriggerEnter, you need to check whether it has been set in Update. Add an if statement within the braces of the Update method:</li>
+            <div class="unityCode" id="IsPlayerAtExitVariableTrue"><button class="copy" onclick="copyText('IsPlayerAtExitVariableTrue')">Copy</button><br><p>
+            if(m_IsPlayerAtExit)<br>
+            {<br><br>
+            }<br>
+            </p></div>
+            <li>Your script should currently look like this:</li>
+            <div class="unityCode" id="CurrentUIScript"><button class="copy" onclick="copyText('CurrentUIScript')">Copy</button><br><p>
+            using System.Collections;<br>
+            using System.Collections.Generic;<br>
+            using UnityEngine;<br><br>
+            public class GameEnding : MonoBehaviour<br>
+            {<br>
+            &emsp;public float fadeDuration = 1f;<br>
+            &emsp;public GameObject player;<br><br>
+            &emsp;bool m_IsPlayerAtExit;<br><br>
+            &emsp;void OnTriggerEnter (Collider other)<br>
+            &emsp;{<br>
+            &emsp;&emsp;if (other.gameObject == player)<br>
+            &emsp;&emsp;{<br>
+            &emsp;&emsp;&emsp;m_IsPlayerAtExit = true;<br>
+            &emsp;&emsp;}<br>
+            &emsp;}<br><br>
+            &emsp;void Update ()<br>
+            &emsp;{<br>
+            &emsp;&emsp;if(m_IsPlayerAtExit)<br>
+            &emsp;&emsp;{<br><br>
+            &emsp;&emsp;}<br>
+            &emsp;}<br>
+            }
+            </p></div>
+            <p>You’ve added two methods, OnTriggerEnter and Update. When OnTriggerEnter is called, the computers checks whether the Collider that entered the Trigger belongs to the player’s character. Update is getting called every frame, and checking whether the player’s character is at the exit. If the player’s character is at the exit then it drops into the if statement’s code block; otherwise, it does nothing.</p>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Write the if Statement Code Block</h2>
+        <ol>
+            <li>Create a new method below Update called EndLevel. It doesn’t need to return anything and doesn’t need any parameters, so should look like this:</li>
+            <div class="unityCode" id="EndLevelMethod"><button class="copy" onclick="copyText('EndLevelMethod')">Copy</button><br><p>
+            void EndLevel ()<br>
+            {<br><br>
+            }
+            </p></div>
+            <li>Within the if statement in the Update method, add a call to the EndLevel method:</li>
+            <div class="unityCode" id="EndLevelMethodCall"><button class="copy" onclick="copyText('EndLevelMethodCall')">Copy</button><br><p>
+            EndLevel ();
+            </p></div>
+            <li>The EndLevel method needs to fade the Canvas Group and then quit the game. Previously when you’ve found references to components you’ve used the GetComponent method, but this only works for components on the same GameObject as this script.</li>
+            <p>This time, you're going to make a public variable for the Canvas Group component, which can be assigned in the Inspector. Add this public variable declaration below the player variable declaration:</p>
+            <div class="unityCode" id="PublicCanvasGroup"><button class="copy" onclick="copyText('PublicCanvasGroup')">Copy</button><br><p>
+            public CanvasGroup exitBackgroundImageCanvasGroup;
+            </p></div>
+            <li>You also need a timer, to ensure that the game doesn't end before the fade has finished. While we’re declaring variables, we should consider any others we might need. Add the following variable declaration below the m_IsPlayerAtExit bool:</li>
+            <div class="unityCode" id="Timer"><button class="copy" onclick="copyText('Timer')">Copy</button><br><p>
+            float m_Timer;
+            </p></div>
+            <li>Next, the EndLevel method needs to start counting up the timer. You may remember from the PlayerMovement script that there’s a way of getting how much time has passed since the last frame: using Time.deltaTime. You could set the timer equal to itself plus the deltaTime. However, there’s a shortcut for saying exactly that using the plus-equals operator.</li>
+            <p>Add the following line of code to your EndLevel method, inside the braces:</p>
+            <div class="unityCode" id="IncrementTimer"><button class="copy" onclick="copyText('IncrementTimer')">Copy</button><br><p>
+            m_Timer += Time.deltaTime;
+            </p></div>
+            <p>Here the plus-equals operator is saying set whatever is on the left to be equal to itself plus whatever is on the right.</p>
+            <li>It’s time to set the Alpha of your Canvas Group. The Alpha value should be 0 when the timer is 0 and 1 when the timer is up to the fadeDuration. In order to get this value, you can divide the timer by the duration.</li>
+            <p>Add the following code below the plus-equals operator line you’ve just added to the EndLevel method:</p>
+            <div class="unityCode" id="fadeDuration"><button class="copy" onclick="copyText('fadeDuration')">Copy</button><br><p>
+            exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
+            </p></div>
+            <p>Now the Images will fade in when the character reaches the exit, but you still have a few more things to sort out before you’re done.</p>
+            <li>Finally, the game needs to quit when the fade is finished. The fade will finish when the timer is greater than the duration.</li>
+            <p>Add a new operator beneath the previous line you added:</p>
+            <div class="unityCode" id="TimerGreaterDuration"><button class="copy" onclick="copyText('TimerGreaterDuration')">Copy</button><br><p>
+            if(m_Timer > fadeDuration)<br>
+            {<br><br>
+            }
+            </p></div>
+            <p>The right facing angle bracket tests whether whatever is to its left is greater than whatever is on its right. If so then it returns true, otherwise it returns false. The if statement’s code block will only be executed if the alpha is up to 1 so now all we need to do is add the following line to the code block to make the game quit:</p>
+            <div class="unityCode" id="ApplicationQuit"><button class="copy" onclick="copyText('ApplicationQuit')">Copy</button><br><p>
+            Application.Quit();
+            </p></div>
+            <li>There’s something important to know here. This method will indeed quit the game, but it only works for fully built applications. Currently the game is just a project playing in the Editor, and so this won’t do anything yet. You’ll make a build of your game in the final tutorial of this series — when you have done this, the line of code will work properly. Until then you will need to exit Play Mode as you have done before.</li>
+            <li>In its current state, your script will cause the game to quit as soon as the Images have finished fading. It would be much nicer if the Images faded in, the player saw them for a brief time and then the game quit.</li>
+            <p>All you need to do to achieve this is to add some more time in the last if statement. Making this a variable means that you can change the duration the Images are shown for in the future, if you like. Below the fadeDuration variable declaration (near the top of the class), add another duration variable declaration:</p>
+            <div class="unityCode" id="displayImageDuration"><button class="copy" onclick="copyText('displayImageDuration')">Copy</button><br><p>
+            public float displayImageDuration = 1f;
+            </p></div>
+            <li>Now all you need to do is add this duration to the fadeDuration in the if statement, by changing it to:</li>
+            <div class="unityCode" id="displayImageDurationQuit"><button class="copy" onclick="copyText('displayImageDurationQuit')">Copy</button><br><p>
+            if(m_Timer > fadeDuration + displayImageDuration)<br>
+            {<br>
+            &emsp;Application.Quit();<br>
+            }<br>
+            </p></div>
+        </ol>
+        <p>The completed script should look similar this:</p>
+        <div class="unityCode" id="FinalEndGameScript"><button class="copy" onclick="copyText('FinalEndGameScript')">Copy</button><br><p>
+            using System.Collections;<br>
+            using System.Collections.Generic;<br>
+            using UnityEngine;<br><br>
+            public class GameEnding : MonoBehaviour<br>
+            {<br>
+            &emsp;public float fadeDuration = 1f;<br>
+            &emsp;public float displayImageDuration = 1f;<br>
+            &emsp;public GameObject player;<br>
+            &emsp;public CanvasGroup exitBackgroundImageCanvasGroup;<br><br>
+            &emsp;bool m_IsPlayerAtExit;<br>
+            &emsp;float m_Timer;<br><br>
+            &emsp;void OnTriggerEnter (Collider other)<br>
+            &emsp;{<br>
+            &emsp;&emsp;if (other.gameObject == player)<br>
+            &emsp;&emsp;{<br>
+            &emsp;&emsp;&emsp;m_IsPlayerAtExit = true;<br>
+            &emsp;&emsp;}<br>
+            &emsp;}<br><br>
+            &emsp;void Update ()<br>
+            &emsp;{<br>
+            &emsp;&emsp;if(m_IsPlayerAtExit)<br>
+            &emsp;&emsp;{<br>
+            &emsp;&emsp;&emsp;EndLevel();<br>
+            &emsp;&emsp;}<br>
+            &emsp;}<br><br>
+            &emsp;void EndLevel ()<br>
+            &emsp;{<br>
+            &emsp;&emsp;m_Timer += Time.deltaTime;<br><br>
+            &emsp;&emsp;exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;<br><br>
+            &emsp;&emsp;if(m_Timer > fadeDuration + displayImageDuration)<br>
+            &emsp;&emsp;{<br>
+            &emsp;&emsp;&emsp;Application.Quit ();<br>
+            &emsp;&emsp;}<br>
+            &emsp;}<br>
+            }
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the Variables for your GameEnding Script</h2>
+        <ol>
+            <p>In your script, you created a number of variables that need to be set in the Editor. These make it easier to customise the game and test changes easily.</p>
+            <li>In the Hierarchy, select the GameEnding GameObject.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/GameEndingScript.jpg" alt="Game Ending Script Image"></div>
+            <li>Drag the character GameObject from the Hierarchy window onto the Game Ending script in the Inspector. This will assign the Player variable.</li>
+            <li>In the Hierarchy, expand the FaderCanvas. Drag the ExitImageBackground GameObject onto the Exit Background Image Canvas Group field of the Game Ending component. Unity will automatically find the correct component to assign the Exit Background Image Canvas Group variable.</li>
+        </ol>
+        <p>You’ve finished creating an end for your game! Enter Play Mode to give it a try. Don’t forget to exit Play Mode when you are finished; the automatic quit won’t work until you create a build of your game in the final tutorial.</p>
     </div>
 </div>
 </div>
