@@ -57,16 +57,16 @@
         <div class="code" id="overview1"><button class="copy" onclick="copyText('overview1')">Copy</button><br><p>
             &lt;html&gt;<br>
             &emsp;&lt;head&gt;<br>
-            <mark>// External File</mark><br>
-            &lt;script type = "text/javascript" src = "filename.js" &gt;&lt;/script&gt;<br>
-            <mark>// Script in head section</mark><br>
+            &emsp;<mark>// External File</mark><br>
+            &emsp;&lt;script type = "text/javascript" src = "filename.js" &gt;&lt;/script&gt;<br>
+            &emsp;<mark>// Script in head section</mark><br>
             &emsp;&emsp;&lt;script type = "text/javascript"&gt;<br>
             &emsp;&emsp;&emsp;JavaScript Code...<br>
             &emsp;&emsp;&lt;/script&gt;<br>
             &emsp;&lt;/head&gt;<br>
             &lt;body&gt;<br>
             &emsp;Body Code...<br>
-            <mark>// Script in body section</mark><br>
+            &emsp;<mark>// Script in body section</mark><br>
             &emsp;&lt;script type = "text/javascript"&gt;<br>
             &emsp;&emsp;JavaScript Code...<br>
             &emsp;&lt;/script&gt;<br>
@@ -135,8 +135,7 @@
             &lt;script type = "text/javascript"&gt;<br>
             &emsp;var money;<br>
             &emsp;var name;<br>
-            <mark>// You can also declare multiple variables on the same line.</mark>
-            &emsp;var money, name;<br>
+            <mark>// You can also declare multiple variables on the same line.</mark> (var money, name;)<br>
             &lt;/script&gt;
         </p></div>
         <p>Storing a value in a variable is called variable initialization. You can do variable initialization at the time of variable creation or at a later point in time when you need that variable.</p>
@@ -374,6 +373,7 @@
                 <td>Checks if the value of the left operand is less than or equal to the value of the right operand, if yes, then the condition becomes true.</td>
             </tr>
         </table>
+        &nbsp;
         <button class="collapsible">Comparison Operator Examples</button>
         <div class="content">
             <div class="code" id="javascript6"><button class="copy" onclick="copyText('javascript6')">Copy</button><br><p>
@@ -425,6 +425,7 @@
                 <td>Reverses the logical state of its operand. If a condition is true, then the Logical NOT operator will make it false.</td>
             </tr>
         </table>
+        &nbsp;
         <button class="collapsible">Logical Operator Examples</button>
         <div class="content">
             <div class="code" id="javascript7"><button class="copy" onclick="copyText('javascript7')">Copy</button><br><p>
@@ -480,6 +481,7 @@
                 <td>This operator is just like the >> operator, except that the bits shifted in on the left are always zero.</td>
             </tr>
         </table>
+        &nbsp;
         <button class="collapsible">Bitwise Operator Examples</button>
         <div class="content">
             <div class="code" id="javascript8"><button class="copy" onclick="copyText('javascript8')">Copy</button><br><p>
@@ -626,6 +628,7 @@
                 <td>"object"</td>
             </tr>
         </table>
+        &nbsp;
         <button class="collapsible">Miscellaneous Operator Examples</button>
         <div class="content">
             <h3>Conditional Operator (? :)</h3>
@@ -638,7 +641,7 @@
                 document.write(result);<br>
                 document.write(linebreak);<br><br>
                 document.write ("((a &lt; b) ? 100 : 200) => ");<br>
-                result = (a < b) ? 100 : 200;<br>
+                result = (a &lt; b) ? 100 : 200;<br>
                 document.write(result);<br>
                 document.write(linebreak);
             </p></div>
@@ -2202,8 +2205,8 @@
         <h3>Math Properties</h3>
         <table class="scrollableTable">
             <tr>
-                <th>E \</th>
-                <th>Euler's constant and the base of natural logarithms, approximately 2.718.</th>
+                <td>E \</td>
+                <td>Euler's constant and the base of natural logarithms, approximately 2.718.</td>
             </tr>
             <tr>
                 <td>LN2</td>
@@ -2237,8 +2240,8 @@
         <h3>Math Methods</h3>
         <table class="scrollableTable">
             <tr>
-                <th>abs()</th>
-                <th>Returns the absolute value of a number.</th>
+                <td>abs()</td>
+                <td>Returns the absolute value of a number.</td>
             </tr>
             <tr>
                 <td>acos()</td>
@@ -2400,12 +2403,6 @@
             <tr>
                 <td>^p</td>
                 <td>It matches any string with p at the beginning of it.</td>
-            </tr>
-        </table>
-        <table class="scrollableTable">
-            <tr>
-                <th>Expression</th>
-                <th>Description</th>
             </tr>
             <tr>
                 <td>[^a-zA-Z]</td>

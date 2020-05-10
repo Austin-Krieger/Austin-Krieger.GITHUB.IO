@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotmail</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="xampp.html">Previous</a>
+    <a href="notepad.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Hotmail</h1>
+<div class="containButtons">
+    <button class="collapsible" id="autoClickBtn">Hotmail</button>
+    <div class="content">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+        <button class="collapsible">Removing Birthday Notifications</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Removing Birthday Notifications From Hotmail</h2>
+            <ol>
+                <li>Click on the Settings cog wheel in the top right of the web page.</li>
+                <li>Click on the <b>"View all Outlook settings"</b> link at the bottom of the settings window that appears.</li>
+                <div class="center"><img src="../images/Web/Hotmail/ViewAllOutlookSettings.JPG" alt="Birthday Calendar Image" onclick="displayModal(this)"></div>
+                <li>Click on the Calendar tab on the left.</li>
+                <li>Scroll to the bottom and <b>uncheck</b> the <b>"Turn on the birthday calendar"</b> box.</li>
+                <div class="center"><img src="../images/Web/Hotmail/BirthdayCalender.JPG" alt="Birthday Calendar Image" onclick="displayModal(this)"></div>
+            </ol>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
+</body>
+</html>

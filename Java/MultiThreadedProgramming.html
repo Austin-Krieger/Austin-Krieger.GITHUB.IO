@@ -395,6 +395,7 @@
             &emsp;new MyThread(cb, "Z");
         </p>
         </div>
+        <div class="center"><img src="../images/JavaImages/cyclic-barrier.png" alt="CyclicBarrier Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
     </div>
     &nbsp;
     <button class="collapsible"> Exchanger </button>
@@ -411,6 +412,7 @@
         </ol>
         <p>objRef is a reference to the data to exchange. The data received from the other thread is returned.</p>
         <p>The second form allows a time-out period to be specified.</p>
+        <div class="center"><img src="../images/JavaImages/exchanger.png" alt="Exchanger Image" onclick="displayModal(this)"></div>
     </div>
     &nbsp;
     <button class="collapsible"> Phaser </button>
@@ -492,6 +494,7 @@
         <h3>Task Delegation</h3>
         <p>Once the thread has delegated the task to the ExecutorService, the thread continues its own execution independent of the execution of that task.</p>
         <p>The ExecutorService then executes the task concurrently, independently of the thread that submitted the task.</p>
+        <div class="center"><img src="../images/JavaImages/executor-service.png" alt="Executor Service Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
         <h3>Example:</h3>
         <div class="code" id="concurrency3"><button class="copy" onclick="copyText('concurrency3')">Copy</button><br><p>
             <mark>// First an ExecutorService is created using the Executors newFixedThreadPool() factory method. This creates a thread pool with 10 threads executing tasks.</mark><br>

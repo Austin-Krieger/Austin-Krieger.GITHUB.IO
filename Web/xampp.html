@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xampp</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="hotmail.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Xampp Error Fixes</h1>
+<div class="containButtons">
+    <button class="collapsible" id="autoClickBtn">Fixing Xampp</button>
+    <div class="content">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+        <button class="collapsible">Another Program Using Port 3306?</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Option #1: Use the command prompt</h2>
+            <ol>
+                <li>Press the windows key on your keyboard or press the icon on your task bar.</li>
+                <li>Type "<b>cmd</b>" and press enter. This will open the command prompt.</li>
+                <li>You should see "<b>C:\Users\user&gt;</b>"</li>
+                <li>Move up two folders using "<b>cd../</b>" or until you see "<b>C:\".</b></li>
+                <li>Now we want to print a list of programs and the ports they are using.</li>
+                <li>Type "<b>netstat -ao</b>" and the list will show up.</li>
+                <li>Each item in this list will have an id associated with it called a "<b>PID</b>". Find "<b>0.0.0.0:3306</b>" and the PID associated with it.</li>
+                <div class="center"><img src="../images/Web/Xampp/Access-Control/Xampp-Port-CP.JPG" alt="Command Prompt Image" onclick="displayModal(this)"></div>
+                <li>Finally we get to kill the program/task using port 3306 using the PID we found.</li>
+                <li>Type "<b>taskkill /F /PID</b>" and the PID you found. For my example it would look like "<b>taskkill /F /PID 5864</b>".</li>
+            </ol>
+            <h2>Option #2: Change the port number that MySQL is using</h2>
+            <ol>
+                <li>Open Xampp and click the <b>config</b> button for MySQL. Open <b>my.ini</b></li>
+                <li>Find all instances of "<b>port=3306</b>" and replace it with <b>3307</b> or <b>3308</b>.</li>
+                <li>Your changes should look similar to this:</li>
+                <div class="code" id="myini"><button class="copy" onclick="copyText('myini')">Copy</button><br><p>
+                    [client]<br>
+                    # password = your_password<br>
+                    port=<b>3307</b><br><br>
+                    [mysqld]<br>
+                    port=<b>3307</b><br><br>
+                    # The port the master is listening on.<br>
+                    # optional - defaults to <b>3307</b>
+                </p></div>
+                <li>Save and close the file. Restarting Xampp couldn't hurt.</li>
+                <li>There may still be an error showing in red text when you open xampp about port 3306 not being open, so we can change the default MySQL settings for xampp.</li>
+                <li>Open xampp as an administrator, click on the <b>config</b> button.</li>
+                <li>Click on <b>Service and Port Settings</b>.</li>
+                <li>Another window will appear. Click on the <b>MySQL</b> tab.</li>
+                <li>Change the <b>Main Port</b> to the number you chose; <b>3307</b> in my case.</li>
+                <div class="center"><img src="../images/Web/Xampp/Access-Control/Xampp-Config.JPG" alt="Xampp Config Image" onclick="displayModal(this)"></div>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">MySQL Still Won't Start (Not a port issue)</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>MySQL Still Won't Start (Not a port issue)</h2>
+            <ol>
+                <li>For this fix, we will be <b>re-installing</b> Xampp.</li>
+                <li>The first thing we need to do is backup our <b>htdocs</b> folder where our projects are kept. "<b>C:\xampp\htdocs</b>"</li>
+                <li>Next we can move on to <b>uninstalling</b> xampp. Go to "<b>C:\xampp</b>" and find <b>uninstall.exe</b></li>
+                <li>Double click and uninstall xampp.</li>
+                <li>We need to make sure the xampp folder is empty and/or deleted before re-installing it.</li>
+                <li>Download the lastest version of xampp from: <a href="https://www.apachefriends.org/index.html">Apachefriends.org</a></li>
+                <li>Go to your downloads folder and double click the  setup/install file to begin the re-install.</li>
+                <li>Make sure to check <b>MySQL</b>, <b>PHP</b>, <b>phpMyAdmin</b> and optionally <b>Mercury Mail Server</b>, and <b>Fake Sendmail</b>.</li>
+                <div class="center"><img src="../images/Web/Xampp/Access-Control/xampp-setup.PNG" alt="Xampp Setup Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+                <li>Hopefully this fixes your issue.</li>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Setting up Xampp for Sending Emails using PHP</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Setting up Xampp for Sending Emails using PHP</h2>
+            <p><b>Similar Tutorial:</b> <a href="https://www.geeksforgeeks.org/how-to-configure-xampp-to-send-mail-from-localhost-using-php/">https://www.geeksforgeeks.org/how-to-configure-xampp-to-send-mail-from-localhost-using-php/</a></p>
+            <ol>
+                <li>Find <b>php.ini</b> (C:\xampp\php)</li>
+                <li>Find <b>sendmail.ini</b> (C:\xampp\sendmail)</li>
+                <li>Open <b>php.ini</b> and find the <b>[mail function]</b> section.</li>
+                <li>Comment out these lines by adding a semicolon.</li>
+                <div class="code" id="smtp"><button class="copy" onclick="copyText('smtp')">Copy</button><br><p>
+                    <b>;</b>SMTP=localhost<br>
+                    <b>;</b>smtp_port=25<br>
+                    <b>;</b>sendmail_from = me@example.com<br><br>
+                </p></div>
+                <li>Add to the sendmail_path:</li>
+                <div class="code" id="myini"><button class="copy" onclick="copyText('myini')">Copy</button><br><p>
+                    sendmail_path = <b>"\"C:\xampp\sendmail\sendmail.exe\" -t"</b>
+                </p></div>
+                <li>Open sendmail.ini and find the <b>[sendmail]</b> section.</li>
+                <div class="code" id="smtpserver"><button class="copy" onclick="copyText('smtpserver')">Copy</button><br><p>
+                    smtp_server=<b>smtp.gmail.com</b><br>
+                    smtp_port=<b>587</b><br>
+                    smtp_ssl=<b>tls</b>
+                </p></div>
+                <li>Uncomment these lines:</li>
+                <div class="code" id="error_log"><button class="copy" onclick="copyText('error_log')">Copy</button><br><p>
+                    error_logfile=error.log<br>
+                    debug_logfile=debug.log
+                </p></div>
+                <li>Change these variables:</li>
+                <div class="code" id="change_variables"><button class="copy" onclick="copyText('change_variables')">Copy</button><br><p>
+                    auth_username=<b>Your_Gmail_Email</b><br>
+                    auth_password=<b>Your_Gmail_Password</b><br>
+                    force_sender=<b>Your_Gmail_Email</b><br>
+                    hostname=<b>localhost</b>
+                </p></div>
+                <li>If you try to send an email using the mail() function at this point, you will get a warning email from google.</li>
+                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert2.JPG" alt="Less Secure App Blocked Image" onclick="displayModal(this)" style="max-height: 300px;"></div>
+                <li>Google has a security option for <a href="https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en&visit_id=637223736016933545-3186503334&rd=1">"Less secure app access"</a>. You will need to sign in to your google account and go to the security options.</li>
+                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert3.JPG" alt="Less Secure App Info Image" onclick="displayModal(this)" style="max-height: 500px;"></div>
+                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert4.JPG" alt="Allow Less Secure App Access Image" onclick="displayModal(this)" style="max-height: 200px;"></div>
+                <li>Here is what it should look like in your security options:</li>
+                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert5.JPG" alt="Google Security Option  Image" onclick="displayModal(this)"></div>
+                <li>You should now be able to send an email using the php mail() function.</li>
+                <li>Here is an example of the actual code for sending an email:</li>
+                <div class="code" id="send_email"><button class="copy" onclick="copyText('send_email')">Copy</button><br><p>
+                    &lt;?php<br>
+                    &emsp;$formMessage = "";<br>
+                    &emsp;$senderName = "";<br>
+                    &emsp;$senderEmail = "";<br>
+                    &emsp;$senderMessage = "";<br>
+                    &emsp;if (ISSET($_POST['username'])) { <mark>// If username exists and is not empty</mark><br>
+                    &emsp;&emsp;<mark>// Gather the sent form variables into local PHP variables</mark><br>
+                    &emsp;&emsp;$senderName = $_POST['username'];<br>
+                    &emsp;&emsp;$senderEmail = $_POST['email'];<br>
+                    &emsp;&emsp;$senderMessage = $_POST['msg'];<br>
+                    &emsp;&emsp;<mark>// Make sure certain variables are present or else we can't send the email</mark><br>
+                    &emsp;&emsp;if (!$senderName || !$senderEmail || !$senderMessage) {<br>
+                    &emsp;&emsp;&emsp;$formMessage = "The form is incomplete, please fill in all fields.";<br>
+                    &emsp;&emsp;} else { <mark>// Here is the section in which the email actually gets sent</mark><br>
+                    &emsp;&emsp;&emsp;<mark>// Run any filtering here</mark><br>
+                    &emsp;&emsp;&emsp;$senderName = strip_tags($senderName);<br>
+                    &emsp;&emsp;&emsp;$senderName = stripslashes($senderName);<br>
+                    &emsp;&emsp;&emsp;$senderEmail = strip_tags($senderEmail);<br>
+                    &emsp;&emsp;&emsp;$senderEmail = stripslashes($senderEmail);<br>
+                    &emsp;&emsp;&emsp;$senderMessage = strip_tags($senderMessage);<br>
+                    &emsp;&emsp;&emsp;$senderMessage = stripslashes($senderMessage);<br>
+                    &emsp;&emsp;&emsp;<mark>// End Filtering</mark><br>
+                    &emsp;&emsp;&emsp;$to = "akrieger2009@live.com";<br>
+                    &emsp;&emsp;&emsp;$from = "support@Your_Website_Name.com";<br>
+                    &emsp;&emsp;&emsp;$subject = "Test PHP Email";<br>
+                    &emsp;&emsp;&emsp;<mark>// Begin Email Message Body</mark><br>
+                    &emsp;&emsp;&emsp;$message = "<br>
+                    &emsp;&emsp;&emsp;$senderMessage<br>
+                    &emsp;&emsp;&emsp;$senderName<br>
+                    &emsp;&emsp;&emsp;$senderEmail<br>
+                    &emsp;&emsp;&emsp;";<br>
+                    &emsp;&emsp;&emsp;<mark>// Set headers configurations</mark><br>
+                    &emsp;&emsp;&emsp;$headers  = 'MIME-Version: 1.0' . "\r\n";<br>
+                    &emsp;&emsp;&emsp;$headers .= "Content-type: text\r\n";<br>
+                    &emsp;&emsp;&emsp;$headers .= "From: $from\r\n";<br>
+                    &emsp;&emsp;&emsp;<mark>// Mail it now using PHP's mail function</mark><br>
+                    &emsp;&emsp;&emsp;mail($to, $subject, $message, $headers);<br>
+                    &emsp;&emsp;&emsp;$formMessage = "Thanks, your message has been sent.";<br>
+                    &emsp;&emsp;&emsp;$senderName = "";<br>
+                    &emsp;&emsp;&emsp;$senderEmail = "";<br>
+                    &emsp;&emsp;&emsp;$senderMessage = "";<br>
+                    &emsp;&emsp;}<br>
+                    &emsp;}<br>
+                    ?><br><br>
+                    &lt;html&gt;<br>
+                    &emsp;&lt;body&gt;<br>
+                    &emsp;&emsp;&lt;form id="EmailForm" name="EmailForm" method="post" action="index.php"&gt;<br>
+                    &emsp;&emsp;&emsp;&lt;?php echo $formMessage; ?&gt;<br><br>
+                    &emsp;&emsp;&emsp;<mark>// Optionally you can add size="36" maxlength="32" after the id in the input fields.</mark><br>
+                    &emsp;&emsp;&emsp;Your Name:<br>
+                    &emsp;&emsp;&emsp;&lt;input name="username" type="text" id="username" value="&lt;?php echo $senderName; ?&gt;"><br><br>
+                    &emsp;&emsp;&emsp;Your Email:<br>
+                    &emsp;&emsp;&emsp;&lt;input name="email" type="text" id="email" value="&lt;?php echo $senderEmail; ?&gt;"&gt;<br><br>
+                    &emsp;&emsp;&emsp;Your Message:<br>
+                    &emsp;&emsp;&emsp;&lt;textarea name="msg" id="msg" cols="45" rows="5"&gt;&lt;?php echo $senderMessage; ?&gt;&lt;/textarea&gt;<br><br>
+                    &emsp;&emsp;&emsp;&lt;input type="submit" name="button" id="button" value="Send Now"&gt;<br>
+                    &emsp;&emsp;&lt;/form&gt;<br>
+                    &emsp;&lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </p></div>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Authentication Issue With phpMyAdmin</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Authentication Issue With phpMyAdmin</h2>
+            <ol>
+                <li>If you recently installed xampp and cannot access <b>phpMyAdmin</b>, these steps should help.</li>
+                <li>Go to "<b>C:\xampp\phpMyAdmin</b>" and open "<b>config.inc.php</b>" in a text editor such as <b>notepad++</b>.</li>
+                <li>Next you need to find and replace the username and password information.</li>
+                <li>Here is what it should look like:</li>
+                <div class="code" id="authentication_issue"><button class="copy" onclick="copyText('authentication_issue')">Copy</button><br><p>
+                    <mark>/* Authentication type and info */</mark><br>
+                    $cfg['Servers'][$i]['auth_type'] = 'config';<br>
+                    $cfg['Servers'][$i]['user'] = 'root';<br>
+                    $cfg['Servers'][$i]['password'] = 'root';<br><br>
+                    <mark>/* User for advanced features */</mark><br>
+                    $cfg['Servers'][$i]['controluser'] = 'root';<br>
+                    $cfg['Servers'][$i]['controlpass'] = 'root';<br>
+                </p></div>
+                <li>You can test if this fixed the issue by opening Xampp and running apache.</li>
+                <li>Open a browser and go to "<b>localhost/phpmyadmin</b>"</li>
+                <li>Hopefully this fixed your issue. Happy Coding!</li>
+            </ol>
+            <h2>Change Users (From Fresh Install)</h2>
+            <ol>
+                <li>Default Authentication Settings for <b>PHPMyAdmin</b> "<b>config.inc.php</b>":</li>
+                <div class="code" id="default_authentication"><button class="copy" onclick="copyText('default_authentication')">Copy</button><br><p>
+                    <mark>/* Authentication type and info */</mark><br>
+                    $cfg['Servers'][$i]['auth_type'] = 'config';<br>
+                    $cfg['Servers'][$i]['user'] = 'root';<br>
+                    $cfg['Servers'][$i]['password'] = ' ';<br><br>
+                    <mark>/* User for advanced features */</mark><br>
+                    $cfg['Servers'][$i]['controluser'] = 'pma';<br>
+                    $cfg['Servers'][$i]['controlpass'] = ' ';<br>
+                </p></div>
+                <li>In <b>PHPMyAdmin</b> click on "<b>User accounts</b>". (Password column will all be set to <b>No</b> initially)</li>
+                <div class="center"><img src="../images/Web/Xampp/PHPMyAdmin/UserAccountOverview.PNG" alt="Account Overview Image" onclick="displayModal(this)"></div>
+                <li>The User account I want to login as when going to <b>PHPMyAdmin</b> is the root user at localhost and once I give it a password our root user will have a "<b>yes</b>" in the password column.</li>
+                <div class="center"><img src="../images/Web/Xampp/PHPMyAdmin/EditPrivileges.PNG" alt="Edit Privileges Image" onclick="displayModal(this)"></div>
+                <li>Click on "<b>Change password</b>" tab and enter a new password.</li>
+                <div class="center"><img src="../images/Web/Xampp/PHPMyAdmin/ChangePassword.PNG" alt="Change Password Image" onclick="displayModal(this)"></div>
+                <li>I have chosen "<b>root</b>" as my password.</li>
+                <li>Click <b>Go</b>.</li>
+                <li>Now update the "<b>config.inc.php</b>" file to change the user and password.</li>
+                <div class="code" id="default_authentication"><button class="copy" onclick="copyText('default_authentication')">Copy</button><br><p>
+                    <mark>/* Authentication type and info */</mark><br>
+                    $cfg['Servers'][$i]['auth_type'] = 'config';<br>
+                    $cfg['Servers'][$i]['user'] = 'root';<br>
+                    $cfg['Servers'][$i]['password'] = 'root';<br><br>
+                    <mark>/* User for advanced features */</mark><br>
+                    $cfg['Servers'][$i]['controluser'] = 'root';<br>
+                    $cfg['Servers'][$i]['controlpass'] = 'root';<br>
+                </p></div>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Xampp-Control Access is Denied</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Xampp-Control Access is Denied</h2>
+            <ol>
+                <li>If you recently installed Xampp and your getting an error when you open the application about access-control, such as this one:</li>
+                <div class="center"><img src="../images/Web/Xampp/Access-Control/Xampp-Control-Error.JPG" alt="Access Control Error Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
+                <li>Navigate to your xampp folder "<b>C:\xampp</b>" and find <b>xampp-control.ini</b>, there will probably be less than 20 lines in the file.</li>
+                <li>The easiest way to fix this would be to find <b>xampp-control.exe</b>, right-click and run it as an administrator.</li>
+                <li>This should fill out the file with the missing options and the error will no longer appear when you start up the program.</li>
+                <li>Upon closing the program however, you may still run in to errors.</li>
+                <li>Find "<b>xampp-control.exe</b>" again and right-click the file.</li>
+                <li>Select properties, Compatibility, and Check "<b>Run this program as an administrator</b>". Hit <b>apply</b> and <b>OK</b>. The program should now open up as an administrator when you click on your taskbar and our errors should be gone.</li>
+                <li>Optionally you can copy and paste the code shown here to your control.ini file:</li>
+                <div class="code" id="access_control"><button class="copy" onclick="copyText('access_control')">Copy</button><br><p>
+                    [Common]<br>
+                    Edition=<br>
+                    Editor=notepad.exe<br>
+                    Browser=<br>
+                    Debug=0<br>
+                    Debuglevel=0<br>
+                    TomcatVisible=1<br>
+                    Language=en<br>
+                    Minimized=0<br><br>
+                    [EnableModules]<br>
+                    Apache=1<br>
+                    MySQL=1<br>
+                    FileZilla=1<br>
+                    Mercury=1<br>
+                    Tomcat=0<br><br>
+                    [LogSettings]<br>
+                    Font=Arial<br>
+                    FontSize=10<br><br>
+                    [WindowSettings]<br>
+                    Left=74<br>
+                    Top=125<br>
+                    Width=682<br>
+                    Height=441<br><br>
+                    [Autostart]<br>
+                    Apache=0<br>
+                    MySQL=0<br>
+                    FileZilla=0<br>
+                    Mercury=0<br>
+                    Tomcat=0<br><br>
+                    [Checks]<br>
+                    CheckRuntimes=1<br>
+                    CheckDefaultPorts=1<br><br>
+                    [ModuleNames]<br>
+                    Apache=Apache<br>
+                    MySQL=MySQL<br>
+                    FileZilla=FileZilla<br>
+                    Mercury=Mercury<br>
+                    Tomcat=Tomcat<br><br>
+                    [EnableServices]<br>
+                    Apache=1<br>
+                    MySQL=1<br>
+                    FileZilla=1<br>
+                    Tomcat=1<br><br>
+                    [BinaryNames]<br>
+                    Apache=httpd.exe<br>
+                    MySQL=mysqld.exe<br>
+                    FileZilla=filezillaserver.exe<br>
+                    FileZillaAdmin=filezilla server interface.exe<br>
+                    Mercury=mercury.exe<br>
+                    Tomcat=tomcat7.exe<br><br>
+                    [ServiceNames]<br>
+                    Apache=Apache2.4<br>
+                    MySQL=mysql<br>
+                    FileZilla=FileZillaServer<br>
+                    Tomcat=Tomcat7<br><br>
+                    [ServicePorts]<br>
+                    Apache=80<br>
+                    ApacheSSL=443<br>
+                    MySQL=3306<br>
+                    FileZilla=21<br>
+                    FileZillaAdmin=14147<br>
+                    Mercury1=25<br>
+                    Mercury2=79<br>
+                    Mercury3=105<br>
+                    Mercury4=106<br>
+                    Mercury5=110<br>
+                    Mercury6=143<br>
+                    Mercury7=2224<br>
+                    TomcatHTTP=8080<br>
+                    TomcatAJP=8009<br>
+                    Tomcat=8005<br><br>
+                    [UserConfigs]<br>
+                    Apache=<br>
+                    MySQL=<br>
+                    FileZilla=<br>
+                    Mercury=<br>
+                    Tomcat=<br><br>
+                    [UserLogs]<br>
+                    Apache=<br>
+                    MySQL=<br>
+                    FileZilla=<br>
+                    Mercury=<br>
+                    Tomcat=
+                </p></div>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Backup Database Files in MySQL Workbench</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Backup Database Files in MySQL Workbench</h2>
+            <ol>
+                <li>Click on the <b>Server</b> button in the taskbar and select <b>Data Export</b>.</li>
+                <li>Select from the list of databases on the left.</li>
+                <li>The right side will contain a list of tables from that database that you can select from.</li>
+                <li>There will be a dropdown box near the bottom right of the table list that will allow you to select "<b>Dump Structure and Data</b>".</li>
+                <li><b>Export to Dump Project Folder</b> will place files for individual tables into a folder.</li>
+                <li><b>Export to Self-Contained File</b> will save all tables to a single file.</li>
+                <li><b>Start Export</b> and your database should be backed up.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
+</body>
+</html>

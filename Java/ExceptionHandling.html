@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
@@ -18,8 +19,17 @@
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Exception Handling</button>
 <div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
     <h2>Exception Handling</h2>
-    <div class="center"><img src="../images/exception-in-java.png" alt="Exception Hierarchy Image"></div>
+    <div class="center"><img src="../images/JavaImages/exception-in-java.png" alt="Exception Hierarchy Image" onclick="displayModal(this)"></div>
     <h3>Errors:</h3>
     <p>Errors are the conditions which cannot get recovered by any handling techniques  and cause the program to terminate at runtime.</p>
     <h3>Exceptions:</h3>
@@ -320,4 +330,5 @@
 </div>
 </body>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
 </html>

@@ -5,51 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Unity</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
 <body>
 <div class="navbar">
     <a href="index.html" style="float: left;">Home</a>
-    <a href="" style="float: right;">Next</a>
+    <a href="Tutorials.html" style="float: right;">Next</a>
 </div>
 <h1 style="text-align:center;">Unity Workspace</h1>
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Unity Workspace</button>
 <div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
     <button class="collapsible">Unity Editor Interface</button>
     <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
         <h2>Unity Editor Interface</h2>
-        <div class="center"><img src="../images/UnityImages/UnityEditorInterface.jpg" alt="Unity Workspace Image"></div>
+        <div class="center"><img src="../images/UnityImages/UnityEditorInterface.jpg" alt="Unity Workspace Image" onclick="displayModal(this)"></div>
         <h2>Project Window</h2>
         <p>The Project window lists all the files and directories in your current Project. These files include all the images, sounds, 3D models and other items used in your Project. They are collectively known as Assets.</p>
-        <div class="center"><img src="../images/UnityImages/ProjectWindow.jpg" alt="Project Window Image"></div>
+        <div class="center"><img src="../images/UnityImages/ProjectWindow.jpg" alt="Project Window Image" onclick="displayModal(this)"></div>
         <h2>Console Window</h2>
         <p>The Console window shows you the warnings and errors that your game is producing, and can give you useful information for fixing those errors. By default, the Console window tab is next to the Project window tab. You can move it by dragging and dropping the Console tab to dock the window next to the Project window.</p>
-        <div class="center"><img src="../images/UnityImages/ConsoleWindow.jpg" alt="Console Window Image"></div>
+        <div class="center"><img src="../images/UnityImages/ConsoleWindow.jpg" alt="Console Window Image" onclick="displayModal(this)"></div>
         <h2>Hierarchy Window</h2>
         <p>In Unity, games are made up of Scenes (Levels). Within every Scene, you have a list of objects that have a place within that Scene (The characters &amp; environment objects). These objects are called GameObjects in Unity.</p>
-        <div class="center"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Hierarchy Window Image"></div>
+        <div class="center"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Hierarchy Window Image" onclick="displayModal(this)"></div>
         <h2>Scene View</h2>
         <p>The Scene view is a live preview window. It shows your currently loaded Scenes and all the GameObjects in the Hierarchy window. You can use this window to place and move GameObjects in your Scene. Clicking on a GameObject in the Scene view will highlight it in the Hierarchy window.</p>
-        <div class="center"><img src="../images/UnityImages/SceneView.jpg" alt="Scene View Window Image"></div>
+        <div class="center"><img src="../images/UnityImages/SceneView.jpg" alt="Scene View Window Image" onclick="displayModal(this)"></div>
         <h2>Game Window</h2>
         <p>The Game view is hidden as a tab next to the Scene view by default. While the Scene view allows you to move GameObjects and look around your entire Scene, the Game view shows you what the player will see when they play the game. This is determined by what the camera in your Scene is looking at.</p>
         <p>Currently there is nothing visible in the Scene, so you can’t see anything in the example image.</p>
-        <div class="center"><img src="../images/UnityImages/GameWindow.jpg" alt="Scene View Window Image"></div>
+        <div class="center"><img src="../images/UnityImages/GameWindow.jpg" alt="Scene View Window Image" onclick="displayModal(this)"></div>
         <h2>Inspector Window</h2>
         <p>When you select a GameObject in another window, the Inspector window will display all of the data relating to that object. Unity uses an Object - Component model, which means that you can add different components to GameObjects to change their features. For example, a Camera component allows the player to have a view into the scene.</p>
         <p>All GameObjects start with a Transform component that allows you to specify their position and rotation in the Scene. Other components are optional and you can add them as needed.</p>
-        <div class="center"><img src="../images/UnityImages/InspectorWindow.jpg" alt="Inspector Window Image"></div>
+        <div class="center"><img src="../images/UnityImages/InspectorWindow.jpg" alt="Inspector Window Image" onclick="displayModal(this)"></div>
     </div>
     &nbsp;
     <button class="collapsible">Toolbar and NAvigation UI</button>
     <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">The Toolbar</h2>
         <p>The toolbar includes a range of useful tool buttons to help you design and test your game.</p>
-        <div style="width: 100%; overflow-x: scroll;"><img src="../images/UnityImages/Toolbar.jpg" alt="Toolbar Image" style="height: 40px;"></div><br>
+        <div style="width: 100%; overflow-x: scroll;"><img src="../images/UnityImages/Toolbar.jpg" alt="Toolbar Image" onclick="displayModal(this)" style="height: 40px;"></div><br>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Play buttons</h2>
-        <div class="center"><img src="../images/UnityImages/PlayButtons.jpg" alt="Play Buttons Image" style="max-height: 40px;"></div>
+        <div class="center"><img src="../images/UnityImages/PlayButtons.jpg" alt="Play Buttons Image" onclick="displayModal(this)" style="max-height: 40px;"></div>
         <h3>Play</h3>
         <p>Play is used to test the Scene which is currently loaded in the Hierarchy window, and enables you to try out your game live in the Editor.</p>
         <h3>Pause</h3>
@@ -58,36 +68,36 @@
         <p>Step is used to walk through the paused scene frame by frame. This works well when you're looking for live changes in the game world that it would be helpful to see in real time.</p>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Manipulating Objects</h2>
         <p>These tools move and manipulate the GameObjects in the Scene window. You can click on the buttons to activate them, or use a shortcut key.</p>
-        <div class="center"><img src="../images/UnityImages/ManipulatingObjects.jpg" alt="Manipulating Objects Image" style="max-height: 40px;"></div>
-        <img src="../images/UnityImages/HandTool.jpg" alt="Hand Tool Image" style="max-height: 20px; float: left; position: relative; bottom: -22px; padding-right: 5px;">
+        <div class="center"><img src="../images/UnityImages/ManipulatingObjects.jpg" alt="Manipulating Objects Image" onclick="displayModal(this)" style="max-height: 40px;"></div>
+        <img src="../images/UnityImages/HandTool.jpg" alt="Hand Tool Image" onclick="displayModal(this)" style="max-height: 20px; float: left; position: relative; bottom: -22px; padding-right: 5px;">
         <h2>Hand Tool</h2>
         <p>You can use this tool to move your Scene around in the window. You can also use middle click with the mouse to access the tool.</p>
-        <img src="../images/UnityImages/MoveTool.jpg" alt="Move Tool Image" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
+        <img src="../images/UnityImages/MoveTool.jpg" alt="Move Tool Image" onclick="displayModal(this)" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
         <h2>Move Tool</h2>
         <p>This tool enables you to select items and move them individually.</p>
-        <img src="../images/UnityImages/RotateTool.jpg" alt="Rotate Tool Image" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
+        <img src="../images/UnityImages/RotateTool.jpg" alt="Rotate Tool Image" onclick="displayModal(this)" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
         <h2>Rotate Tool</h2>
         <p>Select items and rotate them with this tool.</p>
-        <img src="../images/UnityImages/ScaleTool.jpg" alt="Scale Tool Image" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
+        <img src="../images/UnityImages/ScaleTool.jpg" alt="Scale Tool Image" onclick="displayModal(this)" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
         <h2>Scale Tool</h2>
         <p>This tool is used to scale your GameObjects up and down.</p>
-        <img src="../images/UnityImages/RectTransformTool.jpg" alt="Rect Transform Tool Image" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
+        <img src="../images/UnityImages/RectTransformTool.jpg" alt="Rect Transform Tool Image" onclick="displayModal(this)" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
         <h2>Rect Transform Tool</h2>
         <p>This tool combines moving, scaling and rotation into a single tool that's specialized for 2D and UI.</p>
-        <img src="../images/UnityImages/RotateMoveScale.jpg" alt="Rotate, Move or Scale Tool Image" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
+        <img src="../images/UnityImages/RotateMoveScale.jpg" alt="Rotate, Move or Scale Tool Image" onclick="displayModal(this)" style="max-height: 20px; float: left; position: relative; top: 7px; padding-right: 5px;">
         <h2>Rotate, Move or Scale</h2>
         <p>This tool also enables you to move, rotate, or scale GameObjects, but is more specialized for 3D.</p>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Shortcuts</h2>
         <div class="columns">
             <div class="shortcutIcon">
-            <img src="../images/UnityImages/HandTool.jpg" alt="Hand Tool Image"><p>Shortcut Q</p><br>
-            <img src="../images/UnityImages/MoveTool.jpg" alt="Move Tool Image"><p>Shortcut W</p><br>
-            <img src="../images/UnityImages/RotateTool.jpg" alt="Rotate Tool Image"><p>Shortcut E</p><br>
+            <img src="../images/UnityImages/HandTool.jpg" alt="Hand Tool Image" onclick="displayModal(this)"><p>Shortcut Q</p><br>
+            <img src="../images/UnityImages/MoveTool.jpg" alt="Move Tool Image" onclick="displayModal(this)"><p>Shortcut W</p><br>
+            <img src="../images/UnityImages/RotateTool.jpg" alt="Rotate Tool Image" onclick="displayModal(this)"><p>Shortcut E</p><br>
             </div>
             <div class="shortcutIcon">
-            <img src="../images/UnityImages/ScaleTool.jpg" alt="Scale Tool Image"><p>Shortcut R</p><br>
-            <img src="../images/UnityImages/RectTransformTool.jpg" alt="Rect Transform Tool Image"><p>Shortcut T</p><br>
-            <img src="../images/UnityImages/RotateMoveScale.jpg" alt="Rotate, Move or Scale Tool Image"><p>Shortcut Y</p><br>
+            <img src="../images/UnityImages/ScaleTool.jpg" alt="Scale Tool Image" onclick="displayModal(this)"><p>Shortcut R</p><br>
+            <img src="../images/UnityImages/RectTransformTool.jpg" alt="Rect Transform Tool Image" onclick="displayModal(this)"><p>Shortcut T</p><br>
+            <img src="../images/UnityImages/RotateMoveScale.jpg" alt="Rotate, Move or Scale Tool Image" onclick="displayModal(this)"><p>Shortcut Y</p><br>
             </div>
         </div>
         <h2>Shortcut F</h2><p>Enables you to focus on a selected object. If you forget where a GameObject is in you Scene, just select it in the Hierarchy, move your cursor over to the Scene window, and press F to center it in the Scene window.</p>
@@ -124,1120 +134,25 @@
             <li>Open the Unity Hub.</li>
             <li>Log in with your Unity account.</li>
             <li>Click the New button in the top right corner.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/UnityHub.JPG" alt="Unity Hub Image"></div>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/UnityHub.JPG" alt="Unity Hub Image" onclick="displayModal(this)"></div>
             <li>Enter a Project name.</li>
             <li>Set the Unity Version.</li>
             <li>Choose the folder where you want to save your Project.</li>
             <li>Choose your Template (2D/3D)</li>
             <li>Click Create project.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/NewProject.JPG" alt="Unity New Project Image"></div>
+            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/NewProject.JPG" alt="Unity New Project Image" onclick="displayModal(this)"></div>
         </ol>
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Save the Scene</h2>
         <p>When a new Project is created, Unity automatically creates an empty Scene called "Untitled".</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Untitle Scene Image"></div>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/HierarchyWindow.jpg" alt="Untitle Scene Image" onclick="displayModal(this)"></div>
         <p>Go to <b>File > Save</b> or press <b>Ctrl/Cmd + S</b>, then select where you want to save the file. A folder named Scenes is generally used, so let's save this Scene in that folder as "MainScene".</p>
         <p>You will see this creates a Scene Asset called MainScene in the Project window.</p>
-        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/MainScene.jpg" alt="Main Scene Image"></div>
+        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/MainScene.jpg" alt="Main Scene Image" onclick="displayModal(this)"></div>
         <p>You now have a Scene to work in. Remember to press <b>Ctrl/Cmd + S</b> regularly to save your changes. <b>"Save early, Save often!"</b>.</p>
-    </div>
-    &nbsp;
-    <button class="collapsible">Add a Character Model</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adding a Character Model</h2>
-        <p>Import a character model from your own files or from the asset store.</p>
-        <ol>
-            <li>In the Project window, go to the <b>Assets > Models > Characters</b> folder and find the model you wish to add to your Scene.</li>
-            <li>Drag the model from the Project window into the Scene view. This enables you to choose exactly where you want to place the model. (You can also drag models into the Hierarchy to create GameObjects at the default position.)</li>
-            <li>With your cursor over the Scene view, press <b>F</b> to focus.<p>You should now see the model in the scene!</p></li>
-            <li>In the Hierarchy window, find the GameObject. If there is an arrow next to the name of the GameObject - this means that the GameObject has children.</li>
-            <li>Click on the arrow to expand and see its children.</li>
-            <p>Select the child GameObject with the same name as your character. This GameObject should have a component called a <b>Skinned Mesh Renderer.</b>. This is what enables you to see the character.</p>
-            <p>Models are made up of a mesh of triangles, and a Mesh Renderer "renders" that mesh so you can see it. A Skinned Mesh Renderer is a special type of Mesh Renderer that allows the mesh to change shape based on the positions and rotations of all of a model’s bones. These bones are child GameObjects of the model. The characters bones are all children of the Root GameObject.</p>
-            <li>In the Hierarchy, select the <b>Root</b> GameObject. Hold alt/Option and click the arrow to the left of its name to expand all its child GameObjects. Each of these GameObjects represents a part of the character's body (RightLeg/Hips/Spine/Neck/LeftShoulder/etc.)</li>
-            <li>In the Hierarchy, select the GameObject called LeftForeArm. In its Transform component, find the Rotation field and change the Y value to 90. You will see that the left arm has bent 90 degrees.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/LeftForearm.jpg" alt="Left Forearm Transform Image"></div>
-            <p>The Animator component on the character's parent GameObject will change the rotation of all the bone GameObject Tranform components, and these changes will happen together to animate the character.</p>
-            <li>Collapse all the GameObjects again by holding alt/Option and clicking the arrow next to the name of the parent GameObject.</li>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Prefabs</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What are Prefabs?</h2>
-        <p>Prefabs are a special type of Asset that represent a GameObject or collection of GameObjects with components that are already set up. They're like a blueprint which you can use to easily make instances of the same thing. Each instance of a prefab is linked to the Prefab Asset, so changing the Asset will change all versions of the Prefab in all Scenes. This also means that if you go on to make mulitple level for a game, you won't need to remake a character for every level - you can just instantiate a new Prefab.</p>
-        <p>Prefabs can be identified in the Hierarchy by their blue name and icon:</p>
-        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Prefab.jpg" alt="Prefab Image" style="max-height: 100px;"></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Making a Prefab</h2>
-        <ol>
-            <li>Drag the GameObject from the Hierarchy into the <b>Assets > Prefab</b> folder in the Project window. A dialogue box will appear asking if you want to make an Original Prefab or a Prefab Variant - select <b>Original Prefab</b>.</li>
-            <p>Dragging a GameObject like this makes it a Prefab regardless of the folder it is dragged into. Best practice would be to place them in a folder named Prefabs.</p>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/PrefabDialogueBox.JPG" alt="Prefab Dialogue Box Image" style="max-height: 150px;"></div>
-            <li>Now the Prefab has been created, any changes you make will be reflected on the instance of the GameObject in the Scene. In order to make changes to a Prefab, you will need to open the Prefab for editing in Prefab Mode.</li>
-            <li>Click on the Prefab and in the Inspector window you will see a button that reads "Open Prefab". Clicking on this button will put the Unity Editor in Prefab Mode.</li>
-            <p>Alternatively, in the Hierarchy, click the arrow to the right of the GameObject.</p>
-            <p>This mode takes you out of your current Scene and puts you in a temporary Scene with just the Prefab. The Scene has changed slighlty; at the top there is a new bar with <b>Scenes | Prefab Name</b> on the left and a checkbox labeled Auto Save on the right.</p>
-            <li>Disable the <b>Auto Save</b> checkbox. A Save button will appear so you can manually save any changes that you make to the Prefab.</li>
-            <li>The Hierarchy window also has a new bar at the top. The arrow on the left will take you back along the breadcrumn. If you clicked it now, it would take you back to MainScene.</li>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Animate your character</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Animating your character</h2>
-        <p>Two important animations to have for your player character are a walking animation and an idle animation for when the player is walking and not walking respectively.</p>
-        <p>Select your player character GameObject and take a look at its Animator component in the Inspector. The first property is called Controller. This takes a reference to a type of Asset called an Animator Controller, which your're going to use to get the characer moving.</p>
-        <p>Animator Controllers contain a <b>state machine</b> which determines what animation the Animator component should be setting for its hierarchy at any given time. This animation is based on animation clips which have been set up on the Animator Controller.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create the Animator Controller</h2>
-        <ol>
-            <li>In the Project Window, find the <b>Assets > Animation > Animators</b> folder. Right click on it and select <b>Create > Animator Controller</b>.</li>
-            <li>Name the Animator Controller, then double click on it to open it for editing in the Animator window.</li>
-            <p>The Animator window has two main sections:</p>
-            <ul>
-                <li>A panel for editing Animator Layers and Animator Parameters on the left.</li>
-                <li>An area which displays the state machine itself on the right.</li>
-            </ul>
-            <li>Click the <b>Parameters</b> tab on the top left of the Animator window.</li>
-            <p>The Animator Controller's state machine makes decisions based on the current values of its <b>Animator Parameters</b>. These Animator Parameters have values set by script. You will need one parameter for every independent variable which can affect the animation that the character is playing.</p>
-            <p>There are four types of parameter:</p>
-            <ul>
-                <li>A <b>float</b> parameter has the value of a floating point variable (a number with a decimal place).</li>
-                <li>An <b>int</b> parameter has the value of an integer (a number without a decimal place).</li>
-                <li>A <b>bool</b> parameter has the value of a boolean (which can be true or false).</li>
-                <li>A <b>trigger</b> parameter is a special type of parameter which doesn't hold a value - this causes a change from one animation to another.</li>
-            </ul>
-            <p>In this case, you know that the character is either walking or stationary, so a bool parameter makes the most sense.</p>
-            <li>Click the <b>+</b> button and select <b>Bool</b> from the drop-down to create a new Bool Animator Parameter.</li>
-            <li>Name the new Animator Parameter "IsWalking". The spelling and capitalisation is important for the scripting later.</li>
-            <p>This is the default value for the parameter.  Without player input your character is going to be stationary, so IsWalking should be false. This means you don’t need to change anything here.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set Up the Animations</h2>
-        <ol>
-            <li>In the Project window, go to the <b>Assets > Animation > Animation</b> window.</li><p>A slider on the bottom right can change the folder from icon view to list view.</p>
-            <li>The list of animations should have a naming convention such as "PlayerCharacter@Idle", "PlayerCharacter@Walk" and so on.</li>
-            <li>In order to use these animations in your Animator Controller, drag them from the Project window to the Animator window. Start with Idle.</li>
-            <li>Animations exist in an Animator Controller in <b>Animator States</b>. When you dragged in the Idle and Walkanimations, the Animator Controller created two states containing them and named them after the animations.</li>
-            <p>An Animator State is part of the state machine that an Animator Controller contains. The state machine contains logic which determines which state is the current state. The current state then determines the animation that is being played.</p>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Animator Default State Image" style="max-height: 150px;"></div>
-            <p>The default state is displayed in orange (Idle). Your state machine now has two states in it, but no logic to define which state should play. Currently, the state machine will start in the default state and never change, so the character will always be idle. We will need to make <b>Animator Transitions</b>.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create Animator Transitions</h2>
-        <ol>
-            <li>Right click on the Idle state and select <b>Make Transition</b>. This starts a transition that follows the mouse cursor.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Make Transition Image" style="max-height: 150px;"></div>
-            <p>To finish creating the transition, click on the Walk state.</p>
-            <li>Your character needs to be able to change back to idle from walking, so repeat this process to create a trainsition from Walk to Idle.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Transition.JPG" alt="Transition Image" style="max-height: 200px;"></div>
-            <li>The state machine now has a way of transitioning between the two animations, but it doesn't yet know when to transition. Select the transition from Idle to Walk by clicking on the connecting line.</li>
-            <li>In the inspector, look at the settings from this transition. The first thing you need to change is the <b>Has Exit Time checkbox</b>.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HasExitTime.JPG" alt="Has Exit Time Image" style="max-height: 220px;"></div>
-            <p>If Has Exit Time is true (the checkbox is enabled) then after a certain amount of time has passed the transition will automatically be taken and the state machine will play the next state. So, <b>disable</b> the <b>Has Exit Time checkbox</b>.</p>
-            <p>You will now see a warning, because there is no longer a reason to ever take this transition. We need to provide one by adding a <b>Condition</b>.</p>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/ConditionsWarning.JPG" alt="Condition Warning Image" style="max-height: 150px;"></div>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add Conditions to your Transition</h2>
-        <ol>
-            <li>Click the <b>+</b> button beneath the (currently empty) Conditions list.</li>
-            <li>The transition from Idle to Walk is required when the character is walking - that is, when <b>IsWalking</b> is true.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/IsWalkingCondition.JPG" alt="Is Walking Condition Image" style="max-height: 100px;"></div>
-            <p>Next, you need to set up the transition from Walk to Idle.</p>
-            <li>Select the transition from <b>Walk to Idle</b> in the Animator window. <b>Disable</b> the <b>Has Exit Time checkbox</b> - as before, you don't want the state to change after a certain amount of time, just when you want it to.</li>
-            <li>Now that the Has Exit Time checkbox is disabled, you need to create another Condition.</li>
-            <p>This Condition should also check IsWalking, but this time the value should be set as false.  If the character is not walking then it should transition from Walk to Idle.</p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/WalkTransition.JPG" alt="Walk Transition Image" style="max-height: 100px;"></div>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Assign the Animator Controller to the Prefab</h2>
-        <ol>
-            <li>In the Project window, go to <b>Assets > Animation > Animators</b> and find your character Animator Controller.</li>
-            <li>Select the character GameObject in the Hierarchy, then drag the Animator Controller to the Controller property of its Animator component in the Inspector. Without doing this step the character won't move.</li>
-            <li>Remember to Save.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Make your Character React to Physics</h2>
-        <p>We don't want the player walking through walls in this case.</p>
-        <ol>
-            <li>Open the character Prefab for editing in Prefab Mode. In the Inspector, you'll find two components: a Transform and an Animator. In order to react to physics your character needs two more components: a Rigidbody and a Collider.</li>
-            <p>A <b>Rigidbody</b> component marks a GameObject as something that is part of the physics system that can move.</p>
-            <li>Click the <b>Add Component</b> button.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/AddComponent.jpg" alt="Add Component Image" style="max-height: 50px;"></div>
-            <li>In the search bar that appears, type “Rigidbody” and select this from the options that appear.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/Rigidbody.jpg" alt="Rigidbody Image" style="max-height: 500px;"></div>
-            <p>Since this is a 3D Project we want to make sure to choose Rigidbody and not Rigidbody 2D. To remove a component click on the cog in the top right of the component and select Remove Component.</p>
-            <li>Save your work.</li>
-            <li>Your character will now react to the effects of physics such as gravity. Press the play button to test the physics of the player and press play again to stop the test, since the physics isn't quite working correctly.</li>
-            <p>The Animator component has <b>Apply Root Motion</b> enabled. If it is Dissabled your character will fall forever (there is no floor), but let's leave it enabled for now.</p> 
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is Root Motion?</h2>
-        <p>Animations are used to move and rotate all the GameObjects within a particular hierarchy.  Most of these movements and rotations are done relative to their parents, however the parent GameObject of the hierarchy has no parent and therefore their movement is not relative. This parent GameObject can also be called the Root, and its movement is therefore called Root Motion.</p>
-        <p>The root GameObject is whichever GameObject the Animator component is on.</p>
-        <p>Apply Root Motion is enabled on your Animator component, so any movement of the root in the animation will be applied every frame.  Since the Animator is playing Idle there is no movement, so the Animator will apply no movement.  So why does the character GameObject move at all? This is due to the Update Mode of the Animator.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is the Update loop?</h2>
-        <p>Games work in a similar way to films and television: an image is displayed on a screen and this image changes many times per second giving the illusion of movement. We call these images frames; the process of drawing these frames to the screen is called rendering. For films and television the next image to show on screen is often predefined, but in games the next image can vary wildly because the user has influence over what happens next. Each image needs to be worked out based on the user input - and since this variation can happen every split second, the programming that works out what to display also works at this speed. This is called the Update loop.</p>
-        <p>Each time a frame is displayed, a number of things happen in order. All you need to know for now is that custom components have their Update method called, and a new image is rendered to the screen. These Updates vary in length, depending on the complexity of the computations and rendering. However, there is another separate loop that runs all the physics operations. This loop doesn’t vary how often it updates, and is therefore called the FixedUpdate.</p>
-        <p>An Animator component can change when it performs its Update. By default it performs this in line with rendering. This means that the Animator is moving the character in Update and the Rigidbody is simultaneously moving the character in Fixed Update.  This is what’s causing your problem, and it can easily be fixed!</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Fix Character Movement</h2>
-        <ol>
-            <li>Select your character in the Hierarchy and in the Inspector window click the Prefab Open button.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/PrefabOpen.jpg" alt="Prefab Open Image" style="max-height: 45px;"></div>
-            <li>Go to the Animator component. In the Update Mode property drop-down, select <b>Animate Physics</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/AnimatePhysicsl.jpg" alt="Animate Physics Image" style="max-height: 45px;"></div>
-            <p>This change will cause the Animator to move the character in time with physics. Now there should be no competition between update loops to move the character, and it will react to physics as it should.</p>
-            <li>Now we need to contrain the characters movement using physics. We don't want the character moving vertically after colliding with something.</li>
-            <li>Find the RigidBody component and click the arrow to expand the Contraints propterty.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Constraints.jpg" alt="Rigidbody Contraints Image"></div>
-            <p>These Contraint propterties restrict the directions in which the Rigidbody can move.</p>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Coordinates in Unity</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Coordinates in Unity</h2>
-        <p>Positions and directions in Unity work in 3D coordinates represented by x, y and z - together these make a vector. You’ll find out more about vectors later. A Scene has a global definition of these directions that you can see in the top right of the Scene window.</p>
-        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Coordniates.jpg" alt="Coordinates Image"></div>
-        <p>The colored arrows represent the positive direction of each axis, with the grey arrow opposite representing the negative direction:</p>
-        <ul>
-            <li>x-axis is red</li>
-            <li>y-axis is green</li>
-            <li>z-axis is blue</li>
-        </ul>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Positions and Rotation</h2>
-        <p>GameObjects without parents in the scene all have positions relative to the scene’s origin (0, 0, 0). GameObjects with parents all have positions relative to their parent.  However, since GameObjects can be rotated, a child’s relative (or local) position will be in their parent’s rotated coordinates. It is these local coordinates (or axes) that the Rigidbody Constraints refer to.</p>
-        <ol>
-            <li>Select the character GameObject, and then look at the Scene view. You will see that:</li>
-            <ul>
-                <li>the x-axis (red) is pointing to the character’s <b>right</b></li>
-                <li>the y-axis (green) is pointing <b>upward</b></li>
-                <li>the z-axis (blue) is pointing <b>forward</b></li>
-            </ul>
-            <li>So what constraints should your character have?</li>
-            <p>Your character needs to be able to move forward and from side to side, so there’s no need to constrain its x or z position. However, it’s important that it doesn’t move up and down; to stop that, enable the Freeze Position Y checkbox.</p>
-            <li>Rotation refers to a rotation around a specific axis. For example, if the character were rotated around its x-axis then it would look like it was lying down on its front or back.</li>
-            <p>If it were rotated around its z-axis, it would look like it was lying down on its side.</p>
-            <p>Our character shouldn’t move in either of these ways, so enable the Freeze Rotation X and Z checkboxes.</p>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Constraints2.jpg" alt="Constraints Image"></div>
-            <p>The Rigidbody component is now set up, and your character will react to the physics system. However, it doesn’t really have any physical presence in the Scene yet - nothing can bump into it and it can’t bump into anything else. In order for it to have a physical presence in the scene, it needs a <b>Collider.</b></p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add a Collider to your Character</h2>
-        <p>A Collider is a general term that covers a number of different components. Colliders define the shape of an object for the purpose of physical collisions, allowing your character to hit things and be hit. There are Collider components of many different shapes, but the simplest one that best fits our character is the Capsule Collider.</p>
-        <ol>
-            <li>Click the Add Component button in the Inspector window, and search for Capsule Collider. Select the <b>Capsule Collider</b> option, making sure not to click on Capsule Collider 2D.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/CapsuleCollider.jpg" alt="Capsule Collider Image"></div>
-            <p>Change the Capsule Collider's Height, Radius and Center properties to fit your character.</p>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Scripting</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is a script?</h2>
-        <p>A script is a text document containing a series of instructions for the computer.  These instructions are commonly called code.  The instructions are written in a way that the computer can understand, in this case using a programming language called C#.</p>
-        <p>C# defines the way the instructions are written and some of the words that are used.  Luckily, the words used often have a similar meaning in C# as they do in English.  For example, the first word we’ll come across in C# is "using" - this means that the script it is written is using code from somewhere else. Another example is "public", which means that anything can access something. There are too many examples to go through them all here.</p>
-        <p>MonoBehaviours are special types of scripts that can be attached to GameObjects just as components can. This is because they are a specific case of component that you can write yourself.</p>
-        <p>Scripts share some minor similarities with Prefabs:</p>
-        <ul>
-            <li>A script is created as an Asset, just like a Prefab is.</li>
-            <li>Adding a script to a GameObject as a component is actually instantiating that script, just as adding a Prefab to a scene is instantiating that Prefab.</li>
-        </ul>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Creating your First Script (PlayerMovement)</h2>
-        <ol>
-            <li>Find or create the <b>Assets > Scripts</b> folder in the Project window. Right-click on the folder and choose <b>Create > C# Script</b>. Name the script <b>"PlayerMovement"</b>.</li>
-            <p><b>Note:</b> Scripts that are going to be used as a component need to have the same name on the asset as the class name in the script itself.  When Unity creates a script file, it gives it a class name which matches what the Asset was first named. However, when the Asset is renamed, the class name does not change. </p>
-            <li>Select your script, and look at the Inspector window. You should see the following code:</li>
-            <div class="unityCode" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
-                using System.Collections;<br>
-                using System.Collections.Generic;<br>
-                using UnityEngine;<br><br>
-                public class PlayerMovement : MonoBehaviour<br>
-                {<br>
-                &emsp;<mark>// Start is called before the first frame update</mark><br>
-                &emsp;void Start()<br>
-                &emsp;{<br><br>
-                &emsp;}<br><br>
-                &emsp;<mark>// Update is called once per frame</mark><br>
-                &emsp;void Update()<br>
-                &emsp;{<br><br>
-                &emsp;}<br>
-                }
-            </p>
-            </div>
-            <p>Find the line which starts <b>“public class PlayerMovement”</b>. This is what defines the class name. If your script doesn’t say PlayerMovement, delete the script Asset then create a new one named PlayerMovement.</p>
-            <li> Now you have created your script Asset, open it for editing. You can either double click on the Asset, or click the "Open…" button in the Inspector window.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/PlayerMovementInInspector.jpg" alt="Player Movement In Inspector Image"></div>
-            <p>Script editing is not done inside Unity - instead scripts open in another program called Visual Studio. Once that’s opened, you’ll be able to edit the script.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the default script</h2>
-        <ol>
-            <li>The first three lines of code are called using directives.</li>
-            <div class="unityCode" id="FirstThreeLines"><button class="copy" onclick="copyText('FirstThreeLines')">Copy</button><br><p>
-                using System.Collections;<br>
-                using System.Collections.Generic;<br>
-                using UnityEngine;
-            </p></div>
-            <p>They allow you to use code implemented elsewhere within this script file. For example, the word "MonoBehaviour" in the next line would not be usable if you didn’t have "using UnityEngine;" here.  In most cases, the using directives that are included by Unity by default are enough, so you don’t need to worry about these.</p>
-            <li>The next line is:</li>
-            <div class="unityCode" id="Monobehaviour"><button class="copy" onclick="copyText('Monobehaviour')">Copy</button><br><p>
-                public class PlayerMovement : MonoBehaviour
-            </p></div>
-            <p>This is the start of a class declaration. Classes are like the plans for instances which are called Objects. When a class is instantiated (for example, by attaching a script as a component to a GameObject), that instance is called an object. Objects are the building blocks of code, and they exist throughout the work you’ve already done!</p>
-            <p>Classes you have already met include Animator, Rigidbody, GameObject, and Transform. These exist in your game already. Another way to think of classes is that they are factory buildings: the factory takes an input, does a few things to it, and then produces an output afterward. We’ll return to this factory analogy with other code elements.</p>
-            <li>The next line is simply an open curly brace/bracket: {</li>
-            <p>Braces are an essential part of the C# language, as they define code blocks. Code blocks are lines of code which exist between an open and close brace. Braces must always exist in pairs.</p>
-            <p>For the class declaration code block, the close brace is at the bottom but there are two more code blocks within the class declaration. The two code blocks contained in the class declaration are indented. Indentation is not technically necessary, but is very helpful in defining where code blocks begin and end.</p>
-            <li>The next line is:</li>
-            <div class="unityCode" id="Comment"><button class="copy" onclick="copyText('Comment')">Copy</button><br><p>
-                <mark>// Start is called before the first frame update</mark>
-            </p></div>
-            <p>Any text that is preceded by a double forward slash like this is known as a comment. A comment is anything that you want to be completely ignored by the computer. In most cases, they work as a sort of label to explain something about the code around them.  In this case, the comment gives a very brief explanation of what is declared below it.</p>
-            <li>After the comment is the start of the first method declaration:</li>
-            <div class="unityCode" id="StartMethod"><button class="copy" onclick="copyText('StartMethod')">Copy</button><br><p>
-                void Start()
-            </p></div>
-            <p>Let’s return to the factory analogy. If a class is a factory, then a method is a machine within that factory. Methods can take in data, perform an operation, and then give out (or return) data.</p>
-            <p>All method declarations have the same format:</p>
-            <ul>
-                <li>First they state the return type. This is the type of data that is going to be given out when the method is finished. In this example, the return type is void.  This is a special C# word that means nothing — the method returns literally nothing.</li>
-                <li>After the return type comes the name of the method, in this case Start.</li>
-                <li>After the name there is a pair of open and close curved brace/brackets: (). Within these parentheses, methods have the chance to declare what type of data they want to take in. These pieces of data are called parameters. Since there is nothing between the parentheses, there are no parameters declared.</li>
-            </ul>
-            <p>These three pieces of information (the return type, name and parameters) form a method’s signature. In most cases, a method can have whatever signature you like. However, MonoBehaviour classes can use some special methods which need to have specific signatures. These special methods don’t need to be called from your code, and instead are called at specific times by Unity. Start is one example of a special method. It is called as soon as the GameObject it is on starts, which is usually as soon as the Scene starts. This makes it ideal for doing things like setup that you don’t want to repeat.</p>
-            <li>After the Start method signature is a code block. This defines all the code that is executed whenever the method is called. Calling a method is how you use it - you’ll do this yourself later. To return to the factory analogy: the method declaration is how the machine in the factory works, and calling the method is actually making use of that machine.</li>
-            <p>A method signature declaration followed by the code block are together known as a method definition. The terms method declaration and method definition are commonly interchanged when talking about C#, because they happen at the same time. The difference only really matters in other languages (such as C++).</p>
-            <li>Now is a good time to talk about the order in which things are written in a class. Keeping with the factory and machines analogy, it doesn’t matter where in your factory the machines are, but the order in which machines perform their operations is very important. In C# it doesn’t matter in which order methods are declared in a class, but the order in which methods perform their operations matters a lot.</li>
-            <li>The last two parts of the script are another comment and then another method definition. The Update method is another special method for MonoBehaviours. It is called every frame, before something is rendered to the screen. Now you have a basic understanding of some of the parts of the default script.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create variables for the Horizontal and Vertical axes</h2>
-        <p>Your PlayerMovement script needs to take user input and translate that into character movement.</p>
-        <p>The first thing you’re going to need to do is get some data from Unity’s input system. The script needs to check what’s happening with the input all the time, and since Update is called every frame it makes perfect sense to check the input there. But what specifically does it need to check?</p>
-        <p>It makes sense to move the character using the arrow keys or WASD, so the script needs to check the values of those specific keys on the keyboard. It could check whether or not each of those keys are individually either held or not and decide what the character should do (or not), but there’s an alternative that’ll make this a little easier.</p>
-        <p>Unity has an input manager that defines various buttons and axes which can be found by name. For example, it has an axis called Horizontal, which is represented by the A and D keys and the left and right keys. So by checking that, the player’s computer could decide whether the character should move left or right.</p>
-        <p>Let's get started by adding the following inside the Update method:</p>
-        <div class="unityCode" id="NewUpdateMethod"><button class="copy" onclick="copyText('NewUpdateMethod')">Copy</button><br><p>
-            <mark>// Update is called once per frame</mark><br>
-            void Update()<br>
-            {<br>
-            &emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
-            }<br>
-        </p></div>
-        <p>In short, your new line of code is telling the computer, “Create a new float variable and call it horizontal; set that variable equal to the result of this method call.”</p>
-        <p>If classes are factories and methods are machines in those factories, variables are boxes containing stuff in those factories.  In other words, variables are a way of storing data. The data you need to store is the value of the horizontal input axis.  In Unity, input axes return a number between -1 and 1 — this type of data is called float. A float represents a number with decimal places.</p>
-        <p>There are a few pieces of important syntax (structure) in this line of code:</p>
-        <ul>
-            <li>In C#, an equal sign means assign whatever is on the right (the result of a method) to the variable on the left (a newly created float variable).</li>
-            <li>The full stop between Input and GetAxis allows the computer to access something inside the previous object (GetAxis is a method within Input, so to get from Input to GetAxis a full stop is used).</li>
-            <li>C# code is made up of things called statements. Each statement can contain one or more instructions to the computer, and can be thought of like sentences. The semicolon marks the end of the statement, and so functions like a full stop does at the end of a sentence.</li>
-        </ul>
-        <p>You have the class Input, and you are drilling into that to find the method called GetAxis. You are then calling that method by putting parentheses after the name. However, unlike Start and Update, GetAxis has a parameter - that is a piece of data it needs to perform its task. Specifically, GetAxis needs the name of the axis it’s trying to find the value of. You’re trying to find the Horizontal axis value here, so you have given that as a parameter.</p>
-        <p>The data type for this piece of information is called a string. This refers to a string of characters, for example a word or sentence. By putting speech marks around the word Horizontal, you are instructing the computer that it should be treated like a string.</p>
-        <p>Once the computer has retrieved the value of the axis it will need to store it somewhere. To the left of method call, you have introduced a new float variable called horizontal and set it equal to the value found from GetAxis.</p>
-        <p>Next, add another line of code to find the value of the axis called Vertical and store that in a variable called vertical.</p>
-        <div class="unityCode" id="NewUpdateMethod1"><button class="copy" onclick="copyText('NewUpdateMethod1')">Copy</button><br><p>
-            <mark>// Update is called once per frame</mark><br>
-            void Update()<br>
-            {<br>
-            &emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
-            &emsp;float vertical = Input.GetAxis ("Vertical");<br>
-            }<br>
-        </p></div>
-        <p>You now have the values for both the horizontal and vertical axes. The next step is to combine them into a vector, so that they can be used to change position.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Make a Vector</h2>
-        <p>In Unity, 3D space is represented by three coordinates which together made a vector. The data type to represent a vector in Unity is called Vector3. This is what a GameObject’s position is represented by, and so you will need to make a Vector3 representing that change. The movement that the user input represents is fundamental to this class, and you may need to use it for other things too.</p>
-        <p>With this in mind, it’s important to consider the scope of the variable you need to create.</p>
-        <p>The scope of a variable is the area of code where it can be used. Usually this is as simple as the code block in which it is declared. For example, both float variables you just declared (horizontal and vertical) are in scope for the whole of the Update method, because that is the code block in which they were declared. They are said to be local to the Update method.</p>
-        <p>If you want to use a variable in multiple different methods, you can create variables outside of the method’s scope. These are local to the class instead.</p>
-        <p>Above the method definitions, add the following line:</p>
-        <div class="unityCode" id="Vector3"><button class="copy" onclick="copyText('Vector3')">Copy</button><br><p>
-            Vector3 m_Movement;
-        </p></div>
-        <p>The new line of code is instructing the computer to create a Vector3 variable called m_Movement that you can use wherever you want in the PlayerMovement class.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Naming Conventions</h2>
-        <p>But what does m_ mean at the beginning of the name? This is part of something called a naming convention. Naming conventions are used to identify a particular object or class of object. All variables start with a lowercase letter but subsequent words start with an uppercase letter - this is called camelCase.</p>
-        <p>The exception to this is non-public member variables, which start with the m_ prefix and all words start with an uppercase letter - this is called PascalCase. Member variables are ones that belong to a class rather than a specific method. The m_ part of the non-public member variables comes from them being 'member' variables.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the Values for your Variable</h2>
-        <p>Now that you have a variable to store the movement for the character, you need to set the value for it. Since this could change every frame, you need to set it every frame — you should do this in the Update method.</p>
-        <div class="unityCode" id="MovementSet"><button class="copy" onclick="copyText('MovementSet')">Copy</button><br><p>
-            m_Movement.Set(horizontal, 0f, vertical);
-        </p></div>
-        <p>Vectors in 3D space have three values — this Set method assigns a value to each. It has three parameters, one for each coordinate of the vector. The movement vector now has a value of the horizontal input in the x axis, 0 in the y axis and the vertical input in the z axis. There’s also an f after the 0 for the second parameter, which is instructing the computer to treat that number as a float.</p>
-        <p>Now you need to fix a small problem. The movement vector is made up of two numbers that can have a maximum value of 1. If they both have a value of 1, the length of the vector (known as its magnitude) will be greater than 1. This is the relation between sides of a triangle described by Pythagoras’ theorem.</p>
-        <div class="center" style="padding: 10px; max-width: 200px;"><img src="../images/UnityImages/TriangleDiagram.jpg" alt="Triangle Diagram Image"></div>
-        <p>This means that your character will move faster diagonally than it will along a single axis. In order to make sure this doesn’t happen, you need to ensure the movement vector always has the same magnitude. You can do this by normalizing it. Normalizing a vector means keeping the vector’s direction the same, but changing its magnitude to 1.</p>
-        <p>Add the following script beneath the previous line you wrote, to call a method on the vector itself:</p>
-        <div class="unityCode" id="Normalize"><button class="copy" onclick="copyText('Normalize')">Copy</button><br><p>
-            m_Movement.Normalize ();
-        </p></div>
-        <p>Your full script should now look like this:</p>
-        <div class="unityCode" id="DefaultScript"><button class="copy" onclick="copyText('DefaultScript')">Copy</button><br><p>
-            using System.Collections;<br>
-            using System.Collections.Generic;<br>
-            using UnityEngine;<br><br>
-            public class PlayerMovement : MonoBehaviour<br>
-            {<br>
-            &emsp;Vector3 m_Movement;<br><br>
-            &emsp;<mark>// Start is called before the first frame update</mark><br>
-            &emsp;void Start()<br>
-            &emsp;{<br><br>
-            &emsp;}<br><br>
-            &emsp;<mark>// Update is called once per frame</mark><br>
-            &emsp;void Update()<br>
-            &emsp;{<br>
-            &emsp;&emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
-            &emsp;&emsp;float vertical = Input.GetAxis ("Vertical");<br><br>
-            &emsp;&emsp;m_Movement.Set(horizontal, 0f, vertical);<br>
-            &emsp;&emsp;m_Movement.Normalize ();<br>
-            &emsp;}<br>
-            }
-        </p>
-        </div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the Animator component</h2>
-        <p>Now that you’ve created a movement vector, there are some other jobs that need to be done every frame. You need to instruct the computer to:</p>
-        <ul>
-            <li>Tell the Animator component whether or not the character is walking.</li>
-            <li>Get a rotation for the character from player input (similar to the way you got its movement).</li>
-            <li>Apply the movement and rotation to the character.</li>
-        </ul>
-        <p>If there is any player input then your character should be walking, and if there is not then it should be idle.</p>
-        <ol>
-            <li>To start off, you need to write a line of code that determines whether or not there is horizontal input. Add the following code after the line normalizing the movement vector:</li>
-            <div class="unityCode" id="HorizontalInput"><button class="copy" onclick="copyText('HorizontalInput')">Copy</button><br><p>
-            bool hasHorizontalInput = !Mathf.Approximately (horizontal, 0f);
-            </p></div>
-            <p>Here you are creating a bool variable (one that can be either true or false) and calling it hasHorizontalInput. Then you’re setting that equal to the return value of a method. This method is called Approximately and is from the Mathf class. It takes two float parameters and returns a bool — true if the two floats are approximately equal and false otherwise. So in this scenario, the method will return true if the horizontal variable is approximately zero.</p>
-            <p>There’s another character in this line you haven’t encountered before: the exclamation mark in front of the method call. This is the logical negation operator and it inverts a bool, setting true to false and false to true. This means that hasHorizontalInput is being set to true when horizontal is not approximately equal to 0. In other words, hasHorizontalInput is true when horizontal is non-zero.</p>
-            <li>It’s not just the horizontal axis you care about, though. Add a similar line for the vertical axis:</li>
-            <div class="unityCode" id="VerticalInput"><button class="copy" onclick="copyText('VerticalInput')">Copy</button><br><p>
-            bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);
-            </p></div>
-            <li>Now that you know when you are getting input on the axes, you need to combine them into a single bool. Add the following line of code:</li>
-            <div class="unityCode" id="boolIsWalking"><button class="copy" onclick="copyText('boolIsWalking')">Copy</button><br><p>
-            bool isWalking = hasHorizontalInput || hasVerticalInput;
-            </p></div>
-            <p>This line is creating another new bool variable called isWalking, which is set to hasHorizontalInput OR hasVerticalInput. The two vertical lines are the logical or operator. This compares the bool on each side. If either of them or both of them are true then it equates to true, otherwise it equates to false. That means that if hasHorizontalInput or hasVerticalInput are true then isWalking is true, and otherwise it is false.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a variable to store a reference to the Animator component</h2>
-        <p>Next, you need to tell the Animator component whether or not the character should be walking using the bool you have just created. To do this, you need to access the Animator component.</p>
-        <p>Why do you need to do something special to access the Animator component, when you didn’t need to do it to call methods on Input or Mathf? This is due to the methods on Input and Mathf being static.</p>
-        <p>Static methods are methods which are called on a class’s type, rather than an instance of that class. There is no need to have a single instance of the Input class in order to determine axis values, because input is more of a global concept. As such, the methods which obtain those values have been made static. Likewise, the Mathf class is full of helper methods (methods which help another method perform its task) which don’t involve any specific data for a specific instance of Mathf, and so those methods have also been made static.</p>
-        <p>However, consider your m_Movement variable. You needed to set values specific to that particular instance of Vector3, so those methods were not static. The important thing to remember is that static methods are called using a type name and non-static methods (or 'instance' methods) are called using an instance name.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Get a reference to the Animator component</h2>
-        <p>Before you can access the Animator component you need a reference to it, and this is obtained using a method called GetComponent.  This reference will be used throughout the class and not just in a single method; it makes sense to keep it as member variable (like the movement vector) so its scope is local to the class.</p>
-        <p>At the top of the class, above the movement vector declaration but below the class declaration, add the following line:</p>
-        <div class="unityCode" id="Animator"><button class="copy" onclick="copyText('Animator')">Copy</button><br><p>
-        Animator m_Animator;
-        </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the reference to the Animator component</h2>
-        <p>You’ve created a variable to store a reference to the Animator component, but so far you haven’t set this variable to anything and it’s empty. When a variable is empty in this way in C#, it is said that its value is null.  Whenever there could be a reference to something and there isn’t one, the reference is null.</p>
-        <p>You don’t want a null reference here, and so now you need to set up the reference properly. You also need to be able to access the Animator component in any method, so it’s important to set the reference as soon as possible. 
-        One of the earliest methods to be called on a MonoBehaviour is the Start method, so it makes perfect sense to set up the reference there. Add the following line to the Start method:</p>
-        <div class="unityCode" id="GetAnimatorComponent"><button class="copy" onclick="copyText('GetAnimatorComponent')">Copy</button><br><p>
-        void Start ()<br>
-        {<br>
-        &emsp;m_Animator = GetComponent&lt;Animator&gt;();<br>
-        }
-        </p></div>
-        <p>This line of code uses some familiar and some new syntax:</p>
-        <ol>
-            <li>The variable that you’re assigning to is on the left.</li>
-            <li>The name of a method is on the right (but it doesn’t have anything written before it).</li>
-            <li>There are angle-shaped brackets around Animator, before the parentheses that you have encountered before.</li>
-            <li>The line ends with a semicolon.</li>
-        </ol>
-        <p>Why isn’t there a class before GetComponent? When you added that previously, you were accessing methods on other objects (for example, the Normalize method on the movement vector). However, GetComponent is something that you already have access to: it is part of MonoBehaviour, and so because your class is a MonoBehaviour you have access to it too.</p>
-        <p>Next, the angle brackets.  These have been added because the GetComponent method is generic. A generic method is one that has two different sets of parameters: normal parameters and type parameters. The parameters listed between the angle brackets are the type parameters.</p>
-        <p>In this scenario, GetComponent needs to know what type of component you're looking for. You’re looking for an Animator component, so the type parameter is Animator. The line of code is saying, "Get a reference to a component of type 'Animator', and assign it to the variable called m_Animator."</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the isWalking Animator Parameter</h2>
-        <p>Now that you have a reference to the Animator component, you can use it to set the IsWalking Animator Parameter.</p>
-        <p>Add the following new line of code below the creation of the isWalking variable in the Update method:</p>
-        <div class="unityCode" id="SetBool"><button class="copy" onclick="copyText('SetBool')">Copy</button><br><p>
-        m_Animator.SetBool ("IsWalking", isWalking);
-        </p></div>
-        <p>This code is calling the <b>SetBool method</b>  using the Animator component reference you just set up. <b>The first parameter is the name of the Animator Parameter that you want to set the value of, and the second is the value you want to set it to.</b> It’s important to get the spelling and capitalisation of the first parameter absolutely correct, otherwise the method won’t know which Animator Parameter to set the value of.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Rotation for Your Character</h2>
-        <p>In this game the character should only be able to walk forward, and so needs to face in the same direction as the movement. However, if the character flips quickly to the desired direction it’s going to look really weird, so you need to slow it down a little bit. But just how much should you slow it down?</p>
-        <p>A slightly easier way to frame that question is considering how fast the character should turn. To set this speed, you need to create a new variable.</p>
-        <p>Add the following line to the top of the class, above the Animator member variable:</p>
-        <div class="unityCode" id="TurnSpeed"><button class="copy" onclick="copyText('TurnSpeed')">Copy</button><br><p>
-        public float turnSpeed;
-        </p></div>
-        <p>You’ve added the word public before the variable declaration. In Unity, public member variables appear in the Inspector window and can therefore be tweaked.</p>
-        <p>You’ve also used camelCase (rather than PascalCase, with its m_ prefix). This is because the variable is public, and the Unity naming convention uses this format for public member variables. Naming conventions can be very useful, but there’s no technical reason for this.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Calculate your character’s forward vector</h2>
-        <p>Remember: you need the character to face its direction of movement. All Transform components have a forward vector, and so a good intermediary step would be to calculate what you want the character’s forward vector to be.</p>
-        <p>Add the following line at the bottom of the Update method:</p>
-        <div class="unityCode" id="desiredForward"><button class="copy" onclick="copyText('desiredForward')">Copy</button><br><p>
-        Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
-        </p></div>
-        <p>It’s quite a long and complicated-looking line of code, but it includes lots of familiar things. Let’s break it down:</p>
-        <ul>
-            <li>This code creates a Vector3 variable called desiredForward.</li>
-            <li>It sets it to the return of a method called RotateTowards, which is a static method from the Vector3 class. RotateTowards takes four parameters — the first two are Vector3s, and are the vectors that are being rotated from and towards respectively.</li>
-            <li>The code starts with transform.forward, and aims for the m_Movement variable. transform.forward is a shortcut to access the Transform component and get its forward vector.</li>
-            <li>The next two parameters are the amount of change between the starting vector and the target vector: first the change in angle (in radians) and then the change in magnitude. This code changes the angle by turnSpeed * Time.deltaTime and the magnitude by 0.</li>
-        </ul>
-        <p>Time.deltaTime is the time since the previous frame (you can also think of it as the time between frames). So why do you need to multiplying the turnSpeed by that?</p>
-        <p>Update is called every frame, and if your game is running at 60 frames per second then that means this method will be called 60 times in a second. There would be a very small change in each call, so that over the 60 frames you get the change you want for a second. But what about a game running at 30 frames per second? Only half of the method calls will have been made in the same time, so only half the turn will have happened. You don’t want the number of frames per second affecting how fast the character turns — that’s not good!</p>
-        <p>What about if instead of making the change per frame, you were dealing with a change per second? That would make things a lot easier. To do this, you need to multiply whatever change you want per second by the amount of time that a frame took. That’s exactly what this code does.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adjust the turnSpeed variable</h2>
-        <p>The turnSpeed variable is the angle in radians you want the character to turn per second. This is then multiplied by Time.deltaTime to get the amount the character should turn this frame. Radians are a different measurement of angle; they are similar to degrees, but are a more natural measurement. A circle has 2π radians in it, so approximately 6. Your character is always going to take the shortest turn, so the most the character will ever turn is about 3 radians.</p>
-        <p>Given that, a turnSpeed of 3 would mean it takes about a second for your character to completely turn around. That’s actually quite slow. A turn speed of 6 would mean it takes around half a second to turn around, which is still quite slow. Let’s try a value of 20 and see what that feels like — you can always change this later if you want to.</p>
-        <p>Change the line declaring the turnSpeed variable at the top of the class to:</p>
-        <div class="unityCode" id="TurnSpeed"><button class="copy" onclick="copyText('TurnSpeed')">Copy</button><br><p>
-        public float turnSpeed = 20f;
-        </p></div>
-        <p>Quaternions are a way of storing rotations; they get around some of the problems with storing rotations as a 3D vector.</p>
-        <p>You’ve given the Quaternion a default value of Quaternion.identity.  Normally, variables that are part of the class (member variables) rather than part of a specific method are set to their default value when an instance of the class is created. For example, a Vector3’s default value is to have x, y and z all set as 0. The same is true for a Quaternion. However, while a zero-vector makes sense (as it is no movement), a zero-quaternion does not make as much sense. Setting this value of Quaternion.identity is simply giving it a value of no rotation, which is a more sensible default.</p>
-        <p>Now that you have created a rotation variable, you can set it.  Below the desiredForward variable creation, add the following line:</p>
-        <div class="unityCode" id="QuaternionLookRotation"><button class="copy" onclick="copyText('QuaternionLookRotation')">Copy</button><br><p>
-        m_Rotation = Quaternion.LookRotation (desiredForward);
-        </p></div>
-        <p>This line simply calls the LookRotation method and creates a rotation looking in the direction of the given parameter.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Apply Movement and Rotation to your Character</h2>
-        <p>The final step is to apply the movement and the rotation to your character.  There are many ways you could do this, but since the character needs to be part of the physics system you need to move the Rigidbody instead of using any other technique.</p>
-        <p>In order to do this, you need a reference to the Rigidbody component. You can get that exactly as you did for the Animator component.</p>
-        <ol>
-            <li>Add the following line to your script immediately after the Animator variable declaration:</li>
-            <div class="unityCode" id="RigidBodyVariable"><button class="copy" onclick="copyText('RigidBodyVariable')">Copy</button><br><p>
-            Rigidbody m_Rigidbody;
-            </p></div>
-            <li>Add another line of code just after setting the reference of the Animator variable:</li>
-            <div class="unityCode" id="RigidBodyVariableSet"><button class="copy" onclick="copyText('RigidBodyVariableSet')">Copy</button><br><p>
-            m_Rigidbody = GetComponent&lt;Rigidbody&gt;();
-            </p></div>
-        </ol>
-        <p>Now that you have a reference to the Rigidbody, let’s think about the specifics of moving an animated character. The character has a fun Walk animation and it would be good to use the root motion for that. However, the animation doesn’t have any turning in it and if you tried to turn the Rigidbody in the Update method it might get overridden by the animation (which could lead to the character not turning when it should).</p>
-        <p>What you actually need is some of the root motion of the animation but not all of it — specifically, you need to apply the movement but not the rotation.  So how to change how root motion is applied from the Animator? Luckily, MonoBehaviours have a special method you can use to change how root motion is applied from the Animator.</p>
-        <p>Below the Update method, declare a new method:</p>
-        <div class="unityCode" id="OnAnimatorMove"><button class="copy" onclick="copyText('OnAnimatorMove')">Copy</button><br><p>
-        void OnAnimatorMove ()<br>
-        {<br><br>}
-        </p></div>
-        <p>This method allows you to apply root motion as you want, which means that movement and rotation can be applied separately.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Movement</h2>
-        <p>Add the following line to the new OnAnimatorMove method:</p>
-        <div class="unityCode" id="DeltaPositionMagnitude"><button class="copy" onclick="copyText('DeltaPositionMagnitude')">Copy</button><br><p>
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
-        </p></div>
-        <p>First, you’re using your reference to the Rigidbody component to call its MovePosition method, and passing in a single parameter: its new position. The new position starts off at the Rigidbody’s current position, and then you add a change to that — the movement vector multiplied by the magnitude of the Animator’s deltaPosition. But what does that mean?</p>
-        <p>The Animator’s deltaPosition is the change in position due to root motion that would have been applied to this frame. You’re taking the magnitude of that (the length of it) and multiplying by the movement vector which is in the actual direction we want the character to move.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Rotation</h2>
-        <p>Add the following line just below the MovePosition call in the OnAnimatorMove method:</p>
-        <div class="unityCode" id="RigidBodyMoveRotation"><button class="copy" onclick="copyText('RigidBodyMoveRotation')">Copy</button><br><p>
-        m_Rigidbody.MoveRotation (m_Rotation);
-        </p></div>
-        <p>This is very similar to the MovePosition call, except it applies to rotation. This time you’re not applying a change to rotation, you’re just directly setting the rotation.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Change your Update Method</h2>
-        <p>In the previous tutorial, you learned about the Update loop (used for rendering) and the FixedUpdate loop (which runs the physics operations). You’ve made sure that the Animator runs in time with the physics loop to avoid conflict between physics and the animation. However — now you’re overriding the root motion using OnAnimatorMove. This means that OnAnimatorMove is actually going to be called in time with physics, and not with rendering like your Update method.</p>
-        <p>The movement vector and rotation are set in Update. If OnAnimatorMove gets called first then you will have a problem, because a Quaternion without a value set doesn’t make any sense. To make sure the movement vector and rotation are set in time with OnAnimatorMove, change your Update method to a FixedUpdate method as follows:</p>
-        <div class="unityCode" id="FixedUpdate"><button class="copy" onclick="copyText('FixedUpdate')">Copy</button><br><p>
-        void FixedUpdate ()
-        </p></div>
-        <p>This is another special method that is called automatically by Unity, but this one is in time with physics. Instead of being called before every rendered frame, FixedUpdate is called before the physics system solves any collisions and other interactions that have happened. By default it is called exactly 50 times every second.</p>
-        <p>The completed script should look similar to this:</p>
-        <div class="unityCode" id="FinalPlayerMovementScript"><button class="copy" onclick="copyText('FinalPlayerMovementScript')">Copy</button><br><p>
-        using System.Collections;<br>
-        using System.Collections.Generic;<br>
-        using UnityEngine;<br><br>
-        public class PlayerMovement : MonoBehaviour<br>
-        {<br>
-        &emsp;public float turnSpeed = 20f;<br><br>
-        &emsp;Animator m_Animator;<br>
-        &emsp;Rigidbody m_Rigidbody;<br>
-        &emsp;Vector3 m_Movement;<br>
-        &emsp;Quaternion m_Rotation = Quaternion.identity;<br><br>
-        &emsp;void Start()<br>
-        &emsp;{<br>
-        &emsp;&emsp;m_Animator = GetComponent&lt;Animator&gt; ();<br>
-        &emsp;&emsp;m_Rigidbody = GetComponent&lt;Rigidbody&gt; ();<br>
-        &emsp;}<br><br>
-        &emsp;void FixedUpdate()<br>
-        &emsp;{<br>
-        &emsp;&emsp;float horizontal = Input.GetAxis ("Horizontal");<br>
-        &emsp;&emsp;float vertical = Input.GetAxis ("Vertical");<br><br>
-        &emsp;&emsp;m_Movement.Set(horizontal, 0f, vertical);<br>
-        &emsp;&emsp;m_Movement.Normalize ();<br><br>
-        &emsp;&emsp;bool hasHorizontalInput = !Mathf.Approximately (horizontal, 0f);<br>
-        &emsp;&emsp;bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);<br>
-        &emsp;&emsp;bool isWalking = hasHorizontalInput || hasVerticalInput;<br>
-        &emsp;&emsp;m_Animator.SetBool ("IsWalking", isWalking);<br><br>
-        &emsp;&emsp;Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);<br>
-        &emsp;&emsp;m_Rotation = Quaternion.LookRotation (desiredForward);<br>
-        &emsp;}<br><br>
-        &emsp;void OnAnimatorMove ()<br>
-        &emsp;{<br>
-        &emsp;&emsp;m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);<br>
-        &emsp;&emsp;m_Rigidbody.MoveRotation (m_Rotation);<br>
-        &emsp;}<br>
-        }
-        </p></div>
-        <p>Remember: in C# the order in which methods are declared in a class doesn’t matter, so your methods may be arranged slightly differently.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Test your Changes</h2>
-        <p>We now need to add a script component to our character. You can add a script component by clicking the Add Component button in the Inspector window, buy you can also do this another way:</p>
-        <ol>
-            <li>Select the Character GameObject.</li>
-            <li>In the Inspector window, click Edit prefab to enter Prefab Mode.</li>
-            <li>In the Project window, go to Assets > Scripts and find the PlayerMovement script.</li>
-            <li>Drag the PlayerMovement script from the Project window to the Inspector window.</li>
-            <li>If your Prefab Mode is not set to Auto Save, click the Save button</li>
-            <li>Click the back arrow to return along the Prefab’s breadcrumb.</li>
-            <li>If the MainScene isn’t loaded, go to the Project window and load it by double clicking on the Scene Asset in the Assets > Scenes folder.</li>
-            <li>Select your Character GameObject in the Scene — you’ll see that it has all the components and settings you gave to its Prefab.</li>
-        </ol>
-        <p>Add your Environment.</p>
-    </div>
-    &nbsp;
-    <button class="collapsible">Lighting</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Light the Environment</h2>
-        <p>Lighting has a big impact on atmosphere — changing the lighting in your game is the first step toward creating a really spooky environment for players to explore.</p>
-        <p>Lights in Unity are simply GameObjects with a Light Component added. The Light Component contains settings which allow you to change the color and intensity of a light, as well as the ‘type’ of light and various more complex controls for shadows and Lightmapping.</p>
-        <p>Every new Scene in Unity comes with Directional Light, one of the two GameObjects created as default. Your Scene now also has a series of extra lights added by the Level Prefab.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Change the Directional Light in your Scene</h2>
-        <p>The Directional Light in your Scene is set to the Directional Type. Directional Type lights mimic very distant light objects, such as the Sun. They can be placed anywhere in the scene, and rotated to change the angle at which the light affects the scene.</p>
-        <div class="center" style="max-width: 250px;"><img src="../images/UnityImages/DirectionalLight.jpg" alt="Directional Light Image"></div>
-        <p>Let’s alter the Directional Light to feel more like moonlight and create some interesting shadows:</p>
-        <ol>
-            <li>In the Hierarchy window, select the Directional Light GameObject.</li>
-            <li> You’re going to change some of the properties of the Light component, starting with the Color, but first you need to understand how colors work.</li>
-            <p>In the Inspector, click on the Color property. Clicking on any Color property in Unity will open the Color picker window:</p>
-            <div class="center" style="max-width: 250px; padding: 10px;"><img src="../images/UnityImages/ColorPicker.jpg" alt="Color Picker Image"></div>
-            <li>The Color picker window gives you a number of different options to set the values for a color.</li>
-            <p>Each color is made from four channels:</p>
-            <ul>
-                <li>Red</li>
-                <li>Green</li>
-                <li>Blue</li>
-                <li>Alpha</li>
-            </ul>
-            <p>The amount of each of these channels that makes up a color can be represented in different ways. You can choose the representation using the drop-down menu just below the color ring. Check that the drop-down is set to RGB 0-255. This representation means that each channel is represented by an integer between 0 and 255.</p>
-            <li>Set the Color property of the Light Component to (225, 240, 250). This will create a very light blue light, rather than yellow.</li>
-            <li>In the Light component, increase the Intensity property to 2.</li>
-            <li>Now you can improve the quality of the spooky shadows in the haunted house. In the Light component, find the Realtime Shadows property. Change its Resolution property from Use Quality Settings to Very High Resolution.</li>
-            <li>Set the Realtime Shadows Bias and Normal Bias properties to 0.01.</li>
-            <li>In the Transform Component, set the Rotation property to (30, 20, 0). This will rotate the light so it shines through the windows of the house.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Global Illumination Lightmapping Effect</h2>
-        <p>There are two kinds of lighting in Unity which help you simulate real-world light behaviour: Direct and Indirect. Direct lighting is from a specific light source, such as the sun (the Directional Light in your Scene). Indirect lighting is the additional lighting that occurs when direct light bounces off surfaces.</p>
-        <p>This effect is most commonly created in Unity using the Global Illumination Lightmapping feature. Lightmapping simulates the bouncing of light within the Scene and writes (or ‘bakes’) it to an Asset stored within the Project. This takes time, but can result in really realistic-looking scenes.</p>
-        <p>To save some time you can use an approximation to create a similar effect:</p>
-        <ol>
-            <li>Go to the Window menu and select Rendering > Lighting Settings. Click and drag on the name tag, and dock it next to Inspector window.</li>
-            <p>The Lighting Settings window is the main control point for Unity’s Global Illumination features for the currently loaded scene. It also contains the settings for Environment Lighting, Reflections and Fog.</p>
-            <li>In the Realtime Lighting section, disable the Realtime Global Illumination checkbox. In the Mixed Lighting section, disable the Baked Global Illumination checkbox.</li>
-            <div class="center" style="padding: 10px; max-width: 450px;"><img src="../images/UnityImages/BakedGlobalLighting.jpg" alt="Baked Global Lighting Image"></div>
-            <li> In the Environment section, use the circle select button to the far right of the Skybox Material property to set it to None (a null reference). You don’t need a realistic sky for this game, and will use alternative lighting.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/SkyboxEnvironment.jpg" alt="Skybox Environment Image" style="max-height: 45px;"></div>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/MaterialList.jpg" alt="Skybox Material List Image"></div>
-            <li>In the Environment section, set the Environment Lighting Source to Gradient.</li>
-            <p>The Gradient is broken into three color fields:</p>
-            <ul>
-                <li>Sky, which controls the environment light that comes from above the scene.</li>
-                <li>Equator, which controls the light that travels from the horizon towards the middle of the scene.</li>
-                <li>Ground, which controls the light that comes from below the scene.</li>
-            </ul>
-            <p>You can think of the gradient as a big sphere that wraps around your whole Scene.</p>
-            <li>Set the Sky color to a lighter grey: (170, 180, 200) This will lift the overall brightness of the floors and objects like beds and tables.</li>
-            <li>Set the Equator color to a blue-grey: (90, 110, 130) This will lift the brightness of the walls and props.</li>
-            <li>Set the Ground color to black: (0, 0, 0) The Ground color can add up-light that would create a nice Global Illumination-style effect. However, this would be too bright for the haunted house you are creating.</li>
-            <li>Save your Scene.</li>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Navigation Mesh</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adding a Navigation Mesh</h2>
-        <p>Haunted Houses should have ghosts roaming the halls. To help our ghosts find their way around, Unity has a built-in system called the NavMesh (short for Navigation Mesh). You learned that a Mesh is a collection of triangles that all fit together to define a shape. This mesh enables your character to be rendered to the screen. The NavMesh is an invisible shape over the ground that defines an area within which selected GameObjects can move. So, how do you decide which areas can and can’t be moved over?</p>
-        <p>When a GameObject is identified as Static, Unity’s navigation systems assume that it will not move. Your game’s environment is made up of many GameObjects with many Mesh Renderer Components. The combination of all the meshes from the Mesh Renderer Components whose GameObjects are marked as Static form the basis for the NavMesh.</p>
-        <p>To mark your environmental GameObjects as static:</p>
-        <ol>
-            <li>In the Hierarchy, select the Level GameObject.</li>
-            <li>In the Inspector, enable the Static checkbox.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/LevelStatic.jpg" alt="Level Static Checkbox Image"></div>
-            <li>A dialogue box will appear asking whether you wish to enable the static flags for all the child objects as well. Select Yes, change children.</li>
-            <li>Now the Level GameObject and all of its child GameObjects are marked as static, but you need to set one exception. There is a Ceiling Plane GameObject in the level design which is being used to cast shadows. If you include this in the bake, the ghosts might end up walking on the ceiling! As spooky as that sounds, it won’t work for this game.</li>
-            <p>In the Hierarchy window, expand the Level GameObject and its children.</p>
-            <li>Go to Level > Corridors > Dressing > Ceiling Plane and select the Ceiling Pane GameObject.</li>
-            <li>In the Inspector, disable the Static checkbox.</li>
-            <li>Go to File > Save and save your Scene.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create the NavMesh</h2>
-        <p>The process of creating a Nav Mesh is called baking. This is done from the Navigation window.</p>
-        <ol>
-            <li>In the Menu bar, go to Window > AI > Navigation to open the Navigation window. The window should dock itself with the Inspector window.  If it doesn’t, drag and dock it there.</li>
-            <li>There are 4 tabs at the top of the Navigation window: Agents, Areas, Bake and Object.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/NavigationBake.jpg" alt="Navigation Bake Image"></div>
-            <p>Select the Bake tab.</p>
-            <li>The Bake settings control the details of how the NavMesh will be constructed. The first settings refer to the agents that will traverse (the ghosts that will move around) the NavMesh — the NavMesh Agents. They specifically refer to the size of the agents and the terrain they can move across.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/BakedAgent.jpg" alt="Baked Agent Image"></div>
-            <p>The only setting you need to adjust for your game is the Agent Radius; the ghosts roaming the haunted house will be smaller than the default. Change the Agent Radius to 0.25.</p>
-            <li>Select the Bake button at the bottom of the window.</li>
-            <p>The bake process will take from a second to a few minutes, depending on the power of your computer. When it finishes, the environment in the Scene window will be covered in a light blue mesh. This is the area of the environment that the ghosts will be able to move around.</p>
-            <p>The NavMesh will only be visible when the Navigation window is open and active (if you switch to the Inspector tab, the mesh will disappear from the Scene view).  Don’t worry — even when you can’t see the NavMesh, it’s still there!</p>
-            <li>Remember to save your Scene to avoid losing any changes.</li>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Camera</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the Camera Component</h2>
-        <p>In the previous tutorial, you created a level for your game. The character can now walk around the Scene, but this means that he sometimes wanders away from the camera. In this tutorial, you’ll adjust the camera settings to make sure this doesn’t happen. Scenes in Unity are made up of GameObjects which in turn have a collection of components attached to them. The way that the Scene is viewed by players is constructed in the same way. To view the Scene, a GameObject in the Scene must have a Camera component. When a new Scene is created, a GameObject is added called Main Camera which has a Camera component.</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CameraObject.jpg" alt="Camera Object Image"></div>
-        <p>The camera points down the GameObject’s z-axis and behaves exactly like all other GameObjects. In the Scene view, you can see a gizmo representing the camera’s frustum. The frustrum is a solid shape that looks like a pyramid with the top cut off parallel to the base. This is the shape of the region that can be seen and rendered by a perspective camera.</p>
-        <p>When you make a game, you have a few options to make sure that the camera followers the player character. One solution would be to write a script for this. However, Unity has a built-in solution to the problem: Cinemachine.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">How does Cinemachine work?</h2>
-        <p></p>
-        <ul>
-            <li>One or more ‘virtual’ cameras are created in a Scene.</li>
-            <li>These virtual cameras are managed by a component called the Cinemachine Brain.</li>
-            <li>The Cinemachine Brain is attached to the same GameObject as a Camera component — by default this will be the Main Camera GameObject.</li>
-            <li>The Cinemachine Brain manages all of the virtual cameras and decides which virtual camera (or combination of virtual cameras) the actual camera should follow.</li>
-        </ul>
-        <p>In your game, the camera will only ever be following the character, so you’ll only need one virtual camera. You’ll make sure that this virtual camera follows our character, and then the Main Camera GameObject will stick to that.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up a Virtual Camera using Cinemachine</h2>
-        <p>To set up a virtual camera using Cinemachine: In the Project window, go to Assets > Scenes and double click MainScene.</p>
-        <ol>
-            <li>In the Hierarchy, select the JohnLemon GameObject.</li>
-            <li>Move your cursor over the Scene window and press the F key.</li>
-            <li>In the top menu, go to Cinemachine > Create Virtual Camera.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/Cinemachine.jpg" alt="Cinemachine Image"></div>
-        </ol>
-        <p>This will create a new GameObject in the scene called CM vcam1.</p>
-        <p>This will be created at the focus point of the Scene window’s camera, so it should be right on top of the character. However, since you now have a virtual camera in the Scene it will have moved the Game window’s view, so you can no longer see your character in the Game window.</p>
-        <p>To fix this, you need to make sure the virtual camera is tracking the character by changing the Cinemachine Virtual Camera component settings.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Change the Cinemachine Virtual Camera Component Settings</h2>
-        <ol>
-            <li>In the Hierarchy, select CM vcam1.</li>
-            <li>In the Inspector, find the Cinemachine Virtual Camera component. This component has a lot of settings, but at the moment you just need to focus on three sections: the target references, the body and the aim.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CinemachineSettings.jpg" alt="Cinemachine Settings Image"></div>
-            <p>The target references section has two settings: Follow and Look At.  These are optional references to the Transform components of GameObjects. If you want your virtual camera to move, then it needs to know how to move. Specifically, it needs a reference to a Transform that it will follow.  Likewise, if you want your virtual camera to rotate then it needs to know what it has to rotate to look at.</p>
-            <p>The next section two sections are the Body and Aim. These are settings for how the camera moves and rotates respectively. You’re going to restrict the movement of the virtual camera, so it has the character in view all the time but doesn’t actually look at the character.</p>
-            <li>In the Aim section, change the drop-down menu at the top right from Composer to Do Nothing.</li>
-            <li>Drag and drop the JohnLemon GameObject from the Hierarchy window onto the Follow property of the Cinemachine Virtual Camera Component. This will change the Follow setting to reference the character's Transform.</li>
-            <li>In the Body section, change the drop-down at the top right of the section from Transposer to Framing Transposer. Changing the Body to a Framing Transposer will allow you to control the virtual camera’s position by giving it rules about where on screen its Follow target has to be.</li>
-            <p>To find out more about the different Body setting values, you can check the Cinemachine documentation (in the top menu bar, go to Cinemachine > About).</p>
-            <p>The Game window should now have several red and blue boxes on it.  These are guides for where on the screen the target can be.</p>
-            <li>Now let’s set the virtual camera at the correct angle. In the Hierarchy, select the CM vam1 GameObject. On the CM vam1 GameObject’s Transform component, set the Rotation around the x-axis to 45.</li> 
-            <p>Now the virtual camera is tilted down and looking at the character from above.  This is roughly the look you’re looking for. Why did the virtual camera move when you only changed the rotation? This is the power of Cinemachine!</p>
-            <p>You knew that you needed a more top-down angle to our camera, and the virtual camera worked out that if you wanted it to be tilted down, it needed to be higher up in order to have its target on screen.</p>
-            <li>Most of the default settings of the Framing Transposer are fine for your game.  The only one you need to change is the Camera Distance setting — the character is a little too small on the screen, so you need to move the virtual camera a little bit closer. Change the Camera Distance setting from 10 to 8.</li>
-            <li>In the Hierarchy, select CM vcam1 and rename it to VirtualCamera.</li>
-            <li>Deselect the VirtualCamera GameObject to remove the guidelines from the Game window.</li>
-            <li>Save the scene.</li>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Post-Processing Effects</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add Post-Processing Effects</h2>
-        <p>Post-processing involves applying filters and effects to the game image before it’s rendered on screen (similar to filters that can be added to photos).</p>
-        <p>Generally, post-processing effects are grouped together and used on different areas of the game world. This means that when the camera is in a particular area, its designated set of processes are applied to the image.</p>
-        <p>Imagine that you are in a dark room and then step through a door outside into bright daylight.  Your eyes will take a while to adjust and everything will  seem much brighter than it usually does when you exit the room. In Unity, this could be simulated by having different groups of post processes applied in the room and outside it. The groups of post processes are Assets called Post-processing Profiles. The areas of the game world which have profiles assigned to them are Components called Post Process Volumes.</p>
-        <p>Sometimes, different cameras have different post-processes. To link a set of processes to a specific camera, a Post Process Layer component is added to the same GameObject as the Camera component. Layers are a way of organising GameObjects by behaviour.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Post-Processing Layer</h2>
-        <ol>
-            <li>In the Hierarchy, select the Main Camera GameObject.</li>
-            <li>In the Inspector, find the Layer property below the GameObject’s name.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/MainCameraLayerProperty.jpg" alt="Main Camera Layer Property Image"></div>
-            <p>A GameObject can only belong to one layer. The Main Camera is on the Default Layer. There are several options by default in Unity, but you can also create your own layers in the Tags &amp; Layers Manager.</p>
-            <li>In the Layer property drop-down, select Add Layer…</li>
-            <li>In the Tags &amp; Layers Manager there are 32 available Layers in (starting with 0 and ending with 31).</li>
-            <p>The first eight Layers are reserved for Unity’s default Layers, but the remaining 24 can be used for whatever you want.  Since you need a Layer for your Post Process Volume, it makes sense to create a Layer for all Post Process Volumes.</p>
-            <li>Add "PostProcessingVolumes" as User Layer 8.</li>
-            <li>In the Hierarchy, select the Main Camera GameObject. It will still be on the Default Layer.</li>
-            <p>This is because although you have created a new layer, you have not reassigned Main Camera to this.</p>
-            <li>Add a Post Process Layer component to Main Camera.</li>
-            <li>Change the Layer property from Nothing to PostProcessingVolumes using the drop-down menu.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Improve Image Quality with Anti-aliasing</h2>
-        <p>Before you move on to set up your volume and profile, let’s quickly consider anti-aliasing. Aliasing is when the edge of an object looks jagged and the pixel outline can be seen</p>
-        <p>Anti-aliasing is a post-processing effect that reduces the prominence of these jagged lines by surrounding them with pixels of intermediate shades of color.  There are several different algorithms for working out which pixels need adjusting and by how much — you’re going to use the simplest and most effective one.</p>
-        <ol>
-            <li>Make sure that the Game view is visible, so you can see the changes you are making in this section of the tutorial.</li>
-            <li>In the Post Process Layer component, change the Mode property dropdown from No Anti-aliasing to Fast Approximate Anti-aliasing (FXAA).</li>
-            <li>Enable the Fast Mode checkbox below the dropdown.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a Post-Processing Volume</h2>
-        <ol>
-            <li>In the Hierarchy window, go to Create > Create Empty.</li>
-            <li>Name the new GameObject “GlobalPost”.</li>
-            <li>In the Inspector, set the Layer to PostProcessingVolumes.</li>
-            <li>Change the Transform component’s Position property to (0, 0, 0). This GameObject is going to be your global Post Process Volume. The global volume works as a default profile for the cameras it affects. Other non-global volumes could then override the effects of this one, but your game will not need any additional volumes.</li>
-            <li>Add a Post Process Volume Component to GlobalPost.</li>
-            <li>Enable the Is Global checkbox. </li>
-            <li>Click the New button to the far right of the Profile property. This will create a new Post-processing Profile. Its Asset will be saved in a new folder called MainScene_Profiles in Assets > Scenes.</li>
-            <li>Now that a Profile has been set, you will see more settings available in the Post Process Volume Component.</li>
-            <p>The Overrides subsection refers to the different effects that can override how the camera normally renders.  By default a profile has no effects, and so there is nothing in the Overrides subsection.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Color Grading Effect</h2>
-        <ol>
-            <li>Click the Add effect… button and select Unity > Color Grading.</li>
-            <p>Color Grading is a way of changing the brightness, contrast and colors of the rendered view. You can think of it like applying filters in photo editing software or Instagram. To make your game look spookier, you’re going to adjust the colors and brightness levels of the rendered view.</p>
-            <p>Note: The settings within this component are shortcuts to the Profile Asset; all changes to the Overrides subsection will change the Profile Asset and will not directly affect the Component.</p>
-            <li>Select the arrow next to Color Grading to expand its settings.</li>
-            <li>First, you need to Tonemap the scene. Tonemapping changes the output of the final rendered frame so that it's much easier to control lights and shadows.</li>
-            <p>Enable the Mode checkbox in the Tonemapping subsection. Using the drop-down menu, change its property from None to ACES. ACES tonemapping is an industry standard way of applying tonemapping.  It helps create a more film-like look for your projects.</p>
-            <li>You'll notice that the scene looks really dark now. This is because the ACES default exposure is zero (for more information, see the documentation). A good way to fix this is to use the Post-exposure feature.  Post-exposure is a way of adjusting the default exposure.</li>
-            <p>In the Tone subsection, enable the Post-exposure (EV) checkbox. Set the value to 1 to brighten your scene back up.</p>
-            <li>You can also make your scene a little spookier by changing some colours. Halfway down the Color Grading section, find the color circles called Trackballs.</li>
-            <li>Enable the Lift, Gamma and Gain checkboxes beneath each Trackball.</li>
-            <p>Lift affects the colours of your shadows, Gain changes the brightest highlights, and Gamma covers everything in the middle (or mid-range) of your image’s color.</p>
-            <li>Drag the circle in the center of the Trackballs to slightly adjust the color in your Game view. Drag the:</li>
-            <ul>
-                <li>Lift and Gamma Trackballs slightly toward the blue</li>
-                <li>Gain Trackball slightly toward the yellow</li>
-            </ul>
-            <p>This will add depth to the shadows and warmth to the lighting.</p>
-            <li>Collapse the Color Grading effect.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Bloom Effect</h2>
-        <p>Your lights are much more effective, but they don't look quite like real lights yet. Add the Bloom effect to give them a nice glow:</p>
-        <ol>
-            <li>Click the Add effect… button and select Unity > Bloom. Expand the Bloom effect section.</li>
-            <li>Select the All shortcut just below the section title — this will enable all the settings for Bloom. Currently nothing is actually glowing, as the Intensity isn't high enough.</li>
-            <li>Set the Intensity property to 2.5, to create a nice bright glow on the lights.</li>
-            <li>You might see some other brighter objects that you feel could also look nice with a little glow. You can add them to the Bloom effect using the Threshold property. Lowering this value adds less bright pixels to the effect. Set the Threshold to 0.75 to add more glow to the scene.</li>
-            <li>Collapse the Bloom effect.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Ambient Occlusion Effect</h2>
-        <p>The lights now feel bright, but it’s important to maintain the spooky atmosphere for this haunted house. A good way of darkening some of those corners and cracks is to use the Ambient Occlusion effect. Ambient Occlusion mimics the real-life effect of light not reaching tighter corners by darkening those areas.</p>
-        <ol>
-            <li>Click the Add effect… button and select Unity > Ambient Occlusion.  Expand the Ambient Occlusion effect section.</li>
-            <li>Click the Ambient Occlusion’s All shortcut to activate all the features that you need.</li>
-            <li>Like Bloom, you will need to set the Intensity before we can see it work. Set the Intensity property to 0.5, and you'll create a nice spooky shadow in the corners of the rooms.</li>
-            <li>You can spread this effect even further across the room by using the Thickness Modifier. Set the Thickness Modifier property to 3.5.</li>
-            <p>Now you should be able to see a big shadowy effect spreading behind some of the other props in the scene.</p>
-            <li>Collapse the Ambient Occlusion effect.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Vignette Effect</h2>
-        <p>Several effects simulate how a real camera would view the scene. The last few effects will change how such a camera’s lens would work. First, you’ll add the Vignette effect to darken the edges of the camera lens itself. This helps to focus in on the player and makes the game feel more claustrophobic.</p>
-        <ol>
-            <li> Click the Add effect… button and select Unity > Vignette. Expand the Vignette effect section.</li>
-            <li>Click the Vignette’s All shortcut to activate all the features that you need.</li>
-            <li>Like Bloom and Ambient Occlusion, the Vignette effect needs an Intensity. This will determine how far across the screen the effect spreads. Set the Intensity property to 0.5.</li>
-            <li>You can make feel even more claustrophobic and spooky by increasing the Smoothing. The Smoothness property determines the distance over which the effect fades towards the centre of the screen. Set the Smoothness property to 0.3.</li>
-            <li>Collapse the Vignette effect.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add the Lens Distortion Effect</h2>
-        <p>The final effect you need to add is Lens Distortion. This warps the final rendered frame and will help to make it feel like you're watching the game through a spy camera.</p>
-        <ol>
-            <li>Click the Add effect… button and select Unity > Lens Distortion.  Expand the Lens Distortion effect section.</li>
-            <li>Click the Lens Distortion’s All shortcut to activate all the features that you need.</li>
-            <li>As with the other effects, Intensity controls the strength of the effect. Have a go sliding the Intensity back and forth to get an idea of the effect. Then set the Intensity property to 35.</li>
-            <li>When you use this effect, it can sometimes create visual glitches at the edges of the screen where the image has been warped. To fix this, you can simply zoom into the rendered frame a little to remove the glitches from view.</li>
-            <p>Set the Scale property to 1.1 to fix this.</p>
-            <li>Save your Scene.</li>
-        </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">User Interface</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the UI</h2>
-        <p>When the character reaches the exit the game should fade out and quit, but you need to be careful with this — quitting in the Unity Editor and quitting in the final built version of the game are different.</p>
-        <p>First, though, you need to make the game fade out. To do that, you’re going to use Unity’s UI (user interface) system.</p>
-        <ol>
-            <li>In the Hierarchy window, click the Create button. This can be used to create all sorts of basic GameObjects.</li>
-            <li>Go to UI > Image. A UI Image can be stretched across the player’s entire screen, and it;s opacity can be changed to create a fade effect. Perfect!</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/UIImage.jpg" alt="UI Image"></div>
-            <p>This will add a few new GameObjects to your Scene.</p>
-            <li>In the Scene window, click the 2D button in the top bar to enable 2D Mode. This will enable you to see the new GameObjects properly.</li>
-            <li>In the Hierarchy, select the Canvas GameObject. Place your cursor over the Scene and press F.</li>
-            <li>Zoom in to look at the Canvas and Image more closely. You can either use the scroll wheel or press Alt, right click, and drag.</li>
-            <li>In the Hierarchy, select the EventSystem GameObject.</li>
-            <p>This GameObject has components attached which work together to allow any UI elements on the screen to interact with user input. However, in your game the player doesn’t need to be able to interact with the UI.</p>
-            <li>Right click on the EventSystem GameObject and select Delete.</li>
-            <p>Next, you’ll use the two remaining GameObjects (Canvas and Image) to create the fade effect.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Configure the Canvas</h2>
-        <ol>
-            <li>In the Hierarchy, rename the Canvas to FaderCanvas.</li>
-            <li>In the Inspector, take a look at the components attached to FaderCanvas.</li>
-            <p>You should notice that its Transform component is different to the ones you’ve seen before. GameObjects that are part of the UI system need better control over their position, so have a Rect Transform component. For a Canvas at the root of a UI hierarchy, the Rect Transform settings are read only.</p>
-            <li>The Canvas component controls how UI elements which belong to that Canvas are rendered. This rendering is primarily controlled by the Render Mode setting. It has three potential modes:</li>
-            <ul>
-                <li>Screen Space - Overlay, where the Canvas fills the screen and all the UI elements of the canvas are rendered on top of everything else.</li>
-                <li>Screen Space - Camera, where the Canvas fills the screen but it is rendered to a specific camera and is subject to distance from the camera.</li>
-                <li>World Space, where the UI exists in the Scene and is rendered in front or behind other objects (for example, name tags above characters in a 3D world).</li>
-            </ul>
-            <p>You need to stretch an Image across the screen and have it rendered over the top of everything else. This means that the default Render Mode of Screen Space - Overlay is perfect for you.</p>
-            <li>The next component on the FaderCanvas GameObject is the Canvas Scaler.  This is used as an easy way of controlling the relative sizes of UI elements when they are displayed on different screen sizes. Your Image will be stretched across the entire screen, so you don’t need to worry about its relative scale.</li>
-            <p>Click the cog icon in the top right of the Canvas Scalar component to open the context menu. Select Remove Component.</p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CanvasSliderRemoveComponent.jpg" alt="Canvas Scaler Remove Component Image"></div>
-            <li>The final component on the FaderCanvas GameObject is the Graphic Raycaster. This is used to detect UI events such as clicks.  It will determine which UI element was clicked on and send the event to that element so the appropriate component can react. The player won’t interact with the UI in your game, so this component is not needed.</li>
-            <p>Click the cog icon in the top right of the Graphic Raycaster component to open the context menu. Select Remove Component.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Stretch the Image</h2>
-        <ol>
-            <li>In the Hierarchy, select the Image GameObject.</li>
-            <li>Select the Rect Tool from the toolbar, or press T.</li>
-            <li>Hold on! Something funny is going on here. Why is the Image not where the Rect Tool says it is?</li>
-            <p>This is because the Scene window is using the post-processing you set up in the previous section.</p>
-            <li>Click the Effects button in the Scene window to enable all the effects, then click it again to disable all the effects.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the Rect Transform Component</h2>
-        <p>A 3D GameObject’s position is represented by a single point at the GameObject’s pivot. The position of this pivot point in a Transform component is relative to the GameObject’s parent. Rect Transforms work similarly, but since UI elements can represent an area there are some differences. Instead of the position of a Rect Transform being relative to a single pivot point on their parent, they are relative to an area of their parent. This area of the parent is represented by a Rect Transform’s Anchors.</p>
-        <p>You may have seen a gizmo in the Scene window which looks like a flower:</p>
-        <div class="center" style="padding: 10px; max-width: 100px;"><img src="../images/UnityImages/Flower.jpg" alt="Flower Image"></div>
-        <p>This is actually multiple points all pulled together. Each of these points is an anchor. The rectangle created by the four anchor points is a proportion of the total area of the parent.</p>
-        <div class="center" style="padding: 10px; max-width: 100px;"><img src="../images/UnityImages/ExpandedFlower.jpg" alt="Expanded Flower Image"></div>
-        <p>Your Image is a child of the FaderCanvas, which fills the entire screen.  This means that your Image’s position is relative to an area of the entire screen.</p>
-        <p>The position of UI elements is measured in pixels. This is very important, particularly because not all screens have the same number of pixels. This is what makes the anchor system so powerful — when the anchors are all together and they show a point, the Rect Transform shows a position in pixels that the UI element is offset from that point.</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform1.jpg" alt="Rect Transform 1 Image"></div>
-        <p>However, if the anchors are separated then the Rect Transform shows a pixel offset from the sides of the anchor area:</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform2.jpg" alt="Rect Transform 2 Image"></div>
-        <p>So how does this apply to your game?  Well, you need the whole screen to fade. That means your Image should cover the entire screen no matter what the screen shape or size is. In order to achieve this, you need to make sure that the anchor area is the entire screen and that there’s no offset from that area.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Configure the Rect Transform Component</h2>
-        <ol>
-            <li>In the Hierarchy window, select the Image GameObject.</li>
-            <li>In the Inspector, find the Rect Transform component. Expand the Anchors setting.</li>
-            <li>Set the minimum values for x and y to 0. Set the maximum values for x and y to 1.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform3.jpg" alt="Rect Transform 3 Image"></div>
-            <p>Remember that the Anchors are relative to their parent: 0 means the far left or bottom of the screen, 1 means the far right or top of the screen.</p>
-            <p>Now that you have set the Anchors, you should see that your Image’s position has changed. The position is now listed as Left, Top, Pos Z, Right and Bottom. Apart from Pos Z (which you can ignore), these are the distance of the GameObject from its Anchor area in pixels. A negative value indicates that the element is outside of the Anchor area. A value of zero means there’s no offset from the Anchor area.</p>
-            <p>In the example above, the left side of the Image is 394 pixels in from the left side of the anchor area; the right side of the Image is 942 pixels from the right side of the anchor area; the top side of the Image is 487 pixels from the top side of the anchor area and the bottom side of the Image is 145 pixels from the bottom of the anchor area.</p>
-            <li>Given that the Anchor area of your Image is now the whole screen, no offset is needed. On the Image’s Rect Transform, set the Left, Top, Right and Bottom properties to 0.</li>
-            <li>The Image is now stretched over the screen. This Image is the right size now, but it’s not the right color.</li>
-            <li>In the Inspector, find the Image component.</li>
-            <p>The first property is called Source Image. This allows you to display a specific picture  — if it is left blank then get a rectangle of solid color. This can be set with the Color property.</p>
-            <li>Open the Color picker window. Set the RGB channels to 0, leaving A at maximum (1 if the range is 0 to 1, or 255 if the range is 0 to 255). This will set the color to black.</li>
-            <p>A is the fourth channel making up Color: Alpha. The Alpha of a Color is how transparent it is. The lower the Alpha value, the more transparent the GameObject. Adjusting your Image’s Alpha will be the key to making fade in and out.</p>
-            <li>Click elsewhere in the Editor to close the picker window.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add a Victory Image</h2>
-        <ol>
-            <li>In the Hierarchy, rename your current Image GameObject to ExitImageBackground.</li>
-            <li>Right click the ExitImageBackground GameObject. From the context menu that appears, select UI > Image.</li>
-            <p>Right clicking on a GameObject to create another GameObject in this way automatically makes the newly created GameObject a child of the one that was clicked on. Because this new ExitImage GameObject is a child of the ExitImageBackground GameObject, it is rendered on top.</p>
-            <li>Rename this new Image GameObject to ExitImage.</li>
-            <li>Let’s add a picture. In the Inspector, find the Image component.</li>
-            <li>Click the circle select button for the Source Image property. In the dialogue box, search for and select your exit image.</li>
-            <li>There are now additional settings available in the Image component.</li>
-            <p>You will need these settings to fix an important problem: it will look best of the image fills as much of the screen as possible, but it needs to retain the correct aspect ratio. To see this problem, let’s resize the Rect Transform as we did with the parent.</p>
-            <li>In the Inspector, find the Rect Transform component. Expand the Anchors setting.</li>
-            <li>Set the minimum values for x and y to 0. Set the maximum values for x and y to 1.</li>
-            <li>Set the Left, Right, Top and Bottom properties to 0. The picture will now look stretched!</li>
-            <li>In the Image component, find the Image Type property. Enable the Preserve Aspect checkbox. This makes the Image as large as it can be within the Rect Transform without being squashed or stretched.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add a Canvas Group Component</h2>
-        <p>Next, let’s consider how to make these UI elements fade in and out when you want them to.  You already know that you can adjust the Alpha value of an Image component to make it fade out. But because there are now two images, you’ll need to change both of the colors instead of changing just one value. To help you do this, there’s a component called a Canvas Group.</p>
-        <p>A Canvas Group allows you to control some aspects of all the visible UI elements on a GameObject and all of its children.</p>
-        <ol>
-            <li>In the Hierarchy window, select the ExitImageBackground GameObject.</li>
-            <li>In the Inspector, add a Canvas Group component.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/CanvasGroup.jpg" alt="Canvas Group Image"></div>
-            <p>Change the Alpha property to 0.</p>
-            <li>Now you’re done with making the UI, let’s switch the Scene window back to the level. First, disable 2D Mode in the Scene window.</li>
-            <li>In the Hierarchy window, select the character GameObject. WIth your cursor over the Scene view, press F to focus.</li>
-            <li>In the Hierarchy window collapse the FaderCanvas GameObject.  Save the scene by pressing Ctrl + S on Windows or CMD + S on macOS.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a GameEnding Trigger</h2>
-        <p>The computer needs a way to recognise that the character has exited the haunted house, so that it knows when to change the value of the Canvas Group’s Alpha property. A common technique for detecting when a physical object (for example the JohnLemon character) has entered a specific area is to use a Trigger.</p>
-        <p>Triggers are Colliders that do not impede movement — instead they allow physical objects to pass through them freely, but report the triggering event so that other actions can happen.</p>
-        <ol>
-            <li>In the Hierarchy window, click on the Create menu and select Create Empty. Rename this GameObject to GameEnding.</li>
-            <li>Set the Position of the GameEnding’s Transform to (18, 1, 1.5).  This is in the middle of the level’s exit.</li>
-            <li>Now you need to add the Trigger. In the Inspector, add a Box Collider component to the GameEnding GameObject. (Be careful not to add a Box Collider 2D, as it won’t work!)</li>
-            <li>Enable the Is Trigger checkbox. This changes the Collider into a Trigger.</li>
-            <li>Next, you need to resize the Trigger so it covers the exit — the character will have to walk into it to escape. There are two ways to do this: click the Edit Collider button and resize the Box Collider in the Scene window, or set the Center and Size properties manually. Let’s try editing the Trigger in the Scene window.</li>
-            <p>Click the Edit Collider button; “handles” will appear on the sides of the Trigger in the Scene window.</p>
-            <li>To change any of the faces of the Box Collider, click and drag it to the position you would like. You need the Trigger to fill the corridor, so that the character can’t get out without moving through it. When you are finished, click the Edit Collider button again. When the Handles have disappeared from the Scene window, you are no longer editing the Collider.</li>
-            <li>Alternatively, you can set the Size of the Collider to (1, 1, 3.5). </li>
-            <p>You’ve now completed the Trigger, but you’ll need to write a script to use it.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Create a New Script</h2>
-        <ol>
-            <li>In the Project window, go to Asset > Scripts.</li>
-            <li>Go to the Create menu and select C# Script. Name the script “GameEnding”.</li>
-            <p>Remember that the Asset’s name must be exactly the same as the class name within the script. If you make a mistake, delete the Asset and create it again.</p>
-            <li>Drag the script Asset from the Project window onto the GameEnding GameObject in the Hierarchy window. This will add it as a component.</li>
-            <li>Now you can start editing the script to give it some functionality.  Double click on the script Asset to open it for editing.</li>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Start the GameEnding Script</h2>
-        <ol>
-            <li>Remove the Start and Update methods and their comments.</li>
-            <li>Let’s think about the information you need:</li>
-            <p>First, you need the screen to fade out over a certain period of time. It should be a public variable, so you can adjust it from the Inspector. It should also allow for non-whole numbers, so the variable needs to be a float.</p>
-            <p>A reasonable default value for the fade to happen over is 1 second, so let’s set that as the default. Add the following line to your script, in between the braces:</p>
-            <div class="unityCode" id="GameEndScript"><button class="copy" onclick="copyText('GameEndScript')">Copy</button><br><p>
-                using System.Collections;<br>
-                using System.Collections.Generic;<br>
-                using UnityEngine;<br><br>
-                public class PlayerMovement : MonoBehaviour<br>
-                {<br>
-                &emsp;public float fadeDuration = 1f;<br>
-                }
-            </p></div>
-            <li>Next, you need to specify that the fade should happen when the player’s character hits the Trigger. To make sure that this only happens when the character hits the Trigger, you’ll need a reference to that GameObject. Again, this should be a public variable so you can adjust it from the Inspector.</li>
-            <div class="unityCode" id="VariableForPlayerObject"><button class="copy" onclick="copyText('VariableForPlayerObject')">Copy</button><br><p>
-                public GameObject player;
-            </p></div>
-            <li>One of the essential jobs of this class is to detect the player controlled GameObject. Next, you’re going to use another special method for MonoBehaviours called OnTriggerEnter. Add the following method definition below the variable declarations:</li>
-            <div class="unityCode" id="OnTriggerEnter"><button class="copy" onclick="copyText('OnTriggerEnter')">Copy</button><br><p>
-                void OnTriggerEnter (Collider other)<br>
-                {<br><br>
-                }<br>
-            </p></div>
-            <li>To make sure that the ending is only triggered when the character hits the Box Collider, add the following if statement to the OnTriggerEnter method, between the braces:</li>
-            <div class="unityCode" id="IfStatement"><button class="copy" onclick="copyText('IfStatement')">Copy</button><br><p>
-                if (other.gameObject == player)<br>
-                {<br><br>
-                }<br>
-            </p></div>
-            <p>This uses a new operator called the equivalency operator. It is represented by a double-equals and results in a bool. The returned value is true if the things on either side are identical, or false if they are not. The above code is instructing the computer, “If the other Collider’s GameObject (the one that entered the Trigger) is equivalent to our reference to the character’s GameObject, then do whatever is in the code block.”</p>
-            <p>Remember, in C# it doesn’t matter in which order methods are declared in a class — you may have used a slightly different order, and that’s fine.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add an Update Method</h2>
-        <p>Now you need to add code for the if statement which starts the UI fading in, then quits the game when it’s finished. There’s currently a problem: OnTriggerEnter is called only once when the Colliders first overlap. You need something that is called every frame, so you can gradually change the alpha of the Canvas Group.</p>
-        <ol>
-            <li>Add an Update method as follows below OnTriggerEnter:</li>
-            <div class="unityCode" id="EndGameUpdate"><button class="copy" onclick="copyText('EndGameUpdate')">Copy</button><br><p>
-                void Update ()<br>
-                {<br><br>
-                }<br>
-            </p></div>
-            <li>You need a way of knowing when to start fading the Canvas Group in. Since the Canvas Group should either be fading or not, a bool variable is perfect for this. Create a bool variable called m_IsPlayerAtExit as follows between the public variable declarations and the OnTriggerEnter definition:</li>
-            <div class="unityCode" id="IsPlayerAtExitVariable"><button class="copy" onclick="copyText('IsPlayerAtExitVariable')">Copy</button><br><p>
-                bool m_IsPlayerAtExit;
-            </p></div>
-            <li>Let’s use the bool! First it first needs to be set. Within the code block of the if statement in your OnTriggerEnter method, set m_IsPlayerAtExit to true as follows:</li>
-            <div class="unityCode" id="IsPlayerAtExitVariableTrue"><button class="copy" onclick="copyText('IsPlayerAtExitVariableTrue')">Copy</button><br><p>
-                m_IsPlayerAtExit = true;
-            </p></div>
-            <li>Now you’ve set the bool in OnTriggerEnter, you need to check whether it has been set in Update. Add an if statement within the braces of the Update method:</li>
-            <div class="unityCode" id="IsPlayerAtExitVariableTrue"><button class="copy" onclick="copyText('IsPlayerAtExitVariableTrue')">Copy</button><br><p>
-            if(m_IsPlayerAtExit)<br>
-            {<br><br>
-            }<br>
-            </p></div>
-            <li>Your script should currently look like this:</li>
-            <div class="unityCode" id="CurrentUIScript"><button class="copy" onclick="copyText('CurrentUIScript')">Copy</button><br><p>
-            using System.Collections;<br>
-            using System.Collections.Generic;<br>
-            using UnityEngine;<br><br>
-            public class GameEnding : MonoBehaviour<br>
-            {<br>
-            &emsp;public float fadeDuration = 1f;<br>
-            &emsp;public GameObject player;<br><br>
-            &emsp;bool m_IsPlayerAtExit;<br><br>
-            &emsp;void OnTriggerEnter (Collider other)<br>
-            &emsp;{<br>
-            &emsp;&emsp;if (other.gameObject == player)<br>
-            &emsp;&emsp;{<br>
-            &emsp;&emsp;&emsp;m_IsPlayerAtExit = true;<br>
-            &emsp;&emsp;}<br>
-            &emsp;}<br><br>
-            &emsp;void Update ()<br>
-            &emsp;{<br>
-            &emsp;&emsp;if(m_IsPlayerAtExit)<br>
-            &emsp;&emsp;{<br><br>
-            &emsp;&emsp;}<br>
-            &emsp;}<br>
-            }
-            </p></div>
-            <p>You’ve added two methods, OnTriggerEnter and Update. When OnTriggerEnter is called, the computers checks whether the Collider that entered the Trigger belongs to the player’s character. Update is getting called every frame, and checking whether the player’s character is at the exit. If the player’s character is at the exit then it drops into the if statement’s code block; otherwise, it does nothing.</p>
-        </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Write the if Statement Code Block</h2>
-        <ol>
-            <li>Create a new method below Update called EndLevel. It doesn’t need to return anything and doesn’t need any parameters, so should look like this:</li>
-            <div class="unityCode" id="EndLevelMethod"><button class="copy" onclick="copyText('EndLevelMethod')">Copy</button><br><p>
-            void EndLevel ()<br>
-            {<br><br>
-            }
-            </p></div>
-            <li>Within the if statement in the Update method, add a call to the EndLevel method:</li>
-            <div class="unityCode" id="EndLevelMethodCall"><button class="copy" onclick="copyText('EndLevelMethodCall')">Copy</button><br><p>
-            EndLevel ();
-            </p></div>
-            <li>The EndLevel method needs to fade the Canvas Group and then quit the game. Previously when you’ve found references to components you’ve used the GetComponent method, but this only works for components on the same GameObject as this script.</li>
-            <p>This time, you're going to make a public variable for the Canvas Group component, which can be assigned in the Inspector. Add this public variable declaration below the player variable declaration:</p>
-            <div class="unityCode" id="PublicCanvasGroup"><button class="copy" onclick="copyText('PublicCanvasGroup')">Copy</button><br><p>
-            public CanvasGroup exitBackgroundImageCanvasGroup;
-            </p></div>
-            <li>You also need a timer, to ensure that the game doesn't end before the fade has finished. While we’re declaring variables, we should consider any others we might need. Add the following variable declaration below the m_IsPlayerAtExit bool:</li>
-            <div class="unityCode" id="Timer"><button class="copy" onclick="copyText('Timer')">Copy</button><br><p>
-            float m_Timer;
-            </p></div>
-            <li>Next, the EndLevel method needs to start counting up the timer. You may remember from the PlayerMovement script that there’s a way of getting how much time has passed since the last frame: using Time.deltaTime. You could set the timer equal to itself plus the deltaTime. However, there’s a shortcut for saying exactly that using the plus-equals operator.</li>
-            <p>Add the following line of code to your EndLevel method, inside the braces:</p>
-            <div class="unityCode" id="IncrementTimer"><button class="copy" onclick="copyText('IncrementTimer')">Copy</button><br><p>
-            m_Timer += Time.deltaTime;
-            </p></div>
-            <p>Here the plus-equals operator is saying set whatever is on the left to be equal to itself plus whatever is on the right.</p>
-            <li>It’s time to set the Alpha of your Canvas Group. The Alpha value should be 0 when the timer is 0 and 1 when the timer is up to the fadeDuration. In order to get this value, you can divide the timer by the duration.</li>
-            <p>Add the following code below the plus-equals operator line you’ve just added to the EndLevel method:</p>
-            <div class="unityCode" id="fadeDuration"><button class="copy" onclick="copyText('fadeDuration')">Copy</button><br><p>
-            exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
-            </p></div>
-            <p>Now the Images will fade in when the character reaches the exit, but you still have a few more things to sort out before you’re done.</p>
-            <li>Finally, the game needs to quit when the fade is finished. The fade will finish when the timer is greater than the duration.</li>
-            <p>Add a new operator beneath the previous line you added:</p>
-            <div class="unityCode" id="TimerGreaterDuration"><button class="copy" onclick="copyText('TimerGreaterDuration')">Copy</button><br><p>
-            if(m_Timer > fadeDuration)<br>
-            {<br><br>
-            }
-            </p></div>
-            <p>The right facing angle bracket tests whether whatever is to its left is greater than whatever is on its right. If so then it returns true, otherwise it returns false. The if statement’s code block will only be executed if the alpha is up to 1 so now all we need to do is add the following line to the code block to make the game quit:</p>
-            <div class="unityCode" id="ApplicationQuit"><button class="copy" onclick="copyText('ApplicationQuit')">Copy</button><br><p>
-            Application.Quit();
-            </p></div>
-            <li>There’s something important to know here. This method will indeed quit the game, but it only works for fully built applications. Currently the game is just a project playing in the Editor, and so this won’t do anything yet. You’ll make a build of your game in the final tutorial of this series — when you have done this, the line of code will work properly. Until then you will need to exit Play Mode as you have done before.</li>
-            <li>In its current state, your script will cause the game to quit as soon as the Images have finished fading. It would be much nicer if the Images faded in, the player saw them for a brief time and then the game quit.</li>
-            <p>All you need to do to achieve this is to add some more time in the last if statement. Making this a variable means that you can change the duration the Images are shown for in the future, if you like. Below the fadeDuration variable declaration (near the top of the class), add another duration variable declaration:</p>
-            <div class="unityCode" id="displayImageDuration"><button class="copy" onclick="copyText('displayImageDuration')">Copy</button><br><p>
-            public float displayImageDuration = 1f;
-            </p></div>
-            <li>Now all you need to do is add this duration to the fadeDuration in the if statement, by changing it to:</li>
-            <div class="unityCode" id="displayImageDurationQuit"><button class="copy" onclick="copyText('displayImageDurationQuit')">Copy</button><br><p>
-            if(m_Timer > fadeDuration + displayImageDuration)<br>
-            {<br>
-            &emsp;Application.Quit();<br>
-            }<br>
-            </p></div>
-        </ol>
-        <p>The completed script should look similar this:</p>
-        <div class="unityCode" id="FinalEndGameScript"><button class="copy" onclick="copyText('FinalEndGameScript')">Copy</button><br><p>
-            using System.Collections;<br>
-            using System.Collections.Generic;<br>
-            using UnityEngine;<br><br>
-            public class GameEnding : MonoBehaviour<br>
-            {<br>
-            &emsp;public float fadeDuration = 1f;<br>
-            &emsp;public float displayImageDuration = 1f;<br>
-            &emsp;public GameObject player;<br>
-            &emsp;public CanvasGroup exitBackgroundImageCanvasGroup;<br><br>
-            &emsp;bool m_IsPlayerAtExit;<br>
-            &emsp;float m_Timer;<br><br>
-            &emsp;void OnTriggerEnter (Collider other)<br>
-            &emsp;{<br>
-            &emsp;&emsp;if (other.gameObject == player)<br>
-            &emsp;&emsp;{<br>
-            &emsp;&emsp;&emsp;m_IsPlayerAtExit = true;<br>
-            &emsp;&emsp;}<br>
-            &emsp;}<br><br>
-            &emsp;void Update ()<br>
-            &emsp;{<br>
-            &emsp;&emsp;if(m_IsPlayerAtExit)<br>
-            &emsp;&emsp;{<br>
-            &emsp;&emsp;&emsp;EndLevel();<br>
-            &emsp;&emsp;}<br>
-            &emsp;}<br><br>
-            &emsp;void EndLevel ()<br>
-            &emsp;{<br>
-            &emsp;&emsp;m_Timer += Time.deltaTime;<br><br>
-            &emsp;&emsp;exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;<br><br>
-            &emsp;&emsp;if(m_Timer > fadeDuration + displayImageDuration)<br>
-            &emsp;&emsp;{<br>
-            &emsp;&emsp;&emsp;Application.Quit ();<br>
-            &emsp;&emsp;}<br>
-            &emsp;}<br>
-            }
-        </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set the Variables for your GameEnding Script</h2>
-        <ol>
-            <p>In your script, you created a number of variables that need to be set in the Editor. These make it easier to customise the game and test changes easily.</p>
-            <li>In the Hierarchy, select the GameEnding GameObject.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/GameEndingScript.jpg" alt="Game Ending Script Image"></div>
-            <li>Drag the character GameObject from the Hierarchy window onto the Game Ending script in the Inspector. This will assign the Player variable.</li>
-            <li>In the Hierarchy, expand the FaderCanvas. Drag the ExitImageBackground GameObject onto the Exit Background Image Canvas Group field of the Game Ending component. Unity will automatically find the correct component to assign the Exit Background Image Canvas Group variable.</li>
-        </ol>
-        <p>You’ve finished creating an end for your game! Enter Play Mode to give it a try. Don’t forget to exit Play Mode when you are finished; the automatic quit won’t work until you create a build of your game in the final tutorial.</p>
     </div>
 </div>
 </div>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
 </body>
 </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roblox</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="Basics.html">Previous</a>
+    <a href="../Unity/index.html" style="float: right;">Next</a>
+</div>
+<h1 style="text-align:center;">Traps</h1>
+<div class="containButtons">
+    <button class="collapsible" id="autoClickBtn">Traps</button>
+    <div class="content">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+        <p>Basic Platformer: https://developer.roblox.com/en-us/articles/Creating-Your-First-Game</p>
+        <button class="collapsible">Axe Trap</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <p>In Roblox Studio, click the New button in the upper-left or use an existing project.</p>
+            <h2>Example Axe Trap:</h2>
+            <p>Prototype axe trap built from simple parts.</p>
+            <div class="center"><img src="../images/RobloxImages/AxeTrap03.JPG" alt="Axe Trap Image" onclick="displayModal(this)"></div>
+            <ol>
+                <li>Start by adding a <a href="Basics.html">spawn location</a> to the level.</li>
+                <li>Create a platform for players to run on.</li>
+                <li>Create a frame for the trap and group the parts together. (Anchor non-moving parts)</li>
+                <div class="center"><img src="../images/RobloxImages/AxeTrap01.JPG" alt="Axe Trap Image" onclick="displayModal(this)"></div>
+                <li>Add simple parts to make it look like a swinging axe.</li>
+                <li>Group the parts and drag the group into the trap frame group.</li>
+                <div class="center"><img src="../images/RobloxImages/AxeTrap02.JPG" alt="Axe Trap Image" onclick="displayModal(this)"></div>
+                <li>Create a hinge constraint between the trap base and the top of our swinging axe.</li>
+                <div class="center"><img src="../images/RobloxImages/HingeConstraint.JPG" alt="Axe Trap Image" onclick="displayModal(this)"></div>
+                <li>Click on the new hinge constraint object and set some values.</li>
+                <li>ActuatorType: Servo</li>
+                <li>AngularSpeed: 5 (Change it as needed)</li>
+                <li>ServoMaxTorque: 40000 (More torque is required for "Heavier objects")</li>
+                <li>TargetAngle: 90 (Our script with change this value)</li>
+                <div class="center"><img src="../images/RobloxImages/Servo.JPG" alt="Axe Trap Image" onclick="displayModal(this)"></div>
+                <li>Click the circle + button on the servo object and search for and add a script. (We want to make sure the axe keeps swinging)</li>
+                <div class="center"><img src="../images/RobloxImages/AxeScript.JPG" alt="Axe Trap Image" onclick="displayModal(this)"></div>
+                <div class="code" id="AxeScript"><button class="copy" onclick="copyText('AxeScript')">Copy</button><br><p>
+                    <mark>-- Link the trapPart variable to its parent object.</mark><br>
+                    local trapPart = script.Parent<br>
+                    <br>
+                    local function swingTrap()<br>
+                    &emsp;wait(.1)<br>
+                    &emsp;if trapPart.HingeConstraint.CurrentAngle &gt;= 15 then<br>
+                    &emsp;&emsp;trapPart.HingeConstraint.TargetAngle = -45<br>
+                    &emsp;end<br>
+                    &emsp;if trapPart.HingeConstraint.CurrentAngle &lt;= -15 then<br>
+                    &emsp;&emsp;trapPart.HingeConstraint.TargetAngle = 45<br>
+                    &emsp;end<br>
+                    &emsp;swingTrap()<br>
+                    end<br><br>
+                    swingTrap()
+                </p></div>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Hinged Platform (<a href="https://developer.roblox.com/en-us/articles/building-a-hinged-platform" style="color: powderblue; text-decoration: none;">View on Roblox</a>)</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <ol>
+                <li>Start by adding a small block as a base for our hinged platform and anchor it in place.</li>
+                <div class="center"><img src="../images/RobloxImages/HingedPlatform01.JPG" alt="Hinged Platform Image" onclick="displayModal(this)"></div>
+                <li>Create the platform that will tip back and forth. Make sure it's centered left-to-right with the support part so that the final assembly balances. Also consider applying a different color so that players recognize it's not a typical platform.</li>
+                <p>Remember not to anchor this part since it is meant to move.</p>
+                <div class="center"><img src="../images/RobloxImages/HingedPlatform02.JPG" alt="Hinged Platform Image" onclick="displayModal(this)"></div>
+                <li>Rename the parts PlatformSupport and HingePlatform.</li>
+                <li>Next we need to attach the parts with a hinge constraint.</li>
+                <div class="center"><img src="../images/RobloxImages/HingedPlatform03.JPG" alt="Hinged Platform Image" onclick="displayModal(this)"></div>
+                <li>Change the mass of the <b>HingePlatform</b>.</li>
+                <p>In Roblox, a part’s mass is internally calculated based on its size and density. If the hinged platform’s mass is too low, it will move too quickly and drop players off into empty space before they can reach the other side. If its mass is too high, the platform will move too slowly and players will just walk across it like a normal anchored part.</p>
+                <li>Select the <b>HingePlatform</b> in the game editor window, or select it from the Explorer window.</li>
+                <li>In the Properties window, find the Part section and look for a row named CustomPhysicalProperties (if necessary, expand the Part section by clicking the small arrow next to its name).</li>
+                <div class="center"><img src="../images/RobloxImages/HingedPlatform04.JPG" alt="Hinged Platform Image" onclick="displayModal(this)"></div>
+                <li>Press the play button to test. Adjust the platform's mass (density) so that players are challenged to reach the other side quickly.</li>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Turning Platform (<a href="https://developer.roblox.com/en-us/articles/building-a-turning-platform" style="color: powderblue; text-decoration: none;">View on Roblox</a>)</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <ol>
+                <li>Create a base and anchor it in place</li>
+                <li>Create the platform that will eventually spin around and around. Position this platform so that it sits on top of the base we just created.</li>
+                <li>Rename the parts PlatformBase and TurnPlatform (TurningPlatform also acceptable).</li>
+                <div class="center"><img src="../images/RobloxImages/TurningPlatform01.JPG" alt="Turning Platform Image" onclick="displayModal(this)"></div>
+                <li>Add a hinge constraint. Optionally change the platform color.</li>
+                <div class="center"><img src="../images/RobloxImages/TurningPlatform02.JPG" alt="Turning Platform Image" onclick="displayModal(this)"></div>
+                <li>Make the platform spin. In the Explorer window, find and expand the branches for both PlatformBase and TurnPlatform.</li>
+                <div class="center" style="max-width: 600px;"><img src="../images/RobloxImages/TurningPlatform03.JPG" alt="Turning Platform Image" onclick="displayModal(this)"></div>
+                <li>Select the HingeConstraint object and locate the ActuatorType property. Click in the area to its right and select motor.</li>
+                <li>To make the platform turn, type in a new value for the AngularVelocity property that appeared. This value determines how fast the motor should turn (A value of 0.5 should be fine).</li>
+                <p>To change the direction of the platform, just change the value of the AngularVelocity to a negative number.</p>
+                <li>Finally, change the value of MotorMaxTorque to 10000. This value may need to be even higher for a motor to turn a very large/heavy part.</li>
+                <div class="center"><img src="../images/RobloxImages/TurningPlatform04.JPG" alt="Turning Platform Image" onclick="displayModal(this)"></div>
+                <p>Now press the Play button to test. If you did everything right, the turning platform should slowly spin around on the base. The player’s challenge is to jump on the platform at the correct time, then let it carry them around until they can safely jump off to another platform.</p>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Dangerous Obstacle (<a href="https://developer.roblox.com/en-us/articles/Creating-Traps-and-Pickups" style="color: powderblue; text-decoration: none;">View on Roblox</a>)</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <ol>
+                <li>Create a platform for the players to walk on and a spawn location for playtesting.</li>
+                <li>Create a new part and position it on top of the platform, leaving enough space for the players to jump over the trap without touching it.</li>
+                <li>Anchor the parts in place so that they can't slide off or fall into the void.</li>
+                <li>Lets change the color of the obstacle to something scary (red).</li>
+                <li>Rename the parts in the Explorer window. Platform and Trap are simple and effective here.</li>
+                <div class="center"><img src="../images/RobloxImages/DangerousTrap01.JPG" alt="Turning Platform Image" onclick="displayModal(this)"></div>
+                <li>At this point touching the trap will do nothing. We need to add a script to make it kill anyone that accidentally lands on it.</li>
+                <li>Hover over Trap in the Explorer window and click the circle + icon, search for script and click to add.</li>
+                <li>New scripts will open in a new tab just above the game editor window. Delete the default hello world line.</li>
+                <div class="code" id="DangerousTrapScript"><button class="copy" onclick="copyText('DangerousTrapScript')">Copy</button><br><p>
+                    local trapPart = script.Parent<br><br>
+                    local function onPartTouch()<br>
+                    &emsp;local partParent = otherPart.Parent<br>
+                    &emsp;local humanoid = partParent:FindFirstChildWhichIsA("Humanoid")<br>
+                    &emsp;if humanoid then<br>
+                    &emsp;&emsp;<mark>-- Set player's health to 0</mark><br>
+                    &emsp;&emsp;humanoid.Health = 0<br>
+                    &emsp;end<br>
+                    end<br><br>
+                    trapPart.Touched:Connect(onPartTouch)
+                </p></div>
+                <li>Press the Play button. Walk to and touch the trap. If you did everything right, your player should instantly explode.</li>
+            </ol>
+            <p><b>Explaining the Code</b></p>
+            <ol>
+                <li>The first line just sets a variable that tells the script what specific game part it’s linked to. In this case it’s linked to the trap part, the “parent” of the script.</li>
+                <mark>local trapPart = script.Parent</mark>
+                <li>The next part, is a function. Functions are sets of related steps which can be used over and over. This function checks if a careless player (not another random part in the world) touched the trap. If so, it sets the player's health to 0 which instantly destroys them.</li>
+                <mark>local function onPartTouch(otherPart)...</mark>
+                <li>The final line connects the trap and the function with a Touched event. That makes the function run whenever the trap part is touched.</li>
+                <mark>trapPart.Touched:Connect(onPartTouch)</mark>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Jump Boost (<a href="https://developer.roblox.com/en-us/articles/Creating-Traps-and-Pickups" style="color: powderblue; text-decoration: none;">View on Roblox</a>)</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <ol>
+                <li>Create a new part (sphere), positioned on top of a walking platform and change its color.</li>
+                <li>Anchor the part in place so that it doesn't roll off the platform.</li>
+                <li>Rename the parts Platform and JumpBoost.</li>
+                <div class="center"><img src="../images/RobloxImages/JumpBoost01.JPG" alt="Turning Platform Image" onclick="displayModal(this)"></div>
+                <li>In the Explorer window, hover over the part name and click the circle + button. Search for the script option and click on it.</li>
+                <li>The new script will open in a new tab. Replace the default line with the following.</li>
+                <div class="code" id="JumpScript"><button class="copy" onclick="copyText('JumpScript')">Copy</button><br><p>
+                    local boostPart = script.Parent<br>
+                    <mark>-- Set a variable for boosted jump power</mark><br>
+                    local BOOSTED_JUMP_POWER = 125<br><br>
+                    local function onPartTouch()<br>
+                    &emsp;local partParent = otherPart.Parent<br>
+                    &emsp;local humanoid = partParent:FindFirstChildWhichIsA("Humanoid")<br>
+                    &emsp;if humanoid then<br>
+                    &emsp;&emsp;boostPart.CanCollide = false<br>
+                    &emsp;&emsp;local currentJumpPower = humanoid.JumpPower<br>
+                    &emsp;&emsp;if currentJumpPower &lt; BOOSTED_JUMP_POWER then<br>
+                    &emsp;&emsp;&emsp;humanoid.JumpPower = BOOSTED_JUMP_POWER<br>
+                    &emsp;&emsp;&emsp;wait(10)<br>
+                    &emsp;&emsp;&emsp;humanoid.JumpPower = currentJumpPower<br>
+                    &emsp;&emsp;end<br>
+                    &emsp;end<br>
+                    end<br><br>
+                    boostPart.Touched:Connect(onPartTouch)
+                </p></div>
+                <li>Press the Play button and test out the new jump boosting pickup.</li>
+            </ol>
+            <p><b>Explaining the Code</b></p>
+            <ol>
+                <li>The first line just sets a variable that tells the script what specific game part it’s linked to. In this case it’s linked to the trap part, the “parent” of the script.</li>
+                <mark>local trapPart = script.Parent</mark>
+                <li>The next part creates a new variable with a value of 125. Later in the script, this variable will be used to increase the player's jump power when they touch the boost item.</li>
+                <mark>local boostPart = script.Parent<br>
+                local BOOSTED_JUMP_POWER = 125</mark>
+                <li>"<mark>boostPart.CanCollide = false</mark>" makes the JumpBoost part into a "ghost" object only for players. This lets players touch the boost but also walk through it wihtout being forced to step over it.</li>
+                <li>"<mark>local currentJumpPower = humanoid.JumpPower</mark>" sets a variable to the player's current jump power so that the script has a reference to the default jump power.</li>
+                <li>"<mark>if currentJumpPower &lt; BOOSTED_JUMP_POWER then</mark>" checks to make sure the player's current jump power is less than the boosted jump power value. This ensures that the player can only gain a jump boost if they're not already boosted.</li>
+                <li>"<mark>humanoid.JumpPower = BOOSTED_JUMP_POWER</mark>" increases the player's jump power to the value of BOOSTED_JUMP_POWER</li>
+                <li>"<mark>wait(10)</mark>" makes the code wait 10 seconds before continuing.</li>
+                <li>"<mark>humanoid.JumpPower = currentJumpPower</mark>" sets the jump power of the player back to the default.</li>
+                <li>The final line connects the boost part and the function with a Touched event.</li>
+                <mark>boostPart.Touched:Connect(onPartTouch)</mark>
+            </ol>
+            <p><b>Removing Pickups</b></p>
+            <ol>
+                <li>Adding "<mark>boostPart:Destroy()</mark>" just before the <mark>wait(10)</mark> line will destroy the object. This works well if you want a pickup to be used only once.</li>
+                <li>If you want the JumpBoost to respawn after a player has picked it up then we can change the parent of the object and change it back after the 10 seconds are up.</li>
+                <div class="code" id="JumpScript2"><button class="copy" onclick="copyText('JumpScript2')">Copy</button><br><p>
+                    local boostPart = script.Parent<br>
+                    <mark>-- Set a variable for boosted jump power</mark><br>
+                    local BOOSTED_JUMP_POWER = 125<br><br>
+                    local function onPartTouch()<br>
+                    &emsp;local partParent = otherPart.Parent<br>
+                    &emsp;local humanoid = partParent:FindFirstChildWhichIsA("Humanoid")<br>
+                    &emsp;if humanoid then<br>
+                    &emsp;&emsp;boostPart.CanCollide = false<br>
+                    &emsp;&emsp;local currentJumpPower = humanoid.JumpPower<br>
+                    &emsp;&emsp;if currentJumpPower &lt; BOOSTED_JUMP_POWER then<br>
+                    &emsp;&emsp;&emsp;humanoid.JumpPower = BOOSTED_JUMP_POWER<br>
+                    &emsp;&emsp;&emsp;<mark>-- boostPart:Destroy()</mark><br>
+                    &emsp;&emsp;&emsp;boostPart.Parent = nil<br>
+                    &emsp;&emsp;&emsp;wait(10)<br>
+                    &emsp;&emsp;&emsp;boostPart.Parent = workspace<br>
+                    &emsp;&emsp;&emsp;humanoid.JumpPower = currentJumpPower<br>
+                    &emsp;&emsp;end<br>
+                    &emsp;end<br>
+                    end<br><br>
+                    boostPart.Touched:Connect(onPartTouch)
+                </p></div>
+                <li>Play test and enjoy a respawning jump booster.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
+</body>
+</html>

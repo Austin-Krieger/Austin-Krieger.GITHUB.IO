@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
@@ -20,6 +21,15 @@
 <div class="content">
     <button class="collapsible">Overview</button>
     <div class="content">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
         <h3>Servlets</h3>
         <p>Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to handle the request obtained from the web server, process the request, produce the response, then send response back to the web server.</p>
         <h3>Execution of Servlets:</h3>
@@ -32,7 +42,7 @@
             <li>The web server sends the response back to the client and the client browser displays it on the screen.</li>
         </ol>
         <h3>Servlet Architecture</h3>
-        <div class="center"><img src="../images/servlet-architecture.jpg" alt="Servlet Architecture Image"></div>
+        <div class="center"><img src="../images/JavaImages/servlet-architecture.jpg" alt="Servlet Architecture Image" onclick="displayModal(this)"></div>
         <h3>Need For Server-Side Extensions</h3>
         <p>The server-side extensions are nothing but the technologies that are used to create dynamic Web pages. Web pages need a container or Web server to facilitate dynamic Web pages.</p>
         <h3>Servlet API's</h3>
@@ -120,7 +130,7 @@
             <li>The servlet container loads the servlet before invoking the service() method.</li>
             <li>Then the servlet container handles multiple requests by spawning multiple threads, each thread executing the service() method of a single instance of the servlet.</li>
         </ul>
-        <div class="center"><img src="../images/servlet-lifecycle.jpg" alt="Servlet Lifecycle Image"></div>
+        <div class="center"><img src="../images/JavaImages/servlet-lifecycle.jpg" alt="Servlet Lifecycle Image" onclick="displayModal(this)"></div>
     </div>
     &nbsp;
     <button class="collapsible">Servlet Life Cycle</button>
@@ -2208,4 +2218,5 @@
 </div>
 </body>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notepad++</title>
+    <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
+    <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="hotmail.html">Previous</a>
+</div>
+<h1 style="text-align:center;">Notepad++ Themes</h1>
+<div class="containButtons">
+    <button class="collapsible" id="autoClickBtn">Notepad++ Themes</button>
+    <div class="content">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+        <button class="collapsible">Adding Themes to Notepad++</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2>Adding Themes to Notepad++</h2>
+            <ol>
+                <li>Open Notepad++ and click on <b>Settings</b>.</li>
+                <li>Now open <b>Style Configurator...</b>.</li>
+                <li>You will see a dropdown box with the themes you currently have installed.</li>
+                <li>In <b>File Explorer</b> type in <b>%AppData%\Notepad++\themes</b></li>
+                <div class="center"><img src="../images/Web/Notepad++/NotepadThemes.PNG" alt="Notepad++ Themes Image" onclick="displayModal(this)"></div>
+                <li>Move your downloaded themes to this folder and restart Notepad++ to see the new themes.</li>
+                <li>User Manual: https://npp-user-manual.org/docs/getting-started/</li>
+                <li>Some Downloadable Themes: https://www.digitaldesignjournal.com/best-notepad-themes/</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
+</body>
+</html>

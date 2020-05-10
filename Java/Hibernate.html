@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
@@ -18,6 +19,15 @@
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Hibernate</button>
 <div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
     <button class="collapsible">About</button>
         <div class="content">
             <h3>What is Hibernate?</h3>
@@ -27,7 +37,7 @@
             <h3>What is JPA?</h3>
             <p>Java Persistence API (JPA) is a java specification that provides certain functionality and standards to ORM tools. The javax.persistence package contains the JPA classes and interfaces.</p>
             <h3>Hibernate Architecture</h3>
-            <div class="center"><img src="../images/hibernate-architecture.jpg" alt="Hibernate Architecture"></div>
+            <div class="center"><img src="../images/JavaImages/hibernate-architecture.jpg" alt="Hibernate Architecture" onclick="displayModal(this)"></div>
             <p>Hibernate architecture comprises of many interfaces.</p>
             <ul>
                 <li>Configuration</li>
@@ -595,7 +605,7 @@
         <button class="collapsible">Hibernate Lifecycle</button>
         <div class="content">
             <h3>Hibernate Lifecycle</h3>
-            <div class="center"><img src="../images/hibernate-lifecycle.png" alt="Hibernate Lifecycle"></div>
+            <div class="center"><img src="../images/JavaImages/hibernate-lifecycle.png" alt="Hibernate Lifecycle" onclick="displayModal(this)"></div>
             <p>The Hibernate lifecycle contains the following states:</p>
             <ul>
                 <li>Transient</li>
@@ -650,4 +660,5 @@
 </div>
 </body>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
 </html>
