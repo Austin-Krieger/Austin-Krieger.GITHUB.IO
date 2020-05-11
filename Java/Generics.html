@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/SideNav.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
 <body>
 <div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
     <a href="../index.html" style="float: left;">Home</a>
     <a href="../Java/Collections.html">Previous</a>
     <a href="../Java/LambdaExpressions.html" style="float: right;">Next</a>
 </div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="../Unity/index.html">Unity</a>
+    <a href="../Web/index.html">Web</a>
+</div>
+<div id="closeSideNav">
 <h1 style="text-align:center;">Generics</h1>
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Generics</button>
@@ -61,10 +71,10 @@
     </p>
     </div>
     <p>When a bound includes an interface type, only type arguments that implement that interface are legal.</p>
-    <p>When specifying a bound that has a class and an interface, or multiple interfaces, use the & operator to connect them.</p>
+    <p>When specifying a bound that has a class and an interface, or multiple interfaces, use the &amp; operator to connect them.</p>
     <div class="code" id="generics4"><button class="copy" onclick="copyText('generics4')">Copy</button><br><p>
         <mark>// Here, T is bounded by a class called MyClass and an interface called MyInterface.</mark><br>
-        class Gen&lt;T extends MyClass & MyInterface> { <mark>// ...</mark>
+        class Gen&lt;T extends MyClass &amp; MyInterface> { <mark>// ...</mark>
     </p>
     </div>
     <p>Any type argument passed to T must be a subclass of MyClass and implement MyInterface.</p>
@@ -212,7 +222,7 @@
         MyClass&lt;Integer, String&gt; mcOb = new MyClass&lt;&gt;(98, "A String");
     </p>
     </div>
-    <p>Diamond Operator: <> is an empty type argument list.</p>
+    <p>Diamond Operator: &lt;&gt; is an empty type argument list.</p>
     <p>The principal advantage of this type-inference syntax is that it shortens what are sometimes quite long declaration statements.</p>
     <h3>Erasure</h3>
     <p>Any changes to the syntax of the Java language, or to the JVM, had to avoid breaking older code.</p>
@@ -300,6 +310,8 @@
     <p>A generic class cannot extend Throwable. This means that you cannot create generic exception classes.</p>
 </div>
 </div>
+</div>
 </body>
+<script type="text/javascript" src="../scripts/SideNav.js"></script>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
 </html>
