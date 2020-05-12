@@ -47,7 +47,131 @@
         <div class="code" id="Unique-Name"><button class="copy" onclick="copyText('Unique-Name')">Copy</button><br><p>
             &emsp;<mark>Comments</mark><br>
         </p></div> -->
-        <p>The PHP code (everything between <b>&lt;php</b> and <b>?&gt;</b>) will be interpreted by the Web server and converted to normal text before it's sent to your browser. The Web server does all the work, so the Web browser doesn't need to know anything about the php code.</p>
+        <p>The PHP code (everything between <b>&lt;?php</b> and <b>?&gt;</b>) will be interpreted by the Web server and converted to normal text before it's sent to your browser. The Web server does all the work, so the Web browser doesn't need to know anything about the php code.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Basic Syntax</h2>
+        <p>A PHP script consists of a series of commands, or statments, each of which is an instruction that the Web server must follow before it can proceed to the next. PHP statements are always terminated by a semicolor (;).</p>
+        <div class="code" id="basic-echo"><button class="copy" onclick="copyText('basic-echo')">Copy</button><br><p>
+            echo("This is a &lt;b&gt;test&lt;/b&gt;!");
+        </p></div>
+        <p>This statement invokes a built-in function called <b>echo</b>.</p>
+        <p><b>Built-in functions</b> are functions that PHP has pre-defined and do not require us to tell them how to work.</p>
+        <p>Quotes are used to mark the beginning and end of strings of text in PHP.</p>
+        <p>Parenthesis serve a dual purpose in PHP.</p>
+        <ol>
+            <li>They indicate that <b>echo</b> is a function that you want to call.</li>
+            <li>They mark the beginning and end of a list of "<b>parameters</b>" you wish to provide.</li>
+        </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Variables</h2>
+        <p>Variables: A name given to an imaginary box into which any value may be placed.</p>
+        <div class="code" id="testvariable1"><button class="copy" onclick="copyText('testvariable1')">Copy</button><br><p>
+            $testvariable = 3;
+        </p></div>
+        <p>PHP is a loosely typed language. This means that a single variable may contain any type of data (number, string, etc.) and may change types over its lifetime.</p>
+        <div class="code" id="testvariable2"><button class="copy" onclick="copyText('testvariable2')">Copy</button><br><p>
+            <mark>This line will assign a new value to our existing variable and change its type.</mark><br>
+            $testvariable = "Three";
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Operators</h2>
+        <p>The equals sign '=' is called the assignment operator, as it is used to assign values to variables.</p>
+        <p>Other operators may be used to perform various mathematical operations on values:</p>
+        <div class="code" id="operators"><button class="copy" onclick="copyText('operators')">Copy</button><br><p>
+            $testvariable = 1 + 1; <mark>// Assigns a value of 2.</mark><br>
+            $testvariable = 1 - 1; <mark>// Assigns a value of 0.</mark><br>
+            $testvariable = 2 * 2; <mark>// Assigns a value of 4.</mark><br>
+            $testvariable = 2 / 2; <mark>// Assigns a value of 1.</mark><br>
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Comments</h2>
+        <p>Comments are a way to describe what your code is doing.</p>
+        <div class="code" id="comments"><button class="copy" onclick="copyText('comments')">Copy</button><br><p>
+            <mark>// Tells the PHP interpreter to ignore what comes after.</mark>
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Concatenation</h2>
+        <div class="code" id="concatenation"><button class="copy" onclick="copyText('concatenation')">Copy</button><br><p>
+            $testvariable = "Hi " . "there!"; <mark>// Assigns a value of "Hi there!".</mark>
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Variable Interpolation</h2>
+        <div class="code" id="interpolation"><button class="copy" onclick="copyText('interpolation')">Copy</button><br><p>
+            $var1 = 5; <mark>// Assigns a value of 5 to $var1</mark><br>
+            $var2 = $var1 + 1; <mark>// Assigns a value of 6 to $var2</mark>
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Control Statements</h2>
+        <p>The most basic, and most often-used, control structure is the if-else statement.</p>
+        <div class="code" id="control"><button class="copy" onclick="copyText('control')">Copy</button><br><p>
+            if (condition) {<br>
+            &emsp;<mark>// Statement(s) to be executed if condition is true.</mark><br>
+            } else {<br>
+            &emsp;<mark>// (Optional) statement(s) to be executed if condition is false.</mark><br>
+            }
+        </p></div>
+        <p>The double-equals (==) used in the condition section is the PHP operator that's used to compare two values to see whether they're equal. (Using a single equals sign would cause the condition to always be true.)</p>
+        <p>When checking two conditions use the keyword "and".</p>
+        <div class="code" id="and-condition"><button class="copy" onclick="copyText('and-condition')">Copy</button><br><p>
+            if ($firstname == "Thirsty" and $lastname == "Penguin") {<br>
+            &emsp;<mark>// Do something</mark>
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">While Loop</h2>
+        <p>The while loop allows us to use a condition to determine how many times to repeatedly execute a set of statements.</p>
+        <div class="code" id="while-loop"><button class="copy" onclick="copyText('while-loop')">Copy</button><br><p>
+            while (condition) {<br>
+            &emsp;<mark>// statement(s) to execute as long as the condition remains true.</mark><br>
+            }
+        </p></div>
+        <p>Loops such as this one come in handy when working with long lists.</p>
+        <div class="code" id="while-loop1"><button class="copy" onclick="copyText('while-loop1')">Copy</button><br><p>
+            $count = 1;<br>
+            while ($count &lt;= 10) {<br>
+            &emsp;echo("$count");<br>
+            &emsp;$count++;<br>
+            }
+        </p></div>
+        <ol>
+            <li>Line one creates a variable called $count and assigns it a value of 1.</li>
+            <li>Line two is the start of the while loop, the condition is (Value of $count is less than or equal to 10).</li>
+            <li>Line three and four are the body of the while loop, and will be executed over and over, as long as the condition holds true.</li>
+            <li>Line three outputs the value of $count.</li>
+            <li>Line four increments (adds 1 to) the value of $count.</li>
+            <ul>
+                <li>Increment: $count = $count + 1, $count++</li>
+                <li>Decrement: $count = $count - 1, $count--</li>
+            </ul>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">PHP Forms</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">PHP Forms</h2>
+        <p>As <b>PHP</b> code is activated when a page is requested from the server, user interaction can only occur in a back-and-forth fashion.</p>
+        <p>The user sends requests to the server, and the server replies with dynamically generated pages.</p>
+        <p>We can pass variables along with the page request. The variable is passed as part of the "<b>query string</b>", which is the portion of the URL that follows the question mark.</p>
+        <p>The variables <b>firstname</b> and <b>lastname</b> have the values <b>Thirsty</b> and <b>Penguin</b> respectively.</p>
+        <div class="code" id="query-string"><button class="copy" onclick="copyText('query-string')">Copy</button><br><p>
+            &lt;a href="welcome.php?firstname=Thirsty&amp;lastname=Penguin"&gt;Hi, I'm Thirsty, Penguin!&lt;/a&gt;
+        </p></div>
+        <p>We can accomplish the same using a form with the <b>GET</b> method.</p>
+        <div class="code" id="get-method"><button class="copy" onclick="copyText('get-method')">Copy</button><br><p>
+            &lt;form action="welcome.php" method="get"&gt;<br>
+            &emsp;&lt;label for="firstname">First name:&lt;/label&gt;<br>
+            &emsp;&lt;input type="text" name="firstname"&gt;<br>
+            &emsp;&lt;label for="lastname">Last name:&lt;/label&gt;<br>
+            &emsp;&lt;input type="text" name="lastname"&gt;<br>
+            &emsp;&lt;input type="submit" value="GO"&gt;<br>
+            &lt;/form&gt;
+        </p></div>
+        <p>In <b>welcome.php</b> we need to add a line that can print the data passed in the <b>query string</b>.</p>
+        <div class="code" id="get-method-output"><button class="copy" onclick="copyText('get-method-output')">Copy</button><br><p>
+            &lt;?php<br>
+            &emsp;echo("Welcome to my website, $_GET[firstname], $_GET[lastname]!");<br>
+            ?&gt;
+        </p></div>
+        <p>Using a form with the <b>POST</b> method will not pass information in the <b>query string</b>. However, this will allow you to include large values, or sensitive values (passwords) in the data that's submitted by the form.</p>
+        <p>If the user bookmarks the resulting page, it will be useless, as it doesn't contain the sumbitted values.</p>
+        <div class="code" id="post-method"><button class="copy" onclick="copyText('post-method')">Copy</button><br><p>
+            &lt;form action="welcome.php" method="post"&gt;...&lt;/form&gt;
+        </p></div>
+        <p>In the welcome.php page we need to change <b>$_GET</b> to <b>$_POST</b>:</p>
+        <div class="code" id="post-method-output"><button class="copy" onclick="copyText('post-method-output')">Copy</button><br><p>
+            echo("Welcome to my website, $_POST[firstname], $_POST[lastname]!");
+        </p></div>
     </div>
     &nbsp;
     <button class="collapsible">Download &amp; Install MySQL</button>
@@ -62,7 +186,9 @@
     <button class="collapsible">SQL</button>
     <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL</h2>
-        
+        <p>SQL or Structured Query Language, pronunciation "sequel" or "ess-cue-ell". Commands in SQL are also called Queries.</p>
+        <p>UNIX-based systems will be case-sensitive when it comes to database and table names, as they correspond to directories and files in the MySQL data directory. Otherwise, MySQL is completely case-insensitive.</p>
+        <p>Table, column, and other names must be spelled exactly the same when they're used more than once in the same command.</p>
     </div>
 </div>
 </div>
