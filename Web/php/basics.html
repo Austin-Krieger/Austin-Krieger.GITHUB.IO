@@ -135,6 +135,23 @@
                 <li>Decrement: $count = $count - 1, $count--</li>
             </ul>
         </ol>
+        <p>We have another option for looping through a list of values and that is the <b>for loop</b>.</p>
+        <p>Here is the same example as above, but implemented as a for loop.</p>
+        <div class="code" id="for-loop"><button class="copy" onclick="copyText('for-loop')">Copy</button><br><p>
+            for ($count = 1; $count &lt;= 10; $count++) {<br>
+            &emsp;echo("$count");<br>
+            }
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Multi-Purpose Pages</h2>
+        <p>Once we have a user's name in a variabel on one page, we can pass it with any request to another page by adding the name to the query string of all links:</p>
+        <div class="code" id="urlencode"><button class="copy" onclick="copyText('urlencode')">Copy</button><br><p>
+            &lt;a href="newpage.php?name=&lt;?php echo (urlencode($name)); ?&gt;"&gt; A link &lt;/a&gt;
+        </p></div>
+        <p>There is a shortcut for times when you want to echo a PHP value in the middle of your HTML code.</p>
+        <div class="code" id="shortcut"><button class="copy" onclick="copyText('shortcut')">Copy</button><br><p>
+            &lt;a href="newpage.php?name=&lt;?=urlencode($name)?&gt;"&gt; A link &lt;/a&gt;
+        </p></div>
+        <p>The tags <b>&lt;?=...?&gt;</b> perform the same function as the longer code <b>&lt;?php echo(...); ?&gt;</b></p>
     </div>
     &nbsp;
     <button class="collapsible">PHP Forms</button>
