@@ -264,10 +264,55 @@
     <button class="collapsible">Download &amp; Install MySQL</button>
     <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Download &amp; Install MySQL</h2>
-        <p>You can downlaod and install MySQL software from <b>https://mysql.com</b>. In windows the program is called <b>mysql.exe</b> and is located by default in the <b>C:\mysql\bin</b>.</p>
-        <p>If you end up at a command line use the following line: <b>mysql -h hostname -u username -p</b> (-p prompts for a password).</p>
-        <p>If the client program is run on the same computer as the server, you can leave off the -h hostname part (<b>-h localhost</b>, <b>-h 127.0.0.1</b>)</p>
-        <p>If you installed the MySQL server yourself, this will just be <b>root</b>.</p>
+        <ol>
+            <li>You can downlaod and install MySQL software from <b>https://www.mysql.com/products/workbench/</b></li>
+            <li>Instead of clicking on the Download button, click on <b>Go to Download Page</b></li>
+            <li>You should be taken here: <b>https://dev.mysql.com/downloads/windows/installer/8.0.html</b></li>
+            <li>Click the Download button on the larger file (420.6 MB).</li>
+            <li>Login/Signup options will appear. Select <b>No thanks, just start my download.</b></li>
+            <li>Open the msi file and start the installation/configuration process.</li>
+            <li>Select the <b>Developer Default</b> and hit <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/01-Choose-Setup.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Execute</b> to install products.</li>
+            <div class="center"><img src="../../images/Web/MySQL/02-Installation.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/03-Installation-Done.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/04-Product-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Select <b>Standalone MySQL Server / Classic MySQL Replication</b> and click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/05-High-Availability.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Select <b>Development Computer</b> and click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/06-Type-Networking.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Select a password type and click <b>Next</b></li>
+            <div class="center"><img src="../../images/Web/MySQL/07-Authentication-Method.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Set a password for the <b>root</b> user or add a new user and click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/08-Set-Password.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Select <b>Standard System Account</b> and click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/09-Windows-Service.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Execute</b> to apply configurations.</li>
+            <div class="center"><img src="../../images/Web/MySQL/10-Apply-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Finish</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/11-Configuration-Applied.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/12-Product-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Finish</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/13-MySQL-Router-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/14-Product-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Type in your password, click <b>Check</b> and click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/15-Connect-to-Server.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Execute</b> to apply configurations.</li>
+            <div class="center"><img src="../../images/Web/MySQL/16-Apply-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Finish</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/17-Configuration-Applied.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Next</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/18-Product-Configuration.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Click <b>Finish</b>.</li>
+            <div class="center"><img src="../../images/Web/MySQL/19-Installation-Complete.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+            <li>Double-click the MySQL Connection you created and login to start creating and modifying databases.</li>
+            <div class="center"><img src="../../images/Web/MySQL/20-Connect-to-Database.PNG" alt=" Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+        </ol>
+        <p>Note: If you open Xampp you will notice that an error has appeared in the log. "<b>You need to uninstall/disable/reconfigure the blocking application or reconfigure MySQL and the Control Panel to listen on a different port</b>". Fixes can be found <a href="../xampp/xampp.html">here</a>.</p>
     </div>
     &nbsp;
     <button class="collapsible">SQL</button>
