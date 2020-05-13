@@ -135,6 +135,7 @@
                 <li>Decrement: $count = $count - 1, $count--</li>
             </ul>
         </ol>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">For Loop</h2>
         <p>We have another option for looping through a list of values and that is the <b>for loop</b>.</p>
         <p>Here is the same example as above, but implemented as a for loop.</p>
         <div class="code" id="for-loop"><button class="copy" onclick="copyText('for-loop')">Copy</button><br><p>
@@ -152,6 +153,75 @@
             &lt;a href="newpage.php?name=&lt;?=urlencode($name)?&gt;"&gt; A link &lt;/a&gt;
         </p></div>
         <p>The tags <b>&lt;?=...?&gt;</b> perform the same function as the longer code <b>&lt;?php echo(...); ?&gt;</b></p>
+        <dl>
+            <dt><b>urlencode:</b></dt>
+            <dd>This function takes any special characters in the string (spaces for example) and converts them into the special codes they need to be in order to appear in the query string.</dd><br>
+            <dd>If $name had a value of <b>Thirsty Penguin</b>, then the output of urlencode would be <b>Thirsty+Penguin</b> and it would be automatically converted back by PHP when the $name variable is created in newpage.php</dd>
+        </dl>
+        <p>Say a user enters the site from any other page; they would not have set their name. We will need to add a condition to every page to either show the page's content or prompt the user to enter their name.</p>
+        <p>The code of a <b>multi-purpose page</b> looks something like this:</p>
+        <div class="code" id="multi-purpose-page"><button class="copy" onclick="copyText('multi-purpose-page')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &lt;head&gt;<br>
+            &lt;title&gt; Multi-Purpose Page Outline &lt;/title&gt;<br>
+            &lt;/head&gt;<br>
+            &lt;body&gt;<br><br>
+            &lt;?php if (condition) { ?&gt;<br>
+            &emsp;<mark>&lt;!-- HTML content to display if condition is true --&gt;</mark><br>
+            &lt;?php } else { ?&gt;<br>
+            &emsp;<mark>&lt;!-- HTML content to display if condition is false --&gt;</mark><br>
+            &lt;?php } ?&gt;<br><br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <p>There is an alternate form of the if-else statement that can make your code more readable in situations like this.</p>
+        <div class="code" id="multi-purpose-page-1"><button class="copy" onclick="copyText('multi-purpose-page-1')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &lt;head&gt;<br>
+            &lt;title&gt; Multi-Purpose Page Outline &lt;/title&gt;<br>
+            &lt;/head&gt;<br>
+            &lt;body&gt;<br><br>
+            &lt;?php if (condition): ?&gt;<br>
+            &emsp;<mark>&lt;!-- HTML content to display if condition is true --&gt;</mark><br>
+            &lt;?php else: ?&gt;<br>
+            &emsp;<mark>&lt;!-- HTML content to display if condition is false --&gt;</mark><br>
+            &lt;?php endif; ?&gt;<br><br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <p>We can now look at an example of this in use:</p>
+        <div class="code" id="multi-purpose-page-2"><button class="copy" onclick="copyText('multi-purpose-page-2')">Copy</button><br><p>
+            &lt;html&gt;<br>
+            &lt;head&gt;<br>
+            &lt;title&gt; Multi-Purpose Page Outline &lt;/title&gt;<br>
+            &lt;/head&gt;<br>
+            &lt;body&gt;<br><br>
+            &lt;?php if (!isset($name)): ?&gt;<br>
+            &emsp;<mark>&lt;!-- No name has been provided, so we prompt the user for one. --&gt;</mark><br>
+            &emsp;&lt;form action="&lt;?=echo($PHP_SELF)?&gt;" method="get"&gt;<br>
+            &emsp;&emsp;Please enter your name: &lt;input type="text" name="name" /&gt;<br>
+            &emsp;&emsp;&lt;input type="submit" value="GO" /&gt;<br>
+            &emsp;&lt;/form&gt;<br>
+            &lt;?php else: ?&gt;<br>
+            &emsp;&lt;p&gt;Your name: &lt;?=$name?&gt;&lt;/p&gt;<br>
+            &emsp;&lt;p&gt;This paragraph contains a<br>
+            &emsp;&emsp;&lt;a href="newpage.php?name=&lt;?=urlencode($name)?&gt;"&gt;link&lt;/a&gt;<br>
+            &emsp;&emsp;that passes the name variable on to the next document.<br>
+            &emsp;&lt;/p&gt;<br>
+            &lt;?php endif; ?&gt;<br><br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </p></div>
+        <dl>
+            <dt><b>isset:</b></dt>
+            <dd>This function returns (outputs) a value of true if the variable it is given has been assigned a value (i.e. if a name has been provided) and false if the does not exist (i.e. if a name has not yet been provided).</dd><br>
+            <dd>The exclamation mark (also known as the <b>negation operator</b>, or the <b>not operator</b> reverses the returned value from true to false or vice-versa. Thus, the form is displayed when the  $name variable is <b>not</b> set.</dd>
+        </dl>
+        <dl>
+            <dt><b>$PHP_SELF:</b></dt>
+            <dd>This variable is one of several that PHP gives a default value.</dd><br>
+            <dd>$PHP_SELF will always be set to the URL of the current page. This gives us an easy way to create a form that, when submitted, will load the same page, but this time with the $name variable specified.</dd>
+        </dl>
     </div>
     &nbsp;
     <button class="collapsible">PHP Forms</button>
