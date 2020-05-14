@@ -225,6 +225,20 @@
         </dl>
     </div>
     &nbsp;
+    <button class="collapsible">Database-Driven Website</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Database-Driven Website</h2>
+        <p>This is what will happen when someone visits a database-driven web site:</p>
+        <ul>
+            <li>The visitor's web browser requests the web page using a standard URL.</li>
+            <li>The web server software (Apache, IIS, etc.) recognizes that the requested file is a PHP script, and so the server interprets the file using a PHP plug-in, before responding to the page request.</li>
+            <li>Certain PHP commands connect to the PHP script.</li>
+            <li>The PHP script stores the content into one or more PHP variables, and then uses the echo function to output the content as part of the web page.</li>
+            <li>The PHP plug-in finishes up by handing a copy of the HTML it has created to the web server.</li>
+            <li>The web server sends the HTML to the web browser as it would a plain HTML file, except that instead of coming directly from an HTML file, the page is the output provided by the PHP plug-in.</li>
+        </ul>
+    </div>
+    &nbsp;
     <button class="collapsible">PHP Forms</button>
     <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">PHP Forms</h2>
@@ -260,6 +274,59 @@
         <div class="code" id="post-method-output"><button class="copy" onclick="copyText('post-method-output')">Copy</button><br><p>
             echo("Welcome to my website, $_POST[firstname], $_POST[lastname]!");
         </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Connecting to MySQL with PHP</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Connecting to MySQL with PHP</h2>
+        <p>Support for connecting to MySQL is built right into PHP. The following function call establishes the connection:</p>
+        <div class="code" id="connect-mysql"><button class="copy" onclick="copyText('connect-mysql')">Copy</button><br><p>
+            <mark>// Connection Format</mark><br>
+            mysql_connect(address, username, password);<br><br>
+            <mark>// Connection Example</mark><br>
+            $dbcon = mysql_connect("localhost", "root", "my_password");
+        </p></div>
+        <dl>
+            <dt>address</dt>
+            <dd>The IP address or hostname of the computer on which the MySQL server software is running "localhost" if it's running on the same computer as the web server software.</dd>
+            <dt>username, password</dt>
+            <dd>The username and password are the same MySQL username and password used to connect to the MySQL server.</dd>
+        </dl>
+        <p>The value returned by mysql_connect is now stored in the variable named $dbcon.</p>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Check Connection</h2>
+        <p>Since MySQL is a separate piece of software, it is possible that the server is unavailable, or inaccessible due to a network outage, or because the username/password combination you provided is not accepted by the server.</p>
+        <p>In such cases, the <b>mysql_connect</b> function doesn't return a connection identifier. Instead, it returns false. This allows us to react to such failures using an if statement.</p>
+        <div class="code" id="check-connection"><button class="copy" onclick="copyText('check-connection')">Copy</button><br><p>
+            @$dbcon = mysql_connect("localhost", "root", "my_password");<br><br>
+            if(!$dbcon) {<br>
+            &emsp;echo("&lt;p&gt;Unable to connect to the " .<br>
+            &emsp;&emsp;"database server at this time.&lt;/p&gt;");<br>
+            &emsp;exit();<br>
+            }
+        </p></div>
+        <dl>
+            <dt><b>@</b></dt>
+            <dd>Placing an <b>@</b> symbol in front of the function name tells the function to fail silently if an error occurs, allowing us to display our own error message.</dd>
+        </dl>
+        <dl>
+            <dt><b>exit()</b></dt>
+            <dd>All this function does is cause PHP to stop reading the page at this point.</dd>
+        </dl>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Select Database</h2>
+        <p>The next step after establishing a connection is to select a database.</p>
+        <div class="code" id="select-database"><button class="copy" onclick="copyText('select-database')">Copy</button><br><p>
+            mysql_select_db("database_name", $dbcon);
+        </p></div>
+        <p>The <b>$dbcon</b> variable is optional here, <b>mysql_select_db</b> will default to the last connection opened otherwise.</p>
+        <p>This function will return true if it succeeds and false if an error has occured so we should use another if statement like with <b>mysql_connect</b>.</p>
+        <div class="code" id="check-databse"><button class="copy" onclick="copyText('check-database')">Copy</button><br><p>
+            if(! @mysql_select_db("database_name")) {<br>
+            &emsp;echo("&lt;p&gt;Unable to locate the <b>database_name</b>" .<br>
+            &emsp;&emsp;"database at this time.&lt;/p&gt;");<br>
+            &emsp;exit();<br>
+            }
+        </p></div>
+        <p>With a connection established and a database selected, we are now ready to begin using the data stored in the database.</p>
     </div>
     &nbsp;
     <button class="collapsible">Download &amp; Install MySQL</button>
