@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="../index.html" style="float: left;">Home</a>
+    <a href="../php/basics.html">Previous</a>
+    <a href="../hotmail/hotmail.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Unity Workspace</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">SQL</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <button class="collapsible">Intro</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Introduction to SQL</h2>
+        <p>SQL is a standard language for storing, manipulating and retrieving data in databases.</p>
+        <h3>What is SQL?</h3>
+        <ul>
+            <li>SQL stands for Structured Query Language</li>
+            <li>SQL lets you access and manipulate databases</li>
+        </ul>
+        <h3>What Can SQL do?</h3>
+        <ul>
+            <li>SQL can execute queries against a database</li>
+            <li>SQL can retrieve data from a database</li>
+            <li>SQL can insert records from a database</li>
+            <li>SQL can update records in a database</li>
+            <li>SQL can delete records from a database</li>
+            <li>SQL can create new databases</li>
+            <li>SQL can create new tables in a database</li>
+            <li>SQL can create stored procedures in a database</li>
+            <li>SQL can create views in a database</li>
+            <li>SQL can set permissions on tables, procedures, and views</li>
+        </ul>
+        <h3>Using SQL in Your Web Site</h3>
+        <p>To build a web site that shows data from a database, you will need:</p>
+        <ul>
+            <li>An RDBMS database program (i.e. MS Access, SQL Server, MySQL)</li>
+            <li>To use a server-side scripting language, like PHP or ASP</li>
+            <li>To use SQL to get the data you want</li>
+            <li>To use HTML / CSS to style the page</li>
+        </ul>
+        <h3>RDBMS</h3>
+        <p>RDBMS stands for Relational Database Management System.</p>
+        <p>RDBMS is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.</p>
+        <p>The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.</p>
+        <p>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, ContactName, Address, City, PostalCode and Country.</p>
+        <p>A <b>field</b> is a column in a table that is designed to maintain specific information about every record in the table.</p>
+        <p>A <b>record</b>, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</p>
+        <p>A <b>column</b> is a vertical entity in a table that contains all information associated with a specific field in a table.</p>
+        <!-- Image
+        <div class="center"><img src="../../images/" alt="Image" onclick="displayModal(this)"></div> -->
+        <!-- Code
+        <div class="code" id="Unique-Name"><button class="copy" onclick="copyText('Unique-Name')">Copy</button><br><p>
+            &emsp;<mark>Comments</mark><br>
+        </p></div> -->
+    </div>
+    &nbsp;
+    <button class="collapsible">Syntax</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Syntax</h2>
+        <h3>Database Tables</h3>
+        <p>A database most often contains one or more tables. Each table is identified by a name (e.g. "Customers" or "Orders"). Tables contain records (rows) with data.</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>ContactName</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>PostalCode</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Obere Str. 57</td>
+                <td>Berlin</td>
+                <td>12209</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ana Trujillo Emparedados y helados</td>
+                <td>Ana Trujillo</td>
+                <td>Avda. de la Constitución 2222</td>
+                <td>México D.F.</td>
+                <td>05021</td>
+                <td>Mexico</td>
+            </tr>
+        </table></div>
+        <p>The table above contains 2 records (one for each customer) and seven columns (CustomerID, CustomerName, ContactName, Address, City, PostalCode, and Country).</p>
+        <h3>SQL Statements</h3>
+        <p>Most of the actions you need to perform on a database are done with SQL statements.</p>
+        <p>The following SQL statement selects all the records in the "Customers" table:</p>
+        <div class="code" id="Example-Select-Syntax"><button class="copy" onclick="copyText('Example-Select-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> * FROM Customers;
+        </p></div>
+        <h3>Case Sensitivity</h3>
+        <p>SQL keywords are NOT case sensitive: select is the same as SELECT</p>
+        <h3>Semicolons</h3>
+        <p>Some database systems require a semicolon at the end of each SQL statement.</p>
+        <p>Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.</p>
+        <h3>Some of The Most Important SQL Commands:</h3>
+        <ul>
+            <li><b>SELECT</b> - extracts data from a database</li>
+            <li><b>UPDATE</b> - updates data in a database</li>
+            <li><b>DELETE</b> - deletes data from a database</li>
+            <li><b>INSERT INTO</b> - inserts new data into a database</li>
+            <li><b>CREATE DATABASE</b> - creates a new database</li>
+            <li><b>ALTER DATABASE</b> - modifies a database</li>
+            <li><b>CREATE TABLE</b> - creates a new table</li>
+            <li><b>ALTER TABLE</b> - modifies a table</li>
+            <li><b>DROP TABLE</b> - deletes a table</li>
+            <li><b>CREATE INDEX</b> - creates an index (search key)</li>
+            <li><b>DROP INDEX</b> - deletes an index</li>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible">SELECT</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL SELECT Statement</h2>
+        <h3>SELECT Syntax</h3>
+        <p>The <b>SELECT</b> statement is used to select data from a database.</p>
+        <p>The data returned is stored in a result table, called the result-set.</p>
+        <div class="code" id="Select-Syntax"><button class="copy" onclick="copyText('Select-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name;
+        </p></div>
+        <p>Here, column1, column2, ... are the field names of the table you want to select data from. If you want to select all the fields available in the table, use the following syntax:</p>
+        <div class="code" id="Select-All-Syntax"><button class="copy" onclick="copyText('Select-All-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> table_name;
+        </p></div>
+        <h3>SELECT Column Example</h3>
+        <div class="code" id="Select-Column-Example"><button class="copy" onclick="copyText('Select-All-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName, City <sql>FROM</sql> Customers;
+        </p></div>
+        <h3>SELECT * Example</h3>
+        <div class="code" id="Select-All-Example"><button class="copy" onclick="copyText('Select-All-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers;
+        </p></div>
+        <h2>SELECT DISTINCT Statement</h2>
+        <h3>The SQL SELECT DISTINCT Statement</h3>
+        <p>The <b>SELECT DISTINCT</b> statement is used to return only distinct (different) values.</p>
+        <p>Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.</p>
+        <h3>SELECT DISTINCT Syntax</h3>
+        <div class="code" id="Select-Distinct-Syntax"><button class="copy" onclick="copyText('Select-Distinct-Syntax')">Copy</button><br><p>
+            <sql>SELECT DISTINCT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name;
+        </p></div>
+        <h3>SELECT DISTINCT Examples</h3>
+        <p>The following SQL statement selects only the <b>DISTINCT</b> values from the "Country" column in the "Customers" table:</p>
+        <div class="code" id="Select-Distinct-Example"><button class="copy" onclick="copyText('Select-Distinct-Example')">Copy</button><br><p>
+            <sql>SELECT DISTINCT</sql> Country <sql>FROM</sql> Customers;
+        </p></div>
+        <h3>COUNT</h3>
+        <p>The following SQL statement lists the number of different (distinct) customer countries:</p>
+        <div class="code" id="Select-Distinct-Count-Example"><button class="copy" onclick="copyText('Select-Distinct-Count-Example')">Copy</button><br><p>
+            <sql>SELECT COUNT</sql>(<sql>DISTINCT</sql> Country) <sql>FROM</sql> Customers;
+        </p></div>
+        <p><b>COUNT</b>(<b>DISTINCT</b> column_name) is not supported in Microsoft Access databases.</p>
+        <p>Here is the workaround for MS Access:</p>
+        <div class="code" id="MS-Access-Workaround"><button class="copy" onclick="copyText('MS-Access-Workaround')">Copy</button><br><p>
+            <sql>SELECT COUNT</sql>(*)<sql>AS</sql> DistinctCountries<br>
+            <sql>FROM</sql> (<sql>SELECT DISTINCT</sql> Country <sql>FROM</sql> Customers);
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">WHERE</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL WHERE Clause</h2>
+        <h3>The SQL Where Clause</h3>
+        <p>The <b>WHERE</b> clause is used to extract only those records that fulfill a specified condition.</p>
+        <div class="code" id="Where-Syntax"><button class="copy" onclick="copyText('Where-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>WHERE Clause Example</h3>
+        <p>The following SQL statement selects all the customers from the country "Mexico", in the "Customers" table:</p>
+        <div class="code" id="Where-Example"><button class="copy" onclick="copyText('Where-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Mexico';
+        </p></div>
+        <h3>Text Fields vs. Numeric Fields</h3>
+        <p>SQL requires single quotes around text values (most database systems will also allow double quotes).</p>
+        <p>However, numeric fields should not be enclosed in quotes:</p>
+        <div class="code" id="TextVsNumbers"><button class="copy" onclick="copyText('TextVsNumbers')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> CountryID = 1;
+        </p></div>
+        <h3>Operators in The WHERE Clause</h3>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>=</td>
+                <td>Equal</td>
+            </tr>
+            <tr>
+                <td>&gt;</td>
+                <td>Greater than</td>
+            </tr>
+            <tr>
+                <td>&lt;</td>
+                <td>Less than</td>
+            </tr>
+            <tr>
+                <td>&gt;=</td>
+                <td>Greater than or equal</td>
+            </tr>
+            <tr>
+                <td>&lt;=</td>
+                <td>Less than or equal</td>
+            </tr>
+            <tr>
+                <td>&lt;&gt;</td>
+                <td>Not equal. <b>Note:</b> In some versions of SQL this operator may be written as !=</td>
+            </tr>
+            <tr>
+                <td>BETWEEN</td>
+                <td>Between a certain range</td>
+            </tr>
+            <tr>
+                <td>LIKE</td>
+                <td>Search for a pattern</td>
+            </tr>
+            <tr>
+                <td>IN</td>
+                <td>To specify multiple possible values for a column</td>
+            </tr>
+        </table>
+    </div>
+    &nbsp;
+    <button class="collapsible">AND, OR, NOT</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL AND, OR and NOT Operators</h2>
+        <p>The <b>WHERE</b> clause can be combined with <b>AND</b>, <b>OR</b>, and <b>NOT</b> operators to filter records based on more than one condition.</p>
+        <ul>
+            <li>The <b>AND</b> operator displays a record if all the conditions separated by <b>AND</b> are TRUE.</li>
+            <li>The <b>OR</b> operator displays a record if any of the conditions separated by <b>OR</b> is TRUE.</li>
+            <li>The <b>NOT</b> operator displays a record if the condition(s) is <b>NOT</b> TRUE.</li>
+        </ul>
+        <h2>AND Syntax</h2>
+         <div class="code" id="AND-Syntax"><button class="copy" onclick="copyText('AND-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition1 <sql>AND</sql> condition2 <sql>AND</sql> condition 3 ...;
+        </p></div>
+        <h2>AND Example</h2>
+        <div class="code" id="AND-Example"><button class="copy" onclick="copyText('AND-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> Customers<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> City = 'Berlin';
+        </p></div>
+        <h2>OR Syntax</h2>
+        <div class="code" id="OR-Syntax"><button class="copy" onclick="copyText('OR-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition1 <sql>OR</sql> condition2 <sql>OR</sql> condition 3 ...;
+        </p></div>
+        <h2>OR Example</h2>
+        <div class="code" id="OR-Example"><button class="copy" onclick="copyText('OR-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City = 'Berlin' <sql>OR</sql> City = 'München';
+        </p></div>
+        <h2>NOT Syntax</h2>
+        <div class="code" id="NOT-Syntax"><button class="copy" onclick="copyText('NOT-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE NOT</sql> condition;
+        </p></div>
+        <h2>NOT Example</h2>
+        <div class="code" id="NOT-Example"><button class="copy" onclick="copyText('NOT-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE NOT</sql> Country = 'Germany';
+        </p></div>
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Combining AND, OR and NOT</h2>
+        <p>You can also combine the <b>AND</b>, <b>OR</b> and <b>NOT</b> operators. The following SQL statement selects all fields from "Customers" where country is "Germany" <b>AND</b> city must be "Berlin" <b>OR</b> "München" (use parenthesis to form complex expressions):</p>
+        <div class="code" id="Combining-AND-OR-NOT-Example"><button class="copy" onclick="copyText('Combining-AND-OR-NOT-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> (City = 'Berlin' <sql>OR</sql> City = 'München');
+        </p></div>
+        <p>The following SQL statement selects all fields from "Customers" where country is <b>NOT</b> "Germany" and <b>NOT</b> "USA":</p>
+        <div class="code" id="Combining-AND-OR-NOT-Example2"><button class="copy" onclick="copyText('Combining-AND-OR-NOT-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE NOT</sql> Country = 'Germany' <sql>AND NOT</sql> Country = 'USA';
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">ORDER BY</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL ORDER BY Keyword</h2>
+        <p>The <b>ORDER BY</b> keyword is used to sort the result-set in ascending or descending order.</p>
+        <p>The <b>ORDER BY</b> keyword sorts the records in ascending order by default. To sort the records in descending order, use the <b>DESC</b> keyword.</p>
+        <div class="code" id="Order-By-Syntax"><button class="copy" onclick="copyText('Order-By-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>ORDER BY</sql> column1, column2, ... ASC|DESC;
+        </p></div>
+        <h2>ORDER BY Example</h2>
+        <p>The following SQL statement selects all customers from the "Customers" table, sorted by the "Country" column:</p>
+        <div class="code" id="Order-By-Example"><button class="copy" onclick="copyText('Order-By-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>ORDER BY</sql> Country;
+        </p></div>
+        <h2>ORDER BY DESC Example</h2>
+        <p>The following SQL statement selects all customers from the "Customers" table, sorted descending by the "Country" column:</p>
+        <div class="code" id="Order-By-DESC-Example"><button class="copy" onclick="copyText('Order-By-DESC-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>ORDER BY</sql> Country <sql>DESC</sql>;
+        </p></div>
+        <h2>ORDER BY Several Columns Example</h2>
+        <p>The following SQL statement selects all customers from the "Customers" table, sorted by the "Country" and the "CustomerName" column. This means that it orders by Country, but if some rows have the same Country, it orders them by CustomerName:</p>
+        <div class="code" id="Order-By-Several-Example"><button class="copy" onclick="copyText('Order-By-Several-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>ORDER BY</sql> Country, CustomerName;
+        </p></div>
+        <h2>ORDER BY Several Columns Example 2</h2>
+        <p>The following SQL statement selects all customers from the "Customers" table, sorted ascending by the "Country" and descending by the "CustomerName" column:</p>
+        <div class="code" id="Order-By-Several-Example2"><button class="copy" onclick="copyText('Order-By-Several-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>ORDER BY</sql> Country <sql>ASC</sql>, CustomerName <sql>DESC</sql>;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">INSERT INTO</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL INSERT INTO Statement</h2>
+        <p>The <b>INSERT INTO</b> statement is used to insert new records in a table.</p>
+        <h3>INSERT INTO Syntax</h3>
+        <p>It is possible to write the <b>INSERT INTO</b> statement in two ways.</p>
+        <p>The first way specifies both the column names and the values to be inserted:</p>
+        <div class="code" id="Insert-Into-Syntax"><button class="copy" onclick="copyText('Insert-Into-Syntax')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> table_name (column1, column2, column3, ...)<br>
+            <sql>VALUES</sql> (value1, value2, value3, ...);
+        </p></div>
+        <p>If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. The <b>INSERT INTO</b> syntax would be as follows:</p>
+        <div class="code" id="Insert-Into-Syntax2"><button class="copy" onclick="copyText('Insert-Into-Syntax2')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> table_name<br>
+            <sql>VALUES</sql> (value1, value2, value3, ...);
+        </p></div>
+        <h3>INSERT INTO Example</h3>
+        <p>The following SQL statement inserts a new record in the "Customers" table:</p>
+        <div class="code" id="Insert-Into-Example"><button class="copy" onclick="copyText('Insert-Into-Example')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+            <sql>VALUES</sql> ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+        </p></div>
+        <div class="code" id="Insert-Into-Example2"><button class="copy" onclick="copyText('Insert-Into-Example2')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Customers<br>
+            <sql>VALUES</sql> ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+        </p></div>
+        <h3>Insert Data Only in Specified Columns</h3>
+        <p>It is also possible to only insert data in specific columns. The following SQL statement will insert a new record, but only insert data in the "CustomerName", "City", and "Country" columns (CustomerID will be updated automatically):</p>
+        <div class="code" id="Insert-Into-Example3"><button class="copy" onclick="copyText('Insert-Into-Example3')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+            <sql>VALUES</sql> ('Cardinal', 'Stavanger', 'Norway');
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Null Values</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Null Values</h2>
+        <p>A field with a <b>NULL</b> value is a field with no value.</p>
+        <p>If a field in a table is optional, it is possible to insert a new record or update a record without adding a value to this field. Then, the field will be saved with a <b>NULL</b> value.</p>
+        <h2>How to Test for NULL Values</h2>
+        <p>It is not possible to test for <b>NULL</b> values with comparison operators, such as =, &lt;, or &lt;&gt; We will have to use the <b>IS NULL</b> and <b>IS NOT NULL</b> operators instead.</p>
+        <h3>IS NULL Syntax</h3>
+        <div class="code" id="IS-NULL-Syntax"><button class="copy" onclick="copyText('IS-NULL-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_names<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_names <sql>IS NULL</sql>;
+        </p></div>
+        <h3>IS NOT NULL Syntax</h3>
+        <div class="code" id="IS-NOT-NULL-Syntax"><button class="copy" onclick="copyText('IS-NOT-NULL-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_names<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_names <sql>IS NOT NULL</sql>;
+        </p></div>
+        <h3>The IS NULL Operator</h3>
+        <p>The <b>IS NULL</b> operator is used to test for empty values (<b>NULL</b> values). The following SQL lists all customers with a <b>NULL</b> value in the "Address" field:</p>
+        <div class="code" id="IS-NULL-Example"><button class="copy" onclick="copyText('IS-NOT-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName, ContactName, Address<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Address <sql>IS NULL</sql>;
+        </p></div>
+        <h3>The IS NOT NULL Operator</h3>
+        <p>The <b>IS NOT NULL</b> operator is used to test for non-empty values (<b>NOT NULL</b> values). The following SQL lists all customers with a value in the "Address" field:</p>
+        <div class="code" id="IS-NOT-NULL-Example"><button class="copy" onclick="copyText('IS-NOT-NULL-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName, ContactName, Address<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Address <sql>IS NOT NULL</sql>;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">UPDATE</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL UPDATE Statement</h2>
+        <p>The <b>UPDATE</b> statement is used to modify the existing records in a table.</p>
+        <div class="code" id="UPDATE-Syntax"><button class="copy" onclick="copyText('UPDATE-Syntax')">Copy</button><br><p>
+            <sql>UPDATE</sql> table_name<br>
+            <sql>SET</sql> column1 = value1, column2 = value2, ...<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <div class="code" id="UPDATE-Example"><button class="copy" onclick="copyText('UPDATE-Example')">Copy</button><br><p>
+            <sql>UPDATE</sql> Customers<br>
+            <sql>SET</sql> ContactName = 'Alfred Schmidt', City = 'Frankfurt'<br>
+            <sql>WHERE</sql> CustomerID = 1;
+        </p></div>
+        <h3>UPDATE Multiple Records</h3>
+        <p>It is the <b>WHERE</b> clause that determines how many records will be updated. The following SQL statement will update the contactname to "Juan" for all records where country is "Mexico":</p>
+        <div class="code" id="UPDATE-Example"><button class="copy" onclick="copyText('UPDATE-Example')">Copy</button><br><p>
+            <sql>UPDATE</sql> Customers<br>
+            <sql>SET</sql> ContactName = 'Juan'<br>
+            <sql>WHERE</sql> Country = 'Mexico';
+        </p></div>
+        <h3>Update Warning!</h3>
+        <p>If you omit the <b>WHERE</b> clause, all records in the table will be updated! And that would be bad.</p>
+        <div class="code" id="UPDATE-Example"><button class="copy" onclick="copyText('UPDATE-Example')">Copy</button><br><p>
+            <sql>UPDATE</sql> Customers<br>
+            <sql>SET</sql> ContactName = 'Juan'
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">DELETE</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL DELETE Statement</h2>
+        <p>The <b>DELETE</b> statement is used to delete existing records in a table.</p>
+        <div class="code" id="DELETE-Syntax"><button class="copy" onclick="copyText('DELETE-Syntax')">Copy</button><br><p>
+            <sql>DELETE FROM</sql> table_name <sql>WHERE</sql> condition;
+        </p></div>
+        <div class="code" id="DELETE-Example"><button class="copy" onclick="copyText('DELETE-Example')">Copy</button><br><p>
+            <sql>DELETE FROM</sql> Customers <sql>WHERE</sql> CustomerNAme = 'Alfreds Futterkiste';
+        </p></div>
+        <h3>Delete Warning!</h3>
+        <p>The <b>WHERE</b> clause specifies which record(s) should be deleted. If you omit the <b>WHERE</b> clause, all records in the table will be deleted!</p>
+        <h3>Delet All Records</h3>
+        <p>It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact:</p>
+        <div class="code" id="DELETE-All-Syntax"><button class="copy" onclick="copyText('DELETE-All-Syntax')">Copy</button><br><p>
+            <sql>DELETE FROM</sql> table_name;
+        </p></div>
+        <p>The following SQL statement deletes all rows in the "Customers" table, without deleting the table:</p>
+        <div class="code" id="DELETE-All-Example"><button class="copy" onclick="copyText('DELETE-All-Example')">Copy</button><br><p>
+            <sql>DELETE FROM</sql> Customers;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">SELECT TOP</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">The SQL SELECT TOP Clause</h2>
+        <p>The <b>SELECT TOP</b> clause is used to specify the number of records to return.</p>
+        <p>The <b>SELECT TOP</b> clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.</p>
+        <p>Not all database systems support the <b>SELECT TOP</b> clause. MySQL supports the <b>LIMIT</b> clause to select a limited number of records, while Oracle uses <b>ROWNUM</b>.</p>
+        <h3>SQL Server / MS Access Syntax:</h3>
+        <div class="code" id="Access-Syntax"><button class="copy" onclick="copyText('Access-Syntax')">Copy</button><br><p>
+            <sql>SELECT TOP</sql> number|percent column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>MySQL Syntax:</h3>
+        <div class="code" id="MySQL-Syntax"><button class="copy" onclick="copyText('MySQL-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition<br>
+            <sql>LIMIT</sql> number;
+        </p></div>
+        <h3>Oracle Syntax:</h3>
+        <div class="code" id="Oracle-Syntax"><button class="copy" onclick="copyText('Oracle-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> ROWNUM &lt;= number;
+        </p></div>
+        <h3>SQL TOP, LIMIT and ROWNUM Examples</h3>
+        <p>The following SQL statement selects the first three records from the "Customers" table (for <b>SQL Server/MS Access</b>):</p>
+        <div class="code" id="Access-Example"><button class="copy" onclick="copyText('Access-Example')">Copy</button><br><p>
+            <sql>SELECT TOP</sql> 3 * <sql>FROM</sql> Customers;
+        </p></div>
+        <p>The following SQL statement shows the equivalent example using the LIMIT clause (for <b>MySQL</b>):</p>
+        <div class="code" id="MySQL-Example"><button class="copy" onclick="copyText('MySQL-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>LIMIT</sql> 3;
+        </p></div>
+        <p>The following SQL statement shows the equivalent example using ROWNUM (for <b>Oracle</b>):</p>
+        <div class="code" id="Oracle-Example"><button class="copy" onclick="copyText('Oracle-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> ROWNUM &lt;= 3;
+        </p></div>
+        <h3>SQL TOP PERCENT Example</h3>
+        <p>The following SQL statement selects the first 50% of the records from the "Customers" table (for SQL Server/MS Access):</p>
+        <div class="code" id="SELECT-TOP-Example"><button class="copy" onclick="copyText('SELECT-TOP-Example')">Copy</button><br><p>
+            <sql>SELECT TOP</sql> 50 <sql>PERCENT</sql> * <sql>FROM</sql> Customers;
+        </p></div>
+        <h3>Add a WHERE Clause</h3>
+        <p>The following SQL statement selects the first three records from the "Customers" table, where the country is "Germany" (for <b>SQL Server / MS Access</b>):</p>
+        <div class="code" id="SELECT-TOP-Where-Access-Example"><button class="copy" onclick="copyText('SELECT-TOP-Where-Access-Example')">Copy</button><br><p>
+            <sql>SELECT TOP</sql> 3 * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany';
+        </p></div>
+        <p>The following SQL statement shows the equivalent example using the LIMIT clause (for <b>MySQL</b>):</p>
+        <div class="code" id="SELECT-TOP-Where-MySQL-Example"><button class="copy" onclick="copyText('SELECT-TOP-Where-MySQL-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany';<br>
+            <sql>LIMIT</sql> 3;
+        </p></div>
+        <p>The following SQL statement shows the equivalent example using ROWNUM (for <b>Oracle</b>):</p>
+        <div class="code" id="SELECT-TOP-Where-Oracle-Example"><button class="copy" onclick="copyText('SELECT-TOP-Where-Oracle-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> ROWNUM &lt;= 3;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">MIN and MAX</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL MIN() and MAX() Functions</h2>
+        <p>The <b>MIN()</b> function returns the smallest value of the selected column.</p>
+        <p>The <b>MAX()</b> function returns the largest value of the selected column.</p>
+        <h3>MIN() Syntax</h3>
+        <div class="code" id="MIN-Syntax"><button class="copy" onclick="copyText('MIN-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> MIN(column_name)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>MIN() Example</h3>
+        <p>The following SQL statement finds the price of the cheapest product:</p>
+        <div class="code" id="MIN-Example"><button class="copy" onclick="copyText('MIN-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> MIN(Price) <sql>AS</sql> SmallestPrice<br>
+            <sql>FROM</sql> Products;
+        </p></div>
+        <h3>MAX() Syntax</h3>
+        <div class="code" id="MAX-Syntax"><button class="copy" onclick="copyText('MAX-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> MAX(column_name)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>MAX() Example</h3>
+        <p>The following SQL statement finds the price of the most expensive product:</p>
+        <div class="code" id="MAX-Example"><button class="copy" onclick="copyText('MAX-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> MAX(Price) <sql>AS</sql> LargestPrice<br>
+            <sql>FROM</sql> Products;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Count, Avg, Sum</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Count(), Avg(), and Sum() Functions</h2>
+        <p>The <b>COUNT()</b> function returns the number of rows that matches a specified criterion.</p>
+        <p>The <b>AVG()</b> function returns the average value of a numeric column.</p>
+        <p>The <b>SUM()</b> function returns the total sum of a numeric column.</p>
+        <h3>COUNT() Syntax</h3>
+        <div class="code" id="COUNT-Syntax"><button class="copy" onclick="copyText('COUNT-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> COUNT(column_name)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>COUNT() Example</h3>
+        <p>The following SQL statement finds the number of products:</p>
+        <div class="code" id="COUNT-Example"><button class="copy" onclick="copyText('COUNT-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> COUNT(ProductID)<br>
+            <sql>FROM</sql> Products;
+        </p></div>
+        <h3>AVG() Syntax</h3>
+        <div class="code" id="AVG-Syntax"><button class="copy" onclick="copyText('AVG-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> AVG(column_name)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>AVG() Example</h3>
+        <p>The following SQL statement finds the average price of all products:</p>
+        <div class="code" id="AVG-Example"><button class="copy" onclick="copyText('AVG-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> AVG(Price)<br>
+            <sql>FROM</sql> Products;
+        </p></div>
+        <h3>SUM() Syntax</h3>
+        <div class="code" id="SUM-Syntax"><button class="copy" onclick="copyText('SUM-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> SUM(column_name)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <h3>SUM() Example</h3>
+        <p>The following SQL statement finds the sum of the "Quantity" fields in the "OrderDetails" table:</p>
+        <div class="code" id="SUM-Example"><button class="copy" onclick="copyText('SUM-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> SUM(Quantity)<br>
+            <sql>FROM</sql> OrderDetails;
+        </p></div>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
