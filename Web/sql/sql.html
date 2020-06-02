@@ -615,6 +615,306 @@
             <sql>FROM</sql> OrderDetails;
         </p></div>
     </div>
+    &nbsp;
+    <button class="collapsible">LIKE Operator</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL LIKE Operator</h2>
+        <p>The <b>LIKE</b> operator is used in a <b>WHERE</b> clause to search for a specified pattern in a column.</p>
+        <p>There are two wildcards often used in conjunction with the <b>LIKE</b> operator:</p>
+        <ul>
+            <li>% - The percent sign represents zero, one, or multiple characters</li>
+            <li>_ - The underscore represents a single character</li>
+        </ul>
+        <p><b>Note:</b> MS Access uses an asterisk (*) instead of the percent sign (%), and a question mark (?) instead of the underscore (_).</p>
+        <p>The percent sign and the underscore can also be used in combinations! You can also combine any number of conditions using <b>AND</b> or <b>OR</b> operators.</p>
+        <h3>LIKE Syntax</h3>
+        <div class="code" id="LIKE-Syntax"><button class="copy" onclick="copyText('LIKE-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, ...<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_name <sql>LIKE</sql> pattern;
+        </p></div>
+        <p>Here are some examples showing different <b>LIKE</b> operators with '<b>%</b>' and '<b>_</b>' wildcards:</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>LIKE Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE 'a%'</td>
+                <td>Finds any values that start with "a"</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE '%a'</td>
+                <td>Finds any values that end with "a"</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE '%or%'</td>
+                <td>Finds any values that have "or" in any position</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE '_r%'</td>
+                <td>Finds any values that have "r" in the second position</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE 'a_%'</td>
+                <td>Finds any values that start with "a" and are at least 2 characters in length</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE 'a__%'</td>
+                <td>Finds any values that start with "a" and are at least 3 characters in length</td>
+            </tr>
+            <tr>
+                <td>WHERE ContactName LIKE 'a%o'</td>
+                <td>Finds any values that start with "a" and ends with "o"</td>
+            </tr>
+        </table></div>
+        <p>The following SQL statement selects all customers with a CustomerName starting with "a":</p>
+        <div class="code" id="Like-Example"><button class="copy" onclick="copyText('Like-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> CustomerName <sql>LIKE</sql> 'a%';
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Wildcards</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Wildcard Characters</h2>
+        <p>A wildcard character is used to substitute one or more characters in a string.</p>
+        <p>Wildcard characters are used with the SQL <b>LIKE</b> operator. The <b>LIKE</b> operator is used in a <b>WHERE</b> clause to search for a specified pattern in a column.</p>
+        <h3>Wildcard Characters in MS Access</h3>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>Symbol</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Represents zero or more characters</td>
+                <td>bl* finds bl, black, blue, and blob</td>
+            </tr>
+            <tr>
+                <td>?</td>
+                <td>Represents a single character</td>
+                <td>h?t finds hot, hat, and hit</td>
+            </tr>
+            <tr>
+                <td>[]</td>
+                <td>Represents any single character within the brackets</td>
+                <td>h[oa]t finds hot and hat, but not hit</td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>Represents any character not in the brackets</td>
+                <td>h[!oa]t finds hit, but not hot and hat</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Represents a range of characters</td>
+                <td>c[a-b]t finds cat and cbt</td>
+            </tr>
+            <tr>
+                <td>#</td>
+                <td>Represents any single numeric character</td>
+                <td>2#5 finds 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295</td>
+            </tr>
+        </table></div>
+        <h3>Wildcard Characters in SQL Server</h3>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>Symbol</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>Represents zero or more characters</td>
+                <td>bl* finds bl, black, blue, and blob</td>
+            </tr>
+            <tr>
+                <td>_</td>
+                <td>Represents a single character</td>
+                <td>h_t finds hot, hat, and hit</td>
+            </tr>
+            <tr>
+                <td>[]</td>
+                <td>Represents any single character within the brackets</td>
+                <td>h[oa]t finds hot and hat, but not hit</td>
+            </tr>
+            <tr>
+                <td>^</td>
+                <td>Represents any character not in the brackets</td>
+                <td>h[^oa]t finds hit, but not hot and hat</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Represents a range of characters</td>
+                <td>c[a-b]t finds cat and cbt</td>
+            </tr>
+        </table></div>
+        <p>All the wildcards can also be used in combinations! Here are some examples showing different LIKE operators with '%' and '_' wildcards:</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>LIKE Operator</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE 'a%'</td>
+                <td>Finds any values that starts with "a"</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE '%a'</td>
+                <td>Finds any values that ends with "a"</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE '%or%'</td>
+                <td>Finds any values that have "or" in any position</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE '_r%'</td>
+                <td>Finds any values that have "r" in the second position</td>
+            </tr>
+            <tr>
+                <td>WHERE CustomerName LIKE 'a_%_%'</td>
+                <td>Finds any values that starts with "a" and are at least 3 characters in length</td>
+            </tr>
+            <tr>
+                <td>WHERE ContactName LIKE 'a%o'</td>
+                <td>Finds any values that starts with "a" and ends with "o"</td>
+            </tr>
+        </table></div>
+        <h3>Using the % Wildcard</h3>
+        <p>The following SQL statement selects all customers with a City starting with "ber":</p>
+        <div class="code" id="Percent-Wildcard-Example"><button class="copy" onclick="copyText('Percent-Wildcard-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> 'ber%';
+        </p></div>
+        <p>The following SQL statement selects all customers with a City containing the pattern "es":</p>
+        <div class="code" id="Percent-Wildcard-Example2"><button class="copy" onclick="copyText('Percent-Wildcard-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> 'es%';
+        </p></div>
+        <h3>Using the _ Wildcard</h3>
+        <p>The following SQL statement selects all customers with a City starting with any character, followed by "ondon":</p>
+        <div class="code" id="Underscord-Wildcard-Example"><button class="copy" onclick="copyText('Underscord-Wildcard-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> '_ondon';
+        </p></div>
+        <p>The following SQL statement selects all customers with a City starting with "L", followed by any character, followed by "n", followed by any character, followed by "on":</p>
+        <div class="code" id="Underscord-Wildcard-Example2"><button class="copy" onclick="copyText('Underscord-Wildcard-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> 'L_n_on';
+        </p></div>
+        <h3>Using the [charlist] Wildcard</h3>
+        <p>The following SQL statement selects all customers with a City starting with "b", "s", or "p":</p>
+        <div class="code" id="Charlist-Wildcard-Example"><button class="copy" onclick="copyText('Charlist-Wildcard-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> '[bsp]%';
+        </p></div>
+        <p>The following SQL statement selects all customers with a City starting with "a", "b", or "c":</p>
+        <div class="code" id="Charlist-Wildcard-Example2"><button class="copy" onclick="copyText('Charlist-Wildcard-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> '[a-c]%';
+        </p></div>
+        <h3>Using the [!charlist] Wildcard</h3>
+        <p>The two following SQL statements select all customers with a City NOT starting with "b", "s", or "p":</p>
+        <div class="code" id="Not-Charlist-Wildcard-Example"><button class="copy" onclick="copyText('Not-Charlist-Wildcard-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>LIKE</sql> '[!bsp]%';
+        </p></div>
+        <div class="code" id="Not-Charlist-Wildcard-Example2"><button class="copy" onclick="copyText('Not-Charlist-Wildcard-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> City <sql>NOT LIKE</sql> '[bsp]%';
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">IN</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL IN Operator</h2>
+        <p>The <b>IN</b> operator allows you to specify multiple values in a <b>WHERE</b> clause.</p>
+        <p>The <b>IN</b> operator is a shorthand for multiple <b>OR</b> conditions.</p>
+        <h3>IN Operator Syntax</h3>
+        <div class="code" id="IN-Syntax"><button class="copy" onclick="copyText('IN-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_name <sql>IN</sql> (value1, value2, ...);
+        </p></div>
+        <div class="code" id="IN-Syntax2"><button class="copy" onclick="copyText('IN-Syntax2')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_name <sql>IN</sql> (<sql>SELECT</sql> STATEMENT);
+        </p></div>
+        <h3>IN Operator Examples</h3>
+        <p>The following SQL statement selects all customers that are located in "Germany", "France" or "UK":</p>
+        <div class="code" id="IN-Example"><button class="copy" onclick="copyText('IN-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country <sql>IN</sql> ('Germany', 'France', 'UK');
+        </p></div>
+        <p>The following SQL statement selects all customers that are NOT located in "Germany", "France" or "UK":</p>
+        <div class="code" id="IN-Example2"><button class="copy" onclick="copyText('IN-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country <sql>NOT IN</sql> ('Germany', 'France', 'UK');
+        </p></div>
+        <p>The following SQL statement selects all customers that are from the same countries as the suppliers:</p>
+        <div class="code" id="IN-Example3"><button class="copy" onclick="copyText('IN-Example3')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country <sql>IN</sql> (SELECT Country <sql>FROM</sql> Suppliers);
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">BETWEEN</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL BETWEEN Operator</h2>
+        <p>The <b>BETWEEN</b> operator selects values within a given range. The values can be numbers, text, or dates. The <b>BETWEEN</b> operator is inclusive: begin and end values are included.</p>
+        <h3>BETWEEN Syntax</h3>
+        <div class="code" id="BETWEEN-Syntax"><button class="copy" onclick="copyText('BETWEEN-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_name <sql>BETWEEN</sql> value1 <sql>AND</sql> value2;
+        </p></div>
+        <h3>BETWEEN Example</h3>
+        <p>The following SQL statement selects all products with a price <b>BETWEEN</b> 10 and 20:</p>
+        <div class="code" id="BETWEEN-Example"><button class="copy" onclick="copyText('BETWEEN-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> Price <sql>BETWEEN</sql> 10 <sql>AND</sql> 20;
+        </p></div>
+        <h3>NOT BETWEEN Example</h3>
+        <p>To display the products outside the range of the previous example, use <b>NOT BETWEEN</b>:</p>
+        <div class="code" id="NOT-BETWEEN-Example"><button class="copy" onclick="copyText('NOT-BETWEEN-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> Price <sql>NOT BETWEEN</sql> 10 <sql>AND</sql> 20;
+        </p></div>
+        <h3>BETWEEN with IN Example</h3>
+        <p>The following SQL statement selects all products with a price <b>BETWEEN</b> 10 and 20. In addition; do not show products with a CategoryID of 1,2, or 3:</p>
+        <div class="code" id="BETWEEN-with-IN-Example"><button class="copy" onclick="copyText('BETWEEN-with-IN-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> Price <sql>BETWEEN</sql> 10 <sql>AND</sql> 20<br>
+            <sql>AND</sql> CategoryID <sql>NOT IN</sql> (1,2,3);
+        </p></div>
+        <h3>BETWEEN Text Values Example</h3>
+        <p>The following SQL statement selects all products with a ProductName <b>BETWEEN</b> Carnarvon Tigers and Mozzarella di Giovanni:</p>
+        <div class="code" id="BETWEEN-text-values-Example"><button class="copy" onclick="copyText('BETWEEN-text-values-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> ProductName <sql>BETWEEN</sql> 'Carnarvon Tigers' <sql>AND</sql> 'Mozzarella di Giovanni'<br>
+            <sql>ORDER BY</sql> ProductName;
+        </p></div>
+        <h3>NOT BETWEEN Text Values Example</h3>
+        <p>The following SQL statement selects all products with a ProductName NOT <b>BETWEEN</b> Carnarvon Tigers and Mozzarella di Giovanni:</p>
+        <div class="code" id="NOT-BETWEEN-text-values-Example"><button class="copy" onclick="copyText('NOT-BETWEEN-text-values-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> ProductName <sql>NOT BETWEEN</sql> 'Carnarvon Tigers' <sql>AND</sql> 'Mozzarella di Giovanni'<br>
+            <sql>ORDER BY</sql> ProductName;
+        </p></div>
+        <h3>BETWEEN Dates Example</h3>
+        <p>The following SQL statement selects all orders with an OrderDate BETWEEN '01-July-1996' and '31-July-1996':</p>
+        <div class="code" id="BETWEEN-Dates-Example"><button class="copy" onclick="copyText('BETWEEN-Dates-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Orders<br>
+            <sql>WHERE</sql> OrderDate <sql>BETWEEN</sql> #01/07/1996# <sql>AND</sql> #31/07/1996#;
+        </p></div>
+        <div class="code" id="BETWEEN-Dates-Example"><button class="copy" onclick="copyText('BETWEEN-Dates-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>FROM</sql> Orders<br>
+            <sql>WHERE</sql> OrderDate <sql>BETWEEN</sql> '1996-07-01' <sql>AND</sql> '1996-07-31';
+        </p></div>
+    </div>
 </div>
 </div>
 </div>
