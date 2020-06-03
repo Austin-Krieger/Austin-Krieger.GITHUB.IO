@@ -228,6 +228,25 @@ sql {
     color: black;
 }
 
+.centerDivImages {
+    max-width: 815px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 937px) {
+    .centerDivImages {
+        max-width: 415px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .centerDivImages {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
 .center {
     margin: auto;
     max-width: 700px;

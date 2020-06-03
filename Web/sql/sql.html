@@ -26,7 +26,7 @@
     <a href="../../Job%20Search/applying.html">Job Search</a>
 </div>
 <div id="closeSideNav">
-<h1 style="text-align:center;">Unity Workspace</h1>
+<h1 style="text-align:center;">SQL</h1>
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">SQL</button>
 <div class="content">
@@ -914,6 +914,495 @@
             <sql>SELECT</sql> * <sql>FROM</sql> Orders<br>
             <sql>WHERE</sql> OrderDate <sql>BETWEEN</sql> '1996-07-01' <sql>AND</sql> '1996-07-31';
         </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Aliases</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Aliases</h2>
+        <p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+        <p>Aliases are often used to make column names more readable.</p>
+        <p>An alias only exists for the duration of the query.</p>
+        <h3>Alias Column Syntax</h3>
+        <div class="code" id="Alias-Syntax"><button class="copy" onclick="copyText('Alias-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name <sql>AS</sql> alias_name<br>
+            <sql>FROM</sql> table_name;
+        </p></div>
+        <h3>Alias Table Syntax</h3>
+        <div class="code" id="Alias-Syntax2"><button class="copy" onclick="copyText('Alias-Syntax2')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name AS alias_name;
+        </p></div>
+        <h3>Alias for Columns Examples</h3>
+        <p>The following SQL statement creates two aliases, one for the CustomerID column and one for the CustomerName column:</p>
+        <div class="code" id="Alias-Example"><button class="copy" onclick="copyText('Alias-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerID <sql>AS</sql> ID, CustomerName <sql>AS</sql> Customer<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <p>The following SQL statement creates two aliases, one for the CustomerName column and one for the ContactName column. <b>Note</b>: It requires double quotation marks or square brackets if the alias name contains spaces:</p>
+        <div class="code" id="Alias-Example2"><button class="copy" onclick="copyText('Alias-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName <sql>AS</sql> Customer, ContactName <sql>AS</sql> [Contact Person]<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <p>The following SQL statement creates an alias named "Address" that combine four columns (Address, PostalCode, City and Country):</p>
+        <div class="code" id="Alias-Example3"><button class="copy" onclick="copyText('Alias-Example3')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country <sql>AS</sql> Address<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <p><b>Note</b>: To get the SQL statement above to work in MySQL use the following:</p>
+        <div class="code" id="Alias-Example4"><button class="copy" onclick="copyText('Alias-Example4')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) <sql>AS</sql> Address<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <h3>Alias for Tables Example</h3>
+        <p>The following SQL statement selects all the orders from the customer with CustomerID=4 (Around the Horn). We use the "Customers" and "Orders" tables, and give them the table aliases of "c" and "o" respectively (Here we use aliases to make the SQL shorter):</p>
+        <div class="code" id="Alias-Example5"><button class="copy" onclick="copyText('Alias-Example5')">Copy</button><br><p>
+            <sql>SELECT</sql> o.OrderID, o.OrderDate, c.CustomerName<br>
+            <sql>FROM</sql> Customers <sql>AS</sql> c, Orders <sql>AS</sql> o<br>
+            <sql>WHERE</sql> c.CustomerName='Around the Horn' <sql>AND</sql> c.CustomerID=o.CustomerID;
+        </p></div>
+        <p>The following SQL statement is the same as above, but without aliases:</p>
+        <div class="code" id="Alias-Example6"><button class="copy" onclick="copyText('Alias-Example6')">Copy</button><br><p>
+            <sql>SELECT</sql> Orders.OrderID, Orders.OrderDate, Customers.CustomerName<br>
+            <sql>FROM</sql> Customers, Orders<br>
+            <sql>WHERE</sql> Customers.CustomerName='Around the Horn' <sql>AND</sql>Customers.CustomerID=Orders.CustomerID;
+        </p></div>
+        <p>Aliases can be useful when:</p>
+        <ul>
+            <li>There are more than one table involved in a query</li>
+            <li>Functions are used in the query</li>
+            <li>Column names are big or not very readable</li>
+            <li>Two or more columns are combined together</li>
+        </ul>
+    </div>
+    &nbsp;
+    <button class="collapsible">Joins</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <button class="collapsible">Joins Intro</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Joins</h2>
+        <p>A <b>JOIN</b> clause is used to combine rows from two or more tables, based on a related column between them.</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>OrderID</th>
+                <th>CustomerID</th>
+                <th>OrderDate</th>
+            </tr>
+            <tr>
+                <td>10308</td>
+                <td>2</td>
+                <td>1996-09-18</td>
+            </tr>
+            <tr>
+                <td>10309</td>
+                <td>37</td>
+                <td>1996-09-19</td>
+            </tr>
+            <tr>
+                <td>10310</td>
+                <td>77</td>
+                <td>1996-09-20</td>
+            </tr>
+        </table></div>
+        &nbsp;
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>ContactName</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ana Trujillo Emparedados y helados</td>
+                <td>Ana Trujillo</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Antonio Moreno Taquería</td>
+                <td>Antonio Moreno</td>
+                <td>Mexico</td>
+            </tr>
+        </table></div>
+        <p>Notice that the "CustomerID" column in the "Orders" table refers to the "CustomerID" in the "Customers" table. The relationship between the two tables above is the "CustomerID" column.</p>
+        <p>Then, we can create the following SQL statement (that contains an <b>INNER JOIN</b>), that selects records that have matching values in both tables:</p>
+        <div class="code" id="Inner-Join-Example1"><button class="copy" onclick="copyText('Inner-Join-Example1')">Copy</button><br><p>
+            <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName, Orders.OrderDate<br>
+            <sql>FROM</sql> Orders<br>
+            <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID=Customers.CustomerID;
+        </p></div>
+        <p>Our query will produce something like this:</p>
+        <div class="scrollableTable"><table>
+            <tr>
+                <th>OrderID</th>
+                <th>CustomerID</th>
+                <th>OrderDate</th>
+            </tr>
+            <tr>
+                <td>10308</td>
+                <td>Ana Trujillo Emparedados y helados</td>
+                <td>09/18/1996</td>
+            </tr>
+            <tr>
+                <td>10365</td>
+                <td>Antonio Moreno Taquería</td>
+                <td>11/27/1996</td>
+            </tr>
+            <tr>
+                <td>10383</td>
+                <td>Around the Horn</td>
+                <td>12/16/1996</td>
+            </tr>
+            <tr>
+                <td>10355</td>
+                <td>Around the Horn</td>
+                <td>11/15/1996</td>
+            </tr>
+            <tr>
+                <td>10278</td>
+                <td>Berglunds snabbköp</td>
+                <td>8/12/1996</td>
+            </tr>
+        </table></div>
+        <h3>Different Types of SQL JOINs</h3>
+        <p>Here are the different types of the JOINs in SQL:</p>
+        <ul>
+            <li><b>(INNER) JOIN</b>: Returns records that have matching values in both tables</li>
+            <li><b>LEFT (OUTER) JOIN</b>: Returns all records from the left table, and the matched records from the right table</li>
+            <li><b>RIGHT (OUTER) JOIN</b>: Returns all records from the right table, and the matched records from the left table</li>
+            <li><b>FULL (OUTER) JOIN</b>: Returns all records when there is a match in either left or right table</li>
+        </ul>
+        <div class="centerDivImages">
+            <img src="../../images/Web/SQL/img_innerjoin.gif" alt="SQL Inner JOIN" style="height: 145px; width: 200px;">
+            <img src="../../images/Web/SQL/img_leftjoin.gif" alt="SQL Left JOIN" style="height: 145px; width: 200px;">
+            <img src="../../images/Web/SQL/img_rightjoin.gif" alt="SQL Right JOIN" style="height: 145px; width: 200px;">
+            <img src="../../images/Web/SQL/img_fulljoin.gif" alt="SQL Full JOIN" style="height: 145px; width: 200px;">
+        </div>
+        </div>
+        &nbsp;
+        <button class="collapsible">INNER JOIN</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL INNER JOIN Keyword</h2>
+            <p>The INNER JOIN keyword selects records that have matching values in both tables.</p>
+            <div class="code" id="Inner-Join-Syntax"><button class="copy" onclick="copyText('Inner-Join-Syntax')">Copy</button><br><p>
+                <sql>SELECT</sql> column_name(s)<br>
+                <sql>FROM</sql> table1<br>
+                <sql>INNER JOIN</sql> table2<br>
+                <sql>ON</sql> table1.column_name = table2,column_name;
+            </p></div>
+            <div style="margin: 0 auto; width: 200px;">
+                <img src="../../images/Web/SQL/img_innerjoin.gif" alt="SQL Inner JOIN" style="height: 145px; width: 200px;">
+            </div>
+            &nbsp;
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>OrderID</th>
+                    <th>CustomerID</th>
+                    <th>EmployeeID</th>
+                    <th>OrderDate</th>
+                    <th>ShipperID</th>
+                </tr>
+                <tr>
+                    <td>10308</td>
+                    <td>2</td>
+                    <td>7</td>
+                    <td>1996-09-18</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>10309</td>
+                    <td>37</td>
+                    <td>3</td>
+                    <td>1996-09-19</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>10310</td>
+                    <td>77</td>
+                    <td>8</td>
+                    <td>1996-09-20</td>
+                    <td>2</td>
+                </tr>
+            </table></div>
+            &nbsp;
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>CustomerName</th>
+                    <th>ContactName</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>PostalCode</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Obere Str. 57</td>
+                    <td>Berlin</td>
+                    <td>12209</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ana Trujillo Emparedados y helados</td>
+                    <td>Ana Trujillo</td>
+                    <td>Avda. de la Constitución 2222</td>
+                    <td>México D.F.</td>
+                    <td>05021</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Antonio Moreno Taquería</td>
+                    <td>Antonio Moreno</td>
+                    <td>Mataderos 2312</td>
+                    <td>México D.F.</td>
+                    <td>05023</td>
+                    <td>Mexico</td>
+                </tr>
+            </table></div>
+            <h3>SQL INNER JOIN Example</h3>
+            <p>The following SQL statement selects all orders with customer information:</p>
+            <div class="code" id="Inner-Join-Example2"><button class="copy" onclick="copyText('Inner-Join-Example2')">Copy</button><br><p>
+                <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName<br>
+                <sql>FROM</sql> Orders<br>
+                <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID = Customers.CustomerID;
+            </p></div>
+            <p><b>Note</b>: The <b>INNER JOIN</b> keyword selects all rows from both tables as long as there is a match between the columns. If there are records in the "Orders" table that do not have matches in "Customers", these orders will not be shown!</p>
+            <h3>JOIN Three Tables</h3>
+            <p>The following SQL statement selects all orders with customer and shipper information:</p>
+            <div class="code" id="Inner-Join-Example3"><button class="copy" onclick="copyText('Inner-Join-Example3')">Copy</button><br><p>
+                <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName, Shippers.ShipperName<br>
+                <sql>FROM</sql> ((Orders<br>
+                <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID = Customers.CustomerID)<br>
+                <sql>INNER JOIN</sql> Shippers <sql>ON</sql> Orders.ShipperID = Shippers.ShipperID);
+            </p></div>
+        </div>
+        &nbsp;
+        <button class="collapsible">LEFT JOIN</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL LEFT JOIN Keyword</h2>
+            <p>The <b>LEFT JOIN</b> keyword returns all records from the left table (table1), and the matched records from the right table (table2). The result is <b>NULL</b> from the right side, if there is no match.</p>
+            <p><b>Note</b>: In some databases <b>LEFT JOIN</b> is called <b>LEFT OUTER JOIN</b>.</p>
+            <h3>LEFT JOIN Syntax</h3>
+            <div class="code" id="Left-Join-Syntax"><button class="copy" onclick="copyText('Left-Join-Syntax')">Copy</button><br><p>
+                <sql>SELECT</sql> column_name(s)<br>
+                <sql>FROM</sql> table1<br>
+                <sql>LEFT JOIN</sql> table2<br>
+                <sql>ON</sql> table1.column_name = table2.column_name;
+            </p></div>
+            <div style="margin: 0 auto; width: 200px;">
+                <img src="../../images/Web/SQL/img_leftjoin.gif" alt="SQL LEFT JOIN" style="height: 145px; width: 200px;">
+            </div>
+            <h3>LEFT JOIN Example</h3>
+            <div class="code" id="Left-Join-Example"><button class="copy" onclick="copyText('Left-Join-Example')">Copy</button><br><p>
+                <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>LEFT JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID = Orders.CustomerID<br>
+                <sql>ORDER BY</sql> Customers.CustomerName;
+            </p></div>
+            <p><b>Note</b>: The <b>LEFT JOIN</b> keyword returns all records from the left table (Customers), even if there are no matches in the right table (Orders).</p>
+        </div>
+        &nbsp;
+        <button class="collapsible">RIGHT JOIN</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL RIGHT JOIN Keyword</h2>
+            <p>The <b>RIGHT JOIN</b> keyword returns all records from the right table (table2), and the matched records from the left table (table1). The result is <b>NULL</b> from the left side, when there is no match.</p>
+            <p><b>Note</b>: In some databases RIGHT JOIN is called RIGHT OUTER JOIN.</p>
+            <h3>RIGHT JOIN Syntax</h3>
+            <div class="code" id="Right-Join-Syntax"><button class="copy" onclick="copyText('Right-Join-Syntax')">Copy</button><br><p>
+                <sql>SELECT</sql> column_name(s)<br>
+                <sql>FROM</sql> table1<br>
+                <sql>RIGHT JOIN</sql> table2<br>
+                <sql>ON</sql> table1.column_name = table2.column_name;
+            </p></div>
+            <div style="margin: 0 auto; width: 200px;">
+                <img src="../../images/Web/SQL/img_rightjoin.gif" alt="SQL RIGHT JOIN" style="height: 145px; width: 200px;">
+            </div>
+            <h3>SQL RIGHT JOIN Example</h3>
+            <p>The following SQL statement will return all employees, and any orders they might have placed:</p>
+            <div class="code" id="Right-Join-Example"><button class="copy" onclick="copyText('Right-Join-Example')">Copy</button><br><p>
+                <sql>SELECT</sql> Orders.OrderID, Employees.LastName, Employees.FirstName<br>
+                <sql>FROM</sql> Orders<br>
+                <sql>RIGHT JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID<br>
+                <sql>ORDER BY</sql> Orders.OrderID;
+            </p></div>
+            <p><b>Note</b>: The <b>RIGHT JOIN</b> keyword returns all records from the right table (Employees), even if there are no matches in the left table (Orders).</p>
+        </div>
+        &nbsp;
+        <button class="collapsible">FULL OUTER JOIN</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL FULL OUTER JOIN Keyword</h2>
+            <p>The <b>FULL OUTER JOIN</b> keyword returns all records when there is a match in left (table1) or right (table2) table records.</p>
+            <p><b>Note</b>: <b>FULL OUTER JOIN</b> can potentially return very large result-sets!</p>
+            <p><b>Tip</b>: <b>FULL OUTER JOIN</b> and <b>FULL JOIN</b> are the same.</p>
+            <div class="code" id="Full-Outer-Join-Syntax"><button class="copy" onclick="copyText('Full-Outer-Join-Syntax')">Copy</button><br><p>
+                <sql>SELECT</sql> column_name(s)<br>
+                <sql>FROM</sql> table1<br>
+                <sql>FULL OUTER JOIN</sql> table2<br>
+                <sql>ON</sql> table1.column_name = table2.column_name<br>
+                <sql>WHERE</sql> condition;
+            </p></div>
+            <div style="margin: 0 auto; width: 200px;">
+                <img src="../../images/Web/SQL/img_fulljoin.gif" alt="SQL RIGHT JOIN" style="height: 145px; width: 200px;">
+            </div>
+            &nbsp;
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>CustomerName</th>
+                    <th>ContactName</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>PostalCode</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Obere Str. 57</td>
+                    <td>Berlin</td>
+                    <td>12209</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ana Trujillo Emparedados y helados</td>
+                    <td>Ana Trujillo</td>
+                    <td>Avda. de la Constitución 2222</td>
+                    <td>México D.F.</td>
+                    <td>05021</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Antonio Moreno Taquería</td>
+                    <td>Antonio Moreno</td>
+                    <td>Mataderos 2312</td>
+                    <td>México D.F.</td>
+                    <td>05023</td>
+                    <td>Mexico</td>
+                </tr>
+            </table></div>
+            &nbsp;
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>OrderID</th>
+                    <th>CustomerID</th>
+                    <th>EmployeeID</th>
+                    <th>OrderDate</th>
+                    <th>ShipperID</th>
+                </tr>
+                <tr>
+                    <td>10308</td>
+                    <td>2</td>
+                    <td>7</td>
+                    <td>1996-09-18</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>10309</td>
+                    <td>37</td>
+                    <td>3</td>
+                    <td>1996-09-19</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>10310</td>
+                    <td>77</td>
+                    <td>8</td>
+                    <td>1996-09-20</td>
+                    <td>2</td>
+                </tr>
+            </table></div>
+            <h3>SQL FULL OUTER JOIN Example</h3>
+            <p>The following SQL statement selects all customers, and all orders:</p>
+            <div class="code" id="Full-Outer-Join-Example"><button class="copy" onclick="copyText('Full-Outer-Join-Example')">Copy</button><br><p>
+                <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>FULL OUTER JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID=Orders.CustomerID<br>
+                <sql>ORDER</sql> BY Customers.CustomerName;
+            </p></div>
+            <p>A selection from the result set may look like this:</p>
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>CustomerName</th>
+                    <th>OrderID</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>NULL</td>
+                </tr>
+                <tr>
+                    <td>Ana Trujillo Emparedados y helados</td>
+                    <td>10308</td>
+                </tr>
+                <tr>
+                    <td>Antonio Moreno Taquería</td>
+                    <td>10365</td>
+                </tr>
+            </table></div>
+            <p><b>Note</b>: The <b>FULL OUTER JOIN</b> keyword returns all matching records from both tables whether the other table matches or not. So, if there are rows in "Customers" that do not have matches in "Orders", or if there are rows in "Orders" that do not have matches in "Customers", those rows will be listed as well.</p>
+        </div>
+        &nbsp;
+        <button class="collapsible">Self JOIN</button>
+        <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+            <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Self JOIN Keyword</h2>
+            <p>A <b>self JOIN</b> is a regular join, but the table is joined with itself.</p>
+            <div class="code" id="Self-Join-Syntax"><button class="copy" onclick="copyText('Self-Join-Syntax')">Copy</button><br><p>
+                <sql>SELECT</sql> column_name(s)<br>
+                <sql>FROM</sql> table1 T1, table1 T2<br>
+                <sql>WHERE</sql> condition;
+            </p></div>
+            <p>T1 and T2 are different table aliases for the same table.</p>
+            <div class="scrollableTable"><table>
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>ContactName</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>PostalCode</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Obere Str. 57</td>
+                <td>Berlin</td>
+                <td>12209</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ana Trujillo Emparedados y helados</td>
+                <td>Ana Trujillo</td>
+                <td>Avda. de la Constitución 2222</td>
+                <td>México D.F.</td>
+                <td>05021</td>
+                <td>Mexico</td>
+            </tr>
+            </table></div>
+            <h3>SQL Self JOIN Example</h3>
+            <p>The following SQL statement matches customers that are from the same city:</p>
+            <div class="code" id="Self-Join-Example"><button class="copy" onclick="copyText('Self-Join-Example')">Copy</button><br><p>
+                <sql>SELECT</sql> A.CustomerName <sql>AS</sql> CustomerName1, B.CustomerName <sql>AS</sql> CustomerName2, A.City<br>
+                <sql>FROM</sql> Customers A, Customers B<br>
+                <sql>WHERE</sql> A.CustomerID &lt;&gt; B.CustomerID<br>
+                <sql>AND</sql> A.City = B.City<br>
+                <sql>ORDER BY</sql> A.City;
+            </p></div>
+        </div>
     </div>
 </div>
 </div>
