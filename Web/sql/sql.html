@@ -1404,6 +1404,164 @@
             </p></div>
         </div>
     </div>
+    &nbsp;
+    <button class="collapsible">UNION</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL UNION Operator</h2>
+        <p>The UNION operator is used to combine the result-set of two or more SELECT statements.</p>
+        <ul>
+            <li>Each <b>SELECT</b> statement within <b>UNION</b> must have the same number of columns</li>
+            <li>The columns must also have similar data types</li>
+            <li>The columns in each <b>SELECT</b> statement must also be in the same order</li>
+        </ul>
+        <h3>UNION Syntax</h3>
+        <div class="code" id="Union-Syntax"><button class="copy" onclick="copyText('Union-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table1<br>
+            <sql>UNION</sql><br>
+            <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table2;
+        </p></div>
+        <h3>UNION ALL Syntax</h3>
+        <p>The <b>UNION</b> operator selects only distinct values by default. To allow duplicate values, use <b>UNION ALL</b>:</p>
+        <div class="code" id="Union-All-Syntax"><button class="copy" onclick="copyText('Union-All-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table1<br>
+            <sql>UNION ALL</sql><br>
+            <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table2;
+        </p></div>
+        <p><b>Note</b>: The column names in the result-set are usually equal to the column names in the first <b>SELECT</b> statement in the <b>UNION</b>.</p>
+        <h3>SQL UNION Example</h3>
+        <p>The following SQL statement returns the cities (only distinct values) from both the "Customers" and the "Suppliers" table:</p>
+        <div class="code" id="Union-Example"><button class="copy" onclick="copyText('Union-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> City <sql>FROM</sql> Customers<br>
+            <sql>UNION</sql><br>
+            <sql>SELECT</sql> City <sql>FROM</sql> Suppliers<br>
+            <sql>ORDER BY</sql> City;
+        </p></div>
+        <p><b>Note</b>: If some customers or suppliers have the same city, each city will only be listed once, because <b>UNION</b> selects only distinct values. Use <b>UNION ALL</b> to also select duplicate values!</p>
+        <h3>SQL UNION ALL Example</h3>
+        <p>The following SQL statement returns the cities (duplicate values also) from both the "Customers" and the "Suppliers" table:</p>
+        <div class="code" id="Union-All-Example"><button class="copy" onclick="copyText('Union-All-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> City <sql>FROM</sql> Customers<br>
+            <sql>UNION ALL</sql><br>
+            <sql>SELECT</sql> City <sql>FROM</sql> Suppliers<br>
+            <sql>ORDER BY</sql> City;
+        </p></div>
+        <h3>SQL UNION With WHERE</h3>
+        <p>The following SQL statement returns the German cities (only distinct values) from both the "Customers" and the "Suppliers" table:</p>
+        <div class="code" id="Union-With-Where-Example"><button class="copy" onclick="copyText('Union-With-Where-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> City, Country <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany'<br>
+            <sql>UNION</sql><br>
+            <sql>SELECT</sql> City, Country <sql>FROM</sql> Suppliers<br>
+            <sql>WHERE</sql> Country = 'Germany'<br>
+            <sql>ORDER BY</sql> City;
+        </p></div>
+        <h3>SQL UNION ALL With WHERE</h3>
+        <p>The following SQL statement returns the German cities (duplicate values also) from both the "Customers" and the "Suppliers" table:</p>
+        <div class="code" id="Union-All-With-Where-Example"><button class="copy" onclick="copyText('Union-All-With-Where-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> City, Country <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany'<br>
+            <sql>UNION ALL</sql><br>
+            <sql>SELECT</sql> City, Country <sql>FROM</sql> Suppliers<br>
+            <sql>WHERE</sql> Country = 'Germany'<br>
+            <sql>ORDER BY</sql> City;
+        </p></div>
+        <h3>Another UNION Example</h3>
+        <p>The following SQL statement lists all customers and suppliers:</p>
+        <div class="code" id="Another-Union-Example"><button class="copy" onclick="copyText('Another-Union-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> 'Customer' <sql>AS</sql> Type, ContactName, City, Country<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>UNION</sql><br>
+            <sql>SELECT</sql> 'Supplier', ContactName, City, Country<br>
+            <sql>FROM</sql> Suppliers;
+        </p></div>
+        <p><b>Notice</b>: the "<b>AS Type</b>" above is an alias. SQL Aliases are used to give a table or a column a temporary name. An alias only exists for the duration of the query. So, here we have created a temporary column named "Type", that list whether the contact person is a "Customer" or a "Supplier".</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">GROUP BY</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL GROUP BY Statement</h2>
+        <p>The <b>GROUP BY</b> statement groups rows that have the same values into summary rows, like "find the number of customers in each country".</p>
+        <p>The <b>GROUP BY</b> statement is often used with aggregate functions (<b>COUNT</b>, <b>MAX</b>, <b>MIN</b>, <b>SUM</b>, <b>AVG</b>) to group the result-set by one or more columns.</p>
+        <h3>GROUP BY Syntax</h3>
+        <div class="code" id="Group-By-Syntax"><button class="copy" onclick="copyText('Group-By-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition<br>
+            <sql>GROUP BY</sql> column_name(s)<br>
+            <sql>ORDER BY</sql> column_name(s);
+        </p></div>
+        <h3>SQL GROUP BY Examples</h3>
+        <p>The following SQL statement lists the number of customers in each country:</p>
+        <div class="code" id="Group-By-Example"><button class="copy" onclick="copyText('Group-By-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> <sql>COUNT</sql>(CustomerID), Country<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>GROUP BY</sql> Country;
+        </p></div>
+        <p>The following SQL statement lists the number of customers in each country, sorted high to low:</p>
+        <div class="code" id="Group-By-Example"><button class="copy" onclick="copyText('Group-By-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> <sql>COUNT</sql>(CustomerID), Country<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>GROUP BY</sql> Country<br>
+            <sql>ORDER BY</sql> COUNT(CustomerID) <sql>DESC</sql>;
+        </p></div>
+        <h3>GROUP BY With JOIN Example</h3>
+        <p>The following SQL statement lists the number of orders sent by each shipper:</p>
+        <div class="code" id="Group-By-Example"><button class="copy" onclick="copyText('Group-By-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> Shippers.ShipperName, COUNT(Orders.OrderID) <sql>AS</sql> NumberOfOrders
+            <sql>FROM</sql> Orders
+            <sql>LEFT JOIN</sql> Shippers <sql>ON</sql> Orders.ShipperID = Shippers.ShipperID
+            <sql>GROUP BY</sql> ShipperName;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">HAVING</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL HAVING Clause</h2>
+        <p>The <b>HAVING</b> clause was added to SQL because the <b>WHERE</b> keyword could not be used with aggregate functions.</p>
+        <h3>HAVING Syntax</h3>
+        <div class="code" id="HAVING-Syntax"><button class="copy" onclick="copyText('HAVING-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> condition<br>
+            <sql>GROUP BY</sql> column_name(s)<br>
+            <sql>HAVING</sql> condition<br>
+            <sql>ORDER BY</sql> column_name(s);
+        </p></div>
+        <h3>HAVING Examples</h3>
+        <p>The following SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:</p>
+        <div class="code" id="HAVING-Example"><button class="copy" onclick="copyText('HAVING-Example')">Copy</button><br><p>
+            <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>GROUP BY</sql> Country<br>
+            <sql>HAVING COUNT</sql>(CustomerID) > 5;
+        </p></div>
+        <p>The following SQL statement lists the number of customers in each country, sorted high to low (Only include countries with more than 5 customers):</p>
+        <div class="code" id="HAVING-Example2"><button class="copy" onclick="copyText('HAVING-Example2')">Copy</button><br><p>
+            <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>GROUP BY</sql> Country<br>
+            <sql>HAVING COUNT</sql>(CustomerID) > 5<br>
+            <sql>ORDER BY COUNT</sql>(CustomerID) <sql>DESC</sql>;
+        </p></div>
+        <h3>More HAVING Examples</h3>
+        <p>The following SQL statement lists the employees that have registered more than 10 orders:</p>
+        <div class="code" id="HAVING-Example3"><button class="copy" onclick="copyText('HAVING-Example3')">Copy</button><br><p>
+            <sql>SELECT</sql> Employees.LastName, <sql>COUNT</sql>(Orders.OrderID) <sql>AS</sql> NumberOfOrders<br>
+            <sql>FROM</sql> (Orders<br>
+            <sql>INNER JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID)<br>
+            <sql>GROUP BY</sql> LastName<br>
+            <sql>HAVING COUNT</sql>(Orders.OrderID) > 10;
+        </p></div>
+        <p>The following SQL statement lists if the employees "Davolio" or "Fuller" have registered more than 25 orders:</p>
+        <div class="code" id="HAVING-Example4"><button class="copy" onclick="copyText('HAVING-Example4')">Copy</button><br><p>
+            <sql>SELECT</sql> Employees.LastName, <sql>COUNT</sql>(Orders.OrderID) <sql>AS</sql> NumberOfOrders<br>
+            <sql>FROM</sql> Orders<br>
+            <sql>INNER JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID<br>
+            <sql>WHERE</sql> LastName = 'Davolio' <sql>OR</sql> LastName = 'Fuller'<br>
+            <sql>GROUP BY</sql> LastName<br>
+            <sql>HAVING COUNT</sql>(Orders.OrderID) > 25;
+        </p></div>
+    </div>
 </div>
 </div>
 </div>
