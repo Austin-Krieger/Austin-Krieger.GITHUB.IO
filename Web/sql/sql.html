@@ -1562,6 +1562,131 @@
             <sql>HAVING COUNT</sql>(Orders.OrderID) > 25;
         </p></div>
     </div>
+    &nbsp;
+    <button class="collapsible">EXISTS</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL EXISTS Operator</h2>
+        <p>The <b>EXISTS</b> operator is used to test for the existence of any record in a subquery.</p>
+        <p>The <b>EXISTS</b> operator returns true if the subquery returns one or more records.</p>
+        <h3>EXISTS Syntax</h3>
+        <div class="code" id="Exists-Syntax"><button class="copy" onclick="copyText('Exists-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE EXISTS</sql><br>
+            (<sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> condition);
+        </p></div>
+        <h3>EXISTS Examples</h3>
+        <p>The following SQL statement returns <b>TRUE</b> and lists the suppliers with a product price less than 20:</p>
+        <div class="code" id="Exists-Example"><button class="copy" onclick="copyText('Exists-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> SupplierName<br>
+            <sql>FROM</sql> Suppliers<br>
+            <sql>WHERE EXISTS</sql><br> (<sql>SELECT</sql> ProductName <sql>FROM</sql> Products<br><sql>WHERE</sql> Products.SupplierID = Suppliers.supplierID <sql>AND</sql> Price &lt; 20);
+        </p></div>
+        <p>The following SQL statement returns <b>TRUE</b> and lists the suppliers with a product price equal to 22:</p>
+        <div class="code" id="Exists-Example2"><button class="copy" onclick="copyText('Exists-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> SupplierName<br>
+            <sql>FROM</sql> Suppliers<br>
+            <sql>WHERE EXISTS</sql><br>(<sql>SELECT</sql> ProductName <sql>FROM</sql> Products<br><sql>WHERE</sql> Products.SupplierID = Suppliers.supplierID <sql>AND</sql> Price = 20);
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">ANY, ALL</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL ANY and ALL Operators</h2>
+        <h3>ANY Syntax</h3>
+        <div class="code" id="Any-Syntax"><button class="copy" onclick="copyText('Any-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_name operator <sql>ANY</sql><br>
+            (<sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> condition);
+        </p></div>
+        <h3>ALL Syntax</h3>
+        <div class="code" id="All-Syntax"><button class="copy" onclick="copyText('All-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> column_name(s)<br>
+            <sql>FROM</sql> table_name<br>
+            <sql>WHERE</sql> column_name operator <sql>ALL</sql><br>
+            (<sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> condition);
+        </p></div>
+        <p><b>Note</b>: The operator must be a standard comparison operator (<b>=</b>, <b>&lt;&gt;</b>, <b>!=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;</b>, or <b>&lt;=</b>).</p>
+        <h3>SQL ANY Examples</h3>
+        <p>The <b>ANY</b> operator returns <b>TRUE</b> if any of the subquery values meet the condition.</p>
+        <p>The following SQL statement returns <b>TRUE</b> and lists the product names if it finds <b>ANY</b> records in the OrderDetails table that quantity = 10:</p>
+        <div class="code" id="Any-Example"><button class="copy" onclick="copyText('Any-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> ProductName<br>
+            <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> ProductID = <sql>ANY</sql><br>(<sql>SELECT</sql> ProductID <sql>FROM</sql> OrderDetails <sql>WHERE</sql> Quantity = 10);
+        </p></div>
+        <p>The following SQL statement returns <b>TRUE</b> and lists the product names if it finds <b>ANY</b> records in the OrderDetails table that quantity > 99:</p>
+        <div class="code" id="Any-Example2"><button class="copy" onclick="copyText('Any-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> ProductName<br>
+            <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> ProductID = <sql>ANY</sql><br>(<sql>SELECT</sql> ProductID <sql>FROM</sql> OrderDetails <sql>WHERE</sql> Quantity > 99);
+        </p></div>
+        <h3>ALL Example</h3>
+        <p>The <b>ALL</b> operator returns <b>TRUE</b> if all of the subquery values meet the condition.</p>
+        <p>The following SQL statement returns <b>TRUE</b> and lists the product names if <b>ALL</b> the records in the OrderDetails table has quantity = 10 (so, this example will return <b>FALSE</b>, because not <b>ALL</b> records in the OrderDetails table has quantity = 10):</p>
+        <div class="code" id="All-Example"><button class="copy" onclick="copyText('All-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> ProductName<br>
+            <sql>FROM</sql> Products<br>
+            <sql>WHERE</sql> ProductID = <sql>ALL</sql><br>(<sql>SELECT</sql> ProductID <sql>FROM</sql> OrderDetails <sql>WHERE</sql> Quantity = 10);
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">SELECT INTO</button>
+    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL SELECT INTO Statement</h2>
+        <p>The <b>SELECT INTO</b> statement copies data from one table into a new table.</p>
+        <h3>SELECT INTO Syntax</h3>
+        <div class="code" id="Select-Into-Syntax"><button class="copy" onclick="copyText('Select-Into-Syntax')">Copy</button><br><p>
+            <sql>SELECT</sql> *<br>
+            <sql>INTO</sql> newtable [<sql>IN</sql> externaldb]<br>
+            <sql>FROM</sql> oldtable<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <p>Copy only some columns into a new table:</p>
+        <div class="code" id="Select-Into-Syntax1"><button class="copy" onclick="copyText('Select-Into-Syntax1')">Copy</button><br><p>
+            <sql>SELECT</sql> column1, column2, column3, ...<br>
+            <sql>INTO</sql> newtable [<sql>IN</sql> externaldb]<br>
+            <sql>FROM</sql> oldtable<br>
+            <sql>WHERE</sql> condition;
+        </p></div>
+        <p>The new table will be created with the column-names and types as defined in the old table. You can create new column names using the <b>AS</b> clause.</p>
+        <h3>SELECT INTO Examples</h3>
+        <p>The following SQL statement creates a backup copy of Customers:</p>
+        <div class="code" id="Select-Into-Example"><button class="copy" onclick="copyText('Select-Into-Example')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>INTO</sql> CustomersBackup2017<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <p>The following SQL statement uses the <b>IN</b> clause to copy the table into a new table in another database:</p>
+        <div class="code" id="Select-Into-Example1"><button class="copy" onclick="copyText('Select-Into-Example1')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>INTO</sql> CustomersBackup2017 <sql>IN</sql> 'Backup.mdb'<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <p>The following SQL statement copies only a few columns into a new table:</p>
+        <div class="code" id="Select-Into-Example2"><button class="copy" onclick="copyText('Select-Into-Example2')">Copy</button><br><p>
+            <sql>SELECT</sql> CustomerName, ContactName <sql>INTO</sql> CustomersBackup2017<br>
+            <sql>FROM</sql> Customers;
+        </p></div>
+        <p>The following SQL statement copies only the German customers into a new table:</p>
+        <div class="code" id="Select-Into-Example3"><button class="copy" onclick="copyText('Select-Into-Example3')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>INTO</sql> CustomersGermany<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>WHERE</sql> Country = 'Germany';
+        </p></div>
+        <p>The following SQL statement copies data from more than one table into a new table:</p>
+        <div class="code" id="Select-Into-Example4"><button class="copy" onclick="copyText('Select-Into-Example4')">Copy</button><br><p>
+            <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+            <sql>INTO</sql> CustomersOrderBackup2017<br>
+            <sql>FROM</sql> Customers<br>
+            <sql>LEFT JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID = Orders.CustomerID;
+        </p></div>
+        <p><b>Tip</b>: <b>SELECT INTO</b> can also be used to create a new, empty table using the schema of another. Just add a <b>WHERE</b> clause that causes the query to return no data:</p>
+        <div class="code" id="Select-Into-Example5"><button class="copy" onclick="copyText('Select-Into-Example5')">Copy</button><br><p>
+            <sql>SELECT</sql> * <sql>INTO</sql> newtable<br>
+            <sql>FROM</sql> oldtable<br>
+            <sql>WHERE</sql> 1 = 0;
+        </p></div>
+    </div>
 </div>
 </div>
 </div>
