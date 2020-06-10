@@ -241,6 +241,10 @@ sql {
 }
 
 @media screen and (max-width: 937px) {
+    .containButtons {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
     .centerDivImages {
         max-width: 415px;
         margin: 0 auto;
@@ -248,6 +252,10 @@ sql {
 }
 
 @media screen and (max-width: 600px) {
+    .containButtons {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
     .centerDivImages {
         max-width: 200px;
         margin: 0 auto;
