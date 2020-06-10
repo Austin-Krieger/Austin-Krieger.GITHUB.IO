@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="syntax.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Intro</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Intro</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Introduction to SQL</h2>
+    <p>SQL is a standard language for storing, manipulating and retrieving data in databases.</p>
+    <h3>What is SQL?</h3>
+    <ul>
+        <li>SQL stands for Structured Query Language</li>
+        <li>SQL lets you access and manipulate databases</li>
+    </ul>
+    <h3>What Can SQL do?</h3>
+    <ul>
+        <li>SQL can execute queries against a database</li>
+        <li>SQL can retrieve data from a database</li>
+        <li>SQL can insert records from a database</li>
+        <li>SQL can update records in a database</li>
+        <li>SQL can delete records from a database</li>
+        <li>SQL can create new databases</li>
+        <li>SQL can create new tables in a database</li>
+        <li>SQL can create stored procedures in a database</li>
+        <li>SQL can create views in a database</li>
+        <li>SQL can set permissions on tables, procedures, and views</li>
+    </ul>
+    <h3>Using SQL in Your Web Site</h3>
+    <p>To build a web site that shows data from a database, you will need:</p>
+    <ul>
+        <li>An RDBMS database program (i.e. MS Access, SQL Server, MySQL)</li>
+        <li>To use a server-side scripting language, like PHP or ASP</li>
+        <li>To use SQL to get the data you want</li>
+        <li>To use HTML / CSS to style the page</li>
+    </ul>
+    <h3>RDBMS</h3>
+    <p>RDBMS stands for Relational Database Management System.</p>
+    <p>RDBMS is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.</p>
+    <p>The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.</p>
+    <p>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, ContactName, Address, City, PostalCode and Country.</p>
+    <p>A <b>field</b> is a column in a table that is designed to maintain specific information about every record in the table.</p>
+    <p>A <b>record</b>, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</p>
+    <p>A <b>column</b> is a vertical entity in a table that contains all information associated with a specific field in a table.</p>
+    <!-- Image
+    <div class="center"><img src="../../images/" alt="Image" onclick="displayModal(this)"></div> -->
+    <!-- Code
+    <div class="code" id="Unique-Name"><button class="copy" onclick="copyText('Unique-Name')">Copy</button><br><p>
+        &emsp;<mark>Comments</mark><br>
+    </p></div> -->
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

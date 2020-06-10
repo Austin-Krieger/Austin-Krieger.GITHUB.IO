@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="delete.html">Previous</a>
+    <a href="minmax.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">SELECT TOP</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">SELECT TOP</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">The SQL SELECT TOP Clause</h2>
+    <p>The <b>SELECT TOP</b> clause is used to specify the number of records to return.</p>
+    <p>The <b>SELECT TOP</b> clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.</p>
+    <p>Not all database systems support the <b>SELECT TOP</b> clause. MySQL supports the <b>LIMIT</b> clause to select a limited number of records, while Oracle uses <b>ROWNUM</b>.</p>
+    <h3>SQL Server / MS Access Syntax:</h3>
+    <div class="code" id="Access-Syntax"><button class="copy" onclick="copyText('Access-Syntax')">Copy</button><br><p>
+        <sql>SELECT TOP</sql> number|percent column_name(s)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>MySQL Syntax:</h3>
+    <div class="code" id="MySQL-Syntax"><button class="copy" onclick="copyText('MySQL-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition<br>
+        <sql>LIMIT</sql> number;
+    </p></div>
+    <h3>Oracle Syntax:</h3>
+    <div class="code" id="Oracle-Syntax"><button class="copy" onclick="copyText('Oracle-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> ROWNUM &lt;= number;
+    </p></div>
+    <h3>SQL TOP, LIMIT and ROWNUM Examples</h3>
+    <p>The following SQL statement selects the first three records from the "Customers" table (for <b>SQL Server/MS Access</b>):</p>
+    <div class="code" id="Access-Example"><button class="copy" onclick="copyText('Access-Example')">Copy</button><br><p>
+        <sql>SELECT TOP</sql> 3 * <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following SQL statement shows the equivalent example using the LIMIT clause (for <b>MySQL</b>):</p>
+    <div class="code" id="MySQL-Example"><button class="copy" onclick="copyText('MySQL-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>LIMIT</sql> 3;
+    </p></div>
+    <p>The following SQL statement shows the equivalent example using <b>ROWNUM</b> (for <b>Oracle</b>):</p>
+    <div class="code" id="Oracle-Example"><button class="copy" onclick="copyText('Oracle-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> ROWNUM &lt;= 3;
+    </p></div>
+    <h3>SQL TOP PERCENT Example</h3>
+    <p>The following SQL statement selects the first 50% of the records from the "Customers" table (for SQL Server/MS Access):</p>
+    <div class="code" id="SELECT-TOP-Example"><button class="copy" onclick="copyText('SELECT-TOP-Example')">Copy</button><br><p>
+        <sql>SELECT TOP</sql> 50 <sql>PERCENT</sql> * <sql>FROM</sql> Customers;
+    </p></div>
+    <h3>Add a WHERE Clause</h3>
+    <p>The following SQL statement selects the first three records from the "Customers" table, where the country is "Germany" (for <b>SQL Server / MS Access</b>):</p>
+    <div class="code" id="SELECT-TOP-Where-Access-Example"><button class="copy" onclick="copyText('SELECT-TOP-Where-Access-Example')">Copy</button><br><p>
+        <sql>SELECT TOP</sql> 3 * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany';
+    </p></div>
+    <p>The following SQL statement shows the equivalent example using the LIMIT clause (for <b>MySQL</b>):</p>
+    <div class="code" id="SELECT-TOP-Where-MySQL-Example"><button class="copy" onclick="copyText('SELECT-TOP-Where-MySQL-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany';<br>
+        <sql>LIMIT</sql> 3;
+    </p></div>
+    <p>The following SQL statement shows the equivalent example using ROWNUM (for <b>Oracle</b>):</p>
+    <div class="code" id="SELECT-TOP-Where-Oracle-Example"><button class="copy" onclick="copyText('SELECT-TOP-Where-Oracle-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> ROWNUM &lt;= 3;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

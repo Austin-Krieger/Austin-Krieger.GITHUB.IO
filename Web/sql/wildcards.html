@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="like.html">Previous</a>
+    <a href="in.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Wildcards</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Wildcards</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Wildcard Characters</h2>
+    <p>A wildcard character is used to substitute one or more characters in a string.</p>
+    <p>Wildcard characters are used with the SQL <b>LIKE</b> operator. The <b>LIKE</b> operator is used in a <b>WHERE</b> clause to search for a specified pattern in a column.</p>
+    <h3>Wildcard Characters in MS Access</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Symbol</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Represents zero or more characters</td>
+            <td>bl* finds bl, black, blue, and blob</td>
+        </tr>
+        <tr>
+            <td>?</td>
+            <td>Represents a single character</td>
+            <td>h?t finds hot, hat, and hit</td>
+        </tr>
+        <tr>
+            <td>[]</td>
+            <td>Represents any single character within the brackets</td>
+            <td>h[oa]t finds hot and hat, but not hit</td>
+        </tr>
+        <tr>
+            <td>!</td>
+            <td>Represents any character not in the brackets</td>
+            <td>h[!oa]t finds hit, but not hot and hat</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Represents a range of characters</td>
+            <td>c[a-b]t finds cat and cbt</td>
+        </tr>
+        <tr>
+            <td>#</td>
+            <td>Represents any single numeric character</td>
+            <td>2#5 finds 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295</td>
+        </tr>
+    </table></div>
+    <h3>Wildcard Characters in SQL Server</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Symbol</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Represents zero or more characters</td>
+            <td>bl* finds bl, black, blue, and blob</td>
+        </tr>
+        <tr>
+            <td>_</td>
+            <td>Represents a single character</td>
+            <td>h_t finds hot, hat, and hit</td>
+        </tr>
+        <tr>
+            <td>[]</td>
+            <td>Represents any single character within the brackets</td>
+            <td>h[oa]t finds hot and hat, but not hit</td>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>Represents any character not in the brackets</td>
+            <td>h[^oa]t finds hit, but not hot and hat</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Represents a range of characters</td>
+            <td>c[a-b]t finds cat and cbt</td>
+        </tr>
+    </table></div>
+    <p>All the wildcards can also be used in combinations! Here are some examples showing different LIKE operators with '%' and '_' wildcards:</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>LIKE Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE 'a%'</td>
+            <td>Finds any values that starts with "a"</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE '%a'</td>
+            <td>Finds any values that ends with "a"</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE '%or%'</td>
+            <td>Finds any values that have "or" in any position</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE '_r%'</td>
+            <td>Finds any values that have "r" in the second position</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE 'a_%_%'</td>
+            <td>Finds any values that starts with "a" and are at least 3 characters in length</td>
+        </tr>
+        <tr>
+            <td>WHERE ContactName LIKE 'a%o'</td>
+            <td>Finds any values that starts with "a" and ends with "o"</td>
+        </tr>
+    </table></div>
+    <h3>Using the % Wildcard</h3>
+    <p>The following SQL statement selects all customers with a City starting with "ber":</p>
+    <div class="code" id="Percent-Wildcard-Example"><button class="copy" onclick="copyText('Percent-Wildcard-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> 'ber%';
+    </p></div>
+    <p>The following SQL statement selects all customers with a City containing the pattern "es":</p>
+    <div class="code" id="Percent-Wildcard-Example2"><button class="copy" onclick="copyText('Percent-Wildcard-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> 'es%';
+    </p></div>
+    <h3>Using the _ Wildcard</h3>
+    <p>The following SQL statement selects all customers with a City starting with any character, followed by "ondon":</p>
+    <div class="code" id="Underscord-Wildcard-Example"><button class="copy" onclick="copyText('Underscord-Wildcard-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> '_ondon';
+    </p></div>
+    <p>The following SQL statement selects all customers with a City starting with "L", followed by any character, followed by "n", followed by any character, followed by "on":</p>
+    <div class="code" id="Underscord-Wildcard-Example2"><button class="copy" onclick="copyText('Underscord-Wildcard-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> 'L_n_on';
+    </p></div>
+    <h3>Using the [charlist] Wildcard</h3>
+    <p>The following SQL statement selects all customers with a City starting with "b", "s", or "p":</p>
+    <div class="code" id="Charlist-Wildcard-Example"><button class="copy" onclick="copyText('Charlist-Wildcard-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> '[bsp]%';
+    </p></div>
+    <p>The following SQL statement selects all customers with a City starting with "a", "b", or "c":</p>
+    <div class="code" id="Charlist-Wildcard-Example2"><button class="copy" onclick="copyText('Charlist-Wildcard-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> '[a-c]%';
+    </p></div>
+    <h3>Using the [!charlist] Wildcard</h3>
+    <p>The two following SQL statements select all customers with a City NOT starting with "b", "s", or "p":</p>
+    <div class="code" id="Not-Charlist-Wildcard-Example"><button class="copy" onclick="copyText('Not-Charlist-Wildcard-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>LIKE</sql> '[!bsp]%';
+    </p></div>
+    <div class="code" id="Not-Charlist-Wildcard-Example2"><button class="copy" onclick="copyText('Not-Charlist-Wildcard-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City <sql>NOT LIKE</sql> '[bsp]%';
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

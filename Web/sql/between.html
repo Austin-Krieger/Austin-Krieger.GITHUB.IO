@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="in.html">Previous</a>
+    <a href="aliases.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">BETWEEN</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">BETWEEN</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL BETWEEN Operator</h2>
+    <p>The <b>BETWEEN</b> operator selects values within a given range. The values can be numbers, text, or dates. The <b>BETWEEN</b> operator is inclusive: begin and end values are included.</p>
+    <h3>BETWEEN Syntax</h3>
+    <div class="code" id="BETWEEN-Syntax"><button class="copy" onclick="copyText('BETWEEN-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> column_name <sql>BETWEEN</sql> value1 <sql>AND</sql> value2;
+    </p></div>
+    <h3>BETWEEN Example</h3>
+    <p>The following SQL statement selects all products with a price <b>BETWEEN</b> 10 and 20:</p>
+    <div class="code" id="BETWEEN-Example"><button class="copy" onclick="copyText('BETWEEN-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+        <sql>WHERE</sql> Price <sql>BETWEEN</sql> 10 <sql>AND</sql> 20;
+    </p></div>
+    <h3>NOT BETWEEN Example</h3>
+    <p>To display the products outside the range of the previous example, use <b>NOT BETWEEN</b>:</p>
+    <div class="code" id="NOT-BETWEEN-Example"><button class="copy" onclick="copyText('NOT-BETWEEN-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+        <sql>WHERE</sql> Price <sql>NOT BETWEEN</sql> 10 <sql>AND</sql> 20;
+    </p></div>
+    <h3>BETWEEN with IN Example</h3>
+    <p>The following SQL statement selects all products with a price <b>BETWEEN</b> 10 and 20. In addition; do not show products with a CategoryID of 1,2, or 3:</p>
+    <div class="code" id="BETWEEN-with-IN-Example"><button class="copy" onclick="copyText('BETWEEN-with-IN-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+        <sql>WHERE</sql> Price <sql>BETWEEN</sql> 10 <sql>AND</sql> 20<br>
+        <sql>AND</sql> CategoryID <sql>NOT IN</sql> (1,2,3);
+    </p></div>
+    <h3>BETWEEN Text Values Example</h3>
+    <p>The following SQL statement selects all products with a ProductName <b>BETWEEN</b> Carnarvon Tigers and Mozzarella di Giovanni:</p>
+    <div class="code" id="BETWEEN-text-values-Example"><button class="copy" onclick="copyText('BETWEEN-text-values-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+        <sql>WHERE</sql> ProductName <sql>BETWEEN</sql> 'Carnarvon Tigers' <sql>AND</sql> 'Mozzarella di Giovanni'<br>
+        <sql>ORDER BY</sql> ProductName;
+    </p></div>
+    <h3>NOT BETWEEN Text Values Example</h3>
+    <p>The following SQL statement selects all products with a ProductName NOT <b>BETWEEN</b> Carnarvon Tigers and Mozzarella di Giovanni:</p>
+    <div class="code" id="NOT-BETWEEN-text-values-Example"><button class="copy" onclick="copyText('NOT-BETWEEN-text-values-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+        <sql>WHERE</sql> ProductName <sql>NOT BETWEEN</sql> 'Carnarvon Tigers' <sql>AND</sql> 'Mozzarella di Giovanni'<br>
+        <sql>ORDER BY</sql> ProductName;
+    </p></div>
+    <h3>BETWEEN Dates Example</h3>
+    <p>The following SQL statement selects all orders with an OrderDate BETWEEN '01-July-1996' and '31-July-1996':</p>
+    <div class="code" id="BETWEEN-Dates-Example"><button class="copy" onclick="copyText('BETWEEN-Dates-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Orders<br>
+        <sql>WHERE</sql> OrderDate <sql>BETWEEN</sql> #01/07/1996# <sql>AND</sql> #31/07/1996#;
+    </p></div>
+    <div class="code" id="BETWEEN-Dates-Example"><button class="copy" onclick="copyText('BETWEEN-Dates-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Orders<br>
+        <sql>WHERE</sql> OrderDate <sql>BETWEEN</sql> '1996-07-01' <sql>AND</sql> '1996-07-31';
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

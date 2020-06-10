@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="createdb.html">Previous</a>
+    <a href="backupdb.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">DROP DATABASE</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">DROP DATABASE</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL DROP DATABASE</h2>
+    <p>The <b>DROP DATABASE</b> statement is used to drop an existing SQL database.</p>
+    <h3>DROP DATABASE Syntax</h3>
+    <div class="code" id="Drop-Database-Syntax"><button class="copy" onclick="copyText('Drop-Database-Syntax')">Copy</button><br><p>
+        <sql>DROP DATABASE</sql> databasename;
+    </p></div>
+    <p><b>Note</b>: Be careful before dropping a database. Deleting a database will result in loss of complete information stored in the database!</p>
+    <h3>DROP DATABASE Example</h3>
+    <p>The following SQL statement drops the existing database "testDB":</p>
+    <div class="code" id="Drop-Database-Example"><button class="copy" onclick="copyText('Drop-Database-Example')">Copy</button><br><p>
+        <sql>DROP DATABASE</sql> testDB;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

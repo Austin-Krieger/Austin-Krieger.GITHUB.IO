@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="selectinto.html">Previous</a>
+    <a href="case.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">INSERT INTO SELECT</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">INSERT INTO SELECT</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL INSERT INTO SELECT Statement</h2>
+    <p>The <b>INSERT INTO SELECT</b> statement copies data from one table and inserts it into another table.</p>
+    <ul>
+        <li><b>INSERT INTO SELECT</b> requires that data types in source and target tables match</li>
+        <li>The existing records in the target table are unaffected</li>
+    </ul>
+    <h3>INSERT INTO SELECT Syntax</h3>
+    <p>Copy all columns from one table to another table:</p>
+    <div class="code" id="Insert-Into-Select-Syntax"><button class="copy" onclick="copyText('Insert-Into-Select-Syntax')">Copy</button><br><p>
+        <sql>INSERT INTO</sql> table2<br>
+        <sql>SELECT</sql> * <sql>FROM</sql> table1<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <p>Copy only some columns from one table into another table:</p>
+    <div class="code" id="Insert-Into-Select-Syntax1"><button class="copy" onclick="copyText('Insert-Into-Select-Syntax1')">Copy</button><br><p>
+        <sql>INSERT INTO</sql> table2 (column1, column2, column3, ...)<br>
+        <sql>SELECT</sql> column1, column2, column3, ...<br>
+        <sql>FROM</sql> table1<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>SQL INSERT INTO SELECT Examples</h3>
+    <p>The following SQL statement copies "Suppliers" into "Customers" (the columns that are not filled with data, will contain NULL):</p>
+    <div class="code" id="Insert-Into-Select-Example"><button class="copy" onclick="copyText('Insert-Into-Select-Example')">Copy</button><br><p>
+        <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+        <sql>SELECT</sql> SupplierName, City, Country <sql>FROM</sql> Suppliers;
+    </p></div>
+    <p>The following SQL statement copies "Suppliers" into "Customers" (fill all columns):</p>
+    <div class="code" id="Insert-Into-Select-Example1"><button class="copy" onclick="copyText('Insert-Into-Select-Example1')">Copy</button><br><p>
+        <sql>INSERT INTO</sql> Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+        <sql>SELECT</sql> SupplierName, ContactName, Address, City, PostalCode, Country <sql>FROM</sql> Suppliers;
+    </p></div>
+    <p>The following SQL statement copies only the German suppliers into "Customers":</p>
+    <div class="code" id="Insert-Into-Select-Example2"><button class="copy" onclick="copyText('Insert-Into-Select-Example2')">Copy</button><br><p>
+        <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+        <sql>SELECT</sql> SupplierName, City, Country FROM Suppliers<br>
+        <sql>WHERE</sql> Country = 'Germany';
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

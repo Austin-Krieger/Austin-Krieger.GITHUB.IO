@@ -49,7 +49,7 @@
                 <li>Now we want to print a list of programs and the ports they are using.</li>
                 <li>Type "<b>netstat -ao</b>" and the list will show up.</li>
                 <li>Each item in this list will have an id associated with it called a "<b>PID</b>". Find "<b>0.0.0.0:3306</b>" and the PID associated with it.</li>
-                <div class="center"><img src="../images/Web/Xampp/Access-Control/Xampp-Port-CP.JPG" alt="Command Prompt Image" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Access-Control/Xampp-Port-CP.JPG" alt="Command Prompt Image" onclick="displayModal(this)"></div>
                 <li>Finally we get to kill the program/task using port 3306 using the PID we found.</li>
                 <li>Type "<b>taskkill /F /PID</b>" and the PID you found. For my example it would look like "<b>taskkill /F /PID 5864</b>".</li>
             </ol>
@@ -73,7 +73,7 @@
                 <li>Click on <b>Service and Port Settings</b>.</li>
                 <li>Another window will appear. Click on the <b>MySQL</b> tab.</li>
                 <li>Change the <b>Main Port</b> to the number you chose; <b>3307</b> in my case.</li>
-                <div class="center"><img src="../images/Web/Xampp/Access-Control/Xampp-Config.JPG" alt="Xampp Config Image" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Access-Control/Xampp-Config.JPG" alt="Xampp Config Image" onclick="displayModal(this)"></div>
             </ol>
         </div>
         &nbsp;
@@ -89,7 +89,7 @@
                 <li>Download the lastest version of xampp from: <a href="https://www.apachefriends.org/index.html">Apachefriends.org</a></li>
                 <li>Go to your downloads folder and double click the  setup/install file to begin the re-install.</li>
                 <li>Make sure to check <b>MySQL</b>, <b>PHP</b>, <b>phpMyAdmin</b> and optionally <b>Mercury Mail Server</b>, and <b>Fake Sendmail</b>.</li>
-                <div class="center"><img src="../images/Web/Xampp/Access-Control/xampp-setup.PNG" alt="Xampp Setup Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Access-Control/xampp-setup.PNG" alt="Xampp Setup Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
                 <li>Hopefully this fixes your issue.</li>
             </ol>
         </div>
@@ -131,12 +131,12 @@
                     hostname=<b>localhost</b>
                 </p></div>
                 <li>If you try to send an email using the mail() function at this point, you will get a warning email from google.</li>
-                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert2.JPG" alt="Less Secure App Blocked Image" onclick="displayModal(this)" style="max-height: 300px;"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Send-Mail/GoogleSecurityAlert2.JPG" alt="Less Secure App Blocked Image" onclick="displayModal(this)" style="max-height: 300px;"></div>
                 <li>Google has a security option for <a href="https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en&visit_id=637223736016933545-3186503334&rd=1">"Less secure app access"</a>. You will need to sign in to your google account and go to the security options.</li>
-                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert3.JPG" alt="Less Secure App Info Image" onclick="displayModal(this)" style="max-height: 500px;"></div>
-                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert4.JPG" alt="Allow Less Secure App Access Image" onclick="displayModal(this)" style="max-height: 200px;"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Send-Mail/GoogleSecurityAlert3.JPG" alt="Less Secure App Info Image" onclick="displayModal(this)" style="max-height: 500px;"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Send-Mail/GoogleSecurityAlert4.JPG" alt="Allow Less Secure App Access Image" onclick="displayModal(this)" style="max-height: 200px;"></div>
                 <li>Here is what it should look like in your security options:</li>
-                <div class="center"><img src="../images/Web/Xampp/Send-Mail/GoogleSecurityAlert5.JPG" alt="Google Security Option  Image" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Send-Mail/GoogleSecurityAlert5.JPG" alt="Google Security Option  Image" onclick="displayModal(this)"></div>
                 <li>You should now be able to send an email using the php mail() function.</li>
                 <li>Here is an example of the actual code for sending an email:</li>
                 <div class="code" id="send_email"><button class="copy" onclick="copyText('send_email')">Copy</button><br><p>
@@ -237,11 +237,11 @@
                     $cfg['Servers'][$i]['controlpass'] = ' ';<br>
                 </p></div>
                 <li>In <b>PHPMyAdmin</b> click on "<b>User accounts</b>". (Password column will all be set to <b>No</b> initially)</li>
-                <div class="center"><img src="../images/Web/Xampp/PHPMyAdmin/UserAccountOverview.PNG" alt="Account Overview Image" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Web/Xampp/PHPMyAdmin/UserAccountOverview.PNG" alt="Account Overview Image" onclick="displayModal(this)"></div>
                 <li>The User account I want to login as when going to <b>PHPMyAdmin</b> is the root user at localhost and once I give it a password our root user will have a "<b>yes</b>" in the password column.</li>
-                <div class="center"><img src="../images/Web/Xampp/PHPMyAdmin/EditPrivileges.PNG" alt="Edit Privileges Image" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Web/Xampp/PHPMyAdmin/EditPrivileges.PNG" alt="Edit Privileges Image" onclick="displayModal(this)"></div>
                 <li>Click on "<b>Change password</b>" tab and enter a new password.</li>
-                <div class="center"><img src="../images/Web/Xampp/PHPMyAdmin/ChangePassword.PNG" alt="Change Password Image" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Web/Xampp/PHPMyAdmin/ChangePassword.PNG" alt="Change Password Image" onclick="displayModal(this)"></div>
                 <li>I have chosen "<b>root</b>" as my password.</li>
                 <li>Click <b>Go</b>.</li>
                 <li>Now update the "<b>config.inc.php</b>" file to change the user and password.</li>
@@ -262,7 +262,7 @@
             <h2>Xampp-Control Access is Denied</h2>
             <ol>
                 <li>If you recently installed Xampp and your getting an error when you open the application about access-control, such as this one:</li>
-                <div class="center"><img src="../images/Web/Xampp/Access-Control/Xampp-Control-Error.JPG" alt="Access Control Error Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
+                <div class="center"><img src="../../images/Web/Xampp/Access-Control/Xampp-Control-Error.JPG" alt="Access Control Error Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
                 <li>Navigate to your xampp folder "<b>C:\xampp</b>" and find <b>xampp-control.ini</b>, there will probably be less than 20 lines in the file.</li>
                 <li>The easiest way to fix this would be to find <b>xampp-control.exe</b>, right-click and run it as an administrator.</li>
                 <li>This should fill out the file with the missing options and the error will no longer appear when you start up the program.</li>

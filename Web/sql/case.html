@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="insertintoselect.html">Previous</a>
+    <a href="null.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">CASE</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">CASE</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL CASE Statement</h2>
+    <p>The <b>CASE</b> statement goes through conditions and returns a value when the first condition is met (like an <b>IF-THEN-ELSE</b> statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the <b>ELSE</b> clause.</p>
+    <p>If there is no <b>ELSE</b> part and no conditions are true, it returns <b>NULL</b>.</p>
+    <h3>CASE Syntax</h3>
+    <div class="code" id="Case-Syntax"><button class="copy" onclick="copyText('Case-Syntax')">Copy</button><br><p>
+        <sql>CASE</sql><br>
+        &emsp;<sql>WHEN</sql> condition1 <sql>THEN</sql> result1<br>
+        &emsp;<sql>WHEN</sql> condition2 <sql>THEN</sql> result2<br>
+        &emsp;<sql>WHEN</sql> conditionN <sql>THEN</sql> resultN<br>
+        &emsp;<sql>ELSE</sql> result<br>
+        <sql>END</sql>;
+    </p></div>
+    <h3>SQL CASE Examples</h3>
+    <p>The following SQL goes through conditions and returns a value when the first condition is met:</p>
+    <div class="code" id="Case-Example"><button class="copy" onclick="copyText('Case-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> OrderID, Quantity,<br>
+        <sql>CASE</sql><br>
+        &emsp;<sql>WHEN</sql> Quantity > 30 <sql>THEN</sql> 'The quantity is greater than 30'<br>
+        &emsp;<sql>WHEN</sql> Quantity = 30 <sql>THEN</sql> 'The quantity is 30'<br>
+        &emsp;<sql>ELSE</sql> 'The quantity is under 30'<br>
+        <sql>END AS</sql> QuantityText<br>
+        <sql>FROM</sql> OrderDetails;
+    </p></div>
+    <p>The following SQL will order the customers by City. However, if City is <b>NULL</b>, then order by Country:</p>
+    <div class="code" id="Case-Example1"><button class="copy" onclick="copyText('Case-Example1')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, City, Country<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>ORDER BY</sql><br>
+        (<sql>CASE</sql><br>
+        &emsp;<sql>WHEN</sql> City <sql>IS NULL THEN</sql> Country<br>
+        &emsp;<sql>ELSE</sql> City<br>
+        <sql>END</sql>);
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

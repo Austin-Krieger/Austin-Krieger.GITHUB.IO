@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="andornot.html">Previous</a>
+    <a href="insertinto.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">ORDER BY</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">ORDER BY</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL ORDER BY Keyword</h2>
+    <p>The <b>ORDER BY</b> keyword is used to sort the result-set in ascending or descending order.</p>
+    <p>The <b>ORDER BY</b> keyword sorts the records in ascending order by default. To sort the records in descending order, use the <b>DESC</b> keyword.</p>
+    <div class="code" id="Order-By-Syntax"><button class="copy" onclick="copyText('Order-By-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>ORDER BY</sql> column1, column2, ... ASC|DESC;
+    </p></div>
+    <h2>ORDER BY Example</h2>
+    <p>The following SQL statement selects all customers from the "Customers" table, sorted by the "Country" column:</p>
+    <div class="code" id="Order-By-Example"><button class="copy" onclick="copyText('Order-By-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>ORDER BY</sql> Country;
+    </p></div>
+    <h2>ORDER BY DESC Example</h2>
+    <p>The following SQL statement selects all customers from the "Customers" table, sorted descending by the "Country" column:</p>
+    <div class="code" id="Order-By-DESC-Example"><button class="copy" onclick="copyText('Order-By-DESC-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>ORDER BY</sql> Country <sql>DESC</sql>;
+    </p></div>
+    <h2>ORDER BY Several Columns Example</h2>
+    <p>The following SQL statement selects all customers from the "Customers" table, sorted by the "Country" and the "CustomerName" column. This means that it orders by Country, but if some rows have the same Country, it orders them by CustomerName:</p>
+    <div class="code" id="Order-By-Several-Example"><button class="copy" onclick="copyText('Order-By-Several-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>ORDER BY</sql> Country, CustomerName;
+    </p></div>
+    <h2>ORDER BY Several Columns Example 2</h2>
+    <p>The following SQL statement selects all customers from the "Customers" table, sorted ascending by the "Country" and descending by the "CustomerName" column:</p>
+    <div class="code" id="Order-By-Several-Example2"><button class="copy" onclick="copyText('Order-By-Several-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>ORDER BY</sql> Country <sql>ASC</sql>, CustomerName <sql>DESC</sql>;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

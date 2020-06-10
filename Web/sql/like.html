@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="countavgsum.html">Previous</a>
+    <a href="wildcards.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">LIKE Operator</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">LIKE Operator</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL LIKE Operator</h2>
+    <p>The <b>LIKE</b> operator is used in a <b>WHERE</b> clause to search for a specified pattern in a column.</p>
+    <p>There are two wildcards often used in conjunction with the <b>LIKE</b> operator:</p>
+    <ul>
+        <li>% - The percent sign represents zero, one, or multiple characters</li>
+        <li>_ - The underscore represents a single character</li>
+    </ul>
+    <p><b>Note:</b> MS Access uses an asterisk (*) instead of the percent sign (%), and a question mark (?) instead of the underscore (_).</p>
+    <p>The percent sign and the underscore can also be used in combinations! You can also combine any number of conditions using <b>AND</b> or <b>OR</b> operators.</p>
+    <h3>LIKE Syntax</h3>
+    <div class="code" id="LIKE-Syntax"><button class="copy" onclick="copyText('LIKE-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> column_name <sql>LIKE</sql> pattern;
+    </p></div>
+    <p>Here are some examples showing different <b>LIKE</b> operators with '<b>%</b>' and '<b>_</b>' wildcards:</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>LIKE Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE 'a%'</td>
+            <td>Finds any values that start with "a"</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE '%a'</td>
+            <td>Finds any values that end with "a"</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE '%or%'</td>
+            <td>Finds any values that have "or" in any position</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE '_r%'</td>
+            <td>Finds any values that have "r" in the second position</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE 'a_%'</td>
+            <td>Finds any values that start with "a" and are at least 2 characters in length</td>
+        </tr>
+        <tr>
+            <td>WHERE CustomerName LIKE 'a__%'</td>
+            <td>Finds any values that start with "a" and are at least 3 characters in length</td>
+        </tr>
+        <tr>
+            <td>WHERE ContactName LIKE 'a%o'</td>
+            <td>Finds any values that start with "a" and ends with "o"</td>
+        </tr>
+    </table></div>
+    <p>The following SQL statement selects all customers with a CustomerName starting with "a":</p>
+    <div class="code" id="Like-Example"><button class="copy" onclick="copyText('Like-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> CustomerName <sql>LIKE</sql> 'a%';
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

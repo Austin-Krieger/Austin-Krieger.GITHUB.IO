@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="insertinto.html">Previous</a>
+    <a href="update.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Null Values</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Null Values</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Null Values</h2>
+    <p>A field with a <b>NULL</b> value is a field with no value.</p>
+    <p>If a field in a table is optional, it is possible to insert a new record or update a record without adding a value to this field. Then, the field will be saved with a <b>NULL</b> value.</p>
+    <h2>How to Test for NULL Values</h2>
+    <p>It is not possible to test for <b>NULL</b> values with comparison operators, such as =, &lt;, or &lt;&gt; We will have to use the <b>IS NULL</b> and <b>IS NOT NULL</b> operators instead.</p>
+    <h3>IS NULL Syntax</h3>
+    <div class="code" id="IS-NULL-Syntax"><button class="copy" onclick="copyText('IS-NULL-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_names<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> column_names <sql>IS NULL</sql>;
+    </p></div>
+    <h3>IS NOT NULL Syntax</h3>
+    <div class="code" id="IS-NOT-NULL-Syntax"><button class="copy" onclick="copyText('IS-NOT-NULL-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_names<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> column_names <sql>IS NOT NULL</sql>;
+    </p></div>
+    <h3>The IS NULL Operator</h3>
+    <p>The <b>IS NULL</b> operator is used to test for empty values (<b>NULL</b> values). The following SQL lists all customers with a <b>NULL</b> value in the "Address" field:</p>
+    <div class="code" id="IS-NULL-Example"><button class="copy" onclick="copyText('IS-NOT-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, ContactName, Address<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Address <sql>IS NULL</sql>;
+    </p></div>
+    <h3>The IS NOT NULL Operator</h3>
+    <p>The <b>IS NOT NULL</b> operator is used to test for non-empty values (<b>NOT NULL</b> values). The following SQL lists all customers with a value in the "Address" field:</p>
+    <div class="code" id="IS-NOT-NULL-Example"><button class="copy" onclick="copyText('IS-NOT-NULL-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, ContactName, Address<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Address <sql>IS NOT NULL</sql>;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

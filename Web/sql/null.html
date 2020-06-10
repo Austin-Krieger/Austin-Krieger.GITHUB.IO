@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="case.html">Previous</a>
+    <a href="storedprocedures.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">NULL</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">NULL</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL IFNULL(), ISNULL(), COALESCE(), and NVL() Functions</h2>
+    <p>In this example, if any of the "UnitsOnOrder" values are NULL, the result will be NULL.</p>
+    <div class="code" id="Null-Example"><button class="copy" onclick="copyText('Null-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> ProductName, UnitPrice * (UnitsInStock + UnitsOnOrder)<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h3>Solutions</h3>
+    <h4>MySQL</h4>
+    <p>The MySQL <b>IFNULL()</b> function lets you return an alternative value if an expression is <b>NULL</b>:</p>
+    <div class="code" id="Null-Example1"><button class="copy" onclick="copyText('Null-Example1')">Copy</button><br><p>
+        <sql>SELECT</sql> ProductName, UnitPrice * (UnitsInStock + <sql>IFNULL</sql>(UnitsOnOrder, 0))<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <p>or we can use the <b>COALESCE()</b> function, like this:</p>
+    <div class="code" id="Null-Example2"><button class="copy" onclick="copyText('Null-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> ProductName, UnitPrice * (UnitsInStock + <sql>COALESCE</sql>(UnitsOnOrder, 0))<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h4>SQL Server</h4>
+    <p>The SQL Server <b>ISNULL()</b> function lets you return an alternative value when an expression is NULL:</p>
+    <div class="code" id="Null-Example3"><button class="copy" onclick="copyText('Null-Example3')">Copy</button><br><p>
+        <sql>SELECT</sql> ProductName, UnitPrice * (UnitsInStock + <sql>ISNULL</sql>(UnitsOnOrder, 0))<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h4>MS Access</h4>
+    <p>The MS Access <b>IsNull()</b> function returns <b>TRUE</b> (-1) if the expression is a null value, otherwise <b>FALSE</b> (0):</p>
+    <div class="code" id="Null-Example4"><button class="copy" onclick="copyText('Null-Example4')">Copy</button><br><p>
+        <sql>SELECT</sql> ProductName, UnitPrice * (UnitsInStock + <sql>IIF</sql>(<sql>IsNull</sql><br>(UnitsOnOrder), 0, UnitsOnOrder))<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h4>Oracle</h4>
+    <p>The Oracle <b>NVL()</b> function achieves the same result:</p>
+    <div class="code" id="Null-Example5"><button class="copy" onclick="copyText('Null-Example5')">Copy</button><br><p>
+        <sql>SELECT</sql> ProductName, UnitPrice * (UnitsInStock + <sql>NVL</sql>(UnitsOnOrder, 0))<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

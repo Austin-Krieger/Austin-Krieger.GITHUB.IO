@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="between.html">Previous</a>
+    <a href="joins.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Aliases</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Aliases</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Aliases</h2>
+    <p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+    <p>Aliases are often used to make column names more readable.</p>
+    <p>An alias only exists for the duration of the query.</p>
+    <h3>Alias Column Syntax</h3>
+    <div class="code" id="Alias-Syntax"><button class="copy" onclick="copyText('Alias-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name <sql>AS</sql> alias_name<br>
+        <sql>FROM</sql> table_name;
+    </p></div>
+    <h3>Alias Table Syntax</h3>
+    <div class="code" id="Alias-Syntax2"><button class="copy" onclick="copyText('Alias-Syntax2')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s)<br>
+        <sql>FROM</sql> table_name AS alias_name;
+    </p></div>
+    <h3>Alias for Columns Examples</h3>
+    <p>The following SQL statement creates two aliases, one for the CustomerID column and one for the CustomerName column:</p>
+    <div class="code" id="Alias-Example"><button class="copy" onclick="copyText('Alias-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerID <sql>AS</sql> ID, CustomerName <sql>AS</sql> Customer<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following SQL statement creates two aliases, one for the CustomerName column and one for the ContactName column. <b>Note</b>: It requires double quotation marks or square brackets if the alias name contains spaces:</p>
+    <div class="code" id="Alias-Example2"><button class="copy" onclick="copyText('Alias-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName <sql>AS</sql> Customer, ContactName <sql>AS</sql> [Contact Person]<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following SQL statement creates an alias named "Address" that combine four columns (Address, PostalCode, City and Country):</p>
+    <div class="code" id="Alias-Example3"><button class="copy" onclick="copyText('Alias-Example3')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country <sql>AS</sql> Address<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <p><b>Note</b>: To get the SQL statement above to work in MySQL use the following:</p>
+    <div class="code" id="Alias-Example4"><button class="copy" onclick="copyText('Alias-Example4')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) <sql>AS</sql> Address<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <h3>Alias for Tables Example</h3>
+    <p>The following SQL statement selects all the orders from the customer with CustomerID=4 (Around the Horn). We use the "Customers" and "Orders" tables, and give them the table aliases of "c" and "o" respectively (Here we use aliases to make the SQL shorter):</p>
+    <div class="code" id="Alias-Example5"><button class="copy" onclick="copyText('Alias-Example5')">Copy</button><br><p>
+        <sql>SELECT</sql> o.OrderID, o.OrderDate, c.CustomerName<br>
+        <sql>FROM</sql> Customers <sql>AS</sql> c, Orders <sql>AS</sql> o<br>
+        <sql>WHERE</sql> c.CustomerName='Around the Horn' <sql>AND</sql> c.CustomerID=o.CustomerID;
+    </p></div>
+    <p>The following SQL statement is the same as above, but without aliases:</p>
+    <div class="code" id="Alias-Example6"><button class="copy" onclick="copyText('Alias-Example6')">Copy</button><br><p>
+        <sql>SELECT</sql> Orders.OrderID, Orders.OrderDate, Customers.CustomerName<br>
+        <sql>FROM</sql> Customers, Orders<br>
+        <sql>WHERE</sql> Customers.CustomerName='Around the Horn' <sql>AND</sql>Customers.CustomerID=Orders.CustomerID;
+    </p></div>
+    <p>Aliases can be useful when:</p>
+    <ul>
+        <li>There are more than one table involved in a query</li>
+        <li>Functions are used in the query</li>
+        <li>Column names are big or not very readable</li>
+        <li>Two or more columns are combined together</li>
+    </ul>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

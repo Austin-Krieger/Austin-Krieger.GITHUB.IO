@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="where.html">Previous</a>
+    <a href="orderby.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">AND, OR, NOT</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">AND, OR, NOT</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL AND, OR and NOT Operators</h2>
+    <p>The <b>WHERE</b> clause can be combined with <b>AND</b>, <b>OR</b>, and <b>NOT</b> operators to filter records based on more than one condition.</p>
+    <ul>
+        <li>The <b>AND</b> operator displays a record if all the conditions separated by <b>AND</b> are TRUE.</li>
+        <li>The <b>OR</b> operator displays a record if any of the conditions separated by <b>OR</b> is TRUE.</li>
+        <li>The <b>NOT</b> operator displays a record if the condition(s) is <b>NOT</b> TRUE.</li>
+    </ul>
+    <h2>AND Syntax</h2>
+     <div class="code" id="AND-Syntax"><button class="copy" onclick="copyText('AND-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition1 <sql>AND</sql> condition2 <sql>AND</sql> condition 3 ...;
+    </p></div>
+    <h2>AND Example</h2>
+    <div class="code" id="AND-Example"><button class="copy" onclick="copyText('AND-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> Customers<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> City = 'Berlin';
+    </p></div>
+    <h2>OR Syntax</h2>
+    <div class="code" id="OR-Syntax"><button class="copy" onclick="copyText('OR-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition1 <sql>OR</sql> condition2 <sql>OR</sql> condition 3 ...;
+    </p></div>
+    <h2>OR Example</h2>
+    <div class="code" id="OR-Example"><button class="copy" onclick="copyText('OR-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> City = 'Berlin' <sql>OR</sql> City = 'München';
+    </p></div>
+    <h2>NOT Syntax</h2>
+    <div class="code" id="NOT-Syntax"><button class="copy" onclick="copyText('NOT-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE NOT</sql> condition;
+    </p></div>
+    <h2>NOT Example</h2>
+    <div class="code" id="NOT-Example"><button class="copy" onclick="copyText('NOT-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE NOT</sql> Country = 'Germany';
+    </p></div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Combining AND, OR and NOT</h2>
+    <p>You can also combine the <b>AND</b>, <b>OR</b> and <b>NOT</b> operators. The following SQL statement selects all fields from "Customers" where country is "Germany" <b>AND</b> city must be "Berlin" <b>OR</b> "München" (use parenthesis to form complex expressions):</p>
+    <div class="code" id="Combining-AND-OR-NOT-Example"><button class="copy" onclick="copyText('Combining-AND-OR-NOT-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> (City = 'Berlin' <sql>OR</sql> City = 'München');
+    </p></div>
+    <p>The following SQL statement selects all fields from "Customers" where country is <b>NOT</b> "Germany" and <b>NOT</b> "USA":</p>
+    <div class="code" id="Combining-AND-OR-NOT-Example2"><button class="copy" onclick="copyText('Combining-AND-OR-NOT-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE NOT</sql> Country = 'Germany' <sql>AND NOT</sql> Country = 'USA';
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

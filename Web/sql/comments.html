@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="storedprocedures.html">Previous</a>
+    <a href="createdb.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Comments</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Comments</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Comments</h2>
+    <p>Comments are used to explain sections of SQL statements, or to prevent execution of SQL statements.</p>
+    <h3>Single Line Comments</h3>
+    <p>Single line comments start with --.</p>
+    <p>Any text between -- and the end of the line will be ignored (will not be executed).</p>
+    <div class="code" id="Comment-Example"><button class="copy" onclick="copyText('Comment-Example')">Copy</button><br><p>
+        <mark>--Select all:</mark><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following example uses a single-line comment to ignore the end of a line:</p>
+    <div class="code" id="Comment-Example1"><button class="copy" onclick="copyText('Comment-Example1')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers <mark>-- WHERE City='Berlin';</mark>
+    </p></div>
+    <p>The following example uses a single-line comment to ignore a statement:</p>
+    <div class="code" id="Comment-Example2"><button class="copy" onclick="copyText('Comment-Example2')">Copy</button><br><p>
+        <mark>--SELECT * FROM Customers;</mark><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Products;
+    </p></div>
+    <h3>Multi-line Comments</h3>
+    <p>Multi-line comments start with /* and end with */.</p>
+    <p>Any text between /* and */ will be ignored.</p>
+    <div class="code" id="Comment-Example3"><button class="copy" onclick="copyText('Comment-Example3')">Copy</button><br><p>
+        <mark>/*Select all the columns<br>
+        of all the records<br>
+        in the Customers table:*/</mark><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers;
+    </p></div>
+    <div class="code" id="Comment-Example4"><button class="copy" onclick="copyText('Comment-Example4')">Copy</button><br><p>
+        <mark>SELECT * FROM Customers;<br>
+        SELECT * FROM Products;<br>
+        SELECT * FROM Orders;<br>
+        SELECT * FROM Categories;</mark><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Suppliers;
+    </p></div>
+    <p>To ignore just a part of a statement, also use the /* */ comment. The following example uses a comment to ignore part of a line:</p>
+    <div class="code" id="Comment-Example5"><button class="copy" onclick="copyText('Comment-Example5')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, <mark>/*City,*/</mark> Country <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following example uses a comment to ignore part of a statement:</p>
+    <div class="code" id="Comment-Example6"><button class="copy" onclick="copyText('Comment-Example6')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers <sql>WHERE</sql> (CustomerName <sql>LIKE</sql> 'L%'<br>
+        <sql>OR</sql> CustomerName <sql>LIKE</sql> 'R%' <mark>/*OR CustomerName LIKE 'S%'<br>
+        OR CustomerName LIKE 'T%'*/</mark> <sql>OR</sql> CustomerName <sql>LIKE</sql> 'W%')<br>
+        <sql>AND</sql> Country='USA'<br>
+        <sql>ORDER BY</sql> CustomerName;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

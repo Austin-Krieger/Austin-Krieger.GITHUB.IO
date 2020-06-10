@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="select.html">Previous</a>
+    <a href="andornot.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">WHERE</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">WHERE</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL WHERE Clause</h2>
+    <h3>The SQL Where Clause</h3>
+    <p>The <b>WHERE</b> clause is used to extract only those records that fulfill a specified condition.</p>
+    <div class="code" id="Where-Syntax"><button class="copy" onclick="copyText('Where-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>WHERE Clause Example</h3>
+    <p>The following SQL statement selects all the customers from the country "Mexico", in the "Customers" table:</p>
+    <div class="code" id="Where-Example"><button class="copy" onclick="copyText('Where-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Mexico';
+    </p></div>
+    <h3>Text Fields vs. Numeric Fields</h3>
+    <p>SQL requires single quotes around text values (most database systems will also allow double quotes).</p>
+    <p>However, numeric fields should not be enclosed in quotes:</p>
+    <div class="code" id="TextVsNumbers"><button class="copy" onclick="copyText('TextVsNumbers')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> CountryID = 1;
+    </p></div>
+    <h3>Operators in The WHERE Clause</h3>
+    <table>
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>=</td>
+            <td>Equal</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>Greater than</td>
+        </tr>
+        <tr>
+            <td>&lt;</td>
+            <td>Less than</td>
+        </tr>
+        <tr>
+            <td>&gt;=</td>
+            <td>Greater than or equal</td>
+        </tr>
+        <tr>
+            <td>&lt;=</td>
+            <td>Less than or equal</td>
+        </tr>
+        <tr>
+            <td>&lt;&gt;</td>
+            <td>Not equal. <b>Note:</b> In some versions of SQL this operator may be written as !=</td>
+        </tr>
+        <tr>
+            <td>BETWEEN</td>
+            <td>Between a certain range</td>
+        </tr>
+        <tr>
+            <td>LIKE</td>
+            <td>Search for a pattern</td>
+        </tr>
+        <tr>
+            <td>IN</td>
+            <td>To specify multiple possible values for a column</td>
+        </tr>
+    </table>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

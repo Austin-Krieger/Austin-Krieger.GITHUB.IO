@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="anyall.html">Previous</a>
+    <a href="insertintoselect.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">SELECT INTO</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">SELECT INTO</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL SELECT INTO Statement</h2>
+    <p>The <b>SELECT INTO</b> statement copies data from one table into a new table.</p>
+    <h3>SELECT INTO Syntax</h3>
+    <div class="code" id="Select-Into-Syntax"><button class="copy" onclick="copyText('Select-Into-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> *<br>
+        <sql>INTO</sql> newtable [<sql>IN</sql> externaldb]<br>
+        <sql>FROM</sql> oldtable<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <p>Copy only some columns into a new table:</p>
+    <div class="code" id="Select-Into-Syntax1"><button class="copy" onclick="copyText('Select-Into-Syntax1')">Copy</button><br><p>
+        <sql>SELECT</sql> column1, column2, column3, ...<br>
+        <sql>INTO</sql> newtable [<sql>IN</sql> externaldb]<br>
+        <sql>FROM</sql> oldtable<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <p>The new table will be created with the column-names and types as defined in the old table. You can create new column names using the <b>AS</b> clause.</p>
+    <h3>SELECT INTO Examples</h3>
+    <p>The following SQL statement creates a backup copy of Customers:</p>
+    <div class="code" id="Select-Into-Example"><button class="copy" onclick="copyText('Select-Into-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>INTO</sql> CustomersBackup2017<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following SQL statement uses the <b>IN</b> clause to copy the table into a new table in another database:</p>
+    <div class="code" id="Select-Into-Example1"><button class="copy" onclick="copyText('Select-Into-Example1')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>INTO</sql> CustomersBackup2017 <sql>IN</sql> 'Backup.mdb'<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following SQL statement copies only a few columns into a new table:</p>
+    <div class="code" id="Select-Into-Example2"><button class="copy" onclick="copyText('Select-Into-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> CustomerName, ContactName <sql>INTO</sql> CustomersBackup2017<br>
+        <sql>FROM</sql> Customers;
+    </p></div>
+    <p>The following SQL statement copies only the German customers into a new table:</p>
+    <div class="code" id="Select-Into-Example3"><button class="copy" onclick="copyText('Select-Into-Example3')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>INTO</sql> CustomersGermany<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany';
+    </p></div>
+    <p>The following SQL statement copies data from more than one table into a new table:</p>
+    <div class="code" id="Select-Into-Example4"><button class="copy" onclick="copyText('Select-Into-Example4')">Copy</button><br><p>
+        <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+        <sql>INTO</sql> CustomersOrderBackup2017<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>LEFT JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID = Orders.CustomerID;
+    </p></div>
+    <p><b>Tip</b>: <b>SELECT INTO</b> can also be used to create a new, empty table using the schema of another. Just add a <b>WHERE</b> clause that causes the query to return no data:</p>
+    <div class="code" id="Select-Into-Example5"><button class="copy" onclick="copyText('Select-Into-Example5')">Copy</button><br><p>
+        <sql>SELECT</sql> * <sql>INTO</sql> newtable<br>
+        <sql>FROM</sql> oldtable<br>
+        <sql>WHERE</sql> 1 = 0;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

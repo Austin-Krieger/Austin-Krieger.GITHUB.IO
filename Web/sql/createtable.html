@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="backupdb.html">Previous</a>
+    <a href="droptable.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">CREATE TABLE</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">CREATE TABLE</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL CREATE TABLE Statement</h2>
+    <p>The <b>CREATE TABLE</b> statement is used to create a new table in a database.</p>
+    <h3>CREATE TABLE Syntax</h3>
+    <div class="code" id="Create-Table-Syntax"><button class="copy" onclick="copyText('Create-Table-Syntax')">Copy</button><br><p>
+        <sql>CREATE TABLE</sql> table_name (<br>
+        &emsp;column1 datatype,<br>
+        &emsp;column2 datatype,<br>
+        &emsp;column3 datatype,<br>
+        &emsp;....<br>
+        );
+    </p></div>
+    <p>The column parameters specify the names of the columns of the table.</p>
+    <p>The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).</p>
+    <h3>CREATE TABLE Example</h3>
+    <p>The following example creates a table called "Persons" that contains five columns: PersonID, LastName, FirstName, Address, and City:</p>
+    <div class="code" id="Create-Table-Syntax"><button class="copy" onclick="copyText('Create-Table-Syntax')">Copy</button><br><p>
+        <sql>CREATE TABLE</sql> Persons (<br>
+        &emsp;PersonID int,<br>
+        &emsp;LastName varchar(255),<br>
+        &emsp;FirstName varchar(255),<br>
+        &emsp;Address varchar(255),<br>
+        &emsp;City varchar(255)<br>
+        );
+    </p></div>
+    <p>The PersonID column is of type int and will hold an integer. The LastName, FirstName, Address, and City columns are of type varchar and will hold characters, and the maximum length for these fields is 255 characters.</p>
+    <p><b>Tip</b>: The empty "Persons" table can now be filled with data with the SQL <b>INSERT INTO</b> statement.</p>
+    <h3>Create Table Using Another Table</h3>
+    <p>A copy of an existing table can also be created using <b>CREATE TABLE</b>. The new table gets the same column definitions. All columns or specific columns can be selected.</p>
+    <p>If you create a new table using an existing table, the new table will be filled with the existing values from the old table.</p>
+    <h3>CREATE TABLE Using Another Table Syntax</h3>
+    <div class="code" id="Create-Table-Using-Another-Syntax"><button class="copy" onclick="copyText('Create-Table-Using-Another-Syntax')">Copy</button><br><p>
+        <sql>CREATE TABLE</sql> new_table_name <sql>AS</sql><br>
+        &emsp;<sql>SELECT</sql> column1, column2,...<br>
+        &emsp;<sql>FROM</sql> existing_table_name<br>
+        &emsp;<sql>WHERE</sql> ....;
+    </p></div>
+    <p>The following SQL creates a new table called "TestTables" (which is a copy of the "Customers" table):</p>
+    <div class="code" id="Create-Table-Using-Another-Example"><button class="copy" onclick="copyText('Create-Table-Using-Another-Example')">Copy</button><br><p>
+    <sql>CREATE TABLE</sql> TestTable <sql>AS</sql><br>
+    <sql>SELECT</sql> customername, contactname<br>
+    <sql>FROM</sql> customers;<br>
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

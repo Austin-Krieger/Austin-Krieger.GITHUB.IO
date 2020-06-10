@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="selecttop.html">Previous</a>
+    <a href="countavgsum.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">MIN and MAX</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">MIN and MAX</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL MIN() and MAX() Functions</h2>
+    <p>The <b>MIN()</b> function returns the smallest value of the selected column.</p>
+    <p>The <b>MAX()</b> function returns the largest value of the selected column.</p>
+    <h3>MIN() Syntax</h3>
+    <div class="code" id="MIN-Syntax"><button class="copy" onclick="copyText('MIN-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> MIN(column_name)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>MIN() Example</h3>
+    <p>The following SQL statement finds the price of the cheapest product:</p>
+    <div class="code" id="MIN-Example"><button class="copy" onclick="copyText('MIN-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> MIN(Price) <sql>AS</sql> SmallestPrice<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h3>MAX() Syntax</h3>
+    <div class="code" id="MAX-Syntax"><button class="copy" onclick="copyText('MAX-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> MAX(column_name)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>MAX() Example</h3>
+    <p>The following SQL statement finds the price of the most expensive product:</p>
+    <div class="code" id="MAX-Example"><button class="copy" onclick="copyText('MAX-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> MAX(Price) <sql>AS</sql> LargestPrice<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

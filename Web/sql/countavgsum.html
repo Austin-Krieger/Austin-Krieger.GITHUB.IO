@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="minmax.html">Previous</a>
+    <a href="like.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Count, Avg, Sum</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Count, Avg, Sum</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Count(), Avg(), and Sum() Functions</h2>
+    <p>The <b>COUNT()</b> function returns the number of rows that matches a specified criterion.</p>
+    <p>The <b>AVG()</b> function returns the average value of a numeric column.</p>
+    <p>The <b>SUM()</b> function returns the total sum of a numeric column.</p>
+    <h3>COUNT() Syntax</h3>
+    <div class="code" id="COUNT-Syntax"><button class="copy" onclick="copyText('COUNT-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> COUNT(column_name)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>COUNT() Example</h3>
+    <p>The following SQL statement finds the number of products:</p>
+    <div class="code" id="COUNT-Example"><button class="copy" onclick="copyText('COUNT-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> COUNT(ProductID)<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h3>AVG() Syntax</h3>
+    <div class="code" id="AVG-Syntax"><button class="copy" onclick="copyText('AVG-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> AVG(column_name)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>AVG() Example</h3>
+    <p>The following SQL statement finds the average price of all products:</p>
+    <div class="code" id="AVG-Example"><button class="copy" onclick="copyText('AVG-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> AVG(Price)<br>
+        <sql>FROM</sql> Products;
+    </p></div>
+    <h3>SUM() Syntax</h3>
+    <div class="code" id="SUM-Syntax"><button class="copy" onclick="copyText('SUM-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> SUM(column_name)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <h3>SUM() Example</h3>
+    <p>The following SQL statement finds the sum of the "Quantity" fields in the "OrderDetails" table:</p>
+    <div class="code" id="SUM-Example"><button class="copy" onclick="copyText('SUM-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> SUM(Quantity)<br>
+        <sql>FROM</sql> OrderDetails;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="null.html">Previous</a>
+    <a href="comments.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">Stored Procedures</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Stored Procedures</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Stored Procedures for SQL Server</h2>
+    <h3>What is a Stored Procedure?</h3>
+    <p>A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.</p>
+    <p>So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.</p>
+    <p>You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.</p>
+    <h3>Stored Procedure Syntax</h3>
+    <div class="code" id="Stored-Procedure-Syntax"><button class="copy" onclick="copyText('Stored-Procedure-Syntax')">Copy</button><br><p>
+        <sql>CREATE PROCEDURE</sql> procedure_name<br>
+        <sql>AS</sql><br>
+        sql_statement<br>
+        GO;
+    </p></div>
+    <h3>Execute a Stored Procedure</h3>
+    <div class="code" id="Stored-Procedure-Example"><button class="copy" onclick="copyText('Stored-Procedure-Example')">Copy</button><br><p>
+        <sql>EXEC</sql> procedure_name;
+    </p></div>
+    <h3>Stored Procedure Example</h3>
+    <p>The following SQL statement creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:</p>
+    <div class="code" id="Stored-Procedure-Example1"><button class="copy" onclick="copyText('Stored-Procedure-Example1')">Copy</button><br><p>
+        <sql>CREATE PROCEDURE</sql> SelectAllCustomers<br>
+        <sql>AS</sql><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+        GO;
+    </p></div>
+    <p>Execute the stored procedure above as follows:</p>
+    <div class="code" id="Stored-Procedure-Example2"><button class="copy" onclick="copyText('Stored-Procedure-Example2')">Copy</button><br><p>
+        <sql>EXEC</sql> SelectAllCustomers;
+    </p></div>
+    <h3>Stored Procedure With One Parameter</h3>
+    <p>The following SQL statement creates a stored procedure that selects Customers from a particular City from the "Customers" table:</p>
+    <div class="code" id="Stored-Procedure-Example3"><button class="copy" onclick="copyText('Stored-Procedure-Example3')">Copy</button><br><p>
+        <sql>CREATE PROCEDURE</sql> SelectAllCustomers @City nvarchar(30)<br>
+        <sql>AS</sql><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers <sql>WHERE</sql> City = @City<br>
+        GO;
+    </p></div>
+    <p>Execute the stored procedure above as follows:</p>
+    <div class="code" id="Stored-Procedure-Example4"><button class="copy" onclick="copyText('Stored-Procedure-Example4')">Copy</button><br><p>
+        <sql>EXEC</sql> SelectAllCustomers @City = 'London';
+    </p></div>
+    <h3>Stored Procedure With Multiple Parameters</h3>
+    <p>Setting up multiple parameters is very easy. Just list each parameter and the data type separated by a comma as shown below.</p>
+    <p>The following SQL statement creates a stored procedure that selects Customers from a particular City with a particular PostalCode from the "Customers" table:</p>
+    <div class="code" id="Stored-Procedure-Example5"><button class="copy" onclick="copyText('Stored-Procedure-Example5')">Copy</button><br><p>
+        <sql>CREATE PROCEDURE</sql> SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)<br>
+        <sql>AS</sql><br>
+        <sql>SELECT</sql> * <sql>FROM</sql> Customers <sql>WHERE</sql> City = @City <sql>AND</sql> PostalCode = @PostalCode<br>
+        GO;
+    </p></div>
+    <p>Execute the stored procedure above as follows:</p>
+    <div class="code" id="Stored-Procedure-Example6"><button class="copy" onclick="copyText('Stored-Procedure-Example6')">Copy</button><br><p>
+        <sql>EXEC</sql> SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

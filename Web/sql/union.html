@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="joins.html">Previous</a>
+    <a href="groupby.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">UNION</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">UNION</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL UNION Operator</h2>
+    <p>The UNION operator is used to combine the result-set of two or more SELECT statements.</p>
+    <ul>
+        <li>Each <b>SELECT</b> statement within <b>UNION</b> must have the same number of columns</li>
+        <li>The columns must also have similar data types</li>
+        <li>The columns in each <b>SELECT</b> statement must also be in the same order</li>
+    </ul>
+    <h3>UNION Syntax</h3>
+    <div class="code" id="Union-Syntax"><button class="copy" onclick="copyText('Union-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table1<br>
+        <sql>UNION</sql><br>
+        <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table2;
+    </p></div>
+    <h3>UNION ALL Syntax</h3>
+    <p>The <b>UNION</b> operator selects only distinct values by default. To allow duplicate values, use <b>UNION ALL</b>:</p>
+    <div class="code" id="Union-All-Syntax"><button class="copy" onclick="copyText('Union-All-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table1<br>
+        <sql>UNION ALL</sql><br>
+        <sql>SELECT</sql> column_name(s) <sql>FROM</sql> table2;
+    </p></div>
+    <p><b>Note</b>: The column names in the result-set are usually equal to the column names in the first <b>SELECT</b> statement in the <b>UNION</b>.</p>
+    <h3>SQL UNION Example</h3>
+    <p>The following SQL statement returns the cities (only distinct values) from both the "Customers" and the "Suppliers" table:</p>
+    <div class="code" id="Union-Example"><button class="copy" onclick="copyText('Union-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> City <sql>FROM</sql> Customers<br>
+        <sql>UNION</sql><br>
+        <sql>SELECT</sql> City <sql>FROM</sql> Suppliers<br>
+        <sql>ORDER BY</sql> City;
+    </p></div>
+    <p><b>Note</b>: If some customers or suppliers have the same city, each city will only be listed once, because <b>UNION</b> selects only distinct values. Use <b>UNION ALL</b> to also select duplicate values!</p>
+    <h3>SQL UNION ALL Example</h3>
+    <p>The following SQL statement returns the cities (duplicate values also) from both the "Customers" and the "Suppliers" table:</p>
+    <div class="code" id="Union-All-Example"><button class="copy" onclick="copyText('Union-All-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> City <sql>FROM</sql> Customers<br>
+        <sql>UNION ALL</sql><br>
+        <sql>SELECT</sql> City <sql>FROM</sql> Suppliers<br>
+        <sql>ORDER BY</sql> City;
+    </p></div>
+    <h3>SQL UNION With WHERE</h3>
+    <p>The following SQL statement returns the German cities (only distinct values) from both the "Customers" and the "Suppliers" table:</p>
+    <div class="code" id="Union-With-Where-Example"><button class="copy" onclick="copyText('Union-With-Where-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> City, Country <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany'<br>
+        <sql>UNION</sql><br>
+        <sql>SELECT</sql> City, Country <sql>FROM</sql> Suppliers<br>
+        <sql>WHERE</sql> Country = 'Germany'<br>
+        <sql>ORDER BY</sql> City;
+    </p></div>
+    <h3>SQL UNION ALL With WHERE</h3>
+    <p>The following SQL statement returns the German cities (duplicate values also) from both the "Customers" and the "Suppliers" table:</p>
+    <div class="code" id="Union-All-With-Where-Example"><button class="copy" onclick="copyText('Union-All-With-Where-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> City, Country <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Germany'<br>
+        <sql>UNION ALL</sql><br>
+        <sql>SELECT</sql> City, Country <sql>FROM</sql> Suppliers<br>
+        <sql>WHERE</sql> Country = 'Germany'<br>
+        <sql>ORDER BY</sql> City;
+    </p></div>
+    <h3>Another UNION Example</h3>
+    <p>The following SQL statement lists all customers and suppliers:</p>
+    <div class="code" id="Another-Union-Example"><button class="copy" onclick="copyText('Another-Union-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> 'Customer' <sql>AS</sql> Type, ContactName, City, Country<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>UNION</sql><br>
+        <sql>SELECT</sql> 'Supplier', ContactName, City, Country<br>
+        <sql>FROM</sql> Suppliers;
+    </p></div>
+    <p><b>Notice</b>: the "<b>AS Type</b>" above is an alias. SQL Aliases are used to give a table or a column a temporary name. An alias only exists for the duration of the query. So, here we have created a temporary column named "Type", that list whether the contact person is a "Customer" or a "Supplier".</p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="having.html">Previous</a>
+    <a href="anyall.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">EXISTS</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">EXISTS</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL EXISTS Operator</h2>
+    <p>The <b>EXISTS</b> operator is used to test for the existence of any record in a subquery.</p>
+    <p>The <b>EXISTS</b> operator returns true if the subquery returns one or more records.</p>
+    <h3>EXISTS Syntax</h3>
+    <div class="code" id="Exists-Syntax"><button class="copy" onclick="copyText('Exists-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE EXISTS</sql><br>
+        (<sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> condition);
+    </p></div>
+    <h3>EXISTS Examples</h3>
+    <p>The following SQL statement returns <b>TRUE</b> and lists the suppliers with a product price less than 20:</p>
+    <div class="code" id="Exists-Example"><button class="copy" onclick="copyText('Exists-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> SupplierName<br>
+        <sql>FROM</sql> Suppliers<br>
+        <sql>WHERE EXISTS</sql><br> (<sql>SELECT</sql> ProductName <sql>FROM</sql> Products<br><sql>WHERE</sql> Products.SupplierID = Suppliers.supplierID <sql>AND</sql> Price &lt; 20);
+    </p></div>
+    <p>The following SQL statement returns <b>TRUE</b> and lists the suppliers with a product price equal to 22:</p>
+    <div class="code" id="Exists-Example2"><button class="copy" onclick="copyText('Exists-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> SupplierName<br>
+        <sql>FROM</sql> Suppliers<br>
+        <sql>WHERE EXISTS</sql><br>(<sql>SELECT</sql> ProductName <sql>FROM</sql> Products<br><sql>WHERE</sql> Products.SupplierID = Suppliers.supplierID <sql>AND</sql> Price = 20);
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="groupby.html">Previous</a>
+    <a href="exists.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">HAVING</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">HAVING</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL HAVING Clause</h2>
+    <p>The <b>HAVING</b> clause was added to SQL because the <b>WHERE</b> keyword could not be used with aggregate functions.</p>
+    <h3>HAVING Syntax</h3>
+    <div class="code" id="HAVING-Syntax"><button class="copy" onclick="copyText('HAVING-Syntax')">Copy</button><br><p>
+        <sql>SELECT</sql> column_name(s)<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition<br>
+        <sql>GROUP BY</sql> column_name(s)<br>
+        <sql>HAVING</sql> condition<br>
+        <sql>ORDER BY</sql> column_name(s);
+    </p></div>
+    <h3>HAVING Examples</h3>
+    <p>The following SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:</p>
+    <div class="code" id="HAVING-Example"><button class="copy" onclick="copyText('HAVING-Example')">Copy</button><br><p>
+        <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>GROUP BY</sql> Country<br>
+        <sql>HAVING COUNT</sql>(CustomerID) > 5;
+    </p></div>
+    <p>The following SQL statement lists the number of customers in each country, sorted high to low (Only include countries with more than 5 customers):</p>
+    <div class="code" id="HAVING-Example2"><button class="copy" onclick="copyText('HAVING-Example2')">Copy</button><br><p>
+        <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>GROUP BY</sql> Country<br>
+        <sql>HAVING COUNT</sql>(CustomerID) > 5<br>
+        <sql>ORDER BY COUNT</sql>(CustomerID) <sql>DESC</sql>;
+    </p></div>
+    <h3>More HAVING Examples</h3>
+    <p>The following SQL statement lists the employees that have registered more than 10 orders:</p>
+    <div class="code" id="HAVING-Example3"><button class="copy" onclick="copyText('HAVING-Example3')">Copy</button><br><p>
+        <sql>SELECT</sql> Employees.LastName, <sql>COUNT</sql>(Orders.OrderID) <sql>AS</sql> NumberOfOrders<br>
+        <sql>FROM</sql> (Orders<br>
+        <sql>INNER JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID)<br>
+        <sql>GROUP BY</sql> LastName<br>
+        <sql>HAVING COUNT</sql>(Orders.OrderID) > 10;
+    </p></div>
+    <p>The following SQL statement lists if the employees "Davolio" or "Fuller" have registered more than 25 orders:</p>
+    <div class="code" id="HAVING-Example4"><button class="copy" onclick="copyText('HAVING-Example4')">Copy</button><br><p>
+        <sql>SELECT</sql> Employees.LastName, <sql>COUNT</sql>(Orders.OrderID) <sql>AS</sql> NumberOfOrders<br>
+        <sql>FROM</sql> Orders<br>
+        <sql>INNER JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID<br>
+        <sql>WHERE</sql> LastName = 'Davolio' <sql>OR</sql> LastName = 'Fuller'<br>
+        <sql>GROUP BY</sql> LastName<br>
+        <sql>HAVING COUNT</sql>(Orders.OrderID) > 25;
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
