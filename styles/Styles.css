@@ -59,8 +59,13 @@ tr:nth-child(even) {
 .content {
     display: none;
     overflow: hidden;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
     padding: 18px;
+    /* Originally for inner drop-downs */
+    max-width: 1200px;
+    background: #d6d6d6;
+    margin: auto;
+    box-shadow: 1px 1px 1px 4px #c8c8c8 inset;
 }
 
 .code, .unityCode {
