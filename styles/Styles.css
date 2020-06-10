@@ -26,7 +26,8 @@ tr:nth-child(even) {
 }
 
 .containButtons {
-    padding: 18px;
+    padding-left: 56px;
+    padding-right: 56px;
 }
 
 .collapsible {
@@ -61,7 +62,8 @@ tr:nth-child(even) {
     overflow: hidden;
     /*background-color: #f1f1f1;*/
     padding: 18px;
-    /* Originally for inner drop-downs */
+    /* Originally for inner drop-downs 
+    style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;" */
     max-width: 1200px;
     background: #d6d6d6;
     margin: auto;
