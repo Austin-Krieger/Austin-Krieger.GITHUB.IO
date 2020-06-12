@@ -40,7 +40,7 @@
         <div id="caption"></div>
     </div>
     <button class="collapsible">Add a Character Model</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adding a Character Model</h2>
         <p>Import a character model from your own files or from the asset store.</p>
         <ol>
@@ -60,7 +60,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Prefabs</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What are Prefabs?</h2>
         <p>Prefabs are a special type of Asset that represent a GameObject or collection of GameObjects with components that are already set up. They're like a blueprint which you can use to easily make instances of the same thing. Each instance of a prefab is linked to the Prefab Asset, so changing the Asset will change all versions of the Prefab in all Scenes. This also means that if you go on to make mulitple level for a game, you won't need to remake a character for every level - you can just instantiate a new Prefab.</p>
         <p>Prefabs can be identified in the Hierarchy by their blue name and icon:</p>
@@ -80,7 +80,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Animate your character</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Animating your character</h2>
         <p>Two important animations to have for your player character are a walking animation and an idle animation for when the player is walking and not walking respectively.</p>
         <p>Select your player character GameObject and take a look at its Animator component in the Inspector. The first property is called Controller. This takes a reference to a type of Asset called an Animator Controller, which your're going to use to get the characer moving.</p>
@@ -186,10 +186,10 @@
     </div>
     &nbsp;
     <button class="collapsible">Coordinates in Unity</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Coordinates in Unity</h2>
         <p>Positions and directions in Unity work in 3D coordinates represented by x, y and z - together these make a vector. You’ll find out more about vectors later. A Scene has a global definition of these directions that you can see in the top right of the Scene window.</p>
-        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Coordniates.jpg" alt="Coordinates Image" onclick="displayModal(this)"></div>
+        <div class="center" style="padding: 10px; max-width: 150px;"><img src="../images/UnityImages/Coordniates.jpg" alt="Coordinates Image" onclick="displayModal(this)"></div>
         <p>The colored arrows represent the positive direction of each axis, with the grey arrow opposite representing the negative direction:</p>
         <ul>
             <li>x-axis is red</li>
@@ -223,7 +223,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Scripting</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">What is a script?</h2>
         <p>A script is a text document containing a series of instructions for the computer.  These instructions are commonly called code.  The instructions are written in a way that the computer can understand, in this case using a programming language called C#.</p>
         <p>C# defines the way the instructions are written and some of the words that are used.  Luckily, the words used often have a similar meaning in C# as they do in English.  For example, the first word we’ll come across in C# is "using" - this means that the script it is written is using code from somewhere else. Another example is "public", which means that anything can access something. There are too many examples to go through them all here.</p>
@@ -580,7 +580,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Lighting</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Light the Environment</h2>
         <p>Lighting has a big impact on atmosphere — changing the lighting in your game is the first step toward creating a really spooky environment for players to explore.</p>
         <p>Lights in Unity are simply GameObjects with a Light Component added. The Light Component contains settings which allow you to change the color and intensity of a light, as well as the ‘type’ of light and various more complex controls for shadows and Lightmapping.</p>
@@ -637,7 +637,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Navigation Mesh</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Adding a Navigation Mesh</h2>
         <p>Haunted Houses should have ghosts roaming the halls. To help our ghosts find their way around, Unity has a built-in system called the NavMesh (short for Navigation Mesh). You learned that a Mesh is a collection of triangles that all fit together to define a shape. This mesh enables your character to be rendered to the screen. The NavMesh is an invisible shape over the ground that defines an area within which selected GameObjects can move. So, how do you decide which areas can and can’t be moved over?</p>
         <p>When a GameObject is identified as Static, Unity’s navigation systems assume that it will not move. Your game’s environment is made up of many GameObjects with many Mesh Renderer Components. The combination of all the meshes from the Mesh Renderer Components whose GameObjects are marked as Static form the basis for the NavMesh.</p>
@@ -671,7 +671,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Camera</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Explore the Camera Component</h2>
         <p>In the previous tutorial, you created a level for your game. The character can now walk around the Scene, but this means that he sometimes wanders away from the camera. In this tutorial, you’ll adjust the camera settings to make sure this doesn’t happen. Scenes in Unity are made up of GameObjects which in turn have a collection of components attached to them. The way that the Scene is viewed by players is constructed in the same way. To view the Scene, a GameObject in the Scene must have a Camera component. When a new Scene is created, a GameObject is added called Main Camera which has a Camera component.</p>
         <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CameraObject.jpg" alt="Camera Object Image" onclick="displayModal(this)"></div>
@@ -720,7 +720,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Post-Processing Effects</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Add Post-Processing Effects</h2>
         <p>Post-processing involves applying filters and effects to the game image before it’s rendered on screen (similar to filters that can be added to photos).</p>
         <p>Generally, post-processing effects are grouped together and used on different areas of the game world. This means that when the camera is in a particular area, its designated set of processes are applied to the image.</p>
@@ -823,7 +823,7 @@
     </div>
     &nbsp;
     <button class="collapsible">User Interface</button>
-    <div class="content" style="max-width: 1200px; background: #d6d6d6; margin: auto; box-shadow: 1px 1px 1px 4px #c8c8c8 inset;">
+    <div class="innerContent">
         <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Set up the UI</h2>
         <p>When the character reaches the exit the game should fade out and quit, but you need to be careful with this — quitting in the Unity Editor and quitting in the final built version of the game are different.</p>
         <p>First, though, you need to make the game fade out. To do that, you’re going to use Unity’s UI (user interface) system.</p>

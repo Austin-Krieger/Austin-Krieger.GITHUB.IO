@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="altertable.html">Previous</a>
+    <a href=".html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1 style="text-align:center;">SQL Constraints</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">SQL Constraints</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL Create Constraints</h2>
+    <p>SQL constraints are used to specify rules for data in a table. Constraints can be specified when the table is created with the <b>CREATE TABLE</b> statement, or after the table is created with the <b>ALTER TABLE</b> statement.</p>
+    <div class="code" id="Constraint-Syntax"><button class="copy" onclick="copyText('Constraint-Syntax')">Copy</button><br><p>
+        <sql>CREATE TABLE</sql> table_name (<br>
+        &emsp;column1 datatype <sql>constraint</sql>,<br>
+        &emsp;column2 datatype <sql>constraint</sql>,<br>
+        &emsp;column3 datatype <sql>constraint</sql>,<br>
+        &emsp;....<br>
+        );
+    </p></div>
+    <h3>SQL Constraints</h3>
+    <p>SQL constraints are used to specify rules for the data in a table.</p>
+    <p>Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.</p>
+    <p>Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.</p>
+    <p>The following constraints are commonly used in SQL:</p>
+    <ul>
+        <li><b>NOT NULL</b> - Ensures that a column cannot have a NULL value</li>
+        <li><b>UNIQUE</b> - Ensures that all values in a column are different</li>
+        <li><b>PRIMARY KEY</b> - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table</li>
+        <li><b>FOREIGN KEY</b> - Uniquely identifies a row/record in another table</li>
+        <li><b>CHECK</b> - Ensures that all values in a column satisfies a specific condition</li>
+        <li><b>DEFAULT</b> - Sets a default value for a column when no value is specified</li>
+        <li><b>INDEX</b> - Used to create and retrieve data from the database very quickly</li>
+    </ul>
+    <button class="collapsible">NOT NULL</button>
+    <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">NOT NULL Constraint</h2>
+    <p>By default, a column can hold <b>NULL</b> values.</p>
+    <p>The <b>NOT NULL</b> constraint enforces a column to <b>NOT</b> accept <b>NULL</b> values.</p>
+    <p>This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.</p>
+    <h3>SQL NOT NULL on CREATE TABLE</h3>
+    <p>The following SQL ensures that the "ID", "LastName", and "FirstName" columns will NOT accept NULL values when the "Persons" table is created:</p>
+    <div class="content">
+        <div class="code" id="Constraint-Example"><button class="copy" onclick="copyText('Constraint-Example')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;Age int<br>
+            );
+        </p></div>
+        <h3></h3>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

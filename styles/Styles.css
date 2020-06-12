@@ -27,6 +27,7 @@ tr:nth-child(even) {
 
 .containButtons {
     padding: 18px;
+    /*width: 100%;*/
 }
 
 .collapsible {
@@ -34,11 +35,12 @@ tr:nth-child(even) {
     color: white;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
     border: 2px solid black;
     text-align: left;
     outline: none;
     font-size: 15px;
+    display: block;
+    width: 100%;
 }
 
 .active, .collapsible:hover {
@@ -50,10 +52,19 @@ tr:nth-child(even) {
     overflow: hidden;
 }
 
-.content0 .collapsible{
+.content0 .collapsible {
     background-color: #dddddd;
     color: black;
     padding-left: 30px;
+}
+
+.innerContent {
+    display: none;
+    overflow: hidden;
+    padding: 18px;
+    background: #d6d6d6;
+    margin: auto;
+    box-shadow: 1px 1px 1px 4px #c8c8c8 inset;
 }
 
 .content {
@@ -61,8 +72,8 @@ tr:nth-child(even) {
     overflow: hidden;
     /*background-color: #f1f1f1;*/
     padding: 18px;
-    /* Originally for inner drop-downs */
-    max-width: 1200px;
+    /* Originally for inner drop-downs
+    max-width: 1200px; */
     background: #d6d6d6;
     margin: auto;
     box-shadow: 1px 1px 1px 4px #c8c8c8 inset;
@@ -236,6 +247,47 @@ sql {
 .centerDivImages {
     max-width: 815px;
     margin: 0 auto;
+}
+
+/*@media screen and (min-width: 1253px) {
+    .containButtons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }*/
+    /*.collapsible {*/
+        /*max-width: 1200px;*/
+        /*max-width: 1216px;
+    }
+    .content {*/
+        /*min-width: 1164px;*/
+        /*max-width: 1180px;
+        width: 1180px;
+    }*/
+/*}*/
+
+
+@media screen and (min-width: 1250px) {
+    .containButtons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .collapsible {
+        /*max-width: 1200px;*/
+        max-width: 1200px;
+    }
+    .content {
+        /*min-width: 1164px;*/
+        /*max-width: 1180px;*/
+        min-width: 1164px;
+        max-width: 1164px;
+    }
+    .innerContent {
+        max-width: 1150px;
+    }
 }
 
 @media screen and (max-width: 937px) {

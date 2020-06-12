@@ -55,7 +55,7 @@
         <li>The right side is the lambda body, which specifies the actions of the lambda expression.</li>
     </ul>
     <button class="collapsible">Single Expression Lambdas</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Lambdas that define a single expression</h3>
         <div class="code" id="lambdas1"><button class="copy" onclick="copyText('lambdas1')">Copy</button><br><p>
             <mark>// This lambda expression takes no parameter, thus the parameter list is empty.</mark><br>
@@ -77,7 +77,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Block Lambda Expressions</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Block Lambda Expressions</h3>
         <p>Lambdas that have block bodies are sometimes referred to as block lambdas.</p>
         <p>A block lambda is easy to create. Simply enclose the body within braces as you would any other block of statements.</p>
@@ -93,7 +93,7 @@
                 <mark>// This block lambda computes the factorial of an int value.</mark><br>
                 NumericFunc factorial = (n) -> {<br>
                 &emsp;int result = 1;<br>
-                &emsp;for(int i=1; i <= n; i++)<br>
+                &emsp;for(int i=1; i &lt;= n; i++)<br>
                 &emsp;&emsp;result = i * result;<br>
                 &emsp;&emsp;return result;<br>
                 };<br><br>
@@ -103,7 +103,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Functional Interfaces</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Functional Interfaces</h3>
         <p>A functional interface is an interface that specifies only one abstract method.</p>
         <p>An interface method is abstract only if it does not specify a default implementation.</p>

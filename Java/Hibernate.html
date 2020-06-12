@@ -40,7 +40,7 @@
         <div id="caption"></div>
     </div>
     <button class="collapsible">About</button>
-        <div class="content">
+        <div class="innerContent">
             <h3>What is Hibernate?</h3>
             <p>Hibernate is an open-source and lightweight <b>ORM</b> tool that is used to store, manipulate, and retrieve data from a database.</p>
             <h3>What is ORM?</h3>
@@ -77,7 +77,7 @@
         </div>
         &nbsp;
         <button class="collapsible">Hibernate Example</button>
-        <div class="content">
+        <div class="innerContent">
             <ol>
                 <li>Load the Dependencies (jar files).</li>
                 <li>Create the Persistent class.</li>
@@ -89,7 +89,7 @@
             <h3>Create a new Maven Project "Hibernate Example"</h3>
             <p>Once the project is created open the pom.xml file and add the necessary dependencies.</p>
             <button class="collapsible">POM File</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate1"><button class="copy" onclick="copyText('hibernate1')">Copy</button><br><p>
                     &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;<br>
                     &emsp;&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;<br>
@@ -123,7 +123,7 @@
                 <li>Prefer non-final class: Hibernate uses the concept of proxies, that depends on the persistent class. The application programmer will not be able to use proxies for lazy association fetching.</li>
             </ul>
             <button class="collapsible">User Class</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate2"><button class="copy" onclick="copyText('hibernate2')">Copy</button><br><p>
                     public class User {<br><br>
                     &emsp;private int userID;<br>
@@ -161,7 +161,7 @@
                 <li>property: It is the sub-element of class that specifies the property name of the Persistent class.</li>
             </ul>
             <button class="collapsible">XML Based</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate3"><button class="copy" onclick="copyText('hibernate3')">Copy</button><br><p>
                     &lt;?xml version="1.0"?&gt;<br>
                     &lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"<br>
@@ -186,7 +186,7 @@
             </div>
             &nbsp;
             <button class="collapsible">Annotation Based</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate4"><button class="copy" onclick="copyText('hibernate4')">Copy</button><br><p>
                     @Entity <mark>// Defines that this Class can be mapped to a table</mark><br>
                     @Table(name = "users") <mark>// User class should connect to the users table in the database</mark><br>
@@ -227,7 +227,7 @@
             <h3>Create the Configuration file</h3>
             <p>The configuration file contains information about the database and mapping file. Conventionally, its name should be hibernate.cfg.xml</p>
             <button class="collapsible">Configuration File</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate5"><button class="copy" onclick="copyText('hibernate5')">Copy</button><br><p>
                     &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
                     &lt;!DOCTYPE hibernate-configuration PUBLIC<br>
@@ -259,7 +259,7 @@
             <h3>Create the utility class that opens sessions</h3>
             <p>For code reuse purposes we can separate our session factory from the main class.</p>
             <button class="collapsible">XML Based</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate6"><button class="copy" onclick="copyText('hibernate6')">Copy</button><br><p>
                     public class HibernateUtility {<br>
                     &emsp;<mark>// Get service registry</mark><br>
@@ -291,7 +291,7 @@
             </div>
             &nbsp;
             <button class="collapsible">Annotation Based</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate7"><button class="copy" onclick="copyText('hibernate7')">Copy</button><br><p>
                     public class HibernateUtility {<br>
                     &emsp;<mark>// Get service registry</mark><br>
@@ -331,7 +331,7 @@
             </div>
             &nbsp;
             <button class="collapsible">Annotation Based (With Log Interceptor)</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate8"><button class="copy" onclick="copyText('hibernate8')">Copy</button><br><p>
                     public class HibernateUtility {<br>
                     &emsp;<mark>// Get service registry</mark><br>
@@ -374,7 +374,7 @@
             <h3>Create the class that retrieves or stores the object</h3>
             <p>In this class, we are simply storing the user object to the database</p>
             <button class="collapsible">MainProgram Class</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="hibernate9"><button class="copy" onclick="copyText('hibernate9')">Copy</button><br><p>
                     public class MainProgram {<br>
                     &emsp;public static void main(String[] args) {<br><br>
@@ -430,11 +430,11 @@
         </div>
         &nbsp;
         <button class="collapsible">Hibernate Queries</button>
-        <div class="content">
+        <div class="innerContent">
             <button class="collapsible">HQL</button>
-            <div class="content">
+            <div class="innerContent">
                 <button class="collapsible">Get All Users</button>
-                <div class="content">
+                <div class="innerContent">
                     <div class="code" id="hibernate10"><button class="copy" onclick="copyText('hibernate10')">Copy</button><br><p>
                         public class HQLExample {<br>
                         &emsp;public static void main(String[] args) {<br>
@@ -471,9 +471,9 @@
             </div>
             &nbsp;
             <button class="collapsible">Criteria Queries</button>
-            <div class="content">
+            <div class="innerContent">
                 <button class="collapsible">Get All Users</button>
-                <div class="content">
+                <div class="innerContent">
                     <div class="code" id="hibernate11"><button class="copy" onclick="copyText('hibernate11')">Copy</button><br><p>
                         public class HQLExample {<br>
                         &emsp;public static void main(String[] args) {<br>
@@ -514,7 +514,7 @@
                 </div>
                 &nbsp;
                 <button class="collapsible">Select First and Last Names</button>
-                <div class="content">
+                <div class="innerContent">
                     <div class="code" id="hibernate12"><button class="copy" onclick="copyText('hibernate12')">Copy</button><br><p>
                         public class HQLExample {<br>
                         &emsp;public static void main(String[] args) {<br>
@@ -553,7 +553,7 @@
             </div>
             &nbsp;
             <button class="collapsible">Named Queries</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>First we will need to add a Named Query to our User class:</p>
                 <div class="code" id="hibernate13"><button class="copy" onclick="copyText('hibernate13')">Copy</button><br><p>
                     @Entity // Defines that this Class can be mapped to a table<br>
@@ -563,7 +563,7 @@
                 </p>
                 </div>
                 <button class="collapsible">Get all Users</button>
-                <div class="content">
+                <div class="innerContent">
                     <div class="code" id="hibernate14"><button class="copy" onclick="copyText('hibernate14')">Copy</button><br><p>
                         public class HQLExample {<br>
                         &emsp;public static void main(String[] args) {<br>
@@ -597,7 +597,7 @@
         </div>
         &nbsp;
         <button class="collapsible">Log Interceptor</button>
-        <div class="content">
+        <div class="innerContent">
             <p>To add a Log Interceptor to our program we first need to create a class that extends EmptyInterceptor.</p>
             <p>We can then use Eclipse's Source -> Override/Implement methods to add the methods we want.</p>
             <div class="code" id="hibernate15"><button class="copy" onclick="copyText('hibernate15')">Copy</button><br><p>
@@ -614,7 +614,7 @@
         </div>
         &nbsp;
         <button class="collapsible">Hibernate Lifecycle</button>
-        <div class="content">
+        <div class="innerContent">
             <h3>Hibernate Lifecycle</h3>
             <div class="center"><img src="../images/JavaImages/hibernate-lifecycle.png" alt="Hibernate Lifecycle" onclick="displayModal(this)"></div>
             <p>The Hibernate lifecycle contains the following states:</p>

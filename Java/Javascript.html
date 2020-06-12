@@ -30,7 +30,7 @@
 <button class="collapsible" id="autoClickBtn">Javascript</button>
 <div class="content">
     <button class="collapsible">Overview</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is JavaScript?</h3>
         <p>JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages. It is an interpreted programming language with object-oriented capabilities.</p>
         <ul>
@@ -87,7 +87,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Syntax</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Syntax</h3>
         <p>JavaScript can be implemented using JavaScript statements that are placed within the &lt;script&gt;... &lt;/script&gt; HTML tags in a web page.</p>
         <p>You can place the &lt;script&gt; tags, containing your JavaScript, anywhere within your web page, but it is normally recommended that you should keep it within the &lt;head&gt; tags.</p>
@@ -127,8 +127,8 @@
         </ul>
     </div>
     &nbsp;
-    <button class="collapsible">Datatypes & Variables</button>
-    <div class="content">
+    <button class="collapsible">Datatypes &amp; Variables</button>
+    <div class="innerContent">
         <h3>JavaScript Datatypes</h3>
         <p>JavaScript allows you to work with three primitive data types:</p>
         <ul>
@@ -268,7 +268,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Operators</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is an Operator?</h3>
         <p>Let us take a simple expression 4 + 5 is equal to 9. Here 4 and 5 are called operands and ‘+’ is called the operator. JavaScript supports the following types of operators.</p>
         <ul>
@@ -315,7 +315,7 @@
         </table>
         <p>Addition operator (+) works for Numeric as well as Strings. e.g. "a" + 10 will give "a10".</p>
         <button class="collapsible">Arithmetic Operator Examples</button>
-        <div class="content">
+        <div class="innerContent">
             <div class="code" id="javascript5"><button class="copy" onclick="copyText('javascript5')">Copy</button><br><p>
                 var a = 33;<br>
                 var b = 10;<br>
@@ -386,7 +386,7 @@
         </table>
         &nbsp;
         <button class="collapsible">Comparison Operator Examples</button>
-        <div class="content">
+        <div class="innerContent">
             <div class="code" id="javascript6"><button class="copy" onclick="copyText('javascript6')">Copy</button><br><p>
                 var a = 10;<br>
                 var b = 20;<br>
@@ -438,7 +438,7 @@
         </table>
         &nbsp;
         <button class="collapsible">Logical Operator Examples</button>
-        <div class="content">
+        <div class="innerContent">
             <div class="code" id="javascript7"><button class="copy" onclick="copyText('javascript7')">Copy</button><br><p>
                 var a = true;<br>
                 var b = false;<br>
@@ -494,7 +494,7 @@
         </table>
         &nbsp;
         <button class="collapsible">Bitwise Operator Examples</button>
-        <div class="content">
+        <div class="innerContent">
             <div class="code" id="javascript8"><button class="copy" onclick="copyText('javascript8')">Copy</button><br><p>
                 var a = 2; // Bit presentation 10<br>
                 var b = 3; // Bit presentation 11<br>
@@ -558,7 +558,7 @@
         </table>
         <p>Same logic applies to Bitwise operators so they will become like &lt;&lt;=, >>=, >>=, &amp;=, |= and ^=.</p>
         <button class="collapsible">Assignment Operator Examples</button>
-        <div class="content">
+        <div class="innerContent">
             <div class="code" id="javascript9"><button class="copy" onclick="copyText('javascript9')">Copy</button><br><p>
                 var a = 33;<br>
                 var b = 10;<br>
@@ -641,7 +641,7 @@
         </table>
         &nbsp;
         <button class="collapsible">Miscellaneous Operator Examples</button>
-        <div class="content">
+        <div class="innerContent">
             <h3>Conditional Operator (? :)</h3>
             <div class="code" id="javascript10"><button class="copy" onclick="copyText('javascript10')">Copy</button><br><p>
                 var a = 10;<br>
@@ -674,7 +674,7 @@
     </div>
     &nbsp;
     <button class="collapsible">JavaScript for...in loop</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript for...in loop</h3>
         <p>The for...in loop is used to loop through an object's properties.</p>
         <p>JavaScript also has if..else, for &amp; while loops, and switch case statements that work the same as in other programming languages.</p>
@@ -696,7 +696,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Loop Control</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Loop Control</h3>
         <p>JavaScript provides break and continue statements. These statements are used to immediately come out of any loop or to start the next iteration of any loop respectively.</p>
         <h3>The break Statement</h3>
@@ -709,14 +709,14 @@
     </div>
     &nbsp;
     <button class="collapsible">Loop Control Examples</button>
-    <div class="content">
+    <div class="innerContent">
         <div class="code" id="javascript14"><button class="copy" onclick="copyText('javascript14')">Copy</button><br><p>
             document.write("Entering the loop!&lt;br /&gt; ");<br>
             outerloop: <mark>// This is the label name</mark><br>
-            for (var i = 0; i < 5; i++) {<br>
+            for (var i = 0; i &lt; 5; i++) {<br>
             &emsp;document.write("Outerloop: " + i + "&lt;br /&gt;");<br>
             &emsp;innerloop:<br>
-            &emsp;for (var j = 0; j < 5; j++) {<br>
+            &emsp;for (var j = 0; j &lt; 5; j++) {<br>
             &emsp;&emsp;if (j > 3 ) break ; <mark>// Quit the innermost loop</mark><br>
             &emsp;&emsp;if (i == 2) break innerloop; <mark>// Do the same thing</mark><br>
             &emsp;&emsp;if (i == 4) break outerloop; <mark>// Quit the outer loop</mark><br>
@@ -742,7 +742,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Functions</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Functions</h3>
         <p>A function is a group of reusable code which can be called anywhere in your program. This eliminates the need of writing the same code again and again. It helps programmers in writing modular codes. Functions allow a programmer to divide a big program into a number of small and manageable functions.</p>
         <h3>Function Definition</h3>
@@ -836,7 +836,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Events</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is an Event?</h3>
         <p>JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page.</p>
         <p>When the page loads, it is called an event. When the user clicks a button, that click too is an event. Other examples include events like pressing any key, closing a window, resizing a window, etc.</p>
@@ -1156,7 +1156,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Cookies</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What are Cookies?</h3>
         <p>Web Browsers and Servers use HTTP protocol to communicate and HTTP is a stateless protocol. But for a commercial website, it is required to maintain session information among different pages. For example, one user registration ends after completing many pages. But how to maintain users' session information across all the web pages.</p>
         <p>In many situations, using cookies is the most efficient method of remembering and tracking preferences, purchases, commissions, and other information required for better visitor experience or site statistics.</p>
@@ -1282,7 +1282,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Page Redirect</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is Page Redirection?</h3>
         <p>You might have encountered a situation where you clicked a URL to reach a page X but internally you were directed to another page Y. It happens due to page redirection. This concept is different from JavaScript Page Refresh.</p>
         <div class="code" id="javascript31"><button class="copy" onclick="copyText('javascript31')">Copy</button><br><p>
@@ -1296,7 +1296,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Dialog Boxes</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Alert Dialog Box</h3>
         <p>An alert dialog box is mostly used to give a warning message to the users. For example, if one input field requires to enter some text but the user does not provide any input, then as a part of validation, you can use an alert box to give a warning message.</p>
         <div class="code" id="javascript32"><button class="copy" onclick="copyText('javascript32')">Copy</button><br><p>
@@ -1333,7 +1333,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Void Keyword</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Void Keyword</h3>
         <p>void is an important keyword in JavaScript which can be used as a unary operator that appears before its single operand, which may be of any type. This operator specifies an expression to be evaluated without returning a value.</p>
         <div class="code" id="javascript35"><button class="copy" onclick="copyText('javascript35')">Copy</button><br><p>
@@ -1362,7 +1362,7 @@
         </div>
     &nbsp;
     <button class="collapsible">Page Printing</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Page Printing</h3>
         <p>Many times you would like to place a button on your webpage to print the content of that web page via an actual printer. JavaScript helps you to implement this functionality using the print function of window object.</p>
         <p>The JavaScript print function window.print() prints the current web page when executed. You can call this function directly using the onclick event.</p>
@@ -1524,7 +1524,7 @@
     <p>JavaScript has several built-in or native objects. These objects are accessible anywhere in your program and will work the same way in any browser running in any operating system.</p>
     <p>Number, Boolean, String, Array, Date, Math and RegExp</p>
     <button class="collapsible">Number Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Number Object</h3>
         <p>The Number object represents numerical date, either integers or floating-point numbers. In general, you do not need to worry about Number objects because the browser automatically converts number literals to instances of the number class.</p>
         <div class="code" id="javascript47"><button class="copy" onclick="copyText('javascript47')">Copy</button><br><p>
@@ -1570,7 +1570,7 @@
         <table class="scrollableTable">
             <tr>
                 <th>Method</th>
-                <th>Description<th>
+                <th>Description</th>
             </tr>
             <tr>
                 <td>toExponential()</td>
@@ -1600,7 +1600,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Boolean Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Boolean Object</h3>
         <p>The Boolean object represents two values, either "true" or "false". If value parameter is omitted or is 0, -0, null, false, NaN, undefined, or the empty string (""), the object has an initial value of false.</p>
         <div class="code" id="javascript48"><button class="copy" onclick="copyText('javascript48')">Copy</button><br><p>
@@ -1644,7 +1644,7 @@
     </div>
     &nbsp;
     <button class="collapsible">String Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript String Object</h3>
         <p>The String object lets you work with a series of characters; it wraps Javascript's string primitive data type with a number of helper methods.</p>
         <p>As JavaScript automatically converts between string primitives and String objects, you can call any of the helper methods of the String object on a string primitive.</p>
@@ -1816,7 +1816,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Array Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Arrays Object</h3>
         <p>The Array object lets you store multiple values in a single variable. It stores a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.</p>
         <div class="code" id="javascript50"><button class="copy" onclick="copyText('javascript50')">Copy</button><br><p>
@@ -1948,7 +1948,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Date Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Date Object</h3>
         <p>The Date object is a datatype built into the JavaScript language. Date objects are created with <b>new Date()</b>.</p>
         <p>Once a Date object is created, a number of methods allow you to operate on it. Most methods simply allow you to get and set the year, month, day, hour, minute, second, and millisecond fields of the object, using either local time or UTC (universal, or GMT) time.</p>
@@ -2204,7 +2204,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Math Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Math Object</h3>
         <p>The math object provides you properties and methods for mathematical constants and functions. Unlike other global objects, Math is not a constructor. All the properties and methods of Math are static and can be called by using Math as an object without creating it.</p>
         <p>Thus, you refer to the constant pi as Math.PI and you call the sine function as Math.sin(x), where x is the method's argument.</p>
@@ -2330,7 +2330,7 @@
     </div>
     &nbsp;
     <button class="collapsible">RegExp Object</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript RegExp Object</h3>
         <p>A regular expression is an object that describes a pattern of characters.</p>
         <p>The JavaScript RegExp class represents regular expressions, and both String and RegExp define methods that use regular expressions to perform powerful pattern-matching and search-and-replace functions on text.</p>
@@ -2615,7 +2615,7 @@
 <button class="collapsible">Advanced JavaScript</button>
 <div class="content">
     <button class="collapsible">Errors &amp; Exceptions Handling</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>Error &amp; Exception Handling</h3>
         <p>There are three types of errors in programming: (a) Syntax Errors, (b) Runtime Errors, and (c) Logical Errors.</p>
         <h3>Syntax Errors</h3>
@@ -2708,7 +2708,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Validations</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Form Validation</h3>
         <p>Form validation normally used to occur at the server, after the client had entered all the necessary data and then pressed the Submit button. If the data entered by a client was incorrect or was simply missing, the server would have to send all the data back to the client and request that the form be resubmitted with correct information. This was really a lengthy process which used to put a lot of burden on the server.</p>
         <p>JavaScript provides a way to validate form's data on the client's computer before sending it to the web server. Form validation generally performs two functions.</p>
@@ -2798,7 +2798,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Animation</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Animations</h3>
         <p>You can use JavaScript to create a complex animation having, but not limited to, the following elements:</p>
         <ul>
@@ -2920,7 +2920,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Debugging</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Debugging</h3>
         <p>Every now and then, developers commit mistakes while coding. A mistake in a program or a script is referred to as a bug.</p>
         <p>The process of finding and fixing bugs is called debugging and is a normal part of the development process. This section covers tools and techniques that can help you with debugging tasks..</p>
@@ -2957,7 +2957,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Browsers</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>JavaScript Browser Compatibility</h3>
         <p>It is important to understand the differences between different browsers in order to handle each in the way it is expected. So it is important to know which browser your web page is running in.</p>
         <p>To get information about the browser your webpage is currently running in, use the built-in navigator object.</p>

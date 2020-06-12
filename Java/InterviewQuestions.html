@@ -39,7 +39,7 @@
         <div id="caption"></div>
     </div>
     <button class="collapsible">Core Java 100</button>
-    <div class="content">
+    <div class="innerContent">
         <h2>Core Java Questions</h2>
         <h3>Explain JDK, JRE and JVM?</h3>
         <p>JDK (Java Development Kit): The tool necessary to compile, document and package Java programs.</p>
@@ -1001,17 +1001,17 @@
     </div>
     &nbsp;
     <button class="collapsible">Core Java 300</button>
-    <div class="content">
+    <div class="innerContent">
         <button class="collapsible">Core Java: Basics of Java Interview Questions</button>
-        <div class="content">
+        <div class="innerContent">
             <p>https://www.javatpoint.com/corejava-interview-questions</p>
             <button class="collapsible">What is Java?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Java is the high-level, object-oriented, robust, secure programming language, platform-independent, high performance, Multithreaded, and portable programming language. It was developed by James Gosling in June 1991. It can also be known as the platform as it provides its own JRE and API.</p>
             </div>
             &nbsp;
             <button class="collapsible">List the features of Java Programming language.</button>
-            <div class="content">
+            <div class="innerContent">
                 <ul>
                     <li>Simple: Java is easy to learn. The syntax of Java is based on C++ which makes easier to write the program in it.</li>
                     <li>Object-Oriented: Java follows the object-oriented paradigm which allows us to maintain our code as the combination of different type of objects that incorporates both data and behavior.</li>
@@ -1029,12 +1029,12 @@
             </div>
             &nbsp;
             <button class="collapsible">What do you understand by Java virtual machine?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Java Virtual Machine is a virtual machine that enables the computer to run the Java program. JVM acts like a run-time engine which calls the main method present in the Java code. JVM is the specification which must be implemented in the computer system. The Java code is compiled by JVM to be a Bytecode which is machine independent and close to the native code.</p>
             </div>
             &nbsp;
             <button class="collapsible">What is the difference between JDK, JRE, and JVM?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>JVM is an acronym for Java Virtual Machine; it is an abstract machine which provides the runtime environment in which Java bytecode can be executed. It is a specification which specifies the working of Java Virtual Machine. Its implementation has been provided by Oracle and other companies. Its implementation is known as JRE. JVMs are available for many hardware and software platforms (so JVM is platform dependent). It is a runtime instance which is created when we run the Java class. There are three notions of the JVM: specification, implementation, and instance.</p>
                 <p>JRE stands for Java Runtime Environment. It is the implementation of JVM. The Java Runtime Environment is a set of software tools which are used for developing Java applications. It is used to provide the runtime environment. It is the implementation of JVM. It physically exists. It contains a set of libraries + other files that JVM uses at runtime.</p>
                 <p>JDK is an acronym for Java Development Kit. It is a software development environment which is used to develop Java applications and applets. It physically exists. It contains JRE + development tools. JDK is an implementation of any one of the below given Java Platforms released by Oracle Corporation:</p>
@@ -1046,7 +1046,7 @@
             </div>
             &nbsp;
             <button class="collapsible">How many types of memory areas are allocated by JVM?</button>
-            <div class="content">
+            <div class="innerContent">
                 <ol>
                     <li>Class(Method) Area: Class Area stores per-class structures such as the runtime constant pool, field, method data, and the code for methods.</li>
                     <li>Heap: It is the runtime data area in which the memory is allocated to the objects</li>
@@ -1057,28 +1057,28 @@
             </div>
             &nbsp;
             <button class="collapsible">What is JIT compiler?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Just-In-Time(JIT) compiler: It is used to improve the performance. JIT compiles parts of the bytecode that have similar functionality at the same time, and hence reduces the amount of time needed for compilation. Here the term “compiler” refers to a translator from the instruction set of a Java virtual machine (JVM) to the instruction set of a specific CPU.</p>
             </div>
             &nbsp;
             <button class="collapsible">What is the platform?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>A platform is the hardware or software environment in which a piece of software is executed. There are two types of platforms, software-based and hardware-based. Java provides the software-based platform.</p>
             </div>
             &nbsp;
             <button class="collapsible">What are the main differences between the Java platform and other platforms?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Java is the software-based platform whereas other platforms may be the hardware platforms or software-based platforms.</p>
                 <p>Java is executed on the top of other hardware platforms whereas other platforms can only have the hardware components.</p>
             </div>
             &nbsp;
             <button class="collapsible">What gives Java its 'write once and run anywhere' nature?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The bytecode. Java compiler converts the Java programs into the class file (Byte Code) which is the intermediate language between source code and machine code. This bytecode is not platform specific and can be executed on any computer.</p>
             </div>
             &nbsp;
             <button class="collapsible">What is classloader?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Classloader is a subsystem of JVM which is used to load class files. Whenever we run the java program, it is loaded first by the classloader. There are three built-in classloaders in Java.</p>
                 <ol>
                     <li>Bootstrap ClassLoader: This is the first classloader which is the superclass of Extension classloader. It loads the rt.jar file which contains all class files of Java Standard Edition like java.lang package classes, java.net package classes, java.util package classes, java.io package classes, java.sql package classes, etc.</li>
@@ -1088,32 +1088,32 @@
             </div>
             &nbsp;
             <button class="collapsible">Is Empty .java file name a valid source file name?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Yes, Java allows to save our java file by .java only, we need to compile it by javac .java and run by java classname.</p>
             </div>
             &nbsp;
             <button class="collapsible">Is delete, next, main, exit or null keyword in java?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>No</p>
             </div>
             &nbsp;
             <button class="collapsible">If I don't provide any arguments on the command line, then what will the value stored in the String array passed into the main() method, empty or NULL?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>It is empty, but not null.</p>
             </div>
             &nbsp;
             <button class="collapsible">What if I write static public void instead of public static void?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The program compiles and runs correctly because the order of specifiers doesn't matter in Java.</p>
             </div>
             &nbsp;
             <button class="collapsible">What is the default value of the local variables?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The local variables are not initialized to any default value, neither primitives nor object references.</p>
             </div>
             &nbsp;
             <button class="collapsible">What are the various access specifiers in Java?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>In Java, access specifiers are the keywords which are used to define the access scope of the method, class, or a variable. In Java, there are four access specifiers given below.</p>
                 <ul>
                     <li>Public The classes, methods, or variables which are defined as public, can be accessed by any class or method.</li>
@@ -1124,12 +1124,12 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the purpose of static methods and variables?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The methods or variables defined as static are shared among all the objects of the class. The static is the part of the class and not of the object. The static variables are stored in the class area, and we do not need to create the object to access such variables. Therefore, static is used in the case, where we need to define variables or methods which are common to all the objects of the class.</p>
             </div>
             &nbsp;
             <button class="collapsible">What are the advantages of Packages in Java?</button>
-            <div class="content">
+            <div class="innerContent">
                 <ul>
                     <li>Packages avoid the name clashes.</li>
                     <li>The Package provides easier access control.</li>
@@ -1139,7 +1139,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the output of the following Java program?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="interview2"><button class="copy" onclick="copyText('interview2')">Copy</button><br><p>
                     class Test {<br>
                     &emsp;public static void main (String args[]) {<br>
@@ -1160,7 +1160,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the output of the following Java program?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="interview4"><button class="copy" onclick="copyText('interview4')">Copy</button><br><p>
                     class Test {<br>
                     &emsp;public static void main (String args[]) {<br>
@@ -1181,7 +1181,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the output of the following Java program?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="interview6"><button class="copy" onclick="copyText('interview6')">Copy</button><br><p>
                     class Test {<br>
                     &emsp;public static void main (String args[]) {<br>
@@ -1197,9 +1197,9 @@
         </div>
         &nbsp;
         <button class="collapsible">Core Java - OOPs Concepts: Initial OOPs Interview Questions</button>
-        <div class="content">
+        <div class="innerContent">
             <button class="collapsible">What is object-oriented paradigm?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>It is a programming paradigm based on objects having data and methods defined in the class to which it belongs. Object-oriented paradigm aims to incorporate the advantages of modularity and reusability. Objects are the instances of classes which interacts with one another to design applications and programs. There are the following features of the object-oriented paradigm.</p>
                 <ul>
                     <li>Follows the bottom-up approach in program design.</li>
@@ -1211,12 +1211,12 @@
             </div>
             &nbsp;
             <button class="collapsible">What is an object?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The Object is the real-time entity having some state and behavior. In Java, Object is an instance of the class having the instance variables as the state of the object and the methods as the behavior of the object. The object of a class can be created by using the new keyword.</p>
             </div>
             &nbsp;
             <button class="collapsible">What is the difference between an object-oriented programming language and object-based programming language?</button>
-            <div class="content">
+            <div class="innerContent">
                 <ul>
                     <li>Object-oriented languages follow all the concepts of OOPs whereas, the object-based language doesn't follow all the concepts of OOPs like inheritance and polymorphism.</li>
                     <li>Object-oriented languages do not have the inbuilt objects whereas Object-based languages have the inbuilt objects, for example, JavaScript has window object.</li>
@@ -1225,26 +1225,26 @@
             </div>
             &nbsp;
             <button class="collapsible">What will be the initial value of an object reference which is defined as an instance variable?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>All object references are initialized to null in Java.</p>
             </div>
         </div>
         &nbsp;
         <button class="collapsible">Core Java - OOPs: Constructor Interview Questions</button>
-        <div class="content">
+        <div class="innerContent">
             <button class="collapsible">What is the constructor?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The constructor can be defined as the special type of method that is used to initialize the state of an object. It is invoked when the class is instantiated, and the memory is allocated for the object. Every time, an object is created using the new keyword, the default constructor of the class is called. The name of the constructor must be similar to the class name. The constructor must not have an explicit return type.</p>
             </div>
             &nbsp;
             <button class="collapsible">How many types of constructors are used in Java?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Default Constructor: default constructor is the one which does not accept any value. The default constructor is mainly used to initialize the instance variable with the default values. It can also be used for performing some useful task on object creation. A default constructor is invoked implicitly by the compiler if there is no constructor defined in the class.</p>
                 <p>Parameterized Constructor: The parameterized constructor is the one which can initialize the instance variables with the given values. In other words, we can say that the constructors which can accept the arguments are called parameterized constructors.</p>
             </div>
             &nbsp;
             <button class="collapsible">What is the purpose of a default constructor?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The purpose of the default constructor is to assign the default value to the objects. The java compiler creates a default constructor implicitly if there is no constructor in the class.</p>
                 <div class="code" id="interview7"><button class="copy" onclick="copyText('interview7')">Copy</button><br><p>
                     class Student{<br>
@@ -1272,22 +1272,22 @@
             </div>
             &nbsp;
             <button class="collapsible">Does constructor return any value?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Yes, The constructor implicitly returns the current instance of the class (You can't use an explicit return type with the constructor).</p>
             </div>
             &nbsp;
             <button class="collapsible">Is constructor inherited?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>No, The constructor is not inherited.</p>
             </div>
             &nbsp;
             <button class="collapsible">Can you make a constructor final?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>No, the constructor can't be final.</p>
             </div>
             &nbsp;
             <button class="collapsible">Can we overload the constructors?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>Yes, the constructors can be overloaded by changing the number of arguments accepted by the constructor or by changing the data type of the parameters.</p>
                 <div class="code" id="interview9"><button class="copy" onclick="copyText('interview9')">Copy</button><br><p>
                     class Test {<br>
@@ -1318,7 +1318,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What do you understand by copy constructor in Java?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>There is no copy constructor in java. However, there are many ways to copy the values of one obejct into another.</p>
                 <ul>
                     <li>By constructor</li>
@@ -1360,7 +1360,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What are the differences between the constructors and methods?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="scrollableTable"><table>
                     <tr>
                         <th>Java Constructor</th>
@@ -1390,7 +1390,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the output of the following Java program?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="interview12"><button class="copy" onclick="copyText('interview12')">Copy</button><br><p>
                     public class Test {<br>
                     &emsp;Test(int a, int b) {<br>
@@ -1416,7 +1416,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the output of the following Java program?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="interview14"><button class="copy" onclick="copyText('interview14')">Copy</button><br><p>
                     class Test {<br>
                     &emsp;int i;<br>
@@ -1433,7 +1433,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the output of the following Java program?</button>
-            <div class="content">
+            <div class="innerContent">
                 <div class="code" id="interview15"><button class="copy" onclick="copyText('interview15')">Copy</button><br><p>
                     class Test {<br>
                     &emsp;int test_a, test_b;<br>
@@ -1453,9 +1453,9 @@
         </div>
         &nbsp;
         <button class="collapsible">Core Java - OOPs Concepts: static keyword Interview Questions</button>
-        <div class="content">
+        <div class="innerContent">
             <button class="collapsible">What is the static variable?</button>
-            <div class="content">
+            <div class="innerContent">
                 <p>The static variable is used to refer to the common property of all objects (that is not unique for each object), e.g., The company name of employees, college name of students, etc. Static variable gets memory only once in the class area at the time of class loading. Using a static variable makes your program more memory efficient (it saves memory). Static variable belongs to the class rather than the object.</p>
                 <div class="code" id="interview16"><button class="copy" onclick="copyText('interview16')">Copy</button><br><p>
                     class Student{<br>
@@ -1487,7 +1487,7 @@
             </div>
             &nbsp;
             <button class="collapsible">What is the static method?</button>
-            <div class="content">
+            <div class="innerContent">
                 <ul>
                     <li>A static method belongs to the class rather than the object.</li>
                     <li>There is no need to create the object to call the static methods.</li>
@@ -1496,52 +1496,52 @@
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
             <button class="collapsible"></button>
-            <div class="content">
+            <div class="innerContent">
                 <p></p>
             </div>
             &nbsp;
@@ -1549,7 +1549,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Constructors</button>
-    <div class="content">
+    <div class="innerContent">
         <h2>Constructor Questions</h2>
         <h3>What is a Constructor?</h3>
         <p>Constructors are used to initialize the object’s state. Like methods, a constructor also contains collection of statements(i.e. instructions) that are executed at time of Object creation.</p>
@@ -1579,7 +1579,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Lambda Expressions</button>
-    <div class="content">
+    <div class="innerContent">
         <h2>Lambda Expression Questions</h2>
         <h3>What is a lambda expression?</h3>
         <p>Lambda expression in itself is an anonymous method i.e. a method with no name which is used to provide implementation of the method defined by a functional interface.</p>
@@ -1637,7 +1637,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Servlets</button>
-    <div class="content">
+    <div class="innerContent">
         <h2>Servlet Questions</h2>
         <h3>What is a servlet?</h3>
         <p>Java Servlet is server side technologies to extend the capability of web servers by providing support for dynamic response and data persistence.</p>
@@ -1725,7 +1725,7 @@
     </div>
     &nbsp;
     <button class="collapsible">JDBC</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is JDBC API and when do we use it?</h3>
         <p>Java DataBase Connectivity API allows us to work with relational databases. JDBC API interfaces and classes are part of java.sql and javax.sql package. We can use JDBC API to get the database connection, run SQL queries and stored procedures in the database server and process the results.</p>
         <h3>What are different types of JDBC Drivers?</h3>
@@ -1911,7 +1911,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Hibernate</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is the ORM Framework?</h3>
         <p>Object-relational mapping or ORM is the programming technique to map application domain model objects to the relational database tables.</p>
         <h3>What is the Hibernate Framework?</h3>
@@ -2121,7 +2121,7 @@
     </div>
     &nbsp;
     <button class="collapsible">Spring</button>
-    <div class="content">
+    <div class="innerContent">
         <h3>What is Spring Framework?</h3>
         <p>The Spring Framework uses Dependency Injection and Aspect Oriented Programming to achieve a loose coupling between components and cross-cutting tasks.</p>
         <h3>What are some of the important features of Spring?</h3>
@@ -2238,14 +2238,14 @@
     </div>
     &nbsp;
     <button class="collapsible">Javascript</button>
-    <div class="content">
+    <div class="innerContent">
         <button class="collapsible">What is JavaScript?</button>
-        <div class="content">
+        <div class="innerContent">
             <p>JavaScript is a lightweight, interpreted programming language with object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.</p>
         </div>
         &nbsp;
         <button class="collapsible">Name some of the JavaScript features.</button>
-        <div class="content">
+        <div class="innerContent">
             <ul>
                 <li>JavaScript is a lightweight, interpreted programming language.</li>
                 <li>JavaScript is designed for creating network-centric applications.</li>
@@ -2256,7 +2256,7 @@
         </div>
         &nbsp;
         <button class="collapsible">What are the advantages of using JavaScript?</button>
-        <div class="content">
+        <div class="innerContent">
             <ul>
                 <li><b>Less server interaction</b> − You can validate user input before sending the page off to the server. This saves server traffic, which means less load on your server.</li>
                 <li><b>Immediate feedback to the visitors</b> − They don't have to wait for a page reload to see if they have forgotten to enter something.</li>
@@ -2266,7 +2266,7 @@
         </div>
         &nbsp;
         <button class="collapsible">What are disadvantages of using JavaScript?</button>
-        <div class="content">
+        <div class="innerContent">
             <ul>
                 <li>Client-side JavaScript does not allow the reading or writing of files. This has been kept for security reason.</li>
                 <li>JavaScript can not be used for Networking applications because there is no such support available.</li>
@@ -2275,12 +2275,12 @@
         </div>
         &nbsp;
         <button class="collapsible">Is JavaScript a case-sensitive language?</button>
-        <div class="content">
+        <div class="innerContent">
             <p>Yes! JavaScript is a case-sensitive language. This means that language keywords, variables, function names, and any other identifiers must always be typed with a consistent capitalization of letters.</p>
         </div>
         &nbsp;
         <button class="collapsible">How can you create an Object in JavaScipt></button>
-        <div class="content">
+        <div class="innerContent">
             <p>JavaScript supports Object concept very well. You can create an object using the object literal.</p>
             <div class="code" id="javaScript1"><button class="copy" onclick="copyText('javaScript1')">Copy</button><br><p>
                 var emp = {<br>
@@ -2291,7 +2291,7 @@
         </div>
         &nbsp;
         <button class="collapsible">How can you read properties of an Object in JavaScript?</button>
-        <div class="content">
+        <div class="innerContent">
             <p>You can read and write properties of an object using the dot notation.</p>
             <div class="code" id="javaScript2"><button class="copy" onclick="copyText('javaScript2')">Copy</button><br><p>
                 <mark>// Getting object properties</mark><br>
@@ -2304,7 +2304,7 @@
         </div>
         &nbsp;
         <button class="collapsible">How can you create an Array in JavaScript?</button>
-        <div class="content">
+        <div class="innerContent">
             <div class="code" id="javaScript3"><button class="copy" onclick="copyText('javaScript3')">Copy</button><br><p>
                 var x = [];<br>
                 var y = [1, 2, 3, 4, 5];
@@ -2312,212 +2312,212 @@
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
         &nbsp;
         <button class="collapsible"></button>
-        <div class="content">
+        <div class="innerContent">
             <p></p>
         </div>
     </div>

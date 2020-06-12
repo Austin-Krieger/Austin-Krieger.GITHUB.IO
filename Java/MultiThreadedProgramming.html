@@ -6,6 +6,7 @@
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
     <link rel="stylesheet" type="text/css" href="../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../styles/modal.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
@@ -29,6 +30,15 @@
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Multi-threaded Programming (Add thread creation information)</button>
 <div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
     <h2>Multi-threaded Programming</h2>
     <h3>Java Memory Model</h3>
     <p>Stack:</p>
@@ -152,8 +162,8 @@
         </tr>
     </table></div>
     &nbsp;
-    <button class="collapsible"> Concurrency Overview </button>
-    <div class="content">
+    <button class="collapsible">Concurrency Overview </button>
+    <div class="innerContent">
         <h2>"Concurrent Program"</h2>
         <p>Refers to a program that makes extensive, integral use of concurrently executing threads.</p>
         <p>For Example: A program that uses separate threads to simultaneously compute the partial results of a larger computation.</p>
@@ -292,8 +302,8 @@
     </div>
     <h2 style="border-bottom: 2px solid black;">Synchronization Objects</h2>
     <p>Synchronization objects are supported by the Semaphore, CountDownLatch, CyclicBarrier, Exchanger, and Phaser classes.</p>
-    <button class="collapsible"> Semaphore </button>
-    <div class="content">
+    <button class="collapsible">Semaphore</button>
+    <div class="innerContent">
         <h2>Semaphore</h2>
         <p>Controls access to a shared resource through the use of a counter.</p>
         <ul>
@@ -321,8 +331,8 @@
         </ol>
     </div>
     &nbsp;
-    <button class="collapsible"> CountDownLatch </button>
-    <div class="content">
+    <button class="collapsible">CountDownLatch</button>
+    <div class="innerContent">
         <h2>CountDownLatch</h2>
         <p>A CountDownLatch is initially created with a count of the number of events that must occur before the latch is released.</p>
         <p>CountDownLatch(int num) <mark>// num specifies the number of events that must occur in order for the latch to open.</mark></p>
@@ -359,7 +369,7 @@
             &emsp;}<br><br>
             &emsp;@Override<br>
             &emsp;public void run() {<br>
-            &emsp;&emsp;for (int i = 0; i < 5; i++) {<br>
+            &emsp;&emsp;for (int i = 0; i &lt; 5; i++) {<br>
             &emsp;&emsp;&emsp;System.out.println(i);<br>
             &emsp;&emsp;&emsp;latch.countDown(); <mark>// decrement count</mark><br>
             &emsp;&emsp;}<br>
@@ -369,8 +379,8 @@
         </div>
     </div>
     &nbsp;
-    <button class="collapsible"> CyclicBarrier </button>
-    <div class="content">
+    <button class="collapsible">CyclicBarrier</button>
+    <div class="innerContent">
         <h2>CyclicBarrier</h2>
         <p>Used when a set of two or more threads must wait at a predetermined execution point until all threads in the set have reached that point.</p>
         <p>It enables you to define a synchronization object that suspends until the specified number of threads has reached the barrier point.</p>
@@ -409,8 +419,8 @@
         <div class="center"><img src="../images/JavaImages/cyclic-barrier.png" alt="CyclicBarrier Image" onclick="displayModal(this)" style="max-height: 400px;"></div>
     </div>
     &nbsp;
-    <button class="collapsible"> Exchanger </button>
-    <div class="content">
+    <button class="collapsible">Exchanger</button>
+    <div class="innerContent">
         <h2>Exchanger</h2>
         <p>Designed the simplify the exchange of data between two threads.</p>
         <p>It simply waits until two separate threads call its exchange() method. When that occurs, it exchanges the data supplied by the threads.</p>
@@ -426,8 +436,8 @@
         <div class="center"><img src="../images/JavaImages/exchanger.png" alt="Exchanger Image" onclick="displayModal(this)"></div>
     </div>
     &nbsp;
-    <button class="collapsible"> Phaser </button>
-    <div class="content">
+    <button class="collapsible">Phaser</button>
+    <div class="innerContent">
         <h2>Phaser</h2>
         <p>Primary purpose is to enable the synchronization of threads that represent one or more phases of activity.</p>
         <p>For Example: You might have a set of threads that implement three phases of an order-processing application.</p>
@@ -480,8 +490,8 @@
         </ol>
     </div>
     <h2 style="border-bottom: 2px solid black;">Executor Services and more...</h2>
-    <button class="collapsible"> Executors (ExecutorService, Runnable, Callable, Future) </button>
-    <div class="content">
+    <button class="collapsible">Executors (ExecutorService, Runnable, Callable, Future)</button>
+    <div class="innerContent">
         <h2>Executor</h2>
         <p>Controls the execution of threads.</p>
         <p>void execute(Runnable thread) <mark>// execute() starts the specified thread.</mark></p>
@@ -605,8 +615,8 @@
         <p>Additionally, a Runnable was originally designed for long running concurrent execution, e.g. running a network server concurrently, or watching a directory for new files. The Callable interface is more designed for one-off tasks that return a single result.</p>
         <h3>shutdown()</h3>
         <p>A call to shutdown() is important. If it were not present in the program, then the program would not terminate because the executor would remain active.</p>
-        <button class="collapsible"> Callable </button>
-        <div class="content">
+        <button class="collapsible">Callable</button>
+        <div class="innerContent">
             <h2>Callable</h2>
             <p>The Callable interface represents a thread that returns a value.</p>
             <p>An application can use Callable objects to compute results that are then returned to the invoking thread.</p>
@@ -632,8 +642,8 @@
             </div>
         </div>
         &nbsp;
-        <button class="collapsible"> Future </button>
-        <div class="content">
+        <button class="collapsible">Future</button>
+        <div class="innerContent">
             <h2>Future</h2>
             <p>A generic interface that represents the value that will be returned by a Callable object.</p>
             <p>Because this value is obtained at some future time, the name Future is appropriate.</p>
@@ -677,7 +687,7 @@
         </div>
         &nbsp;
         <button class="collapsible">ThreadPoolExecutor</button>
-        <div class="content">
+        <div class="innerContent">
             <h2>ThreadPoolExecutor</h2>
             <p>The java.util.concurrent.ThreadPoolExecutor is an implementation of the ExecutorService interface.</p>
             <p>The ThreadPoolExecutor executes the given task (Callable or Runnable) using one of its internally pooled threads.</p>
@@ -703,7 +713,7 @@
         </div>
         &nbsp;
         <button class="collapsible">ScheduledExecutorService</button>
-        <div class="content">
+        <div class="innerContent">
             <h2>ScheduledExecutorService</h2>
             <p>The java.util.concurrent.ScheduledExecutorService is an ExecutorService which can schedule tasks to run after a delay, or to execute repeatedly with a fixed interval of time in between each execution.</p>
             <p>Tasks are executed asynchronously by a worker thread, and not by the thread handing the task to the ScheduledExecutorService.</p>
@@ -740,7 +750,7 @@
         </div>
         &nbsp;
         <button class="collapsible">ExecutorService Shutdown</button>
-        <div class="content">
+        <div class="innerContent">
             <h2>ExecutorService Shutdown</h2>
             <p>When you are done using the ExecutorService you should shut it down, so the threads do not keep running.</p>
             <p>If your application is started via a main() method and your main thread exits your application, the application will keep running if you have an active ExexutorService in your application.</p>
@@ -772,8 +782,8 @@
         </div>
     </div>
     &nbsp;
-    <button class="collapsible"> TimeUnit Enumeration </button>
-    <div class="content">
+    <button class="collapsible">TimeUnit Enumeration</button>
+    <div class="innerContent">
         <h2>TimeUnit Enumeration</h2>
         <p>TimeUnit is an enumeration that is used to specify the granularity (or resolution) of the timing.</p>
         <p>TimeUnit is defined within java.util.concurrent.</p>
@@ -845,8 +855,8 @@
         </table></div>
     </div>
     &nbsp;
-    <button class="collapsible"> Locks </button>
-    <div class="content">
+    <button class="collapsible">Locks</button>
+    <div class="innerContent">
         <h2>Locks</h2>
         <h3>java.util.concurrent.locks</h3>
         <p>This package provides support for locks, which are objects that offer an alternative to using synchronized to control access to a shared resource.</p>
@@ -908,8 +918,8 @@
         </table></div>
     </div>
     &nbsp;
-    <button class="collapsible"> Atomic Operations </button>
-    <div class="content">
+    <button class="collapsible">Atomic Operations</button>
+    <div class="innerContent">
         <h2>Atomic Operations</h2>
         <h3>java.util.concurrent.atomic</h3>
         <p>This package offers methods that get, set, or compare the value of a variable in one uninterruptible (that is, atomic) operation.</p>
@@ -924,4 +934,5 @@
 </body>
 <script type="text/javascript" src="../scripts/SideNav.js"></script>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../scripts/modal.js"></script>
 </html>
