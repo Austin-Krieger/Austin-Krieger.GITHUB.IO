@@ -71,7 +71,7 @@
     <p>This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.</p>
     <h3>SQL NOT NULL on CREATE TABLE</h3>
         <p>The following SQL ensures that the "ID", "LastName", and "FirstName" columns will <b>NOT</b> accept <b>NULL</b> values when the "Persons" table is created:</p>
-        <div class="code" id="Constraint-Example"><button class="copy" onclick="copyText('Constraint-Example')">Copy</button><br><p>
+        <div class="code" id="Not-Null-Constraint-Example"><button class="copy" onclick="copyText('Not-Null-Constraint-Example')">Copy</button><br><p>
             <sql>CREATE TABLE</sql> Persons (<br>
             &emsp;ID int <sql>NOT NULL</sql>,<br>
             &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
@@ -79,7 +79,12 @@
             &emsp;Age int<br>
             );
         </p></div>
-        <h3></h3>
+        <h3>SQL NOT NULL on ALTER TABLE</h3>
+        <p>To create a <b>NOT NULL</b> constraint on the "Age" column when the "Persons" table is already created, use the following SQL:</p>
+        <div class="code" id="Not-Null-Constraint-Example1"><button class="copy" onclick="copyText('Not-Null-Constraint-Example1')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>MODIFY</sql> Age int <sql>NOT NULL</sql>;
+        </p></div>
     </div>
 </div>
 </div>
