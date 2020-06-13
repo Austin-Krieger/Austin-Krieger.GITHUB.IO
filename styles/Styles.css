@@ -15,6 +15,7 @@ h2 {
     background-color: #c8c8c8;
     border-top: 2px solid #555;
     border-bottom: 2px solid #555;
+    margin: 0;
 }
 
 table {
@@ -325,4 +326,10 @@ sql {
     top: 2px;
     padding-right: 10px;
     z-index: inherit;
+}
+
+.buttonCollection {
+    width: 100%;
+    text-align: center;
+    margin: auto;
 }

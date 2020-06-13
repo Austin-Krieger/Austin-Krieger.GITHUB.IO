@@ -26,7 +26,7 @@
     <a href="../../Job%20Search/applying.html">Job Search</a>
 </div>
 <div id="closeSideNav">
-<h1 style="text-align:center;">PHP Basics</h1>
+<h1>PHP Basics</h1>
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">PHP Basics</button>
 <div class="content">
@@ -41,7 +41,7 @@
     </div>
     <button class="collapsible">PHP Basics</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">PHP Basics</h2>
+        <h2>PHP Basics</h2>
         <!-- Image
         <div class="center"><img src="../../images/" alt="Image" onclick="displayModal(this)"></div> -->
         <!-- Code
@@ -49,7 +49,7 @@
             &emsp;<mark>Comments</mark><br>
         </p></div> -->
         <p>The PHP code (everything between <b>&lt;?php</b> and <b>?&gt;</b>) will be interpreted by the Web server and converted to normal text before it's sent to your browser. The Web server does all the work, so the Web browser doesn't need to know anything about the php code.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Basic Syntax</h2>
+        <h2>Basic Syntax</h2>
         <p>A PHP script consists of a series of commands, or statments, each of which is an instruction that the Web server must follow before it can proceed to the next. PHP statements are always terminated by a semicolor (;).</p>
         <div class="code" id="basic-echo"><button class="copy" onclick="copyText('basic-echo')">Copy</button><br><p>
             echo("This is a &lt;b&gt;test&lt;/b&gt;!");
@@ -62,7 +62,7 @@
             <li>They indicate that <b>echo</b> is a function that you want to call.</li>
             <li>They mark the beginning and end of a list of "<b>parameters</b>" you wish to provide.</li>
         </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Variables</h2>
+        <h2>Variables</h2>
         <p>Variables: A name given to an imaginary box into which any value may be placed.</p>
         <div class="code" id="testvariable1"><button class="copy" onclick="copyText('testvariable1')">Copy</button><br><p>
             $testvariable = 3;
@@ -72,7 +72,7 @@
             <mark>// This line will assign a new value to our existing variable and change its type.</mark><br>
             $testvariable = "Three";
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Operators</h2>
+        <h2>Operators</h2>
         <p>The equals sign '=' is called the assignment operator, as it is used to assign values to variables.</p>
         <p>Other operators may be used to perform various mathematical operations on values:</p>
         <div class="code" id="operators"><button class="copy" onclick="copyText('operators')">Copy</button><br><p>
@@ -81,21 +81,21 @@
             $testvariable = 2 * 2; <mark>// Assigns a value of 4.</mark><br>
             $testvariable = 2 / 2; <mark>// Assigns a value of 1.</mark><br>
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Comments</h2>
+        <h2>Comments</h2>
         <p>Comments are a way to describe what your code is doing.</p>
         <div class="code" id="comments"><button class="copy" onclick="copyText('comments')">Copy</button><br><p>
             <mark>// Tells the PHP interpreter to ignore what comes after.</mark>
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Concatenation</h2>
+        <h2>Concatenation</h2>
         <div class="code" id="concatenation"><button class="copy" onclick="copyText('concatenation')">Copy</button><br><p>
             $testvariable = "Hi " . "there!"; <mark>// Assigns a value of "Hi there!".</mark>
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Variable Interpolation</h2>
+        <h2>Variable Interpolation</h2>
         <div class="code" id="interpolation"><button class="copy" onclick="copyText('interpolation')">Copy</button><br><p>
             $var1 = 5; <mark>// Assigns a value of 5 to $var1</mark><br>
             $var2 = $var1 + 1; <mark>// Assigns a value of 6 to $var2</mark>
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Control Statements</h2>
+        <h2>Control Statements</h2>
         <p>The most basic, and most often-used, control structure is the if-else statement.</p>
         <div class="code" id="control"><button class="copy" onclick="copyText('control')">Copy</button><br><p>
             if (condition) {<br>
@@ -111,7 +111,7 @@
             &emsp;<mark>// Do something</mark><br>
             }
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">While Loop</h2>
+        <h2>While Loop</h2>
         <p>The while loop allows us to use a condition to determine how many times to repeatedly execute a set of statements.</p>
         <div class="code" id="while-loop"><button class="copy" onclick="copyText('while-loop')">Copy</button><br><p>
             while (condition) {<br>
@@ -137,7 +137,7 @@
                 <li>Decrement: $count = $count - 1, $count--</li>
             </ul>
         </ol>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">For Loop</h2>
+        <h2>For Loop</h2>
         <p>We have another option for looping through a list of values and that is the <b>for loop</b>.</p>
         <p>Here is the same example as above, but implemented as a for loop.</p>
         <div class="code" id="for-loop"><button class="copy" onclick="copyText('for-loop')">Copy</button><br><p>
@@ -145,7 +145,7 @@
             &emsp;echo("$count");<br>
             }
         </p></div>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Multi-Purpose Pages</h2>
+        <h2>Multi-Purpose Pages</h2>
         <p>Once we have a user's name in a variabel on one page, we can pass it with any request to another page by adding the name to the query string of all links:</p>
         <div class="code" id="urlencode"><button class="copy" onclick="copyText('urlencode')">Copy</button><br><p>
             &lt;a href="newpage.php?name=&lt;?php echo (urlencode($name)); ?&gt;"&gt; A link &lt;/a&gt;
@@ -228,7 +228,7 @@
     &nbsp;
     <button class="collapsible">Database-Driven Website</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Database-Driven Website</h2>
+        <h2>Database-Driven Website</h2>
         <p>This is what will happen when someone visits a database-driven web site:</p>
         <ul>
             <li>The visitor's web browser requests the web page using a standard URL.</li>
@@ -242,7 +242,7 @@
     &nbsp;
     <button class="collapsible">PHP Forms</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">PHP Forms</h2>
+        <h2>PHP Forms</h2>
         <p>As <b>PHP</b> code is activated when a page is requested from the server, user interaction can only occur in a back-and-forth fashion.</p>
         <p>The user sends requests to the server, and the server replies with dynamically generated pages.</p>
         <p>We can pass variables along with the page request. The variable is passed as part of the "<b>query string</b>", which is the portion of the URL that follows the question mark.</p>
@@ -279,7 +279,7 @@
     &nbsp;
     <button class="collapsible">Connecting to MySQL with PHP</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Connecting to MySQL with PHP</h2>
+        <h2>Connecting to MySQL with PHP</h2>
         <p>Support for connecting to MySQL is built right into PHP. The following function call establishes the connection:</p>
         <div class="code" id="connect-mysql"><button class="copy" onclick="copyText('connect-mysql')">Copy</button><br><p>
             <mark>// Connection Format</mark><br>
@@ -294,7 +294,7 @@
             <dd>The username and password are the same MySQL username and password used to connect to the MySQL server.</dd>
         </dl>
         <p>The value returned by mysql_connect is now stored in the variable named $dbcon.</p>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Check Connection</h2>
+        <h2>Check Connection</h2>
         <p>Since MySQL is a separate piece of software, it is possible that the server is unavailable, or inaccessible due to a network outage, or because the username/password combination you provided is not accepted by the server.</p>
         <p>In such cases, the <b>mysql_connect</b> function doesn't return a connection identifier. Instead, it returns false. This allows us to react to such failures using an if statement.</p>
         <div class="code" id="check-connection"><button class="copy" onclick="copyText('check-connection')">Copy</button><br><p>
@@ -313,7 +313,7 @@
             <dt><b>exit()</b></dt>
             <dd>All this function does is cause PHP to stop reading the page at this point.</dd>
         </dl>
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Select Database</h2>
+        <h2>Select Database</h2>
         <p>The next step after establishing a connection is to select a database.</p>
         <div class="code" id="select-database"><button class="copy" onclick="copyText('select-database')">Copy</button><br><p>
             mysql_select_db("database_name", $dbcon);
@@ -332,7 +332,7 @@
     &nbsp;
     <button class="collapsible">Sending SQL Queries</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Sending SQL Queries</h2>
+        <h2>Sending SQL Queries</h2>
         <p>In the MySQL workbench we can use sql commands and view the results immediately, a similar mechanism exists in PHP; the <b>mysql_query</b> function.</p>
         <div class="code" id="sending-sql-queries"><button class="copy" onclick="copyText('sending-sql-queries')">Copy</button><br><p>
             mysql_query(query, connection_id);
@@ -342,7 +342,7 @@
     &nbsp;
     <button class="collapsible">Download &amp; Install MySQL</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">Download &amp; Install MySQL</h2>
+        <h2>Download &amp; Install MySQL</h2>
         <ol>
             <li>You can downlaod and install MySQL software from <b>https://www.mysql.com/products/workbench/</b></li>
             <li>Instead of clicking on the Download button, click on <b>Go to Download Page</b></li>
@@ -396,7 +396,7 @@
     &nbsp;
     <button class="collapsible">SQL</button>
     <div class="innerContent">
-        <h2 style="text-align: center; background-color: #c8c8c8; border-top: 2px solid #555; border-bottom: 2px solid #555;">SQL</h2>
+        <h2>SQL</h2>
         <p>SQL or Structured Query Language, pronunciation "sequel" or "ess-cue-ell". Commands in SQL are also called Queries.</p>
         <p>UNIX-based systems will be case-sensitive when it comes to database and table names, as they correspond to directories and files in the MySQL data directory. Otherwise, MySQL is completely case-insensitive.</p>
         <p>Table, column, and other names must be spelled exactly the same when they're used more than once in the same command.</p>

@@ -26,7 +26,7 @@
     <a href="../Job%20Search/applying.html">Job Search</a>
 </div>
 <div id="closeSideNav">
-<h1 style="text-align:center;">Servlets</h1>
+<h1>Servlets</h1>
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Servlets</button>
 <div class="content">
@@ -41,7 +41,7 @@
             <!-- Modal Caption (Image Text) -->
             <div id="caption"></div>
         </div>
-        <h3>Servlets</h3>
+        <h2>Servlets</h2>
         <p>Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to handle the request obtained from the web server, process the request, produce the response, then send response back to the web server.</p>
         <h3>Execution of Servlets:</h3>
         <ol>
@@ -146,7 +146,7 @@
     &nbsp;
     <button class="collapsible">Servlet Life Cycle</button>
     <div class="innerContent">
-        <h3>Servlet Life Cycle</h3>
+        <h2>Servlet Life Cycle</h2>
         <p>A servlet life cycle can be defined as the entire process from its creation till the destruction.</p>
         <ul>
             <li>The servlet is initialized by calling the init() method.</li>
@@ -217,7 +217,7 @@
     &nbsp;
     <button class="collapsible">HelloWorld Application</button>
     <div class="innerContent">
-        <h3>HelloWorld Application</h3>
+        <h2>HelloWorld Application</h2>
         <p>Creating the HelloWorld Servlet</p>
         <ul>
             <li>Create a new Servlet</li>
@@ -286,7 +286,7 @@
     &nbsp;
     <button class="collapsible">Reading Form Data using Servlet</button>
     <div class="innerContent">
-        <h3>Reading Form Data using Servlet</h3>
+        <h2>Reading Form Data using Servlet</h2>
         <p>Servlets handles form data parsing automatically using the following methods depending on the situation.</p>
         <ul>
             <li><b>getParameter():</b> You call request.getParameter() method to get the value of a form parameter.</li>
@@ -296,6 +296,7 @@
         <p>note: http://www.phpform.org/ is a good resource for generating html forms with css and javascript.</p>
         <button class="collapsible">GET Method Example using URL</button>
         <div class="innerContent">
+            <h2>GET Method Example using URL</h2>
             <p>Here is a simple URL which will pass two values to HelloForm program using GET method.</p>
             <b>http://localhost:8080/HelloForm?first_name = Austin&amp;last_name = Krieger</b>
             <div class="code" id="servlets10"><button class="copy" onclick="copyText('servlets10')">Copy</button><br><p>
@@ -341,6 +342,7 @@
             <p>Lastly, add the application to your tomcat server and type in the url shown above.</p>
             <button class="collapsible">Applying an HTML Form</button>
             <div class="innerContent">
+                <h2>Applying an HTML Form</h2>
                 <p>Inside your WebContent folder, add a new html document. "Hello.htm"</p>
                 <div class="code" id="servlets12"><button class="copy" onclick="copyText('servlets12')">Copy</button><br><p>
                     &lt;html&gt;<br>
@@ -360,6 +362,7 @@
         &nbsp;
         <button class="collapsible">POST Method Example using Form</button>
         <div class="innerContent">
+            <h2>POST Method Example using Form</h2>
             <p>For this example we need only change the form action to POST and call doGet() from the doPost Method.</p>
             <div class="code" id="servlets13"><button class="copy" onclick="copyText('servlets13')">Copy</button><br><p>
                 <mark>// Method to handle POST method request.</mark><br>
@@ -386,6 +389,7 @@
         &nbsp;
         <button class="collapsible">Passing Checkbox Data to Servlet</button>
         <div class="innerContent">
+            <h2>Passing Checkbox Data to Servlet</h2>
             <div class="code" id="servlets15"><button class="copy" onclick="copyText('servlets15')">Copy</button><br><p>
                 &lt;html&gt;<br>
                 &emsp;&lt;body&gt;<br>
@@ -438,6 +442,7 @@
         &nbsp;
         <button class="collapsible">Reading All Form Parameters</button>
         <div class="innerContent">
+            <h2>Reading All Form Parameters</h2>
             <p>Following is the generic example which uses getParameterNames() method of HttpServletRequest to read all the available form parameters. This method returns an Enumeration that contains the parameter names in an unspecified order</p>
             <p>Once we have an Enumeration, we can loop down the Enumeration in standard way by, using hasMoreElements() method to determine when to stop and using nextElement() method to get each parameter name.</p>
             <div class="code" id="servlets17"><button class="copy" onclick="copyText('servlets17')">Copy</button><br><p>
@@ -511,7 +516,7 @@
     &nbsp;
     <button class="collapsible">HTTP Request</button>
     <div class="innerContent">
-        <h3>Client HTTP Request</h3>
+        <h2>Client HTTP Request</h2>
         <p>When a browser requests for a web page, it sends lot of information to the web server which cannot be read directly because this information travel as a part of header of HTTP request.</p>
         <button class="collapsible">Show Table</button>
         <div class="innerContent">
@@ -708,6 +713,7 @@
         &nbsp;
         <button class="collapsible">HTTP Header Request Example</button>
         <div class="innerContent">
+            <h2>HTTP Header Request Example</h2>
             <p>Following is the example which uses getHeaderNames() method of HttpServletRequest to read the HTTP header information. This method returns an Enumeration that contains the header information associated with the current HTTP request.</p>
             <p>Once we have an Enumeration, we can loop down the Enumeration in the standard manner, using hasMoreElements() method to determine when to stop and using nextElement() method to get each parameter name</p>
             <div class="code" id="servlets19"><button class="copy" onclick="copyText('servlets19')">Copy</button><br><p>
@@ -753,7 +759,7 @@
     &nbsp;
     <button class="collapsible">HTTP Response</button>
     <div class="innerContent">
-        <h3>Server HTTP Response</h3>
+        <h2>Server HTTP Response</h2>
         <p>Following is a summary of the most useful HTTP 1.1 response headers which go back to the browser from web server side and you would use them very frequently in web programming.</p>
         <button class="collapsible">Show Table</button>
         <div class="innerContent">
@@ -926,7 +932,7 @@
         &nbsp;
         <button class="collapsible">HTTP Header Response Example (Get Current Time, Auto Refresh)</button>
         <div class="innerContent">
-            <h3>HTTP Header Response Example</h3>
+            <h2>HTTP Header Response Example</h2>
             <p>We would use setIntHeader() method to set Refresh header.</p>
             <div class="code" id="servlets20"><button class="copy" onclick="copyText('servlets20')">Copy</button><br><p>
                 public class Refresh extends HttpServlet {<br><br>
@@ -972,7 +978,8 @@
     &nbsp;
     <button class="collapsible">HTTP Status Codes</button>
     <div class="innerContent">
-        <h3>HTTP Status Codes</h3>
+        <h2>HTTP Status Codes</h2>
+        &nbsp;
         <button class="collapsible">Show Table</button>
         <div class="innerContent">
             <div class="scrollableTable"><table>
@@ -1200,6 +1207,7 @@
         <br>
         <button class="collapsible">HTTP Status Code Example</button>
         <div class="innerContent">
+            <h2>HTTP Status Code Example</h2>
             <div class="code" id="servlets21"><button class="copy" onclick="copyText('servlets21')">Copy</button><br><p>
                 public class showError extends HttpServlet {<br><br>
                 &emsp;<mark>// Method to handle GET method request.</mark><br>
@@ -1221,7 +1229,7 @@
     &nbsp;
     <button class="collapsible">Filters</button>
     <div class="innerContent">
-        <h3>Filters</h3>
+        <h2>Filters</h2>
         <p>Servlet Filters are Java classes that can be used in Servlet Programming for the following purposes:</p>
         <ul>
             <li>To intercept requests from a client before they access a resource at back end.</li>
@@ -1252,7 +1260,7 @@
         &nbsp;
         <button class="collapsible">Servlet Filter Example</button>
         <div class="innerContent">
-            <h3>Servlet Filter Example</h3>
+            <h2>Servlet Filter Example</h2>
             <p>Print the clients IP address and current date time.</p>
             <div class="code" id="servlets22"><button class="copy" onclick="copyText('servlets22')">Copy</button><br><p>
                 public class LogFilter implements Filter  {<br>
@@ -1303,7 +1311,7 @@
     &nbsp;
     <button class="collapsible">Error Handling</button>
     <div class="innerContent">
-        <h3>Error Handling</h3>
+        <h2>Error Handling</h2>
         <p>When a servlet throws an exception, the web container searches the configurations in web.xml that use the exception-type element for a match with the thrown exception type.</p>
         <p>You would have to use the error-page element in web.xml to specify the invocation of servlets in response to certain exceptions or HTTP status codes.</p>
         <div class="code" id="servlets24"><button class="copy" onclick="copyText('servlets24')">Copy</button><br><p>
@@ -1375,6 +1383,7 @@
         &nbsp;
         <button class="collapsible">Error Handler Servlet Example</button>
         <div class="innerContent">
+            <h2>Error Handler Servlet Example</h2>
             <p>This example would give you basic understanding of Exception Handling in Servlet, but you can write more sophisticated filter applications using the same concept.</p>
             <div class="code" id="servlets25"><button class="copy" onclick="copyText('servlets25')">Copy</button><br><p>
                 public class ErrorHandler extends HttpServlet {<br><br>
@@ -1458,7 +1467,7 @@
     &nbsp;
     <button class="collapsible">Cookie Handling</button>
     <div class="innerContent">
-        <h3>Cookies</h3>
+        <h2>Cookies</h2>
         <p>Cookies are text files stored on the client computer and they are kept for various information tracking purpose.</p>
         <p>There are three steps involved in identifying returning users:</p>
         <ul>
@@ -1549,6 +1558,7 @@
         </div>
         <button class="collapsible">Set Cookies Example</button>
         <div class="innerContent">
+            <h2>Set Cookies Example</h2>
             <div class="code" id="servlets31"><button class="copy" onclick="copyText('servlets31')">Copy</button><br><p>
                 public class HelloForm extends HttpServlet {<br><br>
                 &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
@@ -1604,7 +1614,7 @@
         &nbsp;
         <button class="collapsible">Reading Cookies Example</button>
         <div class="innerContent">
-            <h3>Reading Cookies with Servlet</h3>
+            <h2>Reading Cookies with Servlet</h2>
             <p>To read cookies, you need to create an array of javax.servlet.http.Cookie objects by calling the getCookies() method of HttpServletRequest. Then cycle through the array, and use getName() and getValue() methods to access each cookie and associated value.</p>
             <div class="code" id="servlets33"><button class="copy" onclick="copyText('servlets33')">Copy</button><br><p>
                 public class ReadCookies extends HttpServlet {<br><br>
@@ -1650,6 +1660,7 @@
         </ul>
         <button class="collapsible">Delete Cookies Example</button>
         <div class="innerContent">
+            <h2>Delete Cookies Example</h2>
             <div class="code" id="DeleteCookie"><button class="copy" onclick="copyText('DeleteCookie')">Copy</button><br><p>
                 public class DeleteCookies extends HttpServlet {<br><br>
                 &emsp;&emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
@@ -1694,7 +1705,7 @@
     &nbsp;
     <button class="collapsible">Session Tracking</button>
     <div class="innerContent">
-        <h3>Session Tracking</h3>
+        <h2>Session Tracking</h2>
         <p>HTTP is a "stateless" protocol which means each time a client retrieves a Web page, the client opens a separate connection to the Web server and the server automatically does not keep any record of previous client request.</p>
         <p>To maintain session between web client and web server we can use Cookies, Hidden Form Fields, URL Rewriting and The HttpSession Object.</p>
         <h3>Cookies</h3>
@@ -1776,7 +1787,7 @@
         &nbsp;
         <button class="collapsible">Session Tracking Example</button>
         <div class="innerContent">
-            <h3>Session Tracking Example</h3>
+            <h2>Session Tracking Example</h2>
             <p>This example describes how to use the HttpSession object to find out the creation time and the last-accessed time for a session. We would associate a new session with the request if one does not already exist.</p>
             <div class="code" id="sessionTracking"><button class="copy" onclick="copyText('sessionTracking')">Copy</button><br><p>
                 public class SessionTrack extends HttpServlet {<br><br>
@@ -1869,7 +1880,7 @@
     &nbsp;
     <button class="collapsible">Page Redirection</button>
     <div class="innerContent">
-        <h3>Page Redirection</h3>
+        <h2>Page Redirection</h2>
         <p>Page redirection is a technique where the client is sent to a new location other than requested. Page redirection is generally used when a document moves to a new location or may be because of load balancing.</p>
         <p>The simplest way of redirecting a request to another page is using method sendRedirect() of response object.</p>
         <div class="code" id="pageRedirect1"><button class="copy" onclick="copyText('pageRedirect1')">Copy</button><br><p>
@@ -1887,7 +1898,7 @@
         &nbsp;
         <button class="collapsible">Page Redirect Example</button>
         <div class="innerContent">
-            <h3>Page Redirect Example</h3>
+            <h2>Page Redirect Example</h2>
             <div class="code" id="pageRedirect3"><button class="copy" onclick="copyText('pageRedirect3')">Copy</button><br><p>
                 public class PageRedirect extends HttpServlet {<br><br>
                 &emsp;public void doGet(HttpServletRequest request, HttpServletResponse response)<br>
@@ -1919,7 +1930,7 @@
     &nbsp;
     <button class="collapsible">Debugging</button>
     <div class="innerContent">
-        <h3>Servlet Debugging</h3>
+        <h2>Servlet Debugging</h2>
         <p>Servlets tend to involve a large amount of client/server interaction, making errors likely but hard to reproduce.</p>
         <h3>System.out.println()</h3>
         <p>System.out.println() is easy to use as a marker to test whether a certain piece of code is being executed or not. We can print out variable values as well.</p>
@@ -1930,7 +1941,7 @@
         <p>All the messages generated by System.out.println(""); syntax would be logged in web server log file.</p>
         <button class="collapsible">Message Logging Example</button>
         <div class="innerContent">
-            <h3>Message Logging</h3>
+            <h2>Message Logging</h2>
             <p>It is always great idea to use proper logging method to log all the debug, warning and error messages using a standard logging method.</p>
             <div class="code" id="debugging1"><button class="copy" onclick="copyText('debugging1')">Copy</button><br><p>
                 public class ContextLog extends HttpServlet {<br>
@@ -1980,7 +1991,7 @@
     &nbsp;
     <button class="collapsible">Annotations</button>
     <div class="innerContent">
-        <h3>Annotations</h3>
+        <h2>Annotations</h2>
         <p>If you use annotation, then the deployment descriptor (web.xml) is not required. But you should use tomcat7 or any later version of tomcat.</p>
         <p>Annotations can replace equivalent XML configuration in the web deployment descriptor file (web.xml) such as servlet declaration and servlet mapping. Servlet containers will process the annotated classes at deployment time.</p>
         <div class="scrollableTable">
@@ -2081,7 +2092,7 @@
         <p>The value attribute is recommended for use when the URL pattern is the only attribute being set, otherwise the urlPattern attribute should be used.</p>
         <button class="collapsible">@WebServlet Annotation Example</button>
         <div class="innerContent">
-            <h3>@WebServlet Annotation Example</h3>
+            <h2>@WebServlet Annotation Example</h2>
             <div class="code" id="annotations1"><button class="copy" onclick="copyText('annotations1')">Copy</button><br><p>
                 @WebServlet(value = "/Simple")<br>
                 public class Simple extends HttpServlet {<br><br>
@@ -2123,7 +2134,7 @@
         &nbsp;
         <button class="collapsible">@WebInitParam Annotation Example</button>
         <div class="innerContent">
-            <h3>@WebInitParam Example</h3>
+            <h2>@WebInitParam Example</h2>
             <div class="code" id="annotations2"><button class="copy" onclick="copyText('annotations2')">Copy</button><br><p>
                 @WebServlet(value = "/Simple", initParams = {<br>
                 @WebInitParam(name = "foo", value = "Hello "),<br>
@@ -2198,7 +2209,7 @@
         &nbsp;
         <button class="collapsible">@WebFilter Annotation Example</button>
         <div class="innerContent">
-            <h3>@WebFilter Annotation Example</h3>
+            <h2>@WebFilter Annotation Example</h2>
             <p>The filter works like an interface layer between the request and the response. Here we use "/*" for urlPattern. It means, this filter is applicable for all the servlets.</p>
             <div class="code" id="webFilter"><button class="copy" onclick="copyText('webFilter')">Copy</button><br><p>
                 @WebFilter(urlPatterns = {"/*"}, initParams = {<br>
