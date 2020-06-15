@@ -19,16 +19,17 @@
 </div>
 <div id="Sidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="../../index.html">Java</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
     <a href="../../Roblox/index.html">Roblox</a>
     <a href="../../Unity/index.html">Unity</a>
     <a href="../index.html">Web</a>
     <a href="../../Job%20Search/applying.html">Job Search</a>
 </div>
 <div id="closeSideNav">
-<h1>SQL CREATE INDEX Statement</h1>
+<h1>CREATE INDEX</h1>
 <div class="containButtons">
-<button class="collapsible" id="autoClickBtn">SQL CREATE INDEX Statement</button>
+<button class="collapsible" id="autoClickBtn">CREATE INDEX</button>
 <div class="content">
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -42,13 +43,50 @@
     <h2>SQL CREATE INDEX Statement</h2>
     <p>The <b>CREATE INDEX</b> statement is used to create indexes in tables.</p>
     <p>Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.</p>
+    <p><b>Note</b>: Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So, only create indexes on columns that will be frequently searched against.</p>
     <h3>CREATE INDEX Syntax</h3>
     <p>Creates an index on a table. Duplicate values are allowed:</p>
     <div class="code" id="Create-Index-Syntax"><button class="copy" onclick="copyText('Create-Index-Syntax')">Copy</button><br><p>
         <sql>CREATE INDEX</sql> index_name<br>
         <sql>ON</sql> table_name (column1, column2, ...);
     </p></div>
-    <h3></h3>
+    <h3>CREATE UNIQUE INDEX Syntax</h3>
+    <p>Creates a unique index on a table. Duplicate values are not allowed:</p>
+    <div class="code" id="Create-Unique-Index-Syntax"><button class="copy" onclick="copyText('Create-Unique-Index-Syntax')">Copy</button><br><p>
+        <sql>CREATE UNIQUE INDEX</sql> index_name<br>
+        <sql>ON</sql> table_name (column1, column2, ...);
+    </p></div>
+    <p><b>Note</b>: The syntax for creating indexes varies among different databases. Therefore: Check the syntax for creating indexes in your database.</p>
+    <h3>CREATE INDEX Example</h3>
+    <p>The SQL statement below creates an index named "idx_lastname" on the "LastName" column in the "Persons" table:</p>
+    <div class="code" id="Create-Index-Example"><button class="copy" onclick="copyText('Create-Index-Example')">Copy</button><br><p>
+        <sql>CREATE INDEX</sql> idx_lastname<br>
+        <sql>ON</sql> Persons (LastName);
+    </p></div>
+    <p>If you want to create an index on a combination of columns, you can list the column names within the parentheses, separated by commas:</p>
+    <div class="code" id="Create-Index-Example1"><button class="copy" onclick="copyText('Create-Index-Example1')">Copy</button><br><p>
+        <sql>CREATE INDEX</sql> idx_pname<br>
+        <sql>ON</sql> Persons (LastName, FirstName);
+    </p></div>
+    <h3>DROP INDEX Statement</h3>
+    <p>The <b>DROP INDEX</b> statement is used to delete an index in a table.</p>
+    <h4>MS Access:</h4>
+    <div class="code" id="Drop-Index-Syntax1"><button class="copy" onclick="copyText('Drop-Index-Syntax1')">Copy</button><br><p>
+        <sql>DROP INDEX</sql> index_name <sql>ON</sql> table_name;
+    </p></div>
+    <h4>SQL Server:</h4>
+    <div class="code" id="Drop-Index-Syntax2"><button class="copy" onclick="copyText('Drop-Index-Syntax2')">Copy</button><br><p>
+        <sql>DROP INDEX</sql> table_name.index_name;
+    </p></div>
+    <h4>DB2/Oracle:</h4>
+    <div class="code" id="Drop-Index-Syntax3"><button class="copy" onclick="copyText('Drop-Index-Syntax3')">Copy</button><br><p>
+        <sql>DROP INDEX</sql> index_name;
+    </p></div>
+    <h4>MySQL:</h4>
+    <div class="code" id="Drop-Index-Syntax4"><button class="copy" onclick="copyText('Drop-Index-Syntax4')">Copy</button><br><p>
+        <sql>ALTER TABLE</sql> table_name<br>
+        <sql>DROP INDEX</sql> index_name;
+    </p></div>
     </div>
 </div>
 </div>
