@@ -15,7 +15,7 @@
     <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
     <a href="index.html" style="float: left;">Home</a>
     <a href="altertable.html">Previous</a>
-    <a href=".html" style="float: right;">Next</a>
+    <a href="createindex.html" style="float: right;">Next</a>
 </div>
 <div id="Sidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -84,6 +84,325 @@
         <div class="code" id="Not-Null-Constraint-Example1"><button class="copy" onclick="copyText('Not-Null-Constraint-Example1')">Copy</button><br><p>
             <sql>ALTER TABLE</sql> Persons<br>
             <sql>MODIFY</sql> Age int <sql>NOT NULL</sql>;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">UNIQUE</button>
+    <div class="innerContent">
+        <h2>UNIQUE Constraint</h2>
+        <p>The <b>UNIQUE</b> constraint ensures that all values in a column are different.</p>
+        <p>Both the <b>UNIQUE</b> and <b>PRIMARY KEY</b> constraints provide a guarantee for uniqueness for a column or set of columns.</p>
+        <p>A <b>PRIMARY KEY</b> constraint automatically has a <b>UNIQUE</b> constraint.</p>
+        <p>However, you can have many <b>UNIQUE</b> constraints per table, but only one <b>PRIMARY KEY</b> constraint per table.</p>
+        <h3>SQL UNIQUE Constraint on CREATE TABLE</h3>
+        <p>The following SQL creates a <b>UNIQUE</b> constraint on the "ID" column when the "Persons" table is created:</p>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Unique-Constraint-Example"><button class="copy" onclick="copyText('Unique-Constraint-Example')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL UNIQUE</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int<br>
+            );
+        </p></div>
+        <h4>MySQL:</h4>
+        <div class="code" id="Unique-Constraint-Example1"><button class="copy" onclick="copyText('Unique-Constraint-Example1')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;<sql>UNIQUE</sql> (ID)<br>
+            );
+        </p></div>
+        <p>To name a <b>UNIQUE</b> constraint, and to define a <b>UNIQUE</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Unique-Constraint-Example2"><button class="copy" onclick="copyText('Unique-Constraint-Example2')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;<sql>CONSTRAINT</sql> UC_Person <sql>UNIQUE</sql> (ID, LastName)<br>
+            );
+        </p></div>
+        <h3>SQL UNIQUE Constraint on ALTER TABLE</h3>
+        <p>To create a <b>UNIQUE</b> constraint on the "ID" column when the table is already created, use the following SQL:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Unique-Constraint-Example3"><button class="copy" onclick="copyText('Unique-Constraint-Example3')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD UNIQUE</sql> (ID);
+        </p></div>
+        <p>To name a <b>UNIQUE</b> constraint, and to define a <b>UNIQUE</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Unique-Constraint-Example4"><button class="copy" onclick="copyText('Unique-Constraint-Example4')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD CONSTRAINT</sql> UC_Person <sql>UNIQUE</sql> (ID,LastName);
+        </p></div>
+        <h3>DROP a UNIQUE Constraint</h3>
+        <p>To drop a <b>UNIQUE</b> constraint, use the following SQL:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Unique-Constraint-Example5"><button class="copy" onclick="copyText('Unique-Constraint-Example5')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>DROP INDEX</sql> UC_Person;
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Unique-Constraint-Example6"><button class="copy" onclick="copyText('Unique-Constraint-Example6')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>DROP CONSTRAINT</sql> UC_Person;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">PRIMARY KEY</button>
+    <div class="innerContent">
+        <h2>PRIMARY KEY Constraint</h2>
+        <p>The <b>PRIMARY KEY</b> constraint uniquely identifies each record in a table.</p>
+        <p>Primary keys must contain <b>UNIQUE</b> values, and cannot contain <b>NULL</b> values.</p>
+        <p>A table can have only <b>ONE</b> primary key; and in the table, this primary key can consist of single or multiple columns (fields).</p>
+        <h3>SQL PRIMARY KEY on CREATE TABLE</h3>
+        <p>The following SQL creates a P<b>RIMARY KEY</b> on the "ID" column when the "Persons" table is created:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;<sql>PRIMARY KEY</sql> (ID)<br>
+            );
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example1"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example1')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL PRIMARY KEY</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int<br>
+            );
+        </p></div>
+        <p>To allow naming of a <b>PRIMARY KEY</b> constraint, and for defining a <b>PRIMARY KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example2"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example2')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;<sql>CONSTRAINT</sql> PK_Person <sql>PRIMARY KEY</sql> (ID,LastName)<br>
+            );
+        </p></div>
+        <p><b>Note</b>: In the example above there is only ONE <b>PRIMARY KEY</b> (PK_Person). However, the VALUE of the primary key is made up of TWO COLUMNS (ID + LastName).</p>
+        <h3>SQL PRIMARY KEY on ALTER TABLE</h3>
+        <p>To create a <b>PRIMARY KEY</b> constraint on the "ID" column when the table is already created, use the following SQL:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example3"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example3')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD PRIMARY</sql> KEY (ID);
+        </p></div>
+        <p>To allow naming of a <b>PRIMARY KEY</b> constraint, and for defining a <b>PRIMARY KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example4"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example4')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD CONSTRAINT</sql> PK_Person <sql>PRIMARY KEY</sql> (ID,LastName);
+        </p></div>
+        <p><b>Note</b>: If you use the <b>ALTER TABLE</b> statement to add a primary key, the primary key column(s) must already have been declared to not contain <b>NULL</b> values (when the table was first created).</p>
+        <h3>DROP a PRIMARY KEY Constraint</h3>
+        <p>To drop a <b>PRIMARY KEY</b> constraint, use the following SQL:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example5"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example5')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>DROP PRIMARY KEY</sql>;
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Primary-Key-Constraint-Example6"><button class="copy" onclick="copyText('Primary-Key-Constraint-Example6')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>DROP CONSTRAINT</sql> PK_Person;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">FOREIGN KEY</button>
+    <div class="innerContent">
+        <h2>FOREIGN KEY Constraint</h2>
+        <p>A <b>FOREIGN KEY</b> is a key used to link two tables together.</p>
+        <p>A <b>FOREIGN KEY</b> is a field (or collection of fields) in one table that refers to the <b>PRIMARY KEY</b> in another table.</p>
+        <p>The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.</p>
+        <p>The <b>FOREIGN KEY</b> constraint is used to prevent actions that would destroy links between tables.</p>
+        <p>The <b>FOREIGN KEY</b> constraint also prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.</p>
+        <h3>SQL FOREIGN KEY on CREATE TABLE</h3>
+        <p>The following SQL creates a <b>FOREIGN KEY</b> on the "PersonID" column when the "Orders" table is created:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Foreign-Key-Constraint-Example"><button class="copy" onclick="copyText('Foreign-Key-Constraint-Example')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Orders (<br>
+            &emsp;OrderID int <sql>NOT NULL</sql>,<br>
+            &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+            &emsp;PersonID int,<br>
+            &emsp;<sql>PRIMARY KEY</sql> (OrderID),<br>
+            &emsp;<sql>FOREIGN KEY</sql> (PersonID) <sql>REFERENCES</sql> Persons(PersonID)<br>
+            );
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Foreign-Key-Constraint-Example1"><button class="copy" onclick="copyText('Foreign-Key-Constraint-Example1')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Orders (<br>
+            &emsp;OrderID int <sql>NOT NULL</sql> PRIMARY KEY,<br>
+            &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+            &emsp;PersonID int <sql>FOREIGN KEY REFERENCES</sql> Persons(PersonID)<br>
+            );
+        </p></div>
+        <p>To allow naming of a <b>FOREIGN KEY</b> constraint, and for defining a <b>FOREIGN KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Foreign-Key-Constraint-Example2"><button class="copy" onclick="copyText('Foreign-Key-Constraint-Example2')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Orders (<br>
+            &emsp;OrderID int <sql>NOT NULL</sql>,<br>
+            &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+            &emsp;PersonID int,<br>
+            &emsp;<sql>PRIMARY KEY</sql> (OrderID),<br>
+            &emsp;<sql>CONSTRAINT</sql> FK_PersonOrder <sql>FOREIGN KEY</sql> (PersonID)<br>
+            &emsp;<sql>REFERENCES</sql> Persons(PersonID)<br>
+            );
+        </p></div>
+        <h3>SQL FOREIGN KEY on ALTER TABLE</h3>
+        <p>To allow naming of a <b>FOREIGN KEY</b> constraint, and for defining a <b>FOREIGN KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <h3>DROP a FOREIGN KEY Constraint</h3>
+        <p>To drop a <b>FOREIGN KEY</b> constraint, use the following SQL:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Foreign-Key-Constraint-Example3"><button class="copy" onclick="copyText('Foreign-Key-Constraint-Example3')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Orders<br>
+            <sql>DROP FOREIGN KEY</sql> FK_PersonOrder;
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Foreign-Key-Constraint-Example4"><button class="copy" onclick="copyText('Foreign-Key-Constraint-Example4')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Orders<br>
+            <sql>DROP CONSTRAINT</sql> FK_PersonOrder;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">CHECK</button>
+    <div class="innerContent">
+        <h2>CHECK Constraint</h2>
+        <p>The <b>CHECK</b> constraint is used to limit the value range that can be placed in a column.</p>
+        <p>If you define a <b>CHECK</b> constraint on a single column it allows only certain values for this column.</p>
+        <p>If you define a <b>CHECK</b> constraint on a table it can limit the values in certain columns based on values in other columns in the row.</p>
+        <h3>SQL CHECK on CREATE TABLE</h3>
+        <p>The following SQL creates a <b>CHECK</b> constraint on the "Age" column when the "Persons" table is created. The <b>CHECK</b> constraint ensures that the age of a person must be 18, or older:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Check-Constraint-Example"><button class="copy" onclick="copyText('Check-Constraint-Example')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;<sql>CHECK</sql> (Age&gt;=18)<br>
+            );
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Check-Constraint-Example1"><button class="copy" onclick="copyText('Check-Constraint-Example1')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int <sql>CHECK</sql> (Age&gt;=18)<br>
+            );
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <p>To allow naming of a <b>CHECK</b> constraint, and for defining a <b>CHECK</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Check-Constraint-Example2"><button class="copy" onclick="copyText('Check-Constraint-Example2')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;City varchar(255),<br>
+            &emsp;<sql>CONSTRAINT</sql> CHK_Person <sql>CHECK</sql> (Age&gt;=18 <sql>AND</sql> City='Sandnes')<br>
+            );
+        </p></div>
+        <h3>SQL CHECK on ALTER TABLE</h3>
+        <p>To create a <b>CHECK</b> constraint on the "Age" column when the table is already created, use the following SQL:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Check-Constraint-Example3"><button class="copy" onclick="copyText('Check-Constraint-Example3')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD CHECK</sql> (Age&gt;=18);
+        </p></div>
+        <p>To allow naming of a <b>CHECK</b> constraint, and for defining a <b>CHECK</b> constraint on multiple columns, use the following SQL syntax:</p>
+        <h4>MySQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Check-Constraint-Example3"><button class="copy" onclick="copyText('Check-Constraint-Example3')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD CONSTRAINT</sql> CHK_PersonAge <sql>CHECK</sql> (Age&gt;=18 <sql>AND</sql> City='Sandnes');
+        </p></div>
+        <h3>DROP a CHECK Constraint</h3>
+        <p>To drop a <b>CHECK</b> constraint, use the following SQL:</p>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Check-Constraint-Example4"><button class="copy" onclick="copyText('Check-Constraint-Example4')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>DROP CONSTRAINT</sql> CHK_PersonAge;
+        </p></div>
+        <h4>MySQL:</h4>
+        <div class="code" id="Check-Constraint-Example5"><button class="copy" onclick="copyText('Check-Constraint-Example5')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>DROP CHECK</sql> CHK_PersonAge;
+        </p></div>
+    </div>
+    &nbsp;
+    <button class="collapsible">DEFAULT</button>
+    <div class="innerContent">
+        <h2>DEFAULT Constraint</h2>
+        <p>The <b>DEFAULT</b> constraint is used to provide a default value for a column.</p>
+        <p>The default value will be added to all new records IF no other value is specified.</p>
+        <h3>SQL DEFAULT on CREATE TABLE</h3>
+        <p>The following SQL sets a <b>DEFAULT</b> value for the "City" column when the "Persons" table is created:</p>
+        <h4>My SQL / SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Default-Constraint-Example"><button class="copy" onclick="copyText('Default-Constraint-Example')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;City varchar(255) <sql>DEFAULT</sql> 'Sandnes'<br>
+            );
+        </p></div>
+        <p>The <b>DEFAULT</b> constraint can also be used to insert system values, by using functions like <b>GETDATE()</b>:</p>
+        <div class="code" id="Default-Constraint-Example1"><button class="copy" onclick="copyText('Default-Constraint-Example1')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Orders (<br>
+            &emsp;ID int <sql>NOT NULL</sql>,<br>
+            &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+            &emsp;OrderDate date <sql>DEFAULT</sql> GETDATE()<br>
+            );
+        </p></div>
+        <h3>SQL DEFAULT on ALTER TABLE</h3>
+        <p>To create a <b>DEFAULT</b> constraint on the "City" column when the table is already created, use the following SQL:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Default-Constraint-Example2"><button class="copy" onclick="copyText('Default-Constraint-Example2')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ALTER</sql> City <sql>SET DEFAULT</sql> 'Sandnes';
+        </p></div>
+        <h4>SQL Server:</h4>
+        <div class="code" id="Default-Constraint-Example3"><button class="copy" onclick="copyText('Default-Constraint-Example3')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ADD CONSTRAINT</sql> df_City<br>
+            <sql>DEFAULT</sql> 'Sandnes' FOR City;
+        </p></div>
+        <h4>MS Access:</h4>
+        <div class="code" id="Default-Constraint-Example4"><button class="copy" onclick="copyText('Default-Constraint-Example4')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ALTER COLUMN</sql> City <sql>SET DEFAULT</sql> 'Sandnes';
+        </p></div>
+        <h4>Oracle:</h4>
+        <div class="code" id="Default-Constraint-Example5"><button class="copy" onclick="copyText('Default-Constraint-Example5')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>MODIFY</sql> City <sql>DEFAULT</sql> 'Sandnes';
+        </p></div>
+        <h3>DROP a DEFAULT Constraint</h3>
+        <p>To drop a <b>DEFAULT</b> constraint, use the following SQL:</p>
+        <h4>MySQL:</h4>
+        <div class="code" id="Default-Constraint-Example6"><button class="copy" onclick="copyText('Default-Constraint-Example6')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ALTER</sql> City <sql>DROP</sql> DEFAULT;
+        </p></div>
+        <h4>SQL Server / Oracle / MS Access:</h4>
+        <div class="code" id="Default-Constraint-Example7"><button class="copy" onclick="copyText('Default-Constraint-Example7')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons<br>
+            <sql>ALTER COLUMN</sql> City <sql>DROP DEFAULT</sql>;
         </p></div>
     </div>
 </div>
