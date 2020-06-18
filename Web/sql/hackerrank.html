@@ -40,6 +40,8 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
     </div>
+    <button class="collapsible" id="autoClickBtn">Basic Select</button>
+    <div class="innerContent">
     <h2>Revising the Select Query I</h2>
     <p>Query all columns for all American cities in <b>CITY</b> with populations larger than 100000. The CountryCode for America is USA.</p>
     <h4>MS SQL Server | MySQL | Oracle</h4>
@@ -76,6 +78,10 @@
     <p class="code-sl">
         <sql>SELECT</sql> NAME <sql>FROM</sql> CITY <sql>WHERE</sql> CountryCode = 'JPN';
     </p>
+    </div>
+    &nbsp;
+    <button class="collapsible" id="autoClickBtn">Weather Observation Station</button>
+    <div class="innerContent">
     <h2>Weather Observation Station 1</h2>
     <p>Query a list of <b>CITY</b> and <b>STATE</b> from the <b>STATION</b> table.</p>
     <h4>MS SQL Server | MySQL | Oracle</h4>
@@ -272,6 +278,43 @@
         <sql>SELECT ROUND</sql>(LONG_W, 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT MAX</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345);
     </p>
     <h2>Weather Observation Station 16</h2>
+    <p>Query the smallest Northern Latitude (LAT_N) from <b>STATION</b> that is greater than 38.7780. Round your answer to 4 decimal places.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT FORMAT</sql>(<sql>ROUND</sql>(<sql>MIN</sql>(LAT_N), 4), '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7780;
+    </p>
+    <h4>MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT ROUND</sql>(<sql>MIN</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7780;
+    </p>
+    <h2>Weather Observation Station 17</h2>
+    <p>Query the Western Longitude (LONG_W) where the smallest Northern Latitude (LAT_N) in <b>STATION</b> is greater than 38.7780. Round your answer to 4 decimal places.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT FORMAT</sql>(LONG_W, '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT TOP</sql> 1 <sql>MIN</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7780);
+    </p>
+    <h4>MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT ROUND</sql>(LONG_W, 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT MIN</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7880);
+    </p>
+    <h2>Weather Observation Station 18</h2>
+    <p>Consider P1(a,b) and P2(c,d) to be two points on a 2D plane.</p>
+    <ul>
+        <li>a happens to equal the minimum value in Northern Latitude (LAT_N in <b>STATION</b>).</li>
+        <li>b happens to equal the minimum value in Western Longitude (LONG_W in <b>STATION</b>).</li>
+        <li>c happens to equal the maximum value in Northern Latitude (LAT_N in <b>STATION</b>).</li>
+        <li>d happens to equal the maximum value in Western Longitude (LONG_W in <b>STATION</b>).</li>
+    </ul>
+    <p>Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        SELECT FORMAT((MAX(LAT_N) - MIN(LAT_N)) + (MAX(LONG_W) - MIN(LONG_W)), '.####') FROM STATION;
+    </p>
+    <h4>MySQL | Oracle</h4>
+    <p class="code-sl">
+        SELECT ROUND((MAX(LAT_N) - MIN(LAT_N)) + (MAX(LONG_W) - MIN(LONG_W)), 4) FROM STATION;
+    </p>
+    <h2>Weather Observation Station 19</h2>
     <p></p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
@@ -285,6 +328,21 @@
     <p class="code-sl">
         
     </p>
+    <h2>Weather Observation Station 20</h2>
+    <p></p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        
+    </p>
+    </div>
 </div>
 </div>
 </div>
