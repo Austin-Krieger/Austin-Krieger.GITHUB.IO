@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="wildcards.html">Previous</a>
+    <a href="in.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1>Regular Expressions</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Regular Expressions</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>MySQL - REGEXP</h2>
+    <h4>MySQL | Regular Expressions (REGEXP)</h4>
+    <p>MySQL supports another type of pattern matching operation based on the regular expressions and the REGEXP operator.</p>
+    <ol>
+        <li>It provide a powerful and flexible pattern match that can help us implement power search utilities for our database systems.</li>
+        <li>REGEXP is the operator used when performing regular expression pattern matches. RLIKE is the synonym.</li>
+        <li>It also supports a number of metacharacters which allow more flexibility and control when performing pattern matching.</li>
+        <li>The backslash is used as an escape character. It’s only considered in the pattern match if double backslashes have used.</li>
+        <li>Not case sensitive.</li>
+    </ol>
+    <h3>Wildcard Characters in MS Access</h3>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Pattern</th>
+            <th>Matches</th>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Zero or more instances of string preceding it</td>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td>One or more instances of strings preceding it</td>
+        </tr>
+        <tr>
+            <td>.</td>
+            <td>Any single character</td>
+        </tr>
+        <tr>
+            <td>?</td>
+            <td>Match zero or one instances of the strings preceding it.</td>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>caret(^) matches Beginning of string</td>
+        </tr>
+        <tr>
+            <td>$</td>
+            <td>End of string</td>
+        </tr>
+        <tr>
+            <td>[abc]</td>
+            <td>Any character listed between the square brackets</td>
+        </tr>
+        <tr>
+            <td>[^abc]</td>
+            <td>Any character not listed between the square brackets</td>
+        </tr>
+        <tr>
+            <td>[A-Z]</td>
+            <td>match any upper case letter.</td>
+        </tr>
+        <tr>
+            <td>[a-z]</td>
+            <td>match any lower case letter</td>
+        </tr>
+        <tr>
+            <td>[0-9]</td>
+            <td>match any digit from 0 through to 9.</td>
+        </tr>
+        <tr>
+            <td>[[:&lt;:]]</td>
+            <td>matches the beginning of words.</td>
+        </tr>
+        <tr>
+            <td>[[:&gt;:]]</td>
+            <td>matches the end of words.</td>
+        </tr>
+        <tr>
+            <td>[:class:]</td>
+            <td>matches a character class i.e. [:alpha:] to match letters, [:space:] to match white space, [:punct:] is match punctuations and [:upper:] for upper class letters.</td>
+        </tr>
+        <tr>
+            <td>p1|p2|p3</td>
+            <td>Alternation; matches any of the patterns p1, p2, or p3</td>
+        </tr>
+        <tr>
+            <td>{n}</td>
+            <td>n instances of preceding element</td>
+        </tr>
+        <tr>
+            <td>{m,n}</td>
+            <td>m through n instances of preceding element</td>
+        </tr>
+    </table></div>
+    <h3>Examples</h3>
+    <p><b>Match beginning of string (^):</b><br>Returns all the entities starting with 'sa'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> '^sa';
+    </p>
+    <p><b>Match the end of a string ($):</b><br>Returns all the entities ending with 'on'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> 'on$';
+    </p>
+    <p><b>Match zero or one instance of the strings preceding it (?):</b><br>Returns all the entities containing 'com'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> 'com?';
+    </p>
+    <p><b>Match any of the patterns p1, p2, or p3(p1|p2|p3):</b><br>Returns all the entities containing 'be' or 'ae'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> 'be|ae';
+    </p>
+    <p><b>Match any character listed between the square brackets ([abc]):</b><br>Returns all the entities containing 'j' or 'z'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> '[jz]';
+    </p>
+    <p><b>Match any lower case letter between 'a' and 'z' ([a-z])([a-z] and (.)):</b><br>Returns all entities that contain a letter in the range of 'b' and 'g', followed by any character, followed by the letter 'a'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> '[b-g].[a]';
+    </p>
+    <p><b>Match any character not listed between the square brackets ([^abc]):</b><br>Returns all entities not containing 'j' or 'z'.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> '[^jz]';
+    </p>
+    <p><b>Match the end of words [[:&gt;:]]:</b><br>Returns all entities ending with character "ack".</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> 'ack[[:&gt;:]]';
+    </p>
+    <p><b>Match the beginning of words [[:&lt;:]]:</b><br>Returns all entities beginning with character "for".</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE</sql> column_name <sql>REGEXP</sql> '[[:&lt;:]]for';
+    </p>
+    <p><b>Match a character class [:class:]:</b><br>i.e. [:lower:] - lowercase character, [:digit:] - digit characters etc. Returns all entities containing alphabetic character only.</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE REGEXP</sql> '[:alpha:]';
+    </p>
+    <h2>REGEXP_LIKE</h2>
+    <h3>Syntax</h3>
+    <p class="code-sl">
+        REGEXP_LIKE ( expression, pattern [, match_parameter ] )
+    </p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

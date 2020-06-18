@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href=".html">Previous</a>
+    <a href=".html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1>HackerRank - SQL</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">HackerRank</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Revising the Select Query I</h2>
+    <p>Query all columns for all American cities in <b>CITY</b> with populations larger than 100000. The CountryCode for America is USA.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> CITY <sql>WHERE</sql> CountryCode = 'USA' <sql>AND</sql> POPULATION > '100000';
+    </p>
+    <h2>Revising the Select Query II</h2>
+    <p>Query the names of all American cities in <b>CITY</b> with populations larger than 120000. The CountryCode for America is USA.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> NAME <sql>FROM</sql> CITY WHERE CountryCode = 'USA' <sql>AND</sql> POPULATION > 120000;
+    </p>
+    <h2>Select All</h2>
+    <p>Query all columns (attributes) for every row in the <b>CITY</b> table.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> CITY;
+    </p>
+    <h2>Select By ID</h2>
+    <p>Query all columns for a city in <b>CITY</b> with the ID 1661.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> CITY <sql>WHERE</sql> ID = '1661';
+    </p>
+    <h2>Japanese Cities' Attributes</h2>
+    <p>Query all attributes of every Japanese city in the <b>CITY</b> table. The <b>COUNTRYCODE</b> for Japan is JPN.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> CITY <sql>WHERE</sql> CountryCode = 'JPN';
+    </p>
+    <h2>Japanese Cities' Names</h2>
+    <p>Query the names of all the Japanese cities in the <b>CITY</b> table. The <b>COUNTRYCODE</b> for Japan is JPN.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> NAME <sql>FROM</sql> CITY <sql>WHERE</sql> CountryCode = 'JPN';
+    </p>
+    <h2>Weather Observation Station 1</h2>
+    <p>Query a list of <b>CITY</b> and <b>STATE</b> from the <b>STATION</b> table.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> City, State <sql>FROM</sql> Station;
+    </p>
+    <h2>Weather Observation Station 2</h2>
+    <p>Query the following two values from the STATION table:</p>
+    <ol>
+        <li>The sum of all values in LAT_N rounded to a scale of 2 decimal places.</li>
+        <li>The sum of all values in LONG_W rounded to a scale of 2 decimal places.</li>
+    </ol>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT FORMAT</sql>(<sql>SUM</sql>(LAT_N), '.##'), <sql>FORMAT</sql>(<sql>SUM</sql>(LONG_W), '.##') <sql>FROM</sql> STATION;
+    </p>
+    <h4>MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT ROUND</sql>(<sql>SUM</sql>(LAT_N), 2), <sql>ROUND</sql>(<sql>SUM</sql>(LONG_W), 2) <sql>FROM</sql> STATION;
+    </p>
+    <h2>Weather Observation Station 3</h2>
+    <p>Query a list of <b>CITY</b> names from <b>STATION</b> with even ID numbers only. You may print the results in any order, but must exclude duplicates from your answer.</p>
+    <h4>MS SQL Server | MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> City <sql>FROM</sql> Station <sql>WHERE</sql> ID % 2 = 0;
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> City <sql>FROM</sql> Station <sql>WHERE</sql> mod(ID, 2) = 0;
+    </p>
+    <h2>Weather Observation Station 4</h2>
+    <p>Let <b>N</b> be the number of <b>CITY</b> entries in <b>STATION</b>, and let <b>N'</b> be the number of distinct <b>CITY</b> names in <b>STATION</b>; query the value of <b>N - N'</b> from <b>STATION</b>. In other words, find the difference between the total number of <b>CITY</b> entries in the table and the number of distinct <b>CITY</b> entries in the table.</p>
+    <h4>MS SQL Server | MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> <sql>COUNT</sql>(CITY) - <sql>COUNT</sql>(<sql>DISTINCT</sql> CITY) <sql>FROM</sql> STATION;
+    </p>
+    <h2>Weather Observation Station 5</h2>
+    <p>Query the two cities in <b>STATION</b> with the shortest and longest <b>CITY</b> names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT TOP</sql> 1 CITY, <sql>LEN</sql>(CITY) <sql>FROM</sql> STATION <sql>WHERE LEN</sql>(CITY) = (<sql>SELECT MIN</sql>(<sql>LEN</sql>(CITY)) <sql>FROM</sql> STATION) <sql>ORDER BY</sql> CITY <sql>ASC</sql>;<br><br>
+        <sql>SELECT TOP</sql> 1 CITY, <sql>LEN</sql>(CITY) <sql>FROM</sql> STATION <sql>WHERE LEN</sql>(CITY) = (<sql>SELECT MAX</sql>(<sql>LEN</sql>(CITY)) <sql>FROM</sql> STATION) <sql>ORDER BY</sql> CITY <sql>ASC</sql>;
+    </p>
+    <h4>MySQL</h4><sql>
+    </sql><p class="code-sl">
+        <sql>SELECT</sql> CITY, <sql>LENGTH</sql>(CITY) <sql>FROM</sql> STATION <sql>WHERE LENGTH</sql>(CITY) = (<sql>SELECT MIN</sql>(<sql>LENGTH</sql>(CITY)) <sql>FROM</sql> STATION) <sql>ORDER BY</sql> CITY <sql>ASC LIMIT</sql> 1;<br><br>
+        <sql>SELECT</sql> CITY, <sql>LENGTH</sql>(CITY) <sql>FROM</sql> STATION <sql>WHERE</sql> LENGTH(CITY) = (<sql>SELECT MAX</sql>(<sql>LENGTH</sql>(CITY)) <sql>FROM</sql> STATION) <sql>ORDER BY</sql> CITY <sql>ASC LIMIT</sql> 1;
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> (<sql>SELECT</sql> CITY c, <sql>LENGTH</sql>(CITY) l <sql>FROM</sql> STATION <sql>ORDER BY</sql> l <sql>ASC</sql>, c <sql>ASC</sql>) <sql>WHERE</sql> ROWNUM = 1;<br><br>
+        <sql>SELECT</sql> CITY, <sql>LENGTH</sql>(CITY) <sql>FROM</sql> STATION <sql>WHERE LENGTH</sql>(CITY) = (<sql>SELECT MAX</sql>(<sql>LENGTH</sql>(CITY)) <sql>FROM</sql> STATION);
+    </p>
+    <h2>Weather Observation Station 6</h2>
+    <p>Query the list of <b>CITY</b> names starting with vowels (i.e., a, e, i, o, or u) from <b>STATION</b>. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY <sql>LIKE</sql> '[aeiou]%';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY REGEXP '^[aeiou].*';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> REGEXP_LIKE (CITY, '^[aeiou]', 'i');
+    </p>
+    <h2>Weather Observation Station 7</h2>
+    <p>Query the list of <b>CITY</b> names ending with vowels (a, e, i, o, u) from <b>STATION</b>. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> city <sql>FROM</sql> station <sql>WHERE</sql> city <sql>LIKE</sql> '%[aeiou]';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> city <sql>FROM</sql> station <sql>WHERE</sql> city REGEXP '[aeiou]$';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> city <sql>FROM</sql> station <sql>WHERE</sql> REGEXP_LIKE (city, '[aeiou]$', 'i');
+    </p>
+    <h2>Weather Observation Station 8</h2>
+    <p>Query the list of <b>CITY</b> names from <b>STATION</b> which have vowels (a, e, i, o, u) as both their first and last characters. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> city <sql>FROM</sql> station <sql>WHERE</sql> city <sql>LIKE</sql> '[aeiou]%[aeiou]';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> city <sql>FROM</sql> station <sql>WHERE</sql> city REGEXP '^[aeiou].*[aeiou]$';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> city <sql>FROM</sql> station <sql>WHERE</sql> REGEXP_LIKE (city, '^[aeiou].*[aeiou]$', 'i');
+    </p>
+    <h2>Weather Observation Station 9</h2>
+    <p>Query the list of <b>CITY</b> names from <b>STATION</b> that do not start with vowels. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY <sql>LIKE</sql> '[^aeiou]%';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY REGEXP '^[^aeiou]';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> REGEXP_LIKE (CITY, '^[^aeiou]', 'i');
+    </p>
+    <h2>Weather Observation Station 10</h2>
+    <p>Query the list of <b>CITY</b> names from <b>STATION</b> that do not end with vowels. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY <sql>LIKE</sql> '%[^aeiou]';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY REGEXP '[^aeiou]$';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> REGEXP_LIKE (CITY, '[^aeiou]$', 'i');
+    </p>
+    <h2>Weather Observation Station 11</h2>
+    <p>Query the list of <b>CITY</b> names from <b>STATION</b> that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY <sql>LIKE</sql> '[^aeiou]%' <sql>OR</sql> CITY <sql>LIKE</sql> '%[^aeiou]';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY REGEXP '^[^aeiou]' <sql>OR</sql> CITY REGEXP '[^aeiou]$';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> REGEXP_LIKE (CITY, '^[^aeiou]', 'i') <sql>OR</sql> REGEXP_LIKE (CITY, '[^aeiou]$', 'i');
+    </p>
+    <h2>Weather Observation Station 12</h2>
+    <p>Query the list of <b>CITY</b> names from <b>STATION</b> that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY <sql>LIKE</sql> '[^aeiou]%' <sql>AND</sql> CITY <sql>LIKE</sql> '%[^aeiou]';
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> CITY REGEXP '^[^aeiou]' <sql>AND</sql> CITY REGEXP '[^aeiou]$';
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> REGEXP_LIKE (CITY, '^[^aeiou]', 'i') <sql>AND</sql> REGEXP_LIKE (CITY, '[^aeiou]$', 'i');
+    </p>
+    <h2>Weather Observation Station 13</h2>
+    <p>Query the sum of Northern Latitudes (LAT_N) from <b>STATION</b> having values greater than 38.7880 and less than 137.2345. Truncate your answer to 4 decimal places.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT FORMAT</sql>(<sql>ROUND</sql>(<sql>SUM</sql>(LAT_N), 4, 1), '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N <sql>BETWEEN</sql> 38.7880 <sql>AND</sql> 137.2345;
+        <br><b>- OR -</b><br>
+        <sql>SELECT CONVERT</sql>(<sql>DECIMAL</sql>(12, 4), <sql>SUM</sql>(LAT_N)) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N <sql>BETWEEN</sql> 38.7880 <sql>AND</sql> 137.2345;
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT TRUNCATE</sql>(<sql>SUM</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7880 <sql>AND</sql> LAT_N &lt; 137.2345;
+        <br><b>- OR -</b><br>
+        <sql>SELECT ROUND</sql>(<sql>SUM</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N <sql>BETWEEN</sql> 38.7880 <sql>AND</sql> 137.2345;
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT TRUNC</sql>(<sql>SUM</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7880 <sql>AND</sql> LAT_N &lt; 137.2345;
+        <br><b>- OR -</b><br>
+        <sql>SELECT ROUND</sql>(<sql>SUM</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N <sql>BETWEEN</sql> 38.7880 <sql>AND</sql> 137.2345;
+    </p>
+    <h2>Weather Observation Station 14</h2>
+    <p>Query the greatest value of the Northern Latitudes (LAT_N) from <b>STATION</b> that is less than 137.2345. Truncate your answer to 4 decimal places.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT FORMAT</sql>(<sql>ROUND</sql>(<sql>MAX</sql>(LAT_N), 4, 1), '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345;
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        <sql>SELECT TRUNCATE</sql>(<sql>MAX</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345;
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT TRUNC</sql>(<sql>MAX</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345;
+    </p>
+    <h2>Weather Observation Station 15</h2>
+    <p>Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in <b>STATION</b> that is less than 137.2345. Round your answer to 4 decimal places.</p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        <sql>SELECT FORMAT</sql>(LONG_W, '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT TOP</sql> 1 <sql>MAX</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345);
+    </p>
+    <h4>MySQL | Oracle</h4>
+    <p class="code-sl">
+        <sql>SELECT ROUND</sql>(LONG_W, 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT MAX</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345);
+    </p>
+    <h2>Weather Observation Station 16</h2>
+    <p></p>
+    <h4>MS SQL Server</h4>
+    <p class="code-sl">
+        
+    </p>
+    <h4>MySQL</h4>
+    <p class="code-sl">
+        
+    </p>
+    <h4>Oracle</h4>
+    <p class="code-sl">
+        
+    </p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

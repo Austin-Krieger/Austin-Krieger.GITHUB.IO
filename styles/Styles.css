@@ -98,6 +98,15 @@ tr:nth-child(even) {
     overflow-x: scroll;
 }
 
+.code-sl {
+    background-color: #c8c8c8;
+    font-size: medium;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: -10px;
+    box-shadow: 1px 1px 1px 2px #bbbbbb;
+}
+
 .copy {
     float: right;
     user-select: none;
@@ -146,7 +155,7 @@ mark {
 }
 
 sql {
-    background-color: #dddddd;
+    /*background-color: #dddddd;*/
     color: blue;
 }
 
