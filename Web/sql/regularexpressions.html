@@ -167,10 +167,178 @@
         <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE REGEXP</sql> '[:alpha:]';
     </p>
     <h2>REGEXP_LIKE</h2>
+    <h3>Description</h3>
+    <p>The Oracle <b>REGEXP_LIKE</b> condition allows you to perform regular expression matching in the <b>WHERE</b> clause of a <b>SELECT</b>, <b>INSERT</b>, <b>UPDATE</b>, or <b>DELETE</b> statement.</p>
     <h3>Syntax</h3>
+    <p>The syntax for the <b>REGEXP_LIKE</b> condition in Oracle/PLSQL is:</p>
     <p class="code-sl">
         REGEXP_LIKE ( expression, pattern [, match_parameter ] )
     </p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>Matches the beginning of a string. If used with a match_parameter of 'm', it matches the start of a line anywhere within expression.</td>
+        </tr>
+        <tr>
+            <td>$</td>
+            <td>Matches the end of a string. If used with a match_parameter of 'm', it matches the end of a line anywhere within expression.</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Matches zero or more occurrences.</td>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td>Matches one or more occurrences.</td>
+        </tr>
+        <tr>
+            <td>?</td>
+            <td>Matches zero or one occurrence.</td>
+        </tr>
+        <tr>
+            <td>.</td>
+            <td>Matches any character except NULL.</td>
+        </tr>
+        <tr>
+            <td>|</td>
+            <td>Used like an "OR" to specify more than one alternative.</td>
+        </tr>
+        <tr>
+            <td>[ ]</td>
+            <td>Used to specify a matching list where you are trying to match any one of the characters in the list.</td>
+        </tr>
+        <tr>
+            <td>[^ ]</td>
+            <td>Used to specify a nonmatching list where you are trying to match any character except for the ones in the list.</td>
+        </tr>
+        <tr>
+            <td>( )</td>
+            <td>Used to group expressions as a subexpression.</td>
+        </tr>
+        <tr>
+            <td>{m}</td>
+            <td>Matches m times.</td>
+        </tr>
+        <tr>
+            <td>{m,}</td>
+            <td>Matches at least m times.</td>
+        </tr>
+        <tr>
+            <td>{m,n}</td>
+            <td>Matches at least m times, but no more than n times.</td>
+        </tr>
+        <tr>
+            <td>\n</td>
+            <td>n is a number between 1 and 9. Matches the nth subexpression found within ( ) before encountering \n.</td>
+        </tr>
+        <tr>
+            <td>[..]</td>
+            <td>Matches one collation element that can be more than one character.</td>
+        </tr>
+        <tr>
+            <td>[::]</td>
+            <td>Matches character classes.</td>
+        </tr>
+        <tr>
+            <td>[==]</td>
+            <td>Matches equivalence classes.</td>
+        </tr>
+        <tr>
+            <td>\d</td>
+            <td>Matches a digit character.</td>
+        </tr>
+        <tr>
+            <td>\D</td>
+            <td>Matches a nondigit character.</td>
+        </tr>
+        <tr>
+            <td>\w</td>
+            <td>Matches a word character.</td>
+        </tr>
+        <tr>
+            <td>\W</td>
+            <td>Matches a nonword character.</td>
+        </tr>
+        <tr>
+            <td>\s</td>
+            <td>Matches a whitespace character.</td>
+        </tr>
+        <tr>
+            <td>\S</td>
+            <td>Matches a non-whitespace character.</td>
+        </tr>
+        <tr>
+            <td>\A</td>
+            <td>Matches the beginning of a string or matches at the end of a string before a newline character.</td>
+        </tr>
+        <tr>
+            <td>\Z</td>
+            <td>Matches at the end of a string.</td>
+        </tr>
+        <tr>
+            <td>*?</td>
+            <td>Matches the preceding pattern zero or more occurrences.</td>
+        </tr>
+        <tr>
+            <td>+?</td>
+            <td>Matches the preceding pattern one or more occurrences.</td>
+        </tr>
+        <tr>
+            <td>??</td>
+            <td>Matches the preceding pattern zero or one occurrence.</td>
+        </tr>
+        <tr>
+            <td>{n}?</td>
+            <td>Matches the preceding pattern n times.</td>
+        </tr>
+        <tr>
+            <td>{n,}?</td>
+            <td>Matches the preceding pattern at least n times.</td>
+        </tr>
+        <tr>
+            <td>{n,m}?</td>
+            <td>Matches the preceding pattern at least n times, but not more than m times.</td>
+        </tr>
+    </table></div>
+    <h3>match_parameter</h3>
+    <p>Optional. It allows you to modify the matching behavior for the <b>REGEXP_LIKE</b> condition. It can be a combination of the following:</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>'c'</td>
+            <td>Perform case-sensitive matching.</td>
+        </tr>
+        <tr>
+            <td>'i'</td>
+            <td>Perform case-insensitive matching.</td>
+        </tr>
+        <tr>
+            <td>'n'</td>
+            <td>Allows the period character (.) to match the newline character. By default, the period is a wildcard.</td>
+        </tr>
+        <tr>
+            <td>'m'</td>
+            <td>Expression is assumed to have multiple lines, where ^ is the start of a line and $ is the end of a line, regardless of the position of those characters in expression. By default, expression is assumed to be a single line.</td>
+        </tr>
+        <tr>
+            <td>'x'</td>
+            <td>Whitespace characters are ignored. By default, whitespace characters are matched like any other character.</td>
+        </tr>
+    </table></div>
+    <h4>Note</h4>
+    <ul>
+        <li>The <b>REGEXP_LIKE</b> condition uses the input character set to evaluate strings.</li>
+        <li>If you specify match_parameter values that conflict, the <b>REGEXP_LIKE</b> condition will use the last value to break the conflict.</li>
+        <li>If the match_parameter is omitted, the <b>REGEXP_LIKE</b> condition will use the case-sensitivity as determined by the <b>NLS_SORT</b> parameter.</li>
+    </ul>
+    <h3>Examples</h3>
 </div>
 </div>
 </div>

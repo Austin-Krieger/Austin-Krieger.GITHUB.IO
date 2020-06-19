@@ -308,11 +308,11 @@
     <p>Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
-        SELECT FORMAT((MAX(LAT_N) - MIN(LAT_N)) + (MAX(LONG_W) - MIN(LONG_W)), '.####') FROM STATION;
+        <sql>SELECT FORMAT</sql>((<sql>MAX</sql>(LAT_N) - <sql>MIN</sql>(LAT_N)) + (<sql>MAX</sql>(LONG_W) - <sql>MIN</sql>(LONG_W)), '.####') <sql>FROM</sql> STATION;
     </p>
     <h4>MySQL | Oracle</h4>
     <p class="code-sl">
-        SELECT ROUND((MAX(LAT_N) - MIN(LAT_N)) + (MAX(LONG_W) - MIN(LONG_W)), 4) FROM STATION;
+        <sql>SELECT ROUND</sql>((<sql>MAX</sql>(LAT_N) - <sql>MIN</sql>(LAT_N)) + (<sql>MAX</sql>(LONG_W) - <sql>MIN</sql>(LONG_W)), 4) <sql>FROM</sql> STATION;
     </p>
     <h2>Weather Observation Station 19</h2>
     <p></p>
