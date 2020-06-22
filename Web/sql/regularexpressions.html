@@ -50,6 +50,11 @@
         <li>The backslash is used as an escape character. It’s only considered in the pattern match if double backslashes have used.</li>
         <li>Not case sensitive.</li>
     </ol>
+    <h3>Syntax</h3>
+    <p>The syntax for the REGEXP condition in MySQL is:</p>
+    <p class="code-sl">
+        expression LIKE 'pattern';
+    </p>
     <h3>Wildcard Characters in MS Access</h3>
     <div class="scrollableTable"><table>
         <tr>
@@ -166,8 +171,8 @@
     <p class="code-sl">
         <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE REGEXP</sql> '[:alpha:]';
     </p>
-    <h2>REGEXP_LIKE</h2>
-    <h3>Description</h3>
+    <h2>Oracle - REGEXP_LIKE</h2>
+    <h3>Oracle | Regular Expressions (REGEXP_LIKE)</h3>
     <p>The Oracle <b>REGEXP_LIKE</b> condition allows you to perform regular expression matching in the <b>WHERE</b> clause of a <b>SELECT</b>, <b>INSERT</b>, <b>UPDATE</b>, or <b>DELETE</b> statement.</p>
     <h3>Syntax</h3>
     <p>The syntax for the <b>REGEXP_LIKE</b> condition in Oracle/PLSQL is:</p>
@@ -339,6 +344,123 @@
         <li>If the match_parameter is omitted, the <b>REGEXP_LIKE</b> condition will use the case-sensitivity as determined by the <b>NLS_SORT</b> parameter.</li>
     </ul>
     <h3>Examples</h3>
+    <h4>Match on more than one alternative (|):</h4>
+    <div class="code" id="Regexp-Like-Example"><button class="copy" onclick="copyText('Regexp-Like-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> last_name<br>
+        <sql>FROM</sql> contacts<br>
+        <sql>WHERE</sql> REGEXP_LIKE (last_name, 'Anders(o|e|a)n');
+    </p></div>
+    <p>This <b>REGEXP_LIKE</b> example will return all contacts whose last_name is either Anderson, Andersen, or Andersan. The | pattern tells us to look for the letter "o", "e", or "a".</p>
+    <h4>Match on the beginning of a string (^):</h4>
+    <div class="code" id="Regexp-Like-Example1"><button class="copy" onclick="copyText('Regexp-Like-Example1')">Copy</button><br><p>
+        <sql>SELECT</sql> last_name<br>
+        <sql>FROM</sql> contacts<br>
+        <sql>WHERE</sql> REGEXP_LIKE (last_name, '^A(*)');
+    </p></div>
+    <p>This <b>REGEXP_LIKE</b> example will return all contacts whose last_name starts with 'A'.</p>
+    <h4>Match on the end of a string (*):</h4>
+    <div class="code" id="Regexp-Like-Example2"><button class="copy" onclick="copyText('Regexp-Like-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> last_name<br>
+        <sql>FROM</sql> contacts<br>
+        <sql>WHERE</sql> REGEXP_LIKE (last_name, '(*)n$');
+    </p></div>
+    <p>This <b>REGEXP_LIKE</b> example will return all contacts whose last_name ends with 'n'.</p>
+    <h2>Oracle - LIKE</h2>
+    <h3>Oracle | Regular Expressions (LIKE)</h3>
+    <p>The Oracle <b>LIKE</b> condition allows wildcards to be used in the <b>WHERE</b> clause of a <b>SELECT</b>, <b>INSERT</b>, <b>UPDATE</b>, or <b>DELETE</b> statement. This allows you to perform pattern matching.</p>
+    <h3>Syntax</h3>
+    <p class="code-sl">
+        expression LIKE pattern [ ESCAPE 'escape_character' ]
+    </p>
+    <h4>expression</h4>
+    <p>A character expression such as a column or field.</p>
+    <h4>pattern</h4>
+    <p>A character expression that contains pattern matching. The patterns that you can choose from are:</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Wildcard</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Allows you to match any string of any length (including zero length)</td>
+        </tr>
+        <tr>
+            <td>_</td>
+            <td>Allows you to match on a single character</td>
+        </tr>
+    </table></div>
+    <h4>escape_character</h4>
+    <p>Optional. It allows you to test for literal instances of a wildcard character such as % or _.</p>
+    <h3>Examples</h3>
+    <h4>Using the % wildcard:</h4>
+    <div class="code" id="Oracle-Like-Example"><button class="copy" onclick="copyText('Oracle-Like-Example')">Copy</button><br><p>
+        <sql>SELECT</sql> last_name<br>
+        <sql>FROM</sql> customers<br>
+        <sql>WHERE</sql> last_name <sql>LIKE</sql> 'Ap%';
+    </p></div>
+    <p>You can also use the % wildcard multiple times within the same string.</p>
+    <div class="code" id="Oracle-Like-Example1"><button class="copy" onclick="copyText('Oracle-Like-Example1')">Copy</button><br><p>
+        <sql>SELECT</sql> last_name<br>
+        <sql>FROM</sql> customers<br>
+        <sql>WHERE</sql> last_name <sql>LIKE</sql> '%er%';
+    </p></div>
+    <p>In this Oracle <b>LIKE</b> condition example, we are looking for all customers whose last_name contains the characters 'er'.</p>
+    <h4>Using the _ wildcard:</h4>
+    <p>Next, let's explain how the _ wildcard works in the Oracle <b>LIKE</b> condition. Remember that the _ wildcard is looking for only one character.</p>
+    <div class="code" id="Oracle-Like-Example2"><button class="copy" onclick="copyText('Oracle-Like-Example2')">Copy</button><br><p>
+        <sql>SELECT</sql> supplier_name<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> supplier_name <sql>LIKE</sql> 'Sm_th';
+    </p></div>
+    <p>This Oracle <b>LIKE</b> condition example would return all suppliers whose supplier_name is 5 characters long, where the first two characters are 'Sm' and the last two characters are 'th'. For example: 'Smith', 'Smyth', 'Smath', 'Smeth', etc.</p>
+    <div class="code" id="Oracle-Like-Example3"><button class="copy" onclick="copyText('Oracle-Like-Example3')">Copy</button><br><p>
+        <sql>SELECT</sql> *<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> account_number <sql>LIKE</sql> '92314_';
+    </p></div>
+    <p>You might find that you are looking for an account number, but you only have 5 of the 6 digits. The example will retrieve up to 10 records back. For example, it could return suppliers whose account numbers are: 923140, 923141, 923142, 923143, 923144, 923145, 923146, 923147, 923148, 923149</p>
+    <h4>Using the NOT Operator</h4>
+    <p>We can use the % wildcard with the NOT Operator. You could also use the Oracle LIKE condition to find suppliers whose name does <b>not</b> start with 'T'.</p>
+    <div class="code" id="Oracle-Like-Example4"><button class="copy" onclick="copyText('Oracle-Like-Example4')">Copy</button><br><p>
+        <sql>SELECT</sql> supplier_name<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> supplier_name <sql>NOT LIKE</sql> 'W%';
+    </p></div>
+    <p>By placing the <b>NOT</b> Operator in front of the Oracle <b>LIKE</b> condition, you are able to retrieve all suppliers whose supplier_name does not start with 'W'.</p>
+    <h4>Using Escape Characters</h4>
+    <p>It is important to understand how to "Escape Characters" when pattern matching. Let's say you wanted to search for a % or a _ character in the Oracle LIKE condition. You can do this using an Escape character.</p>
+    <p><b>Note:</b> You can only define an escape character as a single character (length of 1).</p>
+    <div class="code" id="Oracle-Like-Example5"><button class="copy" onclick="copyText('Oracle-Like-Example5')">Copy</button><br><p>
+        <sql>SELECT</sql> *<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> supplier_name <sql>LIKE</sql> 'Water!%' ESCAPE '!';
+    </p></div>
+    <p>This Oracle <b>LIKE</b> condition example identifies the ! character as an escape character. This statement will return all suppliers with the name <b>Water%</b>.</p>
+    <div class="code" id="Oracle-Like-Example6"><button class="copy" onclick="copyText('Oracle-Like-Example6')">Copy</button><br><p>
+        <sql>SELECT</sql> *<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> supplier_name <sql>LIKE</sql> 'H%!%' ESCAPE '!';
+    </p></div>
+    <p>This Oracle <b>LIKE</b> condition example returns all suppliers whose name starts with H and ends in %. For example, it would return a value such as 'Hello%'.</p>
+    <p>You can also use the escape character with the _ character in the Oracle <b>LIKE</b> condition.</p>
+    <div class="code" id="Oracle-Like-Example7"><button class="copy" onclick="copyText('Oracle-Like-Example7')">Copy</button><br><p>
+        <sql>SELECT</sql> *<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> supplier_name <sql>LIKE</sql> 'H%!_' ESCAPE '!';
+    </p></div>
+    <p>This Oracle <b>LIKE</b> condition example returns all suppliers whose name starts with H and ends in _. For example, it would return a value such as 'Hello_'.</p>
+    <h3>Incorporating the UPPER function with the LIKE condition</h3>
+    <p>If we wanted to find all records containing the word "test", regardless of whether it was stored as TEST, Test, or test, we could run either of the following SELECT statements:</p>
+    <div class="code" id="Oracle-Like-Example8"><button class="copy" onclick="copyText('Oracle-Like-Example8')">Copy</button><br><p>
+        <sql>SELECT</sql> *<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> UPPER(supplier_name) <sql>LIKE</sql> ('TEST%');<br>
+        <b>- OR -</b><br>
+        <sql>SELECT</sql> *<br>
+        <sql>FROM</sql> suppliers<br>
+        <sql>WHERE</sql> UPPER(supplier_name) <sql>LIKE</sql> UPPER('test%');
+    </p></div>
 </div>
 </div>
 </div>
