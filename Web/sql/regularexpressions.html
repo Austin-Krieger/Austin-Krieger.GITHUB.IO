@@ -40,6 +40,8 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
     </div>
+    <button class="collapsible" id="autoClickBtn">MySQL - REGEXP</button>
+    <div class="content">
     <h2>MySQL - REGEXP</h2>
     <h4>MySQL | Regular Expressions (REGEXP)</h4>
     <p>MySQL supports another type of pattern matching operation based on the regular expressions and the REGEXP operator.</p>
@@ -171,6 +173,10 @@
     <p class="code-sl">
         <sql>SELECT</sql> column_name <sql>FROM</sql> table_name <sql>WHERE REGEXP</sql> '[:alpha:]';
     </p>
+    </div>
+    &nbsp;
+    <button class="collapsible" id="autoClickBtn">Oracle - REGEXP_LIKE</button>
+    <div class="content">
     <h2>Oracle - REGEXP_LIKE</h2>
     <h3>Oracle | Regular Expressions (REGEXP_LIKE)</h3>
     <p>The Oracle <b>REGEXP_LIKE</b> condition allows you to perform regular expression matching in the <b>WHERE</b> clause of a <b>SELECT</b>, <b>INSERT</b>, <b>UPDATE</b>, or <b>DELETE</b> statement.</p>
@@ -365,6 +371,10 @@
         <sql>WHERE</sql> REGEXP_LIKE (last_name, '(*)n$');
     </p></div>
     <p>This <b>REGEXP_LIKE</b> example will return all contacts whose last_name ends with 'n'.</p>
+    </div>
+    &nbsp;
+    <button class="collapsible" id="autoClickBtn">Oracle - LIKE</button>
+    <div class="content">
     <h2>Oracle - LIKE</h2>
     <h3>Oracle | Regular Expressions (LIKE)</h3>
     <p>The Oracle <b>LIKE</b> condition allows wildcards to be used in the <b>WHERE</b> clause of a <b>SELECT</b>, <b>INSERT</b>, <b>UPDATE</b>, or <b>DELETE</b> statement. This allows you to perform pattern matching.</p>
@@ -461,6 +471,7 @@
         <sql>FROM</sql> suppliers<br>
         <sql>WHERE</sql> UPPER(supplier_name) <sql>LIKE</sql> UPPER('test%');
     </p></div>
+    </div>
 </div>
 </div>
 </div>
