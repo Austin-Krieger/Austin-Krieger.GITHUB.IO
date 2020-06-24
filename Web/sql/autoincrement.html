@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="createindex.html">Previous</a>
+    <a href="date.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1>AUTO INCREMENT</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">AUTO INCREMENT</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>SQL AUTO INCREMENT Field</h2>
+    <p>Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table. Often this is the primary key field that we would like to be created automatically every time a new record is inserted.</p>
+    <h2>Syntax:</h2>
+    &nbsp;
+    <button class="collapsible">MySQL</button>
+    <div class="content">
+        <h2>MySQL - Syntax</h2>
+        <p>The following SQL statement defines the "Personid" column to be an auto-increment primary key field in the "Persons" table:</p>
+        <div class="code" id="MySQL-Syntax"><button class="copy" onclick="copyText('MySQL-Syntax')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;Personid int <sql>NOT NULL</sql> AUTO_INCREMENT,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            &emsp;<sql>PRIMARY KEY</sql> (Personid)<br>
+            );
+        </p></div>
+        <!--<p class="code-sl"></p>-->
+        <p>MySQL uses the <b>AUTO_INCREMENT</b> keyword to perform an auto-increment feature. By default, the starting value for <b>AUTO_INCREMENT</b> is 1, and it will increment by 1 for each new record.</p>
+        <p>To let the <b>AUTO_INCREMENT</b> sequence start with another value, use the following SQL statement:</p>
+        <div class="code" id="MySQL-Alter-Table"><button class="copy" onclick="copyText('MySQL-Alter-Table')">Copy</button><br><p>
+            <sql>ALTER TABLE</sql> Persons AUTO_INCREMENT = 100;
+        </p></div>
+        <p>To insert a new record into the "Persons" table, we will <b>NOT</b> have to specify a value for the "Personid" column (a unique value will be added automatically):</p>
+        <div class="code" id="MySQL-Insert-Into-Example"><button class="copy" onclick="copyText('MySQL-Insert-Into-Example')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Persons (FirstName,LastName)<br>
+            <sql>VALUES</sql> ('Lars','Monsen');
+        </p></div>
+        <p>The SQL statement above would insert a new record into the "Persons" table. The "Personid" column would be assigned a unique value. The "FirstName" column would be set to "Lars" and the "LastName" column would be set to "Monsen".</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">SQL Server</button>
+    <div class="content">
+        <h2>SQL Server - Syntax</h2>
+        <p>The following SQL statement defines the "Personid" column to be an auto-increment primary key field in the "Persons" table:</p>
+        <div class="code" id="SQL-Server-Syntax"><button class="copy" onclick="copyText('SQL-Server-Syntax')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;Personid int <sql>IDENTITY</sql>(1,1) <sql>PRIMARY KEY</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            );
+        </p></div>
+        <p>The MS SQL Server uses the <b>IDENTITY</b> keyword to perform an auto-increment feature. In the example above, the starting value for <b>IDENTITY</b> is 1, and it will increment by 1 for each new record.</p>
+        <p><b>Tip</b>: To specify that the "Personid" column should start at value 10 and increment by 5, change it to <b>IDENTITY</b>(10,5).</p>
+        <p>To insert a new record into the "Persons" table, we will <b>NOT</b> have to specify a value for the "Personid" column (a unique value will be added automatically):</p>
+        <div class="code" id="SQL-Server-Insert-Example"><button class="copy" onclick="copyText('SQL-Server-Insert-Example')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Persons (FirstName,LastName)<br>
+            <sql>VALUES</sql> ('Lars','Monsen');
+        </p></div>
+        <p>The SQL statement above would insert a new record into the "Persons" table. The "Personid" column would be assigned a unique value. The "FirstName" column would be set to "Lars" and the "LastName" column would be set to "Monsen".</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Access</button>
+    <div class="content">
+        <h2>Access - Syntax</h2>
+        <p>The following SQL statement defines the "Personid" column to be an auto-increment primary key field in the "Persons" table:</p>
+        <div class="code" id="Access-Syntax"><button class="copy" onclick="copyText('Access-Syntax')">Copy</button><br><p>
+            <sql>CREATE TABLE</sql> Persons (<br>
+            &emsp;Personid int AUTOINCREMENT <sql>PRIMARY KEY</sql>,<br>
+            &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+            &emsp;FirstName varchar(255),<br>
+            &emsp;Age int,<br>
+            );
+        </p></div>
+        <p>MS Access uses the <b>AUTOINCREMENT</b> keyword to perform an auto-increment feature. By default, the starting value for <b>AUTOINCREMENT</b> is 1, and it will increment by 1 for each new record.</p>
+        <p><b>Tip</b>: To specify that the "Personid" column should start at value 10 and increment by 5, change the autoincrement to <b>AUTOINCREMENT</b>(10,5).</p>
+        <p>To insert a new record into the "Persons" table, we will <b>NOT</b> have to specify a value for the "Personid" column (a unique value will be added automatically):</p>
+        <div class="code" id="Access-Insert-Example"><button class="copy" onclick="copyText('Access-Insert-Example')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Persons (FirstName,LastName)<br>
+            <sql>VALUES</sql> ('Lars','Monsen');
+        </p></div>
+        <p>The SQL statement above would insert a new record into the "Persons" table. The "Personid" column would be assigned a unique value. The "FirstName" column would be set to "Lars" and the "LastName" column would be set to "Monsen".</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Oracle</button>
+    <div class="content">
+        <h2>Oracle - Syntax</h2>
+        <p>In Oracle the code is a little bit more tricky. You will have to create an auto-increment field with the sequence object (this object generates a number sequence).</p>
+        <p>Use the following <b>CREATE SEQUENCE</b> syntax:</p>
+        <div class="code" id="Oracle-Syntax"><button class="copy" onclick="copyText('Oracle-Syntax')">Copy</button><br><p>
+            <sql>CREATE</sql> SEQUENCE seq_person<br>
+            MINVALUE 1<br>
+            START <sql>WITH</sql> 1<br>
+            INCREMENT <sql>BY</sql> 1<br>
+            CACHE 10;
+        </p></div>
+        <p>The code above creates a sequence object called seq_person, that starts with 1 and will increment by 1. It will also cache up to 10 values for performance. The cache option specifies how many sequence values will be stored in memory for faster access.</p>
+        <p>To insert a new record into the "Persons" table, we will have to use the nextval function (this function retrieves the next value from seq_person sequence):</p>
+        <div class="code" id="Oracle-Insert-Example"><button class="copy" onclick="copyText('Oracle-Insert-Example')">Copy</button><br><p>
+            <sql>INSERT INTO</sql> Persons (Personid,FirstName,LastName)<br>
+            <sql>VALUES</sql> (seq_person.nextval,'Lars','Monsen');
+        </p></div>
+        <p>The SQL statement above would insert a new record into the "Persons" table. The "Personid" column would be assigned the next number from the seq_person sequence. The "FirstName" column would be set to "Lars" and the "LastName" column would be set to "Monsen".</p>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
