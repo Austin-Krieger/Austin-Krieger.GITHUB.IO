@@ -107,8 +107,16 @@ tr:nth-child(even) {
     box-shadow: 1px 1px 1px 2px #bbbbbb;
 }
 
-.strike {
+strike {
     text-decoration: line-through;
+}
+
+underline {
+    text-decoration: underline;
+}
+
+underline:hover {
+    cursor: pointer;
 }
 
 .copy {
@@ -345,4 +353,8 @@ sql {
     width: 100%;
     text-align: center;
     margin: auto;
+}
+
+.hideTR {
+    display: none;
 }

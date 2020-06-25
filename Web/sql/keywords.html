@@ -14,8 +14,8 @@
 <div class="navbar">
     <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
     <a href="index.html" style="float: left;">Home</a>
-    <a href="injection.html">Previous</a>
-    <a href="keywords.html" style="float: right;">Next</a>
+    <a href="hosting.html">Previous</a>
+    <a href=".html" style="float: right;">Next</a>
 </div>
 <div id="Sidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -27,9 +27,9 @@
     <a href="../../Job%20Search/applying.html">Job Search</a>
 </div>
 <div id="closeSideNav">
-<h1>Hosting</h1>
+<h1>Keywords</h1>
 <div class="containButtons">
-<button class="collapsible" id="autoClickBtn">Hosting</button>
+<button class="collapsible" id="autoClickBtn">Keywords</button>
 <div class="content">
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -40,33 +40,36 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
     </div>
-    <h2>SQL Hosting</h2>
-    <p>If you want your web site to be able to store and retrieve data from a database, your web server should have access to a database-system that uses the SQL language.</p>
-    <p>If your web server is hosted by an Internet Service Provider (ISP), you will have to look for SQL hosting plans. The most common SQL hosting databases are MS SQL Server, Oracle, MySQL, and MS Access.</p>
-    <p>MS SQL Server, Oracle, and MySQL are very powerful, robust and full featured SQL database systems.</p>
-    <h3>MS SQL Server</h3>
-    <ul>
-        <li>A popular database software for database-driven web sites with high traffic.</li>
-    </ul>
-    <h3>Oracle</h3>
-    <ul>
-        <li>A popular datbase software for database-driven web sites with high traffic.</li>
-    </ul>
-    <h3>MySQL</h3>
-    <ul>
-        <li>A popular database software for web sites.</li>
-        <li>An inexpensive alternative to the expensive Microsoft and Oracle solutions.</li>
-    </ul>
-    <h3>Access</h3>
-    <ul>
-        <li>When a web site requires only a simple database, Microsoft Access can be a solution.</li>
-        <li>Access is not well suited for very high-traffic, and not as powerful as MySQL, SQL Server, or Oracle.</li>
-    </ul>
+    <h2>SQL Keywords</h2>
+    <p>SQL keywords are the reserved words in SQL.</p>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Keyword</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td onclick="toggleTR(Add)"><underline>Add</underline></td>
+            <td>Adds a column in an existing table</td>
+        </tr>
+        <tr><td colspan="2" id="Add" class="hideTR">
+            <p>Some text in the Modal...</p>
+            <p>Some text in the Modal...</p>
+            <p>Some text in the Modal...</p>
+            <p>Some text in the Modal...</p>
+            <p>Some text in the Modal...</p>
+            <p>Some text in the Modal...</p>
+        </td></tr>
+    </table></div>
+    <!--<p class="code-sl"></p>
+    <div class="code" id=""><button class="copy" onclick="copyText('')">Copy</button><br><p>
+        
+    </p></div>-->
 </div>
 </div>
 </div>
 <script type="text/javascript" src="../../scripts/SideNav.js"></script>
 <script type="text/javascript" src="../../scripts/collapsible.js"></script>
 <script type="text/javascript" src="../../scripts/modal.js"></script>
+<script type="text/javascript" src="../../scripts/ToggleTR.js"></script>
 </body>
 </html>
