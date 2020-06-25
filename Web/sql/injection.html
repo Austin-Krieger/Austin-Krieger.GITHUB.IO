@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="views.html">Previous</a>
+    <a href="hosting.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1>SQL Injection</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">SQL Injection</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>SQL Injection</h2>
+    <ul>
+        <li>A code injection technique that might destroy your database.</li>
+        <li>One of the most common web hacking techniques.</li>
+        <li>The placement of malicious code in SQL statements, via web page input.</li>
+    </ul>
+    <h3>SQL in Web Pages</h3>
+    <p>SQL injection usually occurs when you ask a user for input, like their username/userid, and instead of a name/id, the user gives you an SQL statement that you will <b>unknowingly</b> run on your database.</p>
+    <h2>SQL Injection Based on 1 = 1 is Always True</h2>
+    <p>The following example which creates a <b>SELECT</b> statement by adding a variable (txtUserId) to a select string. The variable is fetched from user input (getRequestString):</p>
+    <h3>Example</h3>
+    <div class="code" id="Injection-Example"><button class="copy" onclick="copyText('Injection-Example')">Copy</button><br><p>
+        txtUserId = getRequestString("UserId");<br>
+        txtSQL = "SELECT * FROM Users WHERE UserId = " + txtUserId;
+    </p></div>
+    <p>The original purpose of the code was to create an SQL statement to select a user, with a given user id.</p>
+    <p>If there is nothing to prevent a user from entering "wrong" input, the user can enter some "smart" input like this:</p>
+    <p class="code-sl">
+        UserId: <input type="text" size="25" placeholder="105 OR 1 = 1">
+    </p>
+    <p>Then, the SQL statement will look like this:</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> Users <sql>WHERE</sql> UserId = 105 <sql>OR</sql> 1 = 1;
+    </p>
+    <p>The SQL above is valid and will return ALL rows from the "Users" table, since OR 1 = 1 is always TRUE. What if the "Users" table contains names or passwords? </p>
+    <p class="code-sl">
+        <sql>SELECT</sql> UserId, Name, Password <sql>FROM</sql> Users <sql>WHERE</sql> UserId = 105 <sql>OR</sql> 1 = 1;
+    </p>
+    <p>A hacker might get access to all the user names and passwords in a database, by simply inserting 105 OR 1 = 1 into the input field.</p>
+    <h2>SQL Injection Based on ""="" is Always True</h2><br>
+    <input type="text" placeholder="John Doe"><br><br>
+    <input type="password" placeholder="myPass">
+    <p>Here is an example for a user login on a web site:</p>
+    <h3>Example</h3>
+    <div class="code" id="Injection-Example1"><button class="copy" onclick="copyText('Injection-Example1')">Copy</button><br><p>
+        uName = getRequestString("username");<br>
+        uPass = getRequestString("userpassword");<br><br>
+        sql = 'SELECT * FROM Users WHERE Name ="' + uName + '" AND Pass ="' + uPass + '"'
+    </p></div>
+    <h3>Result</h3>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> Users <sql>WHERE</sql> Name ="John Doe" <sql>AND</sql> Pass ="myPass"
+    </p>
+    <p>A hacker might get access to user names and passwords in a database by simply inserting <b>" OR ""="</b> into the user name or password text box:</p>
+    <input type="text" placeholder='" OR ""="'><br><br>
+    <input type="password" placeholder='" OR ""="'>
+    <p>The code at the server will create a valid SQL statement like this:</p>
+    <h3>Result</h3>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> Users <sql>WHERE</sql> Name ="" <sql>OR</sql> ""="" <sql>AND</sql> Pass ="" <sql>OR</sql> ""=""
+    </p>
+    <p>The SQL above is valid and will return all rows from the "Users" table, since <b>OR ""=""</b> is always TRUE.</p>
+    <h2>SQL Injection Based on Batched SQL Statements</h2>
+    <p>Most databases support batched SQL statement. A batch of SQL statements is a group of two or more SQL statements, separated by semicolons.</p>
+    <p>The SQL statement below will return all rows from the "Users" table, then delete the "Suppliers" table.</p>
+    <h3>Example</h3>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> Users; <sql>DROP TABLE</sql> Suppliers
+    </p>
+    <h3>Example</h3>
+    <p class="code-sl">
+        txtUserId = getRequestString("UserId");<br>
+        txtSQL = "SELECT * FROM Users WHERE UserId = " + txtUserId;
+    </p>
+    <p>User Input:</p>
+    <p class="code-sl">
+        User id: <input type="text" size="25" placeholder="105; DROP TABLE Suppliers">
+    </p>
+    <p>The valid SQL statement would look like this:</p>
+    <h3>Result</h3>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> Users <sql>WHERE</sql> UserId = 105; <sql>DROP TABLE</sql> Suppliers;
+    </p>
+    <h2>Use SQL Parameters for Protection</h2>
+    <p>To protect a web site from SQL injection, you can use SQL parameters.</p>
+    <p>SQL parameters are values that are added to an SQL query at execution time, in a controlled manner.</p>
+    <h3>Example INSERT INTO Statement in PHP</h3>
+    <p>The following example shows how to build a parameterized query in PHP.</p>
+    <div class="code" id="Injection-Prevention-Example"><button class="copy" onclick="copyText('Injection-Prevention-Example')">Copy</button><br><p>
+        $stmt = $dbh->prepare("INSERT INTO Customers (CustomerName,Address,City)<br>
+        VALUES (:nam, :add, :cit)");<br>
+        $stmt->bindParam(':nam', $txtNam);<br>
+        $stmt->bindParam(':add', $txtAdd);<br>
+        $stmt->bindParam(':cit', $txtCit);<br>
+        $stmt->execute();
+    </p></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

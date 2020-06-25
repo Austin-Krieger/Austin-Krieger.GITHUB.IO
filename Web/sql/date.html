@@ -14,8 +14,8 @@
 <div class="navbar">
     <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
     <a href="index.html" style="float: left;">Home</a>
-    <a href="createindex.html">Previous</a>
-    <a href=".html" style="float: right;">Next</a>
+    <a href="autoincrement.html">Previous</a>
+    <a href="views.html" style="float: right;">Next</a>
 </div>
 <div id="Sidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -52,10 +52,22 @@
         <li>TIMESTAMP - format: YYYY-MM-DD HH:MI:SS</li>
         <li>YEAR - format YYYY or YY</li>
     </ul>
-    <div class="code" id="MySQL-Syntax"><button class="copy" onclick="copyText('MySQL-Syntax')">Copy</button><br><p>
-
-    </p></div>
-    <!--<p class="code-sl"></p>-->
+    <p><b>SQL Server</b> comes with the following data types for storing a date or a date/time value in the database:</p>
+    <ul>
+        <li>DATE - format YYYY-MM-DD</li>
+        <li>DATETIME - format: YYYY-MM-DD HH:MI:SS</li>
+        <li>SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS</li>
+        <li>TIMESTAMP - format: a unique number</li>
+    </ul>
+    <p><b>Note</b>: The data types are chosen for a column when you create a new table in your database.</p>
+    <h3>Working with Dates</h3>
+    <p>You can compare two dates easily if there is <b>no time component</b> (2008-11-11 <strike><b>13:23:44</b></strike>) involved.</p>
+    <p>Now we want to select the records with an <b>OrderDate</b> of "2008-11-11", so we use the following <b>SELECT</b> statement:</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> Orders <sql>WHERE</sql> OrderDate = '2008-11-11';
+    </p>
+    <p>If we use the same <b>SELECT</b> statement while the <b>OrderDate</b> column <b>has a time component</b> (2008-11-11 <b>13:23:44</b>) we will get no results.</p>
+    <p><b>Tip</b>: To keep your queries simple and easy to maintain, do not allow time components in your dates.</p>
 </div>
 </div>
 </div>

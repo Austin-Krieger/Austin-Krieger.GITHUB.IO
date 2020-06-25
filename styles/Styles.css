@@ -107,6 +107,10 @@ tr:nth-child(even) {
     box-shadow: 1px 1px 1px 2px #bbbbbb;
 }
 
+.strike {
+    text-decoration: line-through;
+}
+
 .copy {
     float: right;
     user-select: none;

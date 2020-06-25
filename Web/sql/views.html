@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="date.html">Previous</a>
+    <a href="injection.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../index.html">Web</a>
+    <a href="../../Job%20Search/applying.html">Job Search</a>
+</div>
+<div id="closeSideNav">
+<h1>Views</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Views</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>SQL CREATE VIEW Statement</h2>
+    <p>In SQL, a view is a virtual table based on the result-set of an SQL statement.</p>
+    <p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database. You can add SQL functions, <b>WHERE</b>, and <b>JOIN</b> statements to a view and present the data as if the data were coming from one single table.</p>
+    <h3>CREATE VIEW Syntax</h3>
+    <div class="code" id="View-Syntax"><button class="copy" onclick="copyText('View-Syntax')">Copy</button><br><p>
+        <sql>CREATE VIEW</sql> view_name <sql>AS</sql><br>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <p><b>Note</b>: A view always shows up-to-date data. The database engine recreates the data, using the view's SQL statement, every time a user queries a view.</p>
+    <h3>CREATE VIEW Examples</h3>
+    <p>The following SQL creates a view that shows all customers from Brazil:</p>
+    <div class="code" id="View-Example"><button class="copy" onclick="copyText('View-Example')">Copy</button><br><p>
+        <sql>CREATE VIEW</sql> [Brazil Customers] <sql>AS</sql><br>
+        <sql>SELECT</sql> CustomerName, ContactName<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Brazil';
+    </p></div>
+    <p>We can query the view above as follows:</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> [Brazil Customers];
+    </p>
+    <p>The following SQL creates a view that selects every product in the "Products" table with a price higher than the average price:</p>
+    <div class="code" id="View-Example1"><button class="copy" onclick="copyText('View-Example1')">Copy</button><br><p>
+        <sql>CREATE VIEW</sql> [Products Above Average Price] <sql>AS</sql><br>
+        <sql>SELECT</sql> ProductName, Price<br>
+        <sql>FROM</sql> Products<br>
+        <sql>WHERE</sql> Price > (<sql>SELECT AVG</sql>(Price) <sql>FROM</sql> Products);
+    </p></div>
+    <p>We can query the view above as follows:</p>
+    <p class="code-sl">
+        <sql>SELECT</sql> * <sql>FROM</sql> [Products Above Average Price];
+    </p>
+    <h2>Updating a View</h2>
+    <p>A view can be updated with the <b>CREATE OR REPLACE VIEW</b> command.</p>
+    <h4>CREATE OR REPLACE VIEW Syntax</h4>
+    <div class="code" id="View-Update-Syntax"><button class="copy" onclick="copyText('View-Update-Syntax')">Copy</button><br><p>
+        <sql>CREATE OR REPLACE VIEW</sql> view_name <sql>AS</sql><br>
+        <sql>SELECT</sql> column1, column2, ...<br>
+        <sql>FROM</sql> table_name<br>
+        <sql>WHERE</sql> condition;
+    </p></div>
+    <p>The following SQL adds the "City" column to the "Brazil Customers" view:</p>
+    <div class="code" id="View-Update-Example"><button class="copy" onclick="copyText('View-Update-Example')">Copy</button><br><p>
+        <sql>CREATE OR REPLACE VIEW</sql> [Brazil Customers] <sql>AS</sql><br>
+        <sql>SELECT</sql> CustomerName, ContactName, City<br>
+        <sql>FROM</sql> Customers<br>
+        <sql>WHERE</sql> Country = 'Brazil';
+    </p></div>
+    <h2>Dropping a View</h2>
+    <p>A view is deleted with the <b>DROP VIEW</b> command.</p>
+    <h4>DROP VIEW Syntax</h4>
+    <p class="code-sl">
+        <sql>DROP VIEW</sql> view_name;
+    </p>
+    <p>The following SQL drops the "Brazil Customers" view:</p>
+    <h4>DROP VIEW Example</h4>
+    <p class="code-sl">
+        <sql>DROP VIEW</sql> [Brazil Customers];
+    </p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
