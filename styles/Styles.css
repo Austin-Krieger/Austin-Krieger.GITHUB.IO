@@ -225,6 +225,7 @@ sql {
     overflow-x: auto;
 }
 
+/* Not in use
 .flip3D {
     width: 49%;
     height: 200px;
@@ -232,7 +233,6 @@ sql {
     text-align: center;
 }
 
-/* Not in use
 .front {
     position: absolute;
     transform: perspective(600px) rotateY(0deg);
