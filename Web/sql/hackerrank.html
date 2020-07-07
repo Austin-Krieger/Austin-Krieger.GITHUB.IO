@@ -88,7 +88,7 @@
         <sql>SELECT</sql> City, State <sql>FROM</sql> Station;
     </p>
     <h2>Weather Observation Station 2</h2>
-    <p>Query the following two values from the STATION table:</p>
+    <p>Query the following two values from the <b>STATION</b> table:</p>
     <ol>
         <li>The sum of all values in LAT_N rounded to a scale of 2 decimal places.</li>
         <li>The sum of all values in LONG_W rounded to a scale of 2 decimal places.</li>
@@ -233,7 +233,7 @@
         <sql>SELECT DISTINCT</sql> CITY <sql>FROM</sql> STATION <sql>WHERE</sql> REGEXP_LIKE (CITY, '^[^aeiou]', 'i') <sql>AND</sql> REGEXP_LIKE (CITY, '[^aeiou]$', 'i');
     </p>
     <h2>Weather Observation Station 13</h2>
-    <p>Query the sum of Northern Latitudes (LAT_N) from <b>STATION</b> having values greater than 38.7880 and less than 137.2345. Truncate your answer to 4 decimal places.</p>
+    <p>Query the sum of Northern Latitudes (LAT_N) from <b>STATION</b> having values greater than <b>38.7880</b> and less than <b>137.2345</b>. Truncate your answer to <b>4</b> decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
         <sql>SELECT FORMAT</sql>(<sql>ROUND</sql>(<sql>SUM</sql>(LAT_N), 4, 1), '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N <sql>BETWEEN</sql> 38.7880 <sql>AND</sql> 137.2345;
@@ -253,7 +253,7 @@
         <sql>SELECT ROUND</sql>(<sql>SUM</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N <sql>BETWEEN</sql> 38.7880 <sql>AND</sql> 137.2345;
     </p>
     <h2>Weather Observation Station 14</h2>
-    <p>Query the greatest value of the Northern Latitudes (LAT_N) from <b>STATION</b> that is less than 137.2345. Truncate your answer to 4 decimal places.</p>
+    <p>Query the greatest value of the Northern Latitudes (LAT_N) from <b>STATION</b> that is less than <b>137.2345</b>. Truncate your answer to <b>4</b> decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
         <sql>SELECT FORMAT</sql>(<sql>ROUND</sql>(<sql>MAX</sql>(LAT_N), 4, 1), '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345;
@@ -267,7 +267,7 @@
         <sql>SELECT TRUNC</sql>(<sql>MAX</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345;
     </p>
     <h2>Weather Observation Station 15</h2>
-    <p>Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in <b>STATION</b> that is less than 137.2345. Round your answer to 4 decimal places.</p>
+    <p>Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in <b>STATION</b> that is less than <b>137.2345</b>. Round your answer to <b>4</b> decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
         <sql>SELECT FORMAT</sql>(LONG_W, '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT TOP</sql> 1 <sql>MAX</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345);
@@ -277,7 +277,7 @@
         <sql>SELECT ROUND</sql>(LONG_W, 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT MAX</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &lt; 137.2345);
     </p>
     <h2>Weather Observation Station 16</h2>
-    <p>Query the smallest Northern Latitude (LAT_N) from <b>STATION</b> that is greater than 38.7780. Round your answer to 4 decimal places.</p>
+    <p>Query the smallest Northern Latitude (LAT_N) from <b>STATION</b> that is greater than <b>38.7780</b>. Round your answer to <b>4</b> decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
         <sql>SELECT FORMAT</sql>(<sql>ROUND</sql>(<sql>MIN</sql>(LAT_N), 4), '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7780;
@@ -287,7 +287,7 @@
         <sql>SELECT ROUND</sql>(<sql>MIN</sql>(LAT_N), 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7780;
     </p>
     <h2>Weather Observation Station 17</h2>
-    <p>Query the Western Longitude (LONG_W) where the smallest Northern Latitude (LAT_N) in <b>STATION</b> is greater than 38.7780. Round your answer to 4 decimal places.</p>
+    <p>Query the Western Longitude (LONG_W) where the smallest Northern Latitude (LAT_N) in <b>STATION</b> is greater than <b>38.7780</b>. Round your answer to <b>4</b> decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
         <sql>SELECT FORMAT</sql>(LONG_W, '.####') <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT TOP</sql> 1 <sql>MIN</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7780);
@@ -297,14 +297,14 @@
         <sql>SELECT ROUND</sql>(LONG_W, 4) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N = (<sql>SELECT MIN</sql>(LAT_N) <sql>FROM</sql> STATION <sql>WHERE</sql> LAT_N &gt; 38.7880);
     </p>
     <h2>Weather Observation Station 18</h2>
-    <p>Consider P1(a,b) and P2(c,d) to be two points on a 2D plane.</p>
+        <p>Consider <b>P1(a,b)</b> and <b>P2(c,d)</b> to be two points on a 2D plane.</p>
     <ul>
         <li>a happens to equal the minimum value in Northern Latitude (LAT_N in <b>STATION</b>).</li>
         <li>b happens to equal the minimum value in Western Longitude (LONG_W in <b>STATION</b>).</li>
         <li>c happens to equal the maximum value in Northern Latitude (LAT_N in <b>STATION</b>).</li>
         <li>d happens to equal the maximum value in Western Longitude (LONG_W in <b>STATION</b>).</li>
     </ul>
-    <p>Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.</p>
+    <p>Query the Manhattan Distance between points <b>P1</b> and <b>P2</b> and round it to a scale of <b>4</b> decimal places.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
         <sql>SELECT FORMAT</sql>((<sql>MAX</sql>(LAT_N) - <sql>MIN</sql>(LAT_N)) + (<sql>MAX</sql>(LONG_W) - <sql>MIN</sql>(LONG_W)), '.####') <sql>FROM</sql> STATION;
@@ -314,18 +314,16 @@
         <sql>SELECT ROUND</sql>((<sql>MAX</sql>(LAT_N) - <sql>MIN</sql>(LAT_N)) + (<sql>MAX</sql>(LONG_W) - <sql>MIN</sql>(LONG_W)), 4) <sql>FROM</sql> STATION;
     </p>
     <h2>Weather Observation Station 19</h2>
-    <p></p>
+        <p>Consider <b>P1(a,c)</b> and <b>P2(b,d)</b> to be two points on a 2D plane where <b>(a,b)</b> are the respective minimum and maximum values of Northern Latitude (LAT_N) and <b>(c,d)</b> are the respective minimum and maximum values of Western Longitude (LONG_W) in</p>
+    <p><b>STATION</b></p>
+        <p>Query the Euclidean Distance between points <b>P1</b> and <b>P2</b> and format your answer to display <b>4</b> decimal digits.</p>
     <h4>MS SQL Server</h4>
     <p class="code-sl">
-        
+        <sql>SELECT FORMAT</sql>(<sql>SQRT</sql>(<sql>POWER</sql>(<sql>MAX</sql>(LAT_N) - <sql>MIN</sql>(LAT_N), 2) + <sql>POWER</sql>(<sql>MAX</sql>(LONG_W) - <sql>MIN</sql>(LONG_W), 2)), '.####') <sql>FROM</sql> STATION;
     </p>
-    <h4>MySQL</h4>
+    <h4>MySQL | Oracle</h4>
     <p class="code-sl">
-        
-    </p>
-    <h4>Oracle</h4>
-    <p class="code-sl">
-        
+        <sql>SELECT ROUND</sql>(<sql>SQRT</sql>(<sql>POWER</sql>(<sql>MAX</sql>(LAT_N) - <sql>MIN</sql>(LAT_N), 2) + <sql>POWER</sql>(<sql>MAX</sql>(LONG_W) - <sql>MIN</sql>(LONG_W), 2)), 4) <sql>FROM</sql> STATION;
     </p>
     <h2>Weather Observation Station 20</h2>
     <p></p>
