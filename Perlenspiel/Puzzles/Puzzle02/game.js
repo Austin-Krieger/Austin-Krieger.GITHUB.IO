@@ -4,7 +4,8 @@
 PS.init = function (system, options) {
     "use strict";
     PS.gridSize(15, 15);
-    PS.gridColor(PS.COLOR_GRAY);
+    //PS.gridColor(PS.COLOR_GRAY);
+    PS.gridColor(0x777777);
     PS.color(PS.ALL, PS.ALL, PS.COLOR_BLACK);
     PS.statusText("Puzzle - Austin Krieger");
     PS.statusColor(PS.COLOR_WHITE);

@@ -29,12 +29,30 @@ along with the Perlenspiel devkit. If not, see <http://www.gnu.org/licenses/>.
 	<meta name="description" content="Perlenspiel 3.3" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="mobile-web-app-capable" content="yes" />
-	<link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
+	<link rel="icon" href="../../../images/ThirstyPenguin(Logo).ico">
 	<link rel="stylesheet" type="text/css" href="../../ps3.3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../../styles/SideNav.css">
 	<script type="text/javascript" src="../../ps3.3.js"></script>
 </head>
 <body onload="PS._sys( 0x303030, 0xFFFFFF, 'Touch image to begin' );">
+    <div class="navbar">
+        <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 8px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+        <a href="../../index.html" style="float: left;">Home</a>
+        <a href="../../Puzzles/Puzzle03/game.html">Previous</a>
+        <a href="../../Toys/Toy02/game.html" style="float: right;">Next</a>
+    </div>
+    <div id="Sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../../../index.html">Home</a>
+        <a href="../../../Java/index.html">Java</a>
+        <a href="../../../Roblox/index.html">Roblox</a>
+        <a href="../../../Unity/index.html">Unity</a>
+        <a href="../../../Perlenspiel/index.html">Perlenspiel</a>
+        <a href="../../../Web/index.html">Web</a>
+    </div>
 	<div id="center" style="width:100%; padding-top: 20px; text-align: center;"><a href="../Toy02/game.html" style="color:white; text-decoration: none;">Next Toy</a></div>
 	<script type="text/javascript" src="game.js"></script>
 </body>
+<script type="text/javascript" src="../../SideNav.js"></script>
 </html>

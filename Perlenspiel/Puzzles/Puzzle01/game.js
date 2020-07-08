@@ -91,7 +91,8 @@ var G = ( function () {
         // Initializes the game
         init : function () {
             PS.gridSize( WIDTH, HEIGHT ); // init grid
-            PS.gridColor(PS.COLOR_GRAY);
+            //PS.gridColor(PS.COLOR_GRAY);
+            PS.gridColor(0x777777);
             PS.color( PS.ALL, PS.ALL, COLOR_FLOOR );
             PS.border( PS.ALL, PS.ALL, 0 ); // no borders
             PS.statusText("Puzzle - Austin Krieger");

@@ -9,7 +9,8 @@ var GRID = {
 PS.init = function ( system, options ){
     PS.gridSize( GRID.GRID_WIDTH, GRID.GRID_HEIGHT );
     //PS.gridColor(0x4040FF);
-    PS.gridColor(PS.COLOR_GRAY);
+    //PS.gridColor(PS.COLOR_GRAY);
+    PS.gridColor(0x777777);
     PS.gridShadow(true, PS.COLOR_GRAY_DARK);
     PS.statusText("Toy - Austin Krieger");
     PS.statusColor(PS.COLOR_WHITE);

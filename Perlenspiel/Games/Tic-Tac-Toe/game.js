@@ -13,7 +13,7 @@ var turnCount = 0;
 PS.init = function( system, options ) {
 	PS.gridSize( 3, 3 );
     PS.gridShadow(true, PS.COLOR_GRAY_DARK);
-    PS.gridColor(PS.COLOR_GRAY);
+    PS.gridColor(0x777777);
     PS.border(PS.ALL, PS.ALL, 5);
     PS.statusText( "Tic-Tac-Toe! - Austin Krieger" );
     PS.statusColor(PS.COLOR_WHITE);

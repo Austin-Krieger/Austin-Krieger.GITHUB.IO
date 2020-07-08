@@ -19,7 +19,8 @@ PS.init = function( system, options ) {
 
     // Change background color
     //PS.gridColor( RAIN.DROP_COLOR );
-    PS.gridColor(PS.COLOR_GRAY);
+    //PS.gridColor(PS.COLOR_GRAY);
+    PS.gridColor(0x777777);
     PS.gridShadow(true, PS.COLOR_GRAY_DARK);
     
     // Hide all bead borders
