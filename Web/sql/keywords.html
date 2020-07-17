@@ -52,12 +52,246 @@
             <td>Adds a column in an existing table</td>
         </tr>
         <tr><td colspan="2" id="Add" class="hideTR">
-            <p>Some text in the Modal...</p>
-            <p>Some text in the Modal...</p>
-            <p>Some text in the Modal...</p>
-            <p>Some text in the Modal...</p>
-            <p>Some text in the Modal...</p>
-            <p>Some text in the Modal...</p>
+            <h2>ADD</h2>
+            <p>The <b>ADD</b> command is used to add a column in an existing table.</p>
+            <p>The following SQL adds an "Email" column to the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Customers<br>
+                <sql>ADD</sql> Email varchar(255);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(AddConstraint)"><underline>ADD CONSTRAINT</underline></td>
+            <td>Adds a constraint after a table is already created</td>
+        </tr>
+        <tr><td colspan="2" id="AddConstraint" class="hideTR">
+            <h2>ADD CONSTRAINT</h2>
+            <p>The <b>ADD CONSTRAINT</b> command is used to create a constraint after a table is already created.</p>
+            <p>The following SQL adds a constraint named "PK_Person" that is a <b>PRIMARY KEY</b> constraint on multiple columns (ID and LastName):</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CONSTRAINT</sql> PK_Person <sql>PRIMARY KEY</sql> (ID, LastName);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ALTER)"><underline>ALTER</underline></td>
+            <td>Adds, deletes, or modifies columns in a table, or changes the data type of a column in a table</td>
+        </tr>
+        <tr><td colspan="2" id="ALTER" class="hideTR">
+            <h2>ALTER TABLE</h2>
+            <p>The <b>ALTER TABLE</b> command adds, deletes, or modifies columns in a table.</p>
+            <p>The <b>ALTER TABLE</b> command also adds and deletes various constraints in a table.</p>
+            <p>The follosing SQL adds an "Email" column to the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Customers<br>
+                <sql>ADD</sql> Email varchar(255);
+            </p>
+            <p>The following SQL deletes the "Email" column from the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Customers<br>
+                <sql>DROP COLUMN</sql> Email;
+            </p>
+            <h2>ALTER COLUMN</h2>
+            <p>The <b>ALTER COLUMN</b> is used to change the data type of a column in a table.</p>
+            <p>The following SQL changes the data type of the column named "BirthDate" in the "Employees" table to type year:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Employees<br>
+                <sql>ALTER COLUMN</sql> BirthDate year;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ALL)"><underline>ALL</underline></td>
+            <td>Returns true if all of the subquery values meet the condition</td>
+        </tr>
+        <tr><td colspan="2" id="ALL" class="hideTR">
+            <h2>ALL</h2>
+            <p>The <b>ALL</b> command returns true if all of the subquery values meet the condition.</p>
+            <p>The following SQL statement returns <b>TRUE</b> and lists the productnames if <b>ALL</b> the records in the OrderDetails table has quantity = 10:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ProductName<br>
+                <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> ProductID = <sql>ALL</sql> (<sql>SELECT</sql> ProductID <sql>FROM</sql> OrderDetails <sql>WHERE</sql> Quantity = 10);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(AND)"><underline>AND</underline></td>
+            <td>Only includes rows where both conditions is true</td>
+        </tr>
+        <tr><td colspan="2" id="AND" class="hideTR">
+            <h2>AND</h2>
+            <p>The <b>AND</b> command is used with <b>WHERE</b> to only include rows where both conditions is true.</p>
+            <p>The following SQL statement selects all fields from "Customers" where country is "Germany" AND city is "Berlin":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country = 'Germany' <sql>AND</sql> City = 'Berlin';
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ANY)"><underline>ANY</underline></td>
+            <td>Returns true if any of the subquery values meet the condition</td>
+        </tr>
+        <tr><td colspan="2" id="ANY" class="hideTR">
+            <h2>ANY</h2>
+            <p>The <b>ANY</b> command returns true if any of the subquery values meet the condition.</p>
+            <p>The following SQL statement returns <b>TRUE</b> and lists the productnames if it finds <b>ANY</b> records in the OrderDetails table where quantity = 10:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ProductName<br>
+                <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> ProductID = <sql>ANY</sql> (<sql>SELECT</sql> ProductID <sql>FROM</sql> OrderDetails <sql>WHERE</sql> Quantity = 10);
+            </p>
+            <p>The following SQL statement returns <b>TRUE</b> and lists the productnames if it finds <b>ANY</b> records in the OrderDetails table where quantity > 99:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ProductName<br>
+                <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> ProductID = <sql>ANY</sql> (<sql>SELECT</sql> ProductID <sql>FROM</sql> OrderDetails <sql>WHERE</sql> Quantity > 99);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(AS)"><underline>AS</underline></td>
+            <td>Renames a column or table with an alias</td>
+        </tr>
+        <tr><td colspan="2" id="AS" class="hideTR">
+            <h2>AS</h2>
+            <p>The <b>AS</b> command is used to rename a column or table with an alias.</p>
+            <p>An alias only exists for the duration of the query.</p>
+            <h2>Alias for Columns</h2>
+            <p>The following SQL statement creates two aliases, one for the CustomerID column and one for the CustomerName column:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CustomerID <sql>AS</sql> ID, CustomerName <sql>AS</sql> Customer<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement creates two aliases. Notice that it requires double quotation marks or square brackets if the alias name contains spaces:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CustomerName <sql>AS</sql> Customer, ContactName <sql>AS</sql> [Contact Person]<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement creates an alias named "Address" that combine four columns (Address, PostalCode, City and Country):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country <sql>AS</sql> Address<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p><b>Note</b>: To get the SQL statement above to work in MySQL use the following:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) <sql>AS</sql> Address<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <h2>Alter for Tables</h2>
+            <p>The following SQL statement selects all the orders from the customer with CustomerID = 4 (Around the Horn). We use the "Customers" and "Orders" tables, and give them the table aliases of "c" and "o" respectively (Here we use aliases to make the SQL shorter):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> o.OrderID, o.OrderDate, c.CustomerName<br>
+                <sql>FROM</sql> Customers <sql>AS</sql> c, Orders AS o<br>
+                <sql>WHERE</sql> c.CustomerName = "Around the Horn" <sql>AND</sql> c.CustomerID = o.CustomerID;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2></h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
         </td></tr>
     </table></div>
     <!--<p class="code-sl"></p>
