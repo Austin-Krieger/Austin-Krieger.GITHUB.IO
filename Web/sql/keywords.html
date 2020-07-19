@@ -175,7 +175,7 @@
                 <sql>SELECT</sql> CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) <sql>AS</sql> Address<br>
                 <sql>FROM</sql> Customers;
             </p>
-            <h2>Alter for Tables</h2>
+            <h2>Alias for Tables</h2>
             <p>The following SQL statement selects all the orders from the customer with CustomerID = 4 (Around the Horn). We use the "Customers" and "Orders" tables, and give them the table aliases of "c" and "o" respectively (Here we use aliases to make the SQL shorter):</p>
             <p class="code-sl">
                 <sql>SELECT</sql> o.OrderID, o.OrderDate, c.CustomerName<br>
@@ -184,110 +184,648 @@
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(ASC)"><underline>ASC</underline></td>
+            <td>Sorts the result set in ascending order</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="ASC" class="hideTR">
+            <h2>ASC</h2>
+            <p>The <b>ASC</b> command is used to sort the data returned in ascending order.</p>
+            <p>The following SQL statement selects all the columns from the "Customers" table, sorted by the "CustomerName" column:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql> CustomerName <sql>ASC</sql>;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(BackupDatabase)"><underline>BACKUP DATABASE</underline></td>
+            <td>Creates a back up of an existing database</td>
+        </tr>
+        <tr><td colspan="2" id="BackupDatabase" class="hideTR">
+            <h2>BACKUP DATABASE</h2>
+            <p>The <sql>BACKUP DATABASE</sql> command is used in SQL Server to create a full back up of an existing SQL database.</p>
+            <p>The following SQL statement creates a full back up of the existing database "testDB" to the D disk:</p>
+            <p class="code-sl">
+                <sql>BACKUP DATABASE</sql> testDB<br>
+                <sql>TO DISK</sql> = 'D:\backups\testDB.bak';
+            </p>
+            <p><b>Tip</b>: Always back up the database to a different drive than the actual database. If you get a disk crash, you will not lose your backup file along with the database.</p>
+            <p>A differential back up only backs up the parts of the database that have changed since the last full database backup.</p>
+            <p>The following SQL statement creates a differential back up of the database "testDB":</p>
+            <p class="code-sl">
+                <sql>BACKUP DATABASE</sql> testDB<br>
+                <sql>TO DISK</sql> = 'D:\backups\testDB.bak'<br>
+                <sql>WITH</sql> DIFFERENTIAL;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Between)"><underline>BETWEEN</underline></td>
+            <td>Selects values within a given range</td>
+        </tr>
+        <tr><td colspan="2" id="Between" class="hideTR">
+            <h2>BETWEEN</h2>
+            <p>The <b>BETWEEN</b> command is used to select values within a given range. The values can be numbers, text, or dates.</p>
+            <p>The <b>BETWEEN</b> command is inclusive: begin and end values are included. </p>
+            <p>The following SQL statement selects all products with a price <b>BETWEEN</b> 10 and 20:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> Price <sql>BETWEEN</sql> 10 <sql>AND</sql> 20;
+            </p>
+            <p>To display the products outside the range of the previous example, use <b>NOT BETWEEN</b>:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> Price <sql>NOT BETWEEN</sql> 10 <sql>AND</sql> 20;
+            </p>
+            <p>The following SQL statement selects all products with a ProductName <b>BETWEEN</b> 'Carnarvon Tigers' and 'Mozzarella di Giovanni':</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> ProductName <sql>BETWEEN</sql> 'Carnarvon Tigers' <sql>AND</sql> 'Mozzarella di Giovanni'<br>
+                <sql>ORDER BY</sql> ProductName;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Case)"><underline>CASE</underline></td>
+            <td>Creates different outputs based on conditions</td>
+        </tr>
+        <tr><td colspan="2" id="Case" class="hideTR">
+            <h2>CASE</h2>
+            <p>The <b>CASE</b> command is used is to create different output based on conditions.</p>
+            <p>The following SQL goes through several conditions and returns a value when the specified condition is met:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> OrderID, Quantity,<br>
+                <sql>CASE</sql><br>
+                &emsp;<sql>WHEN</sql> Quantity > 30 <sql>THEN</sql> "The quantity is greater than 30"<br>
+                &emsp;<sql>WHEN</sql> Quantity = 30 <sql>THEN</sql> "The quantity is 30"<br>
+                &emsp;<sql>ELSE</sql> "The quantity is under 30"<br>
+                <sql>END</sql><br>
+                <sql>FROM</sql> OrderDetails;
+            </p>
+            <p>The following SQL will order the customers by City. However, if City is NULL, then order by Country:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CustomerName, City, Country<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql><br>
+                (<sql>CASE</sql><br>
+                &emsp;<sql>WHEN</sql> City <sql>IS NULL THEN</sql> Country<br>
+                &emsp;<sql>ELSE</sql> City<br>
+                <sql>END</sql>);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Check)"><underline>CHECK</underline></td>
+            <td>A constraint that limits the value that can be placed in a column</td>
+        </tr>
+        <tr><td colspan="2" id="Check" class="hideTR">
+            <h2>CHECK</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Column)"><underline>COLUMN</underline></td>
+            <td>Changes the data type of a column or deletes a column in a table</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Column" class="hideTR">
+            <h2>COLUMN</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Constraint)"><underline>CONSTRAINT</underline></td>
+            <td>Adds or deletes a constraint</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Constraint" class="hideTR">
+            <h2>CONSTRAINT</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Create)"><underline>CREATE</underline></td>
+            <td>Creates a database, index, view, table, or procedure</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Create" class="hideTR">
+            <h2>CREATE</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Database)"><underline>DATABASE</underline></td>
+            <td>Creates a new SQL database</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Database" class="hideTR">
+            <h2>DATABASE</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Default)"><underline>DEFAULT</underline></td>
+            <td>A constraint that provides a default value for a column</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Default" class="hideTR">
+            <h2>DEFAULT</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Delete)"><underline>DELETE</underline></td>
+            <td>Deletes rows from a table</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Delete" class="hideTR">
+            <h2>DELETE</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Desc)"><underline>DESC</underline></td>
+            <td>Sorts the result set in descending order</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Desc" class="hideTR">
+            <h2>DESC</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Distinct)"><underline>DISTINCT</underline></td>
+            <td>Selects only distinct (different) values</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+        <tr><td colspan="2" id="Distinct" class="hideTR">
+            <h2>DISTINCT</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(Drop)"><underline>DROP</underline></td>
+            <td>Deletes a column, constraint, database, index, table, or view</td>
+        </tr>
+        <tr><td colspan="2" id="Drop" class="hideTR">
+            <h2>DROP</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Exec)"><underline>EXEC</underline></td>
+            <td>Executes a stored procedure</td>
+        </tr>
+        <tr><td colspan="2" id="Exec" class="hideTR">
+            <h2>EXEC</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Exists)"><underline>EXISTS</underline></td>
+            <td>Tests for the existence of any record in a subquery</td>
+        </tr>
+        <tr><td colspan="2" id="Exists" class="hideTR">
+            <h2>EXISTS</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ForeignKey)"><underline>FOREIGN KEY</underline></td>
+            <td>A constraint that is a key used to link two tables together</td>
+        </tr>
+        <tr><td colspan="2" id="ForeignKey" class="hideTR">
+            <h2>FOREIGN KEY</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(From)"><underline>FROM</underline></td>
+            <td>Specifies which table to select or delete data from</td>
+        </tr>
+        <tr><td colspan="2" id="From" class="hideTR">
+            <h2>FROM</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(FullOuterJoin)"><underline>FULL OUTER JOIN</underline></td>
+            <td>Returns all rows when there is a match in either left table or right table</td>
+        </tr>
+        <tr><td colspan="2" id="FullOuterJoin" class="hideTR">
+            <h2>FULL OUTER JOIN</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(GroupBy)"><underline>GROUP BY</underline></td>
+            <td>Groups the result set (used with aggregate functions: COUNT, MAX, MIN, SUM, AVG)</td>
+        </tr>
+        <tr><td colspan="2" id="GroupBy" class="hideTR">
+            <h2>GROUP BY</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>HAVING</underline></td>
+            <td>Used instead of WHERE with aggregate functions</td>
+        </tr>
+        <tr><td colspan="2" id="Having" class="hideTR">
+            <h2>HAVING</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(In)"><underline>IN</underline></td>
+            <td>Allows you to specify multiple values in a WHERE clause</td>
+        </tr>
+        <tr><td colspan="2" id="In" class="hideTR">
+            <h2>IN</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Index)"><underline>INDEX</underline></td>
+            <td>Creates or deletes an index in a table</td>
+        </tr>
+        <tr><td colspan="2" id="Index" class="hideTR">
+            <h2>INDEX</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(InnerJoin)"><underline>INNER JOIN</underline></td>
+            <td>Returns rows that have matching values in both tables</td>
+        </tr>
+        <tr><td colspan="2" id="InnerJoin" class="hideTR">
+            <h2>INNER JOIN</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(InsertInto)"><underline>INSERT INTO</underline></td>
+            <td>Inserts new rows in a table</td>
+        </tr>
+        <tr><td colspan="2" id="InsertInto" class="hideTR">
+            <h2>INSERT INTO</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(InsertIntoSelect)"><underline>INSERT INTO SELECT</underline></td>
+            <td>Copies data from one table into another table</td>
+        </tr>
+        <tr><td colspan="2" id="InsertIntoSelect" class="hideTR">
+            <h2>INSERT INTO SELECT</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(IsNull)"><underline>IS NULL</underline></td>
+            <td>Tests for empty values</td>
+        </tr>
+        <tr><td colspan="2" id="IsNull" class="hideTR">
+            <h2>IS NULL</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(IsNotNull)"><underline>IS NOT NULL</underline></td>
+            <td>Tests for non-empty values</td>
+        </tr>
+        <tr><td colspan="2" id="IsNotNull" class="hideTR">
+            <h2>IS NOT NULL</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Join)"><underline>JOIN</underline></td>
+            <td>Joins tables</td>
+        </tr>
+        <tr><td colspan="2" id="Join" class="hideTR">
+            <h2>JOIN</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Like)"><underline>LIKE</underline></td>
+            <td>Searches for a specified pattern in a column</td>
+        </tr>
+        <tr><td colspan="2" id="Like" class="hideTR">
+            <h2>LIKE</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Limit)"><underline>LIMIT</underline></td>
+            <td>Specifies the number of records to return in the result set</td>
+        </tr>
+        <tr><td colspan="2" id="Limit" class="hideTR">
+            <h2>LIMIT</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Not)"><underline>NOT</underline></td>
+            <td>Only includes rows where a condition is not true</td>
+        </tr>
+        <tr><td colspan="2" id="Not" class="hideTR">
+            <h2>NOT</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(NotNull)"><underline>NOT NULL</underline></td>
+            <td>A constraint that enforces a column to not accept NULL values</td>
+        </tr>
+        <tr><td colspan="2" id="NotNull" class="hideTR">
+            <h2>NOT NULL</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Or)"><underline>OR</underline></td>
+            <td>Includes rows where either condition is true</td>
+        </tr>
+        <tr><td colspan="2" id="Or" class="hideTR">
+            <h2>OR</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(OrderBy)"><underline>ORDER BY</underline></td>
+            <td>Sorts the result set in ascending or descending order</td>
+        </tr>
+        <tr><td colspan="2" id="OrderBy" class="hideTR">
+            <h2>ORDER BY</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>OUTER JOIN</underline></td>
+            <td>Returns all rows when there is a match in either left table or right table</td>
         </tr>
         <tr><td colspan="2" id="Example" class="hideTR">
-            <h2></h2>
+            <h2>OUTER JOIN</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(PrimaryKey)"><underline>PRIMARY KEY</underline></td>
+            <td>A constraint that uniquely identifies each record in a database table</td>
+        </tr>
+        <tr><td colspan="2" id="PrimaryKey" class="hideTR">
+            <h2>PRIMARY KEY</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Procedure)"><underline>PROCEDURE</underline></td>
+            <td>A stored procedure</td>
+        </tr>
+        <tr><td colspan="2" id="Procedure" class="hideTR">
+            <h2>PROCEDURE</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RightJoin)"><underline>RIGHT JOIN</underline></td>
+            <td>Returns all rows from the right table, and the matching rows from the left table</td>
+        </tr>
+        <tr><td colspan="2" id="RightJoin" class="hideTR">
+            <h2>RIGHT JOIN</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RowNum)"><underline>ROWNUM</underline></td>
+            <td>Specifies the number of records to return in the result set</td>
+        </tr>
+        <tr><td colspan="2" id="RowNum" class="hideTR">
+            <h2>ROWNUM</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Select)"><underline>SELECT</underline></td>
+            <td>Selects data from a database</td>
+        </tr>
+        <tr><td colspan="2" id="Select" class="hideTR">
+            <h2>SELECT</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SelectDistinct)"><underline>SELECT DISTINCT</underline></td>
+            <td>Selects only distinct (different) values</td>
+        </tr>
+        <tr><td colspan="2" id="SelectDistinct" class="hideTR">
+            <h2>SELECT DISTINCT</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SelectInto)"><underline>SELECT INTO</underline></td>
+            <td>Copies data from one table into a new table</td>
+        </tr>
+        <tr><td colspan="2" id="SelectInto" class="hideTR">
+            <h2>SELECT INTO</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SelectTop)"><underline>SELECT TOP</underline></td>
+            <td>Specifies the number of records to return in the result set</td>
+        </tr>
+        <tr><td colspan="2" id="SelectTop" class="hideTR">
+            <h2>SELECT TOP</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Set)"><underline>SET</underline></td>
+            <td>Specifies which columns and values that should be updated in a table</td>
+        </tr>
+        <tr><td colspan="2" id="Set" class="hideTR">
+            <h2>SET</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Table)"><underline>TABLE</underline></td>
+            <td>Creates a table, or adds, deletes, or modifies columns in a table, or deletes a table or data inside a table</td>
+        </tr>
+        <tr><td colspan="2" id="Table" class="hideTR">
+            <h2>TABLE</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Top)"><underline>TOP</underline></td>
+            <td>Specifies the number of records to return in the result set</td>
+        </tr>
+        <tr><td colspan="2" id="Top" class="hideTR">
+            <h2>TOP</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TruncateTable)"><underline>TRUNCATE TABLE</underline></td>
+            <td>Deletes the data inside a table, but not the table itself</td>
+        </tr>
+        <tr><td colspan="2" id="TruncateTable" class="hideTR">
+            <h2>TRUNCATE TABLE</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Union)"><underline>UNION</underline></td>
+            <td>Combines the result set of two or more SELECT statements (only distinct values)</td>
+        </tr>
+        <tr><td colspan="2" id="Union" class="hideTR">
+            <h2>UNION</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(UnionAll)"><underline>UNION ALL</underline></td>
+            <td>Combines the result set of two or more SELECT statements (allows duplicate values)</td>
+        </tr>
+        <tr><td colspan="2" id="UnionAll" class="hideTR">
+            <h2>UNION ALL</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Unique)"><underline>UNIQUE</underline></td>
+            <td>A constraint that ensures that all values in a column are unique</td>
+        </tr>
+        <tr><td colspan="2" id="Unique" class="hideTR">
+            <h2>UNIQUE</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Update)"><underline>UPDATE</underline></td>
+            <td>Updates existing rows in a table</td>
+        </tr>
+        <tr><td colspan="2" id="Update" class="hideTR">
+            <h2>UPDATE</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Values)"><underline>VALUES</underline></td>
+            <td>Specifies the values of an INSERT INTO statement</td>
+        </tr>
+        <tr><td colspan="2" id="Values" class="hideTR">
+            <h2>VALUES</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(View)"><underline>VIEW</underline></td>
+            <td>Creates, updates, or deletes a view</td>
+        </tr>
+        <tr><td colspan="2" id="View" class="hideTR">
+            <h2>VIEW</h2>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql><br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(Where)"><underline>WHERE</underline></td>
+            <td>Filters a result set to include only records that fulfill a specified condition</td>
+        </tr>
+        <tr><td colspan="2" id="Where" class="hideTR">
+            <h2>WHERE</h2>
             <p></p>
             <p class="code-sl">
                 <sql></sql><br>
