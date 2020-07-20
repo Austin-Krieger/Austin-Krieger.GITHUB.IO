@@ -276,9 +276,55 @@
         </tr>
         <tr><td colspan="2" id="Check" class="hideTR">
             <h2>CHECK</h2>
-            <p></p>
+            <p>The <b>CHECK</b> constraint limits the value that can be placed in a column.</p>
+            <h2>SQL CHECK on CREATE TABLE</h2>
+            <p>The following SQL creates a <b>CHECK</b> constraint on the "Age" column when the "Persons" table is created. The <b>CHECK</b> constraint ensures that you can not have any person below 18 years:</p>
+            <h3>MySQL:</h3>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;Age int,<br>
+                &emsp;<sql>CHECK</sql> (Age>=18)<br>
+                );
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;Age int <sql>CHECK</sql> (Age>=18)<br>
+                );
+            </p>
+            <p>To allow naming of a <b>CHECK</b> constraint, and for defining a <b>CHECK</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;Age int,<br>
+                &emsp;City varchar(255),<br>
+                &emsp;<sql>CONSTRAINT</sql> CHK_Person <sql>CHECK</sql> (Age &gt;= 18 <sql>AND</sql> City = 'Sandnes')<br>
+                );
+            </p>
+            <h2>SQL CHECK on ALTER TABLE</h2>
+            <p>To create a <b>CHECK</b> constraint on the "Age" column when the table is already created, use the following SQL:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CHECK</sql> (Age &gt;= 18);
+            </p>
+            <p>To allow naming of a <b>CHECK</b> constraint, and for defining a <b>CHECK</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CONSTRAINT</sql> CHK_PersonAge <sql>CHECK</sql> (Age &gt;= 18 <sql>AND</sql> City = 'Sandnes');
+            </p>
+            <h2>DROP a CHECK Constraint</h2>
+            <p>To drop a <b>CHECK</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> CHK_PersonAge;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CHECK</sql> CHK_PersonAge;
             </p>
         </td></tr>
         <tr>
@@ -286,10 +332,19 @@
             <td>Changes the data type of a column or deletes a column in a table</td>
         </tr>
         <tr><td colspan="2" id="Column" class="hideTR">
-            <h2>COLUMN</h2>
-            <p></p>
+            <h2>ALTER COLUMN</h2>
+            <p>The <b>ALTER COLUMN</b> command is used to change the data type of a column in a table.</p>
+            <p>The following SQL changes the data type of the column named "BirthDate" in the "Employees" table to type year:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>ALTER TABLE</sql> Employees<br>
+                <sql>ALTER COLUMN</sql> BirthDate year;
+            </p>
+            <h2>DROP COLUMN</h2>
+            <p>The <b>DROP COLUMN</b> command is used to delete a column in an existing table.</p>
+            <p>The following SQL deletes the "ContactName" column from the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Customers<br>
+                <sql>DROP COLUMN</sql> ContactName;
             </p>
         </td></tr>
         <tr>
@@ -297,10 +352,62 @@
             <td>Adds or deletes a constraint</td>
         </tr>
         <tr><td colspan="2" id="Constraint" class="hideTR">
-            <h2>CONSTRAINT</h2>
-            <p></p>
+            <h2>ADD CONSTRAINT</h2>
+            <p>The <b>ADD CONSTRAINT</b> command is used to create a constraint after a table is already created.</p>
+            <p>The following SQL adds a constraint named "PK_Person" that is a <b>PRIMARY KEY</b> constraint on multiple columns (ID and LastName):</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CONSTRAINT</sql> PK_Person <sql>PRIMARY KEY</sql> (ID,LastName);
+            </p>
+            <h2>DROP CONSTRAINT</h2>
+            <p>The <b>DROP CONSTRAINT</b> command is used to delete a UNIQUE, PRIMARY KEY, FOREIGN KEY, or CHECK constraint.</p>
+            <h2>DROP a UNIQUE Constraint</h2>
+            <p>To drop a UNIQUE constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> UC_Person;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP INDEX</sql> UC_Person;
+            </p>
+            <h2>DROP a PRIMARY KEY Constraint</h2>
+            <p>To drop a <b>PRIMARY KEY</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> PK_Person;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP PRIMARY KEY</sql>;
+            </p>
+            <h2>DROP a FOREIGN KEY Constraint</h2>
+            <p>To drop a <b>FOREIGN KEY</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>DROP CONSTRAINT</sql> FK_PersonOrder;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>DROP FOREIGN KEY</sql> FK_PersonOrder;
+            </p>
+            <h2>DROP a CHECK Constraint</h2>
+            <p>To drop a <b>CHECK</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> CHK_PersonAge;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CHECK</sql> CHK_PersonAge;
             </p>
         </td></tr>
         <tr>
@@ -308,10 +415,91 @@
             <td>Creates a database, index, view, table, or procedure</td>
         </tr>
         <tr><td colspan="2" id="Create" class="hideTR">
-            <h2>CREATE</h2>
-            <p></p>
+            <h2>CREATE DATABASE</h2>
+            <p>The <b>CREATE DATABASE</b> command is used is to create a new SQL database.</p>
+            <p>The following SQL creates a database called "testDB":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE DATABASE</sql> testDB;
+            </p>
+            <p><b>Tip</b>: Make sure you have admin privilege before creating any database. Once a database is created, you can check it in the list of databases with the following SQL command: SHOW DATABASES;</p>
+            <h2>CREATE TABLE</h2>
+            <p>The <b>CREATE TABLE</b> command creates a new table in the database.</p>
+            <p>The following SQL creates a table called "Persons" that contains five columns: PersonID, LastName, FirstName, Address, and City:</p>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;PersonID int,<br>
+                &emsp;LastName varchar(255),<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Address varchar(255),<br>
+                &emsp;City varchar(255)<br>
+                );
+            </p>
+            <h2>CREATE TABLE Using Another Table</h2>
+            <p>The following SQL creates a new table called "TestTables" (which is a copy of two columns of the "Customers" table): </p>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> TestTable <sql>AS</sql><br>
+                <sql>SELECT</sql> customername, contactname<br>
+                <sql>FROM</sql> customers;
+            </p>
+            <h2>CREATE INDEX</h2>
+            <p>The CREATE INDEX command is used to create indexes in tables (allows duplicate values).</p>
+            <p>Indexes are used to retrieve data from the database very fast. The users cannot see the indexes, they are just used to speed up searches/queries.</p>
+            <p>The following SQL creates an index named "idx_lastname" on the "LastName" column in the "Persons" table:</p>
+            <p class="code-sl">
+                <sql>CREATE INDEX</sql> idx_lastname<br>
+                <sql>ON</sql> Persons (LastName);
+            </p>
+            <p>If you want to create an index on a combination of columns, you can list the column names within the parentheses, separated by commas:</p>
+            <p class="code-sl">
+                <sql>CREATE INDEX</sql> idx_pname<br>
+                <sql>ON</sql> Persons (LastName, FirstName);
+            </p>
+            <p><b>Note</b>: The syntax for creating indexes varies among different databases. Therefore: Check the syntax for creating indexes in your database.</p>
+            <p><b>Note</b>: Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So, only create indexes on columns that will be frequently searched against.</p>
+            <h2>CREATE UNIQUE INDEX</h2>
+            <p>The <b>CREATE UNIQUE INDEX</b> command creates a unique index on a table (no duplicate values allowed)</p>
+            <p>The following SQL creates an index named "uidx_pid" on the "PersonID" column in the "Persons" table:</p>
+            <p class="code-sl">
+                <sql>CREATE UNIQUE INDEX</sql> uidx_pid<br>
+                <sql>ON</sql> Persons (PersonID);
+            </p>
+            <h2>CREATE VIEW</h2>
+            <p>The <b>CREATE VIEW</b> command creates a view.</p>
+            <p>A view is a virtual table based on the result set of an SQL statement.</p>
+            <p>The following SQL creates a view that selects all customers from Brazil:</p>
+            <p class="code-sl">
+                <sql>CREATE VIEW</sql> [Brazil Customers] <sql>AS</sql>
+                <sql>SELECT</sql> CustomerName, ContactName
+                <sql>FROM</sql> Customers
+                <sql>WHERE</sql> Country = "Brazil";
+            </p>
+            <h2>CREATE OR REPLACE VIEW</h2>
+            <p>The <b>CREATE OR REPLACE VIEW</b> command updates a view.</p>
+            <p>The following SQL adds the "City" column to the "Brazil Customers" view:</p>
+            <p class="code-sl">
+                <sql>CREATE OR REPLACE VIEW</sql> [Brazil Customers] <sql>AS</sql>
+                <sql>SELECT</sql> CustomerName, ContactName, City
+                <sql>FROM</sql> Customers
+                <sql>WHERE</sql> Country = "Brazil";
+            </p>
+            <h2>Query The View</h2>
+            <p>We can query the view above as follows:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> [Brazil Customers];
+            </p>
+            <h2>CREATE PROCEDURE</h2>
+            <p>The <b>CREATE PROCEDURE</b> command is used to create a stored procedure.</p>
+            <p>A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.</p>
+            <p>The following SQL creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>CREATE PROCEDURE</sql> SelectAllCustomers
+                <sql>AS</sql>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers
+                <sql>GO</sql>;
+            </p>
+            <p>Execute the stored procedure above as follows:</p>
+            <p class="code-sl">
+                <sql>EXEC</sql> SelectAllCustomers;
             </p>
         </td></tr>
         <tr>
@@ -319,11 +507,20 @@
             <td>Creates a new SQL database</td>
         </tr>
         <tr><td colspan="2" id="Database" class="hideTR">
-            <h2>DATABASE</h2>
-            <p></p>
+            <h2>CREATE DATABASE</h2>
+            <p>The <b>CREATE DATABASE</b> command is used is to create a new SQL database.</p>
+            <p>The following SQL creates a database called "testDB":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE DATABASE</sql> testDB;
             </p>
+            <p><b>Tip</b>: Make sure you have admin privilege before creating any database. Once a database is created, you can check it in the list of databases with the following SQL command: <b>SHOW DATABASES</b>;</p>
+            <h2>DROP DATABASE</h2>
+            <p>The <b>DROP DATABASE</b> command is used is to delete an existing SQL database.</p>
+            <p>The following SQL drops a database named "testDB":</p>
+            <p class="code-sl">
+                <sql>DROP DATABASE</sql> testDB;
+            </p>
+            <p><b>Note</b>: Be careful before dropping a database. Deleting a database will result in loss of complete information stored in the database!</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(Default)"><underline>DEFAULT</underline></td>
@@ -331,9 +528,56 @@
         </tr>
         <tr><td colspan="2" id="Default" class="hideTR">
             <h2>DEFAULT</h2>
-            <p></p>
+            <p>The <b>DEFAULT</b> constraint provides a default value for a column.</p>
+            <p>The default value will be added to all new records if no other value is specified.</p>
+            <h2>SQL DEFAULT on CREATE TABLE</h2>
+            <p>The following SQL sets a <b>DEFAULT</b> value for the "City" column when the "Persons" table is created:</p>
+            <h3>My SQL / SQL Server / Oracle / MS Access:</h3>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;City varchar(255) <sql>DEFAULT</sql> 'Sandnes'<br>
+                );
+            </p>
+            <p>The <b>DEFAULT</b> constraint can also be used to insert system values, by using functions like <b>GETDATE()</b>:</p>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Orders (<br>
+                &emsp;OrderDate date <sql>DEFAULT</sql> GETDATE()<br>
+                );
+            </p>
+            <h2>SQL DEFAULT on ALTER TABLE</h2>
+            <p>To create a <b>DEFAULT</b> constraint on the "City" column when the table is already created, use the following SQL:</p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ALTER</sql> City <sql>SET DEFAULT</sql> 'Sandnes';
+            </p>
+            <h3>SQL Server:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CONSTRAINT</sql> df_City<br>
+                <sql>DEFAULT</sql> 'Sandnes' <sql>FOR</sql> City;
+            </p>
+            <h3>MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ALTER COLUMN</sql> City <sql>SET DEFAULT</sql> 'Sandnes';
+            </p>
+            <h3>Oracle:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>MODIFY</sql> City <sql>DEFAULT</sql> 'Sandnes';
+            </p>
+            <h2>DROP a DEFAULT Constraint</h2>
+            <p>To drop a <b>DEFAULT</b> constraint, use the following SQL:</p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ALTER</sql> City <sql>DROP DEFAULT</sql>;
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ALTER COLUMN</sql> City <sql>DROP DEFAULT</sql>;
             </p>
         </td></tr>
         <tr>
@@ -342,9 +586,16 @@
         </tr>
         <tr><td colspan="2" id="Delete" class="hideTR">
             <h2>DELETE</h2>
-            <p></p>
+            <p>The <b>DELETE</b> command is used to delete existing records in a table.</p>
+            <p>The following SQL statement deletes the customer "Alfreds Futterkiste" from the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>DELETE FROM</sql> Customers <sql>WHERE</sql> CustomerName = 'Alfreds Futterkiste';
+            </p>
+            <p><b>Note</b>: Be careful when deleting records in a table! Notice the <b>WHERE</b> clause in the <b>DELETE</b> statement. The <b>WHERE</b> clause specifies which record(s) should be deleted. If you omit the <b>WHERE</b> clause, all records in the table will be deleted!</p>
+            <p>It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact:</p>
+            <p>The following SQL statement deletes all rows in the "Customers" table, without deleting the table. This means that the table structure, attributes, and indexes will be intact:</p>
+            <p class="code-sl">
+                <sql>DELETE FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -353,9 +604,11 @@
         </tr>
         <tr><td colspan="2" id="Desc" class="hideTR">
             <h2>DESC</h2>
-            <p></p>
+            <p>The <b>DESC</b> command is used to sort the data returned in descending order.</p>
+            <p>The following SQL statement selects all the columns from the "Customers" table, sorted descending by the "CustomerName" column:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql> CustomerName <sql>DESC</sql>;
             </p>
         </td></tr>
         <tr>
@@ -363,10 +616,11 @@
             <td>Selects only distinct (different) values</td>
         </tr>
         <tr><td colspan="2" id="Distinct" class="hideTR">
-            <h2>DISTINCT</h2>
-            <p></p>
+            <h2>SELECT DISTINCT</h2>
+            <p>The <b>SELECT DISTINCT</b> command returns only distinct (different) values in the result set.</p>
+            <p>The following SQL statement selects only the <b>DISTINCT</b> values from the "Country" column in the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT DISTINCT</sql> Country <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
