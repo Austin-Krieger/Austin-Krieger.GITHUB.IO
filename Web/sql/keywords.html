@@ -628,10 +628,112 @@
             <td>Deletes a column, constraint, database, index, table, or view</td>
         </tr>
         <tr><td colspan="2" id="Drop" class="hideTR">
-            <h2>DROP</h2>
-            <p></p>
+            <h2>DROP COLUMN</h2>
+            <p>The <b>DROP COLUMN</b> command is used to delete a column in an existing table.</p>
+            <p>The following SQL deletes the "ContactName" column from the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>ALTER TABLE</sql> Customers<br>
+                <sql>DROP COLUMN</sql> ContactName;
+            </p>
+            <h2>DROP a UNIQUE Constraint</h2>
+            <p>To drop a <b>UNIQUE</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> UC_Person;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP INDEX</sql> UC_Person;
+            </p>
+            <h2>DROP a PRIMARY KEY Constraint</h2>
+            <p>To drop a <b>PRIMARY KEY</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> PK_Person;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP PRIMARY KEY</sql>;
+            </p>
+            <h2>DROP a FOREIGN KEY Constraint</h2>
+            <p>To drop a <b>FOREIGN KEY</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>DROP CONSTRAINT</sql> FK_PersonOrder;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>DROP FOREIGN KEY</sql> FK_PersonOrder;
+            </p>
+            <h2>DROP a CHECK Constraint</h2>
+            <p>To drop a <b>CHECK</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> CHK_PersonAge;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CHECK</sql> CHK_PersonAge;
+            </p>
+            <h2>DROP DEFAULT</h2>
+            <p>The <b>DROP DEFAULT</b> command is used to delete a <b>DEFAULT</b> constraint.</p>
+            <p>To drop a <b>DEFAULT</b> constraint, use the following SQL:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ALTER COLUMN</sql> City <sql>DROP DEFAULT</sql>;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ALTER</sql> City <sql>DROP DEFAULT</sql>;
+            </p>
+            <h2>DROP INDEX</h2>
+            <p>The <b>DROP INDEX</b> command is used to delete an index in a table</p>
+            <h3>MS Access:</h3>
+            <p class="code-sl">
+                <sql>DROP INDEX</sql> index_name <sql>ON</sql> table_name;
+            </p>
+            <h3>SQL Server</h3>
+            <p class="code-sl">
+                <sql>DROP INDEX</sql> table_name.index_name;
+            </p>
+            <h3>DB2/Oracle:</h3>
+            <p class="code-sl">
+                <sql>DROP INDEX</sql> index_name;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> table_name<br>
+                <sql>DROP INDEX</sql> index_name;
+            </p>
+            <h2>DROP DATABASE</h2>
+            <p>The <b>DROP DATABASE</b> command is used is to delete an existing SQL database.</p>
+            <p>The following SQL drops a database named "testDB":</p>
+            <p class="code-sl">
+                <sql>DROP DATABASE</sql> testDB;
+            </p>
+            <p><b>Note</b>: Be careful before dropping a database. Deleting a database will result in loss of complete information stored in the database!</p>
+            <h2>DROP TABLE</h2>
+            <p>The <b>DROP TABLE</b> command deletes a table in the database.</p>
+            <p>The following SQL deletes the table "Shippers":</p>
+            <p class="code-sl">
+                <sql>DROP TABLE</sql> Shippers;
+            </p>
+            <p><b>Note</b>: Be careful before deleting a table. Deleting a table results in loss of all information stored in the table!</p>
+            <h2>DROP VIEW</h2>
+            <p>The <b>DROP VIEW</b> command deletes a view.</p>
+            <p>The following SQL drops the "Brazil Customers" view:</p>
+            <p class="code-sl">
+                <sql>DROP VIEW</sql> [Brazil Customers];
             </p>
         </td></tr>
         <tr>
@@ -640,9 +742,10 @@
         </tr>
         <tr><td colspan="2" id="Exec" class="hideTR">
             <h2>EXEC</h2>
-            <p></p>
+            <p>The <b>EXEC</b> command is used to execute a stored procedure.</p>
+            <p>The following SQL executes a stored procedure named "SelectAllCustomers":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>EXEC</sql> SelectAllCustomers;
             </p>
         </td></tr>
         <tr>
@@ -651,9 +754,18 @@
         </tr>
         <tr><td colspan="2" id="Exists" class="hideTR">
             <h2>EXISTS</h2>
-            <p></p>
+            <p>The <b>EXISTS</b> command tests for the existence of any record in a subquery, and returns true if the subquery returns one or more records.</p>
+            <p>The following SQL lists the suppliers with a product price less than 20:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> SupplierName
+                <sql>FROM</sql> Suppliers
+                <sql>WHERE EXISTS</sql> (<sql>SELECT</sql> ProductName <sql>FROM</sql> Products <sql>WHERE</sql> SupplierId = Suppliers.supplierId <sql>AND</sql> Price &lt; 20);
+            </p>
+            <p>The following SQL lists the suppliers with a product price equal to 22:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SupplierName<br>
+                <sql>FROM</sql> Suppliers<br>
+                <sql>WHERE EXISTS</sql> (<sql>SELECT</sql> ProductName <sql>FROM</sql> <br>Products <sql>WHERE</sql> SupplierId = Suppliers.supplierId<br> <sql>AND</sql> Price = 22);
             </p>
         </td></tr>
         <tr>
@@ -662,9 +774,65 @@
         </tr>
         <tr><td colspan="2" id="ForeignKey" class="hideTR">
             <h2>FOREIGN KEY</h2>
-            <p></p>
+            <p>The <b>FOREIGN KEY</b> constraint is a key used to link two tables together.</p>
+            <p>A <b>FOREIGN KEY</b> is a field (or collection of fields) in one table that refers to the <b>PRIMARY KEY</b> in another table.</p>
+            <h2>SQL FOREIGN KEY on CREATE TABLE</h2>
+            <p>The following SQL creates a <b>FOREIGN KEY</b> on the "PersonID" column when the "Orders" table is created:</p>
+            <h3>MySQL:</h3>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Orders (<br>
+                &emsp;OrderID int <sql>NOT NULL</sql>,<br>
+                &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+                &emsp;PersonID int,<br>
+                &emsp;<sql>PRIMARY KEY</sql> (OrderID),<br>
+                &emsp;<sql>FOREIGN KEY</sql> (PersonID) <sql>REFERENCES</sql> Persons(PersonID)<br>
+                );
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Orders (<br>
+                &emsp;OrderID int <sql>NOT NULL PRIMARY KEY</sql>,<br>
+                &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+                &emsp;PersonID int <sql>FOREIGN KEY REFERENCES</sql> Persons(PersonID)<br>
+                );
+            </p>
+            <p>To allow naming of a <b>FOREIGN KEY</b> constraint, and for defining a <b>FOREIGN KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Orders (<br>
+                &emsp;OrderID int <sql>NOT NULL</sql>,<br>
+                &emsp;OrderNumber int <sql>NOT NULL</sql>,<br>
+                &emsp;PersonID int,<br>
+                &emsp;<sql>PRIMARY KEY</sql> (OrderID),<br>
+                &emsp;<sql>CONSTRAINT</sql> FK_PersonOrder <sql>FOREIGN KEY</sql> (PersonID)<br>
+                &emsp;<sql>REFERENCES</sql> Persons(PersonID)<br>
+                );
+            </p>
+            <h2>SQL FOREIGN KEY on ALTER TABLE</h2>
+            <p>To create a <b>FOREIGN KEY</b> constraint on the "PersonID" column when the "Orders" table is already created, use the following SQL:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>ADD FOREIGN KEY</sql> (PersonID) <sql>REFERENCES</sql> Persons(PersonID);
+            </p>
+            <p>To allow naming of a <b>FOREIGN KEY</b> constraint, and for defining a <b>FOREIGN KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>ADD CONSTRAINT</sql> FK_PersonOrder<br>
+                <sql>FOREIGN KEY</sql> (PersonID) <sql>REFERENCES</sql> Persons(PersonID);
+            </p>
+            <h2>DROP a FOREIGN KEY Constraint</h2>
+            <p>To drop a <b>FOREIGN KEY</b> constraint, use the following SQL:</p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>DROP FOREIGN KEY</sql> FK_PersonOrder;
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Orders<br>
+                <sql>DROP CONSTRAINT</sql> FK_PersonOrder;
             </p>
         </td></tr>
         <tr>
