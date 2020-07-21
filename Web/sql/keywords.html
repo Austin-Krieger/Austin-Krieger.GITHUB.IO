@@ -841,9 +841,19 @@
         </tr>
         <tr><td colspan="2" id="From" class="hideTR">
             <h2>FROM</h2>
-            <p></p>
+            <p>The <b>FROM</b> command is used to specify which table to select or delete data from.</p>
+            <p>The following SQL statement selects the "CustomerName" and "City" columns from the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> CustomerName, City <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement selects all the columns from the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement deletes the customer "Alfreds Futterkiste" from the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>DELETE FROM</sql> Customers<br>
+                <sql>WHERE</sql> CustomerName = 'Alfreds Futterkiste';
             </p>
         </td></tr>
         <tr>
@@ -852,10 +862,15 @@
         </tr>
         <tr><td colspan="2" id="FullOuterJoin" class="hideTR">
             <h2>FULL OUTER JOIN</h2>
-            <p></p>
+            <p>The <b>FULL OUTER JOIN</b> command returns all rows when there is a match in either left table or right table.</p>
+            <p>The following SQL statement selects all customers, and all orders:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>FULL OUTER JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID=Orders.CustomerID<br>
+                <sql>ORDER BY</sql> Customers.CustomerName;
             </p>
+            <p><b>Note</b>: The <b>FULL OUTER JOIN</b> keyword returns all the rows from the left table (Customers), and all the rows from the right table (Orders). If there are rows in "Customers" that do not have matches in "Orders", or if there are rows in "Orders" that do not have matches in "Customers", those rows will be listed as well.</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(GroupBy)"><underline>GROUP BY</underline></td>
@@ -863,9 +878,19 @@
         </tr>
         <tr><td colspan="2" id="GroupBy" class="hideTR">
             <h2>GROUP BY</h2>
-            <p></p>
+            <p>The <b>GROUP BY</b> command is used to group the result set (used with aggregate functions: COUNT, MAX, MIN, SUM, AVG).</p>
+            <p>The following SQL lists the number of customers in each country:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>GROUP BY</sql> Country;
+            </p>
+            <p>The following SQL lists the number of customers in each country, sorted high to low:</p>
+            <p class="code-sl">
+                <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>GROUP BY</sql> Country<br>
+                <sql>ORDER BY</sql> COUNT(CustomerID) <sql>DESC</sql>;
             </p>
         </td></tr>
         <tr>
@@ -874,9 +899,21 @@
         </tr>
         <tr><td colspan="2" id="Having" class="hideTR">
             <h2>HAVING</h2>
-            <p></p>
+            <p>The <b>HAVING</b> command is used instead of <b>WHERE</b> with aggregate functions.</p>
+            <p>The following SQL lists the number of customers in each country. Only include countries with more than 5 customers:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>GROUP BY</sql> Country<br>
+                <sql>HAVING COUNT</sql>(CustomerID) &gt; 5;
+            </p>
+            <p>The following SQL lists the number of customers in each country, sorted high to low (Only include countries with more than 5 customers):</p>
+            <p class="code-sl">
+                <sql>SELECT COUNT</sql>(CustomerID), Country<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>GROUP BY</sql> Country<br>
+                <sql>HAVING COUNT</sql>(CustomerID) &gt; 5<br>
+                <sql>ORDER BY COUNT</sql>(CustomerID) <sql>DESC</sql>;
             </p>
         </td></tr>
         <tr>
@@ -885,9 +922,22 @@
         </tr>
         <tr><td colspan="2" id="In" class="hideTR">
             <h2>IN</h2>
-            <p></p>
+            <p>The <b>IN</b> command allows you to specify multiple values in a <b>WHERE</b> clause.</p>
+            <p>The <b>IN</b> operator is a shorthand for multiple <b>OR</b> conditions.</p>
+            <p>The following SQL selects all customers that are located in "Germany", "France" and "UK":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country <sql>IN</sql> ('Germany', 'France', 'UK');
+            </p>
+            <p>The following SQL selects all customers that are NOT located in "Germany", "France" or "UK":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country <sql>NOT IN</sql> ('Germany', 'France', 'UK');
+            </p>
+            <p>The following SQL selects all customers that are from the same countries as the suppliers:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country <sql>IN</sql> (<sql>SELECT</sql> Country <sql>FROM</sql> Suppliers);
             </p>
         </td></tr>
         <tr>
@@ -895,10 +945,39 @@
             <td>Creates or deletes an index in a table</td>
         </tr>
         <tr><td colspan="2" id="Index" class="hideTR">
-            <h2>INDEX</h2>
-            <p></p>
+            <h2>CREATE INDEX</h2>
+            <p>The <b>CREATE INDEX</b> command is used to create indexes in tables (allows duplicate values).</p>
+            <p>Indexes are used to retrieve data from the database very fast. The users cannot see the indexes, they are just used to speed up searches/queries.</p>
+            <p>The following SQL creates an index named "idx_lastname" on the "LastName" column in the "Persons" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                CREATE INDEX idx_lastname
+                ON Persons (LastName);
+            </p>
+            <p>If you want to create an index on a combination of columns, you can list the column names within the parentheses, separated by commas:</p>
+            <p class="code-sl">
+                CREATE INDEX idx_pname
+                ON Persons (LastName, FirstName);
+            </p>
+            <p><b>Note</b>: The syntax for creating indexes varies among different databases. Therefore: Check the syntax for creating indexes in your database.</p>
+            <p><b>Note</b>: Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So, only create indexes on columns that will be frequently searched against.</p>
+            <h2>DROP INDEX</h2>
+            <p>The <b>DROP INDEX</b> command is used to delete an index in a table.</p>
+            <h3>MS Access:</h3>
+            <p class="code-sl">
+                <sql>DROP INDEX</sql> index_name <sql>ON</sql> table_name;
+            </p>
+            <h3>SQL Server:</h3>
+            <p class="code-sl">
+                <sql>DROP INDEX</sql> table_name.index_name;
+            </p>
+            <h3>DB2/Oracle:</h3>
+            <p class="code-sl">
+                <sql>DROP INDEX</sql> index_name;
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> table_name<br>
+                <sql>DROP INDEX</sql> index_name;
             </p>
         </td></tr>
         <tr>
@@ -907,9 +986,20 @@
         </tr>
         <tr><td colspan="2" id="InnerJoin" class="hideTR">
             <h2>INNER JOIN</h2>
-            <p></p>
+            <p>The <b>INNER JOIN</b> command returns rows that have matching values in both tables.</p>
+            <p>The following SQL selects all orders with customer information:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName<br>
+                <sql>FROM</sql> Orders<br>
+                <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID = Customers.CustomerID;
+            </p>
+            <p><b>Note</b>: The <b>INNER JOIN</b> keyword selects all rows from both tables as long as there is a match between the columns. If there are records in the "Orders" table that do not have matches in "Customers", these orders will not be shown!</p>
+            <p>The following SQL statement selects all orders with customer and shipper information:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName, Shippers.ShipperName<br>
+                <sql>FROM</sql> ((Orders<br>
+                <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID = Customers.CustomerID)<br>
+                <sql>INNER JOIN</sql> Shippers <sql>ON</sql> Orders.ShipperID = Shippers.ShipperID);
             </p>
         </td></tr>
         <tr>
@@ -918,9 +1008,16 @@
         </tr>
         <tr><td colspan="2" id="InsertInto" class="hideTR">
             <h2>INSERT INTO</h2>
-            <p></p>
+            <p>The <b>INSERT INTO</b> command is used to insert new rows in a table.</p>
+            <p>The following SQL inserts a new record in the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>INSERT INTO</sql> Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+                <sql>VALUES</sql> ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+            </p>
+            <p>The following SQL will insert a new record, but only insert data in the "CustomerName", "City", and "Country" columns (CustomerID will be updated automatically):</p>
+            <p class="code-sl">
+                <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+                <sql>VALUES</sql> ('Cardinal', 'Stavanger', 'Norway');
             </p>
         </td></tr>
         <tr>
@@ -929,9 +1026,22 @@
         </tr>
         <tr><td colspan="2" id="InsertIntoSelect" class="hideTR">
             <h2>INSERT INTO SELECT</h2>
-            <p></p>
+            <p>The <b>INSERT INTO SELECT</b> command copies data from one table and inserts it into another table.</p>
+            <p>The following SQL copies "Suppliers" into "Customers" (the columns that are not filled with data, will contain NULL):</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+                <sql>SELECT</sql> SupplierName, City, Country <sql>FROM</sql> Suppliers;
+            </p>
+            <p>The following SQL copies "Suppliers" into "Customers" (fill all columns):</p>
+            <p class="code-sl">
+                <sql>INSERT INTO</sql> Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+                <sql>SELECT</sql> SupplierName, ContactName, Address, City, PostalCode, Country <sql>FROM</sql> Suppliers;
+            </p>
+            <p>The following SQL copies only the German suppliers into "Customers":</p>
+            <p class="code-sl">
+                <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+                <sql>SELECT</sql> SupplierName, City, Country <sql>FROM</sql> Suppliers<br>
+                <sql>WHERE</sql> Country='Germany';
             </p>
         </td></tr>
         <tr>
@@ -940,10 +1050,15 @@
         </tr>
         <tr><td colspan="2" id="IsNull" class="hideTR">
             <h2>IS NULL</h2>
-            <p></p>
+            <p>The <b>IS NULL</b> command is used to test for empty values (NULL values).</p>
+            <p>The following SQL lists all customers with a NULL value in the "Address" field:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> CustomerName, ContactName, Address<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Address <sql>IS NULL</sql>;
             </p>
+            <p><b>Note</b>: A <b>NULL</b> value is different from a zero value or a field that contains spaces. A field with a <b>NULL</b> value is one that has been left blank during record creation!</p>
+            <p><b>Tip</b>: Always use <b>IS NULL</b> to look for <b>NULL</b> values.</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(IsNotNull)"><underline>IS NOT NULL</underline></td>
@@ -951,9 +1066,12 @@
         </tr>
         <tr><td colspan="2" id="IsNotNull" class="hideTR">
             <h2>IS NOT NULL</h2>
-            <p></p>
+            <p>The <b>IS NOT NULL</b> command is used to test for non-empty values (NOT NULL values).</p>
+            <p>The following SQL lists all customers with a value in the "Address" field:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> CustomerName, ContactName, Address<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Address <sql>IS NOT NULL</sql>;
             </p>
         </td></tr>
         <tr>
@@ -961,11 +1079,52 @@
             <td>Joins tables</td>
         </tr>
         <tr><td colspan="2" id="Join" class="hideTR">
-            <h2>JOIN</h2>
-            <p></p>
+            <h2>INNER JOIN</h2>
+            <p>The <b>INNER JOIN</b> command returns rows that have matching values in both tables.</p>
+            <p>The following SQL selects all orders with customer information:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName<br>
+                <sql>FROM</sql> Orders<br>
+                <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID = Customers.CustomerID;
             </p>
+            <p><b>Note</b>: The <b>INNER JOIN</b> keyword selects all rows from both tables as long as there is a match between the columns. If there are records in the "Orders" table that do not have matches in "Customers", these orders will not be shown!</p>
+            <p>The following SQL statement selects all orders with customer and shipper information:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> Orders.OrderID, Customers.CustomerName, Shippers.ShipperName<br>
+                <sql>FROM</sql> ((Orders<br>
+                <sql>INNER JOIN</sql> Customers <sql>ON</sql> Orders.CustomerID = Customers.CustomerID)<br>
+                <sql>INNER JOIN</sql> Shippers <sql>ON</sql> Orders.ShipperID = Shippers.ShipperID);
+            </p>
+            <h2>LEFT JOIN</h2>
+            <p>The <b>LEFT JOIN</b> command returns all rows from the left table, and the matching rows from the right table. The result is NULL from the right side, if there is no match.</p>
+            <p>The following SQL will select all customers, and any orders they might have:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>LEFT JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID = Orders.CustomerID<br>
+                <sql>ORDER BY</sql> Customers.CustomerName;
+            </p>
+            <p><b>Note</b>: The <b>LEFT JOIN</b> keyword returns all records from the left table (Customers), even if there are no matches in the right table (Orders).</p>
+            <h2>RIGHT JOIN</h2>
+            <p>The <b>RIGHT JOIN</b> command returns all rows from the right table, and the matching records from the left table. The result is NULL from the left side, when there is no match.</p>
+            <p>The following SQL will return all employees, and any orders they might have placed:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> Orders.OrderID, Employees.LastName, Employees.FirstName<br>
+                <sql>FROM</sql> Orders<br>
+                <sql>RIGHT JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID<br>
+                <sql>ORDER BY</sql> Orders.OrderID;
+            </p>
+            <p><b>Note</b>: The <b>RIGHT JOIN</b> keyword returns all records from the right table (Employees), even if there are no matches in the left table (Orders).</p>
+            <h2>FULL OUTER JOIN</h2>
+            <p>The <b>FULL OUTER JOIN</b> command returns all rows when there is a match in either left table or right table.</p>
+            <p>The following SQL statement selects all customers, and all orders:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>FULL OUTER JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID = Orders.CustomerID<br>
+                <sql>ORDER BY</sql> Customers.CustomerName;
+            </p>
+            <p><b>Note</b>: The <b>FULL OUTER JOIN</b> keyword returns all the rows from the left table (Customers), and all the rows from the right table (Orders). If there are rows in "Customers" that do not have matches in "Orders", or if there are rows in "Orders" that do not have matches in "Customers", those rows will be listed as well.</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(Like)"><underline>LIKE</underline></td>
@@ -973,20 +1132,54 @@
         </tr>
         <tr><td colspan="2" id="Like" class="hideTR">
             <h2>LIKE</h2>
-            <p></p>
+            <p>The <b>LIKE</b> command is used in a <b>WHERE</b> clause to search for a specified pattern in a column.</p>
+            <p>You can use two wildcards with <b>LIKE</b>:</p>
+            <ul>
+                <li>% - Represents zero, one, or multiple characters</li>
+                <li>_ - Represents a single character (MS Access uses a question mark (?) instead)</li>
+            </ul>
+            <p>The following SQL selects all customers with a CustomerName starting with "a":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> CustomerName <sql>LIKE</sql> 'a%';
+            </p>
+            <p>The following SQL selects all customers with a CustomerName ending with "a":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> CustomerName <sql>LIKE</sql> '%a';
+            </p>
+            <p>The following SQL selects all customers with a CustomerName that have "or" in any position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> CustomerName <sql>LIKE</sql> '%or%';
+            </p>
+            <p>The following SQL statement selects all customers with a CustomerName that starts with "a" and are at least 3 characters in length:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> CustomerName <sql>LIKE</sql> 'a_%_%';
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Limit)"><underline>LIMIT</underline></td>
+            <td onclick="toggleTR(Limit)"><underline>SELECT TOP, LIMIT and ROWNUM</underline></td>
             <td>Specifies the number of records to return in the result set</td>
         </tr>
         <tr><td colspan="2" id="Limit" class="hideTR">
-            <h2>LIMIT</h2>
-            <p></p>
+            <h2>SELECT TOP, LIMIT and ROWNUM</h2>
+            <p>The <b>SELECT TOP</b> command is used to specify the number of records to return.</p>
+            <p><b>Note</b>: Not all database systems support <b>SELECT TOP</b>. <b>MySQL</b> uses <b>LIMIT</b>, and Oracle uses <b>ROWNUM</b>.</p>
+            <p>The following SQL statement selects the first three records from the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT TOP</sql> 3 * <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement shows the equivalent example using the <b>LIMIT</b> clause:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>LIMIT</sql> 3;
+            </p>
+            <p>The following SQL statement shows the equivalent example using <b>ROWNUM</b>:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE ROWNUM</sql> &lt;= 3;
             </p>
         </td></tr>
         <tr>
@@ -995,9 +1188,11 @@
         </tr>
         <tr><td colspan="2" id="Not" class="hideTR">
             <h2>NOT</h2>
-            <p></p>
+            <p>The <b>NOT</b> command is used with <b>WHERE</b> to only include rows where a condition is not true.</p>
+            <p>The following SQL statement selects all fields from "Customers" where country is <b>NOT</b> "Germany":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE NOT</sql> Country = 'Germany';
             </p>
         </td></tr>
         <tr>
@@ -1006,9 +1201,20 @@
         </tr>
         <tr><td colspan="2" id="NotNull" class="hideTR">
             <h2>NOT NULL</h2>
-            <p></p>
+            <p>The <b>NOT NULL</b> constraint enforces a column to not accept <b>NULL</b> values, which means that you cannot insert or update a record without adding a value to this field.</p>
+            <p>The following SQL ensures that the "ID", "LastName", and "FirstName" columns will <b>NOT</b> accept <b>NULL</b> values:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;Age int<br>
+                );
+            </p>
+            <p>The following SQL creates a <b>NOT NULL</b> constraint on the "Age" column when the "Persons" table is already created:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>MODIFY</sql> Age int <sql>NOT NULL</sql>;
             </p>
         </td></tr>
         <tr>
@@ -1017,9 +1223,11 @@
         </tr>
         <tr><td colspan="2" id="Or" class="hideTR">
             <h2>OR</h2>
-            <p></p>
+            <p>The <b>OR</b> command is used with WHERE to include rows where either condition is true.</p>
+            <p>The following SQL statement selects all fields from "Customers" where city is "Berlin" <b>OR</b> city is "München":</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> City = 'Berlin' <sql>OR</sql> City = 'München';
             </p>
         </td></tr>
         <tr>
@@ -1028,20 +1236,26 @@
         </tr>
         <tr><td colspan="2" id="OrderBy" class="hideTR">
             <h2>ORDER BY</h2>
-            <p></p>
+            <p>The <b>ORDER BY</b> command is used to sort the result set in ascending or descending order.</p>
+            <p>The <b>ORDER BY</b> command sorts the result set in ascending order by default. To sort the records in descending order, use the <b>DESC</b> keyword.</p>
+            <p>The following SQL statement selects all the columns from the "Customers" table, sorted by the "CustomerName" column:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql> CustomerName;
             </p>
-        </td></tr>
-        <tr>
-            <td onclick="toggleTR(Example)"><underline>OUTER JOIN</underline></td>
-            <td>Returns all rows when there is a match in either left table or right table</td>
-        </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2>OUTER JOIN</h2>
-            <p></p>
+            <h2>ASC</h2>
+            <p>The <b>ASC</b> command is used to sort the data returned in ascending order.</p>
+            <p>The following SQL statement selects all the columns from the "Customers" table, sorted by the "CustomerName" column:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql> CustomerName <sql>ASC</sql>;
+            </p>
+            <h2>DESC</h2>
+            <p>The <b>DESC</b> command is used to sort the data returned in descending order.</p>
+            <p>The following SQL statement selects all the columns from the "Customers" table, sorted descending by the "CustomerName" column:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql> CustomerName <sql>DESC</sql>;
             </p>
         </td></tr>
         <tr>
@@ -1050,9 +1264,66 @@
         </tr>
         <tr><td colspan="2" id="PrimaryKey" class="hideTR">
             <h2>PRIMARY KEY</h2>
-            <p></p>
+            <p>The <b>PRIMARY KEY</b> constraint uniquely identifies each record in a table.</p>
+            <p>A table can have only one primary key, which may consist of one single or of multiple fields.</p>
+            <h2>SQL PRIMARY KEY on CREATE TABLE</h2>
+            <p>The following SQL creates a <b>PRIMARY KEY</b> on the "ID" column when the "Persons" table is created:</p>
+            <h3>MySQL:</h3>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Age int,<br>
+                &emsp;<sql>PRIMARY KEY</sql> (ID)<br>
+                );
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL PRIMARY KEY</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Age int<br>
+                );
+            </p>
+            <p>To allow naming of a <b>PRIMARY KEY</b> constraint, and for defining a <b>PRIMARY KEY</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Age int,<br>
+                &emsp;<sql>CONSTRAINT</sql> PK_Person <sql>PRIMARY KEY</sql> (ID,LastName)<br>
+                );
+            </p>
+            <p><b>Note</b>: In the example above there is only ONE PRIMARY KEY (PK_Person). However, the VALUE of the primary key is made up of TWO COLUMNS (ID + LastName).</p>
+            <h2>SQL PRIMARY KEY on ALTER TABLE</h2>
+            <p>To create a <b>PRIMARY KEY</b> constraint on the "ID" column when the table is already created, use the following SQL:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD PRIMARY KEY</sql> (ID);
+            </p>
+            <p>To allow naming of a PRIMARY KEY constraint, and for defining a PRIMARY KEY constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CONSTRAINT</sql> PK_Person <sql>PRIMARY KEY</sql> (ID,LastName);
+            </p>
+            <p><b>Note</b>: If you use the <b>ALTER TABLE</b> statement to add a primary key, the primary key column(s) must already have been declared to not contain NULL values (when the table was first created).</p>
+            <h2>DROP a PRIMARY KEY Constraint</h2>
+            <p>To drop a <b>PRIMARY KEY</b> constraint, use the following SQL:</p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP PRIMARY KEY</sql>;
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> PK_Person;
             </p>
         </td></tr>
         <tr>
@@ -1060,10 +1331,19 @@
             <td>A stored procedure</td>
         </tr>
         <tr><td colspan="2" id="Procedure" class="hideTR">
-            <h2>PROCEDURE</h2>
-            <p></p>
+            <h2>CREATE PROCEDURE</h2>
+            <p>The <b>CREATE PROCEDURE</b> command is used to create a stored procedure.</p>
+            <p>A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.</p>
+            <p>The following SQL creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE PROCEDURE</sql> SelectAllCustomers<br>
+                <sql>AS</sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>GO</sql>;
+            </p>
+            <p>Execute the stored procedure above as follows:</p>
+            <p class="code-sl">
+                <sql>EXEC</sql> SelectAllCustomers;
             </p>
         </td></tr>
         <tr>
@@ -1072,21 +1352,15 @@
         </tr>
         <tr><td colspan="2" id="RightJoin" class="hideTR">
             <h2>RIGHT JOIN</h2>
-            <p></p>
+            <p>The <b>RIGHT JOIN</b> command returns all rows from the right table, and the matching records from the left table. The result is <b>NULL</b> from the left side, when there is no match.</p>
+            <p>The following SQL will return all employees, and any orders they might have placed:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> Orders.OrderID, Employees.LastName, Employees.FirstName<br>
+                <sql>FROM</sql> Orders<br>
+                <sql>RIGHT JOIN</sql> Employees <sql>ON</sql> Orders.EmployeeID = Employees.EmployeeID<br>
+                <sql>ORDER BY</sql> Orders.OrderID;
             </p>
-        </td></tr>
-        <tr>
-            <td onclick="toggleTR(RowNum)"><underline>ROWNUM</underline></td>
-            <td>Specifies the number of records to return in the result set</td>
-        </tr>
-        <tr><td colspan="2" id="RowNum" class="hideTR">
-            <h2>ROWNUM</h2>
-            <p></p>
-            <p class="code-sl">
-                <sql></sql><br>
-            </p>
+            <p><b>Note</b>: The <b>RIGHT JOIN</b> keyword returns all records from the right table (Employees), even if there are no matches in the left table (Orders).</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(Select)"><underline>SELECT</underline></td>
@@ -1094,9 +1368,14 @@
         </tr>
         <tr><td colspan="2" id="Select" class="hideTR">
             <h2>SELECT</h2>
-            <p></p>
+            <p>The <b>SELECT</b> command is used to select data from a database. The data returned is stored in a result table, called the result set.</p>
+            <p>The following SQL statement selects the "CustomerName" and "City" columns from the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> CustomerName, City F<sql>ROM</sql> Customers;
+            </p>
+            <p>The following SQL statement selects all the columns from the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -1105,9 +1384,10 @@
         </tr>
         <tr><td colspan="2" id="SelectDistinct" class="hideTR">
             <h2>SELECT DISTINCT</h2>
-            <p></p>
+            <p>The <b>SELECT DISTINCT</b> command returns only distinct (different) values in the result set.</p>
+            <p>The following SQL statement selects only the <b>DISTINCT</b> values from the "Country" column in the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT DISTINCT</sql> Country <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -1116,20 +1396,34 @@
         </tr>
         <tr><td colspan="2" id="SelectInto" class="hideTR">
             <h2>SELECT INTO</h2>
-            <p></p>
+            <p>The <b>SELECT INTO</b> command copies data from one table and inserts it into a new table.</p>
+            <p>The following SQL statement creates a backup copy of Customers:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>INTO</sql> CustomersBackup2017<br>
+                <sql>FROM</sql> Customers;
             </p>
-        </td></tr>
-        <tr>
-            <td onclick="toggleTR(SelectTop)"><underline>SELECT TOP</underline></td>
-            <td>Specifies the number of records to return in the result set</td>
-        </tr>
-        <tr><td colspan="2" id="SelectTop" class="hideTR">
-            <h2>SELECT TOP</h2>
-            <p></p>
+            <p>The following SQL statement uses the <b>IN</b> clause to copy the table into a new table in another database:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>INTO</sql> CustomersBackup2017 <sql>IN</sql> 'Backup.mdb'<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement copies only a few columns into a new table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CustomerName, ContactName <sql>INTO</sql> CustomersBackup2017<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>The following SQL statement copies only the German customers into a new table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>INTO</sql> CustomersGermany<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country = 'Germany';
+            </p>
+            <p>The following SQL statement copies data from more than one table into a new table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> Customers.CustomerName, Orders.OrderID<br>
+                <sql>INTO</sql> CustomersOrderBackup2017<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>LEFT JOIN</sql> Orders <sql>ON</sql> Customers.CustomerID = Orders.CustomerID;
             </p>
         </td></tr>
         <tr>
@@ -1138,64 +1432,91 @@
         </tr>
         <tr><td colspan="2" id="Set" class="hideTR">
             <h2>SET</h2>
-            <p></p>
+            <p>The <b>SET</b> command is used with <b>UPDATE</b> to specify which columns and values that should be updated in a table.</p>
+            <p>The following SQL updates the first customer (CustomerID = 1) with a new ContactName and a new City:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>UPDATE</sql> Customers<br>
+                <sql>SET</sql> ContactName = 'Alfred Schmidt', City = 'Frankfurt'<br>
+                <sql>WHERE</sql> CustomerID = 1;
             </p>
+            <p>The following SQL will update the "ContactName" field to "Juan" for all records where Country is "Mexico":</p>
+            <p class="code-sl">
+                <sql>UPDATE</sql> Customers<br>
+                <sql>SET</sql> ContactName = 'Juan'<br>
+                <sql>WHERE</sql> Country = 'Mexico';
+            </p>
+            <p><b>Note</b>: Be careful when updating records in a table! Notice the WHERE clause in the UPDATE statement. The WHERE clause specifies which record(s) that should be updated. If you omit the WHERE clause, all records in the table will be updated!</p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Table)"><underline>TABLE</underline></td>
+            <td onclick="toggleTR(Table)"><underline>CREATE, ALTER, DROP and TRUNCATE TABLE</underline></td>
             <td>Creates a table, or adds, deletes, or modifies columns in a table, or deletes a table or data inside a table</td>
         </tr>
         <tr><td colspan="2" id="Table" class="hideTR">
             <h2>TABLE</h2>
-            <p></p>
+            <p>The <b>CREATE TABLE</b> command creates a new table in the database.</p>
+            <p>The following SQL creates a table called "Persons" that contains five columns: PersonID, LastName, FirstName, Address, and City:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;PersonID int,<br>
+                &emsp;LastName varchar(255),<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Address varchar(255),<br>
+                &emsp;City varchar(255)<br>
+                );
             </p>
-        </td></tr>
-        <tr>
-            <td onclick="toggleTR(Top)"><underline>TOP</underline></td>
-            <td>Specifies the number of records to return in the result set</td>
-        </tr>
-        <tr><td colspan="2" id="Top" class="hideTR">
-            <h2>TOP</h2>
-            <p></p>
+            <h2>CREATE TABLE Using Another Table</h2>
+            <p>A copy of an existing table can also be created using <b>CREATE TABLE</b>.</p>
+            <p>The following SQL creates a new table called "TestTables" (which is a copy of the "Customers" table): </p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> TestTable <sql>AS</sql><br>
+                <sql>SELECT</sql> customername, contactname<br>
+                <sql>FROM</sql> customers;
             </p>
-        </td></tr>
-        <tr>
-            <td onclick="toggleTR(TruncateTable)"><underline>TRUNCATE TABLE</underline></td>
-            <td>Deletes the data inside a table, but not the table itself</td>
-        </tr>
-        <tr><td colspan="2" id="TruncateTable" class="hideTR">
+            <h2>ALTER TABLE</h2>
+            <p>The <b>ALTER TABLE</b> command adds, deletes, or modifies columns in a table.</p>
+            <p>The <b>ALTER TABLE</b> command also adds and deletes various constraints in a table.</p>
+            <p>The following SQL adds an "Email" column to the "Customers" table:</p>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Customers<br>
+                <sql>DROP COLUMN</sql> Email;
+            </p>
+            <p>The following SQL deletes the "Email" column from the "Customers" table:</p>
+            <h2>DROP TABLE</h2>
+            <p>The <b>DROP TABLE</b> command deletes a table in the database.</p>
+            <p>The following SQL deletes the table "Shippers":</p>
+            <p class="code-sl">
+                <sql>DROP TABLE</sql> Shippers;
+            </p>
+            <p><b>Note</b>: Be careful before deleting a table. Deleting a table results in loss of all information stored in the table!</p>
             <h2>TRUNCATE TABLE</h2>
-            <p></p>
+            <p>The <b>TRUNCATE TABLE</b> command deletes the data inside a table, but not the table itself.</p>
+            <p>The following SQL truncates the table "Categories": </p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>TRUNCATE TABLE</sql> Categories;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(Union)"><underline>UNION</underline></td>
-            <td>Combines the result set of two or more SELECT statements (only distinct values)</td>
+            <td>Combines the result set of two or more SELECT statements (only distinct values), (UNION ALL allows duplicate values)</td>
         </tr>
         <tr><td colspan="2" id="Union" class="hideTR">
             <h2>UNION</h2>
-            <p></p>
+            <p>The <b>UNION</b> command combines the result set of two or more <b>SELECT</b> statements (only distinct values)</p>
+            <p>The following SQL statement returns the cities (only distinct values) from both the "Customers" and the "Suppliers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> City <sql>FROM</sql> Customers<br>
+                <sql>UNION</sql><br>
+                <sql>SELECT</sql> City <sql>FROM</sql> Suppliers<br>
+                <sql>ORDER BY</sql> City;
             </p>
-        </td></tr>
-        <tr>
-            <td onclick="toggleTR(UnionAll)"><underline>UNION ALL</underline></td>
-            <td>Combines the result set of two or more SELECT statements (allows duplicate values)</td>
-        </tr>
-        <tr><td colspan="2" id="UnionAll" class="hideTR">
             <h2>UNION ALL</h2>
-            <p></p>
+            <p>The <b>UNION ALL</b> command combines the result set of two or more <b>SELECT</b> statements (allows duplicate values).</p>
+            <p>The following SQL statement returns the cities (duplicate values also) from both the "Customers" and the "Suppliers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> City <sql>FROM</sql> Customers<br>
+                <sql>UNION ALL</sql><br>
+                <sql>SELECT</sql> City <sql>FROM</sql> Suppliers<br>
+                <sql>ORDER BY</sql> City;
             </p>
         </td></tr>
         <tr>
@@ -1204,9 +1525,64 @@
         </tr>
         <tr><td colspan="2" id="Unique" class="hideTR">
             <h2>UNIQUE</h2>
-            <p></p>
+            <p>The <b>UNIQUE</b> constraint ensures that all values in a column are unique.</p>
+            <h2>SQL UNIQUE Constraint on CREATE TABLE</h2>
+            <p>The following SQL creates a <b>UNIQUE</b> constraint on the "ID" column when the "Persons" table is created:</p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL UNIQUE</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Age int<br>
+                );
+            </p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Age int,<br>
+                &emsp;<sql>UNIQUE</sql> (ID)<br>
+                );
+            </p>
+            <p>To name a <b>UNIQUE</b> constraint, and to define a <b>UNIQUE</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>CREATE TABLE</sql> Persons (<br>
+                &emsp;ID int <sql>NOT NULL</sql>,<br>
+                &emsp;LastName varchar(255) <sql>NOT NULL</sql>,<br>
+                &emsp;FirstName varchar(255),<br>
+                &emsp;Age int,<br>
+                &emsp;<sql>CONSTRAINT</sql> UC_Person <sql>UNIQUE</sql> (ID,LastName)<br>
+                );
+            </p>
+            <h2>SQL UNIQUE Constraint on ALTER TABLE</h2>
+            <p>To create a <b>UNIQUE</b> constraint on the "ID" column when the table is already created, use the following SQL:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD UNIQUE</sql> (ID);
+            </p>
+            <p>To name a <b>UNIQUE</b> constraint, and to define a <b>UNIQUE</b> constraint on multiple columns, use the following SQL syntax:</p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>ADD CONSTRAINT</sql> UC_Person <sql>UNIQUE</sql> (ID,LastName);
+            </p>
+            <h3>MySQL / SQL Server / Oracle / MS Access:</h3>
+            <h2>DROP a UNIQUE Constraint</h2>
+            <p>To drop a <b>UNIQUE</b> constraint, use the following SQL:</p>
+            <h3>MySQL:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP INDEX</sql> UC_Person;
+            </p>
+            <h3>SQL Server / Oracle / MS Access:</h3>
+            <p class="code-sl">
+                <sql>ALTER TABLE</sql> Persons<br>
+                <sql>DROP CONSTRAINT</sql> UC_Person;
             </p>
         </td></tr>
         <tr>
@@ -1215,10 +1591,20 @@
         </tr>
         <tr><td colspan="2" id="Update" class="hideTR">
             <h2>UPDATE</h2>
-            <p></p>
+            <p>The <b>UPDATE</b> command is used to update existing rows in a table.</p>
+            <p>The following SQL statement updates the first customer (CustomerID = 1) with a new contact person and a new city.</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>UPDATE</sql> Customers<br>
+                <sql>SET</sql> ContactName = 'Alfred Schmidt', City = 'Frankfurt'<br>
+                <sql>WHERE</sql> CustomerID = 1;
             </p>
+            <p>The following SQL statement will update the contactname to "Juan" for all records where country is "Mexico":</p>
+            <p class="code-sl">
+                <sql>UPDATE</sql> Customers<br>
+                <sql>SET</sql> ContactName = 'Juan'<br>
+                <sql>WHERE</sql> Country = 'Mexico';
+            </p>
+            <p><b>Note</b>: Be careful when updating records in a table! Notice the <b>WHERE</b> clause in the <b>UPDATE</b> statement. The <b>WHERE</b> clause specifies which record(s) that should be updated. If you omit the <b>WHERE</b> clause, all records in the table will be updated!</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(Values)"><underline>VALUES</underline></td>
@@ -1226,9 +1612,16 @@
         </tr>
         <tr><td colspan="2" id="Values" class="hideTR">
             <h2>VALUES</h2>
-            <p></p>
+            <p>The <b>VALUES</b> command specifies the values of an <b>INSERT INTO</b> statement.</p>
+            <p>The following SQL inserts a new record in the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>INSERT INTO</sql> Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+                <sql>VALUES</sql> ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+            </p>
+            <p>The following SQL will insert a new record, but only insert data in the "CustomerName", "City", and "Country" columns (CustomerID will be updated automatically):</p>
+            <p class="code-sl">
+                <sql>INSERT INTO</sql> Customers (CustomerName, City, Country)<br>
+                <sql>VALUES</sql> ('Cardinal', 'Stavanger', 'Norway');
             </p>
         </td></tr>
         <tr>
@@ -1237,9 +1630,34 @@
         </tr>
         <tr><td colspan="2" id="View" class="hideTR">
             <h2>VIEW</h2>
-            <p></p>
+            <p>In SQL, a view is a virtual table based on the result set of an SQL statement.</p>
+            <p>The <b>CREATE VIEW</b> command creates a view.</p>
+            <p>The following SQL creates a view that selects all customers from Brazil:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>CREATE VIEW</sql> [Brazil Customers] <sql>AS</sql><br>
+                <sql>SELECT</sql> CustomerName, ContactName<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country = "Brazil";
+            </p>
+            <h2>QUERY The View</h2>
+            <p>We can query the view above as follows:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> [Brazil Customers];
+            </p>
+            <h2>CREATE OR REPLACE VIEW</h2>
+            <p>The <b>CREATE OR REPLACE VIEW</b> command updates a view.</p>
+            <p>The following SQL adds the "City" column to the "Brazil Customers" view:</p>
+            <p class="code-sl">
+                <sql>CREATE OR REPLACE VIEW</sql> [Brazil Customers] <sql>AS</sql><br>
+                <sql>SELECT</sql> CustomerName, ContactName, City<br>
+                <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country = "Brazil";
+            </p>
+            <h2>DROP VIEW</h2>
+            <p>The <b>DROP VIEW</b> command deletes a view.</p>
+            <p>The following SQL drops the "Brazil Customers" view:</p>
+            <p class="code-sl">
+                <sql>DROP VIEW</sql> [Brazil Customers];
             </p>
         </td></tr>
         <tr>
@@ -1248,10 +1666,62 @@
         </tr>
         <tr><td colspan="2" id="Where" class="hideTR">
             <h2>WHERE</h2>
-            <p></p>
+            <p>The <b>WHERE</b> command filters a result set to include only records that fulfill a specified condition.</p>
+            <p>The following SQL statement selects all the customers from "Mexico" in the "Customers" table:</p>
             <p class="code-sl">
-                <sql></sql><br>
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> Country = 'Mexico';
             </p>
+            <p>SQL requires single quotes around text values (most database systems will also allow double quotes).</p>
+            <p>However, numeric fields should not be enclosed in quotes:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Customers<br>
+                <sql>WHERE</sql> CustomerID = 1;
+            </p>
+            <p><b>Note</b>: The <b>WHERE</b> clause is not only used in <b>SELECT</b> statement, it is also used in <b>UPDATE</b>, <b>DELETE</b> statement, etc.!</p>
+            <p>The following operators can be used in the <b>WHERE</b> clause:</p>
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>Equal</td>
+                </tr>
+                <tr>
+                    <td>&lt;&gt;</td>
+                    <td>Not equal. <b>Note</b>: In some versions of SQL this operator may be written as !=</td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td>Greater than</td>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td>Less than</td>
+                </tr>
+                <tr>
+                    <td>&gt;=</td>
+                    <td>Greater than or equal</td>
+                </tr>
+                <tr>
+                    <td>&lt;=</td>
+                    <td>Less than or equal</td>
+                </tr>
+                <tr>
+                    <td>BETWEEN</td>
+                    <td>Between a certain range</td>
+                </tr>
+                <tr>
+                    <td>LIKE</td>
+                    <td>Search for a pattern</td>
+                </tr>
+                <tr>
+                    <td>IN</td>
+                    <td>To specify multiple possible values for a column</td>
+                </tr>
+            </table></div>
         </td></tr>
     </table></div>
     <!--<p class="code-sl"></p>
