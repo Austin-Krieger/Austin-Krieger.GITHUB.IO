@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="keywords.html">Previous</a>
+    <a href="hackerrank.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../index.html">Web</a>
+</div>
+<div id="closeSideNav">
+<h1>Operators</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Operators</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Arithmetic Operators</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td>Add</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Subtract</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Multiply</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>Divide</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Modulo</td>
+        </tr>
+    </table></div><br>
+    <h2>Bitwise Operators</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>&amp;</td>
+            <td>Bitwise AND</td>
+        </tr>
+        <tr>
+            <td>|</td>
+            <td>Bitwise OR</td>
+        </tr>
+        <tr>
+            <td>^</td>
+            <td>Bitwise exclusive OR</td>
+        </tr>
+    </table></div><br>
+    <h2>Comparison Operators</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>=</td>
+            <td>Equal to</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>Greater than</td>
+        </tr>
+        <tr>
+            <td>&lt;</td>
+            <td>Less than</td>
+        </tr>
+        <tr>
+            <td>&gt;=</td>
+            <td>Greater than or equal to</td>
+        </tr>
+        <tr>
+            <td>&lt;=</td>
+            <td>Less than or equal to</td>
+        </tr>
+        <tr>
+            <td>&lt;&gt;</td>
+            <td>Not equal to</td>
+        </tr>
+    </table></div><br>
+    <h2>Compound Operators</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>+=</td>
+            <td>Add equals</td>
+        </tr>
+        <tr>
+            <td>-=</td>
+            <td>Subtract equals</td>
+        </tr>
+        <tr>
+            <td>*=</td>
+            <td>Multiply equals</td>
+        </tr>
+        <tr>
+            <td>/=</td>
+            <td>Divide equals</td>
+        </tr>
+        <tr>
+            <td>%=</td>
+            <td>Modulo equals</td>
+        </tr>
+        <tr>
+            <td>&amp;=</td>
+            <td>Bitwise AND equals</td>
+        </tr>
+        <tr>
+            <td>^-=</td>
+            <td>Bitwise exclusive equals</td>
+        </tr>
+        <tr>
+            <td>|*=</td>
+            <td>Bitwise OR equals</td>
+        </tr>
+    </table></div><br>
+    <h2>Logical Operators</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Operator</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>ALL</td>
+            <td>TRUE if all of the subquery values meet the condition</td>
+        </tr>
+        <tr>
+            <td>AND</td>
+            <td>TRUE if all the conditions separated by AND is TRUE</td>
+        </tr>
+        <tr>
+            <td>ANY</td>
+            <td>TRUE if any of the subquery values meet the condition</td>
+        </tr>
+        <tr>
+            <td>BETWEEN</td>
+            <td>TRUE if the operand is within the range of comparisons</td>
+        </tr>
+        <tr>
+            <td>EXISTS</td>
+            <td>TRUE if the subquery returns one or more records</td>
+        </tr>
+        <tr>
+            <td>IN</td>
+            <td>TRUE if the operand is equal to one of a list of expressions</td>
+        </tr>
+        <tr>
+            <td>LIKE</td>
+            <td>TRUE if the operand matches a pattern</td>
+        </tr>
+        <tr>
+            <td>NOT</td>
+            <td>Displays a record if the condition(s) is NOT TRUE</td>
+        </tr>
+        <tr>
+            <td>OR</td>
+            <td>TRUE if any of the conditions separated by OR is TRUE</td>
+        </tr>
+        <tr>
+            <td>SOME</td>
+            <td>TRUE if any of the subquery values meet the condition</td>
+        </tr>
+    </table></div>
+    <!--<p class="code-sl"></p>
+    <div class="code" id=""><button class="copy" onclick="copyText('')">Copy</button><br><p>
+        
+    </p></div>-->
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"> </script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+<script type="text/javascript" src="../../scripts/ToggleTR.js"></script>
+</body>
+</html>
