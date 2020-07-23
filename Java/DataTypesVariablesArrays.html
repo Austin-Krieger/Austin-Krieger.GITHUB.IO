@@ -188,7 +188,7 @@
             </tr>
             <tr>
                 <th rowspan="2">Local Variables</th>
-                <td>A variable declared inside the body of the method/block. Only visible within that method/blcok.</td>
+                <td>A variable declared inside the body of the method/block. Only visible within that method/block.</td>
             </tr>
             <tr>
                 <td>Braces indicate the scope of this variable (where it can be seen and used).</td>
@@ -225,10 +225,10 @@
                 </ul>
                 <br>
                 <ol>
-                    <li>If one of the operands is double, the other is promoted to double before the operation is carried out.</li>
-                    <li>Otherwise, if one of the operands is float, the other is promoted to float before the operation is carried out.</li>
-                    <li>Otherwise, if one of the operands is long, the other is promoted to long before the operation is carried out.</li>
-                    <li>Otherwise if either operand is int, the other operand is promoted to int.</li>
+                    <li>&darr; If one of the operands is double, the other is promoted to double before the operation is carried out.</li>
+                    <li>&darr; If one of the operands is float, the other is promoted to float before the operation is carried out.</li>
+                    <li>&darr; If one of the operands is long, the other is promoted to long before the operation is carried out.</li>
+                    <li>&darr; If either operand is int, the other operand is promoted to int.</li>
                     <li>If neither operand is double, float, long or int, both operands are promoted to int.</li>
                 </ol>
                 <div class="code" id="variables2"><button class="copy" onclick="copyText('variables2')">Copy</button><br><p>byte b = 10; <br> long l = 1 + 8; <br> double d = b * 2.5 + l; <br><br> System.out.println("I = " + i); <br> System.out.println("J = " + j); <br> System.out.println("K =" + k); <br><br> <b>Output:</b> <br><br>I = 10 <br>J = 9 <br>K = 34.0</p></div>
