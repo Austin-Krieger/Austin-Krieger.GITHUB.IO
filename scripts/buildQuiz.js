@@ -1,10 +1,11 @@
 //https://www.sitepoint.com/simple-javascript-quiz/
-function buildQuiz(){
+// Functions
+function buildQuiz(questions){
     // variable to store the HTML output
     const output = [];
 
     // for each question...
-    myQuestions.forEach(
+    questions.forEach(
         (currentQuestion, questionNumber) => {
 
             // variable to store the list of possible answers
@@ -17,7 +18,7 @@ function buildQuiz(){
                 answers.push(
                     `<label>
                         &emsp;<input type="radio" name="question${questionNumber}" value="${letter}">
-                        ${letter} :
+                        ${letter}.
                         ${currentQuestion.answers[letter]}
                     </label><br>`
                 );
@@ -25,8 +26,10 @@ function buildQuiz(){
 
             // add this question and its answers to the output
             output.push(
-                `<div class="question"><b> ${currentQuestion.question} </b></div>
-                <div class="answers"> ${answers.join('')} </div>`
+                `<div class="slide">
+                    <div class="question"><b> ${currentQuestion.question} </b></div>
+                    <div class="answers"> ${answers.join("")} </div>
+                </div>`
             );
         }
     );
@@ -35,7 +38,7 @@ function buildQuiz(){
     quizContainer.innerHTML = output.join('');
 }
 
-function showResults() {
+function showResults(questions) {
     // gather answer containers from our quiz
     const answerContainers = quizContainer.querySelectorAll('.answers');
 
@@ -43,7 +46,7 @@ function showResults() {
     let numCorrect = 0;
 
     // for each question...
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
+    questions.forEach( (currentQuestion, questionNumber) => {
         // find selected answer
         const answerContainer = answerContainers[questionNumber];
         const selector = `input[name=question${questionNumber}]:checked`;
@@ -55,7 +58,7 @@ function showResults() {
             numCorrect++;
 
             // color the answers green
-            answerContainers[questionNumber].style.color = 'lightgreen';
+            answerContainers[questionNumber].style.color = 'darkgreen';
         }
         // if answer is wrong or blank
         else {
@@ -65,14 +68,44 @@ function showResults() {
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`;
 }
 
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    
+    if (currentSlide === 0) {
+        previousButton.style.display = 'none';
+    }
+    else {
+        previousButton.style.display = 'inline-block';
+    }
+    if (currentSlide === slides.length-1) {
+        nextButton.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+    }
+    else {
+        nextButton.style.display = 'inline-block';
+        submitButton.style.display = 'none';
+    }
+}
+
+function showNextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Variables
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 
-const myQuestions = [
+const testArray = [
     {
         question: "Who invented JavaScript?",
         answers: {
@@ -103,8 +136,22 @@ const myQuestions = [
     }
 ];
 
-// display quiz right away
-buildQuiz();
+// Start the quiz
+// Display quiz right away
+buildQuiz(testArray);
 
-// on submit, show results
-submitButton.addEventListener('click', showResults);
+// Pagination
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+// Show the first slide
+showSlide(currentSlide);
+
+// Event Listeners
+previousButton.addEventListener("click", showPreviousSlide);
+nextButton.addEventListener("click", showNextSlide);
+// On submit, show results
+/*submitButton.addEventListener('click', function(){
+    showResults(testArray);
+}, false);*/

@@ -6,6 +6,7 @@
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
     <link rel="stylesheet" type="text/css" href="../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../styles/quiz.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
@@ -374,9 +375,13 @@
         String z = x + y; <mark>// z will be 1020 (a String)</mark>
     </p>
     </div>
-    <h2>String Quiz</h2><br>
-    <div id="quiz"></div><br>
-    <button id="submit" style="padding: 5px; background-color: #c8c8c8; font-size: 18px; float: right;">Submit Quiz</button>
+    <h2>String Quiz</h2>
+    <div class="quiz-container">
+        <div id="quiz"></div>
+    </div><br>
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit" onclick="showResults(testArray)">Submit Quiz</button>
     <div id="results"></div>
 </div>
 </div>
