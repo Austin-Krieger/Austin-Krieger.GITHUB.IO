@@ -32,3 +32,11 @@
 #submit {
     float: right;
 }
+
+label {
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 21px;
+}
+
+input[type=radio] {}

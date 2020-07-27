@@ -167,13 +167,14 @@ const Example = [
 
 const OOP = [
     {
-        question: "Question one.",
+        question: "Which of the following statements is true about Abstraction?",
         answers: {
-            a: "answer",
-            b: "answer",
-            c: "answer"
+            a: "Data abstraction is the process of hiding certain details and showing only essential information to the user.",
+            b: "Managing the complexity of a system through the use of hierarchical classifications.",
+            c: "On a high level we are hiding the functionality of the underlying systems.",
+            d: "All of the above."
         },
-        correctAnswer: "a"
+        correctAnswer: "d"
     },
     {
         question: "Question one.",
