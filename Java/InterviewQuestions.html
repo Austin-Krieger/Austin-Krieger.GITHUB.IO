@@ -1093,12 +1093,12 @@
                 <p>Yes, Java allows to save our java file by .java only, we need to compile it by javac .java and run by java classname.</p>
             </div>
             &nbsp;
-            <button class="collapsible">Is delete, next, main, exit or null keyword in java?</button>
+            <button class="collapsible">Is delete, next, main, exit or null a keyword in java?</button>
             <div class="innerContent">
                 <p>No</p>
             </div>
             &nbsp;
-            <button class="collapsible">If I don't provide any arguments on the command line, then what will the value stored in the String array passed into the main() method, empty or NULL?</button>
+            <button class="collapsible">If I don't provide any arguments on the command line, then what will be the value stored in the String array passed into the main() method, empty or NULL?</button>
             <div class="innerContent">
                 <p>It is empty, but not null.</p>
             </div>
@@ -1117,10 +1117,10 @@
             <div class="innerContent">
                 <p>In Java, access specifiers are the keywords which are used to define the access scope of the method, class, or a variable. In Java, there are four access specifiers given below.</p>
                 <ul>
-                    <li>Public The classes, methods, or variables which are defined as public, can be accessed by any class or method.</li>
-                    <li>Protected Protected can be accessed by the class of the same package, or by the sub-class of this class, or within the same class.</li>
-                    <li>Default Default are accessible within the package only. By default, all the classes, methods, and variables are of default scope.</li>
-                    <li>Private The private class, methods, or variables defined as private can be accessed within the class only.</li>
+                    <li>Public: The classes, methods, or variables which are defined as public, can be accessed by any class or method.</li>
+                    <li>Protected: Can be accessed by a class of the same package, or by the sub-class of this class (from another package), or within the same class.</li>
+                    <li>Default: Accessible within the package only. By default, all the classes, methods, and variables are of default scope.</li>
+                    <li>Private: The classes, methods, or variables defined as private can be accessed within the class only.</li>
                 </ul>
             </div>
             &nbsp;
@@ -1330,12 +1330,12 @@
                     &emsp;class Student {<br>
                     &emsp;&emsp;int id;<br>
                     &emsp;&emsp;String name;<br>
-                    &emsp;<mark>//constructor to initialize integer and string</mark><br>
-                    &emsp;Student6(int i,String n){<br>
+                    &emsp;<mark>// constructor to initialize integer and string</mark><br>
+                    &emsp;Student(int i, String n){<br>
                     &emsp;&emsp;id = i;<br>
                     &emsp;&emsp;name = n;<br>
                     &emsp;}<br>
-                    &emsp;<mark>//constructor to initialize another object</mark><br>
+                    &emsp;<mark>// constructor to initialize another object</mark><br>
                     &emsp;Student(Student s){<br>
                     &emsp;&emsp;id = s.id;<br>
                     &emsp;&emsp;name =s.name;<br>
@@ -1344,7 +1344,7 @@
                     &emsp;&emsp;System.out.println(id+" "+name);<br>
                     &emsp;}<br><br>
                     &emsp;public static void main(String args[]){<br>
-                    &emsp;&emsp;Student s1 = new Student(111,"Karan");<br>
+                    &emsp;&emsp;Student s1 = new Student(111, "Karan");<br>
                     &emsp;&emsp;Student s2 = new Student(s1);<br>
                     &emsp;&emsp;s1.display();<br>
                     &emsp;&emsp;s2.display();<br>
