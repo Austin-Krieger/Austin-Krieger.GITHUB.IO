@@ -13,7 +13,6 @@ function buildQuiz(questions){
 
             // and for each available answer...
             for(letter in currentQuestion.answers){
-
                 // ...add an HTML radio button
                 answers.push(
                     `<label>
@@ -136,21 +135,92 @@ const testArray = [
     }
 ];
 
+const Example = [
+    {
+        question: "",
+        answer: {
+            a: "",
+            b: "",
+            c: ""
+        },
+        correctAnswer: ""
+    },
+    {
+        question: "",
+        answer: {
+            a: "",
+            b: "",
+            c: ""
+        },
+        correctAnswer: ""
+    },
+    {
+        question: "",
+        answer: {
+            a: "",
+            b: "",
+            c: ""
+        },
+        correctAnswer: ""
+    }
+];
+
+const OOP = [
+    {
+        question: "Question one.",
+        answers: {
+            a: "answer",
+            b: "answer",
+            c: "answer"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "Question one.",
+        answers: {
+            a: "answer",
+            b: "answer",
+            c: "answer"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "Question one.",
+        answers: {
+            a: "answer",
+            b: "answer",
+            c: "answer"
+        },
+        correctAnswer: "c"
+    }
+];
+
 // Start the quiz
 // Display quiz right away
-buildQuiz(testArray);
+var quizName = document.getElementById("quizName").name;
+switch (quizName) {
+   case 'testArray': buildQuiz(testArray);
+   break;
+
+   case 'OOP': buildQuiz(OOP);
+   break;
+
+   default: buildQuiz(OOP)
+}
 
 // Pagination
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
+
 // Show the first slide
 showSlide(currentSlide);
 
 // Event Listeners
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
+
 // On submit, show results
 /*submitButton.addEventListener('click', function(){
     showResults(testArray);

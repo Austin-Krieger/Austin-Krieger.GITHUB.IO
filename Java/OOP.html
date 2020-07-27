@@ -6,6 +6,7 @@
     <title>Learning Java</title>
     <link rel="stylesheet" type="text/css" href="../styles/Styles.css">
     <link rel="stylesheet" type="text/css" href="../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../styles/quiz.css">
     <script type="text/javascript" src="../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../images/ThirstyPenguin(Logo).ico">
 </head>
@@ -127,10 +128,20 @@
         <li>Encapsulation allows you to migrate your implementations over time without breaking the code that depends on the public interface of your classes.</li>
         <li>Polymorphism allows you to create clean, sensible, readable, and resilient code.</li>
     </ul>
+    <h2>Object Oriented Principals Quiz</h2>
+    <input type="hidden" id="quizName" name="OOP">
+    <div class="quiz-container">
+        <div id="quiz"></div>
+    </div><br>
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit" onclick="showResults(OOP)">Submit Quiz</button>
+    <div id="results"></div>
 </div>
 </div>
 </div>
 </body>
+<script type="text/javascript" src="../scripts/buildQuiz.js"></script>
 <script type="text/javascript" src="../scripts/SideNav.js"></script>
 <script type="text/javascript" src="../scripts/collapsible.js"></script>
 </html>
