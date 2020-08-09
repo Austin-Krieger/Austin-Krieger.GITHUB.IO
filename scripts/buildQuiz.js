@@ -112,7 +112,7 @@ const Example = [
             b: "",
             c: ""
         },
-        correctanswer: ""
+        correctAnswer: ""
     },
     {
         question: "",
@@ -121,7 +121,7 @@ const Example = [
             b: "",
             c: ""
         },
-        correctanswer: ""
+        correctAnswer: ""
     },
     {
         question: "",
@@ -130,7 +130,7 @@ const Example = [
             b: "",
             c: ""
         },
-        correctanswer: ""
+        correctAnswer: ""
     }
 ];
 
@@ -143,7 +143,16 @@ const OOP = [
             c: "On a high level we are hiding the functionality of the underlying systems.",
             d: "All of the above."
         },
-        correctanswer: "d"
+        correctAnswer: "d"
+    },
+    {
+        question: "Question &lt;table&gt; one.",
+        answers: {
+            a: "ans''wer",
+            b: "answer",
+            c: "answer"
+        },
+        correctAnswer: "b"
     },
     {
         question: "Question one.",
@@ -152,16 +161,7 @@ const OOP = [
             b: "answer",
             c: "answer"
         },
-        correctanswer: "b"
-    },
-    {
-        question: "Question one.",
-        answers: {
-            a: "answer",
-            b: "answer",
-            c: "answer"
-        },
-        correctanswer: "c"
+        correctAnswer: "c"
     }
 ];
 
@@ -173,7 +173,7 @@ const HTML = [
             b: "Hyper Text Markup Language",
             c: "Hyperlinks and Text Markup Language"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "Who is making the web standards?",
@@ -183,83 +183,83 @@ const HTML = [
             c: "Mozilla",
             d: "Microsoft"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "Choose the correct HTML element for the largest heading:",
         answers: {
-            a: "<h1>",
-            b: "<head>",
-            c: "<h6>",
-            d: "<heading>"
+            a: "&lt;h1&gt;",
+            b: "&lt;head&gt;",
+            c: "&lt;h6&gt;",
+            d: "&lt;heading&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "What is the correct HTML element for inserting a line break?",
         answers: {
-            a: "<br>",
-            b: "<break>",
-            c: "<lb>"
+            a: "&lt;br&gt;",
+            b: "&lt;break&gt;",
+            c: "&lt;lb&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "What is the correct HTML for adding a background color?",
         answers: {
-            a: "<body style='background-color:yellow;'",
-            b: "<background>yellow</background>",
-            c: "<body bg='yellow'>"
+            a: "&lt;body style='background-color:yellow;'",
+            b: "&lt;background&gt;yellow&lt;/background&gt;",
+            c: "&lt;body bg='yellow'&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "Choose the correct HTML element to define important text",
         answers: {
-            a: "<strong>",
-            b: "<i>",
-            c: "<b>",
-            d: "<important>"
+            a: "&lt;strong&gt;",
+            b: "&lt;i&gt;",
+            c: "&lt;b&gt;",
+            d: "&lt;important&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "Choose the correct HTML element to define emphasized text",
         answers: {
-            a: "<em>",
-            b: "<i>",
-            c: "<italic>"
+            a: "&lt;em&gt;",
+            b: "&lt;i&gt;",
+            c: "&lt;italic&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "What is the correct HTML for creating a hyperlink?",
         answers: {
-            a: "<a>http://w3schools.com</a>",
-            b: "<a url='http://www.w3schools.com'>W3Schools.com</a>",
-            c: "<a href='http://www.w3schools.com'>W3Schools</a>",
-            d: "<a name='http://www.w3schools.com'>W3Schools.com</a>"
+            a: "&lt;a&gt;http://w3schools.com&lt;/a&gt;",
+            b: "&lt;a url='http://www.w3schools.com'&gt;W3Schools.com&lt;/a&gt;",
+            c: "&lt;a href='http://www.w3schools.com'&gt;W3Schools&lt;/a&gt;",
+            d: "&lt;a name='http://www.w3schools.com'&gt;W3Schools.com&lt;/a&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "Which character is used to indicate an end tag?",
         answers: {
             a: "/",
-            b: "<",
+            b: "&lt;",
             c: "*",
             d: "^"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "How can you open a link in a new tab/browser window?",
         answers: {
-            a: "<a href='url' new>",
-            b: "<a href='url' target='_blank'>",
-            c: "<a href='url' target='new'>"
+            a: "&lt;a href='url' new&gt;",
+            b: "&lt;a href='url' target='_blank'&gt;",
+            c: "&lt;a href='url' target='new'&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "Which of these elements are all &lt;table&gt; elements?",
@@ -269,7 +269,7 @@ const HTML = [
             c: "&lt;table&gt;&lt;tr&gt;&lt;td&gt;",
             d: "&lt;thead&gt;&lt;body&gt;&lt;tr&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "Inline elements are normally displayed without starting a new line.",
@@ -277,7 +277,7 @@ const HTML = [
             a: "True",
             b: "False"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "How can you make a numbered list?",
@@ -287,7 +287,7 @@ const HTML = [
             c: "&lt;ul&gt;",
             d: "&lt;dl&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "How can you make a bulleted list?",
@@ -297,7 +297,7 @@ const HTML = [
             c: "&lt;dl&gt;",
             d: "&lt;list&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "What is the correct HTML for making a checkbox?",
@@ -307,7 +307,7 @@ const HTML = [
             c: "&lt;input type='checkbox'&gt;",
             d: "&lt;checkbox&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "What is the correct HTML for making a text input field?",
@@ -317,7 +317,7 @@ const HTML = [
             c: "&lt;input type='text'&gt;",
             d: "&lt;textinput type='text'&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "What is the correct HTML for making a drop-down list?",
@@ -327,7 +327,7 @@ const HTML = [
             c: "&lt;select&gt;",
             d: "&lt;input type='list'&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "What is the correct HTML for making a text area?",
@@ -336,7 +336,7 @@ const HTML = [
             b: "&lt;input type='textarea'&gt;",
             c: "&lt;input type='textbox'&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "What is the correct HTML for inserting an image?",
@@ -346,7 +346,7 @@ const HTML = [
             c: "&lt;img src='image.gif' alt='MyImage'&gt;",
             d: "&lt;img href='image.gif' alt='MyImage'&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "What is the correct HTML for inserting a background image?",
@@ -355,7 +355,7 @@ const HTML = [
             b: "&lt;body bg='background.gif'&gt;",
             c: "&lt;background img='background.gif'&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "An &lt;iframe&gt; is used to display a web page within a web page.",
@@ -364,7 +364,7 @@ const HTML = [
             b: "True",
             c: "There is no such thing as an &lt;iframe&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "HTML comments start with &lt;!-- and end with --&gt;",
@@ -372,7 +372,7 @@ const HTML = [
             a: "False",
             b: "True"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "Block elements are normally displayed without starting a new line.",
@@ -380,7 +380,7 @@ const HTML = [
             a: "False",
             b: "True"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "Which HTML element defines the title of a document?",
@@ -389,7 +389,7 @@ const HTML = [
             b: "&lt;meta&gt;",
             c: "&lt;title&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
@@ -399,7 +399,7 @@ const HTML = [
             c: "longdesc",
             d: "alt"
         },
-        correctanswer: "d"
+        correctAnswer: "d"
     },
     {
         question: "Which doctype is correct for HTML5?",
@@ -408,7 +408,7 @@ const HTML = [
             b: "&lt;!DOCTYPE html&gt;",
             c: "&lt;!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 5.0//EN' 'http://www.w3.org/TR/html5/strict.dtd'&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "Which HTML element is used to specify a footer for a document or section?",
@@ -417,7 +417,7 @@ const HTML = [
             b: "&lt;bottom&gt;",
             c: "&lt;footer&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "In HTML, you can embed SVG elements directly into an HTML page.",
@@ -425,7 +425,7 @@ const HTML = [
             a: "True",
             b: "False"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "What is the correct HTML element for playing video files?",
@@ -434,7 +434,7 @@ const HTML = [
             b: "&lt;video&gt;",
             c: "&lt;movie&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "What is the correct HTML element for playing audio files?",
@@ -443,7 +443,7 @@ const HTML = [
             b: "&lt;mp3&gt;",
             c: "&lt;sound&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "The HTML global attribute, 'contenteditable' is used to:",
@@ -453,7 +453,7 @@ const HTML = [
             c: "Specifies a context menu for an element. The menu appears when a user right-clicks on the element",
             d: "Update content from the server"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "In HTML, onblur and onfocus are:",
@@ -462,7 +462,7 @@ const HTML = [
             b: "Style attributes",
             c: "HTML elements"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "Graphics defined by SVG is in which format?",
@@ -471,7 +471,7 @@ const HTML = [
             b: "XML",
             c: "CSS"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     },
     {
         question: "The HTML &lt;canvas&gt; element is used to:",
@@ -481,7 +481,7 @@ const HTML = [
             c: "create draggable elements",
             d: "draw graphics"
         },
-        correctanswer: "d"
+        correctAnswer: "d"
     },
     {
         question: "In HTML, which attribute is used to specify that an input field must be filled out?",
@@ -491,7 +491,7 @@ const HTML = [
             c: "placeholder",
             d: "required"
         },
-        correctanswer: "d"
+        correctAnswer: "d"
     },
     {
         question: "Which input type defines a slider control?",
@@ -501,7 +501,7 @@ const HTML = [
             c: "slider",
             d: "search"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "Which HTML element is used to display a scalar measurement within a range?",
@@ -511,7 +511,7 @@ const HTML = [
             c: "&lt;range&gt;",
             d: "&lt;measure&gt;"
         },
-        correctanswer: "a"
+        correctAnswer: "a"
     },
     {
         question: "Which HTML element defines navigation links?",
@@ -520,7 +520,7 @@ const HTML = [
             b: "&lt;navigate&gt;",
             c: "&lt;nav&gt;"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "In HTML, what does the &lt;aside&gt; element define?",
@@ -529,7 +529,7 @@ const HTML = [
             b: "The ASCII character-set; to send information between computers on the internet",
             c: "Content aside from the page content"
         },
-        correctanswer: "c"
+        correctAnswer: "c"
     },
     {
         question: "Which HTML element is used to specify a header for a document or section?",
@@ -539,7 +539,7 @@ const HTML = [
             c: "&lt;top&gt;",
             d: "&lt;head&gt;"
         },
-        correctanswer: "b"
+        correctAnswer: "b"
     }
 ];
 
