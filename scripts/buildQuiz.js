@@ -207,7 +207,7 @@ const HTML = [
     {
         question: "What is the correct HTML for adding a background color?",
         answers: {
-            a: "&lt;body style='background-color:yellow;'",
+            a: "&lt;body style='background-color:yellow;'&gt;",
             b: "&lt;background&gt;yellow&lt;/background&gt;",
             c: "&lt;body bg='yellow'&gt;"
         },
