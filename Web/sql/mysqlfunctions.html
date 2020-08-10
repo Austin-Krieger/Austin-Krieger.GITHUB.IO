@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="keywords.html">Previous</a>
+    <a href="sqlserverfunctions.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../index.html">Web</a>
+</div>
+<div id="closeSideNav">
+<h1>MySQL Functions</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">MySQL Functions</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>MySQL Functions</h2>
+    <p>This reference contains string, numeric, date, and some advanced functions in MySQL.</p>
+    <h2>MySQL String Functions</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td onclick="toggleTR(ASCII)"><underline>ASCII</underline></td>
+            <td>Returns the ASCII value for the specific character</td>
+        </tr>
+        <tr><td colspan="2" id="ASCII" class="hideTR">
+            <h2>ASCII()</h2>
+            <p>The <b>ASCII()</b> function returns the <b>ASCII</b> value for the specific character.</p>
+            <p>Return the ASCII value of the first character in "CustomerName":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ASCII(CustomerName) <sql>AS</sql> NumCodeOfFirstChar<br>
+                <sql>FROM</sql> Customers; <br>
+            </p>
+            <p><b>Note</b>: If more than one character is entered, it will only return the value for the first character.</p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(charlength)"><underline>CHAR_LENGTH</underline></td>
+            <td>Returns the length of a string (in characters)</td>
+        </tr>
+        <tr><td colspan="2" id="charlength" class="hideTR">
+            <h2>CHAR_LENGTH</h2>
+            <p>The <b>CHAR_LENGTH()</b> function returns the length fo a string (in characters).</p>
+            <p><b>Note</b>: This function is equal to the CHARACTER_LENGTH() function.</p>
+            <p>Return the length of the string:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CHAR_LENGTH("SQL Tutorial") <sql>AS</sql> LengthOfString;
+            </p>
+            <p>Return the length of the text in the "CustomerName" column:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CHAR_LENGTH(CustomerName) <sql>AS</sql> LengthOfName<br>
+                <sql>FROM</sql> Customers;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(characterlength)"><underline>CHARACTER_LENGTH</underline></td>
+            <td>Returns the length of a string (in characters)</td>
+        </tr>
+        <tr><td colspan="2" id="characterlength" class="hideTR">
+            <h2>CHARACTER_LENGTH</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CONCAT)"><underline>CONCAT</underline></td>
+            <td>Adds two or more expressions together</td>
+        </tr>
+        <tr><td colspan="2" id="CONCAT" class="hideTR">
+            <h2>CONCAT</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CONCAT_WS)"><underline>CONCAT_WS</underline></td>
+            <td>Adds two or more expressions together with a separator</td>
+        </tr>
+        <tr><td colspan="2" id="CONCAT_WS" class="hideTR">
+            <h2>CONCAT_WS</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(FIELD)"><underline>FIELD</underline></td>
+            <td>Returns the index position of a value in a list of values</td>
+        </tr>
+        <tr><td colspan="2" id="FIELD" class="hideTR">
+            <h2>FIELD</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(FIND_IN_SET)"><underline>FIND_IN_SET</underline></td>
+            <td>Returns the position of a string within a list of strings</td>
+        </tr>
+        <tr><td colspan="2" id="FIND_IN_SET" class="hideTR">
+            <h2>FIND_IN_SET</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(FORMAT)"><underline>FORMAT</underline></td>
+            <td>Formats a number to a format like "#,###,###.##", rounded to a specified number of decimal places</td>
+        </tr>
+        <tr><td colspan="2" id="FORMAT" class="hideTR">
+            <h2>FORMAT</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(INSERT)"><underline>INSERT</underline></td>
+            <td>Inserts a string within a string at the specified position and for a certain number of characters</td>
+        </tr>
+        <tr><td colspan="2" id="INSERT" class="hideTR">
+            <h2>INSERT</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(INSTR)"><underline>INSTR</underline></td>
+            <td>Returns the position of the first occurrence of a string in another string</td>
+        </tr>
+        <tr><td colspan="2" id="INSTR" class="hideTR">
+            <h2>INSTR</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LCASE)"><underline>LCASE</underline></td>
+            <td>Converts a string to lower-case</td>
+        </tr>
+        <tr><td colspan="2" id="LCASE" class="hideTR">
+            <h2>LCASE</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LEFT)"><underline>LEFT</underline></td>
+            <td>Extracts a number of characters from a string (starting from left)</td>
+        </tr>
+        <tr><td colspan="2" id="LEFT" class="hideTR">
+            <h2>LEFT</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LENGTH)"><underline>LENGTH</underline></td>
+            <td>Returns the length of a string (in bytes)</td>
+        </tr>
+        <tr><td colspan="2" id="LENGTH" class="hideTR">
+            <h2>LENGTH</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LOCATE)"><underline>LOCATE</underline></td>
+            <td>Returns the position of the first occurrence of a substring in a string</td>
+        </tr>
+        <tr><td colspan="2" id="LOCATE" class="hideTR">
+            <h2>LOCATE</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LOWER)"><underline>LOWER</underline></td>
+            <td>Converts a string to lower-case</td>
+        </tr>
+        <tr><td colspan="2" id="LOWER" class="hideTR">
+            <h2>LOWER</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LPAD)"><underline>LPAD</underline></td>
+            <td>Left-pads a string with another string, to a certain length</td>
+        </tr>
+        <tr><td colspan="2" id="LPAD" class="hideTR">
+            <h2>LPAD</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LTRIM)"><underline>LTRIM</underline></td>
+            <td>Removes leading spaces from a string</td>
+        </tr>
+        <tr><td colspan="2" id="LTRIM" class="hideTR">
+            <h2>LTRIM</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MID)"><underline>MID</underline></td>
+            <td>Extracts a substring from a string (starting at any position)</td>
+        </tr>
+        <tr><td colspan="2" id="MID" class="hideTR">
+            <h2>MID</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(POSITION)"><underline>POSITION</underline></td>
+            <td>Returns the position of the first occurrence of a substring in a string</td>
+        </tr>
+        <tr><td colspan="2" id="POSITION" class="hideTR">
+            <h2>POSITION</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(REPEAT)"><underline>REPEAT</underline></td>
+            <td>Repeats a string as many times as specified</td>
+        </tr>
+        <tr><td colspan="2" id="REPEAT" class="hideTR">
+            <h2>REPEAT</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(REPLACE)"><underline>REPLACE</underline></td>
+            <td>Replaces all occurrences of a substring within a string, with a new substring</td>
+        </tr>
+        <tr><td colspan="2" id="REPLACE" class="hideTR">
+            <h2>REPLACE</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(REVERSE)"><underline>REVERSE</underline></td>
+            <td>Reverses a string and returns the result</td>
+        </tr>
+        <tr><td colspan="2" id="REVERSE" class="hideTR">
+            <h2>REVERSE</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RIGHT)"><underline>RIGHT</underline></td>
+            <td>Extracts a number of characters from a string (starting from right)</td>
+        </tr>
+        <tr><td colspan="2" id="RIGHT" class="hideTR">
+            <h2>RIGHT</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RPAD)"><underline>RPAD</underline></td>
+            <td>Right-pads a string with another string, to a certain length</td>
+        </tr>
+        <tr><td colspan="2" id="RPAD" class="hideTR">
+            <h2>RPAD</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RTRIM)"><underline>RTRIM</underline></td>
+            <td>Removes trailing spaces from a string</td>
+        </tr>
+        <tr><td colspan="2" id="RTRIM" class="hideTR">
+            <h2>RTRIM</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SPACE)"><underline>SPACE</underline></td>
+            <td>Returns a string of the specified number of space characters</td>
+        </tr>
+        <tr><td colspan="2" id="SPACE" class="hideTR">
+            <h2>SPACE</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(STRCMP)"><underline>STRCMP</underline></td>
+            <td>Compares two strings</td>
+        </tr>
+        <tr><td colspan="2" id="STRCMP" class="hideTR">
+            <h2>STRCMP</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SUBSTR)"><underline>SUBSTR</underline></td>
+            <td>Extracts a substring from a string (starting at any position)</td>
+        </tr>
+        <tr><td colspan="2" id="SUBSTR" class="hideTR">
+            <h2>SUBSTR</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SUBSTRING)"><underline>SUBSTRING</underline></td>
+            <td>Extracts a substring from a string (starting at any position)</td>
+        </tr>
+        <tr><td colspan="2" id="SUBSTRING" class="hideTR">
+            <h2>SUBSTRING</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SUBSTRING_INDEX)"><underline>SUBSTRING_INDEX</underline></td>
+            <td>Returns a substring of a string before a specified number of delimiter occurs</td>
+        </tr>
+        <tr><td colspan="2" id="SUBSTRING_INDEX" class="hideTR">
+            <h2>SUBSTRING_INDEX</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TRIM)"><underline>TRIM</underline></td>
+            <td>Removes leading and trailing spaces from a string</td>
+        </tr>
+        <tr><td colspan="2" id="TRIM" class="hideTR">
+            <h2>TRIM</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(UCASE)"><underline>UCASE</underline></td>
+            <td>Converts a string to upper-case</td>
+        </tr>
+        <tr><td colspan="2" id="UCASE" class="hideTR">
+            <h2>UCASE</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(UPPER)"><underline>UPPER</underline></td>
+            <td>Converts a string to upper-case</td>
+        </tr>
+        <tr><td colspan="2" id="UPPER" class="hideTR">
+            <h2>UPPER</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+    </table></div><br>
+    <h2>MySQL Numeric Functions</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2>Example</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+    </table></div><br>
+    <h2>MySQL Date Functions</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2>Example</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+    </table></div><br>
+    <h2>MySQL Advanced Functions</h2><br>
+    <div class="scrollableTable"><table>
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="Example" class="hideTR">
+            <h2>Example</h2>
+            <p>Example description</p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+    </table></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+<script type="text/javascript" src="../../scripts/ToggleTR.js"></script>
+</body>
+</html>
