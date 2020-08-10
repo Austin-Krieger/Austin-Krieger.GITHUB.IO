@@ -55,6 +55,11 @@
         <tr><td colspan="2" id="ASCII" class="hideTR">
             <h2>ASCII()</h2>
             <p>The <b>ASCII()</b> function returns the <b>ASCII</b> value for the specific character.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ASCII(character)
+            </p>
+            <h3>Example</h3>
             <p>Return the ASCII value of the first character in "CustomerName":</p>
             <p class="code-sl">
                 <sql>SELECT</sql> ASCII(CustomerName) <sql>AS</sql> NumCodeOfFirstChar<br>
@@ -70,6 +75,11 @@
             <h2>CHAR_LENGTH</h2>
             <p>The <b>CHAR_LENGTH()</b> function returns the length fo a string (in characters).</p>
             <p><b>Note</b>: This function is equal to the CHARACTER_LENGTH() function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CHAR_LENGTH(string)
+            </p>
+            <h3>Example</h3>
             <p>Return the length of the string:</p>
             <p class="code-sl">
                 <sql>SELECT</sql> CHAR_LENGTH("SQL Tutorial") <sql>AS</sql> LengthOfString;
@@ -86,9 +96,20 @@
         </tr>
         <tr><td colspan="2" id="characterlength" class="hideTR">
             <h2>CHARACTER_LENGTH</h2>
-            <p>Example description</p>
+            <p>The <b>CHARACTER_LENGTH()</b> function return the length of a string (in characters).</p>
+            <p><b>Note</b>: This function is equal to the <b>CHAR_LENGTH()</b> function.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                CHARACTER_LENGTH(string)
+            </p>
+            <h3>Example</h3>
+            <p>Return the length of the string:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CHARACTER_LENGTH("SQL Tutorial") <sql>AS</sql> LengthOfString;
+            </p>
+            <p>Return the length of the text in the "CustomerName" column:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CHARACTER_LENGTH(CustomerName) <sql>AS</sql> LengthOfName<br> FROM Customers;
             </p>
         </td></tr>
         <tr>
@@ -97,10 +118,21 @@
         </tr>
         <tr><td colspan="2" id="CONCAT" class="hideTR">
             <h2>CONCAT</h2>
-            <p>Example description</p>
+            <p>The CONCAT() function adds two or more expressions together.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                CONCAT(expression1, expression2, expression3,...)
             </p>
+            <h3>Example</h3>
+            <p>Add several strings together:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONCAT("SQL ", "Tutorial ", "is ", "fun!") <sql>AS</sql><br> ConcatenatedString;
+            </p><br>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONCAT(Address, " ", PostalCode, " ", City) <sql>AS</sql> Address<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p><b>Note</b>: If any of the expressions is a NULL value, it returns NULL.</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(CONCAT_WS)"><underline>CONCAT_WS</underline></td>
@@ -108,9 +140,15 @@
         </tr>
         <tr><td colspan="2" id="CONCAT_WS" class="hideTR">
             <h2>CONCAT_WS</h2>
-            <p>Example description</p>
+            <p>The <b>CONCAT_WS()</b> function adds two or more expressions together with a separator.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                CONCAT_WS(separator, expression1, expression2, expression3,...)
+            </p>
+            <h3>Example</h3>
+            <p>Add several expressions together, and add a "-" separator between them:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") <sql>AS</sql><br> ConcatenatedString;
             </p>
         </td></tr>
         <tr>
@@ -119,9 +157,29 @@
         </tr>
         <tr><td colspan="2" id="FIELD" class="hideTR">
             <h2>FIELD</h2>
-            <p>Example description</p>
+            <p>The <b>FIELD</b>() function returns the index position of a value in a list of values.</p>
+            <p>This function performs a case-insensitive search.</p>
+            <p><b>Note</b>: If the specified value is not found in the list of values, this function will return 0. If value is NULL, this function will return 0.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                FIELD(value, val1, val2, val3, ...)
+            </p>
+            <h3>Example</h3>
+            <p>Return the index position of  "q" in the string list:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIELD("q", "s", "q", "l");
+            </p>
+            <p>Return the index position of "c" in the string list:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIELD("c", "a", "b");
+            </p>
+            <p>Return the index position of "Q" in the string list:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIELD("Q", "s", "q", "l");
+            </p>
+            <p>Return the index position of 5 in the numeric list:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIELD(5, 0, 1, 2, 3, 4, 5);
             </p>
         </td></tr>
         <tr>
@@ -130,10 +188,28 @@
         </tr>
         <tr><td colspan="2" id="FIND_IN_SET" class="hideTR">
             <h2>FIND_IN_SET</h2>
-            <p>Example description</p>
+            <p>The <b>FIND_IN_SET()</b> function returns the position of a string within a list of strings.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                FIND_IN_SET(string, string_list)
             </p>
+            <h3>Example</h3>
+            <p>Search for "q" within the list of strings:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIND_IN_SET("q", "s,q,l");
+            </p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIND_IN_SET("a", "s,q,l");
+            </p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FIND_IN_SET("q", null);
+            </p>
+            <h3>Return Values</h3>
+            <ul>
+                <li>If string is not found in string_list, this function returns 0</li>
+                <li>If string or string_list is NULL, this function returns NULL</li>
+                <li>If string_list is an empty string (""), this function returns 0</li>
+            </ul>
         </td></tr>
         <tr>
             <td onclick="toggleTR(FORMAT)"><underline>FORMAT</underline></td>
@@ -141,9 +217,19 @@
         </tr>
         <tr><td colspan="2" id="FORMAT" class="hideTR">
             <h2>FORMAT</h2>
-            <p>Example description</p>
+            <p>The FORMAT() function formats a number to a format like "#,###,###.##", rounded to a specified number of decimal places, then it returns the result as a string.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                FORMAT(number, decimal_places)
+            </p>
+            <h3>Example</h3>
+            <p>Format the number as "#,###,###.##" (and round with two decimal places):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FORMAT(250500.5634, 2);
+            </p>
+            <p>Format the number as a format of "#,###,###.##" (and round with 0 decimal places):</p>
+            <p class="code-sl">
+                SELECT FORMAT(250500.5634, 0);
             </p>
         </td></tr>
         <tr>
@@ -152,10 +238,25 @@
         </tr>
         <tr><td colspan="2" id="INSERT" class="hideTR">
             <h2>INSERT</h2>
-            <p>Example description</p>
+            <p>The INSERT() function inserts a string within a string at the specified position and for a certain number of characters.</p>
+            <h3>Syntax</h3>
             <p class="code-sl">
-                <sql></sql> <br>
+                INSERT(string, position, number, string2)
             </p>
+            <h3>Example</h3>
+            <p>Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:</p>
+            <p class="code-sl">
+                <sql>SELECT INSERT</sql>("W3Schools.com", 1, 9, "Example");
+            </p>
+            <p>Insert the string "no" into the string "W3Schools.com". Replace three characters, starting from position 11:</p>
+            <p class="code-sl">
+                <sql>SELECT INSERT</sql>("W3Schools.com", 11, 3, "no");
+            </p>
+            <h3>Return Values</h3>
+            <ul>
+                <li>If position is outside the length of string, this function returns string</li>
+                <li>If number is higher than the length of the rest of the string, this function replaces string from position until the end of string</li>
+            </ul>
         </td></tr>
         <tr>
             <td onclick="toggleTR(INSTR)"><underline>INSTR</underline></td>
@@ -164,6 +265,12 @@
         <tr><td colspan="2" id="INSTR" class="hideTR">
             <h2>INSTR</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -175,6 +282,12 @@
         <tr><td colspan="2" id="LCASE" class="hideTR">
             <h2>LCASE</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -186,6 +299,12 @@
         <tr><td colspan="2" id="LEFT" class="hideTR">
             <h2>LEFT</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -197,6 +316,12 @@
         <tr><td colspan="2" id="LENGTH" class="hideTR">
             <h2>LENGTH</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -208,6 +333,12 @@
         <tr><td colspan="2" id="LOCATE" class="hideTR">
             <h2>LOCATE</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -219,6 +350,12 @@
         <tr><td colspan="2" id="LOWER" class="hideTR">
             <h2>LOWER</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -230,6 +367,12 @@
         <tr><td colspan="2" id="LPAD" class="hideTR">
             <h2>LPAD</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -241,6 +384,12 @@
         <tr><td colspan="2" id="LTRIM" class="hideTR">
             <h2>LTRIM</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -252,6 +401,12 @@
         <tr><td colspan="2" id="MID" class="hideTR">
             <h2>MID</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -263,6 +418,12 @@
         <tr><td colspan="2" id="POSITION" class="hideTR">
             <h2>POSITION</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -274,6 +435,12 @@
         <tr><td colspan="2" id="REPEAT" class="hideTR">
             <h2>REPEAT</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -285,6 +452,12 @@
         <tr><td colspan="2" id="REPLACE" class="hideTR">
             <h2>REPLACE</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -296,6 +469,12 @@
         <tr><td colspan="2" id="REVERSE" class="hideTR">
             <h2>REVERSE</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -307,6 +486,12 @@
         <tr><td colspan="2" id="RIGHT" class="hideTR">
             <h2>RIGHT</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -318,6 +503,12 @@
         <tr><td colspan="2" id="RPAD" class="hideTR">
             <h2>RPAD</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -329,6 +520,12 @@
         <tr><td colspan="2" id="RTRIM" class="hideTR">
             <h2>RTRIM</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -340,6 +537,12 @@
         <tr><td colspan="2" id="SPACE" class="hideTR">
             <h2>SPACE</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -351,6 +554,12 @@
         <tr><td colspan="2" id="STRCMP" class="hideTR">
             <h2>STRCMP</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -362,6 +571,12 @@
         <tr><td colspan="2" id="SUBSTR" class="hideTR">
             <h2>SUBSTR</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -373,6 +588,12 @@
         <tr><td colspan="2" id="SUBSTRING" class="hideTR">
             <h2>SUBSTRING</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -384,6 +605,12 @@
         <tr><td colspan="2" id="SUBSTRING_INDEX" class="hideTR">
             <h2>SUBSTRING_INDEX</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -395,6 +622,12 @@
         <tr><td colspan="2" id="TRIM" class="hideTR">
             <h2>TRIM</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -406,6 +639,12 @@
         <tr><td colspan="2" id="UCASE" class="hideTR">
             <h2>UCASE</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -417,6 +656,12 @@
         <tr><td colspan="2" id="UPPER" class="hideTR">
             <h2>UPPER</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -435,6 +680,12 @@
         <tr><td colspan="2" id="Example" class="hideTR">
             <h2>Example</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -453,6 +704,12 @@
         <tr><td colspan="2" id="Example" class="hideTR">
             <h2>Example</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
@@ -471,6 +728,12 @@
         <tr><td colspan="2" id="Example" class="hideTR">
             <h2>Example</h2>
             <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
