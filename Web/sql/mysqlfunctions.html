@@ -42,6 +42,8 @@
     </div>
     <h2>MySQL Functions</h2>
     <p>This reference contains string, numeric, date, and some advanced functions in MySQL.</p>
+    <button class="collapsible">MySQL String Functions</button>
+    <div class="content">
     <h2>MySQL String Functions</h2><br>
     <div class="scrollableTable"><table>
         <tr>
@@ -217,7 +219,7 @@
         </tr>
         <tr><td colspan="2" id="FORMAT" class="hideTR">
             <h2>FORMAT</h2>
-            <p>The FORMAT() function formats a number to a format like "#,###,###.##", rounded to a specified number of decimal places, then it returns the result as a string.</p>
+            <p>The <b>FORMAT()</b> function formats a number to a format like "#,###,###.##", rounded to a specified number of decimal places, then it returns the result as a string.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
                 FORMAT(number, decimal_places)
@@ -238,7 +240,7 @@
         </tr>
         <tr><td colspan="2" id="INSERT" class="hideTR">
             <h2>INSERT</h2>
-            <p>The INSERT() function inserts a string within a string at the specified position and for a certain number of characters.</p>
+            <p>The <b>INSERT()</b> function inserts a string within a string at the specified position and for a certain number of characters.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
                 INSERT(string, position, number, string2)
@@ -264,15 +266,25 @@
         </tr>
         <tr><td colspan="2" id="INSTR" class="hideTR">
             <h2>INSTR</h2>
-            <p>Example description</p>
+            <p>The <b>INSTR()</b> function returns the position of the first occurrence of a string in another string.</p>
+            <p>This function performs a case-insensitive search.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                INSTR(string1, string2)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Search for "3" in string "W3Schools.com", and return position:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> INSTR("W3Schools.com", "3") <sql>AS</sql> MatchPosition;
+            </p>
+            <p>Search for "COM" in string "W3Schools.com", and return position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> INSTR("W3Schools.com", "COM") <sql>AS</sql> MatchPosition;
+            </p>
+            <p>Search for "a" in CustomerName column, and return position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> INSTR(CustomerName, "a")<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -281,15 +293,21 @@
         </tr>
         <tr><td colspan="2" id="LCASE" class="hideTR">
             <h2>LCASE</h2>
-            <p>Example description</p>
+            <p>The <b>LCASE()</b> function converts a string to lower-case.</p>
+            <p><b>Note</b>: The <b>LOWER()</b> function is a synonym for the <b>LCASE()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LCASE(text)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Convert the text to lower-case:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LCASE("SQL Tutorial is FUN!");
+            </p>
+            <p>Convert the text in "CustomerName" to lower-case:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LCASE(CustomerName) <sql>AS</sql> LowercaseCustomerName<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -298,15 +316,21 @@
         </tr>
         <tr><td colspan="2" id="LEFT" class="hideTR">
             <h2>LEFT</h2>
-            <p>Example description</p>
+            <p>The <b>LEFT()</b> function extracts a number of characters from a string (starting from left).</p>
+            <p><b>Tip</b>: Also look at the <b>RIGHT()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LEFT(string, number_of_chars)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract 3 characters from a string (starting from left):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT LEFT</sql>("SQL Tutorial", 3) <sql>AS</sql> ExtractString;
+            </p>
+            <p>Extract 5 characters from the text in the "CustomerName" column (starting from left):</p>
+            <p class="code-sl">
+                <sql>SELECT LEFT</sql>(CustomerName, 5) <sql>AS</sql> ExtractString<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -315,15 +339,20 @@
         </tr>
         <tr><td colspan="2" id="LENGTH" class="hideTR">
             <h2>LENGTH</h2>
-            <p>Example description</p>
+            <p>The <b>LENGTH()</b> function returns the length of a string (in bytes).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LENGTH(string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the length of the string, in bytes:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LENGTH("SQL Tutorial") <sql>AS</sql> LengthOfString;
+            </p>
+            <p>Return the length of the text in the "CustomerName" column, in bytes:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LENGTH(CustomerName) <sql>AS</sql> LengthOfName<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -332,15 +361,27 @@
         </tr>
         <tr><td colspan="2" id="LOCATE" class="hideTR">
             <h2>LOCATE</h2>
-            <p>Example description</p>
+            <p>The <b>LOCATE()</b> function returns the position of the first occurrence of a substring in a string.</p>
+            <p>If the substring is not found within the original string, this function returns 0.</p>
+            <p>This function performs a case-insensitive search.</p>
+            <p><b>Note</b>: This function is equal to the <b>POSITION()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOCATE(substring, string, start)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Search for "3" in string "W3Schools.com", and return position:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOCATE("3", "W3Schools.com") <sql>AS</sql> MatchPosition;
+            </p>
+            <p>Search for "com" in string "W3Schools.com" (start at position 3), and return position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LOCATE("com", "W3Schools.com", 3) <sql>AS</sql> MatchPosition;
+            </p>
+            <p>Search for "a" in CustomerName column, and return position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LOCATE("a", CustomerName)<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -349,15 +390,21 @@
         </tr>
         <tr><td colspan="2" id="LOWER" class="hideTR">
             <h2>LOWER</h2>
-            <p>Example description</p>
+            <p>The <b>LOWER()</b> function converts a string to lower-case.</p>
+            <p><b>Note</b>: The <b>LCASE()</b> function is equal to the <b>LOWER()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOWER(text)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Convert the text to lower-case:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOWER("SQL Tutorial is FUN!");
+            </p>
+            <p>Convert the text in "CustomerName" to lower-case:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LOWER(CustomerName) <sql>AS</sql> LowercaseCustomerName<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -366,15 +413,20 @@
         </tr>
         <tr><td colspan="2" id="LPAD" class="hideTR">
             <h2>LPAD</h2>
-            <p>Example description</p>
+            <p>The <b>LPAD()</b> function left-pads a string with another string, to a certain length.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LPAD(string, length, lpad_string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Left-pad the string with "ABC", to a total length of 20:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LPAD("SQL Tutorial", 20, "ABC");
+            </p>
+            <p>Left-pad the text in "CustomerName" with "ABC", to a total length of 30:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LPAD(CustomerName, 30, "ABC") <sql>AS</sql> LeftPadCustomerName<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -383,15 +435,15 @@
         </tr>
         <tr><td colspan="2" id="LTRIM" class="hideTR">
             <h2>LTRIM</h2>
-            <p>Example description</p>
+            <p>The LTRIM() function removes leading spaces from a string.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LTRIM(string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Remove leading spaces from a string:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LTRIM("     SQL Tutorial") <sql>AS</sql> LeftTrimmedString;
             </p>
         </td></tr>
         <tr>
@@ -400,15 +452,26 @@
         </tr>
         <tr><td colspan="2" id="MID" class="hideTR">
             <h2>MID</h2>
-            <p>Example description</p>
+            <p>The <b>MID()</b> function extracts a substring from a string (starting at any position).</p>
+            <p><b>Note</b>: The <b>MID()</b> and <b>SUBSTR()</b> functions equals the <b>SUBSTRING()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                MID(string, start, length)
             </p>
+            <p><b>Note</b>: The start position can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract a substring from a string (start at position 5, extract 3 characters):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> MID("SQL Tutorial", 5, 3) <sql>AS</sql> ExtractString;
+            </p>
+            <p>Extract a substring from the text in a column (start at position 2, extract 5 characters):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MID(CustomerName, 2, 5) <sql>AS</sql> ExtractString
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>Extract a substring from a string (start from the end, at position -5, extract 5 characters):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MID("SQL Tutorial", -5, 5) <sql>AS</sql> ExtractString;
             </p>
         </td></tr>
         <tr>
@@ -417,15 +480,27 @@
         </tr>
         <tr><td colspan="2" id="POSITION" class="hideTR">
             <h2>POSITION</h2>
-            <p>Example description</p>
+            <p>The <b>POSITION()</b> function returns the position of the first occurrence of a substring in a string.</p>
+            <p>If the substring is not found within the original string, this function returns 0.</p>
+            <p>This function performs a case-insensitive search.</p>
+            <p><b>Note</b>: The <b>LOCATE()</b> function is equal to the <b>POSITION()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                POSITION(substring IN string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Search for "3" in string "W3Schools.com", and return position:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> POSITION("3" IN "W3Schools.com") <sql>AS</sql> MatchPosition;
+            </p>
+            <p>Search for "COM" in string "W3Schools.com", and return position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> POSITION("COM" <sql>IN</sql> "W3Schools.com") <sql>AS</sql> MatchPosition;
+            </p>
+            <p>Search for "a" in CustomerName column, and return position:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> POSITION("a" <sql>IN</sql> CustomerName)<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -434,15 +509,24 @@
         </tr>
         <tr><td colspan="2" id="REPEAT" class="hideTR">
             <h2>REPEAT</h2>
-            <p>Example description</p>
+            <p>The <b>REPEAT()</b> function repeats a string as many times as specified.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                REPEAT(string, number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Repeat a string 3 times:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> REPEAT("SQL Tutorial", 3);
+            </p>
+            <p>Repeat the text in CustomerName 2 times:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> REPEAT(CustomerName, 2)
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>Repeat the string 0 times:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> REPEAT("SQL Tutorial", 0);
             </p>
         </td></tr>
         <tr>
@@ -451,15 +535,28 @@
         </tr>
         <tr><td colspan="2" id="REPLACE" class="hideTR">
             <h2>REPLACE</h2>
-            <p>Example description</p>
+            <p>The <b>REPLACE()</b> function replaces all occurrences of a substring within a string, with a new substring.</p>
+            <p><b>Note</b>: This function performs a case-sensitive replacement.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                REPLACE(string, from_string, new_string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Replace "SQL" with "HTML":</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> REPLACE("SQL Tutorial", "SQL", "HTML");
+            </p>
+            <p>Replace "X" with "M":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> REPLACE("XYZ FGH XYZ", "X", "M");
+            </p>
+            <p>Replace "X" with "m":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> REPLACE("XYZ FGH XYZ", "X", "m");
+            </p>
+            <p>Replace "x" with "m":</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> REPLACE("XYZ FGH XYZ", "x", "m");
             </p>
         </td></tr>
         <tr>
@@ -468,15 +565,20 @@
         </tr>
         <tr><td colspan="2" id="REVERSE" class="hideTR">
             <h2>REVERSE</h2>
-            <p>Example description</p>
+            <p>The <b>REVERSE()</b> function reverses a string and returns the result.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                REVERSE(string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Reverse a string:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> REVERSE("SQL Tutorial");
+            </p>
+            <p>Reverse the text in CustomerName:</p>
+            <p class="code-sl">
+                <sql>SELECT </sql>REVERSE(CustomerName)<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -485,15 +587,21 @@
         </tr>
         <tr><td colspan="2" id="RIGHT" class="hideTR">
             <h2>RIGHT</h2>
-            <p>Example description</p>
+            <p>The <b>RIGHT()</b> function extracts a number of characters from a string (starting from right).</p>
+            <p><b>Tip</b>: Also look at the <b>LEFT()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                RIGHT(string, number_of_chars)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract 4 characters from a string (starting from right):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT RIGHT</sql>("SQL Tutorial is cool", 4) <sql>AS</sql> ExtractString;
+            </p>
+            <p>Extract 5 characters from the text in the "CustomerName" column (starting from right):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> RIGHT(CustomerName, 5) <sql>AS</sql> ExtractString<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -502,15 +610,21 @@
         </tr>
         <tr><td colspan="2" id="RPAD" class="hideTR">
             <h2>RPAD</h2>
-            <p>Example description</p>
+            <p>The <b>RPAD()</b> function right-pads a string with another string, to a certain length.</p>
+            <p><b>Note</b>: Also look at the <b>LPAD()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                RPAD(string, length, rpad_string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Right-pad the string with "ABC", to a total length of 20:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> RPAD("SQL Tutorial", 20, "ABC");
+            </p>
+            <p>Right-pad the text in "CustomerName" with "ABC", to a total length of 30:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> RPAD(CustomerName, 30, "ABC") <sql>AS</sql> RightPadCustomerName<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -519,15 +633,15 @@
         </tr>
         <tr><td colspan="2" id="RTRIM" class="hideTR">
             <h2>RTRIM</h2>
-            <p>Example description</p>
+            <p>The <b>RTRIM()</b> function removes trailing spaces from a string.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                RTRIM(string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Remove trailing spaces from a string:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> RTRIM("SQL Tutorial     ") <sql>AS</sql> RightTrimmedString;
             </p>
         </td></tr>
         <tr>
@@ -536,15 +650,15 @@
         </tr>
         <tr><td colspan="2" id="SPACE" class="hideTR">
             <h2>SPACE</h2>
-            <p>Example description</p>
+            <p>The <b>SPACE()</b> function returns a string of the specified number of space characters.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SPACE(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return a string with 10 space characters:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SPACE(10);
             </p>
         </td></tr>
         <tr>
@@ -553,16 +667,26 @@
         </tr>
         <tr><td colspan="2" id="STRCMP" class="hideTR">
             <h2>STRCMP</h2>
-            <p>Example description</p>
+            <p>The <b>STRCMP()</b> function compares two strings.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                STRCMP(string1, string2)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Compare two strings:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> STRCMP("SQL Tutorial", "SQL Tutorial");
             </p>
+            <p>Compare two strings:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> STRCMP("SQL Tutorial", "HTML Tutorial");
+            </p>
+            <h3>Return Values</h3>
+            <ul>
+            <li>If string1 = string2, this function returns 0</li>
+            <li>If string1 &lt; string2, this function returns -1</li>
+            <li>If string1 &gt; string2, this function returns 1</li>
+            </ul>
         </td></tr>
         <tr>
             <td onclick="toggleTR(SUBSTR)"><underline>SUBSTR</underline></td>
@@ -570,15 +694,28 @@
         </tr>
         <tr><td colspan="2" id="SUBSTR" class="hideTR">
             <h2>SUBSTR</h2>
-            <p>Example description</p>
+            <p>The <b>SUBSTR()</b> function extracts a substring from a string (starting at any position).</p>
+            <p><b>Note</b>: The <b>SUBSTR()</b> and <b>MID()</b> functions equals to the <b>SUBSTRING()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SUBSTR(string, start, length)<br>
+                <b>-OR-</b><br>
+                SUBSTR(string FROM start FOR length)
             </p>
+            <p><b>Note</b>: The start position can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract a substring from a string (start at position 5, extract 3 characters):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SUBSTR("SQL Tutorial", 5, 3) <sql>AS</sql> ExtractString;
+            </p>
+            <p>Extract a substring from the text in a column (start at position 2, extract 5 characters):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBSTR(CustomerName, 2, 5) <sql>AS</sql> ExtractString<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>Extract a substring from a string (start from the end, at position -5, extract 5 characters):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBSTR("SQL Tutorial", -5, 5) <sql>AS</sql> ExtractString;
             </p>
         </td></tr>
         <tr>
@@ -587,15 +724,28 @@
         </tr>
         <tr><td colspan="2" id="SUBSTRING" class="hideTR">
             <h2>SUBSTRING</h2>
-            <p>Example description</p>
+            <p>The <b>SUBSTRING()</b> function extracts a substring from a string (starting at any position).</p>
+            <p><b>Note</b>: The <b>SUBSTR()</b> and <b>MID()</b> functions equals to the <b>SUBSTRING()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SUBSTRING(string, start, length)<br>
+                <b>-OR-</b><br>
+                SUBSTRING(string FROM start FOR length)
             </p>
+            <p><b>Note</b>: The start position can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract a substring from a string (start at position 5, extract 3 characters):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SUBSTRING("SQL Tutorial", 5, 3) <sql>AS</sql> ExtractString;
+            </p>
+            <p>Extract a substring from the text in a column (start at position 2, extract 5 characters):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBSTRING(CustomerName, 2, 5) <sql>AS</sql> ExtractString<br>
+                <sql>FROM</sql> Customers;
+            </p>
+            <p>Extract a substring from a string (start from the end, at position -5, extract 5 characters):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBSTRING("SQL Tutorial", -5, 5) <sql>AS</sql> ExtractString;
             </p>
         </td></tr>
         <tr>
@@ -604,15 +754,19 @@
         </tr>
         <tr><td colspan="2" id="SUBSTRING_INDEX" class="hideTR">
             <h2>SUBSTRING_INDEX</h2>
-            <p>Example description</p>
+            <p>The <b>SUBSTRING_INDEX()</b> function returns a substring of a string before a specified number of delimiter occurs.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SUBSTRING_INDEX(string, delimiter, number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return a substring of a string before a specified number of delimiter occurs:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SUBSTRING_INDEX("www.w3schools.com", ".", 1);
+            </p>
+            <p>Return a substring of a string before a specified number of delimiter occurs:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBSTRING_INDEX("www.w3schools.com", ".", 2);
             </p>
         </td></tr>
         <tr>
@@ -621,15 +775,15 @@
         </tr>
         <tr><td colspan="2" id="TRIM" class="hideTR">
             <h2>TRIM</h2>
-            <p>Example description</p>
+            <p>The <b>TRIM()</b> function removes leading and trailing spaces from a string.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                TRIM(string)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Remove leading and trailing spaces from a string:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> TRIM('    SQL Tutorial    ') <sql>AS</sql> TrimmedString;
             </p>
         </td></tr>
         <tr>
@@ -638,15 +792,21 @@
         </tr>
         <tr><td colspan="2" id="UCASE" class="hideTR">
             <h2>UCASE</h2>
-            <p>Example description</p>
+            <p>The <b>UCASE()</b> function converts a string to upper-case.</p>
+            <p><b>Note</b>: This function is equal to the <b>UPPER()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                UCASE(text)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Convert the text to upper-case:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> UCASE("SQL Tutorial is FUN!");
+            </p>
+            <p>Convert the text in "CustomerName" to upper-case:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> UCASE(CustomerName) <sql>AS</sql> UppercaseCustomerName<br>
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
         <tr>
@@ -655,18 +815,27 @@
         </tr>
         <tr><td colspan="2" id="UPPER" class="hideTR">
             <h2>UPPER</h2>
-            <p>Example description</p>
+            <p>The <b>UPPER()</b> function converts a string to upper-case.</p>
+            <p><b>Note</b>: This function is equal to the <b>UCASE()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                UPPER(text)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Convert the text to upper-case:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> UPPER("SQL Tutorial is FUN!");
+            </p>
+            <p>Convert the text in "CustomerName" to upper-case:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> UPPER(CustomerName) <sql>AS</sql> UppercaseCustomerName
+                <sql>FROM</sql> Customers;
             </p>
         </td></tr>
     </table></div><br>
+    </div><br>
+    <button class="collapsible">MySQL Numeric Functions</button>
+    <div class="content">
     <h2>MySQL Numeric Functions</h2><br>
     <div class="scrollableTable"><table>
         <tr>
@@ -674,11 +843,225 @@
             <th>Description</th>
         </tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
+            <td onclick="toggleTR(ABS)"><underline>ABS</underline></td>
             <td></td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2>Example</h2>
+        <tr><td colspan="2" id="ABS" class="hideTR">
+            <h2>ABS</h2>
+            <p>The ABS() function returns the absolute (positive) value of a number.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ABS(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the absolute value of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ABS(-243.5);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ACOS)"><underline>ACOS</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="ACOS" class="hideTR">
+            <h2>ACOS</h2>
+            <p>The <b>ACOS()</b> function returns the arc cosine of a number.</p>
+            <p>The specified number must be between -1 to 1, otherwise this function returns NULL.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ACOS(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the arc cosine of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ACOS(0.25);
+            </p>
+            <p>Return the arc cosine of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ACOS(-0.8);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ASIN)"><underline>ASIN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="ASIN" class="hideTR">
+            <h2>ASIN</h2>
+            <p>The <b>ASIN()</b> function returns the arc sine of a number.</p>
+            <p>The specified number must be between -1 to 1, otherwise this function returns <b>NULL</b>.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ASIN(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the arc sine of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ASIN(0.25);
+            </p>
+            <p>Return the arc sine of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ASIN(-0.8);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ATAN)"><underline>ATAN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="ATAN" class="hideTR">
+            <h2>ATAN</h2>
+            <p>The <b>ATAN()</b> function returns the arc tangent of one or two numbers.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ATAN(number)<br>
+                <b>-OR-</b><br>
+                ATAN(a, b)
+            </p>
+            <h3>Example</h3>
+            <p>Return the arc tangent of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ATAN(2.5);
+            </p>
+            <p>Return the arc tangent of two values:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ATAN(-0.8, 2);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ATAN2)"><underline>ATAN2</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="ATAN2" class="hideTR">
+            <h2>ATAN2</h2>
+            <p>The <b>ATAN2()</b> function returns the arc tangent of two numbers.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ATAN2(a, b)
+            </p>
+            <h3>Example</h3>
+            <p>Return the arc tangent of two values:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ATAN2(0.50, 1);
+            </p>
+            <p>Return the arc tangent of two values:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ATAN2(-0.8, 2);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(AVG)"><underline>AVG</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="AVG" class="hideTR">
+            <h2>AVG</h2>
+            <p>The <b>AVG()</b> function returns the average value of an expression.</p>
+            <p><b>Note</b>: <b>NULL</b> values are ignored.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                AVG(expression)
+            </p>
+            <h3>Example</h3>
+            <p>Return the average value for the "Price" column in the "Products" table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> AVG(Price) <sql>AS</sql> AveragePrice <sql>FROM</sql> Products;
+            </p>
+            <p>Select the records that have a price above the average price:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> * <sql>FROM</sql> Products<br>
+                <sql>WHERE</sql> Price > (<sql>SELECT</sql> AVG(Price) <sql>FROM</sql> Products);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CEIL)"><underline>CEIL</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="CEIL" class="hideTR">
+            <h2>CEIL</h2>
+            <p>The <b>CEIL()</b> function returns the smallest integer value that is bigger than or equal to a number.</p>
+            <p><b>Note</b>: This function is equal to the <b>CEILING()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CEIL(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the smallest integer value that is greater than or equal to 25.75:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CEIL(25.75);
+            </p>
+            <p>Return the smallest integer value that is greater than or equal to 25:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CEIL(25);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CEILING)"><underline>CEILING</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="CEILING" class="hideTR">
+            <h2>CEILING</h2>
+            <p>The <b>CEILING()</b> function returns the smallest integer value that is bigger than or equal to a number.</p>
+            <p><b>Note</b>: This function is equal to the <b>CEIL()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CEILING(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the smallest integer value that is greater than or equal to 25.75:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CEILING(25.75);
+            </p>
+            <p>Return the smallest integer value that is greater than or equal to 25:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CEILING(25);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(COS)"><underline>COS</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="COS" class="hideTR">
+            <h2>COS</h2>
+            <p>The <b>COS()</b> function returns the cosine of a number.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                COS(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the cosine of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> COS(2);
+            </p>
+            <p>Return the cosine of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT COS</sql>(PI());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(COT)"><underline>COT</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="COT" class="hideTR">
+            <h2>COT</h2>
+            <p>The <b>COT()</b> function returns the cotangent of a number.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                COT(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return the cotangent of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> COT(6);
+            </p>
+            <p>Return the cotangent of a number:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> COT(-2);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(COUNT)"><underline>COUNT</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="COUNT" class="hideTR">
+            <h2>COUNT</h2>
             <p>Example description</p>
             <h3>Syntax</h3>
             <p class="code-sl">
@@ -689,8 +1072,540 @@
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(DEGREES)"><underline>DEGREES</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="DEGREES" class="hideTR">
+            <h2>DEGREES</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(DIV)"><underline>DIV</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="DIV" class="hideTR">
+            <h2>DIV</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(EXP)"><underline>EXP</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="EXP" class="hideTR">
+            <h2>EXP</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(FLOOR)"><underline>FLOOR</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="FLOOR" class="hideTR">
+            <h2>FLOOR</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(GREATEST)"><underline>GREATEST</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="GREATEST" class="hideTR">
+            <h2>GREATEST</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LEAST)"><underline>LEAST</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="LEAST" class="hideTR">
+            <h2>LEAST</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LN)"><underline>LN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="LN" class="hideTR">
+            <h2>LN</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LOG)"><underline>LOG</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="LOG" class="hideTR">
+            <h2>LOG</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LOG10)"><underline>LOG10</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="LOG10" class="hideTR">
+            <h2>LOG10</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LOG2)"><underline>LOG2</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="LOG2" class="hideTR">
+            <h2>LOG2</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MAX)"><underline>MAX</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="MAX" class="hideTR">
+            <h2>MAX</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MIN)"><underline>MIN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="MIN" class="hideTR">
+            <h2>MIN</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MOD)"><underline>MOD</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="MOD" class="hideTR">
+            <h2>MOD</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(PI)"><underline>PI</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="PI" class="hideTR">
+            <h2>PI</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(POW)"><underline>POW</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="POW" class="hideTR">
+            <h2>POW</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(POWER)"><underline>POWER</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="POWER" class="hideTR">
+            <h2>POWER</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RADIANS)"><underline>RADIANS</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="RADIANS" class="hideTR">
+            <h2>RADIANS</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(RAND)"><underline>RAND</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="RAND" class="hideTR">
+            <h2>RAND</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ROUND)"><underline>ROUND</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="ROUND" class="hideTR">
+            <h2>ROUND</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SIGN)"><underline>SIGN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="SIGN" class="hideTR">
+            <h2>SIGN</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SIN)"><underline>SIN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="SIN" class="hideTR">
+            <h2>SIN</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SQRT)"><underline>SQRT</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="SQRT" class="hideTR">
+            <h2>SQRT</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SUM)"><underline>SUM</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="SUM" class="hideTR">
+            <h2>SUM</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TAN)"><underline>TAN</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="TAN" class="hideTR">
+            <h2>TAN</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TRUNCATE)"><underline>TRUNCATE</underline></td>
+            <td></td>
+        </tr>
+        <tr><td colspan="2" id="TRUNCATE" class="hideTR">
+            <h2>TRUNCATE</h2>
+            <p>Example description</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
         </td></tr>
     </table></div><br>
+    </div><br>
+    <button class="collapsible">MySQL Date Functions</button>
+    <div class="content">
     <h2>MySQL Date Functions</h2><br>
     <div class="scrollableTable"><table>
         <tr>
@@ -713,8 +1628,15 @@
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
         </td></tr>
     </table></div><br>
+    </div><br>
+    <button class="collapsible" id="autoClickBtn">MySQL Advanced Functions</button>
+    <div class="content">
     <h2>MySQL Advanced Functions</h2><br>
     <div class="scrollableTable"><table>
         <tr>
@@ -737,8 +1659,13 @@
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
+            <p></p>
+            <p class="code-sl">
+                <sql></sql> <br>
+            </p>
         </td></tr>
     </table></div>
+    </div>
 </div>
 </div>
 </div>
