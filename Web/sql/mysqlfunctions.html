@@ -611,7 +611,6 @@
         <tr><td colspan="2" id="RPAD" class="hideTR">
             <h2>RPAD</h2>
             <p>The <b>RPAD()</b> function right-pads a string with another string, to a certain length.</p>
-            <p><b>Note</b>: Also look at the <b>LPAD()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
                 RPAD(string, length, rpad_string)
@@ -844,7 +843,7 @@
         </tr>
         <tr>
             <td onclick="toggleTR(ABS)"><underline>ABS</underline></td>
-            <td></td>
+            <td>Returns the absolute value of a number</td>
         </tr>
         <tr><td colspan="2" id="ABS" class="hideTR">
             <h2>ABS</h2>
@@ -861,7 +860,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(ACOS)"><underline>ACOS</underline></td>
-            <td></td>
+            <td>Returns the arc cosine of a number</td>
         </tr>
         <tr><td colspan="2" id="ACOS" class="hideTR">
             <h2>ACOS</h2>
@@ -883,7 +882,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(ASIN)"><underline>ASIN</underline></td>
-            <td></td>
+            <td>Returns the arc sine of a number</td>
         </tr>
         <tr><td colspan="2" id="ASIN" class="hideTR">
             <h2>ASIN</h2>
@@ -905,7 +904,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(ATAN)"><underline>ATAN</underline></td>
-            <td></td>
+            <td>Returns the arc tangent of one or two numbers</td>
         </tr>
         <tr><td colspan="2" id="ATAN" class="hideTR">
             <h2>ATAN</h2>
@@ -928,7 +927,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(ATAN2)"><underline>ATAN2</underline></td>
-            <td></td>
+            <td>Returns the arc tangent of two numbers</td>
         </tr>
         <tr><td colspan="2" id="ATAN2" class="hideTR">
             <h2>ATAN2</h2>
@@ -949,7 +948,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(AVG)"><underline>AVG</underline></td>
-            <td></td>
+            <td>Returns the average value of an expression</td>
         </tr>
         <tr><td colspan="2" id="AVG" class="hideTR">
             <h2>AVG</h2>
@@ -972,7 +971,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(CEIL)"><underline>CEIL</underline></td>
-            <td></td>
+            <td>Returns the smallest integer value that is &gt;= to a number</td>
         </tr>
         <tr><td colspan="2" id="CEIL" class="hideTR">
             <h2>CEIL</h2>
@@ -994,7 +993,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(CEILING)"><underline>CEILING</underline></td>
-            <td></td>
+            <td>Returns the smallest integer value that is &gt;= to a number</td>
         </tr>
         <tr><td colspan="2" id="CEILING" class="hideTR">
             <h2>CEILING</h2>
@@ -1016,7 +1015,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(COS)"><underline>COS</underline></td>
-            <td></td>
+            <td>Returns the cosine of a number</td>
         </tr>
         <tr><td colspan="2" id="COS" class="hideTR">
             <h2>COS</h2>
@@ -1037,7 +1036,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(COT)"><underline>COT</underline></td>
-            <td></td>
+            <td>Returns the cotangent of a number</td>
         </tr>
         <tr><td colspan="2" id="COT" class="hideTR">
             <h2>COT</h2>
@@ -1058,271 +1057,271 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(COUNT)"><underline>COUNT</underline></td>
-            <td></td>
+            <td>Returns the number of records returned by a select query</td>
         </tr>
         <tr><td colspan="2" id="COUNT" class="hideTR">
             <h2>COUNT</h2>
-            <p>Example description</p>
+            <p>The <b>COUNT()</b> function returns the number of records returned by a select query.</p>
+            <p><b>Note</b>: <b>NULL</b> values are not counted.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                COUNT(expression)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the number of products in the "Products" table:</p>
             <p class="code-sl">
-                <sql></sql> <br>
-            </p>
-            <p></p>
-            <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT COUNT</sql>(ProductID) <sql>AS</sql> NumberOfProducts <sql>FROM</sql> Products;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(DEGREES)"><underline>DEGREES</underline></td>
-            <td></td>
+            <td>Converts a value in radians to degrees</td>
         </tr>
         <tr><td colspan="2" id="DEGREES" class="hideTR">
             <h2>DEGREES</h2>
-            <p>Example description</p>
+            <p>The <b>DEGREES()</b> function converts a value in radians to degrees.</p>
+            <p><b>Note</b>: See also the <b>RADIANS()</b> and <b>PI()</b> functions.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DEGREES(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Convert the radian value into degrees:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DEGREES(1.5);
             </p>
-            <p></p>
+            <p>Convert the radian value into degrees:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DEGREES(PI()*2);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(DIV)"><underline>DIV</underline></td>
-            <td></td>
+            <td>Used for integer division</td>
         </tr>
         <tr><td colspan="2" id="DIV" class="hideTR">
             <h2>DIV</h2>
-            <p>Example description</p>
+            <p>The <b>DIV</b> function is used for integer division (x is divided by y). An integer value is returned.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                x DIV y
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Integer division (10/5):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> 10 DIV 5;
             </p>
-            <p></p>
+            <p>Integer division (8/3):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> 8 DIV 3;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(EXP)"><underline>EXP</underline></td>
-            <td></td>
+            <td>Returns e raised to the power of a specified number</td>
         </tr>
         <tr><td colspan="2" id="EXP" class="hideTR">
             <h2>EXP</h2>
-            <p>Example description</p>
+            <p>The <b>EXP()</b> function returns e raised to the power of the specified number.</p>
+            <p>The constant e (2.718281...), is the base of natural logarithms.</p>
+            <p><b>Tip</b>: Also look at the <b>LOG()</b> and <b>LN()</b> functions.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                EXP(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return e raised to the power of 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> EXP(1);
             </p>
-            <p></p>
+            <p>Return e raised to the power of 2:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> EXP(2);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(FLOOR)"><underline>FLOOR</underline></td>
-            <td></td>
+            <td>Returns the largest integer value that is &lt;= to a number</td>
         </tr>
         <tr><td colspan="2" id="FLOOR" class="hideTR">
             <h2>FLOOR</h2>
-            <p>Example description</p>
+            <p>The <b>FLOOR()</b> function returns the largest integer value that is smaller than or equal to a number.</p>
+            <p><b>Note</b>: Also look at the <b>ROUND(),</b> <b>CEIL(),</b> <b>CEILING(),</b> <b>TRUNCATE(),</b> and DIV functions.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                FLOOR(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the largest integer value that is less than or equal to 25.75:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> FLOOR(25.75);
             </p>
-            <p></p>
+            <p>Return the largest integer value that is greater than or equal to 25:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> FLOOR(25);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(GREATEST)"><underline>GREATEST</underline></td>
-            <td></td>
+            <td>Returns the greatest value of the list of arguments</td>
         </tr>
         <tr><td colspan="2" id="GREATEST" class="hideTR">
             <h2>GREATEST</h2>
-            <p>Example description</p>
+            <p>The <b>GREATEST()</b> function returns the greatest value of the list of arguments.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                GREATEST(arg1, arg2, arg3, ...)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the greatest value of the list of arguments:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> GREATEST(3, 12, 34, 8, 25);
             </p>
-            <p></p>
+            <p>Return the greatest value of the list of arguments:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> GREATEST("w3Schools.com", "microsoft.com", "apple.com");
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(LEAST)"><underline>LEAST</underline></td>
-            <td></td>
+            <td>Returns the smallest value of the list of arguments</td>
         </tr>
         <tr><td colspan="2" id="LEAST" class="hideTR">
             <h2>LEAST</h2>
-            <p>Example description</p>
+            <p>The <b>LEAST()</b> function returns the smallest value of the list of arguments.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LEAST(arg1, arg2, arg3, ...)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the smallest value of the list of arguments:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LEAST(3, 12, 34, 8, 25);
             </p>
-            <p></p>
+            <p>Return the smallest value of the list of arguments:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LEAST("w3Schools.com", "microsoft.com", "apple.com");
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(LN)"><underline>LN</underline></td>
-            <td></td>
+            <td>Returns the natural logarithm of a number</td>
         </tr>
         <tr><td colspan="2" id="LN" class="hideTR">
             <h2>LN</h2>
-            <p>Example description</p>
+            <p>The <b>LN()</b> function returns the natural logarithm of a number.</p>
+            <p><b>Note</b>: See also the <b>LOG()</b> and <b>EXP()</b> functions.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LN(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the natural logarithm of 2:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LN(2);
             </p>
-            <p></p>
+            <p>Return the natural logarithm of 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LN(1);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(LOG)"><underline>LOG</underline></td>
-            <td></td>
+            <td>Returns the natural logarithm of a number, or the logarithm of a number to a specified base</td>
         </tr>
         <tr><td colspan="2" id="LOG" class="hideTR">
             <h2>LOG</h2>
-            <p>Example description</p>
+            <p>The <b>LOG()</b> function returns the natural logarithm of a specified number, or the logarithm of the number to the specified base.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOG(number)<br>
+                <b>-OR-</b><br>
+                LOG(base, number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the natural logarithm of 2:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOG(2);
             </p>
-            <p></p>
+            <p>Return the natural logarithm of 4 to a specified base (2):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOG(2, 4);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(LOG10)"><underline>LOG10</underline></td>
-            <td></td>
+            <td>Returns the natural logarithm of a number to base 10</td>
         </tr>
         <tr><td colspan="2" id="LOG10" class="hideTR">
             <h2>LOG10</h2>
-            <p>Example description</p>
+            <p>The <b>LOG10()</b> function returns the natural logarithm of a number to base-10.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOG10(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the base-10 logarithm of 2:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOG10(2);
             </p>
-            <p></p>
+            <p>Return the base-10 logarithm of 4.5:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOG10(4.5);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(LOG2)"><underline>LOG2</underline></td>
-            <td></td>
+            <td>Returns the natural logarithm of a number to base 2</td>
         </tr>
         <tr><td colspan="2" id="LOG2" class="hideTR">
             <h2>LOG2</h2>
-            <p>Example description</p>
+            <p>The <b>LOG2()</b> function returns the natural logarithm of a number to base-2.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOG2(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the base-2 logarithm of 6:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOG2(6);
             </p>
-            <p></p>
+            <p>Return the base-2 logarithm of 64:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOG2(64);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(MAX)"><underline>MAX</underline></td>
-            <td></td>
+            <td>Returns the maximum value in a set of values</td>
         </tr>
         <tr><td colspan="2" id="MAX" class="hideTR">
             <h2>MAX</h2>
-            <p>Example description</p>
+            <p>The <b>MAX()</b> function returns the maximum value in a set of values.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                MAX(expression)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Find the price of the most expensive product in the "Products" table:</p>
             <p class="code-sl">
-                <sql></sql> <br>
-            </p>
-            <p></p>
-            <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> MAX(Price) <sql>AS</sql> LargestPrice <sql>FROM</sql> Products;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(MIN)"><underline>MIN</underline></td>
-            <td></td>
+            <td>Returns the minimum value in a set of values</td>
         </tr>
         <tr><td colspan="2" id="MIN" class="hideTR">
             <h2>MIN</h2>
-            <p>Example description</p>
+            <p>The <b>MIN()</b> function returns the minimum value in a set of values.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                MIN(expression)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Find the price of the cheapest product in the "Products" table:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> MIN(Price) <sql>AS</sql> SmallestPrice <sql>FROM</sql> Products;
             </p>
             <p></p>
             <p class="code-sl">
@@ -1331,275 +1330,297 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(MOD)"><underline>MOD</underline></td>
-            <td></td>
+            <td>Returns the remainder of a number divided by another number</td>
         </tr>
         <tr><td colspan="2" id="MOD" class="hideTR">
             <h2>MOD</h2>
-            <p>Example description</p>
+            <p>The MOD() function returns the remainder of a number divided by another number.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                MOD(x, y)<br>
+                <b>-OR-</b><br>
+                x MOD y<br>
+                <b>-OR-</b><br>
+                x % y
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the remainder of 18/4:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> MOD(18, 4);
             </p>
-            <p></p>
+            <p>Return the remainder of 18/4:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> 18 MOD 4;
+            </p>
+            <p>Return the remainder of 18/4:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> 18 % 4;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(PI)"><underline>PI</underline></td>
-            <td></td>
+            <td>Returns the value of PI</td>
         </tr>
         <tr><td colspan="2" id="PI" class="hideTR">
             <h2>PI</h2>
-            <p>Example description</p>
+            <p>The <b>PI()</b> function returns the value of <b>PI</b>.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                PI()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the value of PI:</p>
             <p class="code-sl">
-                <sql></sql> <br>
-            </p>
-            <p></p>
-            <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> PI();
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(POW)"><underline>POW</underline></td>
-            <td></td>
+            <td>Returns the value of a number raised to the power of another number</td>
         </tr>
         <tr><td colspan="2" id="POW" class="hideTR">
             <h2>POW</h2>
-            <p>Example description</p>
+            <p>The <b>POW()</b> function returns the value of a number raised to the power of another number.</p>
+            <p><b>Note</b>: This function is equal to the <b>POWER()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                POW(x, y)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return 4 raised to the second power:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> POW(4, 2);
             </p>
-            <p></p>
+            <p>Return 8 raised to the third power:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> POW(8, 3);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(POWER)"><underline>POWER</underline></td>
-            <td></td>
+            <td>Returns the value of a number raised to the power of another number</td>
         </tr>
         <tr><td colspan="2" id="POWER" class="hideTR">
             <h2>POWER</h2>
-            <p>Example description</p>
+            <p>The <b>POWER()</b> function returns the value of a number raised to the power of another number.</p>
+            <p><b>Note</b>: This function is equal to the <b>POW()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                POWER(x, y)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return 4 raised to the second power:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> POWER(4, 2);
             </p>
-            <p></p>
+            <p>Return 8 raised to the third power:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> POWER(8, 3);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(RADIANS)"><underline>RADIANS</underline></td>
-            <td></td>
+            <td>Converts a degree value into radians</td>
         </tr>
         <tr><td colspan="2" id="RADIANS" class="hideTR">
             <h2>RADIANS</h2>
-            <p>Example description</p>
+            <p>The <b>RADIANS()</b> function converts a degree value into radians.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                RADIANS(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Convert a degree value into radians:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> RADIANS(180);
             </p>
-            <p></p>
+            <p>Convert a degree value into radians:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> RADIANS(-45);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(RAND)"><underline>RAND</underline></td>
-            <td></td>
+            <td>Returns a random number</td>
         </tr>
         <tr><td colspan="2" id="RAND" class="hideTR">
             <h2>RAND</h2>
-            <p>Example description</p>
+            <p>The RAND() function returns a random number between 0 (inclusive) and 1 (exclusive).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                RAND(seed)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return a random decimal number (no seed value - so it returns a completely random number &gt;= 0 and &lt;1):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> RAND();
             </p>
-            <p></p>
+            <p>Return a random decimal number (with seed value of 6):</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> RAND(6);
             </p>
+            <p>Return a random decimal number &gt;= 5 and &lt; 10:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> RAND()*(10-5)+5;
+            </p>
+            <p>Return a random number &gt;= 5 and &lt;= 10:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> FLOOR(RAND()*(10-5+1)+5);
+            </p>
+            <p><b>Note</b>: If seed is specified, it returns a repeatable sequence of random numbers. If no seed is specified, it returns a completely random number.</p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(ROUND)"><underline>ROUND</underline></td>
-            <td></td>
+            <td>Rounds a number to a specified number of decimal places</td>
         </tr>
         <tr><td colspan="2" id="ROUND" class="hideTR">
             <h2>ROUND</h2>
-            <p>Example description</p>
+            <p>The <b>ROUND()</b> function rounds a number to a specified number of decimal places.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                ROUND(number, decimals)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Round the number to 2 decimal places:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> ROUND(135.375, 2);
             </p>
-            <p></p>
+            <p>Round the number to 0 decimal places:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> ROUND(345.156, 0);
+            </p>
+            <p>Round the Price column (to 1 decimal) in the "Products" table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ProductName, Price, ROUND(Price, 1) <sql>AS</sql> RoundedPrice<br>
+                <sql>FROM</sql> Products;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(SIGN)"><underline>SIGN</underline></td>
-            <td></td>
+            <td>Returns the sign of a number</td>
         </tr>
         <tr><td colspan="2" id="SIGN" class="hideTR">
             <h2>SIGN</h2>
-            <p>Example description</p>
+            <p>The <b>SIGN()</b> function returns the sign of a number.</p>
+            <ul>
+                <li>If number &gt; 0, it returns 1</li>
+                <li>If number = 0, it returns 0</li>
+                <li>If number &lt; 0, it returns -1</li>
+            </ul>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SIGN(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the sign of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SIGN(255.5);
             </p>
-            <p></p>
+            <p>Return the sign of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SIGN(-12);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(SIN)"><underline>SIN</underline></td>
-            <td></td>
+            <td>Returns the sine of a number</td>
         </tr>
         <tr><td colspan="2" id="SIN" class="hideTR">
             <h2>SIN</h2>
-            <p>Example description</p>
+            <p>The <b>SIN()</b> function returns the sine of a number.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SIN(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the sine of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SIN(2);
             </p>
-            <p></p>
+            <p>Return the sine of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SIN(-1);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(SQRT)"><underline>SQRT</underline></td>
-            <td></td>
+            <td>Returns the square root of a number</td>
         </tr>
         <tr><td colspan="2" id="SQRT" class="hideTR">
             <h2>SQRT</h2>
-            <p>Example description</p>
+            <p>The <b>SQRT()</b> function returns the square root of a number.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SQRT(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the square root of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SQRT(64);
             </p>
-            <p></p>
+            <p>Return the square root of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SQRT(13);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(SUM)"><underline>SUM</underline></td>
-            <td></td>
+            <td>Calculates the sum of a set of values</td>
         </tr>
         <tr><td colspan="2" id="SUM" class="hideTR">
             <h2>SUM</h2>
-            <p>Example description</p>
+            <p>The <b>SUM()</b> function calculates the sum of a set of values.</p>
+            <p><b>Note</b>: <b>NULL</b> values are ignored.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                SUM(expression)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the sum of the "Quantity" field in the "OrderDetails" table:</p>
             <p class="code-sl">
-                <sql></sql> <br>
-            </p>
-            <p></p>
-            <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> SUM(Quantity) <sql>AS</sql> TotalItemsOrdered <sql>FROM</sql> OrderDetails;
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(TAN)"><underline>TAN</underline></td>
-            <td></td>
+            <td>Returns the tangent of a number</td>
         </tr>
         <tr><td colspan="2" id="TAN" class="hideTR">
             <h2>TAN</h2>
-            <p>Example description</p>
+            <p>The <b>TAN()</b> function returns the tangent of a number.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                TAN(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the tangent of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> TAN(1.75);
             </p>
-            <p></p>
+            <p>Return the tangent of a number:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> TAN(-3);
             </p>
         </td></tr>
         <tr>
             <td onclick="toggleTR(TRUNCATE)"><underline>TRUNCATE</underline></td>
-            <td></td>
+            <td>Truncates a number to the specified number of decimal places</td>
         </tr>
         <tr><td colspan="2" id="TRUNCATE" class="hideTR">
             <h2>TRUNCATE</h2>
-            <p>Example description</p>
+            <p>The <b>TRUNCATE()</b> function truncates a number to the specified number of decimal places.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                TRUNCATE(number, decimals)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return a number truncated to 2 decimal places:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT TRUNCATE</sql>(135.375, 2);
             </p>
-            <p></p>
+            <p>Return a number truncated to 0 decimal places:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT TRUNCATE</sql>(345.156, 0);
             </p>
         </td></tr>
     </table></div><br>
