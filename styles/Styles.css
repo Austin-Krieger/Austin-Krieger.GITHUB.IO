@@ -225,6 +225,10 @@ sql {
     overflow-x: auto;
 }
 
+.parameterValues td {
+    background-color: #c8c8c8;
+}
+
 /* Not in use
 .flip3D {
     width: 49%;

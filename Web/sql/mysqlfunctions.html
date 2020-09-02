@@ -61,6 +61,17 @@
             <p class="code-sl">
                 ASCII(character)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>character</td>
+                    <td>Required. The character to return the ASCII value for. If more than one character is entered, it will only return the value for the first character</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the ASCII value of the first character in "CustomerName":</p>
             <p class="code-sl">
@@ -81,6 +92,17 @@
             <p class="code-sl">
                 CHAR_LENGTH(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>string</td>
+                    <td>Required. The string to count the length for</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the length of the string:</p>
             <p class="code-sl">
@@ -104,6 +126,17 @@
             <p class="code-sl">
                 CHARACTER_LENGTH(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>string</td>
+                    <td>Required. The string to count the length for</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the length of the string:</p>
             <p class="code-sl">
@@ -125,6 +158,17 @@
             <p class="code-sl">
                 CONCAT(expression1, expression2, expression3,...)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>expression1,<br>expression2,<br>expression3,<br>etc.</td>
+                    <td>Required. The expressions to add together.<br><br><b>Note</b>: If any of the expressions is a NULL vlaue, it returns NULL</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Add several strings together:</p>
             <p class="code-sl">
@@ -147,6 +191,21 @@
             <p class="code-sl">
                 CONCAT_WS(separator, expression1, expression2, expression3,...)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>separator</td>
+                    <td>Required. The separator to add between each of the expressions. If separator is NULL, this function returns NULL</td>
+                </tr>
+                <tr>
+                    <td>expression1,<br>expression2,<br>expression3,<br>etc.</td>
+                    <td>Required. The expressions to add together. An expression with a NULL value will be skipped</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Add several expressions together, and add a "-" separator between them:</p>
             <p class="code-sl">
@@ -166,6 +225,21 @@
             <p class="code-sl">
                 FIELD(value, val1, val2, val3, ...)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>value</td>
+                    <td>Required. The value to search for in the list</td>
+                </tr>
+                <tr>
+                    <td>val1, val2, val3, ...</td>
+                    <td>Required. The list of values to search</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the index position of  "q" in the string list:</p>
             <p class="code-sl">
@@ -195,6 +269,17 @@
             <p class="code-sl">
                 FIND_IN_SET(string, string_list)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Search for "q" within the list of strings:</p>
             <p class="code-sl">
@@ -224,6 +309,17 @@
             <p class="code-sl">
                 FORMAT(number, decimal_places)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Format the number as "#,###,###.##" (and round with two decimal places):</p>
             <p class="code-sl">
@@ -245,6 +341,17 @@
             <p class="code-sl">
                 INSERT(string, position, number, string2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:</p>
             <p class="code-sl">
@@ -272,6 +379,17 @@
             <p class="code-sl">
                 INSTR(string1, string2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Search for "3" in string "W3Schools.com", and return position:</p>
             <p class="code-sl">
@@ -299,6 +417,17 @@
             <p class="code-sl">
                 LCASE(text)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert the text to lower-case:</p>
             <p class="code-sl">
@@ -322,6 +451,17 @@
             <p class="code-sl">
                 LEFT(string, number_of_chars)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract 3 characters from a string (starting from left):</p>
             <p class="code-sl">
@@ -344,6 +484,17 @@
             <p class="code-sl">
                 LENGTH(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the length of the string, in bytes:</p>
             <p class="code-sl">
@@ -369,6 +520,17 @@
             <p class="code-sl">
                 LOCATE(substring, string, start)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Search for "3" in string "W3Schools.com", and return position:</p>
             <p class="code-sl">
@@ -396,6 +558,17 @@
             <p class="code-sl">
                 LOWER(text)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert the text to lower-case:</p>
             <p class="code-sl">
@@ -418,6 +591,17 @@
             <p class="code-sl">
                 LPAD(string, length, lpad_string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Left-pad the string with "ABC", to a total length of 20:</p>
             <p class="code-sl">
@@ -440,6 +624,17 @@
             <p class="code-sl">
                 LTRIM(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Remove leading spaces from a string:</p>
             <p class="code-sl">
@@ -459,6 +654,17 @@
                 MID(string, start, length)
             </p>
             <p><b>Note</b>: The start position can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract a substring from a string (start at position 5, extract 3 characters):</p>
             <p class="code-sl">
@@ -488,6 +694,17 @@
             <p class="code-sl">
                 POSITION(substring IN string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Search for "3" in string "W3Schools.com", and return position:</p>
             <p class="code-sl">
@@ -514,6 +731,17 @@
             <p class="code-sl">
                 REPEAT(string, number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Repeat a string 3 times:</p>
             <p class="code-sl">
@@ -541,6 +769,17 @@
             <p class="code-sl">
                 REPLACE(string, from_string, new_string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Replace "SQL" with "HTML":</p>
             <p class="code-sl">
@@ -570,6 +809,17 @@
             <p class="code-sl">
                 REVERSE(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Reverse a string:</p>
             <p class="code-sl">
@@ -593,6 +843,17 @@
             <p class="code-sl">
                 RIGHT(string, number_of_chars)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract 4 characters from a string (starting from right):</p>
             <p class="code-sl">
@@ -615,6 +876,17 @@
             <p class="code-sl">
                 RPAD(string, length, rpad_string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Right-pad the string with "ABC", to a total length of 20:</p>
             <p class="code-sl">
@@ -637,6 +909,17 @@
             <p class="code-sl">
                 RTRIM(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Remove trailing spaces from a string:</p>
             <p class="code-sl">
@@ -654,6 +937,17 @@
             <p class="code-sl">
                 SPACE(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a string with 10 space characters:</p>
             <p class="code-sl">
@@ -671,6 +965,17 @@
             <p class="code-sl">
                 STRCMP(string1, string2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Compare two strings:</p>
             <p class="code-sl">
@@ -702,6 +1007,17 @@
                 SUBSTR(string FROM start FOR length)
             </p>
             <p><b>Note</b>: The start position can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract a substring from a string (start at position 5, extract 3 characters):</p>
             <p class="code-sl">
@@ -732,6 +1048,17 @@
                 SUBSTRING(string FROM start FOR length)
             </p>
             <p><b>Note</b>: The start position can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract a substring from a string (start at position 5, extract 3 characters):</p>
             <p class="code-sl">
@@ -758,6 +1085,17 @@
             <p class="code-sl">
                 SUBSTRING_INDEX(string, delimiter, number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a substring of a string before a specified number of delimiter occurs:</p>
             <p class="code-sl">
@@ -779,6 +1117,17 @@
             <p class="code-sl">
                 TRIM(string)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Remove leading and trailing spaces from a string:</p>
             <p class="code-sl">
@@ -797,6 +1146,17 @@
             <p class="code-sl">
                 UCASE(text)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert the text to upper-case:</p>
             <p class="code-sl">
@@ -820,6 +1180,17 @@
             <p class="code-sl">
                 UPPER(text)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert the text to upper-case:</p>
             <p class="code-sl">
@@ -852,6 +1223,17 @@
             <p class="code-sl">
                 ABS(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the absolute value of a number:</p>
             <p class="code-sl">
@@ -870,6 +1252,17 @@
             <p class="code-sl">
                 ACOS(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the arc cosine of a number:</p>
             <p class="code-sl">
@@ -892,6 +1285,17 @@
             <p class="code-sl">
                 ASIN(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the arc sine of a number:</p>
             <p class="code-sl">
@@ -915,6 +1319,17 @@
                 <b>-OR-</b><br>
                 ATAN(a, b)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the arc tangent of a number:</p>
             <p class="code-sl">
@@ -936,6 +1351,17 @@
             <p class="code-sl">
                 ATAN2(a, b)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the arc tangent of two values:</p>
             <p class="code-sl">
@@ -958,6 +1384,17 @@
             <p class="code-sl">
                 AVG(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the average value for the "Price" column in the "Products" table:</p>
             <p class="code-sl">
@@ -981,6 +1418,17 @@
             <p class="code-sl">
                 CEIL(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the smallest integer value that is greater than or equal to 25.75:</p>
             <p class="code-sl">
@@ -1003,6 +1451,17 @@
             <p class="code-sl">
                 CEILING(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the smallest integer value that is greater than or equal to 25.75:</p>
             <p class="code-sl">
@@ -1024,6 +1483,17 @@
             <p class="code-sl">
                 COS(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the cosine of a number:</p>
             <p class="code-sl">
@@ -1045,6 +1515,17 @@
             <p class="code-sl">
                 COT(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the cotangent of a number:</p>
             <p class="code-sl">
@@ -1067,6 +1548,17 @@
             <p class="code-sl">
                 COUNT(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the number of products in the "Products" table:</p>
             <p class="code-sl">
@@ -1085,6 +1577,17 @@
             <p class="code-sl">
                 DEGREES(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert the radian value into degrees:</p>
             <p class="code-sl">
@@ -1106,6 +1609,17 @@
             <p class="code-sl">
                 x DIV y
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Integer division (10/5):</p>
             <p class="code-sl">
@@ -1129,6 +1643,17 @@
             <p class="code-sl">
                 EXP(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return e raised to the power of 1:</p>
             <p class="code-sl">
@@ -1151,6 +1676,17 @@
             <p class="code-sl">
                 FLOOR(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the largest integer value that is less than or equal to 25.75:</p>
             <p class="code-sl">
@@ -1172,6 +1708,17 @@
             <p class="code-sl">
                 GREATEST(arg1, arg2, arg3, ...)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the greatest value of the list of arguments:</p>
             <p class="code-sl">
@@ -1193,6 +1740,17 @@
             <p class="code-sl">
                 LEAST(arg1, arg2, arg3, ...)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the smallest value of the list of arguments:</p>
             <p class="code-sl">
@@ -1215,6 +1773,17 @@
             <p class="code-sl">
                 LN(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the natural logarithm of 2:</p>
             <p class="code-sl">
@@ -1238,6 +1807,17 @@
                 <b>-OR-</b><br>
                 LOG(base, number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the natural logarithm of 2:</p>
             <p class="code-sl">
@@ -1259,6 +1839,17 @@
             <p class="code-sl">
                 LOG10(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the base-10 logarithm of 2:</p>
             <p class="code-sl">
@@ -1280,6 +1871,17 @@
             <p class="code-sl">
                 LOG2(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the base-2 logarithm of 6:</p>
             <p class="code-sl">
@@ -1301,6 +1903,17 @@
             <p class="code-sl">
                 MAX(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Find the price of the most expensive product in the "Products" table:</p>
             <p class="code-sl">
@@ -1318,6 +1931,17 @@
             <p class="code-sl">
                 MIN(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Find the price of the cheapest product in the "Products" table:</p>
             <p class="code-sl">
@@ -1343,6 +1967,17 @@
                 <b>-OR-</b><br>
                 x % y
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the remainder of 18/4:</p>
             <p class="code-sl">
@@ -1368,6 +2003,17 @@
             <p class="code-sl">
                 PI()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the value of PI:</p>
             <p class="code-sl">
@@ -1386,6 +2032,17 @@
             <p class="code-sl">
                 POW(x, y)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return 4 raised to the second power:</p>
             <p class="code-sl">
@@ -1408,6 +2065,17 @@
             <p class="code-sl">
                 POWER(x, y)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return 4 raised to the second power:</p>
             <p class="code-sl">
@@ -1429,6 +2097,17 @@
             <p class="code-sl">
                 RADIANS(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert a degree value into radians:</p>
             <p class="code-sl">
@@ -1450,6 +2129,17 @@
             <p class="code-sl">
                 RAND(seed)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a random decimal number (no seed value - so it returns a completely random number &gt;= 0 and &lt;1):</p>
             <p class="code-sl">
@@ -1480,6 +2170,17 @@
             <p class="code-sl">
                 ROUND(number, decimals)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Round the number to 2 decimal places:</p>
             <p class="code-sl">
@@ -1511,6 +2212,17 @@
             <p class="code-sl">
                 SIGN(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the sign of a number:</p>
             <p class="code-sl">
@@ -1532,6 +2244,17 @@
             <p class="code-sl">
                 SIN(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the sine of a number:</p>
             <p class="code-sl">
@@ -1553,6 +2276,17 @@
             <p class="code-sl">
                 SQRT(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the square root of a number:</p>
             <p class="code-sl">
@@ -1575,6 +2309,17 @@
             <p class="code-sl">
                 SUM(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the sum of the "Quantity" field in the "OrderDetails" table:</p>
             <p class="code-sl">
@@ -1592,6 +2337,17 @@
             <p class="code-sl">
                 TAN(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the tangent of a number:</p>
             <p class="code-sl">
@@ -1613,6 +2369,17 @@
             <p class="code-sl">
                 TRUNCATE(number, decimals)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a number truncated to 2 decimal places:</p>
             <p class="code-sl">
@@ -1646,29 +2413,49 @@
                 <b>-OR-</b><br>
                 ADDDATE(date, days)
             </p>
-            <p><b>addunit</b> (Required). The type of interval to add. Can be one of the following values:</p>
-            <ul>
-                <li>MICROSECOND</li>
-                <li>SECOND</li>
-                <li>MINUTE</li>
-                <li>HOUR</li>
-                <li>DAY</li>
-                <li>WEEK</li>
-                <li>MONTH</li>
-                <li>QUARTER</li>
-                <li>YEAR</li>
-                <li>SECOND_MICROSECOND</li>
-                <li>MINUTE_MICROSECOND</li>
-                <li>MINUTE_SECOND</li>
-                <li>HOUR_MICROSECOND</li>
-                <li>HOUR_SECOND</li>
-                <li>HOUR_MINUTE</li>
-                <li>DAY_MICROSECOND</li>
-                <li>DAY_SECOND</li>
-                <li>DAY_MINUTE</li>
-                <li>DAY_HOUR</li>
-                <li>YEAR_MONTH</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <td>addunit</td>
+                <td>(Required). The type of interval to add. Can be one of the following values:<br>
+                <ul>
+                    <li>MICROSECOND</li>
+                    <li>SECOND</li>
+                    <li>MINUTE</li>
+                    <li>HOUR</li>
+                    <li>DAY</li>
+                    <li>WEEK</li>
+                    <li>MONTH</li>
+                    <li>QUARTER</li>
+                    <li>YEAR</li>
+                    <li>SECOND_MICROSECOND</li>
+                    <li>MINUTE_MICROSECOND</li>
+                    <li>MINUTE_SECOND</li>
+                    <li>HOUR_MICROSECOND</li>
+                    <li>HOUR_SECOND</li>
+                    <li>HOUR_MINUTE</li>
+                    <li>DAY_MICROSECOND</li>
+                    <li>DAY_SECOND</li>
+                    <li>DAY_MINUTE</li>
+                    <li>DAY_HOUR</li>
+                    <li>YEAR_MONTH</li>
+                </ul></td>
+            </table></div>
             <h3>Example</h3>
             <p>Add 10 days to a date and return the date:</p>
             <p class="code-sl">
@@ -1698,6 +2485,17 @@
             <p class="code-sl">
                 ADDTIME(datetime, addtime)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Add 2 seconds to a time and return the datetime:</p>
             <p class="code-sl">
@@ -1732,6 +2530,17 @@
             <p class="code-sl">
                 CURDATE()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current date:</p>
             <p class="code-sl">
@@ -1754,6 +2563,17 @@
             <p class="code-sl">
                 CURRENT_DATE()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current date:</p>
             <p class="code-sl">
@@ -1776,6 +2596,17 @@
             <p class="code-sl">
                 CURRENT_TIME()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return current time:</p>
             <p class="code-sl">
@@ -1798,6 +2629,17 @@
             <p class="code-sl">
                 CURRENT_TIMESTAMP()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current date and time:</p>
             <p class="code-sl">
@@ -1820,6 +2662,17 @@
             <p class="code-sl">
                 CURTIME()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return current time:</p>
             <p class="code-sl">
@@ -1841,6 +2694,17 @@
             <p class="code-sl">
                 DATE(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract the date part:</p>
             <p class="code-sl">
@@ -1870,6 +2734,17 @@
             <p class="code-sl">
                 DATEDIFF(date1, date2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the number of days between two date values:</p>
             <p class="code-sl">
@@ -1895,29 +2770,45 @@
             <p class="code-sl">
                 DATE_ADD(date, INTERVAL value addunit)
             </p>
-            <p><b>addunit</b> (Required). The type of interval to add. Can be one of the following values:</p>
-            <ul>
-                <li>MICROSECOND</li>
-                <li>SECOND</li>
-                <li>MINUTE</li>
-                <li>HOUR</li>
-                <li>DAY</li>
-                <li>WEEK</li>
-                <li>MONTH</li>
-                <li>QUARTER</li>
-                <li>YEAR</li>
-                <li>SECOND_MICROSECOND</li>
-                <li>MINUTE_MICROSECOND</li>
-                <li>MINUTE_SECOND</li>
-                <li>HOUR_MICROSECOND</li>
-                <li>HOUR_SECOND</li>
-                <li>HOUR_MINUTE</li>
-                <li>DAY_MICROSECOND</li>
-                <li>DAY_SECOND</li>
-                <li>DAY_MINUTE</li>
-                <li>DAY_HOUR</li>
-                <li>YEAR_MONTH</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <td>addunit</td>
+                <td>(Required). The type of interval to add. Can be one of the following values:<br>
+                <ul>
+                    <li>MICROSECOND</li>
+                    <li>SECOND</li>
+                    <li>MINUTE</li>
+                    <li>HOUR</li>
+                    <li>DAY</li>
+                    <li>WEEK</li>
+                    <li>MONTH</li>
+                    <li>QUARTER</li>
+                    <li>YEAR</li>
+                    <li>SECOND_MICROSECOND</li>
+                    <li>MINUTE_MICROSECOND</li>
+                    <li>MINUTE_SECOND</li>
+                    <li>HOUR_MICROSECOND</li>
+                    <li>HOUR_SECOND</li>
+                    <li>HOUR_MINUTE</li>
+                    <li>DAY_MICROSECOND</li>
+                    <li>DAY_SECOND</li>
+                    <li>DAY_MINUTE</li>
+                    <li>DAY_HOUR</li>
+                    <li>YEAR_MONTH</li>
+                </ul></td>
+            </table></div>
             <h3>Example</h3>
             <p>Add 10 days to a date and return the date:</p>
             <p class="code-sl">
@@ -1947,75 +2838,87 @@
             <p class="code-sl">
                 DATE_FORMAT(date, format)
             </p>
-            <p><b>format</b> (Required). The format to use. Can be one or a combination of the following values:</p>
-            <div class="scrollableTable"><table>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
                 <tr>
-                    <th>Format</th>
+                    <th>Parameter</th>
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>%a</td><td>Abbreviated weekday name (Sun to Sat)</td>
-                </tr><tr>
-                    <td>%b</td><td>Abbreviated month name (Jan to Dec)</td>
-                </tr><tr>
-                    <td>%c</td><td>Numeric month name (0 to 12)</td>
-                </tr><tr>
-                    <td>%D</td><td>Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)</td>
-                </tr><tr>
-                    <td>%d</td><td>Day of the month as a numeric value (01 to 31)</td>
-                </tr><tr>
-                    <td>%e</td><td>Day of the month as a numeric value (0 to 31)</td>
-                </tr><tr>
-                    <td>%f</td><td>Microseconds (000000 to 999999)</td>
-                </tr><tr>
-                    <td>%H</td><td>Hour (00 to 23)</td>
-                </tr><tr>
-                    <td>%h</td><td>Hour (00 to 12)</td>
-                </tr><tr>
-                    <td>%I</td><td>Hour (00 to 12)</td>
-                </tr><tr>
-                    <td>%i</td><td>Minutes (00 to 59)</td>
-                </tr><tr>
-                    <td>%j</td><td>Day of the year (001 to 366)</td>
-                </tr><tr>
-                    <td>%k</td><td>Hour (0 to 23)</td>
-                </tr><tr>
-                    <td>%l</td><td>Hour (1 to 12)</td>
-                </tr><tr>
-                    <td>%M</td><td>Month name in full (January to December)</td>
-                </tr><tr>
-                    <td>%m</td><td>Month name as a numeric value (00 to 12)</td>
-                </tr><tr>
-                    <td>%p</td><td>AM or PM</td>
-                </tr><tr>
-                    <td>%r</td><td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
-                </tr><tr>
-                    <td>%S</td><td>Seconds (00 to 59)</td>
-                </tr><tr>
-                    <td>%s</td><td>Seconds (00 to 59)</td>
-                </tr><tr>
-                    <td>%T</td><td>Time in 24 hour format (hh:mm:ss)</td>
-                </tr><tr>
-                    <td>%U</td><td>Week where Sunday is the first day of the week (00 to 53)</td>
-                </tr><tr>
-                    <td>%u</td><td>Week where Monday is the first day of the week (00 to 53)</td>
-                </tr><tr>
-                    <td>%V</td><td>Week where Sunday is the first day of the week (01 to 53). Used with %X</td>
-                </tr><tr>
-                    <td>%v</td><td>Week where Monday is the first day of the week (01 to 53). Used with %X</td>
-                </tr><tr>
-                    <td>%W</td><td>Weekday name in full (Sunday to Saturday)</td>
-                </tr><tr>
-                    <td>%w</td><td>Day of the week where Sunday=0 and Saturday=6</td>
-                </tr><tr>
-                    <td>%X</td><td>Year for the week where Sunday is the first day of the week. Used with %V</td>
-                </tr><tr>
-                    <td>%x</td><td>Year for the week where Monday is the first day of the week. Used with %V</td>
-                </tr><tr>
-                    <td>%Y</td><td>Year as a numeric, 4-digit value</td>
-                </tr><tr>
-                    <td>%y</td><td>Year as a numeric, 2-digit value</td>
+                    <td></td>
+                    <td></td>
                 </tr>
+                <tr><td>format</td><td>(Required). The format to use. Can be one or a combination of the following values:<br><br>
+                    <div class="scrollableTable"><table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>%a</td><td>Abbreviated weekday name (Sun to Sat)</td>
+                    </tr><tr>
+                        <td>%b</td><td>Abbreviated month name (Jan to Dec)</td>
+                    </tr><tr>
+                        <td>%c</td><td>Numeric month name (0 to 12)</td>
+                    </tr><tr>
+                        <td>%D</td><td>Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)</td>
+                    </tr><tr>
+                        <td>%d</td><td>Day of the month as a numeric value (01 to 31)</td>
+                    </tr><tr>
+                        <td>%e</td><td>Day of the month as a numeric value (0 to 31)</td>
+                    </tr><tr>
+                        <td>%f</td><td>Microseconds (000000 to 999999)</td>
+                    </tr><tr>
+                        <td>%H</td><td>Hour (00 to 23)</td>
+                    </tr><tr>
+                        <td>%h</td><td>Hour (00 to 12)</td>
+                    </tr><tr>
+                        <td>%I</td><td>Hour (00 to 12)</td>
+                    </tr><tr>
+                        <td>%i</td><td>Minutes (00 to 59)</td>
+                    </tr><tr>
+                        <td>%j</td><td>Day of the year (001 to 366)</td>
+                    </tr><tr>
+                        <td>%k</td><td>Hour (0 to 23)</td>
+                    </tr><tr>
+                        <td>%l</td><td>Hour (1 to 12)</td>
+                    </tr><tr>
+                        <td>%M</td><td>Month name in full (January to December)</td>
+                    </tr><tr>
+                        <td>%m</td><td>Month name as a numeric value (00 to 12)</td>
+                    </tr><tr>
+                        <td>%p</td><td>AM or PM</td>
+                    </tr><tr>
+                        <td>%r</td><td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
+                    </tr><tr>
+                        <td>%S</td><td>Seconds (00 to 59)</td>
+                    </tr><tr>
+                        <td>%s</td><td>Seconds (00 to 59)</td>
+                    </tr><tr>
+                        <td>%T</td><td>Time in 24 hour format (hh:mm:ss)</td>
+                    </tr><tr>
+                        <td>%U</td><td>Week where Sunday is the first day of the week (00 to 53)</td>
+                    </tr><tr>
+                        <td>%u</td><td>Week where Monday is the first day of the week (00 to 53)</td>
+                    </tr><tr>
+                        <td>%V</td><td>Week where Sunday is the first day of the week (01 to 53). Used with %X</td>
+                    </tr><tr>
+                        <td>%v</td><td>Week where Monday is the first day of the week (01 to 53). Used with %X</td>
+                    </tr><tr>
+                        <td>%W</td><td>Weekday name in full (Sunday to Saturday)</td>
+                    </tr><tr>
+                        <td>%w</td><td>Day of the week where Sunday=0 and Saturday=6</td>
+                    </tr><tr>
+                        <td>%X</td><td>Year for the week where Sunday is the first day of the week. Used with %V</td>
+                    </tr><tr>
+                        <td>%x</td><td>Year for the week where Monday is the first day of the week. Used with %V</td>
+                    </tr><tr>
+                        <td>%Y</td><td>Year as a numeric, 4-digit value</td>
+                    </tr><tr>
+                        <td>%y</td><td>Year as a numeric, 2-digit value</td>
+                    </tr>
+                </table></div>
+                </td></tr>
             </table></div>
             <h3>Example</h3>
             <p>Format a date:</p>
@@ -2046,29 +2949,41 @@
             <p class="code-sl">
                 DATE_SUB(date, INTERVAL value interval)
             </p>
-            <p><b>interval</b> (Required). The type of interval to subtract. Can be one of the following values:</p>
-            <ul>
-                <li>MICROSECOND</li>
-                <li>SECOND</li>
-                <li>MINUTE</li>
-                <li>HOUR</li>
-                <li>DAY</li>
-                <li>WEEK</li>
-                <li>MONTH</li>
-                <li>QUARTER</li>
-                <li>YEAR</li>
-                <li>SECOND_MICROSECOND</li>
-                <li>MINUTE_MICROSECOND</li>
-                <li>MINUTE_SECOND</li>
-                <li>HOUR_MICROSECOND</li>
-                <li>HOUR_SECOND</li>
-                <li>HOUR_MINUTE</li>
-                <li>DAY_MICROSECOND</li>
-                <li>DAY_SECOND</li>
-                <li>DAY_MINUTE</li>
-                <li>DAY_HOUR</li>
-                <li>YEAR_MONTH</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr><td>interval</td>
+                <td>(Required). The type of interval to subtract. Can be one of the following values:<br>
+                <ul>
+                    <li>MICROSECOND</li>
+                    <li>SECOND</li>
+                    <li>MINUTE</li>
+                    <li>HOUR</li>
+                    <li>DAY</li>
+                    <li>WEEK</li>
+                    <li>MONTH</li>
+                    <li>QUARTER</li>
+                    <li>YEAR</li>
+                    <li>SECOND_MICROSECOND</li>
+                    <li>MINUTE_MICROSECOND</li>
+                    <li>MINUTE_SECOND</li>
+                    <li>HOUR_MICROSECOND</li>
+                    <li>HOUR_SECOND</li>
+                    <li>HOUR_MINUTE</li>
+                    <li>DAY_MICROSECOND</li>
+                    <li>DAY_SECOND</li>
+                    <li>DAY_MINUTE</li>
+                    <li>DAY_HOUR</li>
+                    <li>YEAR_MONTH</li>
+                </ul>
+            </td></tr></table></div>
             <h3>Example</h3>
             <p>Subtract 10 days from a date and return the date:</p>
             <p class="code-sl">
@@ -2099,6 +3014,17 @@
             <p class="code-sl">
                 DAY(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the day of the month for a date:</p>
             <p class="code-sl">
@@ -2124,6 +3050,17 @@
             <p class="code-sl">
                 DAYNAME(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the weekday name for a date:</p>
             <p class="code-sl">
@@ -2150,6 +3087,17 @@
             <p class="code-sl">
                 DAYOFMONTH(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the day of the month for a date:</p>
             <p class="code-sl">
@@ -2176,6 +3124,17 @@
             <p class="code-sl">
                 DAYOFWEEK(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the weekday index for a date:</p>
             <p class="code-sl">
@@ -2201,6 +3160,17 @@
             <p class="code-sl">
                 DAYOFYEAR(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the day of the year for a date:</p>
             <p class="code-sl">
@@ -2226,29 +3196,41 @@
             <p class="code-sl">
                 EXTRACT(part FROM date)
             </p>
-            <p><b>part</b> (Required). The part to extract. Can be one of the following:</p>
-            <ul>
-                <li>MICROSECOND</li>
-                <li>SECOND</li>
-                <li>MINUTE</li>
-                <li>HOUR</li>
-                <li>DAY</li>
-                <li>WEEK</li>
-                <li>MONTH</li>
-                <li>QUARTER</li>
-                <li>YEAR</li>
-                <li>SECOND_MICROSECOND</li>
-                <li>MINUTE_MICROSECOND</li>
-                <li>MINUTE_SECOND</li>
-                <li>HOUR_MICROSECOND</li>
-                <li>HOUR_SECOND</li>
-                <li>HOUR_MINUTE</li>
-                <li>DAY_MICROSECOND</li>
-                <li>DAY_SECOND</li>
-                <li>DAY_MINUTE</li>
-                <li>DAY_HOUR</li>
-                <li>YEAR_MONTH</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr><td>part</td>
+                <td>(Required). The part to extract. Can be one of the following:
+                <ul>
+                    <li>MICROSECOND</li>
+                    <li>SECOND</li>
+                    <li>MINUTE</li>
+                    <li>HOUR</li>
+                    <li>DAY</li>
+                    <li>WEEK</li>
+                    <li>MONTH</li>
+                    <li>QUARTER</li>
+                    <li>YEAR</li>
+                    <li>SECOND_MICROSECOND</li>
+                    <li>MINUTE_MICROSECOND</li>
+                    <li>MINUTE_SECOND</li>
+                    <li>HOUR_MICROSECOND</li>
+                    <li>HOUR_SECOND</li>
+                    <li>HOUR_MINUTE</li>
+                    <li>DAY_MICROSECOND</li>
+                    <li>DAY_SECOND</li>
+                    <li>DAY_MINUTE</li>
+                    <li>DAY_HOUR</li>
+                    <li>YEAR_MONTH</li>
+                </ul></td></tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract the month from a date:</p>
             <p class="code-sl">
@@ -2280,6 +3262,17 @@
             <p class="code-sl">
                 FROM_DAYS(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a date from a numeric representation of the day:</p>
             <p class="code-sl">
@@ -2301,6 +3294,17 @@
             <p class="code-sl">
                 HOUR(datetime)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the hour part of a datetime:</p>
             <p class="code-sl">
@@ -2322,6 +3326,17 @@
             <p class="code-sl">
                 LAST_DAY(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract the last day of the month for the given date:</p>
             <p class="code-sl">
@@ -2344,6 +3359,17 @@
             <p class="code-sl">
                 LOCALTIME()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return current date and time:</p>
             <p class="code-sl">
@@ -2366,6 +3392,17 @@
             <p class="code-sl">
                 LOCALTIMESTAMP()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return current date and time:</p>
             <p class="code-sl">
@@ -2387,6 +3424,17 @@
             <p class="code-sl">
                 MAKEDATE(year, day)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Create and return a date based on  a year and a number of days value:</p>
             <p class="code-sl">
@@ -2416,6 +3464,17 @@
             <p class="code-sl">
                 MAKETIME(hour, minute, second)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Create and return a time value based on an hour, minute, and second value:</p>
             <p class="code-sl">
@@ -2445,6 +3504,17 @@
             <p class="code-sl">
                 MICROSECOND(datetime)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the microsecond part of a datetime:</p>
             <p class="code-sl">
@@ -2466,6 +3536,17 @@
             <p class="code-sl">
                 MINUTE(datetime)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the minute part of a datetime value:</p>
             <p class="code-sl">
@@ -2487,6 +3568,17 @@
             <p class="code-sl">
                 MONTH(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the month part of a date:</p>
             <p class="code-sl">
@@ -2512,6 +3604,17 @@
             <p class="code-sl">
                 MONTHNAME(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the name of the month for a date:</p>
             <p class="code-sl">
@@ -2538,6 +3641,17 @@
             <p class="code-sl">
                 NOW()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return current date and time:</p>
             <p class="code-sl">
@@ -2560,6 +3674,17 @@
             <p class="code-sl">
                 PERIOD_ADD(period, number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Add a specified number of months to a period:</p>
             <p class="code-sl">
@@ -2586,6 +3711,17 @@
             <p class="code-sl">
                 PERIOD_DIFF(period1, period2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the difference between two periods:</p>
             <p class="code-sl">
@@ -2617,6 +3753,17 @@
             <p class="code-sl">
                 QUARTER(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the quarter of the year for the date:</p>
             <p class="code-sl">
@@ -2642,6 +3789,17 @@
             <p class="code-sl">
                 SECOND(datetime)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the seconds part of a datetime value:</p>
             <p class="code-sl">
@@ -2663,6 +3821,17 @@
             <p class="code-sl">
                 SEC_TO_TIME(seconds)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a time value based on a specified seconds value:</p>
             <p class="code-sl">
@@ -2684,46 +3853,120 @@
             <p class="code-sl">
                 STR_TO_DATE(string, format)
             </p>
-            <p><b>format</b> (Required). The format to use. Can be one or a combination of the following values:</p>
-            <div class="scrollableTable"><table>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
                 <tr>
-                    <th>Format</th>
+                    <th>Parameter</th>
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>%a	Abbreviated weekday name (Sun to Sat)</td>
-                    <td>%b	Abbreviated month name (Jan to Dec)</td>
-                    <td>%c	Numeric month name (0 to 12)</td>
-                    <td>%D	Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)</td>
-                    <td>%d	Day of the month as a numeric value (01 to 31)</td>
-                    <td>%e	Day of the month as a numeric value (0 to 31)</td>
-                    <td>%f	Microseconds (000000 to 999999)</td>
-                    <td>%H	Hour (00 to 23)</td>
-                    <td>%h	Hour (00 to 12)</td>
-                    <td>%I	Hour (00 to 12)</td>
-                    <td>%i	Minutes (00 to 59)</td>
-                    <td>%j	Day of the year (001 to 366)</td>
-                    <td>%k	Hour (0 to 23)</td>
-                    <td>%l	Hour (1 to 12)</td>
-                    <td>%M	Month name in full (January to December)</td>
-                    <td>%m	Month name as a numeric value (00 to 12)</td>
-                    <td>%p	AM or PM</td>
-                    <td>%r	Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
-                    <td>%S	Seconds (00 to 59)</td>
-                    <td>%s	Seconds (00 to 59)</td>
-                    <td>%T	Time in 24 hour format (hh:mm:ss)</td>
-                    <td>%U	Week where Sunday is the first day of the week (00 to 53)</td>
-                    <td>%u	Week where Monday is the first day of the week (00 to 53)</td>
-                    <td>%V	Week where Sunday is the first day of the week (01 to 53). Used with %X</td>
-                    <td>%v	Week where Monday is the first day of the week (01 to 53). Used with %X</td>
-                    <td>%W	Weekday name in full (Sunday to Saturday)</td>
-                    <td>%w	Day of the week where Sunday=0 and Saturday=6</td>
-                    <td>%X	Year for the week where Sunday is the first day of the week. Used with %V</td>
-                    <td>%x	Year for the week where Monday is the first day of the week. Used with %V</td>
-                    <td>%Y	Year as a numeric, 4-digit value</td>
-                    <td>%y	Year as a numeric, 2-digit value</td>
+                    <td></td>
+                    <td></td>
                 </tr>
-            </table></div>
+                <tr>
+                    <td>format</td>
+                    <td>(Required). The format to use. Can be one or a combination of the following values:<br><br>
+                    <div class="scrollableTable"><table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>%a</td>
+                        <td>Abbreviated weekday name (Sun to Sat)</td>
+                    </tr><tr>
+                        <td>%b</td>
+                        <td>Abbreviated month name (Jan to Dec)</td>
+                    </tr><tr>
+                        <td>%c</td>
+                        <td>Numeric month name (0 to 12)</td>
+                    </tr><tr>
+                        <td>%D</td>
+                        <td>Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)</td>
+                    </tr><tr>
+                        <td>%d</td>
+                        <td>Day of the month as a numeric value (01 to 31)</td>
+                    </tr><tr>
+                        <td>%e</td>
+                        <td>Day of the month as a numeric value (0 to 31)</td>
+                    </tr><tr>
+                        <td>%f</td>
+                        <td>Microseconds (000000 to 999999)</td>
+                    </tr><tr>
+                        <td>%H</td>
+                        <td>Hour (00 to 23)</td>
+                    </tr><tr>
+                        <td>%h</td>
+                        <td>Hour (00 to 12)</td>
+                    </tr><tr>
+                        <td>%I</td>
+                        <td>Hour (00 to 12)</td>
+                    </tr><tr>
+                        <td>%i</td>
+                        <td>Minutes (00 to 59)</td>
+                    </tr><tr>
+                        <td>%j</td>
+                        <td>Day of the year (001 to 366)</td>
+                    </tr><tr>
+                        <td>%k</td>
+                        <td>Hour (0 to 23)</td>
+                    </tr><tr>
+                        <td>%l</td>
+                        <td>Hour (1 to 12)</td>
+                    </tr><tr>
+                        <td>%M</td>
+                        <td>Month name in full (January to December)</td>
+                    </tr><tr>
+                        <td>%m</td>
+                        <td>Month name as a numeric value (00 to 12)</td>
+                    </tr><tr>
+                        <td>%p</td>
+                        <td>AM or PM</td>
+                    </tr><tr>
+                        <td>%r</td>
+                        <td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
+                    </tr><tr>
+                        <td>%S</td>
+                        <td>Seconds (00 to 59)</td>
+                    </tr><tr>
+                        <td>%s</td>
+                        <td>Seconds (00 to 59)</td>
+                    </tr><tr>
+                        <td>%T</td>
+                        <td>Time in 24 hour format (hh:mm:ss)</td>
+                    </tr><tr>
+                        <td>%U</td>
+                        <td>Week where Sunday is the first day of the week (00 to 53)</td>
+                    </tr><tr>
+                        <td>%u</td>
+                        <td>Week where Monday is the first day of the week (00 to 53)</td>
+                    </tr><tr>
+                        <td>%V</td>
+                        <td>Week where Sunday is the first day of the week (01 to 53). Used with %X</td>
+                    </tr><tr>
+                        <td>%v</td>
+                        <td>Week where Monday is the first day of the week (01 to 53). Used with %X</td>
+                    </tr><tr>
+                        <td>%W</td>
+                        <td>Weekday name in full (Sunday to Saturday)</td>
+                    </tr><tr>
+                        <td>%w</td>
+                        <td>Day of the week where Sunday=0 and Saturday=6</td>
+                    </tr><tr>
+                        <td>%X</td>
+                        <td>Year for the week where Sunday is the first day of the week. Used with %V</td>
+                    </tr><tr>
+                        <td>%x</td>
+                        <td>Year for the week where Monday is the first day of the week. Used with %V</td>
+                    </tr><tr>
+                        <td>%Y</td>
+                        <td>Year as a numeric, 4-digit value</td>
+                    </tr><tr>
+                        <td>%y</td>
+                        <td>Year as a numeric, 2-digit value</td>
+                    </tr>
+                </table></div>
+            </td></tr></table></div>
             <h3>Example</h3>
             <p>Return a date based on a string and a format:</p>
             <p class="code-sl">
@@ -2755,29 +3998,40 @@
                 <b>-OR-</b><br>
                 SUBDATE(date, days)
             </p>
-            <p><b>unit</b> (Required). The type of interval. Can be one of the following values:</p>
-            <ul>
-                <li>MICROSECOND</li>
-                <li>SECOND</li>
-                <li>MINUTE</li>
-                <li>HOUR</li>
-                <li>DAY</li>
-                <li>WEEK</li>
-                <li>MONTH</li>
-                <li>QUARTER</li>
-                <li>YEAR</li>
-                <li>SECOND_MICROSECOND</li>
-                <li>MINUTE_MICROSECOND</li>
-                <li>MINUTE_SECOND</li>
-                <li>HOUR_MICROSECOND</li>
-                <li>HOUR_SECOND</li>
-                <li>HOUR_MINUTE</li>
-                <li>DAY_MICROSECOND</li>
-                <li>DAY_SECOND</li>
-                <li>DAY_MINUTE</li>
-                <li>DAY_HOUR</li>
-                <li>YEAR_MONTH</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr><td>unit</td><td>(Required). The type of interval. Can be one of the following values:<br>
+                <ul>
+                    <li>MICROSECOND</li>
+                    <li>SECOND</li>
+                    <li>MINUTE</li>
+                    <li>HOUR</li>
+                    <li>DAY</li>
+                    <li>WEEK</li>
+                    <li>MONTH</li>
+                    <li>QUARTER</li>
+                    <li>YEAR</li>
+                    <li>SECOND_MICROSECOND</li>
+                    <li>MINUTE_MICROSECOND</li>
+                    <li>MINUTE_SECOND</li>
+                    <li>HOUR_MICROSECOND</li>
+                    <li>HOUR_SECOND</li>
+                    <li>HOUR_MINUTE</li>
+                    <li>DAY_MICROSECOND</li>
+                    <li>DAY_SECOND</li>
+                    <li>DAY_MINUTE</li>
+                    <li>DAY_HOUR</li>
+                    <li>YEAR_MONTH</li>
+                </ul>
+            </td></tr></table></div>
             <h3>Example</h3>
             <p>Subtract 10 days from a date and return the date:</p>
             <p class="code-sl">
@@ -2807,6 +4061,17 @@
             <p class="code-sl">
                 SUBTIME(datetime, time_interval)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Subtract 5.000001 seconds and return the datetime:</p>
             <p class="code-sl">
@@ -2841,6 +4106,17 @@
             <p class="code-sl">
                 SYSDATE()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current date and time:</p>
             <p class="code-sl">
@@ -2863,6 +4139,17 @@
             <p class="code-sl">
                 TIME(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Extract the time part from a time expression:</p>
             <p class="code-sl">
@@ -2892,43 +4179,57 @@
             <p class="code-sl">
                 TIME_FORMAT(time, format)
             </p>
-            <p><b>format</b> (Required). The format to use. Can be one or a combination of the following:</p>
-            <div id="scrollableTable"><table>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
                 <tr>
-                    <th>Format</th>
+                    <th>Parameter</th>
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>%f</td>
-                    <td>Microseconds (000000 to 999999)</td>
-                </tr><tr>
-                    <td>%H</td>
-                    <td>Hour (00 to 23)</td>
-                </tr><tr>
-                    <td>%h</td>
-                    <td>Hour (00 to 12)</td>
-                </tr><tr>
-                    <td>%I</td>
-                    <td>Hour (00 to 12)</td>
-                </tr><tr>
-                    <td>%i</td>
-                    <td>Minutes (00 to 59)</td>
-                </tr><tr>
-                    <td>%p</td>
-                    <td>AM or PM</td>
-                </tr><tr>
-                    <td>%r</td>
-                    <td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
-                </tr><tr>
-                    <td>%S</td>
-                    <td>Seconds (00 to 59)</td>
-                </tr><tr>
-                    <td>%s</td>
-                    <td>Seconds (00 to 59)</td>
-                </tr><tr>
-                    <td>%T</td>
-                    <td>Time in 24 hour format (hh:mm:ss)</td>
+                    <td></td>
+                    <td></td>
                 </tr>
+                <tr>
+                    <td>format</td>
+                    <td>(Required). The format to use. Can be one or a combination of the following:<br><br>
+                    <div class="scrollableTable"><table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>%f</td>
+                        <td>Microseconds (000000 to 999999)</td>
+                    </tr><tr>
+                        <td>%H</td>
+                        <td>Hour (00 to 23)</td>
+                    </tr><tr>
+                        <td>%h</td>
+                        <td>Hour (00 to 12)</td>
+                    </tr><tr>
+                        <td>%I</td>
+                        <td>Hour (00 to 12)</td>
+                    </tr><tr>
+                        <td>%i</td>
+                        <td>Minutes (00 to 59)</td>
+                    </tr><tr>
+                        <td>%p</td>
+                        <td>AM or PM</td>
+                    </tr><tr>
+                        <td>%r</td>
+                        <td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
+                    </tr><tr>
+                        <td>%S</td>
+                        <td>Seconds (00 to 59)</td>
+                    </tr><tr>
+                        <td>%s</td>
+                        <td>Seconds (00 to 59)</td>
+                    </tr><tr>
+                        <td>%T</td>
+                        <td>Time in 24 hour format (hh:mm:ss)</td>
+                    </tr>
+                    </table></div>
+                </td></tr>
             </table></div>
             <h3>Example</h3>
             <p>Format a time:</p>
@@ -2959,6 +4260,17 @@
             <p class="code-sl">
                 TIME_TO_SEC(time)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert a time value into seconds:</p>
             <p class="code-sl">
@@ -2989,6 +4301,17 @@
             <p class="code-sl">
                 TIMEDIFF(time1, time2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the difference between two time expressions:</p>
             <p class="code-sl">
@@ -3011,6 +4334,17 @@
             <p class="code-sl">
                 TIMESTAMP(expression, time)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a datetime value based on the arguments:</p>
             <p class="code-sl">
@@ -3034,6 +4368,17 @@
             <p class="code-sl">
                 TO_DAYS(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the number of days between the date and year 0:</p>
             <p class="code-sl">
@@ -3055,17 +4400,28 @@
             <p class="code-sl">
                 WEEK(date, firstdayofweek)
             </p>
-            <p><b>firstdayofweek</b> (Optional). Specifies what day the week starts on. Can be one of the following:</p>
-            <ul>
-                <li>0 - First day of week is Sunday</li>
-                <li>1 - First day of week is Monday and the first week of the year has more than 3 days</li>
-                <li>2 - First day of week is Sunday</li>
-                <li>3 - First day of week is Monday and the first week of the year has more than 3 days</li>
-                <li>4 - First day of week is Sunday and the first week of the year has more than 3 days</li>
-                <li>5 - First day of week is Monday</li>
-                <li>6 - First day of week is Sunday and the first week of the year has more than 3 days</li>
-                <li>7 - First day of week is Monday</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr><td>firstdayofweek</td><td>(Optional). Specifies what day the week starts on. Can be one of the following:<br>
+                <ul>
+                    <li>0 - First day of week is Sunday</li>
+                    <li>1 - First day of week is Monday and the first week of the year has more than 3 days</li>
+                    <li>2 - First day of week is Sunday</li>
+                    <li>3 - First day of week is Monday and the first week of the year has more than 3 days</li>
+                    <li>4 - First day of week is Sunday and the first week of the year has more than 3 days</li>
+                    <li>5 - First day of week is Monday</li>
+                    <li>6 - First day of week is Sunday and the first week of the year has more than 3 days</li>
+                    <li>7 - First day of week is Monday</li>
+                </ul>
+            </td></tr></table></div>
             <h3>Example</h3>
             <p>Return the week number for a date:</p>
             <p class="code-sl">
@@ -3092,6 +4448,17 @@
             <p class="code-sl">
                 WEEKDAY(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the weekday number for a date:</p>
             <p class="code-sl">
@@ -3119,6 +4486,17 @@
             <p class="code-sl">
                 WEEKOFYEAR(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the week number for a date:</p>
             <p class="code-sl">
@@ -3144,6 +4522,17 @@
             <p class="code-sl">
                 YEAR(date)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the year part of a date:</p>
             <p class="code-sl">
@@ -3169,17 +4558,28 @@
             <p class="code-sl">
                 YEARWEEK(date, firstdayofweek)
             </p>
-            <p>firstdayofweek (Optional). Specifies what day the week starts on. Can be one of the following:</p>
-            <ul>
-                <li>0 - First day of week is Sunday</li>
-                <li>1 - First day of week is Monday and the first week has more than 3 days</li>
-                <li>2 - First day of week is Sunday</li>
-                <li>3 - First day of week is Monday and the first week has more than 3 days</li>
-                <li>4 - First day of week is Sunday and the first week has more than 3 days</li>
-                <li>5 - First day of week is Monday</li>
-                <li>6 - First day of week is Sunday and the first week has more than 3 days</li>
-                <li>7 - First day of week is Monday</li>
-            </ul>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr><td>firstdayofweek</td><td>(Optional). Specifies what day the week starts on. Can be one of the following:<br>
+                <ul>
+                    <li>0 - First day of week is Sunday</li>
+                    <li>1 - First day of week is Monday and the first week has more than 3 days</li>
+                    <li>2 - First day of week is Sunday</li>
+                    <li>3 - First day of week is Monday and the first week has more than 3 days</li>
+                    <li>4 - First day of week is Sunday and the first week has more than 3 days</li>
+                    <li>5 - First day of week is Monday</li>
+                    <li>6 - First day of week is Sunday and the first week has more than 3 days</li>
+                    <li>7 - First day of week is Monday</li>
+                </ul>
+            </td></tr></table></div>
             <h3>Example</h3>
             <p>Return the year and week number for a date:</p>
             <p class="code-sl">
@@ -3215,6 +4615,17 @@
             <p class="code-sl">
                 BIN(number)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return a binary representation of 15:</p>
             <p class="code-sl">
@@ -3241,6 +4652,17 @@
             <p class="code-sl">
                 BINARY value
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert a value to a binary string:</p>
             <p class="code-sl">
@@ -3273,6 +4695,17 @@
                 &emsp;ELSE result<br>
                 END;
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Go through conditions and return a value when the first condition is met:</p>
             <p class="code-sl">
@@ -3306,35 +4739,46 @@
             <p class="code-sl">
                 CAST(value AS datatype)
             </p>
-            <p><b>datatype</b> (Required). The datatype to convert to. Can be one of the following:</p>
-            <div id="scrollableTable"><table>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
                 <tr>
-                    <th>Value</th>
+                    <th>Parameter</th>
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>DATE</td>
-                    <td>Converts value to DATE. Format: "YYYY-MM-DD"</td>
-                </tr><tr>
-                    <td>DATETIME</td>
-                    <td>Converts value to DATETIME. Format: "YYYY-MM-DD HH:MM:SS"</td>
-                </tr><tr>
-                    <td>TIME</td>
-                    <td>Converts value to TIME. Format: "HH:MM:SS"</td>
-                </tr><tr>
-                    <td>CHAR</td>
-                    <td>Converts value to CHAR (a fixed length string)</td>
-                </tr><tr>
-                    <td>SIGNED</td>
-                    <td>Converts value to SIGNED (a signed 64-bit integer)</td>
-                </tr><tr>
-                    <td>UNSIGNED</td>
-                    <td>Converts value to UNSIGNED (an unsigned 64-bit integer)</td>
-                </tr><tr>
-                    <td>BINARY</td>
-                    <td>Converts value to BINARY (a binary string)</td>
+                    <td></td>
+                    <td></td>
                 </tr>
-            </table></div>
+                <tr><td>datatype</td><td>(Required). The datatype to convert to. Can be one of the following:<br><br>
+                <div class="scrollableTable"><table>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>DATE</td>
+                        <td>Converts value to DATE. Format: "YYYY-MM-DD"</td>
+                    </tr><tr>
+                        <td>DATETIME</td>
+                        <td>Converts value to DATETIME. Format: "YYYY-MM-DD HH:MM:SS"</td>
+                    </tr><tr>
+                        <td>TIME</td>
+                        <td>Converts value to TIME. Format: "HH:MM:SS"</td>
+                    </tr><tr>
+                        <td>CHAR</td>
+                        <td>Converts value to CHAR (a fixed length string)</td>
+                    </tr><tr>
+                        <td>SIGNED</td>
+                        <td>Converts value to SIGNED (a signed 64-bit integer)</td>
+                    </tr><tr>
+                        <td>UNSIGNED</td>
+                        <td>Converts value to UNSIGNED (an unsigned 64-bit integer)</td>
+                    </tr><tr>
+                        <td>BINARY</td>
+                        <td>Converts value to BINARY (a binary string)</td>
+                    </tr>
+                </table></div></td>
+                </tr></table></div>
             <h3>Example</h3>
             <p>Convert a value to a DATE datatype:</p>
             <p class="code-sl">
@@ -3364,6 +4808,17 @@
             <p class="code-sl">
                 COALESCE(val1, val2, ...., val_n)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the first non-null value in a list:</p>
             <p class="code-sl">
@@ -3385,6 +4840,17 @@
             <p class="code-sl">
                 CONNECTION_ID()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the unique connection ID for the current connection:</p>
             <p class="code-sl">
@@ -3404,6 +4870,17 @@
             <p class="code-sl">
                 CONV(number, from_base, to_base)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Convert a number from numeric base system 10 to numeric base system 2:</p>
             <p class="code-sl">
@@ -3432,33 +4909,48 @@
                 <b>-OR-</b><br>
                 CONVERT(value USING charset)
             </p>
-            <div id="scrollableTable"><table>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
                 <tr>
-                    <th>Value</th>
+                    <th>Parameter</th>
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>DATE</td>
-                    <td>Converts value to DATE. Format: "YYYY-MM-DD"</td>
-                </tr><tr>
-                    <td>DATETIME</td>
-                    <td>Converts value to DATETIME. Format: "YYYY-MM-DD HH:MM:SS"</td>
-                </tr><tr>
-                    <td>TIME</td>
-                    <td>Converts value to TIME. Format: "HH:MM:SS"<td></td>
-                </tr><tr>
-                    <td>CHAR</td>
-                    <td>Converts value to CHAR (a fixed length string)<td></td>
-                </tr><tr>
-                    <td>SIGNED</td>
-                    <td>Converts value to SIGNED (a signed 64-bit integer)</td>
-                </tr><tr>
-                    <td>UNSIGNED</td>
-                    <td>Converts value to UNSIGNED (an unsigned 64-bit integer)</td>
-                </tr><tr>
-                    <td>BINARY</td>
-                    <td>Converts value to BINARY (a binary string)</td>
+                    <td></td>
+                    <td></td>
                 </tr>
+                <tr>
+                    <td>type</td>
+                    <td>Required. The datatype to convert to. Can be one of the following:<br><br>
+                    <div class="scrollableTable"><table>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>DATE</td>
+                        <td>Converts value to DATE. Format: "YYYY-MM-DD"</td>
+                    </tr><tr>
+                        <td>DATETIME</td>
+                        <td>Converts value to DATETIME. Format: "YYYY-MM-DD HH:MM:SS"</td>
+                    </tr><tr>
+                        <td>TIME</td>
+                        <td>Converts value to TIME. Format: "HH:MM:SS"</td>
+                    </tr><tr>
+                        <td>CHAR</td>
+                        <td>Converts value to CHAR (a fixed length string)</td>
+                    </tr><tr>
+                        <td>SIGNED</td>
+                        <td>Converts value to SIGNED (a signed 64-bit integer)</td>
+                    </tr><tr>
+                        <td>UNSIGNED</td>
+                        <td>Converts value to UNSIGNED (an unsigned 64-bit integer)</td>
+                    </tr><tr>
+                        <td>BINARY</td>
+                        <td>Converts value to BINARY (a binary string)</td>
+                    </tr>
+                    </table></div>
+                </td></tr>
             </table></div>
             <h3>Example</h3>
             <p>Convert a value to a DATE datatype:</p>
@@ -3491,6 +4983,17 @@
             <p class="code-sl">
                 CURRENT_USER()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p></p>
             <p class="code-sl">
@@ -3509,6 +5012,17 @@
             <p class="code-sl">
                 DATABASE()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p></p>
             <p class="code-sl">
@@ -3517,7 +5031,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(IF)"><underline>IF</underline></td>
-            <td>Returns a value if a condition is <b>TRUE</b>, or another value if a condition is <b>FALSE</b></td>
+            <td>Returns a value if a condition is TRUE, or another value if a condition is FALSE</td>
         </tr>
         <tr><td colspan="2" id="IF" class="hideTR">
             <h2>IF</h2>
@@ -3526,6 +5040,17 @@
             <p class="code-sl">
                 IF(condition, value_if_true, value_if_false)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return "YES" if the condition is TRUE, or "NO" if the condition is FALSE:</p>
             <p class="code-sl">
@@ -3547,7 +5072,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(IFNULL)"><underline>IFNULL</underline></td>
-            <td>Return a specified value if the expression is <b>NULL</b>, otherwise return the expression</td>
+            <td>Return a specified value if the expression is NULL, otherwise return the expression</td>
         </tr>
         <tr><td colspan="2" id="IFNULL" class="hideTR">
             <h2>IFNULL</h2>
@@ -3557,6 +5082,17 @@
             <p class="code-sl">
                 IFNULL(expression, alt_value)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the specified value IF the expression is NULL, otherwise return the expression:</p>
             <p class="code-sl">
@@ -3573,7 +5109,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(ISNULL)"><underline>ISNULL</underline></td>
-            <td>Returns 1 or 0 depending on whether an expression is <b>NULL</b></td>
+            <td>Returns 1 or 0 depending on whether an expression is NULL</td>
         </tr>
         <tr><td colspan="2" id="ISNULL" class="hideTR">
             <h2>ISNULL</h2>
@@ -3583,6 +5119,17 @@
             <p class="code-sl">
                 ISNULL(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Test whether an expression is NULL:</p>
             <p class="code-sl">
@@ -3603,7 +5150,7 @@
         </td></tr>
         <tr>
             <td onclick="toggleTR(LAST_INSERT_ID)"><underline>LAST_INSERT_ID</underline></td>
-            <td>Returns the <b>AUTO_INCREMENT</b> id of the last row that has been inserted or updated in a table</td>
+            <td>Returns the AUTO_INCREMENT id of the last row that has been inserted or updated in a table</td>
         </tr>
         <tr><td colspan="2" id="LAST_INSERT_ID" class="hideTR">
             <h2>LAST_INSERT_ID</h2>
@@ -3612,6 +5159,17 @@
             <p class="code-sl">
                 LAST_INSERT_ID(expression)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the AUTO_INCREMENT id of the last row that has been inserted or updated in a table:</p>
             <p class="code-sl">
@@ -3629,6 +5187,17 @@
             <p class="code-sl">
                 NULLIF(expr1, expr2)
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Compare two expressions:</p>
             <p class="code-sl">
@@ -3659,6 +5228,17 @@
             <p class="code-sl">
                 SESSION_USER()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current user name and host name for the MySQL connection:</p>
             <p class="code-sl">
@@ -3677,6 +5257,17 @@
             <p class="code-sl">
                 SYSTEM_USER()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current user name and host name for the MySQL connection:</p>
             <p class="code-sl">
@@ -3696,6 +5287,17 @@
             <p class="code-sl">
                 USER()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current user name and host name for the MySQL connection:</p>
             <p class="code-sl">
@@ -3713,6 +5315,17 @@
             <p class="code-sl">
                 VERSION()
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p>Return the current version of the MySQL database:</p>
             <p class="code-sl">
