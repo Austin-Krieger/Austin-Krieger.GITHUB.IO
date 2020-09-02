@@ -1639,19 +1639,52 @@
         </tr>
         <tr><td colspan="2" id="ADDDATE" class="hideTR">
             <h2>ADDDATE</h2>
-            <p>Example description</p>
+            <p>The <b>ADDDATE()</b> function adds a time/date interval to a date and then returns the date.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                ADDDATE(date, INTERVAL value addunit)<br>
+                <b>-OR-</b><br>
+                ADDDATE(date, days)
             </p>
+            <p><b>addunit</b> (Required). The type of interval to add. Can be one of the following values:</p>
+            <ul>
+                <li>MICROSECOND</li>
+                <li>SECOND</li>
+                <li>MINUTE</li>
+                <li>HOUR</li>
+                <li>DAY</li>
+                <li>WEEK</li>
+                <li>MONTH</li>
+                <li>QUARTER</li>
+                <li>YEAR</li>
+                <li>SECOND_MICROSECOND</li>
+                <li>MINUTE_MICROSECOND</li>
+                <li>MINUTE_SECOND</li>
+                <li>HOUR_MICROSECOND</li>
+                <li>HOUR_SECOND</li>
+                <li>HOUR_MINUTE</li>
+                <li>DAY_MICROSECOND</li>
+                <li>DAY_SECOND</li>
+                <li>DAY_MINUTE</li>
+                <li>DAY_HOUR</li>
+                <li>YEAR_MONTH</li>
+            </ul>
             <h3>Example</h3>
-            <p></p>
+            <p>Add 10 days to a date and return the date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT ADDDATE</sql>("2017-06-15", INTERVAL 10 DAY);
             </p>
-            <p></p>
+            <p>Add 15 minutes to a date and return the date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> ADDDATE("2017-06-15 09:34:21", INTERVAL 15 MINUTE);
+            </p>
+            <p>Subtract 3 hours to a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ADDDATE("2017-06-15 09:34:21", INTERVAL -3 HOUR);
+            </p>
+            <p>Subtract 2 months to a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ADDDATE("2017-06-15", INTERVAL -2 MONTH);
             </p>
         </td></tr>
         <tr>
@@ -1660,19 +1693,31 @@
         </tr>
         <tr><td colspan="2" id="ADDTIME" class="hideTR">
             <h2>ADDTIME</h2>
-            <p>Example description</p>
+            <p>The <b>ADDTIME()</b> function adds a time interval to a time/datetime and then returns the time/datetime.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                ADDTIME(datetime, addtime)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Add 2 seconds to a time and return the datetime:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> ADDTIME("2017-06-15 09:34:21", "2");
             </p>
-            <p></p>
+            <p>Add 5 seconds and 3 microseconds to a time and return the datetime:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> ADDTIME("2017-06-15 09:34:21.000001", "5.000003");
+            </p>
+            <p>Add 2 hours, 10 minutes, 5 seconds, and 3 microseconds to a time and return the datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ADDTIME("2017-06-15 09:34:21.000001", "2:10:5.000003");
+            </p>
+            <p>Add 5 days, 2 hours, 10 minutes, 5 seconds, and 3 microseconds to a time and return the datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ADDTIME("2017-06-15 09:34:21.000001", "5 2:10:5.000003");
+            </p>
+            <p>Add 2 hours, 10 minutes, 5 seconds, and 3 microseconds to a time and return the time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ADDTIME("09:34:21.000001", "2:10:5.000003");
             </p>
         </td></tr>
         <tr>
@@ -1681,19 +1726,20 @@
         </tr>
         <tr><td colspan="2" id="CURDATE" class="hideTR">
             <h2>CURDATE</h2>
-            <p>Example description</p>
+            <p>The <b>CURDATE()</b> function returns the current date.</p>
+            <p><b>Note</b>: The date is returned as "YYYY-MM-DD" (string) or as YYYYMMDD (numeric). This function equals the <b>CURRENT_DATE()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                CURDATE()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the current date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> CURDATE();
             </p>
-            <p></p>
+            <p>Return the current date + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> CURDATE() + 1;
             </p>
         </td></tr>
         <tr>
@@ -1702,19 +1748,20 @@
         </tr>
         <tr><td colspan="2" id="CURRENT_DATE" class="hideTR">
             <h2>CURRENT_DATE</h2>
-            <p>Example description</p>
+            <p>The <b>CURRENT_DATE()</b> function returns the current date.</p>
+            <p><b>Note</b>: The date is returned as "YYYY-MM-DD" (string) or as YYYYMMDD (numeric). This function equals the <b>CURDATE()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                CURRENT_DATE()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the current date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURRENT_DATE</sql>();
             </p>
-            <p></p>
+            <p>Return the current date + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURRENT_DATE</sql>() + 1;
             </p>
         </td></tr>
         <tr>
@@ -1723,19 +1770,20 @@
         </tr>
         <tr><td colspan="2" id="CURRENT_TIME" class="hideTR">
             <h2>CURRENT_TIME</h2>
-            <p>Example description</p>
+            <p>The <b>CURRENT_TIME()</b> function returns the current time.</p>
+            <p><b>Note</b>: The time is returned as "HH-MM-SS" (string) or as HHMMSS.uuuuuu (numeric). This function equals the <b>CURTIME()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                CURRENT_TIME()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return current time:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURRENT_TIME</sql>();
             </p>
-            <p></p>
+            <p>Return current time + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURRENT_TIME</sql>() + 1;
             </p>
         </td></tr>
         <tr>
@@ -1744,19 +1792,20 @@
         </tr>
         <tr><td colspan="2" id="CURRENT_TIMESTAMP" class="hideTR">
             <h2>CURRENT_TIMESTAMP</h2>
-            <p>Example description</p>
+            <p>The <b>CURRENT_TIMESTAMP()</b> function returns the current date and time.</p>
+            <p><b>Note</b>: The date and time is returned as "YYYY-MM-DD HH-MM-SS" (string) or as YYYYMMDDHHMMSS.uuuuuu (numeric).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                CURRENT_TIMESTAMP()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the current date and time:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURRENT_TIMESTAMP</sql>();
             </p>
-            <p></p>
+            <p>Return the current date and time + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURRENT_TIMESTAMP</sql>() + 1;
             </p>
         </td></tr>
         <tr>
@@ -1765,19 +1814,20 @@
         </tr>
         <tr><td colspan="2" id="CURTIME" class="hideTR">
             <h2>CURTIME</h2>
-            <p>Example description</p>
+            <p>The <b>CURTIME()</b> function returns the current time.</p>
+            <p><b>Note</b>: The time is returned as "HH-MM-SS" (string) or as HHMMSS.uuuuuu (numeric). This function equals the <b>CURRENT_TIME()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                CURTIME()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return current time:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURTIME</sql>();
             </p>
-            <p></p>
+            <p>Return current time + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT CURTIME</sql>() + 1;
             </p>
         </td></tr>
         <tr>
@@ -1786,19 +1836,27 @@
         </tr>
         <tr><td colspan="2" id="DATE" class="hideTR">
             <h2>DATE</h2>
-            <p>Example description</p>
+            <p>The DATE() function extracts the date part from a datetime expression.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DATE(expression)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract the date part:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE("2017-06-15");
             </p>
-            <p></p>
+            <p>Extract the date part:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE("2017-06-15 09:34:21");
+            </p>
+            <p>Extract the date part (will return NULL):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE("The date is 2017-06-15");
+            </p>
+            <p>Extract the date part:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE(OrderDate) FROM Orders;
             </p>
         </td></tr>
         <tr>
@@ -1807,19 +1865,23 @@
         </tr>
         <tr><td colspan="2" id="DATEDIFF" class="hideTR">
             <h2>DATEDIFF</h2>
-            <p>Example description</p>
+            <p>The <b>DATEDIFF()</b> function returns the number of days between two date values.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DATEDIFF(date1, date2)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the number of days between two date values:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATEDIFF("2017-06-25", "2017-06-15");
             </p>
-            <p></p>
+            <p>Return the number of days between two date values:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATEDIFF("2017-06-25 09:34:21", "2017-06-15 15:25:35");
+            </p>
+            <p>Return the number of days between two date values:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATEDIFF("2017-01-01", "2016-12-24");
             </p>
         </td></tr>
         <tr>
@@ -1828,19 +1890,50 @@
         </tr>
         <tr><td colspan="2" id="DATE_ADD" class="hideTR">
             <h2>DATE_ADD</h2>
-            <p>Example description</p>
+            <p>The DATE_ADD() function adds a time/date interval to a date and then returns the date.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DATE_ADD(date, INTERVAL value addunit)
             </p>
+            <p><b>addunit</b> (Required). The type of interval to add. Can be one of the following values:</p>
+            <ul>
+                <li>MICROSECOND</li>
+                <li>SECOND</li>
+                <li>MINUTE</li>
+                <li>HOUR</li>
+                <li>DAY</li>
+                <li>WEEK</li>
+                <li>MONTH</li>
+                <li>QUARTER</li>
+                <li>YEAR</li>
+                <li>SECOND_MICROSECOND</li>
+                <li>MINUTE_MICROSECOND</li>
+                <li>MINUTE_SECOND</li>
+                <li>HOUR_MICROSECOND</li>
+                <li>HOUR_SECOND</li>
+                <li>HOUR_MINUTE</li>
+                <li>DAY_MICROSECOND</li>
+                <li>DAY_SECOND</li>
+                <li>DAY_MINUTE</li>
+                <li>DAY_HOUR</li>
+                <li>YEAR_MONTH</li>
+            </ul>
             <h3>Example</h3>
-            <p></p>
+            <p>Add 10 days to a date and return the date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE_ADD("2017-06-15", INTERVAL 10 DAY);
             </p>
-            <p></p>
+            <p>Add 15 minutes to a date and return the date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE_ADD("2017-06-15 09:34:21", INTERVAL 15 MINUTE);
+            </p>
+            <p>Subtract 3 hours to a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE_ADD("2017-06-15 09:34:21", INTERVAL -3 HOUR);
+            </p>
+            <p>Subtract 2 months to a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE_ADD("2017-06-15", INTERVAL -2 MONTH);
             </p>
         </td></tr>
         <tr>
@@ -1849,19 +1942,97 @@
         </tr>
         <tr><td colspan="2" id="DATE_FORMAT" class="hideTR">
             <h2>DATE_FORMAT</h2>
-            <p>Example description</p>
+            <p>The DATE_FORMAT() function formats a date as specified.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DATE_FORMAT(date, format)
             </p>
+            <p><b>format</b> (Required). The format to use. Can be one or a combination of the following values:</p>
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>Format</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>%a</td><td>Abbreviated weekday name (Sun to Sat)</td>
+                </tr><tr>
+                    <td>%b</td><td>Abbreviated month name (Jan to Dec)</td>
+                </tr><tr>
+                    <td>%c</td><td>Numeric month name (0 to 12)</td>
+                </tr><tr>
+                    <td>%D</td><td>Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)</td>
+                </tr><tr>
+                    <td>%d</td><td>Day of the month as a numeric value (01 to 31)</td>
+                </tr><tr>
+                    <td>%e</td><td>Day of the month as a numeric value (0 to 31)</td>
+                </tr><tr>
+                    <td>%f</td><td>Microseconds (000000 to 999999)</td>
+                </tr><tr>
+                    <td>%H</td><td>Hour (00 to 23)</td>
+                </tr><tr>
+                    <td>%h</td><td>Hour (00 to 12)</td>
+                </tr><tr>
+                    <td>%I</td><td>Hour (00 to 12)</td>
+                </tr><tr>
+                    <td>%i</td><td>Minutes (00 to 59)</td>
+                </tr><tr>
+                    <td>%j</td><td>Day of the year (001 to 366)</td>
+                </tr><tr>
+                    <td>%k</td><td>Hour (0 to 23)</td>
+                </tr><tr>
+                    <td>%l</td><td>Hour (1 to 12)</td>
+                </tr><tr>
+                    <td>%M</td><td>Month name in full (January to December)</td>
+                </tr><tr>
+                    <td>%m</td><td>Month name as a numeric value (00 to 12)</td>
+                </tr><tr>
+                    <td>%p</td><td>AM or PM</td>
+                </tr><tr>
+                    <td>%r</td><td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
+                </tr><tr>
+                    <td>%S</td><td>Seconds (00 to 59)</td>
+                </tr><tr>
+                    <td>%s</td><td>Seconds (00 to 59)</td>
+                </tr><tr>
+                    <td>%T</td><td>Time in 24 hour format (hh:mm:ss)</td>
+                </tr><tr>
+                    <td>%U</td><td>Week where Sunday is the first day of the week (00 to 53)</td>
+                </tr><tr>
+                    <td>%u</td><td>Week where Monday is the first day of the week (00 to 53)</td>
+                </tr><tr>
+                    <td>%V</td><td>Week where Sunday is the first day of the week (01 to 53). Used with %X</td>
+                </tr><tr>
+                    <td>%v</td><td>Week where Monday is the first day of the week (01 to 53). Used with %X</td>
+                </tr><tr>
+                    <td>%W</td><td>Weekday name in full (Sunday to Saturday)</td>
+                </tr><tr>
+                    <td>%w</td><td>Day of the week where Sunday=0 and Saturday=6</td>
+                </tr><tr>
+                    <td>%X</td><td>Year for the week where Sunday is the first day of the week. Used with %V</td>
+                </tr><tr>
+                    <td>%x</td><td>Year for the week where Monday is the first day of the week. Used with %V</td>
+                </tr><tr>
+                    <td>%Y</td><td>Year as a numeric, 4-digit value</td>
+                </tr><tr>
+                    <td>%y</td><td>Year as a numeric, 2-digit value</td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
-            <p></p>
+            <p>Format a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE_FORMAT("2017-06-15", "%Y");
             </p>
-            <p></p>
+            <p>Format a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE_FORMAT("2017-06-15", "%M %d %Y");
+            </p>
+            <p>Format a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE_FORMAT("2017-06-15", "%W %M %e %Y");
+            </p>
+            <p>Format a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE_FORMAT(BirthDate, "%W %M %e %Y") <sql>FROM</sql> Employees;
             </p>
         </td></tr>
         <tr>
@@ -1870,19 +2041,50 @@
         </tr>
         <tr><td colspan="2" id="DATE_SUB" class="hideTR">
             <h2>DATE_SUB</h2>
-            <p>Example description</p>
+            <p>The DATE_SUB() function subtracts a time/date interval from a date and then returns the date.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DATE_SUB(date, INTERVAL value interval)
             </p>
+            <p><b>interval</b> (Required). The type of interval to subtract. Can be one of the following values:</p>
+            <ul>
+                <li>MICROSECOND</li>
+                <li>SECOND</li>
+                <li>MINUTE</li>
+                <li>HOUR</li>
+                <li>DAY</li>
+                <li>WEEK</li>
+                <li>MONTH</li>
+                <li>QUARTER</li>
+                <li>YEAR</li>
+                <li>SECOND_MICROSECOND</li>
+                <li>MINUTE_MICROSECOND</li>
+                <li>MINUTE_SECOND</li>
+                <li>HOUR_MICROSECOND</li>
+                <li>HOUR_SECOND</li>
+                <li>HOUR_MINUTE</li>
+                <li>DAY_MICROSECOND</li>
+                <li>DAY_SECOND</li>
+                <li>DAY_MINUTE</li>
+                <li>DAY_HOUR</li>
+                <li>YEAR_MONTH</li>
+            </ul>
             <h3>Example</h3>
-            <p></p>
+            <p>Subtract 10 days from a date and return the date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE_SUB("2017-06-15", INTERVAL 10 DAY);
             </p>
-            <p></p>
+            <p>Subtract 15 minutes from a date and return the date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DATE_SUB("2017-06-15 09:34:21", INTERVAL 15 MINUTE);
+            </p>
+            <p>Subtract 3 hours from a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE_SUB("2017-06-15 09:34:21", INTERVAL 3 HOUR);
+            </p>
+            <p>Add 2 months to a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DATE_SUB("2017-06-15", INTERVAL -2 MONTH);
             </p>
         </td></tr>
         <tr>
@@ -1891,19 +2093,24 @@
         </tr>
         <tr><td colspan="2" id="DAY" class="hideTR">
             <h2>DAY</h2>
-            <p>Example description</p>
+            <p>The <b>DAY()</b> function returns the day of the month for a given date (a number from 1 to 31).</p>
+            <p><b>Note</b>: This function equals the <b>DAYOFMONTH()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DAY(date)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the day of the month for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAY("2017-06-15");
             </p>
-            <p></p>
+            <p>Return the day of the month for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAY("2017-06-15 09:34:21");
+            </p>
+            <p>Return the day of the month for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DAY(CURDATE());
             </p>
         </td></tr>
         <tr>
@@ -1912,19 +2119,23 @@
         </tr>
         <tr><td colspan="2" id="DAYNAME" class="hideTR">
             <h2>DAYNAME</h2>
-            <p>Example description</p>
+            <p>The <b>DAYNAME()</b> function returns the weekday name for a given date.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DAYNAME(date)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the weekday name for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYNAME("2017-06-15");
             </p>
-            <p></p>
+            <p>Return the weekday name for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYNAME("2017-06-15 09:34:21");
+            </p>
+            <p>Return the weekday name for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DAYNAME(CURDATE());
             </p>
         </td></tr>
         <tr>
@@ -1933,19 +2144,24 @@
         </tr>
         <tr><td colspan="2" id="DAYOFMONTH" class="hideTR">
             <h2>DAYOFMONTH</h2>
-            <p>Example description</p>
+            <p>The <b>DAYOFMONTH()</b> function returns the day of the month for a given date (a number from 1 to 31).</p>
+            <p><b>Note</b>: This function equals the <b>DAY()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DAYOFMONTH(date)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the day of the month for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYOFMONTH("2017-06-15");
             </p>
-            <p></p>
+            <p>Return the day of the month for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYOFMONTH("2017-06-15 09:34:21");
+            </p>
+            <p>Return the day of the month for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DAYOFMONTH(CURDATE());
             </p>
         </td></tr>
         <tr>
@@ -1954,19 +2170,24 @@
         </tr>
         <tr><td colspan="2" id="DAYOFWEEK" class="hideTR">
             <h2>DAYOFWEEK</h2>
-            <p>Example description</p>
+            <p>The <b>DAYOFWEEK()</b> function returns the weekday index for a given date (a number from 1 to 7).</p>
+            <p><b>Note</b>: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DAYOFWEEK(date)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the weekday index for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYOFWEEK("2017-06-15");
             </p>
-            <p></p>
+            <p>Return the weekday index for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYOFWEEK("2017-06-15 09:34:21");
+            </p>
+            <p>Return the weekday index for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DAYOFWEEK(CURDATE());
             </p>
         </td></tr>
         <tr>
@@ -1975,19 +2196,23 @@
         </tr>
         <tr><td colspan="2" id="DAYOFYEAR" class="hideTR">
             <h2>DAYOFYEAR</h2>
-            <p>Example description</p>
+            <p>The <b>DAYOFYEAR()</b> function returns the day of the year for a given date (a number from 1 to 366).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                DAYOFYEAR(date)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the day of the year for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYOFYEAR("2017-06-15");
             </p>
-            <p></p>
+            <p>Return the day of the year for a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> DAYOFYEAR("2017-01-01");
+            </p>
+            <p>Return the day of the year for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> DAYOFYEAR(CURDATE());
             </p>
         </td></tr>
         <tr>
@@ -1996,19 +2221,50 @@
         </tr>
         <tr><td colspan="2" id="EXTRACT" class="hideTR">
             <h2>EXTRACT</h2>
-            <p>Example description</p>
+            <p>The <b>EXTRACT()</b> function extracts a part from a given date.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                EXTRACT(part FROM date)
             </p>
+            <p><b>part</b> (Required). The part to extract. Can be one of the following:</p>
+            <ul>
+                <li>MICROSECOND</li>
+                <li>SECOND</li>
+                <li>MINUTE</li>
+                <li>HOUR</li>
+                <li>DAY</li>
+                <li>WEEK</li>
+                <li>MONTH</li>
+                <li>QUARTER</li>
+                <li>YEAR</li>
+                <li>SECOND_MICROSECOND</li>
+                <li>MINUTE_MICROSECOND</li>
+                <li>MINUTE_SECOND</li>
+                <li>HOUR_MICROSECOND</li>
+                <li>HOUR_SECOND</li>
+                <li>HOUR_MINUTE</li>
+                <li>DAY_MICROSECOND</li>
+                <li>DAY_SECOND</li>
+                <li>DAY_MINUTE</li>
+                <li>DAY_HOUR</li>
+                <li>YEAR_MONTH</li>
+            </ul>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract the month from a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> EXTRACT(MONTH FROM "2017-06-15");
             </p>
-            <p></p>
+            <p>Extract the week from a date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> EXTRACT(WEEK FROM "2017-06-15");
+            </p>
+            <p>Extract the minute from a datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> EXTRACT(MINUTE FROM "2017-06-15 09:34:21");
+            </p>
+            <p>Extract the year and month from a datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> EXTRACT(YEAR_MONTH FROM "2017-06-15 09:34:21");
             </p>
         </td></tr>
         <tr>
@@ -2017,19 +2273,21 @@
         </tr>
         <tr><td colspan="2" id="FROM_DAYS" class="hideTR">
             <h2>FROM_DAYS</h2>
-            <p>Example description</p>
+            <p>The <b>FROM_DAYS()</b> function returns a date from a numeric datevalue.</p>
+            <p>The <b>FROM_DAYS()</b> function is to be used only with dates within the Gregorian calendar.</p>
+            <p><b>Note</b>: This function is the opposite of the <b>TO_DAYS()</b> function.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                FROM_DAYS(number)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return a date from a numeric representation of the day:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> FROM_DAYS(685467);
             </p>
-            <p></p>
+            <p>Return a date from a numeric representation of the day:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> FROM_DAYS(780500);
             </p>
         </td></tr>
         <tr>
@@ -2038,19 +2296,19 @@
         </tr>
         <tr><td colspan="2" id="HOUR" class="hideTR">
             <h2>HOUR</h2>
-            <p>Example description</p>
+            <p>The <b>HOUR()</b> function returns the hour part for a given date (from 0 to 838).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                HOUR(datetime)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return the hour part of a datetime:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> HOUR("2017-06-20 09:34:00");
             </p>
-            <p></p>
+            <p>Return the hour part of a datetime: </p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> HOUR("838:59:59");
             </p>
         </td></tr>
         <tr>
@@ -2059,19 +2317,19 @@
         </tr>
         <tr><td colspan="2" id="LAST_DAY" class="hideTR">
             <h2>LAST_DAY</h2>
-            <p>Example description</p>
+            <p>The <b>LAST_DAY()</b> function extracts the last day of the month for a given date.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LAST_DAY(date)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Extract the last day of the month for the given date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LAST_DAY("2017-06-20");
             </p>
-            <p></p>
+            <p>Extract the last day of the month for the given date:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LAST_DAY("2017-02-10 09:34:00");
             </p>
         </td></tr>
         <tr>
@@ -2080,61 +2338,860 @@
         </tr>
         <tr><td colspan="2" id="LOCALTIME" class="hideTR">
             <h2>LOCALTIME</h2>
-            <p>Example description</p>
+            <p>The <b>LOCALTIME()</b> function returns the current date and time.</p>
+            <p><b>Note</b>: The date and time is returned as "YYYY-MM-DD HH-MM-SS" (string) or as YYYYMMDDHHMMSS.uuuuuu (numeric).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOCALTIME()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return current date and time:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOCALTIME();
             </p>
-            <p></p>
+            <p>Return current date and time + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOCALTIME() + 1;
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(LOCALTIMESTAMP)"><underline>LOCALTIMESTAMP</underline></td>
+            <td>Returns the current date and time</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2>Example</h2>
-            <p>Example description</p>
+        <tr><td colspan="2" id="LOCALTIMESTAMP" class="hideTR">
+            <h2>LOCALTIMESTAMP</h2>
+            <p>The <b>LOCALTIMESTAMP()</b> function returns the current date and time.</p>
+            <p><b>Note</b>: The date and time is returned as "YYYY-MM-DD HH-MM-SS" (string) or as YYYYMMDDHHMMSS.uuuuuu (numeric).</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                LOCALTIMESTAMP()
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Return current date and time:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOCALTIMESTAMP();
             </p>
-            <p></p>
+            <p>Return current date and time + 1:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> LOCALTIMESTAMP() + 1;
             </p>
         </td></tr>
         <tr>
-            <td onclick="toggleTR(Example)"><underline>Example</underline></td>
-            <td></td>
+            <td onclick="toggleTR(MAKEDATE)"><underline>MAKEDATE</underline></td>
+            <td>Creates and returns a date based on a year and a number of days value</td>
         </tr>
-        <tr><td colspan="2" id="Example" class="hideTR">
-            <h2>Example</h2>
-            <p>Example description</p>
+        <tr><td colspan="2" id="MAKEDATE" class="hideTR">
+            <h2>MAKEDATE</h2>
+            <p>The <b>MAKEDATE()</b> function creates and returns a date based on a year and a number of days value.</p>
             <h3>Syntax</h3>
             <p class="code-sl">
-                
+                MAKEDATE(year, day)
             </p>
             <h3>Example</h3>
-            <p></p>
+            <p>Create and return a date based on  a year and a number of days value:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> MAKEDATE(2017, 3);
             </p>
-            <p></p>
+            <p>Create and return a date based on  a year and a number of days value:</p>
             <p class="code-sl">
-                <sql></sql> <br>
+                <sql>SELECT</sql> MAKEDATE(2017, 175);
+            </p>
+            <p>Create and return a date based on  a year and a number of days value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MAKEDATE(2017, 100);
+            </p>
+            <p>Create and return a date based on  a year and a number of days value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MAKEDATE(2017, 366);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MAKETIME)"><underline>MAKETIME</underline></td>
+            <td>Creates and returns a time based on an hour, minute, and second value</td>
+        </tr>
+        <tr><td colspan="2" id="MAKETIME" class="hideTR">
+            <h2>MAKETIME</h2>
+            <p>The <b>MAKETIME()</b> function creates and returns a time based on an hour, minute, and second value.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                MAKETIME(hour, minute, second)
+            </p>
+            <h3>Example</h3>
+            <p>Create and return a time value based on an hour, minute, and second value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MAKETIME(11, 35, 4);
+            </p>
+            <p>Create and return a time value based on an hour, minute, and second value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MAKETIME(16, 1, 0);
+            </p>
+            <p>Create and return a time value based on an hour, minute, and second value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MAKETIME(21, 59, 59);
+            </p>
+            <p>Create and return a time value based on an hour, minute, and second value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MAKETIME(838, 59, 59);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MICROSECOND)"><underline>MICROSECOND</underline></td>
+            <td>Returns the microsecond part of a time/datetime</td>
+        </tr>
+        <tr><td colspan="2" id="MICROSECOND" class="hideTR">
+            <h2>MICROSECOND</h2>
+            <p>The <b>MICROSECOND()</b> function returns the microsecond part of a time/datetime (from 0 to 999999).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                MICROSECOND(datetime)
+            </p>
+            <h3>Example</h3>
+            <p>Return the microsecond part of a datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MICROSECOND("2017-06-20 09:34:00.000023");
+            </p>
+            <p>Return the microsecond part of a time value: </p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MICROSECOND("23:59:59.000045");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MINUTE)"><underline>MINUTE</underline></td>
+            <td>Returns the minute part of a time/datetime</td>
+        </tr>
+        <tr><td colspan="2" id="MINUTE" class="hideTR">
+            <h2>MINUTE</h2>
+            <p>The <b>MINUTE()</b> function returns the minute part of a time/datetime (from 0 to 59).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                MINUTE(datetime)
+            </p>
+            <h3>Example</h3>
+            <p>Return the minute part of a datetime value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MINUTE("2017-06-20 09:34:00");
+            </p>
+            <p>Return the minute part of a time value: </p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MINUTE("23:59:59");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MONTH)"><underline>MONTH</underline></td>
+            <td>Returns the month part for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="MONTH" class="hideTR">
+            <h2>MONTH</h2>
+            <p>The <b>MONTH()</b> function returns the month part for a given date (a number from 1 to 12).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                MONTH(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the month part of a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MONTH("2017-06-15");
+            </p>
+            <p>Return the month part of a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MONTH("2017-06-15 09:34:21");
+            </p>
+            <p>Return the month part of the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MONTH(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(MONTHNAME)"><underline>MONTHNAME</underline></td>
+            <td>Returns the name of the month for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="MONTHNAME" class="hideTR">
+            <h2>MONTHNAME</h2>
+            <p>The <b>MONTHNAME()</b> function returns the name of the month for a given date.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                MONTHNAME(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the name of the month for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MONTHNAME("2017-06-15");
+            </p>
+            <p>Return the name of the month for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MONTHNAME("2017-06-15 09:34:21");
+            </p>
+            <p>Return the name of the month for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> MONTHNAME(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(NOW)"><underline>NOW</underline></td>
+            <td>Returns the current date and time</td>
+        </tr>
+        <tr><td colspan="2" id="NOW" class="hideTR">
+            <h2>NOW</h2>
+            <p>The <b>NOW()</b> function returns the current date and time.</p>
+            <p><b>Note</b>: The date and time is returned as "YYYY-MM-DD HH-MM-SS" (string) or as YYYYMMDDHHMMSS.uuuuuu (numeric).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                NOW()
+            </p>
+            <h3>Example</h3>
+            <p>Return current date and time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> NOW();
+            </p>
+            <p>Return current date and time + 1:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> NOW() + 1;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(PERIOD_ADD)"><underline>PERIOD_ADD</underline></td>
+            <td>Adds a specified number of months to a period</td>
+        </tr>
+        <tr><td colspan="2" id="PERIOD_ADD" class="hideTR">
+            <h2>PERIOD_ADD</h2>
+            <p>The <b>PERIOD_ADD()</b> function adds a specified number of months to a period.</p>
+            <p>The <b>PERIOD_ADD()</b> function will return the result formatted as YYYYMM.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                PERIOD_ADD(period, number)
+            </p>
+            <h3>Example</h3>
+            <p>Add a specified number of months to a period:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> PERIOD_ADD(201703, 5);
+            </p>
+            <p>Add a specified number of months to a period:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> PERIOD_ADD(201703, 15);
+            </p>
+            <p>Add a specified number of months to a period:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> PERIOD_ADD(201703, -2);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(PERIOD_DIFF)"><underline>PERIOD_DIFF</underline></td>
+            <td>Returns the difference between two periods</td>
+        </tr>
+        <tr><td colspan="2" id="PERIOD_DIFF" class="hideTR">
+            <h2>PERIOD_DIFF</h2>
+            <p>The <b>PERIOD_DIFF()</b> function returns the difference between two periods. The result will be in months.</p>
+            <p><b>Note</b>: period1 and period2 should be in the same format.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                PERIOD_DIFF(period1, period2)
+            </p>
+            <h3>Example</h3>
+            <p>Return the difference between two periods:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> PERIOD_DIFF(201710, 201703);
+            </p>
+            <p>Return the difference between two periods:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> PERIOD_DIFF(201703, 201803);
+            </p>
+            <p>Return the difference between two periods:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> PERIOD_DIFF(1703, 1612);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(QUARTER)"><underline>QUARTER</underline></td>
+            <td>Returns the quarter of the year for a given date value</td>
+        </tr>
+        <tr><td colspan="2" id="QUARTER" class="hideTR">
+            <h2>QUARTER</h2>
+            <p>The <b>QUARTER()</b> function returns the quarter of the year for a given date value (a number from 1 to 4).</p>
+            <ul>
+                <li>January-March returns 1</li>
+                <li>April-June returns 2</li>
+                <li>July-Sep returns 3</li>
+                <li>Oct-Dec returns 4</li>
+            </ul>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                QUARTER(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the quarter of the year for the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> QUARTER("2017-06-15");
+            </p>
+            <p>Return the quarter of the year for the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> QUARTER("2017-01-01 09:34:21");
+            </p>
+            <p>Return the quarter of the year for the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> QUARTER(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SECOND)"><underline>SECOND</underline></td>
+            <td>Returns the seconds part of a time/datetime</td>
+        </tr>
+        <tr><td colspan="2" id="SECOND" class="hideTR">
+            <h2>SECOND</h2>
+            <p>The <b>SECOND()</b> function returns the seconds part of a time/datetime (from 0 to 59).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SECOND(datetime)
+            </p>
+            <h3>Example</h3>
+            <p>Return the seconds part of a datetime value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SECOND("2017-06-20 09:34:00.000023");
+            </p>
+            <p>Return the seconds part of a time value: </p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SECOND("23:59:59");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SEC_TO_TIME)"><underline>SEC_TO_TIME</underline></td>
+            <td>Returns a time value based on the specified seconds</td>
+        </tr>
+        <tr><td colspan="2" id="SEC_TO_TIME" class="hideTR">
+            <h2>SEC_TO_TIME</h2>
+            <p>The <b>SEC_TO_TIME()</b> function returns a time value (in format HH:MM:SS) based on the specified seconds.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SEC_TO_TIME(seconds)
+            </p>
+            <h3>Example</h3>
+            <p>Return a time value based on a specified seconds value:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SEC_TO_TIME(1);
+            </p>
+            <p>Return a time value based on a specified seconds value: </p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SEC_TO_TIME(-6897);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(STR_TO_DATE)"><underline>STR_TO_DATE</underline></td>
+            <td>Returns a time value based on the specified seconds</td>
+        </tr>
+        <tr><td colspan="2" id="STR_TO_DATE" class="hideTR">
+            <h2>STR_TO_DATE</h2>
+            <p>The <b>STR_TO_DATE()</b> function returns a date based on a string and a format.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                STR_TO_DATE(string, format)
+            </p>
+            <p><b>format</b> (Required). The format to use. Can be one or a combination of the following values:</p>
+            <div class="scrollableTable"><table>
+                <tr>
+                    <th>Format</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>%a	Abbreviated weekday name (Sun to Sat)</td>
+                    <td>%b	Abbreviated month name (Jan to Dec)</td>
+                    <td>%c	Numeric month name (0 to 12)</td>
+                    <td>%D	Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)</td>
+                    <td>%d	Day of the month as a numeric value (01 to 31)</td>
+                    <td>%e	Day of the month as a numeric value (0 to 31)</td>
+                    <td>%f	Microseconds (000000 to 999999)</td>
+                    <td>%H	Hour (00 to 23)</td>
+                    <td>%h	Hour (00 to 12)</td>
+                    <td>%I	Hour (00 to 12)</td>
+                    <td>%i	Minutes (00 to 59)</td>
+                    <td>%j	Day of the year (001 to 366)</td>
+                    <td>%k	Hour (0 to 23)</td>
+                    <td>%l	Hour (1 to 12)</td>
+                    <td>%M	Month name in full (January to December)</td>
+                    <td>%m	Month name as a numeric value (00 to 12)</td>
+                    <td>%p	AM or PM</td>
+                    <td>%r	Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
+                    <td>%S	Seconds (00 to 59)</td>
+                    <td>%s	Seconds (00 to 59)</td>
+                    <td>%T	Time in 24 hour format (hh:mm:ss)</td>
+                    <td>%U	Week where Sunday is the first day of the week (00 to 53)</td>
+                    <td>%u	Week where Monday is the first day of the week (00 to 53)</td>
+                    <td>%V	Week where Sunday is the first day of the week (01 to 53). Used with %X</td>
+                    <td>%v	Week where Monday is the first day of the week (01 to 53). Used with %X</td>
+                    <td>%W	Weekday name in full (Sunday to Saturday)</td>
+                    <td>%w	Day of the week where Sunday=0 and Saturday=6</td>
+                    <td>%X	Year for the week where Sunday is the first day of the week. Used with %V</td>
+                    <td>%x	Year for the week where Monday is the first day of the week. Used with %V</td>
+                    <td>%Y	Year as a numeric, 4-digit value</td>
+                    <td>%y	Year as a numeric, 2-digit value</td>
+                </tr>
+            </table></div>
+            <h3>Example</h3>
+            <p>Return a date based on a string and a format:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> STR_TO_DATE("August 10 2017", "%M %d %Y");
+            </p>
+            <p>Return a date based on a string and a format:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> STR_TO_DATE("August,5,2017", "%M %e %Y");
+            </p>
+            <p>Return a date based on a string and a format:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> STR_TO_DATE("Monday, August 14, 2017", "%W %M %e %Y");
+            </p>
+            <p>Return a date based on a string and a format:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> STR_TO_DATE("2017,8,14 10,40,10", "%Y,%m,%d %h,%i,%s");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SUBDATE)"><underline>SUBDATE</underline></td>
+            <td>Subtracts a time/date interval from a date and then returns the date</td>
+        </tr>
+        <tr><td colspan="2" id="SUBDATE" class="hideTR">
+            <h2>SUBDATE</h2>
+            <p>The <b>SUBDATE()</b> function subtracts a time/date interval from a date and then returns the date.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SUBDATE(date, INTERVAL value unit)<br>
+                <b>-OR-</b><br>
+                SUBDATE(date, days)
+            </p>
+            <p><b>unit</b> (Required). The type of interval. Can be one of the following values:</p>
+            <ul>
+                <li>MICROSECOND</li>
+                <li>SECOND</li>
+                <li>MINUTE</li>
+                <li>HOUR</li>
+                <li>DAY</li>
+                <li>WEEK</li>
+                <li>MONTH</li>
+                <li>QUARTER</li>
+                <li>YEAR</li>
+                <li>SECOND_MICROSECOND</li>
+                <li>MINUTE_MICROSECOND</li>
+                <li>MINUTE_SECOND</li>
+                <li>HOUR_MICROSECOND</li>
+                <li>HOUR_SECOND</li>
+                <li>HOUR_MINUTE</li>
+                <li>DAY_MICROSECOND</li>
+                <li>DAY_SECOND</li>
+                <li>DAY_MINUTE</li>
+                <li>DAY_HOUR</li>
+                <li>YEAR_MONTH</li>
+            </ul>
+            <h3>Example</h3>
+            <p>Subtract 10 days from a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBDATE("2017-06-15", INTERVAL 10 DAY);
+            </p>
+            <p>Subtract 15 minutes from a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBDATE("2017-06-15 09:34:21", INTERVAL 15 MINUTE);
+            </p>
+            <p>Subtract 3 hours from a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBDATE("2017-06-15 09:34:21", INTERVAL 3 HOUR);
+            </p>
+            <p>Add 2 months to a date and return the date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBDATE("2017-06-15", INTERVAL -2 MONTH);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SUBTIME)"><underline>SUBTIME</underline></td>
+            <td>Subtracts a time interval from a datetime and then returns the time/datetime</td>
+        </tr>
+        <tr><td colspan="2" id="SUBTIME" class="hideTR">
+            <h2>SUBTIME</h2>
+            <p>The <b>SUBTIME()</b> function subtracts time from a time/datetime expression and then returns the new time/datetime.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SUBTIME(datetime, time_interval)
+            </p>
+            <h3>Example</h3>
+            <p>Subtract 5.000001 seconds and return the datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBTIME("2017-06-15 10:24:21.000004", "5.000001");
+            </p>
+            <p>Subtract 3 hours, 2 minutes, 5.000001 seconds and return the datetime:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBTIME("2017-06-15 10:24:21.000004", "3:2:5.000001");
+            </p>
+            <p>Subtract 5 seconds and return the time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBTIME("10:24:21", "5");
+            </p>
+            <p>Subtract 3 minutes and return the time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBTIME("10:24:21", "300");
+            </p>
+            <p>Add 3 hours, 2 minutes, and 5 seconds, and return the time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SUBTIME("10:24:21", "-3:2:5");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SYSDATE)"><underline>SYSDATE</underline></td>
+            <td>Returns the current date and time</td>
+        </tr>
+        <tr><td colspan="2" id="SYSDATE" class="hideTR">
+            <h2>SYSDATE</h2>
+            <p>The <b>SYSDATE()</b> function returns the current date and time.</p>
+            <p><b>Note</b>: The date and time is returned as "YYYY-MM-DD HH:MM:SS" (string) or as YYYYMMDDHHMMSS (numeric).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SYSDATE()
+            </p>
+            <h3>Example</h3>
+            <p>Return the current date and time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SYSDATE();
+            </p>
+            <p>Return the current date and time + 1:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> SYSDATE() + 1;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TIME)"><underline>TIME</underline></td>
+            <td>Extracts the time part from a given time/datetime</td>
+        </tr>
+        <tr><td colspan="2" id="TIME" class="hideTR">
+            <h2>TIME</h2>
+            <p>The <b>TIME()</b> function extracts the time part from a given time/datetime.</p>
+            <p><b>Note</b>: This function returns "00:00:00" if expression is not a datetime/time, or NULL if expression is NULL.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                TIME(expression)
+            </p>
+            <h3>Example</h3>
+            <p>Extract the time part from a time expression:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME("19:30:10");
+            </p>
+            <p>Extract the time part from the datetime expression:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME("2017-08-15 19:30:10");
+            </p>
+            <p>Extract the time part from the datetime expression:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME("2017-08-15 19:30:10.000001");
+            </p>
+            <p>Extract the time part from NULL:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME(NULL);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TIME_FORMAT)"><underline>TIME_FORMAT</underline></td>
+            <td>Formats a time by a specified format</td>
+        </tr>
+        <tr><td colspan="2" id="TIME_FORMAT" class="hideTR">
+            <h2>TIME_FORMAT</h2>
+            <p>The <b>TIME_FORMAT()</b> function formats a time by a specified format.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                TIME_FORMAT(time, format)
+            </p>
+            <p><b>format</b> (Required). The format to use. Can be one or a combination of the following:</p>
+            <div id="scrollableTable"><table>
+                <tr>
+                    <th>Format</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>%f</td>
+                    <td>Microseconds (000000 to 999999)</td>
+                </tr><tr>
+                    <td>%H</td>
+                    <td>Hour (00 to 23)</td>
+                </tr><tr>
+                    <td>%h</td>
+                    <td>Hour (00 to 12)</td>
+                </tr><tr>
+                    <td>%I</td>
+                    <td>Hour (00 to 12)</td>
+                </tr><tr>
+                    <td>%i</td>
+                    <td>Minutes (00 to 59)</td>
+                </tr><tr>
+                    <td>%p</td>
+                    <td>AM or PM</td>
+                </tr><tr>
+                    <td>%r</td>
+                    <td>Time in 12 hour AM or PM format (hh:mm:ss AM/PM)</td>
+                </tr><tr>
+                    <td>%S</td>
+                    <td>Seconds (00 to 59)</td>
+                </tr><tr>
+                    <td>%s</td>
+                    <td>Seconds (00 to 59)</td>
+                </tr><tr>
+                    <td>%T</td>
+                    <td>Time in 24 hour format (hh:mm:ss)</td>
+                </tr>
+            </table></div>
+            <h3>Example</h3>
+            <p>Format a time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_FORMAT("19:30:10", "%H %i %s");
+            </p>
+            <p>Format a time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_FORMAT("19:30:10", "%h %i %s %p");
+            </p>
+            <p>Format a time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_FORMAT("19:30:10", "%r");
+            </p>
+            <p>Format a time:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_FORMAT("19:30:10", "%T");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TIME_TO_SEC)"><underline>TIME_TO_SEC</underline></td>
+            <td>Converts a time value into seconds</td>
+        </tr>
+        <tr><td colspan="2" id="TIME_TO_SEC" class="hideTR">
+            <h2>TIME_TO_SEC</h2>
+            <p>The <b>TIME_TO_SEC()</b> function converts a time value into seconds.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                TIME_TO_SEC(time)
+            </p>
+            <h3>Example</h3>
+            <p>Convert a time value into seconds:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_TO_SEC("19:30:10");
+            </p>
+            <p>Convert a time value into seconds:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_TO_SEC("00:00:05");
+            </p>
+            <p>Convert a time value into seconds:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_TO_SEC("03:30:00.999999");
+            </p>
+            <p>Convert a time value into seconds:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIME_TO_SEC("-03:30:00");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TIMEDIFF)"><underline>TIMEDIFF</underline></td>
+            <td>Returns the difference between two time/datetime expressions</td>
+        </tr>
+        <tr><td colspan="2" id="TIMEDIFF" class="hideTR">
+            <h2>TIMEDIFF</h2>
+            <p>The <b>TIMEDIFF()</b> function returns the difference between two time/datetime expressions.</p>
+            <p><b>Note</b>: time1 and time2 should be in the same format, and the calculation is time1 - time2.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                TIMEDIFF(time1, time2)
+            </p>
+            <h3>Example</h3>
+            <p>Return the difference between two time expressions:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIMEDIFF("13:10:11", "13:10:10");
+            </p>
+            <p>Return the difference between two datetime expressions:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIMEDIFF("2017-06-25 13:10:11", "2017-06-15 13:10:10");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TIMESTAMP)"><underline>TIMESTAMP</underline></td>
+            <td>Returns a datetime value based on a date or datetime value</td>
+        </tr>
+        <tr><td colspan="2" id="TIMESTAMP" class="hideTR">
+            <h2>TIMESTAMP</h2>
+            <p>The <b>TIMESTAMP()</b> function returns a datetime value based on a date or datetime value.</p>
+            <p><b>Note</b>: If there are specified two arguments with this function, it first adds the second argument to the first, and then returns a datetime value.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                TIMESTAMP(expression, time)
+            </p>
+            <h3>Example</h3>
+            <p>Return a datetime value based on the arguments:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIMESTAMP("2017-07-23", "13:10:11");
+            </p>
+            <p>Return a datetime value based on the arguments:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TIMESTAMP("2017-07-23");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(TO_DAYS)"><underline>TO_DAYS</underline></td>
+            <td>Returns the number of days between a date and date "0000-00-00"</td>
+        </tr>
+        <tr><td colspan="2" id="TO_DAYS" class="hideTR">
+            <h2>TO_DAYS</h2>
+            <p>The <b>TO_DAYS()</b> function returns the number of days between a date and year 0 (date "0000-00-00").</p>
+            <p>The <b>TO_DAYS()</b> function can be used only with dates within the Gregorian calendar.</p>
+            <p><b>Note</b>: This function is the opposite of the <b>FROM_DAYS()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                TO_DAYS(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the number of days between the date and year 0:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TO_DAYS("2017-06-20");
+            </p>
+            <p>Return the number of days between the date and year 0:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> TO_DAYS("2017-06-20 09:34:00");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(WEEK)"><underline>WEEK</underline></td>
+            <td>Returns the week number for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="WEEK" class="hideTR">
+            <h2>WEEK</h2>
+            <p>The <b>WEEK()</b> function returns the week number for a given date (a number from 0 to 53).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                WEEK(date, firstdayofweek)
+            </p>
+            <p><b>firstdayofweek</b> (Optional). Specifies what day the week starts on. Can be one of the following:</p>
+            <ul>
+                <li>0 - First day of week is Sunday</li>
+                <li>1 - First day of week is Monday and the first week of the year has more than 3 days</li>
+                <li>2 - First day of week is Sunday</li>
+                <li>3 - First day of week is Monday and the first week of the year has more than 3 days</li>
+                <li>4 - First day of week is Sunday and the first week of the year has more than 3 days</li>
+                <li>5 - First day of week is Monday</li>
+                <li>6 - First day of week is Sunday and the first week of the year has more than 3 days</li>
+                <li>7 - First day of week is Monday</li>
+            </ul>
+            <h3>Example</h3>
+            <p>Return the week number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEK("2017-06-15");
+            </p>
+            <p>Return the week number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEK("2017-10-25");
+            </p>
+            <p>Return the week number for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEK(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(WEEKDAY)"><underline>WEEKDAY</underline></td>
+            <td>Returns the weekday number for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="WEEKDAY" class="hideTR">
+            <h2>WEEKDAY</h2>
+            <p>The <b>WEEKDAY()</b> function returns the weekday number for a given date.</p>
+            <p><b>Note</b>: 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                WEEKDAY(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the weekday number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEKDAY("2017-06-15");
+            </p>
+            <p>Return the weekday number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEKDAY("2017-01-01");
+            </p>
+            <p>Return the weekday number for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEKDAY(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(WEEKOFYEAR)"><underline>WEEKOFYEAR</underline></td>
+            <td>Returns the week number for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="WEEKOFYEAR" class="hideTR">
+            <h2>WEEKOFYEAR</h2>
+            <p>The <b>WEEKOFYEAR()</b> function returns the week number for a given date (a number from 1 to 53).</p>
+            <p><b>Note</b>: This function assumes that the first day of the week is Monday and the first week of the year has more than 3 days.</p>
+            <p><b>Tip</b>: Also look at the <b>WEEK()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                WEEKOFYEAR(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the week number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEKOFYEAR("2017-06-15");
+            </p>
+            <p>Return the week number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEKOFYEAR("2017-01-01");
+            </p>
+            <p>Return the week number for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> WEEKOFYEAR(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(YEAR)"><underline>YEAR</underline></td>
+            <td>Returns the year part for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="YEAR" class="hideTR">
+            <h2>YEAR</h2>
+            <p>The <b>YEAR()</b> function returns the year part for a given date (a number from 1000 to 9999).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                YEAR(date)
+            </p>
+            <h3>Example</h3>
+            <p>Return the year part of a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> YEAR("2017-06-15");
+            </p>
+            <p>Return the year part of a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> YEAR("2017-06-15 09:34:21");
+            </p>
+            <p>Return the year part of the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> YEAR(CURDATE());
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(YEARWEEK)"><underline>YEARWEEK</underline></td>
+            <td>Returns the year and week number for a given date</td>
+        </tr>
+        <tr><td colspan="2" id="YEARWEEK" class="hideTR">
+            <h2>YEARWEEK</h2>
+            <p>The <b>YEARWEEK()</b> function returns the year and week number (a number from 0 to 53) for a given date.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                YEARWEEK(date, firstdayofweek)
+            </p>
+            <p>firstdayofweek (Optional). Specifies what day the week starts on. Can be one of the following:</p>
+            <ul>
+                <li>0 - First day of week is Sunday</li>
+                <li>1 - First day of week is Monday and the first week has more than 3 days</li>
+                <li>2 - First day of week is Sunday</li>
+                <li>3 - First day of week is Monday and the first week has more than 3 days</li>
+                <li>4 - First day of week is Sunday and the first week has more than 3 days</li>
+                <li>5 - First day of week is Monday</li>
+                <li>6 - First day of week is Sunday and the first week has more than 3 days</li>
+                <li>7 - First day of week is Monday</li>
+            </ul>
+            <h3>Example</h3>
+            <p>Return the year and week number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> YEARWEEK("2017-06-15");
+            </p>
+            <p>Return the year and week number for a date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> YEARWEEK("2017-10-25");
+            </p>
+            <p>Return the year and week number for the current system date:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> YEARWEEK(CURDATE());
             </p>
         </td></tr>
     </table></div><br>
@@ -2148,12 +3205,527 @@
             <th>Description</th>
         </tr>
         <tr>
+            <td onclick="toggleTR(BIN)"><underline>BIN</underline></td>
+            <td>Returns a binary representation of a number</td>
+        </tr>
+        <tr><td colspan="2" id="BIN" class="hideTR">
+            <h2>BIN</h2>
+            <p>The <b>BIN()</b> function returns a binary representation of a number, as a string value.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                BIN(number)
+            </p>
+            <h3>Example</h3>
+            <p>Return a binary representation of 15:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> BIN(15);
+            </p>
+            <p>Return a binary representation of 111:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> BIN(111);
+            </p>
+            <p>Return a binary representation of 8:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> BIN(8);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(BINARY)"><underline>BINARY</underline></td>
+            <td>Converts a value to a binary string</td>
+        </tr>
+        <tr><td colspan="2" id="BINARY" class="hideTR">
+            <h2>BINARY</h2>
+            <p>The <b>BINARY</b> function converts a value to a binary string.</p>
+            <p>This function is equivalent to using CAST(value AS BINARY).</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                BINARY value
+            </p>
+            <h3>Example</h3>
+            <p>Convert a value to a binary string:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> BINARY "W3Schools.com";
+            </p>
+            <p>Here MySQL performs a character-by-character comparison of "HELLO" and "hello" and return 1 (because on a character-by-character basis, they are equivalent):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> "HELLO" = "hello";
+            </p>
+            <p>Here MySQL performs a byte-by-byte comparison of "HELLO" and "hello" and return 0 (because on a byte-by-byte basis, they are NOT equivalent):</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> BINARY "HELLO" = "hello";
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CASE)"><underline>CASE</underline></td>
+            <td>Goes through conditions and return a value when the first condition is met</td>
+        </tr>
+        <tr><td colspan="2" id="CASE" class="hideTR">
+            <h2>CASE</h2>
+            <p>The <b>CASE</b> statement goes through conditions and return a value when the first condition is met (like an <b>IF-THEN-ELSE</b> statement). So, once a condition is true, it will stop reading and return the result.</p>
+            <p>If no conditions are true, it will return the value in the <b>ELSE</b> clause.</p>
+            <p>If there is no <b>ELSE</b> part and no conditions are true, it returns <b>NULL</b>.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CASE<br>
+                &emsp;WHEN condition1 THEN result1<br>
+                &emsp;WHEN condition2 THEN result2<br>
+                &emsp;WHEN conditionN THEN resultN<br>
+                &emsp;ELSE result<br>
+                END;
+            </p>
+            <h3>Example</h3>
+            <p>Go through conditions and return a value when the first condition is met:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> OrderID, Quantity,<br>
+                <sql>CASE</sql><br>
+                &emsp;<sql>WHEN</sql> Quantity > 30 <sql>THEN</sql> "The quantity is greater than 30"<br>
+                &emsp;<sql>WHEN</sql> Quantity = 30 <sql>THEN</sql> "The quantity is 30"<br>
+                &emsp;<sql>ELSE</sql> "The quantity is under 30"<br>
+                <sql>END</sql><br>
+                <sql>FROM</sql> OrderDetails;
+            </p>
+            <p>The following SQL will order the customers by City. However, if City is NULL, then order by Country:</p>
+            <p class="code-sl">
+                <sql>FROM</sql> Customers<br>
+                <sql>ORDER BY</sql><br>
+                (<sql>CASE</sql><br>
+                    &emsp;<sql>WHEN</sql> City <sql>IS NULL THEN</sql> Country<br>
+                    &emsp;<sql>ELSE</sql> City<br>
+                <sql>END</sql>);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CAST)"><underline>CAST</underline></td>
+            <td>Converts a value (of any type) into a specified datatype</td>
+        </tr>
+        <tr><td colspan="2" id="CAST" class="hideTR">
+            <h2>CAST</h2>
+            <p>The <b>CAST()</b> function converts a value (of any type) into the specified datatype.</p>
+            <p><b>Tip</b>: See also the <b>CONVERT()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CAST(value AS datatype)
+            </p>
+            <p><b>datatype</b> (Required). The datatype to convert to. Can be one of the following:</p>
+            <div id="scrollableTable"><table>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>DATE</td>
+                    <td>Converts value to DATE. Format: "YYYY-MM-DD"</td>
+                </tr><tr>
+                    <td>DATETIME</td>
+                    <td>Converts value to DATETIME. Format: "YYYY-MM-DD HH:MM:SS"</td>
+                </tr><tr>
+                    <td>TIME</td>
+                    <td>Converts value to TIME. Format: "HH:MM:SS"</td>
+                </tr><tr>
+                    <td>CHAR</td>
+                    <td>Converts value to CHAR (a fixed length string)</td>
+                </tr><tr>
+                    <td>SIGNED</td>
+                    <td>Converts value to SIGNED (a signed 64-bit integer)</td>
+                </tr><tr>
+                    <td>UNSIGNED</td>
+                    <td>Converts value to UNSIGNED (an unsigned 64-bit integer)</td>
+                </tr><tr>
+                    <td>BINARY</td>
+                    <td>Converts value to BINARY (a binary string)</td>
+                </tr>
+            </table></div>
+            <h3>Example</h3>
+            <p>Convert a value to a DATE datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CAST("2017-08-29" AS DATE);
+            </p>
+            <p>Convert a value to a CHAR datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CAST(150 AS CHAR);
+            </p>
+            <p>Convert a value to a TIME datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CAST("14:06:10" AS TIME);
+            </p>
+            <p>Convert a value to a SIGNED datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CAST(5-10 AS SIGNED);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(COALESCE)"><underline>COALESCE</underline></td>
+            <td>Returns the first non-null value in a list</td>
+        </tr>
+        <tr><td colspan="2" id="COALESCE" class="hideTR">
+            <h2>COALESCE</h2>
+            <p>The <b>COALESCE()</b> function returns the first non-null value in a list.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                COALESCE(val1, val2, ...., val_n)
+            </p>
+            <h3>Example</h3>
+            <p>Return the first non-null value in a list:</p>
+            <p class="code-sl">
+                <sql>SELECT COALESCE</sql>(<sql>NULL</sql>, <sql>NULL</sql>, <sql>NULL</sql>, 'W3Schools.com', <sql>NULL</sql>, 'Example.com');
+            </p>
+            <p>Return the first non-null value in a list:</p>
+            <p class="code-sl">
+                <sql>SELECT COALESCE</sql>(<sql>NULL</sql>, 1, 2, 'W3Schools.com');
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CONNECTION_ID)"><underline>CONNECTION_ID</underline></td>
+            <td>Returns the unique connection ID for the current connection</td>
+        </tr>
+        <tr><td colspan="2" id="CONNECTION_ID" class="hideTR">
+            <h2>CONNECTION_ID</h2>
+            <p>The <b>CONNECTION_ID()</b> function returns the unique connection ID for the current connection.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CONNECTION_ID()
+            </p>
+            <h3>Example</h3>
+            <p>Return the unique connection ID for the current connection:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONNECTION_ID();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CONV)"><underline>CONV</underline></td>
+            <td>Converts a number from one numeric base system to another</td>
+        </tr>
+        <tr><td colspan="2" id="CONV" class="hideTR">
+            <h2>CONV</h2>
+            <p>The <b>CONV()</b> function converts a number from one numeric base system to another, and returns the result as a string value.</p>
+            <p><b>Note</b>: This function returns <b>NULL</b> if any of the parameters are <b>NULL</b>.</p>
+            <p><b>Tip</b>: Also look at the <b>BIN()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CONV(number, from_base, to_base)
+            </p>
+            <h3>Example</h3>
+            <p>Convert a number from numeric base system 10 to numeric base system 2:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONV(15, 10, 2);
+            </p>
+            <p>Convert a number from numeric base system 2 to numeric base system 10:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONV(1111, 2, 10);
+            </p>
+            <p>Convert a number from numeric base system 10 to numeric base system 16:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CONV(88, 10, 16);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CONVERT)"><underline>CONVERT</underline></td>
+            <td>Converts a value into the specified datatype or character set</td>
+        </tr>
+        <tr><td colspan="2" id="CONVERT" class="hideTR">
+            <h2>CONVERT</h2>
+            <p>The <b>CONVERT()</b> function converts a value into the specified datatype or character set.</p>
+            <p><b>Tip</b>: Also look at the <b>CAST()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CONVERT(value, type)<br>
+                <b>-OR-</b><br>
+                CONVERT(value USING charset)
+            </p>
+            <div id="scrollableTable"><table>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>DATE</td>
+                    <td>Converts value to DATE. Format: "YYYY-MM-DD"</td>
+                </tr><tr>
+                    <td>DATETIME</td>
+                    <td>Converts value to DATETIME. Format: "YYYY-MM-DD HH:MM:SS"</td>
+                </tr><tr>
+                    <td>TIME</td>
+                    <td>Converts value to TIME. Format: "HH:MM:SS"<td></td>
+                </tr><tr>
+                    <td>CHAR</td>
+                    <td>Converts value to CHAR (a fixed length string)<td></td>
+                </tr><tr>
+                    <td>SIGNED</td>
+                    <td>Converts value to SIGNED (a signed 64-bit integer)</td>
+                </tr><tr>
+                    <td>UNSIGNED</td>
+                    <td>Converts value to UNSIGNED (an unsigned 64-bit integer)</td>
+                </tr><tr>
+                    <td>BINARY</td>
+                    <td>Converts value to BINARY (a binary string)</td>
+                </tr>
+            </table></div>
+            <h3>Example</h3>
+            <p>Convert a value to a DATE datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT CONVERT</sql>("2017-08-29", DATE);
+            </p>
+            <p>Convert a value to a CHAR datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT CONVERT</sql>(150, CHAR);
+            </p>
+            <p>Convert a value to a TIME datatype:</p>
+            <p class="code-sl">
+                <sql>SELECT CONVERT</sql>("14:06:10", TIME);
+            </p>
+            <p>Convert a value to LATIN1 character set:</p>
+            <p class="code-sl">
+                <sql>SELECT CONVERT</sql>("W3Schools.com" USING latin1);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(CURRENT_USER)"><underline>CURRENT_USER</underline></td>
+            <td>Returns the user name and host name for the MySQL account that the server used to authenticate the current client</td>
+        </tr>
+        <tr><td colspan="2" id="CURRENT_USER" class="hideTR">
+            <h2>CURRENT_USER</h2>
+            <p>The <b>CURRENT_USER()</b> function returns the user name and host name for the MySQL account that the server used to authenticate the current client.</p>
+            <p>The result is returned as a string in the UTF8 character set.</p>
+            <p><b>Tip</b>: See also the <b>USER()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                CURRENT_USER()
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql>SELECT</sql> CURRENT_USER();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(DATABASE)"><underline>DATABASE</underline></td>
+            <td>Returns the name of the current database</td>
+        </tr>
+        <tr><td colspan="2" id="DATABASE" class="hideTR">
+            <h2>DATABASE</h2>
+            <p>The <b>DATABASE()</b> function returns the name of the current database.</p>
+            <p>If there is no current database, this function returns <b>NULL</b> or "".</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                DATABASE()
+            </p>
+            <h3>Example</h3>
+            <p></p>
+            <p class="code-sl">
+                <sql>SELECT DATABASE</sql>();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(IF)"><underline>IF</underline></td>
+            <td>Returns a value if a condition is <b>TRUE</b>, or another value if a condition is <b>FALSE</b></td>
+        </tr>
+        <tr><td colspan="2" id="IF" class="hideTR">
+            <h2>IF</h2>
+            <p>The <b>IF()</b> function returns a value if a condition is TRUE, or another value if a condition is FALSE.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                IF(condition, value_if_true, value_if_false)
+            </p>
+            <h3>Example</h3>
+            <p>Return "YES" if the condition is TRUE, or "NO" if the condition is FALSE:</p>
+            <p class="code-sl">
+                <sql>SELECT IF</sql>(500&lt;1000, "YES", "NO");
+            </p>
+            <p>Return 5 if the condition is TRUE, or 10 if the condition is FALSE:</p>
+            <p class="code-sl">
+                <sql>SELECT IF</sql>(500&lt;1000, 5, 10);
+            </p>
+            <p>Test whether two strings are the same and return "YES" if they are, or "NO" if not:</p>
+            <p class="code-sl">
+                <sql>SELECT IF</sql>(STRCMP("hello","bye") = 0, "YES", "NO");
+            </p>
+            <p>Return "MORE" if the condition is TRUE, or "LESS" if the condition is FALSE:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> OrderID, Quantity, <sql>IF</sql>(Quantity>10, "MORE", "LESS")
+                <sql>FROM</sql> OrderDetails;
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(IFNULL)"><underline>IFNULL</underline></td>
+            <td>Return a specified value if the expression is <b>NULL</b>, otherwise return the expression</td>
+        </tr>
+        <tr><td colspan="2" id="IFNULL" class="hideTR">
+            <h2>IFNULL</h2>
+            <p>The <b>IFNULL()</b> function returns a specified value if the expression is NULL.</p>
+            <p>If the expression is <b>NOT NULL</b>, this function returns the expression.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                IFNULL(expression, alt_value)
+            </p>
+            <h3>Example</h3>
+            <p>Return the specified value IF the expression is NULL, otherwise return the expression:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> IFNULL(NULL, "W3Schools.com");
+            </p>
+            <p>Return the specified value IF the expression is NULL, otherwise return the expression:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> IFNULL("Hello", "W3Schools.com");
+            </p>
+            <p>Return the specified value IF the expression is NULL, otherwise return the expression:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> IFNULL(NULL, 500);
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(ISNULL)"><underline>ISNULL</underline></td>
+            <td>Returns 1 or 0 depending on whether an expression is <b>NULL</b></td>
+        </tr>
+        <tr><td colspan="2" id="ISNULL" class="hideTR">
+            <h2>ISNULL</h2>
+            <p>The <b>ISNULL()</b> function returns 1 or 0 depending on whether an expression is <b>NULL</b>.</p>
+            <p>If expression is <b>NULL</b>, this function returns 1. Otherwise, it returns 0.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                ISNULL(expression)
+            </p>
+            <h3>Example</h3>
+            <p>Test whether an expression is NULL:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ISNULL(NULL);
+            </p>
+            <p>Test whether an expression is NULL:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ISNULL("");
+            </p>
+            <p>Test whether an expression is NULL:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ISNULL(350);
+            </p>
+            <p>Test whether an expression is NULL:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> ISNULL("Hello world!");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(LAST_INSERT_ID)"><underline>LAST_INSERT_ID</underline></td>
+            <td>Returns the <b>AUTO_INCREMENT</b> id of the last row that has been inserted or updated in a table</td>
+        </tr>
+        <tr><td colspan="2" id="LAST_INSERT_ID" class="hideTR">
+            <h2>LAST_INSERT_ID</h2>
+            <p>The <b>LAST_INSERT_ID()</b> function returns the <b>AUTO_INCREMENT</b> id of the last row that has been inserted or updated in a table.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                LAST_INSERT_ID(expression)
+            </p>
+            <h3>Example</h3>
+            <p>Return the AUTO_INCREMENT id of the last row that has been inserted or updated in a table:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> LAST_INSERT_ID();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(NULLIF)"><underline>NULLIF</underline></td>
+            <td>Compares two expressions and returns NULL if they are equal. Otherwise, the first expression is returned</td>
+        </tr>
+        <tr><td colspan="2" id="NULLIF" class="hideTR">
+            <h2>NULLIF</h2>
+            <p>The <b>NULLIF()</b> function compares two expressions and returns <b>NULL</b> if they are equal. Otherwise, the first expression is returned.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                NULLIF(expr1, expr2)
+            </p>
+            <h3>Example</h3>
+            <p>Compare two expressions:</p>
+            <p class="code-sl">
+                <sql>SELECT NULLIF</sql>(25, 25);
+            </p>
+            <p>Compare two expressions:</p>
+            <p class="code-sl">
+                <sql>SELECT NULLIF</sql>(25, "Hello");
+            </p>
+            <p>Compare two expressions:</p>
+            <p class="code-sl">
+                <sql>SELECT NULLIF</sql>("Hello", "world");
+            </p>
+            <p>Compare two expressions:</p>
+            <p class="code-sl">
+                <sql>SELECT NULLIF</sql>("2017-08-25", "2017-08-25");
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SESSION_USER)"><underline>SESSION_USER</underline></td>
+            <td>Returns the current MySQL user name and host name</td>
+        </tr>
+        <tr><td colspan="2" id="SESSION_USER" class="hideTR">
+            <h2>SESSION_USER</h2>
+            <p>The <b>SESSION_USER()</b> function returns the current user name and host name for the MySQL connection.</p>
+            <p><b>Note</b>: This function is equal to the <b>SYSTEM_USER()</b> and the <b>USER()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SESSION_USER()
+            </p>
+            <h3>Example</h3>
+            <p>Return the current user name and host name for the MySQL connection:</p>
+            <p class="code-sl">
+                <sql>SELECT SESSION_USER</sql>();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(SYSTEM_USER)"><underline>SYSTEM_USER</underline></td>
+            <td>Returns the current MySQL user name and host name</td>
+        </tr>
+        <tr><td colspan="2" id="SYSTEM_USER" class="hideTR">
+            <h2>SYSTEM_USER</h2>
+            <p>The <b>SYSTEM_USER()</b> function returns the current user name and host name for the MySQL connection.</p>
+            <p><b>Note</b>: This function is equal to the <b>SESSION_USER()</b> function and the <b>USER()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                SYSTEM_USER()
+            </p>
+            <h3>Example</h3>
+            <p>Return the current user name and host name for the MySQL connection:</p>
+            <p class="code-sl">
+                <sql>SELECT SYSTEM_USER</sql>();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(USER)"><underline>USER</underline></td>
+            <td>Returns the current MySQL user name and host name</td>
+        </tr>
+        <tr><td colspan="2" id="USER" class="hideTR">
+            <h2>USER</h2>
+            <p>The <b>USER()</b> function returns the current user name and host name for the MySQL connection.</p>
+            <p><b>Note</b>: This function is equal to the <b>SESSION_USER()</b> function and the <b>SYSTEM_USER()</b> function.</p>
+            <p><b>Tip</b>: Also look at the <b>CURRENT_USER()</b> function.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                USER()
+            </p>
+            <h3>Example</h3>
+            <p>Return the current user name and host name for the MySQL connection:</p>
+            <p class="code-sl">
+                <sql>SELECT USER</sql>();
+            </p>
+        </td></tr>
+        <tr>
+            <td onclick="toggleTR(VERSION)"><underline>VERSION</underline></td>
+            <td>Returns the current version of the MySQL database</td>
+        </tr>
+        <tr><td colspan="2" id="VERSION" class="hideTR">
+            <h2>VERSION</h2>
+            <p>The <b>VERSION()</b> function returns the current version of the MySQL database, as a string.</p>
+            <h3>Syntax</h3>
+            <p class="code-sl">
+                VERSION()
+            </p>
+            <h3>Example</h3>
+            <p>Return the current version of the MySQL database:</p>
+            <p class="code-sl">
+                <sql>SELECT</sql> VERSION();
+            </p>
+        </td></tr>
+        <!--<tr>
             <td onclick="toggleTR(Example)"><underline>Example</underline></td>
             <td></td>
         </tr>
         <tr><td colspan="2" id="Example" class="hideTR">
             <h2>Example</h2>
-            <p>Example description</p>
+            <p>Description</p>
             <h3>Syntax</h3>
             <p class="code-sl">
                 
@@ -2167,7 +3739,7 @@
             <p class="code-sl">
                 <sql></sql> <br>
             </p>
-        </td></tr>
+        </td></tr>-->
     </table></div>
     </div>
 </div>
