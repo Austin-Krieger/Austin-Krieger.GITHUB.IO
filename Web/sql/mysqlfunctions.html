@@ -276,8 +276,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to search for</td>
+                </tr>
+                <tr>
+                    <td>string_list</td>
+                    <td>Required. The list of string values to be searched (separated by commas)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -316,8 +320,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The number to be formatted</td>
+                </tr>
+                <tr>
+                    <td>decimal_places</td>
+                    <td>Required. The number of decimal places for number. If this parameter is 0, this function returns a string with no decimal places</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -348,8 +356,20 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string that will be modified</td>
+                </tr>
+                <tr>
+                    <td>position</td>
+                    <td>Required. The position where to insert string2</td>
+                </tr>
+                <tr>
+                    <td>number</td>
+                    <td>Required. The number of characters to replace</td>
+                </tr>
+                <tr>
+                    <td>string2</td>
+                    <td>Required. The string to insert into string</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -386,8 +406,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string1</td>
+                    <td>Required. The string that will be searched</td>
+                </tr>
+                <tr>
+                    <td>string2</td>
+                    <td>Required. The string to search for in string1. If string2 is not found, this function returns 0</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -424,8 +448,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>text</td>
+                    <td>Required. The string to convert</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -458,8 +482,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to extract from</td>
+                </tr>
+                <tr>
+                    <td>number_of_chars</td>
+                    <td>Required. The number of characters to extract. If this parameter is larger than the number of characters in string, this function will return string</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -491,8 +519,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to count the length for</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -527,8 +555,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>substring</td>
+                    <td>Required. The substring to search for in string</td>
+                </tr>
+                <tr>
+                    <td>string</td>
+                    <td>Required. The string that will be searched</td>
+                </tr>
+                <tr>
+                    <td>start</td>
+                    <td>Optional. The starting position for the search. Position 1 is default</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -565,8 +601,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>text</td>
+                    <td>Required. The string to convert</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -598,8 +634,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The original string. If the length of the original string is larger than the length parameter, this function removes the overfloating characters from string</td>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>Required. The length of the string after it has been left-padded</td>
+                </tr>
+                <tr>
+                    <td>lpad_string</td>
+                    <td>Required. The string to left-pad to string</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -631,8 +675,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to remove leading spaces from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -661,8 +705,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to extract from</td>
+                </tr>
+                <tr>
+                    <td>start</td>
+                    <td>Required. The start position. Can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</td>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>Required. The number of characters to extract</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -701,8 +753,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>substring</td>
+                    <td>Required. The substring to search for in string</td>
+                </tr>
+                <tr>
+                    <td>string</td>
+                    <td>Required. The original string that will be searched</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -738,8 +794,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to repeat</td>
+                </tr>
+                <tr>
+                    <td>number</td>
+                    <td>Required. The number of times to repeat the string</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -776,8 +836,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The original string</td>
+                </tr>
+                <tr>
+                    <td>from_string</td>
+                    <td>Required. The substring to be replaced</td>
+                </tr>
+                <tr>
+                    <td>new_string</td>
+                    <td>Required. The new replacement substring</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -816,8 +884,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to reverse</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -850,8 +918,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to extract from</td>
+                </tr>
+                <tr>
+                    <td>number_of_chars</td>
+                    <td>Required. The number of characters to extract. If this parameter is larger than the number of characters in string, this function will return string</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -883,8 +955,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The original string. If the length of the original string is larger than the length parameter, this function removes the overfloating characters from string</td>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>Required. The length of the string after it has been right-padded</td>
+                </tr>
+                <tr>
+                    <td>rpad_string</td>
+                    <td>Required. The string to right-pad to string</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -916,8 +996,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to remove trailing spaces from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -944,8 +1024,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The number of space characters to return</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -972,8 +1052,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string1,<br>string2</td>
+                    <td>Required. The two strings to be compared</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1014,8 +1094,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to extract from</td>
+                </tr>
+                <tr>
+                    <td>start</td>
+                    <td>Required. The start position. Can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</td>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>Optional. The number of characters to extract. If omitted, the whole string will be returned (from the start position)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1055,8 +1143,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to extract from</td>
+                </tr>
+                <tr>
+                    <td>start</td>
+                    <td>Required. The start position. Can be both a positive or negative number. If it is a positive number, this function extracts from the beginning of the string. If it is a negative number, this function extracts from the end of the string</td>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>Optional. The number of characters to extract. If omitted, the whole string will be returned (from the start position)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1092,8 +1188,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The original string</td>
+                </tr>
+                <tr>
+                    <td>delimiter</td>
+                    <td>Required. The delimiter to search for</td>
+                </tr>
+                <tr>
+                    <td>number</td>
+                    <td>Required. The number of times to search for the delimiter. Can be both a positive or negative number. If it is a positive number, this function returns all to the left of the delimiter. If it is a negative number, this function returns all to the right of the delimiter.</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1124,8 +1228,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to remove leading and trailing spaces from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1153,8 +1257,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>text</td>
+                    <td>Required. The string to convert</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1187,8 +1291,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>text</td>
+                    <td>Required. The string to convert</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1230,8 +1334,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1259,8 +1363,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1292,8 +1396,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1326,8 +1430,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>A numeric value</td>
+                </tr>
+                <tr>
+                    <td>a, b</td>
+                    <td>Two numeric values to calculate the arc tangent of</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1358,8 +1466,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>a, b</td>
+                    <td>Required. Two numeric values to calculate the arc tangent of</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1391,8 +1499,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A numeric value (can be a field or a formula)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1425,8 +1533,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1458,8 +1566,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1490,8 +1598,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1522,8 +1630,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value. If number is 0, an error or NULL is returned</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1555,8 +1663,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A field or a string value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1584,8 +1692,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1616,8 +1724,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>x</td>
+                    <td>Required. A value that will be divided by y</td>
+                </tr>
+                <tr>
+                    <td>y</td>
+                    <td>Required. The divisor</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1650,8 +1762,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The power number</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1683,8 +1795,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1715,8 +1827,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>arg1, arg2,<br>arg3, ...</td>
+                    <td>Required. The list of arguments to be evaluated</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1747,8 +1859,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>arg1, arg2,<br>arg3, ...</td>
+                    <td>Required. The list of arguments to be evaluated</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1780,8 +1892,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A number. Must be greater than 0</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1814,8 +1926,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A number. Must be greater than 0</td>
+                </tr>
+                <tr>
+                    <td>base</td>
+                    <td>The base of number. Must be greater than 1</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1846,8 +1962,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>A number greater than 0</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1878,8 +1994,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>A number. Must be greater than 0</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1910,8 +2026,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A numeric value (can be a field or a formula)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -1938,18 +2054,14 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A numeric value (can be a field or a formula)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
             <p>Find the price of the cheapest product in the "Products" table:</p>
             <p class="code-sl">
                 <sql>SELECT</sql> MIN(Price) <sql>AS</sql> SmallestPrice <sql>FROM</sql> Products;
-            </p>
-            <p></p>
-            <p class="code-sl">
-                <sql></sql> <br>
             </p>
         </td></tr>
         <tr>
@@ -1974,8 +2086,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>x</td>
+                    <td>Required. A value that will be divided by y</td>
+                </tr>
+                <tr>
+                    <td>y</td>
+                    <td>Required. The divisor</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2003,17 +2119,6 @@
             <p class="code-sl">
                 PI()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the value of PI:</p>
             <p class="code-sl">
@@ -2039,8 +2144,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>x</td>
+                    <td>Required. A number (the base)</td>
+                </tr>
+                <tr>
+                    <td>y</td>
+                    <td>Required. A number (the exponent)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2072,8 +2181,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>x</td>
+                    <td>Required. A number (the base)</td>
+                </tr>
+                <tr>
+                    <td>y</td>
+                    <td>Required. A number (the exponent)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2104,8 +2217,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A number in degrees</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2136,8 +2249,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>seed</td>
+                    <td>Optional. If seed is specified, it returns a repeatable sequence of random numbers. If no seed is specified, it returns a completely random number</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2177,8 +2290,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The number to be rounded</td>
+                </tr>
+                <tr>
+                    <td>decimals</td>
+                    <td>Optional. The number of decimal places to round number to. If omitted, it returns the integer (no decimals)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2219,8 +2336,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The number to return the sign for</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2251,8 +2368,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2283,8 +2400,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A number to calculate the square root of. Must be greater than 0</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2316,8 +2433,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A field or a formula</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2344,8 +2461,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A numeric value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2376,8 +2493,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The number to be truncated</td>
+                </tr>
+                <tr>
+                    <td>decimals</td>
+                    <td>Required. The number of decimal places to truncate to</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2420,16 +2541,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to be modified</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>days</td>
+                    <td>Required. The number of days to add to date</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>value</td>
+                    <td>Required. The value of the time/date interval to add. Both positive and negative values are allowed</td>
                 </tr>
                 <td>addunit</td>
                 <td>(Required). The type of interval to add. Can be one of the following values:<br>
@@ -2492,8 +2613,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>datetime</td>
+                    <td>Required. The time/datetime to be modified</td>
+                </tr>
+                <tr>
+                    <td>addtime</td>
+                    <td>Required. The time interval to add to datetime. Both positive and negative values are allowed</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2530,17 +2655,6 @@
             <p class="code-sl">
                 CURDATE()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current date:</p>
             <p class="code-sl">
@@ -2563,17 +2677,6 @@
             <p class="code-sl">
                 CURRENT_DATE()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current date:</p>
             <p class="code-sl">
@@ -2596,17 +2699,6 @@
             <p class="code-sl">
                 CURRENT_TIME()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return current time:</p>
             <p class="code-sl">
@@ -2629,17 +2721,6 @@
             <p class="code-sl">
                 CURRENT_TIMESTAMP()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current date and time:</p>
             <p class="code-sl">
@@ -2662,17 +2743,6 @@
             <p class="code-sl">
                 CURTIME()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return current time:</p>
             <p class="code-sl">
@@ -2701,8 +2771,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A valid date/datetime value. Returns NULL if expression is not a date or a datetime</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2741,8 +2811,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date1, date2</td>
+                    <td>Required. Two dates to calculate the number of days between. (date1 - date2)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -2777,12 +2847,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to be modified</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>value</td>
+                    <td>Required. The value of the time/date interval to add. Both positive and negative values are allowed</td>
                 </tr>
                 <td>addunit</td>
                 <td>(Required). The type of interval to add. Can be one of the following values:<br>
@@ -2845,8 +2915,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to be formatted</td>
                 </tr>
                 <tr><td>format</td><td>(Required). The format to use. Can be one or a combination of the following values:<br><br>
                     <div class="scrollableTable"><table>
@@ -2956,8 +3026,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to be modified</td>
+                </tr>
+                <tr>
+                    <td>value</td>
+                    <td>Required. The value of the time/date interval to subtract. Both positive and negative values are allowed</td>
                 </tr>
                 <tr><td>interval</td>
                 <td>(Required). The type of interval to subtract. Can be one of the following values:<br>
@@ -3021,8 +3095,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to extract the day from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3057,8 +3131,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to extract the weekday name from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3094,8 +3168,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to extract the day from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3131,8 +3205,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to return the weekday index from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3167,8 +3241,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to return the day of the year from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3201,10 +3275,6 @@
                 <tr>
                     <th>Parameter</th>
                     <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
                 </tr>
                 <tr><td>part</td>
                 <td>(Required). The part to extract. Can be one of the following:
@@ -3269,8 +3339,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. The numeric day to convert to a date</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3301,8 +3371,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>datetime</td>
+                    <td>Required. The datetime value to extract the hour from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3333,8 +3403,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date to extract the last day of the month from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3359,17 +3429,6 @@
             <p class="code-sl">
                 LOCALTIME()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return current date and time:</p>
             <p class="code-sl">
@@ -3392,17 +3451,6 @@
             <p class="code-sl">
                 LOCALTIMESTAMP()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return current date and time:</p>
             <p class="code-sl">
@@ -3431,8 +3479,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>year</td>
+                    <td>Required. A year (4-digits)</td>
+                </tr>
+                <tr>
+                    <td>day</td>
+                    <td>Required. A number that indicates the day of the year</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3471,8 +3523,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>hour</td>
+                    <td>Required. The hour value</td>
+                </tr>
+                <tr>
+                    <td>minute</td>
+                    <td>Required. The minute value</td>
+                </tr>
+                <tr>
+                    <td>second</td>
+                    <td>Required. The second value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3511,8 +3571,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>datetime</td>
+                    <td>Required. The time or datetime to extract the microsecond from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3543,8 +3603,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>datetime</td>
+                    <td>Required. The time or datetime extract the minute from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3575,8 +3635,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime to extract the month from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3611,8 +3671,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime value to extract the month name from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3641,17 +3701,6 @@
             <p class="code-sl">
                 NOW()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return current date and time:</p>
             <p class="code-sl">
@@ -3681,8 +3730,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>period</td>
+                    <td>Required. A period. Format: YYMM or YYYYMM</td>
+                </tr>
+                <tr>
+                    <td>number</td>
+                    <td>Required. The number of months to add to period. Both positive and negative values are allowed</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3718,8 +3771,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>period1</td>
+                    <td>Required. A period. Format: YYMM or YYYYMM</td>
+                </tr>
+                <tr>
+                    <td>period2</td>
+                    <td>Required. Another period. Format: YYMM or YYYYMM</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3760,8 +3817,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime to extract the quarter from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3796,8 +3853,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>datetime</td>
+                    <td>Required. The time or datetime to extract the second from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3828,8 +3885,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>seconds</td>
+                    <td>Required. The number of seconds. Both positive or negative values are allowed</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -3860,8 +3917,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>string</td>
+                    <td>Required. The string to be formatted to a date</td>
                 </tr>
                 <tr>
                     <td>format</td>
@@ -4005,8 +4062,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The original date</td>
+                </tr>
+                <tr>
+                    <td>days</td>
+                    <td>Required. The number of days to subtract from date</td>
+                </tr>
+                <tr>
+                    <td>value</td>
+                    <td>Required. The value of the time/date interval to subtract. Both positive and negative values are allowed</td>
                 </tr>
                 <tr><td>unit</td><td>(Required). The type of interval. Can be one of the following values:<br>
                 <ul>
@@ -4068,8 +4133,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>datetime</td>
+                    <td>Required. The time or datetime to be modified</td>
+                </tr>
+                <tr>
+                    <td>time_interval</td>
+                    <td>Required. The time interval to subtract from datetime. Both positive and negative values are allowed</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4106,17 +4175,6 @@
             <p class="code-sl">
                 SYSDATE()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current date and time:</p>
             <p class="code-sl">
@@ -4146,8 +4204,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. The time/datetime to extract the time from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4186,8 +4244,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>time</td>
+                    <td>Required. The time to be formatted</td>
                 </tr>
                 <tr>
                     <td>format</td>
@@ -4267,8 +4325,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>time</td>
+                    <td>Required. The time value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4308,8 +4366,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>time1</td>
+                    <td>Required. A time value</td>
+                </tr>
+                <tr>
+                    <td>time2</td>
+                    <td>Required. Another time value</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4341,8 +4403,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. A date or datetime value</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>Optional. A time value to add to expression</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4375,8 +4441,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The given date</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4407,8 +4473,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime to extract the week number form</td>
                 </tr>
                 <tr><td>firstdayofweek</td><td>(Optional). Specifies what day the week starts on. Can be one of the following:<br>
                 <ul>
@@ -4455,8 +4521,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime to extract the weekday number from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4493,8 +4559,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime to extract the week number from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4529,8 +4595,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date/datetime to extract the year from</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4565,8 +4631,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>date</td>
+                    <td>Required. The date or datetime value to extract the year and week number from</td>
                 </tr>
                 <tr><td>firstdayofweek</td><td>(Optional). Specifies what day the week starts on. Can be one of the following:<br>
                 <ul>
@@ -4622,8 +4688,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A number</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4659,8 +4725,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>value</td>
+                    <td>Required. The value to convert</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4702,8 +4768,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>condition1,<br>condition2,<br>...conditionN</td>
+                    <td>Required. The conditions. These are evaluated in the same order as they are listed</td>
+                </tr>
+                <tr>
+                    <td>result1,<br>result2,<br>...resultN</td>
+                    <td>Required. The value to return once a condition is true</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4746,8 +4816,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>value</td>
+                    <td>Required. The value to convert</td>
                 </tr>
                 <tr><td>datatype</td><td>(Required). The datatype to convert to. Can be one of the following:<br><br>
                 <div class="scrollableTable"><table>
@@ -4815,8 +4885,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>val1, val2,<br>val_n</td>
+                    <td>Required. The values to test</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4840,17 +4910,6 @@
             <p class="code-sl">
                 CONNECTION_ID()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the unique connection ID for the current connection:</p>
             <p class="code-sl">
@@ -4877,8 +4936,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>number</td>
+                    <td>Required. A number</td>
+                </tr>
+                <tr>
+                    <td>from_base</td>
+                    <td>The numeric base system of number (a number between 2 and 36)</td>
+                </tr>
+                <tr>
+                    <td>to_base</td>
+                    <td>The numeric base system to convert to (a number between 2 and 36 or -2 and -36)</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -4916,8 +4983,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>value</td>
+                    <td>Required. The value to convert</td>
                 </tr>
                 <tr>
                     <td>type</td>
@@ -4983,17 +5050,6 @@
             <p class="code-sl">
                 CURRENT_USER()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p></p>
             <p class="code-sl">
@@ -5012,17 +5068,6 @@
             <p class="code-sl">
                 DATABASE()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p></p>
             <p class="code-sl">
@@ -5047,8 +5092,16 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>condition</td>
+                    <td>Required. The value to test</td>
+                </tr>
+                <tr>
+                    <td>value_if_true</td>
+                    <td>Optional. The value to return if condition is TRUE</td>
+                </tr>
+                <tr>
+                    <td>value_if_false</td>
+                    <td>Optional. The value to return if condition is FALSE</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -5089,8 +5142,12 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. The expression to test whether is NULL</td>
+                </tr>
+                <tr>
+                    <td>alt_value</td>
+                    <td>Required. The value to return if expression is NULL</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -5126,8 +5183,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Required. The value to test</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -5166,8 +5223,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expression</td>
+                    <td>Optional. An expression</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -5194,8 +5251,8 @@
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>expr1, expr2</td>
+                    <td>Required. The two expressions to be compared</td>
                 </tr>
             </table></div>
             <h3>Example</h3>
@@ -5228,17 +5285,6 @@
             <p class="code-sl">
                 SESSION_USER()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current user name and host name for the MySQL connection:</p>
             <p class="code-sl">
@@ -5257,17 +5303,6 @@
             <p class="code-sl">
                 SYSTEM_USER()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current user name and host name for the MySQL connection:</p>
             <p class="code-sl">
@@ -5287,17 +5322,6 @@
             <p class="code-sl">
                 USER()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current user name and host name for the MySQL connection:</p>
             <p class="code-sl">
@@ -5315,17 +5339,6 @@
             <p class="code-sl">
                 VERSION()
             </p>
-            <h3>Parameter Values</h3>
-            <div class="parameterValues"><table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table></div>
             <h3>Example</h3>
             <p>Return the current version of the MySQL database:</p>
             <p class="code-sl">
@@ -5343,6 +5356,17 @@
             <p class="code-sl">
                 
             </p>
+            <h3>Parameter Values</h3>
+            <div class="parameterValues"><table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table></div>
             <h3>Example</h3>
             <p></p>
             <p class="code-sl">
