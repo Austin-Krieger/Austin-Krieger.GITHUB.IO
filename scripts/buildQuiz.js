@@ -324,8 +324,7 @@ const HTML = [
         answers: {
             a: "&lt;input type='list'&gt;",
             b: "&lt;list&gt;",
-            c: "&lt;select&gt;",
-            d: "&lt;input type='list'&gt;"
+            c: "&lt;select&gt;"
         },
         correctAnswer: "c"
     },

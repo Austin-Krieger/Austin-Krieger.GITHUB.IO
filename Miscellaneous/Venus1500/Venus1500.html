@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Venus1500</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="../index.html">Home</a>
+    <a href="../notepad++/notepad.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../index.html">Web</a>
+</div>
+<div id="closeSideNav">
+<h1>Venus1500</h1>
+<div class="containButtons">
+    <button class="collapsible" id="autoClickBtn">Venus1500</button>
+    <div class="content">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+        <button class="collapsible">D-Link DUB-E100 Adaptor not Working on Windows 10</button>
+        <div class="innerContent">
+            <h2>Installing the Correct Driver</h2>
+            <ol>
+                <li>You may need to download the correct drivers for your device before you can progress (DUB-E100_B1_Driver_3.4.0) is the driver I recommend.</li>
+                <li>I downloaded the B1 driver here: https://support.dlink.com/ProductInfo.aspx?m=DUB-E100</li>
+                <li>Select the hardware revision <b>B</b> and driver version <b>Driver (3.40)</b> and hit download</li>
+                <div class="center"><img src="../../images/Venus1500/Driver.PNG" alt="DUB-E100 Driver" onclick="displayModal(this)"></div>
+                <li>Extract the zip file and install the driver</li>
+                <div class="center"><img src="../../images/Venus1500/Dub-E100-B1.PNG" alt="DUB-E100 Driver" onclick="displayModal(this)"></div>
+                <li>Once the driver is installed, your device should be working properly as shown below.</li>
+                <div class="center"><img src="../../images/Venus1500/DeviceWorkingProperly.PNG" alt="DUB-E100 Working Properly" onclick="displayModal(this)"></div>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Creating a New Display</button>
+        <div class="innerContent">
+            <h2>Creating a New Display in Venus1500 Software</h2>
+            <ol>
+                <li>You will need to create a display in the Venus1500 software before you can connect to your sign and add presentations.</li>
+                <li>To create a new display click on the Venus logo in the top left of the software and then click Display Manager / Add Display.</li>
+                <li>There will be a few pages of settings to fill in when creating a new display. The following settings worked for me. (The order shown below may not be correct)</li>
+                <div class="center"><img src="../../images/Venus1500/ConfigureDisplay.PNG" alt="Configure Display" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Venus1500/EthernetCommunication.PNG" alt="Ethernet Communication" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Venus1500/Address.PNG" alt="Adress" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Venus1500/TimeZone.PNG" alt="Time Zone" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Venus1500/Name.PNG" alt="Name Display" onclick="displayModal(this)"></div>
+                <div class="center"><img src="../../images/Venus1500/Done.PNG" alt="Finish" onclick="displayModal(this)"></div>
+                <li>When that's taken care of, you can select your new display from the drop down menu in the middle of the screen.</li>
+                <div class="center"><img src="../../images/Venus1500/Select%20a%20display.PNG" alt="Select a Display" onclick="displayModal(this)"></div>
+                <li>Note: After creating your new display, it will also appear in the Display Manager Like so:</li>
+                <div class="center"><img src="../../images/Venus1500/DisplayManager.PNG" alt="Display Manager" onclick="displayModal(this)"></div>
+                <li>Select (Double-Click) your new display.</li>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Venus1500 Software not Connecting to your Daktronics Sign</button>
+        <div class="innerContent">
+            <h2>Connecting your Venus1500 Software with your Daktronics Sign</h2>
+            <ol>
+                <li>If you have the Ethernet Bridge Radio Diagnostics software installed it probably looks like this:</li>
+                <div class="center"><img src="../../images/Venus1500/EthernetBridgeRadioDiagnostics.PNG" alt="Ethernet Bridge Radio Diagnostics" onclick="displayModal(this)"></div>
+                <li>No Radios Found does not mean you cannot connect to your sign.</li>
+                <li>For your adapter and your sign to communicate, they cannot have the same IP Address.</li>
+                <li>Open the Control Panel by first tapping the windows key on your keyboard or clicking on the windows logo in the bottom left of your screen. Type Control Panel and a suggested app should appear, click on it or hit enter.</li>
+                <li>Once the program has loaded up, click on the <b>Network and Internet</b> link.</li>
+                <li>Now go to the <b>Network and Sharing Center</b> and click on <b>Change adapter settings</b></li>
+                <li>A new window will appear with a list of <b>Network Connections</b>, one of them will say <b>D-Link DUB-E100 USB 2.0 Fast Eth...</b> like so:</li>
+                <div class="center"><img src="../../images/Venus1500/NetworkConnection.PNG" alt="Network Connections" onclick="displayModal(this)"></div>
+                <li>Right click this connection and click on <b>Properties</b>.</li>
+                <li>Click yes if you get a prompt and a new window will appear.</li>
+                <div class="center"><img src="../../images/Venus1500/InternetProtocolVersion4-Properties.PNG" alt="Internet Protocol Version Properties" onclick="displayModal(this)" style="max-height: 450px;"></div>
+                <li>Click on <b>Internet Protocol Version 4 (TCP/IPv4) and click on the Properties button below.</b></li>
+                <li>Click yes if you get another prompt and a new window will once again appear.</li>
+                <div class="center"><img src="../../images/Venus1500/IPAddress.PNG" alt="IP Address" onclick="displayModal(this)" style="max-height: 450px;"></div>
+                <li>We need to change the <b>IP address:</b> to something different from the address we gave our display in the Venus1500 Software (172.16.192.25) to (172.16.192.20) as shown in the previous image.</li>
+                <li>Hit the OK button and return to the Venus1500 software.</li>
+                <li>You should now seee a Display Status bar filled mainly in green on the left.</li>
+                <div class="center"><img src="../../images/Venus1500/Venus1500Connected.PNG" alt="Connected" onclick="displayModal(this)"></div>
+                <li>If you don't see this, make sure your display is select in the middle drop down box and it couldn't hurt to restart the program.</li>
+            </ol>
+        </div>
+        &nbsp;
+        <button class="collapsible">Importing / Exporting Presentations</button>
+        <div class="innerContent">
+            <h2>Transfering Presentations from an Old Computer</h2>
+            <ol>
+                <li>To Export your previously created presentations from an old computer, Navigate to your Daktronics folder in your Program Files (x86) folder. Then Click on the Nucleus Server and finally click on the Database Utility Folder <b>C:\Program Files (x86)\Daktronics\Nucleus Server\Database Utility</b></li>
+                <li>Run the application named <b>Nucleus Database Utility.</b></li>
+                <div class="center"><img src="../../images/Venus1500/NucleusDatabaseUtility.PNG" alt="Database Utility" onclick="displayModal(this)"></div>
+                <li>Once the program loads up you will see the <b>Save/Export</b> option which can be used when moving presentations from an old computer. Export your presentations to a <b>.nucbak</b> file with a name of your choosing and save said file to a USB.</li>
+                <li>Transfer your USB to the new computer and transfer the file to your Desktop (Or wherever you will be able to find it).</li>
+                <li>Navigate to your Daktronics folder once again and Run the program once more. <b>C:\Program Files (x86)\Daktronics\Nucleus Server\Database Utility</b></li>
+                <li>This time select the <b>Load/Import</b> option. This option is used when adding your presentations to the new computer.</li>
+                <li>Returning to the Venus1500 software and clicking on the Content tab you should see your list of presentations. For example:</li>
+                <div class="center"><img src="../../images/Venus1500/Content.PNG" alt="Content" onclick="displayModal(this)"></div>
+                <li>The last thing to do is to add some presentations to your schedule in the Schedule tab, <b>Publish To Display</b> and confirm that the sign has updated and is working properly.</li>
+                <div class="center"><img src="../../images/Venus1500/Schedule.PNG" alt="Schedule" onclick="displayModal(this)"></div>
+            </ol>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
