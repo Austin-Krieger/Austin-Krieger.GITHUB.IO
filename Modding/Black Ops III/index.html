@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="../../index.html" style="float: left;">Home</a>
+    <a href="Workspace.html">Previous</a>
+    <a href="../Perlenspiel/index.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Tutorials &amp; The Basics</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <button class="collapsible">Keyboard Shortcuts</button>
+    <div class="innerContent">
+        <h2>Changing Views</h2>
+        <p>These are the shortcuts for changing what you can see in the Game &amp; Grid Views.</p>
+        <table>
+            <th style="background-color: black; color: white;">Action</th>
+            <th style="background-color: black; color: white;">Control</th>
+            <tr>
+                <td style="width: 50%;">Flat View</td>
+                <td>F7</td>
+            </tr>
+            <tr>
+                <td>Lighting View</td>
+                <td>F8</td>
+            </tr>
+            <tr>
+                <td>Game View</td>
+                <td>F9</td>
+            </tr>
+            <tr>
+                <td>Cycle Views in Grid View</td>
+                <td>Ctrl + Tab</td>
+            </tr>
+        </table>
+        &nbsp;
+        <h2>Selection Shortcuts</h2>
+        <p>Shortcuts for selecting, de-selecting, hiding, deleting, and duplicating.</p>
+        <table>
+            <th style="background-color: black; color: white;">Action</th>
+            <th style="background-color: black; color: white;">Control</th>
+            <tr>
+                <td style="width: 50%;">Select Everything</td>
+                <td>i</td>
+            </tr>
+            <tr>
+                <td>De-select Everything</td>
+                <td>Esc</td>
+            </tr>
+            <tr>
+                <td>Duplicate Selected Item</td>
+                <td>Space</td>
+            </tr>
+            <tr>
+                <td>Delete Items</td>
+                <td>Backspace</td>
+            </tr>
+            <tr>
+                <td>Hide Selection</td>
+                <td>H</td>
+            </tr>
+            <tr>
+                <td>Show the Last Items Hidden</td>
+                <td>Ctrl + Shift + H</td>
+            </tr>
+            <tr>
+                <td>Show All Hidden Items</td>
+                <td>Shift + h</td>
+            </tr>
+            <tr>
+                <td>Select Rotation Handles</td>
+                <td>R</td>
+            </tr>
+            <tr>
+                <td>Toggle Edge Lines for Selection</td>
+                <td>J</td>
+            </tr>
+            <tr>
+                <td>Cut (Removes Portion of the Selected Item)</td>
+                <td>X, Select 2 Points in Grid View, Enter</td>
+            </tr>
+            <tr>
+                <td>Cut (Keep Both Parts as Separate Objects)</td>
+                <td>X, Select 2 Points in Grid View, Shift + Enter</td>
+            </tr>
+        </table>
+    </div>
+    &nbsp;
+    <button class="collapsible">Buildable Power</button>
+    <div class="innerContent">
+        <h2>Section 1</h2>
+        <p>Description</p>
+        <ol>
+            <li>List <b>of</b> items.</li>
+            <li></li>
+            <p></p>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Section 2</h2>
+    </div>
+    <!--&nbsp;-->
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
