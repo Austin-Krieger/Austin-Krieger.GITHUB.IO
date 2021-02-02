@@ -42,8 +42,63 @@
     </div>
     <button class="collapsible">Keyboard Shortcuts</button>
     <div class="innerContent">
+        <h2>Camera Movement</h2>
+        &nbsp;
+        <table>
+            <th style="background-color: black; color: white;">Action</th>
+            <th style="background-color: black; color: white;">Control</th>
+            <tr>
+                <td style="width: 50%;">Pivot Camera angle up toward the sky <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: rotate(90deg) scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>Pivot Camera angle down toward the ground <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: rotate(-90deg) scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+                <td>Z</td>
+            </tr>
+            <tr>
+                <td>Move the camera straight up <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; vertical-align: top;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Tripod.png" alt="... Image"></td>
+                <td>D (Tap to go up in increments, Hold to move faster)</td>
+            </tr>
+            <tr>
+                <td>Move the Camera straight down <img class="video-camera-icon" style="vertical-align: bottom; height: 12px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+                <td>C (Tap to go up in increments, Hold to move faster)</td>
+            </tr>
+            <tr>
+                <td>Zoom in/out in larger increments <img class="video-camera-icon" style="vertical-align: text-top; height: 12px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Zoom.png" alt="... Image"><img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"> <img class="video-camera-icon" style="vertical-align: text-top; height: 12px; width: 11px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Zoom.png" alt="... Image"><img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+                <td>Hold Alt + Use Scroll Wheel</td>
+            </tr>
+            <tr>
+                <td><img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"> Move Camera Forward</td>
+                <td>Up Arrow &uarr;</td>
+            </tr>
+            <tr>
+                <td>Move Camera Backwards<img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; float: right; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+                <td>Down Arrow &darr;</td>
+            </tr>
+            <tr>
+                <td>Rotate Camera left 15 degrees <img class="video-camera-icon" style="vertical-align: baseline; height: 12px; width: 20px; transform: rotate(-120deg); vertical-align: baseline;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+                <td>Left Arrow &larr;</td>
+            </tr>
+            <tr>
+                <td>Rotate Camera right 15 degrees <img class="video-camera-icon" style="vertical-align: baseline; height: 12px; width: 20px; transform: rotate(-45deg); vertical-align: baseline;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+                <td>Right Arrow &rarr;</td>
+            </tr>
+            <tr>
+                <td>Move Camera Up and Down in large increments <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; vertical-align: top;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Tripod.png" alt="... Image"> <img class="video-camera-icon" style="vertical-align: bottom; height: 12px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+                <td>Page Up / Page Down</td>
+            </tr>
+            <tr>
+                <td>Move Camera &larr;&darr;&rarr;&uarr; in larger increments</td>
+                <td>Hold Right Click + Ctrl (Move mouse)</td>
+            </tr>
+            <tr>
+                <td>Move the map around in Grid View</td>
+                <td>Hold Right Click in the Grid View and move</td>
+            </tr>
+        </table>
+        &nbsp;
         <h2>Changing Views</h2>
-        <p>These are the shortcuts for changing what you can see in the Game &amp; Grid Views.</p>
+        <p>These are the shortcuts for changing what you can see in the Camera Pane &amp; Grid Pane (XY Top, XZ Front, YZ Side).</p>
         <table>
             <th style="background-color: black; color: white;">Action</th>
             <th style="background-color: black; color: white;">Control</th>
@@ -60,7 +115,7 @@
                 <td>F9</td>
             </tr>
             <tr>
-                <td>Cycle Views in Grid View</td>
+                <td>Cycle Views in Grid Pane</td>
                 <td>Ctrl + Tab</td>
             </tr>
         </table>
@@ -71,7 +126,15 @@
             <th style="background-color: black; color: white;">Action</th>
             <th style="background-color: black; color: white;">Control</th>
             <tr>
-                <td style="width: 50%;">Select Everything</td>
+                <td style="width: 50%;">Select / De-Select Surface (Floor/Wall/Etc.)</td>
+                <td>Shift + Click</td>
+            </tr>
+            <tr>
+                <td>Select / De-Select the Face of a wall</td>
+                <td>Ctrl + Shift + Click</td>
+            </tr>
+            <tr>
+                <td>Select Everything</td>
                 <td>i</td>
             </tr>
             <tr>
@@ -115,6 +178,53 @@
                 <td>X, Select 2 Points in Grid View, Shift + Enter</td>
             </tr>
         </table>
+        &nbsp;
+        <h2>Window Shortcuts</h2>
+        <p>These are the shortcuts for changing what you can see in the Game &amp; Grid Views.</p>
+        <table>
+            <th style="background-color: black; color: white;">Action</th>
+            <th style="background-color: black; color: white;">Control</th>
+            <tr>
+                <td style="width: 50%;">Textures Pane</td>
+                <td>T</td>
+            </tr>
+            <tr>
+                <td>Entity Browser Pane</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>Filter Hidden Items</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>Layers Pane</td>
+                <td>L</td>
+            </tr>
+            <tr>
+                <td>Models Pane</td>
+                <td>M</td>
+            </tr>
+            <tr>
+                <td>Preferences Pane</td>
+                <td>P</td>
+            </tr>
+            <tr>
+                <td>Entity Info Pane</td>
+                <td>N</td>
+            </tr>
+        </table>
+    </div>
+    &nbsp;
+    <button class="collapsible">Walls</button>
+    <div class="innerContent">
+        <h2>Making a Wall</h2>
+        <ol>
+            <li>Search for <b>caulk</b> in the texture tab</li>
+            <li>Left click in the <b>Grid View</b> to make the wall</li>
+            <li>Click outside the walls area to stretch in that direction</li>
+            <li>Click on the wall to move it, change grid view or do this in game view window</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
     </div>
     &nbsp;
     <button class="collapsible">Buildable Power</button>
