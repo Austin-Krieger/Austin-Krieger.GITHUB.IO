@@ -134,6 +134,18 @@
                 <td><b>Ctrl + Shift + Click</b></td>
             </tr>
             <tr>
+                <td>Move a Selected Item Up/Down (Numpad)</td>
+                <td><b>+ / -</b></td>
+            </tr>
+            <tr>
+                <td>Move a Selected Item Up</td>
+                <td><b>Shift + Equals</b> ( <b>=</b> )</td>
+            </tr>
+            <tr>
+                <td>Move a Selected Item Down</td>
+                <td><b>Minus</b> ( <b>-</b> )</td>
+            </tr>
+            <tr>
                 <td>Select Everything</td>
                 <td><b>i</b></td>
             </tr>
@@ -248,8 +260,26 @@
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Map%20Opened%20in%20Radiant.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>To rearrange the layout of the workspace, click and drag and refer to the <b>Workspace Shortcuts</b> table above.</li>
             <li>Add the <b>Textures Pane</b> by pressing <b>T</b> and drag it to the left of the <b>Entity Browser Pane</b>. You can exit out of the <b>Entity Info Pane</b> for now (Press <b>N</b> if you need to bring it back).</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/RearangeWorkspace.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Adding <b>script</b> to your favorites can also be useful later. Inside the <b>Entity Browser Pane Right Click script</b> and hit <b>Toggle Favorite</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ToggleFavorite02.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Player Spawns</h2>
+        <ol>
+            <li>The big red box represents the size of a player.</li>
+            <li>The little purple boxes represent where the players will spawn initially.</li>
+            <li>The little yellow boxes represent where the players will respawn after death.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;">
+                <img style="padding-right: 10px; max-width: 295px;" src="../../images/Modding/BO3%20Mod%20Tools/PlayerSpawn03.png" alt="... Image" onclick="displayModal(this)">
+                <img style="float: right; max-width: 295px;" src="../../images/Modding/BO3%20Mod%20Tools/PlayerSpawn04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <li>Here is what the spawns look like in the <b>Grid View</b>:</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/PlayerSpawn05.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Useful Folder Locations</h2>
+        <ol>
+            <li>Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</li>
+            <li>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\scripts\zm</li>
         </ol>
     </div>
     &nbsp;
@@ -262,6 +292,10 @@
             <li>With the <b>Textures Pane</b> open click in the search bar and type <b>caulk</b>.</li>
             <li><b>Right Click</b> and <b>Add to Favorites</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddToFavorites02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Above the search bar is an option called <b>Favorites</b> that when checked will filter to show only your favorited textures.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ShowFavoriteTextures03.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <li>The next texture to search for is <b>clip</b>. <b>Right Click</b> and <b>Add to Favorites</b>. This will be useful later.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ClipTexture02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li><b>Click</b> and <b>Drag</b> in the <b>Grid View</b> to make the wall.</li>
             <li>Clicking just outside the border lines of your new wall will allow you to change the size of the wall.</li>
             <div class="center" style="padding: 10px; max-width: 600px;">
@@ -284,7 +318,7 @@
             <li>We can start by select a single face of our new wall (<b>Shift + Ctrl + Click</b>).</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SelectWallFace02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Open the <b>Texture Pane</b> if it is not already open (<b>T</b>).</li>
-            <li>Search for <b>brick</b> and select (<b>Double-Click</b>) one of the options that appear.</li>
+            <li>Search for <b>brick</b> and <b>Double-Click</b> one of the options that appear.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddWallTexture02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>In the <b>Textures Pane</b> we can also filter our textures by selecting <b>All</b> or <b>All in Use</b> (Textures currently in use in the map) then select the <b>Surface Type</b> drop down and select <b>brick</b>.</li>
             <div class="center" style="padding: 10px; max-width: 700px;">
@@ -302,8 +336,6 @@
                 <img style="float: right; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/MiddleClickTexturing04.png" alt="... Image" onclick="displayModal(this)">
             </div>
         </ol>
-        <h2>Colliders</h2>
-        <p>With our wall placed and textured we still need to prevent players from walking through it.</p>
     </div>
     &nbsp;
     <button class="collapsible">Wall Buys (Weapons / Equipment)</button>
@@ -317,6 +349,49 @@
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h2>Section 2</h2>
+    </div>
+    &nbsp;
+    <button class="collapsible">Lighting</button>
+    <div class="innerContent">
+        <h2>Heading</h2>
+        <p>Description.</p>
+        <ol>
+            <li>List <b>of</b> items.</li>
+            <li></li>
+            <p></p>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Section 2</h2>
+    </div>
+    &nbsp;
+    <button class="collapsible">Changing the Skybox</button>
+    <div class="innerContent">
+        <h2>Change the Skybox</h2>
+        <p>We can change the skybox from a daytime to a nighttime sky.</p>
+        <ol>
+            <li><b>Right Click</b> in the top bar of the level editor and open the <b>Entity List Pane</b> (Lists all the item currently in the level).</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenEntityList02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Find <b>volume_sun</b> in the list.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/VolumeSun02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Check the box next to <b>volume_sun</b> to select it.</li>
+            <li>Press <b>N</b> to open the <b>Entity Info Pane</b> with the <b>volume_sun</b> properties.</li>
+            <li>Find <b>Light State 1</b> and click on <b>default_day</b> an elipses button will appear. Press it to open a list of skybox options.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EntityInfoSkybox02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Search for and select <b>zm_factory</b>.</li>
+            <li>Hit <b>OK</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SkyboxSelection02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>In the <b>Camera Pane</b> switch to <b>Lighting View (F8)</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SwitchToLightingView02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>You will need to <b>Right Click</b> next to the <b>FX</b> button and click <b>Exposure</b> to bring up more options.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Exposure02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Click the drop down next the the camera icon on the right and click on the <b>Lightning Bolt</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;">
+                <img style="padding-right: 10px; max-width: 295px;" src="../../images/Modding/BO3%20Mod%20Tools/LightningBoltBuildLighting02.png" alt="... Image" onclick="displayModal(this)">
+                <img style="float: right; max-width: 295px;" src="../../images/Modding/BO3%20Mod%20Tools/BuildingLighting02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <li>We can now switch to the <b>Game View</b> by pressing <b>F8</b> to see our cooked lighting and <b>F8</b> again to return to the normal view.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/GameViewAfterLightingBuilt02.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
     </div>
     &nbsp;
     <button class="collapsible">Zombie Spawn (Window)</button>
@@ -386,32 +461,6 @@
     </div>
     &nbsp;
     <button class="collapsible">Cluttering</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
-    </div>
-    &nbsp;
-    <button class="collapsible">Lighting</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
-    </div>
-    &nbsp;
-    <button class="collapsible">Changing the Skybox</button>
     <div class="innerContent">
         <h2>Heading</h2>
         <p>Description.</p>
