@@ -317,7 +317,7 @@
         <ol>
             <li>We can start by select a single face of our new wall (<b>Shift + Ctrl + Click</b>).</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SelectWallFace02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Open the <b>Texture Pane</b> if it is not already open (<b>T</b>).</li>
+            <li>Open the <b>Texture Pane</b> if it's not already open (<b>T</b>).</li>
             <li>Search for <b>brick</b> and <b>Double-Click</b> one of the options that appear.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddWallTexture02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>In the <b>Textures Pane</b> we can also filter our textures by selecting <b>All</b> or <b>All in Use</b> (Textures currently in use in the map) then select the <b>Surface Type</b> drop down and select <b>brick</b>.</li>
@@ -325,7 +325,7 @@
                 <img style="padding-right: 10px; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/SurfaceTypeFilteringAll02.png" alt="... Image" onclick="displayModal(this)">
                 <img style="float: right; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/SurfaceTypeFilteringAllinUse02.png" alt="... Image" onclick="displayModal(this)">
             </div>
-            <li>Pressing <b>F9</b> in the <b>Camera Pane</b> will allow you to view your changes in <b>Game View</b>. We only applied the texture to this side of our wall so the rest of the wall will look a little bland. Press <b>F9</b> again to return to the normal view.</li>
+            <li>Pressing <b>F9</b> in the <b>Camera Pane</b> will allow you to view your changes in <b>Game View</b>. We only applied the texture to this side of our wall so the rest of the wall will look a little bland. Press <b>F9</b> again to exit <b>Game View</b> and press <b>F7</b> to return to <b>Flat View</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddWallTexture03.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h2>Copy Textures From Wall &rarr; Wall</h2>
@@ -340,15 +340,36 @@
     &nbsp;
     <button class="collapsible">Wall Buys (Weapons / Equipment)</button>
     <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
+        <h2>Adding Wall Buys</h2>
+        <p></p>
         <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <li>In the <b>Entity Browser</b> find <b>Misc</b>, <b>Right Click</b>, and <b>Toggle Favorite</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ToggleFavMisc02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li><b>Right Click</b> in the <b>Game View</b> and hover over <b>Misc</b> &gt; <b>prefab</b>. Without favoriting <b>Misc</b> this option won't appear.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CameraViewPrefabs02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>A new window will pop up, double click <b>zm</b> &gt; <b>zm_core</b>.</li>
+            <li>Search for <b>spawnable_weapon_bowie.map</b> and hit <b>Open</b> to add the <b>Bowie Knife</b> to the map.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/PrefabList02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Move the prefab up against the wall and if it's backwards like in the image below, press <b>R</b> to switch to rotation handles and use the <b>Z</b> axis to flip it around.</li>
+            <div class="center" style="padding: 10px; max-width: 700px;">
+                <img style="padding-right: 10px; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/MoveBowieKnife02.png" alt="... Image" onclick="displayModal(this)">
+                <img style="float: right; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/RotateWallBuy02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <li>When moving the prefab around you will notice that it snaps to the corners of the grid squares. We need to increase the number of grid squares to move it more precisely. Find the button that looks like a grid and choosing <b>Grid 8</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeGridSize02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>We need to line up the prefab with the floor &amp; wall as shown below. Remember <b>Ctrl + Tab</b> will let you change the current <b>Grid View</b>. We want the wall buy to be very slightly off the wall, so if you switch the grid size to <b>Grid 1</b> we can add a tiny square of space between the knife and the wall.</li>
+            <div class="center" style="padding: 10px; max-width: 700px;">
+                <img style="padding-right: 10px; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/BowieKnifeLinedUp02.png" alt="... Image" onclick="displayModal(this)">
+                <img style="float: right; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/BowieKnifePlacement02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <li>The <b>Bowie Knife</b> should now be added and look similar to this in the <b>Game View</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BowieKnifeAdded03.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
-        <h2>Section 2</h2>
+        <h2>Adding Equipment Wall Buys</h2>
+        <ol>
+            <li>Following the same steps above we can search for a bouncing betty and add it to our map.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BouncingBetty02.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
     </div>
     &nbsp;
     <button class="collapsible">Lighting</button>
@@ -384,12 +405,12 @@
             <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SwitchToLightingView02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>You will need to <b>Right Click</b> next to the <b>FX</b> button and click <b>Exposure</b> to bring up more options.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Exposure02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Click the drop down next the the camera icon on the right and click on the <b>Lightning Bolt</b>.</li>
+            <li>Click the drop down next to the camera icon on the right and click on the <b>Lightning Bolt</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;">
                 <img style="padding-right: 10px; max-width: 295px;" src="../../images/Modding/BO3%20Mod%20Tools/LightningBoltBuildLighting02.png" alt="... Image" onclick="displayModal(this)">
                 <img style="float: right; max-width: 295px;" src="../../images/Modding/BO3%20Mod%20Tools/BuildingLighting02.png" alt="... Image" onclick="displayModal(this)">
             </div>
-            <li>We can now switch to the <b>Game View</b> by pressing <b>F8</b> to see our cooked lighting and <b>F8</b> again to return to the normal view.</li>
+            <li>We can now switch to <b>Game View (F9)</b> and then <b>Lighting View (F8)</b> to see our cooked lighting and pressing <b>F9</b> again will exit <b>Game View</b>. <b>F7</b> returns you to <b>Flat View</b>.</li>
             <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/GameViewAfterLightingBuilt02.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
