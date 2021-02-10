@@ -548,15 +548,37 @@
     &nbsp;
     <button class="collapsible">Changing Starting Weapon</button>
     <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
+        <h2>Change the Starting Weapon</h2>
+        <p>This is meant to change your starting pistol when loading into the map.</p>
         <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
+            <li>Open your usermaps folder by going to your Steam Black Ops III folder. For example: <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps</b></li>
+            <li>We need to find <b>zm_tutorial_level\scripts\zm</b> folder and you will see <b>zm_tutorial_level.gsc</b></li>
+            <li><b>Right Click</b> the file and edit it with your prefered text editor.</li>
+            <li>We need to add a few lines of code to the bottom of the <b>main()</b> function as shown here:</li>
+            <div class="code" id="Change-Starting-Weapon"><button class="copy" onclick="copyText('Change-Starting-Weapon')">Copy</button><br><p>
+                function main()<br>
+                {<br>
+                &emsp;zm_usermap::main();<br><br>
+                &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
+                &emsp;<mark>//Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;level.zones = [];<br>
+                &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
+                &emsp;init_zones[0] = "start_zone";<br>
+                &emsp;level thread zm_zonemgr::manage_zones( init_zones );<br><br>
+                &emsp;level.pathdist_type = PATHDIST_ORIGINAL;<br><br>
+                &emsp;<mark>//Starting weapon</mark><br>
+                &emsp;startingWeapon = "smg_ppsh";<br>
+                &emsp;weapon = getWeapon(startingWeapon);<br>
+                &emsp;level.start_weapon = (weapon);<br>
+                }
+            </p></div>
+            <li>You can find a list of weapons by going to <b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\zm</b></li>
+            <li>Open the <b>zm_levelcommon_weapons.csv</b> file in excel to view the list of weapon names. You can also open the file in a text editor and look at the first name in the comma seperated list on each line.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <!--<p class="code-sl">
+                <sql></sql>
+            </p>-->
         </ol>
-        <h2>Section 2</h2>
     </div>
     <!--&nbsp;-->
 </div>
