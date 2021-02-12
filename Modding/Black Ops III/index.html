@@ -355,6 +355,8 @@
                 <img style="padding-right: 10px; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/MoveBowieKnife02.png" alt="... Image" onclick="displayModal(this)">
                 <img style="float: right; max-width: 345px;" src="../../images/Modding/BO3%20Mod%20Tools/RotateWallBuy02.png" alt="... Image" onclick="displayModal(this)">
             </div>
+            <li>We can change the rotation manually from the <b>Entity Info Pane</b>. This is a better way to make sure our item is rotated 180&#176;.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeRotationManually.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>When moving the prefab around you will notice that it snaps to the corners of the grid squares. We need to increase the number of grid squares to move it more precisely. Find the button that looks like a grid and choosing <b>Grid 8</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeGridSize02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>We need to line up the prefab with the floor &amp; wall as shown below. Remember <b>Ctrl + Tab</b> will let you change the current <b>Grid View</b>. We want the wall buy to be very slightly off the wall, so if you switch the grid size to <b>Grid 1</b> we can add a tiny square of space between the knife and the wall.</li>
@@ -415,17 +417,103 @@
         </ol>
     </div>
     &nbsp;
-    <button class="collapsible">Zombie Spawn (Window)</button>
+    <button class="collapsible">Zombie Spawning</button>
     <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
+        <h2>Setup Zombie Spawner</h2>
         <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <li>In the <b>Entity Browser Pane</b> search for <b>spawner_zm_factory</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Spawner_zm_factory02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Click and drag it into the map. If you have the extra assets dlc installed, you will see the model of a zombie.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ZombieSpawner02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>With the entity selected (<b>Shift + Click</b>) go to the <b>Entity Info Pane</b>.</li>
+            <li>First we need to change the <b>coop_count</b> from <b>1</b> to <b>9999</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Change <b>ALTERONSPAWN</b> to <b>False</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Change <b>MAKEROOM</b> to <b>True</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Next we need to hit <b>Add KVP</b> to add some <b>User-Defined</b> properties.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_disable_bleeder</sql><br>
+                <b>Value</b>: <sql>1</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_forcespawn</sql><br>
+                <b>Value</b>: <sql>1</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
+                <b>Value</b>: <sql>zombie_spawner</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SpawnerKVP02.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
-        <h2>Section 2</h2>
+        <h2>Spawn Zombies (Map)</h2>
+        <p>Now we need to add locations for the zombies to spawn.</p>
+        <ol>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to the name of the current zone. <b>start_zone_spawners</b> in this case.</li>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
+                <b>Value</b>: <sql>riser_location</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_string</sql><br>
+                <b>Value</b>: <sql>find_flesh</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>You can use <b>Space Bar</b> to copy the selected struct and move it.</li>
+        </ol>
+        <h2>Spawn Zombies (Window)</h2>
+        <ol>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>Misc</b> &rarr; <b>prefab</b>.</li>
+            <li>Double click <b>zm</b> &gt; <b>zm_core</b> and search for <b>barricade_receiver_wood.map</b> and hit <b>Open</b>.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowPrefab02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowPrefab03.png" alt="... Image" onclick="displayModal(this)">
+            </div></div>
+            <li>Build up walls around the window like so:</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowRoom03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowRoomInside02.png" alt="... Image" onclick="displayModal(this)">
+            </div></div>
+            <li>Remember we can use <b>Middle Mouse Click</b> while the walls are selected to apply another texture present in the map or <b>Double Click</b> a texture from the <b>Textures Pane</b>.</li>
+            <li>Deselect the walls (<b>Esc</b>).</li>
+            <li>With the window selected hit <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_string</sql><br>
+                <b>Value</b>: <sql>receiver_set_entry_a</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowReceiverSpawn02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Deselect the window (<b>Esc</b>).</li>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>. Move the struct entity into the window room.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to the name of the current zone. <b>start_zone_spawners</b> in this case.</li>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
+                <b>Value</b>: <sql>riser_location</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li>
+            <li>The <b>Value</b> for this one should match the window.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_string</sql><br>
+                <b>Value</b>: <sql>receiver_set_entry_a</sql>
+            </p>
+        </ol>
+        <h2>Zoning</h2>
     </div>
     &nbsp;
     <button class="collapsible">Zombie Dog Spawn</button>
