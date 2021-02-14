@@ -88,8 +88,12 @@
                 <td><b>Page Up / Page Down</b></td>
             </tr>
             <tr>
-                <td>Move Camera &larr;&darr;&rarr;&uarr; in larger increments</td>
-                <td>Hold <b>Right Click + Ctrl</b> (Move mouse)</td>
+                <td>Move Camera <b>&larr;&darr;&rarr;&uarr;</b> in larger increments</td>
+                <td>Hold <b> Ctrl + Right Click</b> (Move mouse)</td>
+            </tr>
+            <tr>
+                <td>Angle Camera <b>&larr;&darr;&rarr;&uarr;</b> in larger increments</td>
+                <td>Hold <b>Ctrl + Shift + Right Click</b> (Move Mouse)</td>
             </tr>
             <tr>
                 <td>Move the map around in Grid View</td>
@@ -468,7 +472,7 @@
                 <b>Value</b>: <sql>find_flesh</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>You can use <b>Space Bar</b> to copy the selected struct and move it.</li>
+            <li>You can use <b>Space Bar</b> to make a copy of the selected struct near the original.</li>
         </ol>
         <h2>Spawn Zombies (Window)</h2>
         <ol>
@@ -481,7 +485,7 @@
             <div class="imageColumn">
                 <img src="../../images/Modding/BO3%20Mod%20Tools/WindowPrefab03.png" alt="... Image" onclick="displayModal(this)">
             </div></div>
-            <li>Build up walls around the window like so:</li>
+            <li>Build up walls around the window like so: (Refer to the <b>Walls</b> section above)</li>
             <div class="imageRow">
             <div class="imageColumn">
                 <img src="../../images/Modding/BO3%20Mod%20Tools/WindowRoom03.png" alt="... Image" onclick="displayModal(this)">
@@ -491,10 +495,10 @@
             </div></div>
             <li>Remember we can use <b>Middle Mouse Click</b> while the walls are selected to apply another texture present in the map or <b>Double Click</b> a texture from the <b>Textures Pane</b>.</li>
             <li>Deselect the walls (<b>Esc</b>).</li>
-            <li>With the window selected hit <b>Add KVP</b>.</li><br>
+            <li>With the window selected hit <b>Add KVP</b>. The <b>Value</b> for this one must be unique on your map or the zombies will not know what to do when they spawn.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>receiver_set_entry_a</sql>
+                <b>Value</b>: <sql>receiver_set_entry_b</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowReceiverSpawn02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Deselect the window (<b>Esc</b>).</li>
@@ -506,15 +510,83 @@
                 <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
                 <b>Value</b>: <sql>riser_location</sql>
             </p>
-            <li>Click <b>Add KVP</b>.</li>
-            <li>The <b>Value</b> for this one should match the window.</li><br>
+            <li>Click <b>Add KVP</b>. The <b>Value</b> for this one should match the window.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>receiver_set_entry_a</sql>
+                <b>Value</b>: <sql>receiver_set_entry_b</sql>
             </p>
         </ol>
-        <h2>Zoning</h2>
-        <p>zm_zonemgr::add_adjacent_zone("start_zone", "test_zone", "enter_test_zone");</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Zoning</button>
+    <div class="innerContent">
+        <h2>Making a New Zone</h2>
+        <p>You can have multiple zones in a map that will affect when zombies can start spawning from your windows and various other locations.</p>
+        <ol>
+            <li>The first large box around your map is an <b>info_volume</b>, which defines the area of a <b>zone</b>.</li>
+            <li>We can create a new <b>zone</b> by first selecting and copying the current <b>info_volume</b> (<b>Space</b>).</li>
+            <li>We can also create a new <b>zone</b> by going to the <b>Entity Browser Pane</b> and finding <b>Info</b> &gt; <b>volume</b>, and dragging one onto the map.</li>
+            <li>When resizing your <b>zone</b> make sure that it lines up with the previous <b>zone</b> as closely as you can make it. If you don't, the gap will kill the player.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Zone00.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Zone01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Zone02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Zone03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Go to the <b>Entity Info Pane</b> for our zone. We need to set the <b>targetname</b> to something other than <b>start_zone</b>. For this example, set it to <b>test_zone</b>.</li>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
+                <b>Value</b>: <sql>player_volume</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>target</sql><br>
+                <b>Value</b>: <sql>test_zone_spawners</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/NewInfoVolume03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>The next step is to change some <b>targetname</b> values on our zombie spawn points.</li>
+            <li>Refer to <b>Zombie Spawning</b> if your not sure how to make these spawn locations.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners05.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners06.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Once our spawners have the same <b>targetname</b> of our <b>zone</b> there will be a red line between the spawn point and the center of the <b>zone</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Zone04.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h3>Scripting</h3>
+        <p>The next step involves adding a line of code.</p>
+        <ol>
+            <li>A quick way to get to our map folder is to <b>Right Click</b> on our map name from the <b>Mod Tools Launcher</b> and click on <b>Open Map Folder</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenMapFolder.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>From there you will need to go to the <b>scripts</b> and <b>zm</b> folders. In my case: <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b></li>
+            <li>Open <b>zm_tutorial_level.gsc</b> in your preferred text editor.</li>
+            <li>Find a function named <b>usermap_test_zone_init()</b> and add the following line:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>zm_zonemgr::add_adjacent_zone("start_zone", "test_zone", "enter_test_zone");</b>
+            </p>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ZoneScript.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
     </div>
     &nbsp;
     <button class="collapsible">Zombie Dog Spawn</button>
@@ -533,7 +605,7 @@
     <button class="collapsible">Buyable Doors (Sliding / Debris)</button>
     <div class="innerContent">
         <h2>Double Doors</h2>
-        <p>Description.</p>
+        <h3>Models</h3>
         <ol>
             <li>In the <b>Models Pane</b> (<b>M</b>) search for <b>p7_door_metal_industrial_02_left_white</b> and drag it onto either the <b>Map</b> or <b>Grid</b> view.</li>
             <li>Do the same with <b>p7_door_metal_industrial_02_right_white</b>.</li>
@@ -545,7 +617,10 @@
             <div class="imageColumn">
                 <img src="../../images/Modding/BO3%20Mod%20Tools/Doors03.png" alt="... Image" onclick="displayModal(this)">
             </div></div>
-            <li>Next we need to select <b>clip</b> from the <b>Textures Pane</b> and make a <b>clip</b> the size of the doors themselves so that players can't walk through them.</li>
+        </ol>
+        <h3>Clip</h3>
+        <ol>
+            <li>Select <b>clip</b> from the <b>Textures Pane</b> and make a <b>clip</b> the size of the doors themselves so that players can't walk through them.</li>
             <div class="imageRow">
             <div class="imageColumn">
                 <img src="../../images/Modding/BO3%20Mod%20Tools/Doors04.png" alt="... Image" onclick="displayModal(this)">
@@ -553,35 +628,8 @@
             <div class="imageColumn">
                 <img src="../../images/Modding/BO3%20Mod%20Tools/Doors05.png" alt="... Image" onclick="displayModal(this)">
             </div></div>
-            <li>We still need a trigger box in front of the doors so the player will get a prompt to purchase it.</li>
-            <li><b>Option #1</b> is to make another clip in front of the doors. Go to the <b>Entity Browser</b> and look for <b>Trigger</b> &gt; <b>use</b> and with our new clip still selected, <b>Double Click use</b>.</li>
-            <li><b>Option #2</b> is to still find <b>Trigger</b> &gt; <b>use</b>, but to drag it onto the <b>Grid</b> or <b>Game</b> view and resize it the same way you would the clip from <b>Option #1</b>.</li>
-            <div class="imageRow">
-            <div class="imageColumn">
-                <img src="../../images/Modding/BO3%20Mod%20Tools/Doors06.png" alt="... Image" onclick="displayModal(this)">
-            </div>
-            <div class="imageColumn">
-                <img src="../../images/Modding/BO3%20Mod%20Tools/Doors08.png" alt="... Image" onclick="displayModal(this)">
-            </div>
-            </div>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Next we need to convert our <b>clip</b> to a brushmodel.</li>
-            <li>Select our <b>clip</b> and return to the <b>Entity Browser</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
-            <li>Select <b>Door</b> (<b>Left</b>) and this time find <b>Script</b> &gt; <b>model</b> in the <b>Entity Browser</b>, and <b>Double Click</b>.</li>
-            <li>Do the same for <b>Door</b> (<b>Right</b>).</li>
-            <li>Next we can modify the <b>Entity Info</b> and add some <b>KVP</b>s.</li>
-            <li>Select the <b>Trigger</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ZombieDoor02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Scroll down to <b>targetname</b>. Change this to <b>zombie_door</b>, make sure this is spelled correctly or you will run into errors and your door will not work.</li>
-            <li>We also need to set the cost of our door. Hit <b>Add KVP</b> and set the price of the door (Default is 1000).</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>zombie_cost</sql><br>
-                <b>Value</b>: <sql>750</sql>
-            </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ZombieDoor03.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Next we need to select the <b>clip</b>, but that may be a struggle will our trigger in the way. Select the trigger and press <b>H</b> to hide it. Hide anything else you want out of the way and when your done, press <b>Shift + H</b> to show everything again.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/TestDoor02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>With our <b>clip</b> selected, change the <b>targetname</b> to <b>test_door</b>.</li>
+            <li>Next we need to convert our <b>clip</b> to a <b>brushmodel</b> from the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
+            <li>In the <b>Entity Info Pane</b> for our <b>clip</b>, change the <b>targetname</b> to <b>test_door</b>.</li>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
@@ -595,9 +643,53 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/TestDoor04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>Select the <b>Door</b> on the right. <b>Note</b>: this is a view from the opposite side of the doors from the trigger (Easier to select without hiding multiple entities).</li>
+        </ol>
+        <h3>Trigger</h3>
+        <ol>
+            <li>We need a trigger box in front of our doors so that players will get a prompt to purchase it when they approach.</li>
+            <li><b>Option #1</b>: make a <b>clip</b> in front of the doors. Go to the <b>Entity Browser Pane</b> and look for <b>Trigger</b> &gt; <b>use</b> and with our new <b>clip</b> still selected, <b>Double Click</b> to convert to a trigger.</li>
+            <li><b>Option #2</b>: drag <b>Trigger</b> &gt; <b>use</b> onto the <b>Grid</b> or <b>Game</b> view and resize it the same way you would the clip from <b>Option #1</b>.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Doors06.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Doors08.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Next we can modify the <b>Entity Info</b> and add some <b>KVP</b>s.</li>
+            <li>In the <b>Entity Info Pane</b> scroll down to <b>targetname</b> and type <b>zombie_door</b> (Exact spelling required).</li>
+            <li>We also need to set the cost of our door. Hit <b>Add KVP</b> and set the price of the door (Default is 1000).</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>zombie_cost</sql><br>
+                <b>Value</b>: <sql>750</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>target</sql><br>
+                <b>Value</b>: <sql>test_door</sql>
+            </p>
+            <li>Click <b>Add KVP</b> (This one is used when you have multiple zones)</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_flag</sql><br>
+                <b>Value</b>: <sql>enter_test_zone</sql>
+            </p>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/ZombieDoor03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/EnterTestZone02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+        </ol>
+        <h3>Doors</h3>
+        <ol>
+            <li>It may be a struggle to select a specific entity by this point, so we can press <b>H</b> to hide a selected entity and <b>Shift + H</b> to show everything you have hidden. <b>Shift + Ctrl + H</b> will reveal only the last item that was hidden.</li>
+            <li>Select a <b>Door</b> and return to the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>model</b> and <b>Double Click</b>. Do the same for the other door and continue to the next step.</li>
             <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/TestDoorRight02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Change the <b>targetname</b> to <b>test_door</b>.</li>
+            <li>With a <b>Door</b> model selected go to the <b>Entity Info Pane</b> and scroll down to <b>targetname</b>. We can change this to whatever as long as it matches throughout the tutorial. In this case type: <b>test_door</b>.</li>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_string</sql><br>
@@ -611,30 +703,18 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/TestDoorRight04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>Rotate the door until you find a rotation that fits your needs. In this case 0, 150, 0 looked good.</li>
+            <li>Rotate the door in the <b>Game</b> view until you find a rotation that fits your needs. For the door on our right: <b>{0, 150, 0}</b> looks good.</li>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_angles</sql><br>
                 <b>Value</b>: <sql>0 150 0</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Follow the same steps for the left door only this time use 240 in the rotation value.</li><br>
+            <li>Follow the same steps for the door on the left. This time <b>{0, 240, 0}</b> will work.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_angles</sql><br>
                 <b>Value</b>: <sql>0 240 0</sql>
             </p>
-            <li>Select our trigger entity one more time.</li>
-            <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>target</sql><br>
-                <b>Value</b>: <sql>test_door</sql>
-            </p>
-            <li>Click <b>Add KVP</b> (This one is used when you have multiple zones)</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_flag</sql><br>
-                <b>Value</b>: <sql>enter_test_zone</sql>
-            </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EnterTestZone02.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
     &nbsp;
