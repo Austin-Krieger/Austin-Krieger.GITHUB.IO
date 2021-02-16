@@ -375,20 +375,9 @@
         <ol>
             <li>Following the same steps above we can search for a bouncing betty and add it to our map.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BouncingBetty02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>You may notice that this item is missing a chalk outline in the <b>Game</b> view. We will fix that in a later section.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BouncingBettyEquipment.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Lighting</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
     </div>
     &nbsp;
     <button class="collapsible">Changing the Skybox</button>
@@ -472,7 +461,7 @@
                 <b>Value</b>: <sql>find_flesh</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>You can use <b>Space Bar</b> to make a copy of the selected struct near the original.</li>
+            <li><b>Bonus:</b> You can use <b>Space Bar</b> to make a copy of the selected struct near the original.</li>
         </ol>
         <h2>Spawn Zombies (Window)</h2>
         <ol>
@@ -518,6 +507,71 @@
         </ol>
     </div>
     &nbsp;
+    <button class="collapsible">Dog Spawning</button>
+    <div class="innerContent">
+        <h2>Spawning Dogs</h2>
+        <p>In the default map they include a spawn point, but no way for the dogs to actually spawn. The following steps will fix that issue.</p>
+        <ol>
+            <li>First we need to go to the <b>Entity Browser Pane</b> and search for <b>Actor &gt; Spawner_Zm_Factory &gt; Zombie_dog</b>.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Drag one onto the map, placing it where the player won't accidentally run into it (collision issues).</li>
+            <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Select the dog and change the <b>Entity Info</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property</b>: <sql>ALTERONSPAWN</sql><br>
+                <b>Value</b>: <sql>False</sql>
+            </p><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property</b>: <sql>MAKEROOM</sql><br>
+                <b>Value</b>: <sql>True</sql>
+            </p><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property</b>: <sql>targetname</sql><br>
+                <b>Value</b>: <sql>zombie_dog_spawner_b</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_forcespawn</sql><br>
+                <b>Value</b>: <sql>1</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
+                <b>Value</b>: <sql>zombie_dog_spawner</sql>
+            </p>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner05.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Next we need to make a spawn point (or copy an existing one).</li>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>.</li>
+            <li>Line up the <b>struct</b> entity so that the center line, lines up with the floor.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner07.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner08.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Change the <b>Entity Info</b>:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property</b>: <sql>targetname</sql><br>
+                <b>Value</b>: <sql>test_zone_spawners</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
+                <b>Value</b>: <sql>dog_location</sql>
+            </p>
+            <div class="center" style="max-width: 330px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner06.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+    </div>
+    &nbsp;
     <button class="collapsible">Zoning</button>
     <div class="innerContent">
         <h2>Making a New Zone</h2>
@@ -554,7 +608,8 @@
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/NewInfoVolume03.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>The next step is to change some <b>targetname</b> values on our zombie spawn points.</li>
-            <li>Refer to <b>Zombie Spawning</b> if your not sure how to make these spawn locations.</li>
+            <li>Refer to <b>Zombie Spawning</b> and <b>Dog Spawning</b> if you're not sure how to make these spawn locations.</li>
+            <h3>Zombies</h3>
             <div class="imageRow">
             <div class="imageColumn">
                 <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners05.png" alt="... Image" onclick="displayModal(this)">
@@ -571,8 +626,25 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
+            <h3>Dogs</h3>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner07.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner06.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
             <li>Once our spawners have the same <b>targetname</b> of our <b>zone</b> there will be a red line between the spawn point and the center of the <b>zone</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Zone04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>It will also look better when the zombies spawn, if the center line of our <b>structs</b> line up with the floor.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Zone04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner08.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
         </ol>
         <h3>Scripting</h3>
         <p>The next step involves adding a line of code.</p>
@@ -583,23 +655,10 @@
             <li>Open <b>zm_tutorial_level.gsc</b> in your preferred text editor.</li>
             <li>Find a function named <b>usermap_test_zone_init()</b> and add the following line:</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>zm_zonemgr::add_adjacent_zone("start_zone", "test_zone", "enter_test_zone");</b>
+                <sql>zm_zonemgr::add_adjacent_zone("start_zone", "test_zone", "enter_test_zone");</sql>
             </p>
             <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ZoneScript.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
-    </div>
-    &nbsp;
-    <button class="collapsible">Zombie Dog Spawn</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
     </div>
     &nbsp;
     <button class="collapsible">Buyable Doors (Sliding / Debris)</button>
@@ -718,9 +777,29 @@
         </ol>
     </div>
     &nbsp;
-    <button class="collapsible">Mystery Box (Moveable)</button>
+    <button class="collapsible">Mystery Box</button>
     <div class="innerContent">
-        <h2>Heading</h2>
+        <h2>Mystery Box</h2>
+        <p>Fixing the Mystery Box and adding multiple locations.</p>
+        <ol>
+            <li>Since Treyarch did not include box location prefabs with the mod tools, we need to add some files to our <b>zm_core</b> folder.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+            </p>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_01.map" download>box_01.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_02.map" download>box_02.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_03.map" download>box_03.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_start.map" download>box_start.map</a>
+            <li>You can make as many more box locations as you want by just changing the KVPs on the prefabs.</li>
+            <li>Shift + D can also be used to rotate an entity.</li>
+            <li>Making more clips to go with box locations will be made with the same height already applied.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Perks</button>
+    <div class="innerContent">
+        <h2>Adding Perk Machines</h2>
+        <h2>Adding Loose Change to Perk Machines</h2>
         <p>Description.</p>
         <ol>
             <li>List <b>of</b> items.</li>
@@ -731,10 +810,9 @@
         <h2>Section 2</h2>
     </div>
     &nbsp;
-    <button class="collapsible">Perks</button>
+    <button class="collapsible">Lighting</button>
     <div class="innerContent">
-        <h2>Adding Perk Machines</h2>
-        <h2>Adding Loose Change to Perk Machines</h2>
+        <h2>Heading</h2>
         <p>Description.</p>
         <ol>
             <li>List <b>of</b> items.</li>
