@@ -516,7 +516,7 @@
             <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Drag one onto the map, placing it where the player won't accidentally run into it (collision issues).</li>
             <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Select the dog and change the <b>Entity Info</b>.</li><br>
+            <li>Select the dog and change the <b>Entity Info</b>. You can do the same to the default spawn point added when you made the map (targetname should be unique).</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property</b>: <sql>ALTERONSPAWN</sql><br>
                 <b>Value</b>: <sql>False</sql>
@@ -527,7 +527,7 @@
             </p><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property</b>: <sql>targetname</sql><br>
-                <b>Value</b>: <sql>zombie_dog_spawner_b</sql>
+                <b>Value</b>: <sql>zombie_dog_spawner</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
@@ -569,6 +569,15 @@
                 <b>Value</b>: <sql>dog_location</sql>
             </p>
             <div class="center" style="max-width: 330px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Dogs will now spawn when they should.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawning02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawning01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
         </ol>
     </div>
     &nbsp;
@@ -762,11 +771,11 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/TestDoorRight04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>Rotate the door in the <b>Game</b> view until you find a rotation that fits your needs. For the door on our right: <b>{0, 150, 0}</b> looks good.</li>
+            <li>Rotate the door in the <b>Game</b> view until you find a rotation that fits your needs. For the door on our right: <b>{0, 120, 0}</b> looks good.</li>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key</b>: <sql>script_angles</sql><br>
-                <b>Value</b>: <sql>0 150 0</sql>
+                <b>Value</b>: <sql>0 120 0</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Follow the same steps for the door on the left. This time <b>{0, 240, 0}</b> will work.</li><br>
@@ -781,19 +790,50 @@
     <div class="innerContent">
         <h2>Mystery Box</h2>
         <p>Fixing the Mystery Box and adding multiple locations.</p>
+        <p>Since Treyarch did not include box location prefabs with the mod tools, we need to add some files to our <b>zm_core</b> folder.</p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+        </p>
+        <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_01.map" download>box_01.map</a><br>
+        <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_02.map" download>box_02.map</a><br>
+        <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_03.map" download>box_03.map</a><br>
+        <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_start.map" download>box_start.map</a><br>
         <ol>
-            <li>Since Treyarch did not include box location prefabs with the mod tools, we need to add some files to our <b>zm_core</b> folder.</li><br>
+            <li>The first step is to download some of the assets from the above list. <b>box_start.map</b> is a prefab from the <b>giant</b> map and will be where the box spawns first on our map.</li>
+            <li>Place the new files in your <b>zm_core</b> folder:</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
             </p>
-            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_01.map" download>box_01.map</a><br>
-            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_02.map" download>box_02.map</a><br>
-            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_03.map" download>box_03.map</a><br>
-            <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_start.map" download>box_start.map</a>
-            <li>You can make as many more box locations as you want by just changing the KVPs on the prefabs.</li>
-            <li>Shift + D can also be used to rotate an entity.</li>
-            <li>Making more clips to go with box locations will be made with the same height already applied.</li>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and go to <b>Misc &gt; prefab</b>.</li>
+            <li>Open the <b>zm</b> folder and then open the <b>zm_core</b> folder.</li>
+            <li>The added files should be near the top of this list. Click on the <b>box_start.map</b> file and hit <b>Open</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/box_start.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Move the prefab to the location you want the box to spawn. Line it up with the floor and wall (or debris). The arrow should be pointing away from the wall. You can also use <b>Shift + D</b> to rotate an entity in 90&#176; increments.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Add a <b>clip</b> that will surround the box and prevent players from standing on top of it like so:<br>(Remember that <b>clip</b> is in the <b>Textures Pane</b>)</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li><b>Note</b>: After setting the height of our first clip, the subsequent clips will default to the same height when you draw them on the grid. This effect lasts until the next time you open the software.</li>
+            <li>Convert the <b>clip</b> to a <b>Brushmodel</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Here is a view of our new mystery box from inside the game:</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBoxInGame.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
+        <h2>Customizing the Mystery Box</h2>
+        <p>We can modify the prefab for the Mystery Box and even make our own versions and save them as prefabs.</p>
+        <p>I would like the starting Mystery Box to match the default box location for our map (The broken one). I am providing the new prefab file created in this turorial here: <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_start_tutorial.map" download>box_start_tutorial.map</a></p>
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>    
     </div>
     &nbsp;
     <button class="collapsible">Perks</button>
