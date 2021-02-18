@@ -829,11 +829,84 @@
         <p>We can modify the prefab for the Mystery Box and even make our own versions and save them as prefabs.</p>
         <p>I would like the starting Mystery Box to match the default box location for our map (The broken one). I am providing the new prefab file created in this turorial here: <a href="../../downloads/Modding/BO3%20Mod%20Tools/box_start_tutorial.map" download>box_start_tutorial.map</a></p>
         <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ol>    
+            <li>The first step is to place a working Mystery Box prefab from the list above into our map. I use <b>box_start.map</b> as a base for my new prefab.</li>
+            <li>Select the prefab and <b>Right Click</b> in the game view. Go to <b>Prefab &gt; Enter Prefab</b>.</li>
+            <li>Your game and grid views will change showing only the items included in the prefab, at the origin point on the grid (0,0,0).</li>
+            <li>If you try to click on the red box (<b>script_struct</b>) and everything gets selected, then you will need to do <b>Right Click &gt; Prefab &gt; Enter Prefab</b> again.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab00.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Here is the entity info for our <b>script_struct</b>:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname</b>: <sql>treasure_chest_use</sql><br>
+                <b>Property / Key</b>: <sql>script_noteworthy</sql> <b>Value</b>: <sql>start_chest</sql><br>
+                <b>Property / Key</b>: <sql>zombie_cost</sql> <b>Value</b>: <sql>950</sql><br>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>We have another important entity in the prefab called: <b>zbarrier_zmcore_MagicBox</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>User defined <b>KVP</b>s on our <b>zbarrier_zmcore_MagicBox</b>:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key</b>: <sql>barrieranimtime</sql> <b>Value</b>: <sql>0</sql><br>
+                <b>Property / Key</b>: <sql>script_noteworthy</sql> <b>Value</b>: <sql>start_chest_zbarrier</sql><br>
+                <b>Property / Key</b>: <sql>showalternatemodel</sql> <b>Value</b>: <sql>0</sql><br>
+                <b>Property / Key</b>: <sql>showupgradedmodel</sql> <b>Value</b>: <sql>0</sql><br>
+                <b>Property / Key</b>: <sql>type</sql> <b>Value</b>: <sql>zmcore_MagicBox</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardanim1</sql> <b>Value</b>: <sql>o_zombie_magic_box_fake_idle_twitch_a</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardanim2</sql> <b>Value</b>: <sql>o_zombie_magic_box_leave</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardanim3</sql> <b>Value</b>: <sql>o_zombie_magic_box_close</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardanim4</sql> <b>Value</b>: <sql>o_zombie_magic_box_teddy_rise</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardanim5</sql> <b>Value</b>: <sql>o_zombie_magic_box_teddy_rise</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardmodel1</sql> <b>Value</b>: <sql>p6_anime_zm_magic_box_fake</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardmodel2</sql> <b>Value</b>: <sql>p6_anime_zm_magic_box</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardmodel3</sql> <b>Value</b>: <sql>p6_anime_zm_magic_box</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardmodel4</sql> <b>Value</b>: <sql>tag_origin</sql><br>
+                <b>Property / Key</b>: <sql>zbarrierboardmodel5</sql> <b>Value</b>: <sql>tag_origin</sql><br>
+                <b>Property / Key</b>: <sql>zbarriernumboards</sql> <b>Value</b>: <sql>5</sql><br>
+                <b>Property / Key</b>: <sql>zbarriertearanim1</sql> <b>Value</b>: <sql>o_zombie_magic_box_fake_idle_twitch_b</sql><br>
+                <b>Property / Key</b>: <sql>zbarriertearanim2</sql> <b>Value</b>: <sql>o_zombie_magic_box_arrive</sql><br>
+                <b>Property / Key</b>: <sql>zbarriertearanim3</sql> <b>Value</b>: <sql>o_zombie_magic_box_open</sql><br>
+                <b>Property / Key</b>: <sql>zbarriertearanim4</sql> <b>Value</b>: <sql>o_zombie_magic_box_weapon_rise</sql><br>
+                <b>Property / Key</b>: <sql>zbarriertearanim5</sql> <b>Value</b>: <sql>o_zombie_magic_box_weapon_dual_rise</sql><br>
+            </p>
+            <li>For our new prefab we can delete the curved board and wooden blocks and continue to the next step.</li>
+            <li>Looking at the broken prefab we want to visually recreate, we will need some cinder blocks. Open the <b>Models Pane</b> (<b>M</b>) and search for <b>p7_cinder_block</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>To make it look the same as the broken prefab we will need to know the origin, rotation, and scaling of the cinder blocks. Since we are including the origin information it does not matter which cinder block we add first, however I will list them from left to right.</li>
+            <p><b>Note</b>: You can save some time by pressing <b>space</b> while a cinder block is selected, to add a copy, and then change its values.</p>
+            <p><b>modelscale</b>: <sql>1.65</sql></p><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>angles</b>: <sql>{ 0, 226.8, 0}</sql> <b>origin</b>: <sql>{ 32, 2, 7}</sql><br>
+                <b>angles</b>: <sql>{ 0, 297, 0}</sql> <b>origin</b>: <sql>{ 11, 0, 7}</sql><br>
+                <b>angles</b>: <sql>{ 0, 265.2, 0}</sql> <b>origin</b>: <sql>{ -14, 1, 7}</sql><br>
+                <b>angles</b>: <sql>{ 0, 291, 0}</sql> <b>origin</b>: <sql>{ -42, -1, 7}</sql><br>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab05.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Line up the center line of our <b>script_struct</b> entity with the top of the cinder blocks. If you don't line them up correctly you will have a gap underneath the box. I also moved down our <b>zbarrier_zmcore_MagicBox</b>, to be consistent with our prefab.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>You can now <b>Right Click</b> in the <b>Game</b> view and go to <b>Prefab &gt; Leave Prefab</b> as many times as is required.</li>
+            <li>If you followed the steps from earlier you will have a clip surrounding the Mystery Box prefab we just editted. Select the clip along with the prefab.</li>
+            <li><b>Right Click &gt; Prefab &gt; Save selected as new Prefab</b> to save this as a new prefab.</li>
+            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Choose a name for the new prefab, for this example: <b>box_start_tutorial.map</b> and hit <b>Save</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab07.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Making more Mystery Boxes</h2>
+        <ol>
+            <li>Drag a Mystery Box prefab onto the map. With the prefab selected <b>Right Click &gt; Prefab &gt; Enter Prefab</b>. Enter the prefab again if need be.</li>
+            <li>Select the <b>script_struct</b> and change the <b>value</b> of the <b>script_noteworthy</b> KVP.</li>
+            <li>You can change this value to <b>chest_1</b>, <b>chest_2</b>, and so on.</li>
+            <li>Next we need to select the <b>zbarrier_zmcore_MagicBox</b> entity and change the <b>value</b> of the <b>script_noteworthy</b> KVP.</li>
+            <li>You can change this value to <b>chest_1_zbarrier</b>, <b>chest_2_zbarrier</b>, and so on.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Prefab08.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/Prefab09.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Finally we can save the edited prefab as a new prefab. Leave the prefab and make sure the entities are selected. <b>Right Click &gt; Prefab &gt; Save selected as new Prefab</b>.</li>
+            <li>Choose a name, preferably following our naming convension and matching the <b>targetname</b> of the <b>script_struct</b>, in this case: <b>chest_1.map</b>.</li>
+        </ol>
     </div>
     &nbsp;
     <button class="collapsible">Perks</button>
