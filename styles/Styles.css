@@ -349,7 +349,8 @@ sql {
 }
 
 .imageColumn img {
-    max-width: 295px;
+    max-width: 350px;
+    min-height: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
