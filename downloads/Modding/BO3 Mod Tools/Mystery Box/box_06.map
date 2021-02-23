@@ -1,0 +1,85 @@
+iwmap 4
+// entity 0
+{
+guid "{DA8C1A37-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "worldspawn"
+}
+// entity 1
+{
+guid "{8C7996C9-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "misc_model"
+"angles" "0 85.2 0"
+"model" "p7_cinder_block"
+"modelscale" "1.65"
+"origin" "-14 1 7"
+}
+// entity 2
+{
+guid "{8C7996CA-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "misc_model"
+"angles" "0 117 0"
+"model" "p7_cinder_block"
+"modelscale" "1.65"
+"origin" "11.5 -0.5 7"
+}
+// entity 3
+{
+guid "{8C7996CB-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "script_struct"
+"origin" "0 0 14"
+"script_noteworthy" "chest_6"
+"targetname" "treasure_chest_use"
+"zombie_cost" "950"
+}
+// entity 4
+{
+guid "{8C7996CC-7280-11EB-B3A3-C0B88302C2A3}"
+layer "000_Global/buyable"
+"classname" "script_brushmodel"
+// brush 0
+{
+ guid "{DA20CC14-26C8-47E6-8A77-397AE84F0EA6}"
+layer "000_Global/buyable"
+  contents detail;
+ ( 49 -17 -10 ) ( 49 18 -10 ) ( -52 19 -10 ) clip 63.965221 64 -10505.68 1034.8251 89.599602 6.9329966e-005 lightmap_gray 16363.77 16382.35 -10495.952 1036.2709 89.599411 0.00081409502
+ ( -52 -16 145 ) ( -52 19 145 ) ( 49 18 145 ) clip 64.083771 64 -10530.771 1033.6145 89.59977 -0.00039906014 lightmap_gray 16384.52 16380.37 -10507.806 1036.8922 89.600258 0.00077657629
+ ( 49 -16 -10 ) ( 49 -16 145 ) ( 49 18 145 ) clip 63.944233 64 -10501.045 -527.44293 -0.10073385 -0.0016788893 lightmap_gray 16378.604 16384.84 -10506.845 -527.51862 -0.10128924 0.00024041632
+ ( -52 18 145 ) ( -52 18 -10 ) ( 49 18 -10 ) clip 63.989876 64 -736.30157 -527.57507 -0.18176137 -0.001104126 lightmap_gray 16379.452 16386.883 -736.08478 -527.63171 -0.1820492 -0.0010797869
+ ( -52 18 -10 ) ( -52 18 145 ) ( -52 -16 145 ) clip 63.485516 -64 -1042.5096 527.86371 179.89967 0.001589579 lightmap_gray 16254.41 -16383.984 -1047.5223 527.72906 179.89726 0.001456116
+ ( 49 -16 145 ) ( 49 -16 -10 ) ( -52 -16 -10 ) clip 63.985821 -64 -1027.6729 527.80096 179.81801 -0.00091966515 lightmap_gray 16383.713 -16384.771 -1027.8494 527.78998 179.81628 -0.0015031099
+}
+}
+// entity 5
+{
+guid "{8C7996CD-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "zbarrier_zmcore_magicbox"
+"origin" "0 0 14"
+"script_noteworthy" "chest_6_zbarrier"
+}
+// entity 6
+{
+guid "{8C7996CE-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "misc_model"
+"angles" "0 90 0"
+"model" "p7_debris_wood_plywood_2x8_flat_dirty_wet"
+"modelscale" "1.01999998092651"
+"origin" "0 0 13.5"
+}
+// entity 7
+{
+guid "{8C7996CF-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "misc_model"
+"angles" "0 111 0"
+"model" "p7_cinder_block"
+"modelscale" "1.65"
+"origin" "-41.5 -1.5 7"
+}
+// entity 8
+{
+guid "{8C7996D0-7280-11EB-B3A3-C0B88302C2A3}"
+"classname" "misc_model"
+"angles" "0 46.7997 0"
+"model" "p7_cinder_block"
+"modelscale" "1.65"
+"origin" "37 2 7"
+}
