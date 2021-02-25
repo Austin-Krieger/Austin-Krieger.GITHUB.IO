@@ -295,8 +295,8 @@
         </ol>
         <h2>Useful Folder Locations</h2>
         <ol>
-            <li>Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</li>
-            <li>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\scripts\zm</li>
+            <li><b>Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b></li>
+            <li><b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\scripts\zm</b></li>
         </ol>
     </div>
     &nbsp;
@@ -466,18 +466,18 @@
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_disable_bleeder</sql><br>
-                <b>Value</b>: <sql>1</sql>
+                <b>Property / Key:</b> <sql>script_disable_bleeder</sql><br>
+                <b>Value:</b> <sql>1</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_forcespawn</sql><br>
-                <b>Value</b>: <sql>1</sql>
+                <b>Property / Key:</b> <sql>script_forcespawn</sql><br>
+                <b>Value:</b> <sql>1</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>zombie_spawner</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>zombie_spawner</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SpawnerKVP02.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -486,16 +486,19 @@
         <ol>
             <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to the name of the current zone. <b>start_zone_spawners</b> in this case.</li>
-            <li>Click <b>Add KVP</b>.</li><br>
+            <li>With our new <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to the name of the current zone.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>riser_location</sql>
+                <b>targetname:</b> <sql>start_zone_spawners</sql>
             </p>
             <li>Click <b>Add KVP</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>find_flesh</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>riser_location</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>find_flesh</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li><b>Bonus:</b> You can use <b>Space Bar</b> to make a copy of the selected struct near the original.</li>
@@ -523,23 +526,26 @@
             <li>Deselect the walls (<b>Esc</b>).</li>
             <li>With the window selected hit <b>Add KVP</b>. The <b>Value</b> for this one must be unique on your map or the zombies will not know what to do when they spawn.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>receiver_set_entry_b</sql>
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>receiver_set_entry_b</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowReceiverSpawn02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Deselect the window (<b>Esc</b>).</li>
-            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>. Move the struct entity into the window room.</li>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script &gt; struct</b>. Move the struct entity into the window room.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to the name of the current zone. <b>start_zone_spawners</b> in this case.</li>
+            <li>With our new <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to the name of the current zone.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>start_zone_spawners</sql>
+            </p>
             <li>Click <b>Add KVP</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>riser_location</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>riser_location</sql>
             </p>
             <li>Click <b>Add KVP</b>. The <b>Value</b> for this one should match the window.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>receiver_set_entry_b</sql>
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>receiver_set_entry_b</sql>
             </p>
         </ol>
     </div>
@@ -553,28 +559,27 @@
             <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Drag one onto the map, placing it where the player won't accidentally run into it (collision issues).</li>
             <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Select the dog and change the <b>Entity Info</b>. You can do the same to the default spawn point added when you made the map (targetname should be unique).</li><br>
+            <li>Select the dog and change the <b>Entity Info</b>. You can do the same to the default spawn point added when you made the map (<b>targetname</b> should be unique).</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property</b>: <sql>ALTERONSPAWN</sql><br>
-                <b>Value</b>: <sql>False</sql>
+                <b>Value:</b> <sql>False</sql>
             </p><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property</b>: <sql>MAKEROOM</sql><br>
-                <b>Value</b>: <sql>True</sql>
+                <b>Value:</b> <sql>True</sql>
             </p><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property</b>: <sql>targetname</sql><br>
-                <b>Value</b>: <sql>zombie_dog_spawner</sql>
+                <b>targetname:</b> <sql>zombie_dog_spawner</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_forcespawn</sql><br>
-                <b>Value</b>: <sql>1</sql>
+                <b>Property / Key:</b> <sql>script_forcespawn</sql><br>
+                <b>Value:</b> <sql>1</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>zombie_dog_spawner</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>zombie_dog_spawner</sql>
             </p>
             <div class="imageRow">
             <div class="imageColumn">
@@ -595,15 +600,14 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner08.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>Change the <b>Entity Info</b>:</li><br>
+            <li>With our <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to the name of the current zone.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property</b>: <sql>targetname</sql><br>
-                <b>Value</b>: <sql>test_zone_spawners</sql>
+                <b>targetname:</b> <sql>test_zone_spawners</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>dog_location</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>dog_location</sql>
             </p>
             <div class="center" style="max-width: 330px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner06.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Dogs will now spawn when they should.</li>
@@ -641,16 +645,19 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/Zone03.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>Go to the <b>Entity Info Pane</b> for our zone. We need to set the <b>targetname</b> to something other than <b>start_zone</b>. For this example, set it to <b>test_zone</b>.</li>
-            <li>Click <b>Add KVP</b>.</li><br>
+            <li>With our <b>zone</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to something other than <b>start_zone</b>. For this example, set it to <b>test_zone</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>player_volume</sql>
+                <b>targetname:</b> <sql>test_zone</sql>
             </p>
             <li>Click <b>Add KVP</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>target</sql><br>
-                <b>Value</b>: <sql>test_zone_spawners</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>player_volume</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>target</sql><br>
+                <b>Value:</b> <sql>test_zone_spawners</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/NewInfoVolume03.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>The next step is to change some <b>targetname</b> values on our zombie spawn points.</li>
@@ -696,8 +703,8 @@
         <ol>
             <li>On the trigger box for each of your doors you will need to click <b>Add KVP</b>. The value needs to match the zone you are opening or else it will kill you when entering it.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_flag</sql><br>
-                <b>Value</b>: <sql>enter_test_zone</sql>
+                <b>Property / Key:</b> <sql>script_flag</sql><br>
+                <b>Value:</b> <sql>enter_test_zone</sql>
             </p>
         </ol>
         <h3>Scripting</h3>
@@ -705,7 +712,10 @@
         <ol>
             <li>A quick way to get to our map folder is to <b>Right Click</b> on our map name from the <b>Mod Tools Launcher</b> and click on <b>Open Map Folder</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenMapFolder.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>From there you will need to go to the <b>scripts</b> and <b>zm</b> folders. In my case: <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b></li>
+            <li>From there you will need to go to the <b>scripts\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
             <li>Open <b>zm_tutorial_level.gsc</b> in your preferred text editor.</li>
             <li>Find a function named <b>usermap_test_zone_init()</b> and add the following line:</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
@@ -749,11 +759,14 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/Doors05.png" alt="... Image" onclick="displayModal(this)">
             </div></div>
             <li>Next we need to convert our <b>clip</b> to a <b>brushmodel</b> from the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
-            <li>In the <b>Entity Info Pane</b> for our <b>clip</b>, change the <b>targetname</b> to <b>test_door</b>.</li>
+            <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_door</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_door</sql>
+            </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>clip</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>clip</sql>
             </p>
             <div class="imageRow">
             <div class="imageColumn">
@@ -778,22 +791,24 @@
             </div>
             </div>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Next we can modify the <b>Entity Info</b> and add some <b>KVP</b>s.</li>
-            <li>In the <b>Entity Info Pane</b> scroll down to <b>targetname</b> and type <b>zombie_door</b> (Exact spelling required).</li>
+            <li>With our new <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>zombie_door</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>zombie_door</sql>
+            </p>
             <li>We also need to set the cost of our door. Hit <b>Add KVP</b> and set the price of the door (Default is 1000).</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>zombie_cost</sql><br>
-                <b>Value</b>: <sql>750</sql>
+                <b>Property / Key:</b> <sql>zombie_cost</sql><br>
+                <b>Value:</b> <sql>750</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>target</sql><br>
-                <b>Value</b>: <sql>test_door</sql>
+                <b>Property / Key:</b> <sql>target</sql><br>
+                <b>Value:</b> <sql>test_door</sql>
             </p>
             <li>Click <b>Add KVP</b> (This one is used when you have multiple zones)</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_flag</sql><br>
-                <b>Value</b>: <sql>enter_test_zone</sql>
+                <b>Property / Key:</b> <sql>script_flag</sql><br>
+                <b>Value:</b> <sql>enter_test_zone</sql>
             </p>
             <div class="imageRow">
             <div class="imageColumn">
@@ -809,11 +824,14 @@
             <li>It may be a struggle to select a specific entity by this point, so we can press <b>H</b> to hide a selected entity and <b>Shift + H</b> to show everything you have hidden. <b>Shift + Ctrl + H</b> will reveal only the last item that was hidden.</li>
             <li>Select a <b>Door</b> and return to the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>model</b> and <b>Double Click</b>. Do the same for the other door and continue to the next step.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/TestDoorRight02.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>With a <b>Door</b> model selected go to the <b>Entity Info Pane</b> and scroll down to <b>targetname</b>. We can change this to whatever as long as it matches throughout the tutorial. In this case type: <b>test_door</b>.</li>
+            <li>With a <b>Door</b> model selected go to the <b>Entity Info Pane (N)</b> and scroll down to <b>targetname</b>. We can change this to whatever as long as it matches throughout the tutorial.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_door</sql>
+            </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>rotate</sql>
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>rotate</sql>
             </p>
             <div class="imageRow">
             <div class="imageColumn">
@@ -826,14 +844,14 @@
             <li>Rotate the door in the <b>Game</b> view until you find a rotation that fits your needs. For the door on our right: <b>{0, 120, 0}</b> looks good.</li>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_angles</sql><br>
-                <b>Value</b>: <sql>0 120 0</sql>
+                <b>Property / Key:</b> <sql>script_angles</sql><br>
+                <b>Value:</b> <sql>0 120 0</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Follow the same steps for the door on the left. This time <b>{0, 240, 0}</b> will work.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_angles</sql><br>
-                <b>Value</b>: <sql>0 240 0</sql>
+                <b>Property / Key:</b> <sql>script_angles</sql><br>
+                <b>Value:</b> <sql>0 240 0</sql>
             </p>
         </ol>
     </div>
@@ -860,16 +878,19 @@
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddGarageDoorTexture02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With the new <b>clip</b> selected, go to the <b>Entity Browser</b> and find <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> for our door, set the <b>targetname</b> to <b>test_garage_door</b>.</li>
+            <li>With our door selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_garage_door</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_garage_door</sql>
+            </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_string</sql><br>
-                <b>Value</b>: <sql>move</sql>
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>move</sql>
             </p>
             <li>Click <b>Add KVP</b> (In this example the door will move straight up to 100 on the Z axis)</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_vector</sql><br>
-                <b>Value</b>: <sql>0 0 100</sql>
+                <b>Property / Key:</b> <sql>script_vector</sql><br>
+                <b>Value:</b> <sql>0 0 100</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -879,11 +900,14 @@
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddElectricDoorClipBrushModel.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With the new <b>clip</b> selected, go to the <b>Entity Browser</b> and find <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> for our <b>clip</b>, set the <b>targetname</b> to <b>test_garage_door</b>.</li>
+            <li>With our <b>clip</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_garage_door</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_garage_door</sql>
+            </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>clip</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>clip</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -894,16 +918,19 @@
             <li>With the new <b>clip</b> selected go to the <b>Entity Browser</b> and find <b>Trigger &gt; use</b> and <b>Double Click</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ConvertToTriggerUse.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> for our <b>Trigger</b>, set the <b>targetname</b> to <b>zombie_door</b>.</li>
-            <li>Click <b>Add KVP</b></li><br>
+            <li>With our new <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>zombie_door</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>electric_door</sql>
+                <b>targetname:</b> <sql>zombie_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>target</sql><br>
-                <b>Value</b>: <sql>test_garage_door</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>electric_door</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>target</sql><br>
+                <b>Value:</b> <sql>test_garage_door</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -926,10 +953,14 @@
             </div>
             <li>Select each crate individually and go to the <b>Entity Browser Pane</b>, find <b>Script &gt; model</b> and <b>Double Click</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ConverttoModel01.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>You will also need to change the <b>targetname</b> of each to <b>test_debris</b> and click <b>Add KVP</b>.</li><br>
+            <li>For each of our <b>Script &gt; model</b>s, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_debris</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>target</sql><br>
-                <b>Value</b>: <sql>test_struct</sql>
+                <b>targetname:</b> <sql>test_debris</sql>
+            </p>
+            <li>Click <b>Add KVP</b> (On each).</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>target</sql><br>
+                <b>Value:</b> <sql>test_struct</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptModelKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -946,7 +977,10 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/DebrisStruct01.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to <b>test_struct</b>.</li>
+            <li>With our <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_struct</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_struct</sql>
+            </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStructKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Clip</h3>
@@ -962,11 +996,14 @@
             </div>
             <li>In the <b>Entity Browser Pane</b> go to <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to <b>test_debris</b>.</li>
+            <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_debris</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_debris</sql>
+            </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>clip</sql>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>clip</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -983,16 +1020,19 @@
             </div>
             <li>In the <b>Entity Browser Pane</b> go to <b>Trigger &gt; use</b> and <b>Double Click</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>In the <b>Entity Info Pane</b> change the <b>targetname</b> to <b>zombie_debris</b>.</li>
-            <li>Click <b>Add KVP</b></li><br>
+            <li>With our new <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>zombie_debris</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>zombie_cost</sql><br>
-                <b>Value</b>: <sql>1250</sql>
+                <b>targetname:</b> <sql>zombie_debris</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>target</sql><br>
-                <b>Value</b>: <sql>test_debris</sql>
+                <b>Property / Key:</b> <sql>zombie_cost</sql><br>
+                <b>Value:</b> <sql>1250</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>target</sql><br>
+                <b>Value:</b> <sql>test_debris</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
@@ -1042,8 +1082,10 @@
         <h3>Option #1 - Replace your prefab file with the one I have provided</h3>
         <ol>
             <li>Download this file: <a href="../../downloads/Modding/BO3%20Mod%20Tools/buyable_magic_box_start.map" download>buyable_magic_box_start.map</a></li>
-            <li>Go to your <b>zm_core</b> folder</li>
-            <p><b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b></p>
+            <li>Go to your <b>zm_core</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+            </p>
             <li>Find the original <b>buyable_magic_box_start.map</b> file and delete it.</li>
             <li>Move the file you just downloaded into this folder.</li>
             <li>You should now have a working Mystery Box.</li>
@@ -1059,7 +1101,8 @@
             <li>Open the <b>Models Pane</b> and search for <b>p7_debris_wood_plywood_2x8_flat_dirty_wet</b> and drag this onto your map placing it on top of your cinder blocks.</li>
             <p><b>modelscale</b>: <sql>1.02</sql></p><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>angles</b>: <sql>{ 0, 90, 0}</sql> <b>origin</b>: <sql>{ 0, 0, 13.5}</sql>
+                <b>angles:</b> <sql>{ 0, 90, 0}</sql><br>
+                <b>origin:</b> <sql>{ 0, 0, 13.5}</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox00.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>To find the cinder block model, go to the <b>Models Pane</b> (<b>M</b>) and search for <b>p7_cinder_block</b>.</li>
@@ -1068,10 +1111,10 @@
             <li>Here I am also providing the origin, rotation, and scaling for our cinder blocks from left to right:</li>
             <p><b>modelscale</b>: <sql>1.65</sql></p><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>angles</b>: <sql>{ 0, 226.8, 0}</sql> <b>origin</b>: <sql>{ 32, 2, 7}</sql><br>
-                <b>angles</b>: <sql>{ 0, 297, 0}</sql> <b>origin</b>: <sql>{ 11, 0, 7}</sql><br>
-                <b>angles</b>: <sql>{ 0, 265.2, 0}</sql> <b>origin</b>: <sql>{ -14, 1, 7}</sql><br>
-                <b>angles</b>: <sql>{ 0, 291, 0}</sql> <b>origin</b>: <sql>{ -42, -1, 7}</sql><br>
+                <b>angles:</b> <sql>{ 0, 226.8, 0}</sql> <b>origin:</b> <sql>{ 32, 2, 7}</sql><br>
+                <b>angles:</b> <sql>{ 0, 297, 0}</sql> <b>origin:</b> <sql>{ 11, 0, 7}</sql><br>
+                <b>angles:</b> <sql>{ 0, 265.2, 0}</sql> <b>origin:</b> <sql>{ -14, 1, 7}</sql><br>
+                <b>angles:</b> <sql>{ 0, 291, 0}</sql> <b>origin:</b> <sql>{ -42, -1, 7}</sql><br>
             </p>
             <li>If you want the arrows to face forward on the cinder blocks, then use <b>Shift + D</b> twice on each to flip them around.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab05.png" alt="... Image" onclick="displayModal(this)"></div>
@@ -1084,52 +1127,52 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox02.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>With our new <b>script_struct</b> selected, go to the <b>Entity Info Pane</b> (<b>N</b>).</li><br>
+            <li>With our new <b>struct</b> selected, go to the <b>Entity Info Pane</b> (<b>N</b>) and change the <b>targetname</b> to <b>treasure_chest_use</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>targetname</b>: <sql>treasure_chest_use</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql> <b>Value</b>: <sql>start_chest</sql><br>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql> <b>Value:</b> <sql>start_chest</sql><br>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>zombie_cost</sql> <b>Value</b>: <sql>950</sql><br>
+                <b>Property / Key:</b> <sql>zombie_cost</sql> <b>Value:</b> <sql>950</sql><br>
             </p>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab01.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>Next we need to add another <b>script_struct</b> and convert it to a <b>zbarrier_zmcore_magicbox</b>.</li>
+            <li>Next we need to add another <b>Script &gt; struct</b> and convert it to a <b>zbarrier_zmcore_magicbox</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox06.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>With your new <b>script_struct</b> selected, go to the <b>Entity Browser Pane</b>, scroll down to and click on <b>Zbarrier &gt; Zmcore</b> and double click <b>magicbox</b>.</li>
+            <li>With your new <b>struct</b> selected, go to the <b>Entity Browser Pane</b>, scroll down to and click on <b>Zbarrier &gt; Zmcore</b> and double click <b>magicbox</b>.</li>
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox03.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>We will see the outline of a box with a teddy bear on it. Line this up with the top of our plywood board and center it the best you can.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>In the <b>Entity Info Pane</b> you will see a long list of KVPs that were added for us:</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>barrieranimtime</sql> <b>Value</b>: <sql>0</sql><br>
-                <b>Property / Key</b>: <sql>showalternatemodel</sql> <b>Value</b>: <sql>0</sql><br>
-                <b>Property / Key</b>: <sql>showupgradedmodel</sql> <b>Value</b>: <sql>0</sql><br>
-                <b>Property / Key</b>: <sql>type</sql> <b>Value</b>: <sql>zmcore_magicbox</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardanim1</sql> <b>Value</b>: <sql>o_zombie_magic_box_fake_idle_twitch_a</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardanim2</sql> <b>Value</b>: <sql>o_zombie_magic_box_leave</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardanim3</sql> <b>Value</b>: <sql>o_zombie_magic_box_close</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardanim4</sql> <b>Value</b>: <sql>o_zombie_magic_box_teddy_rise</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardanim5</sql> <b>Value</b>: <sql>o_zombie_magic_box_teddy_rise</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardmodel1</sql> <b>Value</b>: <sql>p6_anime_zm_magic_box_fake</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardmodel2</sql> <b>Value</b>: <sql>p6_anime_zm_magic_box</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardmodel3</sql> <b>Value</b>: <sql>p6_anime_zm_magic_box</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardmodel4</sql> <b>Value</b>: <sql>tag_origin</sql><br>
-                <b>Property / Key</b>: <sql>zbarrierboardmodel5</sql> <b>Value</b>: <sql>tag_origin</sql><br>
-                <b>Property / Key</b>: <sql>zbarriernumboards</sql> <b>Value</b>: <sql>5</sql><br>
-                <b>Property / Key</b>: <sql>zbarriertearanim1</sql> <b>Value</b>: <sql>o_zombie_magic_box_fake_idle_twitch_b</sql><br>
-                <b>Property / Key</b>: <sql>zbarriertearanim2</sql> <b>Value</b>: <sql>o_zombie_magic_box_arrive</sql><br>
-                <b>Property / Key</b>: <sql>zbarriertearanim3</sql> <b>Value</b>: <sql>o_zombie_magic_box_open</sql><br>
-                <b>Property / Key</b>: <sql>zbarriertearanim4</sql> <b>Value</b>: <sql>o_zombie_magic_box_weapon_rise</sql><br>
-                <b>Property / Key</b>: <sql>zbarriertearanim5</sql> <b>Value</b>: <sql>o_zombie_magic_box_weapon_dual_rise</sql><br>
+                <b>Property / Key:</b> <sql>barrieranimtime</sql> <b>Value:</b> <sql>0</sql><br>
+                <b>Property / Key:</b> <sql>showalternatemodel</sql> <b>Value:</b> <sql>0</sql><br>
+                <b>Property / Key:</b> <sql>showupgradedmodel</sql> <b>Value:</b> <sql>0</sql><br>
+                <b>Property / Key:</b> <sql>type</sql> <b>Value:</b> <sql>zmcore_magicbox</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardanim1</sql> <b>Value:</b> <sql>o_zombie_magic_box_fake_idle_twitch_a</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardanim2</sql> <b>Value:</b> <sql>o_zombie_magic_box_leave</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardanim3</sql> <b>Value:</b> <sql>o_zombie_magic_box_close</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardanim4</sql> <b>Value:</b> <sql>o_zombie_magic_box_teddy_rise</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardanim5</sql> <b>Value:</b> <sql>o_zombie_magic_box_teddy_rise</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardmodel1</sql> <b>Value:</b> <sql>p6_anime_zm_magic_box_fake</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardmodel2</sql> <b>Value:</b> <sql>p6_anime_zm_magic_box</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardmodel3</sql> <b>Value:</b> <sql>p6_anime_zm_magic_box</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardmodel4</sql> <b>Value:</b> <sql>tag_origin</sql><br>
+                <b>Property / Key:</b> <sql>zbarrierboardmodel5</sql> <b>Value:</b> <sql>tag_origin</sql><br>
+                <b>Property / Key:</b> <sql>zbarriernumboards</sql> <b>Value:</b> <sql>5</sql><br>
+                <b>Property / Key:</b> <sql>zbarriertearanim1</sql> <b>Value:</b> <sql>o_zombie_magic_box_fake_idle_twitch_b</sql><br>
+                <b>Property / Key:</b> <sql>zbarriertearanim2</sql> <b>Value:</b> <sql>o_zombie_magic_box_arrive</sql><br>
+                <b>Property / Key:</b> <sql>zbarriertearanim3</sql> <b>Value:</b> <sql>o_zombie_magic_box_open</sql><br>
+                <b>Property / Key:</b> <sql>zbarriertearanim4</sql> <b>Value:</b> <sql>o_zombie_magic_box_weapon_rise</sql><br>
+                <b>Property / Key:</b> <sql>zbarriertearanim5</sql> <b>Value:</b> <sql>o_zombie_magic_box_weapon_dual_rise</sql><br>
             </p>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
-                <b>Property / Key</b>: <sql>script_noteworthy</sql><br>
-                <b>Value</b>: <sql>start_chest_zbarrier</sql><br>
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>start_chest_zbarrier</sql><br>
             </p>
             <li>Press <b>Shift + H</b> to show the hidden entities.</li>
             <li>Select the <b>clip</b> entity and convert it to a <b>brushmodel</b>. In the <b>Entity Browser Pane</b> look for <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
@@ -1139,7 +1182,10 @@
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox07.png" alt="... Image" onclick="displayModal(this)"></div>
             <li><b>Right Click &gt; Prefab &gt; Save selected as new Prefab</b>. You may get an error trying to overwrite the <b>buyable_magic_box_start.map</b>, so you can save it as <b>mystery_box.map</b> first.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox09.png" alt="... Image" onclick="displayModal(this)"></div>
-            <li>You can then delete the <b>buyable_magic_box_start.map</b> file from <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b> and save your prefab again as <b>buyable_magic_box_start.map</b>.</li>
+            <li>You can then delete the <b>buyable_magic_box_start.map</b> file from your <b>zm_core</b> folder and save your prefab again as <b>buyable_magic_box_start.map</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+            </p>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox08.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>When you're done it should look similar to this:</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox10.png" alt="... Image" onclick="displayModal(this)"></div>
@@ -1228,8 +1274,14 @@
         <h3>Use Juggernog to Make Widows Wine</h3>
         <ol>
             <li>You can also make your own widows wine perk machine by adding a copy of the juggernog perk machine to your map and modifying the prefab.</li>
-            <li>Change the <b>targetname</b> to <b>p7_zm_vending_widows_wine</b></li>
-            <li>Change the <b>script_noteworthy</b> to <b>specialty_widowswine</b></li>
+            <li>With perk machine selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>p7_zm_vending_widows_wine</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>p7_zm_vending_widows_wine</sql>
+            </p>
+            <li>Change the <b>script_noteworthy</b> to <b>specialty_widowswine</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>script_noteworthy:</b> <sql>specialty_widowswine</sql>
+            </p>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/UseJuggernogPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WidowsWinePrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Finally, go to <b>File &gt; Save As</b> and name the new prefab <b>vending_widowswine_struct.map</b>. You don't want to save over your version of the juggernog machine.</li>
@@ -1317,7 +1369,7 @@
         <h3>.gsc/.csc files</h3>
         <ol>
             <li>Next we need to open the maps' <b>.gsc</b> file:  <b>zm_tutorial_level.gsc</b></li>
-            <li>Go to the folder containing our <b>.gsc</b> file:</li><br>
+            <li>Go to the folder containing your <b>.gsc</b> file:</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
@@ -1372,21 +1424,98 @@
     <button class="collapsible">Perk Machine Loose Change</button>
     <div class="innerContent">
         <h2>Adding Loose Change to Perk Machines</h2>
-        <p>Description.</p>
+        <p>We can add loose change to our perk machine prefabs fairly easily by following these steps.</p>
         <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <li><b>Right Click</b> the file and edit it with your preferred text editor.</li>
+            <li>Add the following line near the top of the <b>Main()</b> function:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>level zm_perks::spare_change();</b>
+            </p>
+            <div class="code" id="Loose-Change-Main"><button class="copy" onclick="copyText('Loose-Change')">Copy</button><br><p>
+                function main()<br>
+                {<br>
+                &emsp;zm_usermap::main();<br><br>
+                &emsp;<mark>//Loose Change</mark><br>
+                &emsp;<b>level zm_perks::spare_change();</b><br><br>
+                &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
+                &emsp;<mark>//Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;level.zones = [];<br>
+                &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
+                &emsp;init_zones[0] = "start_zone";<br>
+                &emsp;level thread zm_zonemgr::manage_zones( init_zones );<br><br>
+                &emsp;level.pathdist_type = PATHDIST_ORIGINAL;<br>
+                }
+            </p></div>
+            <li>Add the following lines to the <b>Perks</b> section:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>#using scripts\zm\_zm_perks;</b><br>
+                <b>#insert scripts\zm\_zm_perks.gsh;</b>
+            </p>
+            <div class="code" id="Loose-Change-Using"><button class="copy" onclick="copyText('Loose-Change-Using')">Copy</button><br><p>
+                <mark>//Perks</mark><br>
+                #using scripts\zm\_zm_pack_a_punch;<br>
+                <b>#using scripts\zm\_zm_perks;</b><br>
+                <b>#insert scripts\zm\_zm_perks.gsh;</b><br>
+                #using scripts\zm\_zm_pack_a_punch_util;<br>
+                #using scripts\zm\_zm_perk_additionalprimaryweapon;<br>
+                #using scripts\zm\_zm_perk_doubletap2;<br>
+                #using scripts\zm\_zm_perk_deadshot;<br>
+                #using scripts\zm\_zm_perk_juggernaut;<br>
+                #using scripts\zm\_zm_perk_quick_revive;<br>
+                #using scripts\zm\_zm_perk_sleight_of_hand;<br>
+                #using scripts\zm\_zm_perk_staminup;<br>
+                #using scripts\zm\_zm_perk_widows_wine;<br>
+                #using scripts\zm\_zm_perk_electric_cherry;
+            </p></div>
+            <li>Now we need to edit some perk prefabs in <b>Radiant</b>.</li>
+            <li>In the <b>Entity Browser Pane</b> find <b>Trigger</b> and <b>Right Click &gt; Toggle Favorite</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Select a perk machine, I chose Electric Cherry</li>
+            <li><b>Right Click &gt; Prefab &gt; Enter Prefab</b>.</li>
+            <li>We can now <b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and add a <b>Trigger &gt; multiple</b> to the prefab.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Resize and move the trigger box in front of the machine like so:</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange06.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>With our <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>audio_bump_trigger</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>audio_bump_trigger</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_sound</sql><br>
+                <b>Value:</b> <sql>zmb_perks_bump_bottle</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange05.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Next you can copy the trigger box and paste it into your other perk machine prefabs.</li>
+            <li>You can also download these prefabs with loose change trigger boxes included:</li>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_additionalprimaryweapon_struct.map" download>vending_additionalprimaryweapon_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_deadshot_struct.map" download>vending_deadshot_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_doubletap_struct.map" download>vending_doubletap_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_electriccherry_struct.map" download>vending_electriccherry_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_juggernaut_struct.map" download>vending_juggernaut_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_marathon_struct.map" download>vending_marathon_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_revive_struct.map" download>vending_revive_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_sleight_struct.map" download>vending_sleight_struct.map</a><br>
+            <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_widowswine_struct.map" download>vending_widowswine_struct.map</a>
         </ol>
-        <h2>Section 2</h2>
     </div>
     &nbsp;
     <button class="collapsible">Increasing Perk Limit</button>
     <div class="innerContent">
         <h2>Increasing the Perk Limit</h2>
         <ol>
-            <li>Open your <b>usermaps</b> folder and go to the <b>zm_tutorial_level\scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
+            <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
@@ -1417,7 +1546,7 @@
     <div class="innerContent">
         <h2>Increasing the Player Starting Points</h2>
         <ol>
-            <li>Open your <b>usermaps</b> folder and go to the <b>zm_tutorial_level\scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
+            <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
@@ -1451,7 +1580,7 @@
         <h2>Change Player Starting Weapon</h2>
         <p>This is meant to change your starting pistol when loading into the map.</p>
         <ol>
-            <li>Open your <b>usermaps</b> folder and go to the <b>zm_tutorial_level\scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
+            <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
             <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
@@ -1478,8 +1607,82 @@
                 &emsp;<b>level.start_weapon = (weapon);</b><br>
                 }
             </p></div>
-            <li>You can find a list of weapons by going to <b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\zm</b></li>
-            <li>Open the <b>zm_levelcommon_weapons.csv</b> file in excel to view the list of weapon names. You can also open the file in a text editor and look at the first name in the comma seperated list on each line.</li>
+            <li>You can find a list of weapons in the <b>share\raw\gamedata\weapons\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\zm</b>
+            </p>
+            <li>Open the <b>zm_levelcommon_weapons.csv</b> file in excel or a text editor to view the list of weapons. In a text editor you will see a comma seperated list on each line.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Changing Weapon Values</button>
+    <div class="innerContent">
+        <h2>Changing Weapon Values</h2>
+        <p>You can change the prices of your weapons as well as their attachments and so on.</p>
+        <ol>
+            <li>Open your <b>Map</b> folder and create this folder structure <b>gamedata &gt; weapons &gt; zm</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\gamedata\weapons\zm</b>
+            </p>
+            <li>You can then find the weapons list inside the <b>share\raw\gamedata\weapons\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\zm</b>
+            </p>
+            <li>Copy the <b>zm_levelcommon_weapons.csv</b> file and paste it into the <b>zm</b> folder you just made.</li>
+            <li>Next we will open our maps' zone file: <b>zm_tutorial_level.zone</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>zm_tutorial_level\zone_source</b>
+            </p>
+            <li>Add the following lines to the bottom of the file:</li><br>
+            <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Starting-Weapon')">Copy</button><br><p>
+                <mark>// Updated Wall Weapon Costs</mark><br>
+                <b>stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv</b>
+            </p></div>
+            <li>Finally we can open the <b>zm_levelcommon_weapons.csv</b> file in excel or a text editor to view the list of weapons and make our changes.</li>
+        </ol>
+        <h3>Wall Buy Prices</h3>
+        <ol>
+            <li>The first comma seperated list shows what each item in the following lists represents. The fourth item in these lists is the price of the weapon. We can change this value which will change the price of the gun on the wall.</li>
+            <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>// Original</mark><br>
+                <b>bowie_knife,,,3000,wpck_bowie,,,,,FALSE,FALSE,,,,FALSE,FALSE,special,,,</b><br>
+                <mark>// Updated</mark><br>
+                <b>bowie_knife,,,100,wpck_bowie,,,,,FALSE,FALSE,,,,FALSE,FALSE,special,,,</b>
+            </p></div>
+        </ol>
+        <h3>Attachments</h3>
+        <ol>
+            <li>You can also change the attachments on your starting weapon.</li>
+            <li>To see a list of weapon attachments for each gun, open the <b>attachmentmappingsTable.csv</b> file:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\common</b>
+            </p>
+            <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>// Original</mark><br>
+                <b>smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b><br>
+                <mark>// Updated</mark><br>
+                <b>smg_ppsh,smg_ppsh_upgraded,,500,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,, extclip_ppsh fastreload fmj grip quickdraw_smg reddot rf steadyaim suppressed_smg</b>
+            </p></div>
+            <li>Attachments for the ppsh:</li>
+            <ul>
+                <li>acog</li>
+                <li>dualoptic</li>
+                <li>extbarrel_smg</li>
+                <li>extclip_ppsh</li>
+                <li>fastreload</li>
+                <li>fmj</li>
+                <li>grip</li>
+                <li>quickdraw_smg</li>
+                <li>reflex</li>
+                <li>reddot</li>
+                <li>rf</li>
+                <li>steadyaim</li>
+                <li>stalker_smg_fast</li>
+                <li>suppressed_smg</li>
+                <li>holo</li>
+                <li>gmod6</li>
+                <li>gmod7</li>
+            </ul>
         </ol>
     </div>
     &nbsp;
@@ -1536,19 +1739,6 @@
     </div>
     &nbsp;
     <button class="collapsible">Soul Boxes</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
-    </div>
-    &nbsp;
-    <button class="collapsible">Changing Gun Prices</button>
     <div class="innerContent">
         <h2>Heading</h2>
         <p>Description.</p>
