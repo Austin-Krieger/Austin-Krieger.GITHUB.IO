@@ -1613,6 +1613,7 @@
                 <b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\zm</b>
             </p>
             <li>Open the <b>zm_levelcommon_weapons.csv</b> file in excel or a text editor to view the list of weapons. In a text editor you will see a comma seperated list on each line.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/PPSH.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
     &nbsp;
@@ -1654,6 +1655,10 @@
                 <mark>// Updated</mark><br>
                 <b>smg_ppsh,smg_ppsh_upgraded,,1250,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b>
             </p></div>
+            <li>Here we can also add the annihilator to our weapons file:</li>
+            <div class="code" id="Add-Annihilator"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <b>hero_annihilator,hero_annihilator,,500,,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,special,TRUE,,</b>
+            </p></div>
         </ol>
         <h3>Attachments</h3>
         <ol>
@@ -1662,6 +1667,7 @@
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>share\raw\gamedata\weapons\common</b>
             </p>
+            <li>Certain attachments or too many attachments can lead to the gun firing sound not working properly. The following example is, well, an example of that:</li>
             <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
                 <mark>// Original</mark><br>
                 <b>smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b><br>
@@ -1725,6 +1731,54 @@
                 <b>scriptparsetree,scripts\zm\_zm_weap_bowie.gsc</b>
             </p></div>
             <li>This will override the original script file and update the cost of the bowie knife wall buy.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Fixing Sounds (Mystery Box, Perk Machines, Guns)</button>
+    <div class="innerContent">
+        <h2>Fixing Zombies Map Sounds</h2>
+        <p>The mystery box, pack-a-punch machine, perk machines, and even some guns are missing sounds. This tutorial should fix that issue.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>sound_assets</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\sound\aliases</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+            </p>
+            <li>Download: <a href="https://drive.google.com/file/d/1KicRCiEa6zXL4kelPJBzvzieJ0DW9bXr/view?usp=sharing" download>SoundsFix.zip</a></li>
+            <li>Once the file is downloaded, go to your <b>sound_assets</b> folder and move the downloaded sound assets.</li>
+            <li>Next go to your <b>aliases</b> folder and move the <b>zmb_sound_fixes.csv</b> file from the <b>share</b> folder.</li>
+            <li>Finally go to your Maps' <b>sound &gt; zoneconfig</b> folder and open your <b>.scz</b> file.</li>
+            <li>Add the new alias to the file:</li>
+            <div class="code" id="Add-Alias"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                &nbsp;{<br>
+                &nbsp;"Type" : "ALIAS",<br>
+                &nbsp;"Name" : "user_aliases",<br>
+                &nbsp;"Filename" : "user_aliases.csv",<br>
+                &nbsp;"Specs" : [ ]<br>
+                &nbsp;},<br>
+                &nbsp;<b>{</b><br>
+                &nbsp;<b>"Type" : "ALIAS",</b><br>
+                &nbsp;<b>"Name" : "zmb_sound_fixes",</b><br>
+                &nbsp;<b>"Filename" : "zmb_sound_fixes.csv",</b><br>
+                &nbsp;<b>"Specs" : [ ]</b><br>
+                <b>},</b>
+            </p></div>
+            <li>As I mentioned in the changing weapon vlaues tutorial, having certain / too many attachments on a gun can prevent the firing sound for that gun from working.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Adding Chalk Outlines &amp; Prefabs</button>
+    <div class="innerContent">
+        <h2>Heading</h2>
+        <p>Description.</p>
+        <ol>
+            <li></li>
+            <li></li>
         </ol>
     </div>
     &nbsp;
