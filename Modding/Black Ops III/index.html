@@ -1095,7 +1095,7 @@
         <h3>Option #2 - Fix the prefab yourself</h3>
         <ol>
             <li>Select the Prefab in your map. It will be the group of cinder blocks with a red clip around it.</li>
-            <li><b>Right Click</b> and go to  <b>Prefab &gt; Enter Prefab</b>.</li>
+            <li><b>Right Click</b> and go to <b>Prefab &gt; Enter Prefab</b>.</li>
             <li>This prefab is missing some important components and will currently do nothing.</li>
             <li>Select the clip entity and press <b>H</b> to hide it.</li>
             <li>You will notice a broken entity called <b>jun_art_wood_plywood_dark03</b>. <b>Delete</b> it.</li>
@@ -1488,6 +1488,7 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
+            <li>Only make the trigger box about 3 high, too much higher and the player will actually get more money when they lay down in front of the machines.</li>
             <li>With our <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>audio_bump_trigger</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>targetname:</b> <sql>audio_bump_trigger</sql>
@@ -1739,7 +1740,7 @@
         <h2>Fixing Zombies Map Sounds</h2>
         <p>The mystery box, pack-a-punch machine, perk machines, and even some guns are missing sounds. This tutorial should fix that issue.</p>
         <ol>
-            <li>Here are the folders you will need to open for this tutorial, starting with our root folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>sound_assets</b>
             </p>
@@ -1777,19 +1778,295 @@
         <h2>Adding More Wallbuys</h2>
         <p>These prefabs include Wonder Weapons, Rocket Shield, Ragnarok, Li'l Arnie, Monkey Bomb, etc.</p>
         <ol>
-            <li>Here are the folders you will need to open for this tutorial, starting with our root folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>texture_assets</b>
             </p>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>map_source\_prefabs\zm\zm_core</b>
             </p>
-            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Custom%20Wallbuys/custom_textures.zip" download>custom_textures.zip</a></li>
-            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Custom%20Wallbuys/custom_wallbuys.gdt" download>custom_wallbuys.gdt</a></li>
-            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Custom%20Wallbuys/wallbuy_prefabs.zip" download>wallbuy_prefabs.zip</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Wallbuys/custom_textures.zip" download>custom_textures.zip</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Wallbuys/custom_wallbuys.gdt" download>custom_wallbuys.gdt</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Wallbuys/wallbuy_prefabs.zip" download>wallbuy_prefabs.zip</a></li>
             <li>In the BO3 <b>root</b> folder move the <b>custom_textures</b> folder.</li>
             <li>Move the <b>custom_wallbuys.gdt</b> file to the <b>texture_assets</b> folder.</li>
             <li>Move the contents of the <b>wallbuy_prefabs</b> folder to the <b>zm_core</b> folder.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Buyable Ending</button>
+    <div class="innerContent">
+        <h2>Adding a Buyable Ending</h2>
+        <p>We can add an item to our map that when bought will end the game.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs\zm\zm_core</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/buyable_ending.gsc" download>buyable_ending.gsc</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/end_game_trig.map" download>end_game_trig.map</a></li>
+            <li>From the <b>root</b> folder go to <b>share\raw\scripts\zm</b> and add a folder called <b>custom</b> and inside that folder paste the <b>buyable_ending.gsc</b> file.</li>
+            <li>From the <b>root</b> folder go to <b>map_source\_prefabs</b> and create a new folder called <b>Buyable_Ending</b> and paste the <b>end_game_trig.map</b> file.</li>
+            <li>Next go to your map folder and into the <b>scripts\zm</b> folder and open the <b>zm_tutorial_level.gsc</b> file.</li>
+            <li>Inside the <b>main()</b> function add the following lines:</li>
+            <div class="code" id="Buyable-Ending-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>//Buyable Ending</mark><br>
+                <b>level thread buyable_ending::init();</b>
+            </p></div>
+            <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+            <div class="code" id="Buyable-Ending-02"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>//Buyable Ending</mark><br>
+                <b>#using scripts\zm\custom\buyable_ending;</b>
+            </p></div>
+            <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> and add the following lines at the end:</li>
+            <div class="code" id="Buyable-Ending-03"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>// Buyable Ending</mark><br>
+                <b>scriptparsetree,scripts/custom/buyable_ending.gsc</b>
+            </p></div>
+            <li>Now it is time to open our map in <b>Radiant</b>.</li>
+            <li>Inside your map <b>Right Click &gt; Misc &gt; prefab</b>.</li>
+            <li><b>Double Click</b> the <b>Buyable_Ending</b> folder and open the <b>end_game_trig.map</b> file.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTrigger.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTriggerAdded.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Place the trigger against a wall. You can then resize the trigger box after stamping the prefab: <b>Right Click &gt; Prefab &gt; Stamp Prefab</b>.</li>
+            <li>Make sure the <b>targetname</b> for the trigger is <b>end_game_trig</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTargetname.png" alt="... Image" onclick="displayModal(this)"></div>
+            <p><b>Note:</b> Don't add more than one of these triggers to your map or you will end up with an infinite loading screen.</p>
+        </ol>
+        <h3>Customizing the Trigger</h3>
+        <ol>
+            <li>Here you can download the cymbol monkey version of our <b>end_game_trigger</b>: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/end_game_trig_monkey.map" download>end_game_trig_monkey.map</a></li>
+            <li>After placing your trigger prefab, <b>Right Click</b> and go to <b>Prefab &gt; Enter Prefab</b>.</li>
+            <li>I like to use a model in the buyable ending trigger, so open the <b>Models Pane (M)</b>.</li>
+            <li>Search <b>monkey</b> and drag a cymbol monkey onto the grid.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyModel.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Resize the trigger box to the size of the cymbol monkey model.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ResizeEndGameTriggerBox.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Make a <b>clip</b> the size of the trigger box so that players can't walk through it.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTriggerClip.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Next we need to convert our <b>clip</b> to a <b>brushmodel</b> from the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
+            <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b>.</li>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>clip</sql>
+            </p>
+            <li>Save your prefab and <b>Right Click &gt; Prefab &gt; Leave Prefab</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyEndGameTriggerAdded.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Zombie Counter</button>
+    <div class="innerContent">
+        <h2>Zombie Counter</h2>
+        <p>Following this tutorial will give you a remaining zombies count in the top left of your screen for each round.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <li>Open your maps <b>.gsc</b> file <b>zm_tutorial_level.gsc</b> and add the following lines to the <b>main()</b> function:</li>
+            <div class="code" id="Zombie-Counter-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>// Zombie Counter</mark><br>
+	            <b>_INIT_ZCOUNTER();</b>
+            </p></div>
+            <li>Download this text file: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Zombie%20Counter/ZombieCounterCode.txt" download>ZombieCounterCode.txt</a></li>
+            <li>Open up the <b>ZombieCounterCode.txt</b> file and copy all of the text inside.</li>
+            <li>Back in the <b>zm_tutorial_level.gsc</b> file scroll to the bottom and paste the copied code.</li>
+            <li>There are customizable parts to this code, but I won't be covering that right now.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Additional Powerups</button>
+    <div class="innerContent">
+        <h2>Additional Powerups</h2>
+        <p>This tutorial includes <b>zombie blood</b>, <b>fast feet</b>, <b>zombie cash</b>, <b>time warp</b>, and <b>infinite ammo</b>.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\zone_source</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\sound\aliases</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Powerups/Powerups.zip" download>Powerups.zip</a></li>
+            <li>Once you extract the files, open up the <b>Powerups</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+            <li>In your <b>scripts\zm</b> folder, open the <b>zm_tutorial_level.gsc</b> file.</li>
+            <li>Add the following lines below the line: <b>#using scripts\zm\zm_usermap;</b></li>
+            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>// Powerups</mark><br>
+	            <b>#using scripts\powerups\powerup_time_warp;</b><br>
+                <b>#using scripts\powerups\powerup_fast_feet;</b><br>
+                <b>#using scripts\powerups\powerup_bottomless_clip;</b><br>
+                <b>#using scripts\powerups\powerup_money;</b><br>
+                <b>#using scripts\powerups\powerup_zombie_blood;</b>
+            </p></div>
+            <li>In your Maps' <b>zone_source</b> folder, open the <b>zm_tutorial_level.zone</b> file.</li>
+            <li>Add the following lines to the end of the file:</li>
+            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                <mark>// Powerups</mark><br>
+	            <b>scriptparsetree,scripts/powerups/powerup_time_warp.gsc</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_time_warp.csc</b><br>
+                <b>xmodel,hour_glass</b><br>
+                <b>material,time_warp</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_fast_feet.gsc</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_fast_feet.csc</b><br>
+                <b>xmodel,zombietron_boots</b><br>
+                <b>material,fast_feet</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_bottomless_clip.gsc</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_bottomless_clip.csc</b><br>
+                <b>xmodel,bottomless_clip</b><br>
+                <b>material,bottomless_clip</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_money.gsc</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_money.csc</b><br>
+                <b>xmodel,powerup_money</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_zombie_blood.gsc</b><br>
+                <b>scriptparsetree,scripts/powerups/powerup_zombie_blood.csc</b><br>
+                <b>xmodel,zombie_blood</b><br>
+                <b>material,zombie_blood</b>
+            </p></div>
+            <li>From the <b>root</b> folder, go to your <b>share\raw\sound\aliases</b> folder and move the <b>zmb_powerups.csv</b> file you downloaded earlier into this folder.</li>
+            <li>Next go to your Maps' <b>sound\zoneconfig</b> folder and open up the <b>zm_tutorial_level.szc</b> file.</li>
+            <li>Add in the new alias below <b>user_aliases</b> as shown here:</li>
+            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                 {<br>
+                 "Type" : "ALIAS",<br>
+                 "Name" : "user_aliases",<br>
+                 "Filename" : "user_aliases.csv",<br>
+                 "Specs" : [ ]<br>
+                 },<br>
+                <b>{</b><br>
+                <b>"Type" : "ALIAS",</b><br>
+                <b>"Name" : "zmb_powerups",</b><br>
+                <b>"Filename" : "zmb_powerups.csv",</b><br>
+                <b>"Specs" : [ ]</b><br>
+                <b>},</b>
+            </p></div>
+            <li>You should now have additional powerups in your map. If you change folder names or anything like that you will need to make changes to the files we opened as well as the <b>.gdt</b> files in our <b>model_export</b> folder.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Music Easter Egg</button>
+    <div class="innerContent">
+        <h2>Music Easter Egg</h2>
+        <p>This tutorial includes two options for adding a music easter egg to our map.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\sound\aliases</b>
+            </p>
+            <li><b>Option #1 - Shoot Teddy Bears:</b> <a href="../../downloads/Modding/BO3%20Mod%20Tools/Music%20Easter%20Egg/Music_Easter_Egg_1.zip" download>Music_Easter_Egg_1.zip</a></li>
+            <li><b>Option #2 - Touch Teddy Bears:</b> <a href="../../downloads/Modding/BO3%20Mod%20Tools/Music%20Easter%20Egg/Music_Easter_Egg_2.zip" download>Music_Easter_Egg_2.zip</a></li>
+            <li>Once you extract the files, open up the <b>Music_Easter_Egg_?</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+            <li>Go to your Maps' <b>sound\zoneconfig</b> folder and open up the <b>zm_tutorial_level.szc</b> file.</li>
+            <li>Add in the new alias below <b>user_aliases</b> as shown here:</li>
+            <div class="code" id="Music-EE-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                 {<br>
+                 "Type" : "ALIAS",<br>
+                 "Name" : "user_aliases",<br>
+                 "Filename" : "user_aliases.csv",<br>
+                 "Specs" : [ ]<br>
+                 },<br>
+                <b>{</b><br>
+                <b>"Type" : "ALIAS",</b><br>
+                <b>"Name" : "zmb_music_ee",</b><br>
+                <b>"Filename" : "zmb_music_ee.csv",</b><br>
+                <b>"Specs" : [ ]</b><br>
+                <b>},</b>
+            </p></div>
+            <li>Next go to your Maps' <b>scripts\zm</b> folder and open the <b>zm_tutorial_level.gsc</b> file.</li>
+            <li>Inside the <b>main()</b> function add the line that goes with the option you chose:</li>
+            <div class="code" id="Music-EE-02"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                 <mark>// Music Easter Egg - Option #1</mark><br>
+                 <b>level thread soundEasterEggInit();</b><br>
+                <mark>// Music Easter Egg - Option #2</mark><br>
+                 <b>level thread EE_Music();</b>
+            </p></div>
+            <li>Scroll down to the bottom of the file and paste the code from the <b>Code.txt</b> file.</li>
+            <li>Now it's time to open our map in <b>Radiant</b>.</li>
+            <li><b>Right Click &gt; Misc &gt; prefab</b>. <b>Double Click</b> the <b>Music_Easter_Egg</b> folder and open the Prefab/s.</li>
+            <li>For <b>Option #1</b> you need to place all 3 prefabs or make a copy and change the number in the triggers' targetname.</li>
+            <li>For <b>Option #2</b> you can place the prefab and make multiple copies in the map; it can be more than 3.</li>
+        </ol>
+        <h3>Additional Reading</h3>
+        <ol>
+            <li>When changing the song for this easter egg, make sure it's a <b>.wav</b> file with a Rate of <b>48000 Hz</b> and has the appropriate name for the option you chose. <b>Option #1:</b> <sql>song_easter_egg1</sql>, <b>Option #2:</b> <sql>ee_music</sql></li>
+            <li>You can always change these names and modify the <b>zmb_music_ee.csv</b> file and your Maps' <b>.gsc</b> file.</li>
+            <li>You can also change the model from the teddy bear to whatever you would like to use. Just <b>Stamp</b> the prefab and drag in a model from the <b>Models Pane (M)</b>. You could also edit the prefab if you want to change it that way and make your own prefabs in the process.</li>
+            <li>The Teddy Bear activation and looping sounds were created from some gameplay footage I took on the <b>Ascension</b> map.</li>
+            <li>The Music for the easter egg is provided by <b>Bensound.com</b> (Royalty Free).</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Soul Boxes</button>
+    <div class="innerContent">
+        <h2>Soul Boxes</h2>
+        <p>This tutorial adds soul boxes that give out rewards and/or open magic doors.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\scripts\custom</b>
+            </p>
+            
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs\zm</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Soul%20Boxes/Soul_Boxes.zip" download>SoulBoxes.zip</a></li>
+            <li>Once you extract the files, open up the <b>Soul Boxes</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+            <li>Go to your Maps' <b>zone_source</b> folder and open up the <b>zm_tutorial_level.zone</b> file.</li>
+            <li>Paste the following lines at the bottom of the file:</li>
+            <div class="code" id="Soul-Boxes-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                 <mark>// Soul Boxes</mark><br>
+                 <b>scriptparsetree,scripts/custom/growing_soulbox.gsc</b><br>
+                 <b>fx,zombie/fx_ritual_pap_energy_trail</b><br>
+            </p></div>
+            <li>Go to your Maps' <b>scripts\zm</b> folder and open the <b>.gsc</b> file. Paste the following lines underneath <b>#using scripts\zm\zm_usermap;</b></li>
+            <div class="code" id="Soul-Boxes-02"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                 <mark>// Soul Boxes</mark><br>
+                 <b>#using scripts\custom\growing_soulbox;</b>
+            </p></div>
+            <li>Scroll down to the <b>main()</b> function and paste the following lines inside:</li>
+            <div class="code" id="Soul-Boxes-03"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+                 <mark>// Soul Boxes</mark><br>
+                 <b>grow_soul::init();</b>
+            </p></div>
+            <li>Now we can open our map in <b>Radiant</b>.</li>
+            <li><b>Right Click &gt; Misc &gt; prefab</b>. <b>Double Click</b> the <b>Soul_Boxes</b> folder and open the <b>grow_soul.map</b> file.</li>
+            <li>Once the soul box is filled in game, it will disappear and drop a reward.</li>
+        </ol>
+        <h3>Additional Reading</h3>
+        <ol>
+            <li>If you add the <b>grow_soul_door_rotate.map</b> prefab to the map and fill the soul box with zombies in game, it will open the door when it is full. All the soul boxes need to be full to open the magic door, so you can have one or more soul boxes in your map.</li>
         </ol>
     </div>
     &nbsp;
@@ -1798,38 +2075,9 @@
         <h2>Making a Buildable Power Switch</h2>
         <p>Want players to search for and be able to craft the hidden pieces of the power switch? Continue reading.</p>
         <ol>
-            <li>List <b>of</b> items.</li>
             <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
-    </div>
-    &nbsp;
-    <button class="collapsible">Music Easter Egg</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
             <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
-        <h2>Section 2</h2>
-    </div>
-    &nbsp;
-    <button class="collapsible">Soul Boxes</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li>List <b>of</b> items.</li>
-            <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
-        </ol>
-        <h2>Section 2</h2>
     </div>
     &nbsp;
     <button class="collapsible">Lighting</button>
@@ -1837,12 +2085,9 @@
         <h2>Heading</h2>
         <p>Description.</p>
         <ol>
-            <li>List <b>of</b> items.</li>
             <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <li></li>
         </ol>
-        <h2>Section 2</h2>
     </div>
     &nbsp;
     <button class="collapsible">Cluttering</button>
@@ -1850,12 +2095,9 @@
         <h2>Heading</h2>
         <p>Description.</p>
         <ol>
-            <li>List <b>of</b> items.</li>
             <li></li>
-            <p></p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/.jpg" alt="... Image" onclick="displayModal(this)"></div>
+            <li></li>
         </ol>
-        <h2>Section 2</h2>
     </div>
 </div>
 </div>

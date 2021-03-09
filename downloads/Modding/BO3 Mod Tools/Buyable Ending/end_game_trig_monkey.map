@@ -1,0 +1,80 @@
+iwmap 4
+"script_startingnumber" 0
+"000_Global" flags  active
+"The Map" flags expanded 
+// entity 0
+{
+guid "{3E466624-7A2D-11EB-B3A6-C0B88302C2A3}"
+"classname" "worldspawn"
+"lightingquality" "1024"
+"samplescale" "1"
+"skyboxmodel" "skybox_default_day"
+"ssi" "default_day"
+"wsi" "default_day"
+"fsi" "default"
+"gravity" "800"
+"lodbias" "default"
+"lutmaterial" "luts_t7_default"
+"numOmniShadowSlices" "24"
+"numSpotShadowSlices" "64"
+"sky_intensity_factor0" "1"
+"sky_intensity_factor1" "1"
+"state_alias_1" "State 1"
+"state_alias_2" "State 2"
+"state_alias_3" "State 3"
+"state_alias_4" "State 4"
+}
+// entity 1
+{
+guid "{C3887061-7A13-11EB-B3A6-C0B88302C2A3}"
+"classname" "misc_model"
+"angles" "0 270 0"
+"model" "ape_preview_monkey"
+"origin" "-3 27.5 0"
+"lightingstate1" "1"
+"lightingstate2" "1"
+"lightingstate3" "1"
+"lightingstate4" "1"
+"modelscale" "1"
+"static" "1"
+}
+// entity 2
+{
+guid "{AB9B4577-7A2C-11EB-B3A6-C0B88302C2A3}"
+"classname" "trigger_use"
+"targetname" "end_game_trig"
+"_color" "0.3 0.5 0.8"
+"cursorhint" "HINT_ACTIVATE"
+// brush 0
+{
+ guid "{15CD5989-5E4A-11E6-B7CD-1C1B0D04B2D7}"
+ ( 8 4 0 ) ( -24 4 0 ) ( -24 -28 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -96 -100 0 0
+ ( -32 -40 115 ) ( -32 -8 115 ) ( 0 -8 115 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -104 -88 0 0
+ ( -16 -24 14 ) ( 16 -24 14 ) ( 16 -24 -2 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -88 2 0 0
+ ( 30 -30 -4 ) ( 30 2 -4 ) ( 30 2 -20 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 98 20 0 0
+ ( 19 77.5 78 ) ( -13 77.5 78 ) ( -13 77.5 62 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -85 -62 0 0
+ ( -36 28 79 ) ( -36 -4 79 ) ( -36 -4 63 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 140 -63 0 0
+}
+}
+// entity 3
+{
+guid "{FD73AC93-7A3B-11EB-B3A6-C0B88302C2A3}"
+"classname" "script_brushmodel"
+"script_noteworthy" "clip"
+"_color" "0 0.5 0.8"
+"lightingstate1" "1"
+"lightingstate2" "1"
+"lightingstate3" "1"
+"lightingstate4" "1"
+"shadow_casting" "1"
+// brush 0
+{
+ guid "{F26A2FC1-7A3B-11EB-B3A6-C0B88302C2A3}"
+ ( 30.5 77.5 -1.5 ) ( -36.5 77.5 -1.5 ) ( -36.5 -23.5 -1.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -36.5 -23.5 115 ) ( -36.5 77.5 115 ) ( 30.5 77.5 115 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -36.5 -24 115 ) ( 30.5 -24 115 ) ( 30.5 -24 -1.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 -23.5 115 ) ( 30 77.5 115 ) ( 30 77.5 -1.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30.5 77.5 115 ) ( -36.5 77.5 115 ) ( -36.5 77.5 -1.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -36 77.5 115 ) ( -36 -23.5 115 ) ( -36 -23.5 -1.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

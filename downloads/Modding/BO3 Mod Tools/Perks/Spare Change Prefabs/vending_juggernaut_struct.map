@@ -4,7 +4,7 @@ iwmap 4
 "The Map" flags expanded 
 // entity 0
 {
-guid "{EA4BCE21-DFD0-4180-BCF9-3AD3B6858865}"
+guid "{A93BC227-7B4D-11EB-B3A7-C0B88302C2A3}"
 "classname" "worldspawn"
 "evmax" "31"
 "evmin" "-32"
@@ -310,7 +310,7 @@ guid "{286BE95E-770D-11EB-B3A4-C0B88302C2A3}"
 {
  guid "{286BE95D-770D-11EB-B3A4-C0B88302C2A3}"
  ( 13 2 0 ) ( -19 2 0 ) ( -19 -30 0 ) trigger 64 64 28 -140 0 0 lightmap_gray 16384 16384 28 -140 0 0
- ( -16 -29 6 ) ( -16 3 6 ) ( 16 3 6 ) trigger 64 64 31 -141 0 0 lightmap_gray 16384 16384 31 -141 0 0
+ ( -15.5 -29 3 ) ( -15.5 3 3 ) ( 16.5 3 3 ) trigger 64 64 31.5 -141 0 0 lightmap_gray 16384 16384 31.5 -141 0 0
  ( -16 -35 36 ) ( 16 -35 36 ) ( 16 -35 20 ) trigger 64 64 31 12 0 0 lightmap_gray 16384 16384 31 12 0 0
  ( 16 -29 36 ) ( 16 3 36 ) ( 16 3 20 ) trigger 64 64 141 12 0 0 lightmap_gray 16384 16384 141 12 0 0
  ( 16 -14 36 ) ( -16 -14 36 ) ( -16 -14 20 ) trigger 64 64 31 12 0 0 lightmap_gray 16384 16384 31 12 0 0
