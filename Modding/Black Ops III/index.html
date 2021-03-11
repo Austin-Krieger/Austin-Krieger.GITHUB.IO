@@ -2090,7 +2090,7 @@
             </p>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
-            </p><br>
+            </p>
             <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Power/BuildablePower.zip" download>BuildablePower.zip</a></li>
             <li>Go to the <b>map_source\_prefabs</b> folder and make a <b>Buildable_Power</b> folder for our <b>.map</b> prefabs. You can also move the folders provided to your <b>root</b> folder and skip to step 6.</li>
             <li>Go to the <b>model_export</b> folder and paste the <b>buildable_power_assets.gdt</b> file.</li>
@@ -2156,17 +2156,44 @@
         <p>Archaicvirus: <a href="https://www.ugx-mods.com/forum/scripts/80/custom-buildables-random-spawning-shaders-etc/15031/">ugx-mods.com</a></p>
     </div>
     &nbsp;
-    <button class="collapsible">Lighting</button>
+    <button class="collapsible">Buildable Rocket Shield</button>
     <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
+        <h2>Adding a Buildable Rocket Shield</h2>
+        <p>Want players to search for and be able to craft the hidden pieces of the rocket shield? Continue reading.</p>
         <ol>
-            <li></li>
-            <li></li>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Rocket%20Shield/BuildableRocketShield.zip" download>BuildableRocketShield.zip</a></li>
+            <li>Go to your <b>map_source\_prefabs</b> folder and create a folder called <b>Buildable_Rocket_Shield</b> and paste the assets inside or drag the provided folder into your <b>root</b> folder.</li>
+            <li>Now we need to open our map in <b>Radiant</b> and place all of the <b>.map</b> files you just downloaded.</li>
+            <li>Place 1 or more of each part just like we did with the <b>Buildable Power</b> tutorial and place as many fuel tanks for the shield as you want (<b>zm_craftables_rocketshield_refill.map</b>).</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>One more important step is for the <b>zm_craftables_rocketshield_spawner.map</b> file. We need to place it under the floor of our map and make it roughly as large.</li>
+            <li>Before you can resize it, we need to do <b>Right Click &gt; Prefab &gt; Stamp Prefab</b>.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>I updated the table prefab a little from the original source shown below using a workbench model and adding a clip that players won't be able to walk through.</li>
         </ol>
+        <h3>Credits</h3>
+        <p>Uptownpapi25: <a href="https://www.youtube.com/watch?v=Q7ZnEHDBEF0">Black Ops 3 Mod Tools How to Add Rocket Shield</a></p>
     </div>
     &nbsp;
-    <button class="collapsible">Cluttering</button>
+    <button class="collapsible">Lighting</button>
     <div class="innerContent">
         <h2>Heading</h2>
         <p>Description.</p>
