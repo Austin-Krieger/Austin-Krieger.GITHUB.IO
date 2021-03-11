@@ -1440,10 +1440,10 @@
                 function main()<br>
                 {<br>
                 &emsp;zm_usermap::main();<br><br>
-                &emsp;<mark>//Loose Change</mark><br>
+                &emsp;<mark>// Loose Change</mark><br>
                 &emsp;<b>level zm_perks::spare_change();</b><br><br>
                 &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
-                &emsp;<mark>//Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;<mark>// Setup the levels Zombie Zone Volumes</mark><br>
                 &emsp;level.zones = [];<br>
                 &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
                 &emsp;init_zones[0] = "start_zone";<br>
@@ -1457,7 +1457,7 @@
                 <b>#insert scripts\zm\_zm_perks.gsh;</b>
             </p>
             <div class="code" id="Loose-Change-Using"><button class="copy" onclick="copyText('Loose-Change-Using')">Copy</button><br><p>
-                <mark>//Perks</mark><br>
+                <mark>// Perks</mark><br>
                 #using scripts\zm\_zm_pack_a_punch;<br>
                 <b>#using scripts\zm\_zm_perks;</b><br>
                 <b>#insert scripts\zm\_zm_perks.gsh;</b><br>
@@ -1530,10 +1530,10 @@
                 function main()<br>
                 {<br>
                 &emsp;zm_usermap::main();<br><br>
-                &emsp;<mark>//Perk Limit</mark><br>
+                &emsp;<mark>// Perk Limit</mark><br>
                 &emsp;<b>level.perk_purchase_limit = 20;</b><br><br>
                 &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
-                &emsp;<mark>//Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;<mark>// Setup the levels Zombie Zone Volumes</mark><br>
                 &emsp;level.zones = [];<br>
                 &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
                 &emsp;init_zones[0] = "start_zone";<br>
@@ -1561,12 +1561,12 @@
                 function main()<br>
                 {<br>
                 &emsp;zm_usermap::main();<br><br>
-                &emsp;<mark>//Perk Limit</mark><br>
+                &emsp;<mark>// Perk Limit</mark><br>
                 &emsp;level.perk_purchase_limit = 20;<br><br>
-                &emsp;<mark>//Starting Points</mark><br>
+                &emsp;<mark>// Starting Points</mark><br>
                 &emsp;<b>level.player_starting_points = 500000;</b><br><br>
                 &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
-                &emsp;<mark>//Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;<mark>// Setup the levels Zombie Zone Volumes</mark><br>
                 &emsp;level.zones = [];<br>
                 &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
                 &emsp;init_zones[0] = "start_zone";<br>
@@ -1592,18 +1592,18 @@
                 function main()<br>
                 {<br>
                 &emsp;zm_usermap::main();<br><br>
-                &emsp;<mark>//Perk Limit</mark><br>
+                &emsp;<mark>// Perk Limit</mark><br>
                 &emsp;level.perk_purchase_limit = 20;<br><br>
-                &emsp;<mark>//Starting Points</mark><br>
+                &emsp;<mark>// Starting Points</mark><br>
                 &emsp;level.player_starting_points = 500000;<br><br>
                 &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
-                &emsp;<mark>//Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;<mark>// Setup the levels Zombie Zone Volumes</mark><br>
                 &emsp;level.zones = [];<br>
                 &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
                 &emsp;init_zones[0] = "start_zone";<br>
                 &emsp;level thread zm_zonemgr::manage_zones( init_zones );<br><br>
                 &emsp;level.pathdist_type = PATHDIST_ORIGINAL;<br><br>
-                &emsp;<mark>//Starting Weapon</mark><br>
+                &emsp;<mark>// Starting Weapon</mark><br>
                 &emsp;<b>startingWeapon = "smg_ppsh";</b><br>
                 &emsp;<b>weapon = getWeapon(startingWeapon);</b><br>
                 &emsp;<b>level.start_weapon = (weapon);</b><br>
@@ -1637,7 +1637,7 @@
                 <b>usermaps\zm_tutorial_level\zone_source</b>
             </p>
             <li>Add the following lines to the bottom of the file:</li><br>
-            <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Starting-Weapon')">Copy</button><br><p>
+            <div class="code" id="Change-Weapon-Values00"><button class="copy" onclick="copyText('Change-Starting-Weapon00')">Copy</button><br><p>
                 <mark>// Updated Wall Weapon Costs</mark><br>
                 <b>stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv</b>
             </p></div>
@@ -1650,14 +1650,14 @@
                 <b>share\raw\scripts\zm\_zm_weapons.gsh</b>
             </p>
             <li>The fourth item in each list is the price of the weapon. We can change this value which will change the price of the gun on the wall.</li>
-            <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Change-Weapon-Values01"><button class="copy" onclick="copyText('Change-Weapon-Values01')">Copy</button><br><p>
                 <mark>// Original</mark><br>
                 <b>smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b><br>
                 <mark>// Updated</mark><br>
                 <b>smg_ppsh,smg_ppsh_upgraded,,1250,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b>
             </p></div>
             <li>Here we can also add the annihilator to our weapons file:</li>
-            <div class="code" id="Add-Annihilator"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Add-Annihilator"><button class="copy" onclick="copyText('Add-Annihilator')">Copy</button><br><p>
                 <b>hero_annihilator,hero_annihilator,,500,,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,special,TRUE,,</b>
             </p></div>
         </ol>
@@ -1669,7 +1669,7 @@
                 <b>share\raw\gamedata\weapons\common</b>
             </p>
             <li>Certain attachments or too many attachments can lead to the gun firing sound not working properly. The following example is, well, an example of that:</li>
-            <div class="code" id="Change-Weapon-Values"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Change-Weapon-Values02"><button class="copy" onclick="copyText('Change-Weapon-Values02')">Copy</button><br><p>
                 <mark>// Original</mark><br>
                 <b>smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b><br>
                 <mark>// Updated</mark><br>
@@ -1709,7 +1709,7 @@
             </p>
             <li>Paste the file and open it with your text editor.</li>
             <li>You will see <b>cost = 3000;</b> change this to whatever value you want.</li>
-            <div class="code" id="Change-Bowie-Cost"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Change-Bowie-Cost"><button class="copy" onclick="copyText('Change-Bowie-Cost')">Copy</button><br><p>
                 function private __main__()<br>
                 {<br>
                 &emsp;if( isdefined( level.bowie_cost ) )<br>
@@ -1727,7 +1727,7 @@
                 <b>usermaps\zm_tutorial_level\zone_source</b>
             </p>
             <li>Add the following lines to the bottom of the file:</li>
-            <div class="code" id="Override-Bowie-Script"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Override-Bowie-Script"><button class="copy" onclick="copyText('Override-Bowie-Script')">Copy</button><br><p>
                 <mark>// Update Bowie Knife Cost</mark><br>
                 <b>scriptparsetree,scripts\zm\_zm_weap_bowie.gsc</b>
             </p></div>
@@ -1755,7 +1755,7 @@
             <li>Next go to your <b>aliases</b> folder and move the <b>zmb_sound_fixes.csv</b> file from the <b>share</b> folder.</li>
             <li>Finally go to your Maps' <b>sound &gt; zoneconfig</b> folder and open your <b>.scz</b> file.</li>
             <li>Add the new alias to the file:</li>
-            <div class="code" id="Add-Alias"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Add-Alias"><button class="copy" onclick="copyText('Add-Alias')">Copy</button><br><p>
                 &nbsp;{<br>
                 &nbsp;"Type" : "ALIAS",<br>
                 &nbsp;"Name" : "user_aliases",<br>
@@ -1815,17 +1815,17 @@
             <li>From the <b>root</b> folder go to <b>map_source\_prefabs</b> and create a new folder called <b>Buyable_Ending</b> and paste the <b>end_game_trig.map</b> file.</li>
             <li>Next go to your map folder and into the <b>scripts\zm</b> folder and open the <b>zm_tutorial_level.gsc</b> file.</li>
             <li>Inside the <b>main()</b> function add the following lines:</li>
-            <div class="code" id="Buyable-Ending-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
-                <mark>//Buyable Ending</mark><br>
+            <div class="code" id="Buyable-Ending-01"><button class="copy" onclick="copyText('Buyable-Ending-01')">Copy</button><br><p>
+                <mark>// Buyable Ending</mark><br>
                 <b>level thread buyable_ending::init();</b>
             </p></div>
             <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
-            <div class="code" id="Buyable-Ending-02"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
-                <mark>//Buyable Ending</mark><br>
+            <div class="code" id="Buyable-Ending-02"><button class="copy" onclick="copyText('Buyable-Ending-02')">Copy</button><br><p>
+                <mark>// Buyable Ending</mark><br>
                 <b>#using scripts\zm\custom\buyable_ending;</b>
             </p></div>
             <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> and add the following lines at the end:</li>
-            <div class="code" id="Buyable-Ending-03"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Buyable-Ending-03"><button class="copy" onclick="copyText('Buyable-Ending-03')">Copy</button><br><p>
                 <mark>// Buyable Ending</mark><br>
                 <b>scriptparsetree,scripts/custom/buyable_ending.gsc</b>
             </p></div>
@@ -1878,7 +1878,7 @@
                 <b>usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
             <li>Open your maps <b>.gsc</b> file <b>zm_tutorial_level.gsc</b> and add the following lines to the <b>main()</b> function:</li>
-            <div class="code" id="Zombie-Counter-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Zombie-Counter-01"><button class="copy" onclick="copyText('Zombie-Counter-01')">Copy</button><br><p>
                 <mark>// Zombie Counter</mark><br>
 	            <b>_INIT_ZCOUNTER();</b>
             </p></div>
@@ -1911,7 +1911,7 @@
             <li>Once you extract the files, open up the <b>Powerups</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
             <li>In your <b>scripts\zm</b> folder, open the <b>zm_tutorial_level.gsc</b> file.</li>
             <li>Add the following lines below the line: <b>#using scripts\zm\zm_usermap;</b></li>
-            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Adding-Powerups-01')">Copy</button><br><p>
                 <mark>// Powerups</mark><br>
 	            <b>#using scripts\powerups\powerup_time_warp;</b><br>
                 <b>#using scripts\powerups\powerup_fast_feet;</b><br>
@@ -1921,7 +1921,7 @@
             </p></div>
             <li>In your Maps' <b>zone_source</b> folder, open the <b>zm_tutorial_level.zone</b> file.</li>
             <li>Add the following lines to the end of the file:</li>
-            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Adding-Powerups-02"><button class="copy" onclick="copyText('Adding-Powerups-02')">Copy</button><br><p>
                 <mark>// Powerups</mark><br>
 	            <b>scriptparsetree,scripts/powerups/powerup_time_warp.gsc</b><br>
                 <b>scriptparsetree,scripts/powerups/powerup_time_warp.csc</b><br>
@@ -1946,7 +1946,7 @@
             <li>From the <b>root</b> folder, go to your <b>share\raw\sound\aliases</b> folder and move the <b>zmb_powerups.csv</b> file you downloaded earlier into this folder.</li>
             <li>Next go to your Maps' <b>sound\zoneconfig</b> folder and open up the <b>zm_tutorial_level.szc</b> file.</li>
             <li>Add in the new alias below <b>user_aliases</b> as shown here:</li>
-            <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Adding-Powerups-03"><button class="copy" onclick="copyText('Adding-Powerups-03')">Copy</button><br><p>
                  {<br>
                  "Type" : "ALIAS",<br>
                  "Name" : "user_aliases",<br>
@@ -1981,10 +1981,10 @@
             </p>
             <li><b>Option #1 - Shoot Teddy Bears:</b> <a href="../../downloads/Modding/BO3%20Mod%20Tools/Music%20Easter%20Egg/Music_Easter_Egg_1.zip" download>Music_Easter_Egg_1.zip</a></li>
             <li><b>Option #2 - Touch Teddy Bears:</b> <a href="../../downloads/Modding/BO3%20Mod%20Tools/Music%20Easter%20Egg/Music_Easter_Egg_2.zip" download>Music_Easter_Egg_2.zip</a></li>
-            <li>Once you extract the files, open up the <b>Music_Easter_Egg_?</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+            <li>Once you extract the files, open up the <b>Music_Easter_Egg_#</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
             <li>Go to your Maps' <b>sound\zoneconfig</b> folder and open up the <b>zm_tutorial_level.szc</b> file.</li>
             <li>Add in the new alias below <b>user_aliases</b> as shown here:</li>
-            <div class="code" id="Music-EE-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Music-EE-01"><button class="copy" onclick="copyText('Music-EE-01')">Copy</button><br><p>
                  {<br>
                  "Type" : "ALIAS",<br>
                  "Name" : "user_aliases",<br>
@@ -2000,7 +2000,7 @@
             </p></div>
             <li>Next go to your Maps' <b>scripts\zm</b> folder and open the <b>zm_tutorial_level.gsc</b> file.</li>
             <li>Inside the <b>main()</b> function add the line that goes with the option you chose:</li>
-            <div class="code" id="Music-EE-02"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Music-EE-02"><button class="copy" onclick="copyText('Music-EE-02')">Copy</button><br><p>
                  <mark>// Music Easter Egg - Option #1</mark><br>
                  <b>level thread soundEasterEggInit();</b><br>
                 <mark>// Music Easter Egg - Option #2</mark><br>
@@ -2045,18 +2045,18 @@
             <li>Once you extract the files, open up the <b>Soul Boxes</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
             <li>Go to your Maps' <b>zone_source</b> folder and open up the <b>zm_tutorial_level.zone</b> file.</li>
             <li>Paste the following lines at the bottom of the file:</li>
-            <div class="code" id="Soul-Boxes-01"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Soul-Boxes-01"><button class="copy" onclick="copyText('Soul-Boxes-01')">Copy</button><br><p>
                  <mark>// Soul Boxes</mark><br>
                  <b>scriptparsetree,scripts/custom/growing_soulbox.gsc</b><br>
                  <b>fx,zombie/fx_ritual_pap_energy_trail</b><br>
             </p></div>
             <li>Go to your Maps' <b>scripts\zm</b> folder and open the <b>.gsc</b> file. Paste the following lines underneath <b>#using scripts\zm\zm_usermap;</b></li>
-            <div class="code" id="Soul-Boxes-02"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Soul-Boxes-02"><button class="copy" onclick="copyText('Soul-Boxes-02')">Copy</button><br><p>
                  <mark>// Soul Boxes</mark><br>
                  <b>#using scripts\custom\growing_soulbox;</b>
             </p></div>
             <li>Scroll down to the <b>main()</b> function and paste the following lines inside:</li>
-            <div class="code" id="Soul-Boxes-03"><button class="copy" onclick="copyText('Change-Bowie-Knife-Cost')">Copy</button><br><p>
+            <div class="code" id="Soul-Boxes-03"><button class="copy" onclick="copyText('Soul-Boxes-03')">Copy</button><br><p>
                  <mark>// Soul Boxes</mark><br>
                  <b>grow_soul::init();</b>
             </p></div>
@@ -2075,9 +2075,85 @@
         <h2>Making a Buildable Power Switch</h2>
         <p>Want players to search for and be able to craft the hidden pieces of the power switch? Continue reading.</p>
         <ol>
-            <li></li>
-            <li></li>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>model_export</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\sound\aliases</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+            </p><br>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Power/BuildablePower.zip" download>BuildablePower.zip</a></li>
+            <li>Go to the <b>map_source\_prefabs</b> folder and make a <b>Buildable_Power</b> folder for our <b>.map</b> prefabs. You can also move the folders provided to your <b>root</b> folder and skip to step 6.</li>
+            <li>Go to the <b>model_export</b> folder and paste the <b>buildable_power_assets.gdt</b> file.</li>
+            <li>Now go to the <b>share\raw</b> folder and paste our <b>custom_images</b> folder.</li>
+            <li>Next go to the <b>share\raw\sound\aliases</b> folder and open the <b>.csv</b> file of your choice. I went with the <b>zmb_sound_fixes.csv</b> file from a previous tutorial. We need to add the lines for the sound files we just added.</li>
+            <div class="code" id="Buildable-Power-01"><button class="copy" onclick="copyText('Buildable-Power-01')">Copy</button><br><p>
+                <b>build_loop,,,custom\buildables\build_loop.wav,,,UIN_MOD,,,,,,,,,,,99,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b><br>
+                <b>build_done,,,custom\buildables\build_done.wav,,,UIN_MOD,,,,,,,,,,,99,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b><br>
+                <b>part_pickup,,,custom\buildables\part_pickup.wav,,,UIN_MOD,,,,,,,,,,,99,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+            </p></div>
+            <li>Open your Maps' <b>.gsc</b> file from the <b>usermaps\zm_tutorial_level\scripts\zm</b> folder.</li>
+            <li>Inside the <b>main()</b> function add the following lines:</li>
+            <div class="code" id="Buyable-Ending-01"><button class="copy" onclick="copyText('Buyable-Ending-01')">Copy</button><br><p>
+                <mark>// Buildable Power</mark><br>
+	            <b>level thread custom_buildables_random::init();</b>
+            </p></div>
+            <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+            <div class="code" id="Buyable-Ending-02"><button class="copy" onclick="copyText('Buyable-Ending-02')">Copy</button><br><p>
+                <mark>// Buildable Power</mark><br>
+                <b>#using scripts\zm\custom_buildables_random;</b>
+            </p></div>
+            <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> folder and add the following lines at the end:</li>
+            <div class="code" id="Buyable-Ending-03"><button class="copy" onclick="copyText('Buyable-Ending-03')">Copy</button><br><p>
+                <mark>// Buildable Power</mark><br>
+                <b>scriptparsetree,scripts/zm/custom_buildables_random.gsc</b><br>
+                <b>xmodel,p7_zm_der_pswitch_body</b><br>
+                <b>xmodel,p7_zm_der_pswitch_handle</b><br>
+                <b>xmodel,p7_zm_zod_fuse</b><br>
+                <b>material,power_panel_shader</b><br>
+                <b>material,power_handle_shader</b><br>
+                <b>material,power_fuse_shader</b>
+            </p></div>
+            <li>Now it is time to open our map in <b>Radiant</b>.</li>
+            <li>Inside your map <b>Right Click &gt; Misc &gt; prefab</b>.</li>
+            <li><b>Double Click</b> the <b>Buildable_Power</b> folder and open the <b>master_power_switch.map</b> file.</li>
+            <li>Do the same for the <b>power_fuse.map</b> prefab and so on, until you have all the parts in your map. You can stamp said prefabs and rotate them however you like when placing them.</li>
+            <li>With all the parts placed, you can make some copies and place those as well. Our script will choose which copy of each part is active when the map loads.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>You now have a buildable power switch.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_05.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_06.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
         </ol>
+        <h3>Credits</h3>
+        <p>Archaicvirus: <a href="https://www.ugx-mods.com/forum/scripts/80/custom-buildables-random-spawning-shaders-etc/15031/">ugx-mods.com</a></p>
     </div>
     &nbsp;
     <button class="collapsible">Lighting</button>
