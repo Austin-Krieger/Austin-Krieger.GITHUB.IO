@@ -371,6 +371,16 @@
         </ol>
     </div>
     &nbsp;
+    <button class="collapsible">Lighting</button>
+    <div class="innerContent">
+        <h2>Heading</h2>
+        <p>Description.</p>
+        <ol>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    &nbsp;
     <button class="collapsible">Wall Buys (Weapons / Equipment)</button>
     <div class="innerContent">
         <h2>Adding Wall Buys</h2>
@@ -1477,7 +1487,7 @@
             <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Select a perk machine, I chose Electric Cherry</li>
             <li><b>Right Click &gt; Prefab &gt; Enter Prefab</b>.</li>
-            <li>We can now <b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and add a <b>Trigger &gt; multiple</b> to the prefab.</li>
+            <li>We can now <b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and add a <b>Trigger &gt; once</b> to the prefab. Other tutorials have you use a trigger multiple, but that just gives you either +200/+100+100/+100 (Not consistent or what we want).</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Resize and move the trigger box in front of the machine like so:</li>
             <div class="imageRow">
@@ -1488,7 +1498,6 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>Only make the trigger box about 3 high, too much higher and the player will actually get more money when they lay down in front of the machines.</li>
             <li>With our <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>audio_bump_trigger</b>.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>targetname:</b> <sql>audio_bump_trigger</sql>
@@ -1773,7 +1782,7 @@
         </ol>
     </div>
     &nbsp;
-    <button class="collapsible">Adding More Wallbuys</button>
+    <button class="collapsible">Adding More Wallbuys (Plus Fix Missing Chalk Outlines)</button>
     <div class="innerContent">
         <h2>Adding More Wallbuys</h2>
         <p>These prefabs include Wonder Weapons, Rocket Shield, Ragnarok, Li'l Arnie, Monkey Bomb, etc.</p>
@@ -2187,20 +2196,10 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <li>I updated the table prefab a little from the original source shown below using a workbench model and adding a clip that players won't be able to walk through.</li>
         </ol>
         <h3>Credits</h3>
+        <p>I updated the table prefab a little from the original source shown below using a workbench model and adding a clip that players won't be able to walk through.</p>
         <p>Uptownpapi25: <a href="https://www.youtube.com/watch?v=Q7ZnEHDBEF0">Black Ops 3 Mod Tools How to Add Rocket Shield</a></p>
-    </div>
-    &nbsp;
-    <button class="collapsible">Lighting</button>
-    <div class="innerContent">
-        <h2>Heading</h2>
-        <p>Description.</p>
-        <ol>
-            <li></li>
-            <li></li>
-        </ol>
     </div>
 </div>
 </div>
