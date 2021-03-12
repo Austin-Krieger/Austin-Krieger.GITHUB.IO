@@ -13,9 +13,7 @@
 <body>
 <div class="navbar">
     <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
-    <a href="../../index.html" style="float: left;">Home</a>
-    <a href="Workspace.html">Previous</a>
-    <a href="../Perlenspiel/index.html" style="float: right;">Next</a>
+    <a href="../index.html" style="float: left;">Home</a>
 </div>
 <div id="Sidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -25,6 +23,7 @@
     <a href="index.html">Unity</a>
     <a href="../Perlenspiel/index.html">Perlenspiel</a>
     <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
 </div>
 <div id="closeSideNav">
 <h1>Black Ops III Mod Tools</h1>
@@ -402,7 +401,7 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/RotateWallBuy02.png" alt="... Image" onclick="displayModal(this)">
             </div></div>
             <li>We can change the rotation manually from the <b>Entity Info Pane</b>. This is a better way to make sure our item is rotated 180&#176;.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeRotationManually.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeRotationManually.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>When moving the prefab around you will notice that it snaps to the corners of the grid squares. We need to increase the number of grid squares to move it more precisely. Find the button that looks like a grid and choosing <b>Grid 8</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeGridSize02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>We need to line up the prefab with the floor &amp; wall as shown below. Remember <b>Ctrl + Tab</b> will let you change the current <b>Grid View</b>. We want the wall buy to be very slightly off the wall, so if you switch the grid size to <b>Grid 1</b> we can add a tiny square of space between the knife and the wall.</li>
@@ -431,13 +430,13 @@
         <p>We can change the skybox from a daytime to a nighttime sky.</p>
         <ol>
             <li><b>Right Click</b> in the top bar of the level editor and open the <b>Entity List Pane</b> (Lists all the item currently in the level).</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenEntityList02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenEntityList02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Find <b>volume_sun</b> in the list.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/VolumeSun02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Check the box next to <b>volume_sun</b> to select it.</li>
             <li>Press <b>N</b> to open the <b>Entity Info Pane</b> with the <b>volume_sun</b> properties.</li>
             <li>Find <b>Light State 1</b> and click on <b>default_day</b> an elipses button will appear. Press it to open a list of skybox options.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EntityInfoSkybox02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EntityInfoSkybox02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Search for and select <b>zm_factory</b>.</li>
             <li>Hit <b>OK</b>.</li>
             <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SkyboxSelection02.png" alt="... Image" onclick="displayModal(this)"></div>
@@ -470,11 +469,11 @@
             <li>First we need to change the <b>coop_count</b> from <b>1</b> to <b>9999</b>.</li>
             <div class="center" style="padding: 10px; max-width: 330px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Change <b>ALTERONSPAWN</b> to <b>False</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Change <b>MAKEROOM</b> to <b>True</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_03.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Next we need to hit <b>Add KVP</b> to add some <b>User-Defined</b> properties.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Click <b>Add KVP</b></li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key:</b> <sql>script_disable_bleeder</sql><br>
@@ -490,7 +489,7 @@
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>zombie_spawner</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SpawnerKVP02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SpawnerKVP02.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h2>Spawn Zombies (Map)</h2>
         <p>Now we need to add locations for the zombies to spawn.</p>
@@ -511,7 +510,7 @@
                 <b>Property / Key:</b> <sql>script_string</sql><br>
                 <b>Value:</b> <sql>find_flesh</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li><b>Bonus:</b> You can use <b>Space Bar</b> to make a copy of the selected struct near the original.</li>
         </ol>
         <h2>Spawn Zombies (Window)</h2>
@@ -540,7 +539,7 @@
                 <b>Property / Key:</b> <sql>script_string</sql><br>
                 <b>Value:</b> <sql>receiver_set_entry_b</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowReceiverSpawn02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowReceiverSpawn02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Deselect the window (<b>Esc</b>).</li>
             <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script &gt; struct</b>. Move the struct entity into the window room.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
@@ -670,7 +669,7 @@
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_zone_spawners</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/NewInfoVolume03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/NewInfoVolume03.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>The next step is to change some <b>targetname</b> values on our zombie spawn points.</li>
             <li>Refer to <b>Zombie Spawning</b> and <b>Dog Spawning</b> if you're not sure how to make these spawn locations.</li>
             <h3>Zombies</h3>
@@ -858,12 +857,22 @@
                 <b>Property / Key:</b> <sql>script_angles</sql><br>
                 <b>Value:</b> <sql>0 120 0</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Follow the same steps for the door on the left. This time <b>{0, 240, 0}</b> will work.</li><br>
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key:</b> <sql>script_angles</sql><br>
                 <b>Value:</b> <sql>0 240 0</sql>
             </p>
+        </ol>
+        <h3>Download Door Prefabs</h3>
+        <ol>
+            <li>Debris Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/debris_door.map" download>debris_door.map</a></li>
+            <li>Double Doors: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/double_doors.map" download>double_doors.map</a></li>
+            <li>Electric Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/electric_door.map" download>electric_door.map</a></li>
+            <li>Large Garage Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/large_garage_door.map" download>large_garage_door.map</a></li>
+            <li>Secret Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/secret_door.map" download>secret_door.map</a></li>
+            <li>Vault Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/vault_door.map" download>vault_door.map</a></li>
+            <p>Big thanks to JBird632 for the <a href="https://www.youtube.com/watch?v=RJGLeTIQRvo">Door Rotation Fix</a>. I used the idea to make the vault doors solid when they rotate open.</p>
         </ol>
     </div>
     &nbsp;
@@ -903,7 +912,7 @@
                 <b>Property / Key:</b> <sql>script_vector</sql><br>
                 <b>Value:</b> <sql>0 0 100</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Clip</h3>
         <ol>
@@ -920,7 +929,7 @@
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>clip</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Trigger</h3>
         <ol>
@@ -943,7 +952,7 @@
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_garage_door</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
     &nbsp;
@@ -973,7 +982,7 @@
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_struct</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptModelKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptModelKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Struct</h3>
         <ol>
@@ -992,7 +1001,7 @@
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>targetname:</b> <sql>test_struct</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStructKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStructKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Clip</h3>
         <ol>
@@ -1016,7 +1025,7 @@
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>clip</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Trigger</h3>
         <ol>
@@ -1045,7 +1054,7 @@
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_debris</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
     &nbsp;
@@ -1150,7 +1159,7 @@
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>Property / Key:</b> <sql>zombie_cost</sql> <b>Value:</b> <sql>950</sql><br>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Next we need to add another <b>Script &gt; struct</b> and convert it to a <b>zbarrier_zmcore_magicbox</b>.</li>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox06.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With your new <b>struct</b> selected, go to the <b>Entity Browser Pane</b>, scroll down to and click on <b>Zbarrier &gt; Zmcore</b> and double click <b>magicbox</b>.</li>
@@ -1294,7 +1303,7 @@
                 <b>script_noteworthy:</b> <sql>specialty_widowswine</sql>
             </p>
             <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/UseJuggernogPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WidowsWinePrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WidowsWinePrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Finally, go to <b>File &gt; Save As</b> and name the new prefab <b>vending_widowswine_struct.map</b>. You don't want to save over your version of the juggernog machine.</li>
             <li>Now you can leave the copy of your juggernog prefab without saving over it and place your new widows wine prefab onto the map.</li>
         </ol>
@@ -1421,7 +1430,7 @@
             </div>
             </div>
             <li>Here is some <b>Entity Info</b> for our perk machine as an example if you did not use the prefab from above.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricCherryPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricCherryPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>You should now have a working Electric Cherry perk machine.</li>
         </ol>
         <h3>References</h3>
@@ -1507,7 +1516,7 @@
                 <b>Property / Key:</b> <sql>script_sound</sql><br>
                 <b>Value:</b> <sql>zmb_perks_bump_bottle</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange05.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange05.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Next you can copy the trigger box and paste it into your other perk machine prefabs.</li>
             <li>You can also download these prefabs with loose change trigger boxes included:</li>
             <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_additionalprimaryweapon_struct.map" download>vending_additionalprimaryweapon_struct.map</a><br>
@@ -1851,7 +1860,7 @@
             </div>
             <li>Place the trigger against a wall. You can then resize the trigger box after stamping the prefab: <b>Right Click &gt; Prefab &gt; Stamp Prefab</b>.</li>
             <li>Make sure the <b>targetname</b> for the trigger is <b>end_game_trig</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTargetname.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTargetname.png" alt="... Image" onclick="displayModal(this)"></div>
             <p><b>Note:</b> Don't add more than one of these triggers to your map or you will end up with an infinite loading screen.</p>
         </ol>
         <h3>Customizing the Trigger</h3>
@@ -2100,7 +2109,7 @@
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
             </p>
-            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Power/BuildablePower.zip" download>BuildablePower.zip</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Power/Buildable_Power.zip" download>Buildable_Power.zip</a></li>
             <li>Go to the <b>map_source\_prefabs</b> folder and make a <b>Buildable_Power</b> folder for our <b>.map</b> prefabs. You can also move the folders provided to your <b>root</b> folder and skip to step 6.</li>
             <li>Go to the <b>model_export</b> folder and paste the <b>buildable_power_assets.gdt</b> file.</li>
             <li>Now go to the <b>share\raw</b> folder and paste our <b>custom_images</b> folder.</li>
@@ -2174,7 +2183,7 @@
             <p class="code-sl" style="padding: 5px 10px;">
                 <b>map_source\_prefabs</b>
             </p>
-            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Rocket%20Shield/BuildableRocketShield.zip" download>BuildableRocketShield.zip</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Rocket%20Shield/Buildable_Rocket_Shield.zip" download>Buildable_Rocket_Shield.zip</a></li>
             <li>Go to your <b>map_source\_prefabs</b> folder and create a folder called <b>Buildable_Rocket_Shield</b> and paste the assets inside or drag the provided folder into your <b>root</b> folder.</li>
             <li>Now we need to open our map in <b>Radiant</b> and place all of the <b>.map</b> files you just downloaded.</li>
             <li>Place 1 or more of each part just like we did with the <b>Buildable Power</b> tutorial and place as many fuel tanks for the shield as you want (<b>zm_craftables_rocketshield_refill.map</b>).</li>
@@ -2196,10 +2205,178 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield04.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield05.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Credits</h3>
         <p>I updated the table prefab a little from the original source shown below using a workbench model and adding a clip that players won't be able to walk through.</p>
         <p>Uptownpapi25: <a href="https://www.youtube.com/watch?v=Q7ZnEHDBEF0">Black Ops 3 Mod Tools How to Add Rocket Shield</a></p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Brutus</button>
+    <div class="innerContent">
+        <h2>Adding Brutus to your map</h2>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>model_export</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\animtables</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\fx</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\scripts\custom</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>sound_assets</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>xanim_export</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Brutus/Brutus.zip" download>Brutus.zip</a></li>
+            <li>Drag the provided folders into your <b>root</b> folder.</li>
+            <li>Next go to the <b>share\raw\sound\aliases</b> folder and open the <b>.csv</b> file of your choice. I went with the <b>zmb_sound_fixes.csv</b> file from a previous tutorial. We need to add the lines for the sound files we just added.</li>
+            <div class="code" id="Brutus-00"><button class="copy" onclick="copyText('Brutus-00')">Copy</button><br><p>
+                <mark># Brutus</mark><br>
+                <b>brutus_deny,,,custom\deny.wav,,,UIN_MOD,,,,,,,,,0,0,100,100,0,200,200,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_step_00,,,custom\Brutus\brutus_step_00.wav,,,UIN_MOD,,,,,,,,,0,0,90,95,0,750,1000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_step_01,,,custom\Brutus\brutus_step_01.wav,,,UIN_MOD,,,,,,,,,0,0,90,95,0,750,1000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_prespawn,,,custom\Brutus\prespawn.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,2d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_defeated_00,,,custom\Brutus\brutus_defeated_00.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_defeated_01,,,custom\Brutus\brutus_defeated_01.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_defeated_02,,,custom\Brutus\brutus_defeated_02.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_clang,,,custom\Brutus\clang.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_spawn_short,,,custom\Brutus\brutus_spawn_short.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,2d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_vox_spawn,,,custom\Brutus\vox_spawn.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,2d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_spawn,,,custom\Brutus\brutus_spawn.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_swing_00,,,custom\Brutus\brutus_swing_00.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,300,500,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_swing_01,,,custom\Brutus\brutus_swing_01.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,300,500,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_lock,,,custom\Brutus\lock.wav,,,UIN_MOD,,,,,,,,,0,0,100,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_lock_loop,,,custom\Brutus\perksacola_loop.wav,,,UIN_MOD,,,,,,,,,0,0,100,100,0,300,500,,,,,,,,,,,,,,,,3d,,,LOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_vox_swing,,,custom\Brutus\vox_swing.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,1000,2000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_vox_yell,,,custom\Brutus\vox_yell.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,1000,2000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_death,,,custom\Brutus\death.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_helmet,,,custom\Brutus\brutus_helmet.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+            </p></div>
+            <li>Open your Maps' <b>.gsc</b> file from the <b>usermaps\zm_tutorial_level\scripts\zm</b> folder.</li>
+            <li>Inside the <b>main()</b> function add the following lines:</li>
+            <div class="code" id="Brutus-01"><button class="copy" onclick="copyText('Brutus-01')">Copy</button><br><p>
+                <mark>// Brutus</mark><br>
+	            <b>brutus::init();</b>
+            </p></div>
+            <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+            <div class="code" id="Brutus-02"><button class="copy" onclick="copyText('Brutus-02')">Copy</button><br><p>
+                <mark>// Brutus</mark><br>
+                <b>#using scripts\custom\brutus;</b>
+            </p></div>
+            <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> folder and add the following lines at the end:</li>
+            <div class="code" id="Brutus-03"><button class="copy" onclick="copyText('Brutus-03')">Copy</button><br><p>
+                <mark>// Brutus</mark><br>
+                <b>scriptparsetree,scripts/custom/brutus.gsc</b><br>
+                <b>scriptbundle,brutus_bundle</b><br>
+                <b>xmodel,brutus_helmet</b><br>
+                <b>xmodel,bo2_brutus_fb_death</b><br>
+                <b>xmodel,perk_clip</b><br>
+                <b>fx,Brutus/spawn_fx</b><br>
+                <b>fx,Brutus/chest_fx</b><br>
+                <b>fx,Brutus/helmet_smoke</b><br>
+                <b>fx,fire/fx_fire_ground_rubble_50x50</b>
+            </p></div>
+            <li>There are some customizable settings near the top of the <b>brutus.gsc</b> file we just added. We can change his base health, max rounds before spawning and so on.</li>
+            <li>Now we need to open our map in <b>Radiant</b> and place all of the <b>.map</b> files you just downloaded.</li>
+            <li>For each of the <b>perk_lock.map</b> files, you will need to line up the red (crosshair like) box with the red box of the respective perk.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_00.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>For each mystery box on your map, drag in a <b>box_lock.map</b> prefab and place it with the green box in the front of the box but not quite touching it and the red boxes should be inside the box prefab and halfway inside the ground.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Place one <b>brutus_spawner.map</b> prefab anywhere in your map.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_07.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Place the <b>brutus_start_zone.map</b> prefab in the starting zone of your map. If you changed the name of this zone then <b>Right Click &gt; Prefab &gt; Stamp Prefab</b> and change the <b>script_string</b> value to the name of your zone.</li>
+            <li>Do the same when placing the <b>brutus_your_zone.map</b> file in other zones.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_05.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h3>Credits</h3>
+        <p>NateSmithZombies</p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Ascension Style Power (Black &amp; White Vision)</button>
+    <div class="innerContent">
+        <h2>Adding an Ascension Style Black &amp; White Vision Filter</h2>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\zone_source</b>
+            </p>
+            <li>Open your Maps' <b>.gsc</b> file from the <b>usermaps\zm_tutorial_level\scripts\zm</b> folder.</li>
+            <li>Inside the <b>main()</b> function add the following lines:</li>
+            <div class="code" id="BWFilter-01"><button class="copy" onclick="copyText('Brutus-01')">Copy</button><br><p>
+                <mark>// Black &amp; White Vision</mark><br>
+	            <b>thread bw_vision();</b>
+            </p></div>
+            <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+            <div class="code" id="BWFilter-02"><button class="copy" onclick="copyText('Brutus-02')">Copy</button><br><p>
+                <mark>// Black &amp; White Vision</mark><br>
+                <b>#using scripts\zm\_zm_laststand;</b><br>
+                <b>#using scripts\shared\lui_shared;</b> <mark>// flash</mark>
+            </p></div>
+            <li>Now scroll down to the very bottom and paste the following. Feel free to play with the values.</li>
+            <div class="code" id="BWFilter-03"><button class="copy" onclick="copyText('Brutus-02')">Copy</button><br><p>
+                <mark>// Black &amp; White Vision</mark><br>
+                <b>function bw_vision()</b><br>
+                <b>{</b><br>
+                &emsp;<b>level flag::wait_till( "initial_blackscreen_passed" );</b><br>
+                &emsp;<b>wait(2);</b><br><br>
+                &emsp;<b>VisionSetNaked( "zombie_last_stand", 2 );</b><br><br>
+                &emsp;<b>thread ending_bw_vision();</b><br>
+                <b>}</b><br><br>
+                <b>function ending_bw_vision()</b><br>
+                <b>{</b><br>
+                &emsp;<b>level flag::wait_till( "power_on" );</b><br>
+                &emsp;<b>lui::screen_flash( 0.2, 0.5, 1.0, 0.8, "white" ); // flash</b><br>
+                &emsp;<b>wait(0.5);</b><br>
+                &emsp;<b>VisionSetNaked( "zm_factory", 0.5 );</b><br>
+                <b>}</b>
+            </p></div>
+            <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> folder and add the following lines at the end:</li>
+            <div class="code" id="BWFilter-04"><button class="copy" onclick="copyText('Brutus-03')">Copy</button><br><p>
+                <mark>// Black &amp; White Vision</mark><br>
+                <b>rawfile,vision/zombie_last_stand.vision</b><br>
+                <b>rawfile,vision/zm_factory.vision</b>
+            </p></div>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/BWFilter01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/BWFilter02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+        </ol>
+        <h3>Credits</h3>
+        <p>Sharpgamers4you: <a href="https://forum.modme.co/threads/ascension-style-power.3541/">Ascension Style Power!</a></p>
     </div>
 </div>
 </div>

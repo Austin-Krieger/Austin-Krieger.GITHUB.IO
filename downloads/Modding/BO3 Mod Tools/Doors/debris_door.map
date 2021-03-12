@@ -1,0 +1,189 @@
+iwmap 4
+// entity 0
+{
+guid "{FBC360A0-82DB-11EB-B3AA-C0B88302C2A3}"
+"classname" "worldspawn"
+"lightingquality" "1024"
+"samplescale" "1"
+"skyboxmodel" "skybox_default_day"
+"ssi" "default_day"
+"wsi" "default_day"
+}
+// entity 1
+// entity 2
+// entity 3
+// entity 4
+// entity 5
+// entity 6
+// entity 7
+// entity 8
+// entity 9
+// entity 10
+// entity 11
+// entity 12
+// entity 13
+// entity 14
+// entity 15
+// entity 16
+// entity 17
+// entity 18
+// entity 19
+// entity 20
+// entity 21
+// entity 22
+// entity 23
+// entity 24
+// entity 25
+// entity 26
+// entity 27
+// entity 28
+// entity 29
+// entity 30
+// entity 31
+// entity 32
+// entity 33
+// entity 34
+// entity 35
+// entity 36
+// entity 37
+// entity 38
+// entity 39
+// entity 40
+{
+guid "{99AEDF41-74F6-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_brushmodel"
+"script_noteworthy" "clip"
+"targetname" "test_debris"
+// brush 0
+{
+ guid "{6D0B7DAC-74F6-11EB-B3A4-C0B88302C2A3}"
+ ( 348.5 -479 0 ) ( 218.5 -479 0 ) ( 218.5 -544.5 0 ) clip 64 64 -2 0 0 0 lightmap_gray 16384 16384 -2 0 0 0
+ ( 220.5 -544.5 96.5 ) ( 220.5 -479 96.5 ) ( 350.5 -479 96.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 221 -543.5 96.5 ) ( 351 -543.5 96.5 ) ( 351 -543.5 44.5 ) clip 64 64 0.5 0 0 0 lightmap_gray 16384 16384 0.5 0 0 0
+ ( 349.5 -544.5 96.5 ) ( 349.5 -479 96.5 ) ( 349.5 -479 44.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 350.5 -479.5 96.5 ) ( 220.5 -479.5 96.5 ) ( 220.5 -479.5 44.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 221.5 -479 96.5 ) ( 221.5 -544.5 96.5 ) ( 221.5 -544.5 44.5 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 41
+{
+guid "{BEA9CA6D-74F6-11EB-B3A4-C0B88302C2A3}"
+"classname" "trigger_use"
+"script_flag" "enter_test_zone"
+"target" "test_debris"
+"targetname" "zombie_debris"
+"zombie_cost" "1250"
+// brush 0
+{
+ guid "{A22BE3F2-74F6-11EB-B3A4-C0B88302C2A3}"
+ ( 349.5 -473.5 0 ) ( 253 -473.5 0 ) ( 253 -479.5 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -59.5 0.5 0 0
+ ( 253 -479.5 96.5 ) ( 253 -473.5 96.5 ) ( 349.5 -473.5 96.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -59.5 0.5 0 0
+ ( 253 -479.5 96.5 ) ( 349.5 -479.5 96.5 ) ( 349.5 -479.5 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -59.5 0 0 0
+ ( 349.5 -479.5 96.5 ) ( 349.5 -473.5 96.5 ) ( 349.5 -473.5 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -0.5 0 0 0
+ ( 349.5 -475.5 96.5 ) ( 253 -475.5 96.5 ) ( 253 -475.5 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 -59.5 0 0 0
+ ( 221.5 -471.5 96.5 ) ( 221.5 -477.5 96.5 ) ( 221.5 -477.5 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 1.5 0 0 0
+}
+}
+// entity 42
+// entity 43
+// entity 44
+// entity 45
+// entity 46
+// entity 47
+// entity 48
+// entity 49
+// entity 50
+// entity 51
+// entity 52
+// entity 53
+// entity 54
+// entity 55
+// entity 56
+// entity 57
+// entity 58
+// entity 59
+// entity 60
+// entity 61
+// entity 62
+// entity 63
+// entity 64
+// entity 65
+// entity 66
+// entity 67
+// entity 68
+// entity 69
+// entity 70
+// entity 71
+// entity 72
+// entity 73
+// entity 74
+// entity 75
+// entity 76
+// entity 77
+// entity 78
+// entity 79
+// entity 80
+// entity 81
+// entity 82
+// entity 83
+// entity 84
+// entity 85
+// entity 86
+// entity 87
+// entity 88
+// entity 89
+// entity 90
+// entity 91
+// entity 92
+// entity 93
+// entity 94
+// entity 95
+// entity 96
+// entity 97
+// entity 98
+// entity 99
+// entity 100
+// entity 101
+// entity 102
+// entity 103
+// entity 104
+// entity 105
+// entity 106
+// entity 107
+// entity 108
+// entity 109
+// entity 110
+// entity 111
+{
+guid "{BC24D395-74FC-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_struct"
+"origin" "284.5 -511.5 329"
+"targetname" "test_struct"
+}
+// entity 112
+{
+guid "{276601AC-74F6-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_model"
+"model" "p7_cai_stacking_cargo_crate"
+"origin" "317.5 -511.5 0"
+"target" "test_struct"
+"targetname" "test_debris"
+}
+// entity 113
+{
+guid "{33A21C72-74F6-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_model"
+"model" "p7_cai_stacking_cargo_crate"
+"origin" "253.5 -511.5 0"
+"target" "test_struct"
+"targetname" "test_debris"
+}
+// entity 114
+{
+guid "{4087E6B1-74F6-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_model"
+"model" "p7_cai_stacking_cargo_crate"
+"origin" "285.5 -511.5 48"
+"target" "test_struct"
+"targetname" "test_debris"
+}

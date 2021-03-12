@@ -1,0 +1,181 @@
+iwmap 4
+// entity 0
+{
+guid "{BBEA4448-82DB-11EB-B3AA-C0B88302C2A3}"
+"classname" "worldspawn"
+"lightingquality" "1024"
+"samplescale" "1"
+"skyboxmodel" "skybox_default_day"
+"ssi" "default_day"
+"wsi" "default_day"
+}
+// entity 1
+// entity 2
+// entity 3
+// entity 4
+// entity 5
+// entity 6
+// entity 7
+// entity 8
+// entity 9
+// entity 10
+// entity 11
+// entity 12
+// entity 13
+// entity 14
+// entity 15
+// entity 16
+// entity 17
+// entity 18
+// entity 19
+// entity 20
+// entity 21
+// entity 22
+// entity 23
+// entity 24
+// entity 25
+// entity 26
+// entity 27
+// entity 28
+// entity 29
+// entity 30
+// entity 31
+// entity 32
+// entity 33
+// entity 34
+// entity 35
+// entity 36
+// entity 37
+// entity 38
+// entity 39
+// entity 40
+// entity 41
+// entity 42
+// entity 43
+{
+guid "{AC59B6DC-74E6-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_brushmodel"
+"script_noteworthy" "clip"
+"targetname" "test_garage_door"
+// brush 0
+{
+ guid "{E8724C3A-74DF-11EB-B3A4-C0B88302C2A3}"
+ ( 615 -505.5 0.5 ) ( 566.5 -505.5 0.5 ) ( 566.5 -512 0.5 ) metal_clip 64 64 0 0 0 0 lightmap_gray 16384 16384 -21.5 0.5 0 0
+ ( 566.5 -512 103.5 ) ( 566.5 -505.5 103.5 ) ( 615 -505.5 103.5 ) metal_clip 64 64 0 0 0 0 lightmap_gray 16384 16384 -21.5 0.5 0 0
+ ( 566.5 -512 103.5 ) ( 615 -512 103.5 ) ( 615 -512 0.5 ) metal_clip 64 64 0 0 0 0 lightmap_gray 16384 16384 -21.5 0 0 0
+ ( 612.5 -512 103.5 ) ( 612.5 -505.5 103.5 ) ( 612.5 -505.5 0.5 ) metal_clip 64 64 0 0 0 0 lightmap_gray 16384 16384 -0.5 0 0 0
+ ( 615 -505.5 103.5 ) ( 566.5 -505.5 103.5 ) ( 566.5 -505.5 0.5 ) metal_clip 64 64 0 0 0 0 lightmap_gray 16384 16384 -21.5 0 0 0
+ ( 504.5 -508 103.5 ) ( 504.5 -514.5 103.5 ) ( 504.5 -514.5 0.5 ) metal_clip 64 64 0 0 0 0 lightmap_gray 16384 16384 -3 0 0 0
+}
+}
+// entity 44
+{
+guid "{F9D7F85A-74E6-11EB-B3A4-C0B88302C2A3}"
+"classname" "trigger_use"
+"script_flag" "enter_test_zone"
+"script_noteworthy" "electric_door"
+"target" "test_garage_door"
+"targetname" "zombie_door"
+// brush 0
+{
+ guid "{D50D6709-74E6-11EB-B3A4-C0B88302C2A3}"
+ ( 515 -501.5 0.5 ) ( 504.5 -501.5 0.5 ) ( 504.5 -505.5 0.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 29 -3.5 0 0
+ ( 504.5 -505.5 103.5 ) ( 504.5 -501.5 103.5 ) ( 515 -501.5 103.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 29 -3.5 0 0
+ ( 504.5 -505.5 103.5 ) ( 515 -505.5 103.5 ) ( 515 -505.5 0.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 29 0 0 0
+ ( 612.5 -506 103.5 ) ( 612.5 -502 103.5 ) ( 612.5 -502 0.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 3 0 0 0
+ ( 515 -501.5 103.5 ) ( 504.5 -501.5 103.5 ) ( 504.5 -501.5 0.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 29 0 0 0
+ ( 504.5 -501.5 103.5 ) ( 504.5 -505.5 103.5 ) ( 504.5 -505.5 0.5 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 3.5 0 0 0
+}
+}
+// entity 45
+{
+guid "{FAFB80C9-74F0-11EB-B3A4-C0B88302C2A3}"
+"classname" "script_brushmodel"
+"script_string" "move"
+"script_vector" "0 0 100"
+"targetname" "test_garage_door"
+// brush 0
+{
+ guid "{44AA475D-74E6-11EB-B3A4-C0B88302C2A3}"
+ ( 612.5 -505 0.5 ) ( 504.5 -505 0.5 ) ( 504.5 -511.5 0.5 ) t7_metal_garage_door_rollup_01_bare 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 504.5 -511.5 103.5 ) ( 504.5 -505 103.5 ) ( 612.5 -505 103.5 ) t7_metal_garage_door_rollup_01_bare 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 504.5 -512 103.5 ) ( 612.5 -512 103.5 ) ( 612.5 -512 0.5 ) t7_metal_garage_door_rollup_01_bare 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 612.5 -511.5 103.5 ) ( 612.5 -505 103.5 ) ( 612.5 -505 0.5 ) t7_metal_garage_door_rollup_01_bare 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 612.5 -505.5 103.5 ) ( 504.5 -505.5 103.5 ) ( 504.5 -505.5 0.5 ) t7_metal_garage_door_rollup_01_bare 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 504.5 -505 103.5 ) ( 504.5 -511.5 103.5 ) ( 504.5 -511.5 0.5 ) t7_metal_garage_door_rollup_01_bare 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 46
+// entity 47
+// entity 48
+// entity 49
+// entity 50
+// entity 51
+// entity 52
+// entity 53
+// entity 54
+// entity 55
+// entity 56
+// entity 57
+// entity 58
+// entity 59
+// entity 60
+// entity 61
+// entity 62
+// entity 63
+// entity 64
+// entity 65
+// entity 66
+// entity 67
+// entity 68
+// entity 69
+// entity 70
+// entity 71
+// entity 72
+// entity 73
+// entity 74
+// entity 75
+// entity 76
+// entity 77
+// entity 78
+// entity 79
+// entity 80
+// entity 81
+// entity 82
+// entity 83
+// entity 84
+// entity 85
+// entity 86
+// entity 87
+// entity 88
+// entity 89
+// entity 90
+// entity 91
+// entity 92
+// entity 93
+// entity 94
+// entity 95
+// entity 96
+// entity 97
+// entity 98
+// entity 99
+// entity 100
+// entity 101
+// entity 102
+// entity 103
+// entity 104
+// entity 105
+// entity 106
+// entity 107
+// entity 108
+// entity 109
+// entity 110
+// entity 111
+// entity 112
+// entity 113
+// entity 114
+// entity 115
+// entity 116
+// entity 117
+// entity 118
+// entity 119
