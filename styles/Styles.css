@@ -383,6 +383,9 @@ sql {
         -ms-flex: 100%;
         flex: 100%;
     }
+    .imageColumn img {
+        width: 100%;
+    }
 }
 
 .columns {
