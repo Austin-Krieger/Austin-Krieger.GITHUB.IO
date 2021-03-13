@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="enemyspawning.html">Previous</a>
+    <a href="doors.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Zoning</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Making a New Zone</h2>
+    <p>You can have multiple zones in a map that will affect when zombies can start spawning from your windows and various other locations.</p>
+    <ol>
+        <li>The first large box around your map is an <b>info_volume</b>, which defines the area of a <b>zone</b>.</li>
+        <li>We can create a new <b>zone</b> by first selecting and copying the current <b>info_volume</b> (<b>Space</b>).</li>
+        <li>We can also create a new <b>zone</b> by going to the <b>Entity Browser Pane</b> and finding <b>Info</b> &gt; <b>volume</b>, and dragging one onto the map.</li>
+        <li>When resizing your <b>zone</b> make sure that it lines up with the previous <b>zone</b> as closely as you can make it. If you don't, the gap will kill the player.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Zone00.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Zone01.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Zone02.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Zone03.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>With our <b>zone</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to something other than <b>start_zone</b>. For this example, set it to <b>test_zone</b>.</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>targetname:</b> <sql>test_zone</sql>
+        </p>
+        <li>Click <b>Add KVP</b>.</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+            <b>Value:</b> <sql>player_volume</sql>
+        </p>
+        <li>Click <b>Add KVP</b>.</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>target</sql><br>
+            <b>Value:</b> <sql>test_zone_spawners</sql>
+        </p>
+        <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/NewInfoVolume03.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>The next step is to change some <b>targetname</b> values on our zombie spawn points.</li>
+        <li>Refer to <b>Zombie Spawning</b> and <b>Dog Spawning</b> if you're not sure how to make these spawn locations.</li>
+        <h3>Zombies</h3>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners05.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners06.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners03.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/NewZoneSpawners04.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <h3>Dogs</h3>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner07.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner06.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Once our spawners have the same <b>targetname</b> of our <b>zone</b> there will be a red line between the spawn point and the center of the <b>zone</b>.</li>
+        <li>It will also look better when the zombies spawn, if the center line of our <b>structs</b> line up with the floor.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Zone04.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner08.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+    </ol>
+    <h3>Doors</h3>
+    <ol>
+        <li>On the trigger box for each of your doors you will need to click <b>Add KVP</b>. The value needs to match the zone you are opening or else it will kill you when entering it.</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>script_flag</sql><br>
+            <b>Value:</b> <sql>enter_test_zone</sql>
+        </p>
+    </ol>
+    <h3>Scripting</h3>
+    <p>The next step involves adding a line of code.</p>
+    <ol>
+        <li>A quick way to get to our map folder is to <b>Right Click</b> on our map name from the <b>Mod Tools Launcher</b> and click on <b>Open Map Folder</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenMapFolder.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>From there you will need to go to the <b>scripts\zm</b> folder:</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
+        </p>
+        <li>Open <b>zm_tutorial_level.gsc</b> in your preferred text editor.</li>
+        <li>Find a function named <b>usermap_test_zone_init()</b> and add the following line:</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>zm_zonemgr::add_adjacent_zone("start_zone", "test_zone", "enter_test_zone");</b>
+        </p>
+        <div class="code" id="Zoning"><button class="copy" onclick="copyText('Zoning')">Copy</button><br><p>
+            function usermap_test_zone_init()<br>
+            {<br>
+            &emsp;<b>zm_zonemgr::add_adjacent_zone("start_zone", "test_zone", "enter_test_zone");</b><br><br>
+            &emsp;level flag::init( "always_on" );<br>
+            &emsp;level flag::set( "always_on" );<br>
+            }
+        </p></div>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

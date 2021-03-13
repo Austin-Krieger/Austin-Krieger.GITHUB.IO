@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="gettingstarted.html">Previous</a>
+    <a href="walls.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Keyboard Shortcuts</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Camera Movement</h2>
+    &nbsp;
+    <table>
+        <th style="background-color: black; color: white;">Action</th>
+        <th style="background-color: black; color: white;">Control</th>
+        <tr>
+            <td style="width: 50%;">Pivot Camera angle up toward the sky <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: rotate(90deg) scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+            <td><b>A</b></td>
+        </tr>
+        <tr>
+            <td>Pivot Camera angle down toward the ground <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: rotate(-90deg) scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+            <td><b>Z</b></td>
+        </tr>
+        <tr>
+            <td>Move the camera straight up <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; vertical-align: top;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Tripod.png" alt="... Image"></td>
+            <td><b>D</b> (Tap to go up in increments, Hold to move faster)</td>
+        </tr>
+        <tr>
+            <td>Move the Camera straight down <img class="video-camera-icon" style="vertical-align: bottom; height: 12px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+            <td><b>C</b> (Tap to go up in increments, Hold to move faster)</td>
+        </tr>
+        <tr>
+            <td>Zoom in/out in larger increments <img class="video-camera-icon" style="vertical-align: text-top; height: 12px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Zoom.png" alt="... Image"><img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"> <img class="video-camera-icon" style="vertical-align: text-top; height: 12px; width: 11px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Zoom.png" alt="... Image"><img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+            <td>Hold <b>Alt +</b> Use <b>Scroll Wheel</b></td>
+        </tr>
+        <tr>
+            <td><img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"> Move Camera Forward</td>
+            <td>Up Arrow &uarr;</td>
+        </tr>
+        <tr>
+            <td>Move Camera Backwards<img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; float: right; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05.png" alt="... Image"></td>
+            <td>Down Arrow &darr;</td>
+        </tr>
+        <tr>
+            <td>Rotate Camera left 15 degrees <img class="video-camera-icon" style="vertical-align: baseline; height: 12px; width: 20px; transform: rotate(-120deg); vertical-align: baseline;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+            <td>Left Arrow &larr;</td>
+        </tr>
+        <tr>
+            <td>Rotate Camera right 15 degrees <img class="video-camera-icon" style="vertical-align: baseline; height: 12px; width: 20px; transform: rotate(-45deg); vertical-align: baseline;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+            <td>Right Arrow &rarr;</td>
+        </tr>
+        <tr>
+            <td>Move Left</td>
+            <td><b>,</b></td>
+        </tr>
+        <tr>
+            <td>Move Right</td>
+            <td><b>.</b></td>
+        </tr>
+        <tr>
+            <td>Move Camera Up and Down in large increments <img class="video-camera-icon" style="vertical-align: bottom; height: 20px; width: 20px; vertical-align: top;" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon05-Tripod.png" alt="... Image"> <img class="video-camera-icon" style="vertical-align: bottom; height: 12px; width: 20px; transform: scaleX(-1);" src="../../images/Modding/BO3%20Mod%20Tools/Video-Camera-Icon04.png" alt="... Image"></td>
+            <td><b>Page Up / Page Down</b></td>
+        </tr>
+        <tr>
+            <td>Move Camera <b>&larr;&darr;&rarr;&uarr;</b> in larger increments</td>
+            <td>Hold <b> Ctrl + Right Click</b> (Move mouse)</td>
+        </tr>
+        <tr>
+            <td>Angle Camera <b>&larr;&darr;&rarr;&uarr;</b> in larger increments</td>
+            <td>Hold <b>Ctrl + Shift + Right Click</b> (Move Mouse)</td>
+        </tr>
+        <tr>
+            <td>Move the map around in Grid View</td>
+            <td>Hold <b>Right Click</b> in the Grid View and move</td>
+        </tr>
+    </table>
+    &nbsp;
+    <h2>Changing Views</h2>
+    <p>These are the shortcuts for changing what you can see in the Camera Pane &amp; Grid Pane (XY Top, XZ Front, YZ Side).</p>
+    <table>
+        <th style="background-color: black; color: white;">Action</th>
+        <th style="background-color: black; color: white;">Control</th>
+        <tr>
+            <td style="width: 50%;">Flat View</td>
+            <td><b>F7</b></td>
+        </tr>
+        <tr>
+            <td>Lighting View</td>
+            <td><b>F8</b></td>
+        </tr>
+        <tr>
+            <td>Game View</td>
+            <td><b>F9</b></td>
+        </tr>
+        <tr>
+            <td>Cycle Views in Grid</td>
+            <td><b>Ctrl + Tab</b></td>
+        </tr>
+        <tr>
+            <td>Smaller Grid</td>
+            <td><b>[</b></td>
+        </tr>
+        <tr>
+            <td>Bigger Grid</td>
+            <td><b>]</b></td>
+        </tr>
+        <tr>
+            <td>Grid .5</td>
+            <td><b>`</b></td>
+        </tr>
+        <tr>
+            <td>Grid 1</td>
+            <td><b>1</b></td>
+        </tr>
+        <tr>
+            <td>Grid 2</td>
+            <td><b>2</b></td>
+        </tr>
+        <tr>
+            <td>Grid 4</td>
+            <td><b>3</b></td>
+        </tr>
+        <tr>
+            <td>Grid 8</td>
+            <td><b>4</b></td>
+        </tr>
+        <tr>
+            <td>Grid 16</td>
+            <td><b>5</b></td>
+        </tr>
+        <tr>
+            <td>Grid 32</td>
+            <td><b>6</b></td>
+        </tr>
+        <tr>
+            <td>Grid 64</td>
+            <td><b>7</b></td>
+        </tr>
+        <tr>
+            <td>Grid 128</td>
+            <td><b>8</b></td>
+        </tr>
+        <tr>
+            <td>Grid 246</td>
+            <td><b>9</b></td>
+        </tr>
+    </table>
+    &nbsp;
+    <h2>Selection Shortcuts</h2>
+    <p>Shortcuts for selecting, de-selecting, hiding, deleting, and duplicating.</p>
+    <table>
+        <th style="background-color: black; color: white;">Action</th>
+        <th style="background-color: black; color: white;">Control</th>
+        <tr>
+            <td style="width: 50%;">Select / De-Select Surface (Floor/Wall/Etc.)</td>
+            <td><b>Shift + Click</b></td>
+        </tr>
+        <tr>
+            <td>Select / De-Select the Face of a wall</td>
+            <td><b>Ctrl + Shift + Click</b></td>
+        </tr>
+        <tr>
+            <td>Move a Selected Item Up/Down (Numpad)</td>
+            <td><b>+ / -</b></td>
+        </tr>
+        <tr>
+            <td>Move a Selected Item Up</td>
+            <td><b>Shift + Equals</b> ( <b>=</b> )</td>
+        </tr>
+        <tr>
+            <td>Move a Selected Item Down</td>
+            <td><b>Minus</b> ( <b>-</b> )</td>
+        </tr>
+        <tr>
+            <td>Rotate a Selected Item in 90&#176; increments</td>
+            <td><b>Shift + D</b></td>
+        </tr>
+        <tr>
+            <td>Select Everything</td>
+            <td><b>i</b></td>
+        </tr>
+        <tr>
+            <td>De-select Everything</td>
+            <td><b>Esc</b></td>
+        </tr>
+        <tr>
+            <td>Duplicate Selected Item</td>
+            <td><b>Space</b></td>
+        </tr>
+        <tr>
+            <td>Delete Items</td>
+            <td><b>Backspace</b></td>
+        </tr>
+        <tr>
+            <td>Hide Selection</td>
+            <td><b>H</b></td>
+        </tr>
+        <tr>
+            <td>Show the Last Items Hidden</td>
+            <td><b>Ctrl + Shift + H</b></td>
+        </tr>
+        <tr>
+            <td>Show All Hidden Items</td>
+            <td><b>Shift + H</b></td>
+        </tr>
+        <tr>
+            <td>Show Rotation Handles</td>
+            <td><b>R</b></td>
+        </tr>
+        <tr>
+            <td>Toggle Wireframe for Selection</td>
+            <td><b>J</b></td>
+        </tr>
+        <tr>
+            <td>Toggle Vertices for Selection</td>
+            <td><b>V</b></td>
+        </tr>
+        <tr>
+            <td>Cut (Removes Portion of the Selected Item)</td>
+            <td><b>X</b>, Right Click 2 Points in <b>Grid View</b>, <b>Enter</b></td>
+        </tr>
+        <tr>
+            <td>Cut (Keep Both Parts as Separate Objects)</td>
+            <td><b>X</b>, Right Click 2 Points in <b>Grid View</b>, <b>Shift + Enter</b></td>
+        </tr>
+        <tr>
+            <td>Weld (Two vertices selected)</td>
+            <td><b>W</b></td>
+        </tr>
+        <tr>
+            <td>Unweld Vertices</td>
+            <td><b>Ctrl + Shift + W</b></td>
+        </tr>
+        <tr>
+            <td>Invert Texture</td>
+            <td><b>Ctrl + I</b></td>
+        </tr>
+    </table>
+    &nbsp;
+    <h2>Workspace Shortcuts</h2>
+    <p>These are the shortcuts for changing what you can see in the Game &amp; Grid Views.</p>
+    <table>
+        <th style="background-color: black; color: white;">Action</th>
+        <th style="background-color: black; color: white;">Control</th>
+        <tr>
+            <td style="width: 50%;">Textures Pane</td>
+            <td><b>T</b></td>
+        </tr>
+        <tr>
+            <td>Entity Browser</td>
+            <td><b>B</b></td>
+        </tr>
+        <tr>
+            <td>Filter Window</td>
+            <td><b>F</b></td>
+        </tr>
+        <tr>
+            <td>gVertex Color/Alpha Editing</td>
+            <td><b>G</b></td>
+        </tr>
+        <tr>
+            <td>Bring Up Colors on Selected Object</td>
+            <td><b>K</b></td>
+        </tr>
+        <tr>
+            <td>Layers</td>
+            <td><b>L</b></td>
+        </tr>
+        <tr>
+            <td>Models</td>
+            <td><b>M</b></td>
+        </tr>
+        <tr>
+            <td>Entity Info</td>
+            <td><b>N</b></td>
+        </tr>
+        <tr>
+            <td>Output</td>
+            <td><b>O</b></td>
+        </tr>
+        <tr>
+            <td>Preferences</td>
+            <td><b>P</b></td>
+        </tr>
+        <tr>
+            <td>Surface Inspector</td>
+            <td><b>S</b></td>
+        </tr>
+        <tr>
+            <td>Textures</td>
+            <td><b>T</b></td>
+        </tr>
+        <tr>
+            <td>Advanced Patch Editing Options</td>
+            <td><b>Y</b></td>
+        </tr>
+    </table>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

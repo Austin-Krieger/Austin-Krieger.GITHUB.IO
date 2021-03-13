@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="changeskybox.html">Previous</a>
+    <a href="zoning.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Enemy Spawning</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <button class="collapsible">Zombie Spawning</button>
+    <div class="innerContent">
+        <h2>Setup Zombie Spawner</h2>
+        <ol>
+            <li>In the <b>Entity Browser Pane</b> search for <b>spawner_zm_factory</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Spawner_zm_factory02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Click and drag it into the map. If you have the extra assets dlc installed, you will see the model of a zombie.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ZombieSpawner02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>With the entity selected (<b>Shift + Click</b>) go to the <b>Entity Info Pane</b>.</li>
+            <li>First we need to change the <b>coop_count</b> from <b>1</b> to <b>9999</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 330px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Change <b>ALTERONSPAWN</b> to <b>False</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Change <b>MAKEROOM</b> to <b>True</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Next we need to hit <b>Add KVP</b> to add some <b>User-Defined</b> properties.</li>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/zombie_spawner_info_04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_disable_bleeder</sql><br>
+                <b>Value:</b> <sql>1</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_forcespawn</sql><br>
+                <b>Value:</b> <sql>1</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>zombie_spawner</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SpawnerKVP02.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Spawn Zombies (Map)</h2>
+        <p>Now we need to add locations for the zombies to spawn.</p>
+        <ol>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>With our new <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to the name of the current zone.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>start_zone_spawners</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>riser_location</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>find_flesh</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WorldSpawnStruct02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li><b>Bonus:</b> You can use <b>Space Bar</b> to make a copy of the selected struct near the original.</li>
+        </ol>
+        <h2>Spawn Zombies (Window)</h2>
+        <ol>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>Misc</b> &rarr; <b>prefab</b>.</li>
+            <li>Double click <b>zm</b> &gt; <b>zm_core</b> and search for <b>barricade_receiver_wood.map</b> and hit <b>Open</b>.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowPrefab02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowPrefab03.png" alt="... Image" onclick="displayModal(this)">
+            </div></div>
+            <li>Build up walls around the window like so: (Refer to the <b>Walls</b> section above)</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowRoom03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/WindowRoomInside02.png" alt="... Image" onclick="displayModal(this)">
+            </div></div>
+            <li>Remember we can use <b>Middle Mouse Click</b> while the walls are selected to apply another texture present in the map or <b>Double Click</b> a texture from the <b>Textures Pane</b>.</li>
+            <li>Deselect the walls (<b>Esc</b>).</li>
+            <li>With the window selected hit <b>Add KVP</b>. The <b>Value</b> for this one must be unique on your map or the zombies will not know what to do when they spawn.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>receiver_set_entry_b</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowReceiverSpawn02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Deselect the window (<b>Esc</b>).</li>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script &gt; struct</b>. Move the struct entity into the window room.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WindowSpawnStruct03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>With our new <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to the name of the current zone.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>start_zone_spawners</sql>
+            </p>
+            <li>Click <b>Add KVP</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>riser_location</sql>
+            </p>
+            <li>Click <b>Add KVP</b>. The <b>Value</b> for this one should match the window.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>receiver_set_entry_b</sql>
+            </p>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Dog Spawning</button>
+    <div class="innerContent">
+        <h2>Spawning Dogs</h2>
+        <p>In the default map they include a spawn point, but no way for the dogs to actually spawn. The following steps will fix that issue.</p>
+        <ol>
+            <li>First we need to go to the <b>Entity Browser Pane</b> and search for <b>Actor &gt; Spawner_Zm_Factory &gt; Zombie_dog</b>.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Drag one onto the map, placing it where the player won't accidentally run into it (collision issues).</li>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Select the dog and change the <b>Entity Info</b>. You can do the same to the default spawn point added when you made the map (<b>targetname</b> should be unique).</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property</b>: <sql>ALTERONSPAWN</sql><br>
+                <b>Value:</b> <sql>False</sql>
+            </p><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property</b>: <sql>MAKEROOM</sql><br>
+                <b>Value:</b> <sql>True</sql>
+            </p><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>zombie_dog_spawner</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_forcespawn</sql><br>
+                <b>Value:</b> <sql>1</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>zombie_dog_spawner</sql>
+            </p>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner05.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Next we need to make a spawn point (or copy an existing one).</li>
+            <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and select <b>script</b> &rarr; <b>struct</b>.</li>
+            <li>Line up the <b>struct</b> entity so that the center line, lines up with the floor.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner07.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner08.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>With our <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to the name of the current zone.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>test_zone_spawners</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+                <b>Value:</b> <sql>dog_location</sql>
+            </p>
+            <div class="center" style="max-width: 330px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawner06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Dogs will now spawn when they should.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawning02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/DogSpawning01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Brutus</button>
+    <div class="innerContent">
+        <h2>Adding Brutus to your map</h2>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>model_export</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\animtables</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\fx</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\scripts\custom</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>sound_assets</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>xanim_export</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Brutus/Brutus.zip" download>Brutus.zip</a></li>
+            <li>Drag the provided folders into your <b>root</b> folder.</li>
+            <li>Next go to the <b>share\raw\sound\aliases</b> folder and open the <b>.csv</b> file of your choice. I went with the <b>zmb_sound_fixes.csv</b> file from a previous tutorial. We need to add the lines for the sound files we just added.</li>
+            <div class="code" id="Brutus-00"><button class="copy" onclick="copyText('Brutus-00')">Copy</button><br><p>
+                <mark># Brutus</mark><br>
+                <b>brutus_deny,,,custom\deny.wav,,,UIN_MOD,,,,,,,,,0,0,100,100,0,200,200,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_step_00,,,custom\Brutus\brutus_step_00.wav,,,UIN_MOD,,,,,,,,,0,0,90,95,0,750,1000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_step_01,,,custom\Brutus\brutus_step_01.wav,,,UIN_MOD,,,,,,,,,0,0,90,95,0,750,1000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_prespawn,,,custom\Brutus\prespawn.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,2d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_defeated_00,,,custom\Brutus\brutus_defeated_00.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_defeated_01,,,custom\Brutus\brutus_defeated_01.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_defeated_02,,,custom\Brutus\brutus_defeated_02.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_clang,,,custom\Brutus\clang.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_spawn_short,,,custom\Brutus\brutus_spawn_short.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,2d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_vox_spawn,,,custom\Brutus\vox_spawn.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,2d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_spawn,,,custom\Brutus\brutus_spawn.wav,,,UIN_MOD,,,,,,,,,0,0,85,95,0,1000,1250,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_swing_00,,,custom\Brutus\brutus_swing_00.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,300,500,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_swing_01,,,custom\Brutus\brutus_swing_01.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,300,500,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_lock,,,custom\Brutus\lock.wav,,,UIN_MOD,,,,,,,,,0,0,100,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_lock_loop,,,custom\Brutus\perksacola_loop.wav,,,UIN_MOD,,,,,,,,,0,0,100,100,0,300,500,,,,,,,,,,,,,,,,3d,,,LOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_vox_swing,,,custom\Brutus\vox_swing.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,1000,2000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_vox_yell,,,custom\Brutus\vox_yell.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,1000,2000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_death,,,custom\Brutus\death.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+                <b>brutus_helmet,,,custom\Brutus\brutus_helmet.wav,,,UIN_MOD,,,,,,,,,0,0,95,100,0,3000,3000,,,,,,,,,,,,,,,,3d,,,NONLOOPING,,,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+            </p></div>
+            <li>Open your Maps' <b>.gsc</b> file from the <b>usermaps\zm_tutorial_level\scripts\zm</b> folder.</li>
+            <li>Inside the <b>main()</b> function add the following lines:</li>
+            <div class="code" id="Brutus-01"><button class="copy" onclick="copyText('Brutus-01')">Copy</button><br><p>
+                <mark>// Brutus</mark><br>
+	            <b>brutus::init();</b>
+            </p></div>
+            <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+            <div class="code" id="Brutus-02"><button class="copy" onclick="copyText('Brutus-02')">Copy</button><br><p>
+                <mark>// Brutus</mark><br>
+                <b>#using scripts\custom\brutus;</b>
+            </p></div>
+            <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> folder and add the following lines at the end:</li>
+            <div class="code" id="Brutus-03"><button class="copy" onclick="copyText('Brutus-03')">Copy</button><br><p>
+                <mark>// Brutus</mark><br>
+                <b>scriptparsetree,scripts/custom/brutus.gsc</b><br>
+                <b>scriptbundle,brutus_bundle</b><br>
+                <b>xmodel,brutus_helmet</b><br>
+                <b>xmodel,bo2_brutus_fb_death</b><br>
+                <b>xmodel,perk_clip</b><br>
+                <b>fx,Brutus/spawn_fx</b><br>
+                <b>fx,Brutus/chest_fx</b><br>
+                <b>fx,Brutus/helmet_smoke</b><br>
+                <b>fx,fire/fx_fire_ground_rubble_50x50</b>
+            </p></div>
+            <li>There are some customizable settings near the top of the <b>brutus.gsc</b> file we just added. We can change his base health, max rounds before spawning and so on.</li>
+            <li>Now we need to open our map in <b>Radiant</b> and place all of the <b>.map</b> files you just downloaded.</li>
+            <li>For each of the <b>perk_lock.map</b> files, you will need to line up the red (crosshair like) box with the red box of the respective perk.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_00.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>For each mystery box on your map, drag in a <b>box_lock.map</b> prefab and place it with the green box in the front of the box but not quite touching it and the red boxes should be inside the box prefab and halfway inside the ground.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/brutus_03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Place one <b>brutus_spawner.map</b> prefab anywhere in your map.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_07.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Place the <b>brutus_start_zone.map</b> prefab in the starting zone of your map. If you changed the name of this zone then <b>Right Click &gt; Prefab &gt; Stamp Prefab</b> and change the <b>script_string</b> value to the name of your zone.</li>
+            <li>Do the same when placing the <b>brutus_your_zone.map</b> file in other zones.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/brutus_05.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h3>Credits</h3>
+        <p>NateSmithZombies</p>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

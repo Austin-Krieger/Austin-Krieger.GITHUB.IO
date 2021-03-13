@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="playerstart.html">Previous</a>
+    <a href="buyableending.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Fixing Sounds (Mystery Box, Perk Machines, Guns)</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Fixing Zombies Map Sounds</h2>
+    <p>The mystery box, pack-a-punch machine, perk machines, and even some guns are missing sounds. This tutorial should fix that issue.</p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>sound_assets</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>share\raw\sound\aliases</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+        </p>
+        <li>Download: <a href="https://drive.google.com/file/d/1gCTvFezWD0vP2cy7Rge6b1APtqGi7ikS/view?usp=sharing" download>SoundsFix.zip</a></li>
+        <li>Once the file is downloaded, go to your <b>sound_assets</b> folder and move the downloaded sound assets.</li>
+        <li>Next go to your <b>aliases</b> folder and move the <b>zmb_sound_fixes.csv</b> file from the <b>share</b> folder.</li>
+        <li>Finally go to your Maps' <b>sound &gt; zoneconfig</b> folder and open your <b>.scz</b> file.</li>
+        <li>Add the new alias to the file:</li>
+        <div class="code" id="Add-Alias"><button class="copy" onclick="copyText('Add-Alias')">Copy</button><br><p>
+            &nbsp;{<br>
+            &nbsp;"Type" : "ALIAS",<br>
+            &nbsp;"Name" : "user_aliases",<br>
+            &nbsp;"Filename" : "user_aliases.csv",<br>
+            &nbsp;"Specs" : [ ]<br>
+            &nbsp;},<br>
+            &nbsp;<b>{</b><br>
+            &nbsp;<b>"Type" : "ALIAS",</b><br>
+            &nbsp;<b>"Name" : "zmb_sound_fixes",</b><br>
+            &nbsp;<b>"Filename" : "zmb_sound_fixes.csv",</b><br>
+            &nbsp;<b>"Specs" : [ ]</b><br>
+            <b>},</b>
+        </p></div>
+        <li>As I mentioned in the changing weapon values tutorial, having certain attachments or too many attachments on a gun can prevent the firing sound for that gun from working.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

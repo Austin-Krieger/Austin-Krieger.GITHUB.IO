@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="perks.html">Previous</a>
+    <a href="fixingsounds.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Player Start</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <button class="collapsible">Increasing Starting Points</button>
+    <div class="innerContent">
+        <h2>Increasing the Player Starting Points</h2>
+        <ol>
+            <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <li><b>Right Click</b> the file and edit it with your preferred text editor.</li>
+            <li>Add the following line near the top of the <b>Main()</b> function:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>level.player_starting_points = 500000;</b>
+            </p>
+            <div class="code" id="Increasing-Starting-Points"><button class="copy" onclick="copyText('Increasing-Starting-Points')">Copy</button><br><p>
+                function main()<br>
+                {<br>
+                &emsp;zm_usermap::main();<br><br>
+                &emsp;<mark>// Perk Limit</mark><br>
+                &emsp;level.perk_purchase_limit = 20;<br><br>
+                &emsp;<mark>// Starting Points</mark><br>
+                &emsp;<b>level.player_starting_points = 500000;</b><br><br>
+                &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
+                &emsp;<mark>// Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;level.zones = [];<br>
+                &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
+                &emsp;init_zones[0] = "start_zone";<br>
+                &emsp;level thread zm_zonemgr::manage_zones( init_zones );<br><br>
+                &emsp;level.pathdist_type = PATHDIST_ORIGINAL;<br>
+                }
+            </p></div>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Change Player Starting Weapon</button>
+    <div class="innerContent">
+        <h2>Change Player Starting Weapon</h2>
+        <p>This is meant to change your starting pistol when loading into the map.</p>
+        <ol>
+            <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
+            <p class="code-sl">
+                <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <li><b>Right Click</b> the file and edit it with your preferred text editor.</li>
+            <li>We need to add a few lines of code to the bottom of the <b>main()</b> function as shown here:</li>
+            <div class="code" id="Change-Starting-Weapon"><button class="copy" onclick="copyText('Change-Starting-Weapon')">Copy</button><br><p>
+                function main()<br>
+                {<br>
+                &emsp;zm_usermap::main();<br><br>
+                &emsp;<mark>// Perk Limit</mark><br>
+                &emsp;level.perk_purchase_limit = 20;<br><br>
+                &emsp;<mark>// Starting Points</mark><br>
+                &emsp;level.player_starting_points = 500000;<br><br>
+                &emsp;level._zombie_custom_add_weapons =&custom_add_weapons;<br><br>
+                &emsp;<mark>// Setup the levels Zombie Zone Volumes</mark><br>
+                &emsp;level.zones = [];<br>
+                &emsp;level.zone_manager_init_func =&usermap_test_zone_init;<br>
+                &emsp;init_zones[0] = "start_zone";<br>
+                &emsp;level thread zm_zonemgr::manage_zones( init_zones );<br><br>
+                &emsp;level.pathdist_type = PATHDIST_ORIGINAL;<br><br>
+                &emsp;<mark>// Starting Weapon</mark><br>
+                &emsp;<b>startingWeapon = "smg_ppsh";</b><br>
+                &emsp;<b>weapon = getWeapon(startingWeapon);</b><br>
+                &emsp;<b>level.start_weapon = (weapon);</b><br>
+                }
+            </p></div>
+            <li>You can find a list of weapons in the <b>share\raw\gamedata\weapons\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Steam\steamapps\common\Call of Duty Black Ops III\share\raw\gamedata\weapons\zm</b>
+            </p>
+            <li>Open the <b>zm_levelcommon_weapons.csv</b> file in excel or a text editor to view the list of weapons. In a text editor you will see a comma seperated list on each line.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/PPSH.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

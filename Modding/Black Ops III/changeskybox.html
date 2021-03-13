@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="wallbuys.html">Previous</a>
+    <a href="enemyspawning.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Changing the Skybox</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Change the Skybox</h2>
+    <p>We can change the skybox from a daytime to a nighttime sky.</p>
+    <ol>
+        <li><b>Right Click</b> in the top bar of the level editor and open the <b>Entity List Pane</b> (Lists all the item currently in the level).</li>
+        <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/OpenEntityList02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Find <b>volume_sun</b> in the list.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/VolumeSun02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Check the box next to <b>volume_sun</b> to select it.</li>
+        <li>Press <b>N</b> to open the <b>Entity Info Pane</b> with the <b>volume_sun</b> properties.</li>
+        <li>Find <b>Light State 1</b> and click on <b>default_day</b> an elipses button will appear. Press it to open a list of skybox options.</li>
+        <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EntityInfoSkybox02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Search for and select <b>zm_factory</b>.</li>
+        <li>Hit <b>OK</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SkyboxSelection02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>In the <b>Camera Pane</b> switch to <b>Lighting View (F8)</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SwitchToLightingView02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>You will need to <b>Right Click</b> next to the <b>FX</b> button and click <b>Exposure</b> to bring up more options.</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Exposure02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Click the drop down next to the camera icon on the right and click on the <b>Lightning Bolt</b>.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/LightningBoltBuildLighting02.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/BuildingLighting02.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>We can now switch to <b>Game View (F9)</b> and then <b>Lighting View (F8)</b> to see our cooked lighting and pressing <b>F9</b> again will exit <b>Game View</b>. <b>F7</b> returns you to <b>Flat View</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/GameViewAfterLightingBuilt02.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

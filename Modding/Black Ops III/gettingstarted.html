@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="shortcuts.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Getting Started</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Install Mod Tools</h2>
+    <p>In the tools section of <b>Steam</b> find <b>Call of Duty: Black Ops III - Mod Tools</b> and install it.</p>
+    <p>It's also good to download the additional models and textures.</p>
+    <ol>
+        <li><b>Right Click</b> the mod tools and click <b>properties</b>.</li>
+        <li>Click on the <b>DLC</b> section at the bottom of the list. It should look like this:</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ExtraAssets.png" alt="Mod tools properties" onclick="displayModal(this)"></div>
+    </ol>
+    <h2>Open Radiant Level Editor</h2>
+    <ol>
+        <li>Lauch <b>Call of Duty: Black Ops III - Mod Tools</b> in Steam.</li>
+        <li>Create a new map by clicking on the <b>new</b> icon or going to <b>file &gt; new</b>.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/CreateNew03.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/CreateNew04.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>Make a name for our new zombies mod level starting with <b>zm</b> and splitting spaces with underscores. For example: <b>zm_tutorial_level</b>.</li>
+        <li>Change the template to <b>ZM Mod Level</b> and hit <b>OK</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 200px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Creating%20New%20Map02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Hit <b>OK</b> again.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/New%20Map%20Created02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>The new map will appear in the Maps list on the left.</li>
+        <li>The next step is to open the map in the <b>Radiant Level Editor</b>. Select your map from the list (Checking the <b>Checkbox</b> is <b>Optional</b> at this point) and go to <b>File</b> &gt; <b>Open in Radiant</b>. You can also hit the <b>Radiant</b> button (Make sure the map is selected in the list).</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Open%20in%20Radiant03.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Open%20in%20Radiant04.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>When <b>Radiant</b> opens it should look something like this:</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Map%20Opened%20in%20Radiant.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>To rearrange the layout of the workspace, click and drag and refer to the <b>Workspace Shortcuts</b> table above.</li>
+        <li>Add the <b>Textures Pane</b> by pressing <b>T</b> and drag it to the left of the <b>Entity Browser Pane</b>. You can exit out of the <b>Entity Info Pane</b> for now (Press <b>N</b> if you need to bring it back).</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/RearangeWorkspace.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Adding <b>script</b> to your favorites can also be useful later. Inside the <b>Entity Browser Pane Right Click script</b> and hit <b>Toggle Favorite</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ToggleFavorite02.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+    <h2>Player Spawns</h2>
+    <ol>
+        <li>The big red box represents the size of a player.</li>
+        <li>The little purple boxes represent where the players will spawn initially.</li>
+        <li>The little yellow boxes represent where the players will respawn after death.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/PlayerSpawn03.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/PlayerSpawn04.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>Here is what the spawns look like in the <b>Grid View</b>:</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/PlayerSpawn05.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+    <h2>Base Folder</h2>
+    <p>The starting folder for the following tutorials:</p>
+    <p class="code-sl" style="padding: 5px 10px;">
+        <b>Steam\steamapps\common\Call of Duty Black Ops III\</b>
+    </p>
+    <p>This is where you will go to change script files, add prefabs, and anything else you need to do outside of the <b>Radiant</b> editor.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

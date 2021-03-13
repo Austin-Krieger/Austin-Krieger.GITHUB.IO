@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="lighting.html">Previous</a>
+    <a href="changeskybox.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Wall Buys</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <button class="collapsible">Wall Buys (Weapons / Equipment)</button>
+    <div class="innerContent">
+        <h2>Adding Wall Buys</h2>
+        <p></p>
+        <ol>
+            <li>In the <b>Entity Browser</b> find <b>Misc</b>, <b>Right Click</b>, and <b>Toggle Favorite</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ToggleFavMisc02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li><b>Right Click</b> in the <b>Game View</b> and hover over <b>Misc</b> &gt; <b>prefab</b>. Without favoriting <b>Misc</b> this option won't appear.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CameraViewPrefabs02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>A new window will pop up, double click <b>zm</b> &gt; <b>zm_core</b>.</li>
+            <li>Search for <b>spawnable_weapon_bowie.map</b> and hit <b>Open</b> to add the <b>Bowie Knife</b> to the map.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/PrefabList02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Move the prefab up against the wall and if it's backwards like in the image below, press <b>R</b> to switch to rotation handles and use the <b>Z</b> axis to flip it around. You can also use <b>Shift + D</b> to rotate an entity in 90&#176; increments.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/MoveBowieKnife02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RotateWallBuy02.png" alt="... Image" onclick="displayModal(this)">
+            </div></div>
+            <li>We can change the rotation manually from the <b>Entity Info Pane</b>. This is a better way to make sure our item is rotated 180&#176;.</li>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeRotationManually.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>When moving the prefab around you will notice that it snaps to the corners of the grid squares. We need to increase the number of grid squares to move it more precisely. Find the button that looks like a grid and choosing <b>Grid 8</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ChangeGridSize02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>We need to line up the prefab with the floor &amp; wall as shown below. Remember <b>Ctrl + Tab</b> will let you change the current <b>Grid View</b>. We want the wall buy to be very slightly off the wall, so if you switch the grid size to <b>Grid 1</b> we can add a tiny square of space between the knife and the wall.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/BowieKnifeLinedUp02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/BowieKnifePlacement02.png" alt="... Image" onclick="displayModal(this)">
+            </div></div>
+            <li>The <b>Bowie Knife</b> should now be added and look similar to this in the <b>Game View</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BowieKnifeAdded03.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h2>Adding Equipment Wall Buys</h2>
+        <ol>
+            <li>Following the same steps above we can search for a bouncing betty and add it to our map.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BouncingBetty02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>You may notice that this item is missing a chalk outline in the <b>Game</b> view. We will fix that in a later section.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BouncingBettyEquipment.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Changing Weapon Values</button>
+    <div class="innerContent">
+        <h2>Changing Weapon Values</h2>
+        <p>You can change the prices of your weapons as well as their attachments and ammo costs.</p>
+        <ol>
+            <li>Open your <b>Map</b> folder and create this folder structure <b>gamedata &gt; weapons &gt; zm</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\gamedata\weapons\zm</b>
+            </p>
+            <li>You can then find the weapons list inside the <b>share\raw\gamedata\weapons\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\gamedata\weapons\zm</b>
+            </p>
+            <li>Copy the <b>zm_levelcommon_weapons.csv</b> file and paste it into the <b>zm</b> folder you just made.</li>
+            <li>Next we will open our maps' zone file: <b>zm_tutorial_level.zone</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\zone_source</b>
+            </p>
+            <li>Add the following lines to the bottom of the file:</li><br>
+            <div class="code" id="Change-Weapon-Values00"><button class="copy" onclick="copyText('Change-Starting-Weapon00')">Copy</button><br><p>
+                <mark>// Updated Wall Weapon Costs</mark><br>
+                <b>stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv</b>
+            </p></div>
+            <li>Finally we can open the <b>zm_levelcommon_weapons.csv</b> file in excel or a text editor to view the list of weapons and make our changes.</li>
+        </ol>
+        <h3>Wall Buy Prices</h3>
+        <ol>
+            <li>The first comma seperated list shows what each item in the following lists represents. There is also a file containing a list of what each item represents. The <b>_zm_weapons.gsh</b> file.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\scripts\zm\_zm_weapons.gsh</b>
+            </p>
+            <li>The fourth item in each list is the price of the weapon. We can change this value which will change the price of the gun on the wall.</li>
+            <div class="code" id="Change-Weapon-Values01"><button class="copy" onclick="copyText('Change-Weapon-Values01')">Copy</button><br><p>
+                <mark>// Original</mark><br>
+                <b>smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b><br>
+                <mark>// Updated</mark><br>
+                <b>smg_ppsh,smg_ppsh_upgraded,,1250,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b>
+            </p></div>
+            <li>Here we can also add the annihilator to our weapons file:</li>
+            <div class="code" id="Add-Annihilator"><button class="copy" onclick="copyText('Add-Annihilator')">Copy</button><br><p>
+                <b>hero_annihilator,hero_annihilator,,500,,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,special,TRUE,,</b>
+            </p></div>
+        </ol>
+        <h3>Attachments</h3>
+        <ol>
+            <li>You can also change the attachments on your starting weapon.</li>
+            <li>To see a list of weapon attachments for each gun, open the <b>attachmentmappingsTable.csv</b> file:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\gamedata\weapons\common</b>
+            </p>
+            <li>Certain attachments or too many attachments can lead to the gun firing sound not working properly. The following example is, well, an example of that:</li>
+            <div class="code" id="Change-Weapon-Values02"><button class="copy" onclick="copyText('Change-Weapon-Values02')">Copy</button><br><p>
+                <mark>// Original</mark><br>
+                <b>smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,</b><br>
+                <mark>// Updated</mark><br>
+                <b>smg_ppsh,smg_ppsh_upgraded,,1250,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,, extclip_ppsh fastreload fmj grip quickdraw_smg reddot rf steadyaim suppressed_smg</b>
+            </p></div>
+            <li>Attachments for the ppsh:</li>
+            <ul>
+                <li>acog</li>
+                <li>dualoptic</li>
+                <li>extbarrel_smg</li>
+                <li>extclip_ppsh</li>
+                <li>fastreload</li>
+                <li>fmj</li>
+                <li>grip</li>
+                <li>quickdraw_smg</li>
+                <li>reflex</li>
+                <li>reddot</li>
+                <li>rf</li>
+                <li>steadyaim</li>
+                <li>stalker_smg_fast</li>
+                <li>suppressed_smg</li>
+                <li>holo</li>
+                <li>gmod6</li>
+                <li>gmod7</li>
+            </ul>
+        </ol>
+        <h3>Changing Bowie Knife Cost</h3>
+        <p>The Bowie Knife is a little more difficult to change the price on, so we have a few steps to do in order to change it.</p>
+        <ol>
+            <li>First we need to find the <b>_zm_weap_bowie.gsc</b> file in the <b>share\raw\scripts\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\scripts\zm</b>
+            </p>
+            <li>Copy this file and go to your maps' <b>scripts\zm</b> folder:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <li>Paste the file and open it with your text editor.</li>
+            <li>You will see <b>cost = 3000;</b> change this to whatever value you want.</li>
+            <div class="code" id="Change-Bowie-Cost"><button class="copy" onclick="copyText('Change-Bowie-Cost')">Copy</button><br><p>
+                function private __main__()<br>
+                {<br>
+                &emsp;if( isdefined( level.bowie_cost ) )<br>
+                &emsp;{<br>
+                &emsp;&emsp;cost = level.bowie_cost;<br>
+                &emsp;}<br>
+                &emsp;else<br>
+                &emsp;{<br>
+                &emsp;&emsp;<b>cost = 3000;</b><br>
+                &emsp;}<br>
+                ...
+            </p></div>
+            <li>Next we need to open the maps' <b>zone</b> file <b>zm_tutorial_level.zone</b>:</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\zone_source</b>
+            </p>
+            <li>Add the following lines to the bottom of the file:</li>
+            <div class="code" id="Override-Bowie-Script"><button class="copy" onclick="copyText('Override-Bowie-Script')">Copy</button><br><p>
+                <mark>// Update Bowie Knife Cost</mark><br>
+                <b>scriptparsetree,scripts\zm\_zm_weap_bowie.gsc</b>
+            </p></div>
+            <li>This will override the original script file and update the cost of the bowie knife wall buy.</li>
+        </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Adding More Wallbuys (Plus Fix Missing Chalk Outlines)</button>
+    <div class="innerContent">
+        <h2>Adding More Wallbuys</h2>
+        <p>These prefabs include Wonder Weapons, Rocket Shield, Ragnarok, Li'l Arnie, Monkey Bomb, etc.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>texture_assets</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs\zm\zm_core</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Wallbuys/custom_textures.zip" download>custom_textures.zip</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Wallbuys/custom_wallbuys.gdt" download>custom_wallbuys.gdt</a></li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Wallbuys/wallbuy_prefabs.zip" download>wallbuy_prefabs.zip</a></li>
+            <li>In the BO3 <b>root</b> folder move the <b>custom_textures</b> folder.</li>
+            <li>Move the <b>custom_wallbuys.gdt</b> file to the <b>texture_assets</b> folder.</li>
+            <li>Move the contents of the <b>wallbuy_prefabs</b> folder to the <b>zm_core</b> folder.</li>
+        </ol>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

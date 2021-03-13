@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="fixingsounds.html">Previous</a>
+    <a href="zombiecounter.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Buyable Ending</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Adding a Buyable Ending</h2>
+    <p>We can add an item to our map that when bought will end the game.</p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>share\raw\scripts\zm</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>map_source\_prefabs\zm\zm_core</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\scripts\zm</b>
+        </p>
+        <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/buyable_ending.gsc" download>buyable_ending.gsc</a></li>
+        <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/end_game_trig.map" download>end_game_trig.map</a></li>
+        <li>From the <b>root</b> folder go to <b>share\raw\scripts\zm</b> and add a folder called <b>custom</b> and inside that folder paste the <b>buyable_ending.gsc</b> file.</li>
+        <li>From the <b>root</b> folder go to <b>map_source\_prefabs</b> and create a new folder called <b>Buyable_Ending</b> and paste the <b>end_game_trig.map</b> file.</li>
+        <li>Next go to your map folder and into the <b>scripts\zm</b> folder and open the <b>zm_tutorial_level.gsc</b> file.</li>
+        <li>Inside the <b>main()</b> function add the following lines:</li>
+        <div class="code" id="Buyable-Ending-01"><button class="copy" onclick="copyText('Buyable-Ending-01')">Copy</button><br><p>
+            <mark>// Buyable Ending</mark><br>
+            <b>level thread buyable_ending::init();</b>
+        </p></div>
+        <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+        <div class="code" id="Buyable-Ending-02"><button class="copy" onclick="copyText('Buyable-Ending-02')">Copy</button><br><p>
+            <mark>// Buyable Ending</mark><br>
+            <b>#using scripts\zm\custom\buyable_ending;</b>
+        </p></div>
+        <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> and add the following lines at the end:</li>
+        <div class="code" id="Buyable-Ending-03"><button class="copy" onclick="copyText('Buyable-Ending-03')">Copy</button><br><p>
+            <mark>// Buyable Ending</mark><br>
+            <b>scriptparsetree,scripts/custom/buyable_ending.gsc</b>
+        </p></div>
+        <li>Now it is time to open our map in <b>Radiant</b>.</li>
+        <li>Inside your map <b>Right Click &gt; Misc &gt; prefab</b>.</li>
+        <li><b>Double Click</b> the <b>Buyable_Ending</b> folder and open the <b>end_game_trig.map</b> file.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTrigger.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTriggerAdded.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Place the trigger against a wall. You can then resize the trigger box after stamping the prefab: <b>Right Click &gt; Prefab &gt; Stamp Prefab</b>.</li>
+        <li>Make sure the <b>targetname</b> for the trigger is <b>end_game_trig</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTargetname.png" alt="... Image" onclick="displayModal(this)"></div>
+        <p><b>Note:</b> Don't add more than one of these triggers to your map or you will end up with an infinite loading screen.</p>
+    </ol>
+    <h3>Customizing the Trigger</h3>
+    <ol>
+        <li>Here you can download the cymbol monkey version of our <b>end_game_trigger</b>: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/end_game_trig_monkey.map" download>end_game_trig_monkey.map</a></li>
+        <li>After placing your trigger prefab, <b>Right Click</b> and go to <b>Prefab &gt; Enter Prefab</b>.</li>
+        <li>I like to use a model in the buyable ending trigger, so open the <b>Models Pane (M)</b>.</li>
+        <li>Search <b>monkey</b> and drag a cymbol monkey onto the grid.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyModel.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Resize the trigger box to the size of the cymbol monkey model.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ResizeEndGameTriggerBox.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Make a <b>clip</b> the size of the trigger box so that players can't walk through it.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTriggerClip.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Next we need to convert our <b>clip</b> to a <b>brushmodel</b> from the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
+        <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b>.</li>
+        <li>Click <b>Add KVP</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+            <b>Value:</b> <sql>clip</sql>
+        </p>
+        <li>Save your prefab and <b>Right Click &gt; Prefab &gt; Leave Prefab</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyEndGameTriggerAdded.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

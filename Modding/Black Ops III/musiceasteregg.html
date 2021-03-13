@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="powerups.html">Previous</a>
+    <a href="soulboxes.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Music Easter Egg</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Music Easter Egg</h2>
+    <p>This tutorial includes two options for adding a music easter egg to our map.</p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\scripts\zm</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>share\raw\sound\aliases</b>
+        </p>
+        <li><b>Option #1 - Shoot Teddy Bears:</b> <a href="../../downloads/Modding/BO3%20Mod%20Tools/Music%20Easter%20Egg/Music_Easter_Egg_1.zip" download>Music_Easter_Egg_1.zip</a></li>
+        <li><b>Option #2 - Touch Teddy Bears:</b> <a href="../../downloads/Modding/BO3%20Mod%20Tools/Music%20Easter%20Egg/Music_Easter_Egg_2.zip" download>Music_Easter_Egg_2.zip</a></li>
+        <li>Once you extract the files, open up the <b>Music_Easter_Egg_#</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+        <li>Go to your Maps' <b>sound\zoneconfig</b> folder and open up the <b>zm_tutorial_level.szc</b> file.</li>
+        <li>Add in the new alias below <b>user_aliases</b> as shown here:</li>
+        <div class="code" id="Music-EE-01"><button class="copy" onclick="copyText('Music-EE-01')">Copy</button><br><p>
+             {<br>
+             "Type" : "ALIAS",<br>
+             "Name" : "user_aliases",<br>
+             "Filename" : "user_aliases.csv",<br>
+             "Specs" : [ ]<br>
+             },<br>
+            <b>{</b><br>
+            <b>"Type" : "ALIAS",</b><br>
+            <b>"Name" : "zmb_music_ee",</b><br>
+            <b>"Filename" : "zmb_music_ee.csv",</b><br>
+            <b>"Specs" : [ ]</b><br>
+            <b>},</b>
+        </p></div>
+        <li>Next go to your Maps' <b>scripts\zm</b> folder and open the <b>zm_tutorial_level.gsc</b> file.</li>
+        <li>Inside the <b>main()</b> function add the line that goes with the option you chose:</li>
+        <div class="code" id="Music-EE-02"><button class="copy" onclick="copyText('Music-EE-02')">Copy</button><br><p>
+             <mark>// Music Easter Egg - Option #1</mark><br>
+             <b>level thread soundEasterEggInit();</b><br>
+            <mark>// Music Easter Egg - Option #2</mark><br>
+             <b>level thread EE_Music();</b>
+        </p></div>
+        <li>Scroll down to the bottom of the file and paste the code from the <b>Code.txt</b> file.</li>
+        <li>Now it's time to open our map in <b>Radiant</b>.</li>
+        <li><b>Right Click &gt; Misc &gt; prefab</b>. <b>Double Click</b> the <b>Music_Easter_Egg</b> folder and open the Prefab/s.</li>
+        <li>For <b>Option #1</b> you need to place all 3 prefabs or make a copy and change the number in the triggers' targetname.</li>
+        <li>For <b>Option #2</b> you can place the prefab and make multiple copies in the map; it can be more than 3.</li>
+    </ol>
+    <h3>Additional Reading</h3>
+    <ol>
+        <li>When changing the song for this easter egg, make sure it's a <b>.wav</b> file with a Rate of <b>48000 Hz</b> and has the appropriate name for the option you chose. <b>Option #1:</b> <sql>song_easter_egg1</sql>, <b>Option #2:</b> <sql>ee_music</sql></li>
+        <li>You can always change these names and modify the <b>zmb_music_ee.csv</b> file and your Maps' <b>.gsc</b> file.</li>
+        <li>You can also change the model from the teddy bear to whatever you would like to use. Just <b>Stamp</b> the prefab and drag in a model from the <b>Models Pane (M)</b>. You could also edit the prefab if you want to change it that way and make your own prefabs in the process.</li>
+        <li>The Teddy Bear activation and looping sounds were created from some gameplay footage I took on the <b>Ascension</b> map.</li>
+        <li>The Music for the easter egg is provided by <b>Bensound.com</b> (Royalty Free).</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

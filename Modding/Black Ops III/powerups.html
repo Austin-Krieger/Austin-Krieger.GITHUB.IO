@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="zombiecounter.html">Previous</a>
+    <a href="musiceasteregg.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Additional Powerups</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Additional Powerups</h2>
+    <p>This tutorial includes <b>zombie blood</b>, <b>fast feet</b>, <b>zombie cash</b>, <b>time warp</b>, and <b>infinite ammo</b>.</p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\scripts\zm</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\zone_source</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>share\raw\sound\aliases</b>
+        </p>
+        <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Powerups/Powerups.zip" download>Powerups.zip</a></li>
+        <li>Once you extract the files, open up the <b>Powerups</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+        <li>In your <b>scripts\zm</b> folder, open the <b>zm_tutorial_level.gsc</b> file.</li>
+        <li>Add the following lines below the line: <b>#using scripts\zm\zm_usermap;</b></li>
+        <div class="code" id="Adding-Powerups-01"><button class="copy" onclick="copyText('Adding-Powerups-01')">Copy</button><br><p>
+            <mark>// Powerups</mark><br>
+            <b>#using scripts\powerups\powerup_time_warp;</b><br>
+            <b>#using scripts\powerups\powerup_fast_feet;</b><br>
+            <b>#using scripts\powerups\powerup_bottomless_clip;</b><br>
+            <b>#using scripts\powerups\powerup_money;</b><br>
+            <b>#using scripts\powerups\powerup_zombie_blood;</b>
+        </p></div>
+        <li>In your Maps' <b>zone_source</b> folder, open the <b>zm_tutorial_level.zone</b> file.</li>
+        <li>Add the following lines to the end of the file:</li>
+        <div class="code" id="Adding-Powerups-02"><button class="copy" onclick="copyText('Adding-Powerups-02')">Copy</button><br><p>
+            <mark>// Powerups</mark><br>
+            <b>scriptparsetree,scripts/powerups/powerup_time_warp.gsc</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_time_warp.csc</b><br>
+            <b>xmodel,hour_glass</b><br>
+            <b>material,time_warp</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_fast_feet.gsc</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_fast_feet.csc</b><br>
+            <b>xmodel,zombietron_boots</b><br>
+            <b>material,fast_feet</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_bottomless_clip.gsc</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_bottomless_clip.csc</b><br>
+            <b>xmodel,bottomless_clip</b><br>
+            <b>material,bottomless_clip</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_money.gsc</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_money.csc</b><br>
+            <b>xmodel,powerup_money</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_zombie_blood.gsc</b><br>
+            <b>scriptparsetree,scripts/powerups/powerup_zombie_blood.csc</b><br>
+            <b>xmodel,zombie_blood</b><br>
+            <b>material,zombie_blood</b>
+        </p></div>
+        <li>From the <b>root</b> folder, go to your <b>share\raw\sound\aliases</b> folder and move the <b>zmb_powerups.csv</b> file you downloaded earlier into this folder.</li>
+        <li>Next go to your Maps' <b>sound\zoneconfig</b> folder and open up the <b>zm_tutorial_level.szc</b> file.</li>
+        <li>Add in the new alias below <b>user_aliases</b> as shown here:</li>
+        <div class="code" id="Adding-Powerups-03"><button class="copy" onclick="copyText('Adding-Powerups-03')">Copy</button><br><p>
+             {<br>
+             "Type" : "ALIAS",<br>
+             "Name" : "user_aliases",<br>
+             "Filename" : "user_aliases.csv",<br>
+             "Specs" : [ ]<br>
+             },<br>
+            <b>{</b><br>
+            <b>"Type" : "ALIAS",</b><br>
+            <b>"Name" : "zmb_powerups",</b><br>
+            <b>"Filename" : "zmb_powerups.csv",</b><br>
+            <b>"Specs" : [ ]</b><br>
+            <b>},</b>
+        </p></div>
+        <li>You should now have additional powerups in your map. If you change folder names or anything like that you will need to make changes to the files we opened as well as the <b>.gdt</b> files in our <b>model_export</b> folder.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

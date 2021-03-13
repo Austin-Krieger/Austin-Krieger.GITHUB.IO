@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="soulboxes.html">Previous</a>
+    <a href="visionfilter.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Buildables</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <button class="collapsible">Buildable Power</button>
+    <div class="innerContent">
+        <h2>Making a Buildable Power Switch</h2>
+        <p>Want players to search for and be able to craft the hidden pieces of the power switch? Continue reading.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>model_export</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>share\raw\sound\aliases</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\scripts\zm</b>
+            </p>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Power/Buildable_Power.zip" download>Buildable_Power.zip</a></li>
+            <li>Go to the <b>map_source\_prefabs</b> folder and make a <b>Buildable_Power</b> folder for our <b>.map</b> prefabs. You can also move the folders provided to your <b>root</b> folder and skip to step 6.</li>
+            <li>Go to the <b>model_export</b> folder and paste the <b>buildable_power_assets.gdt</b> file.</li>
+            <li>Now go to the <b>share\raw</b> folder and paste our <b>custom_images</b> folder.</li>
+            <li>Next go to the <b>share\raw\sound\aliases</b> folder and open the <b>.csv</b> file of your choice. I went with the <b>zmb_sound_fixes.csv</b> file from a previous tutorial. We need to add the lines for the sound files we just added.</li>
+            <div class="code" id="Buildable-Power-01"><button class="copy" onclick="copyText('Buildable-Power-01')">Copy</button><br><p>
+                <b>build_loop,,,custom\buildables\build_loop.wav,,,UIN_MOD,,,,,,,,,,,99,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b><br>
+                <b>build_done,,,custom\buildables\build_done.wav,,,UIN_MOD,,,,,,,,,,,99,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b><br>
+                <b>part_pickup,,,custom\buildables\part_pickup.wav,,,UIN_MOD,,,,,,,,,,,99,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</b>
+            </p></div>
+            <li>Open your Maps' <b>.gsc</b> file from the <b>usermaps\zm_tutorial_level\scripts\zm</b> folder.</li>
+            <li>Inside the <b>main()</b> function add the following lines:</li>
+            <div class="code" id="Buyable-Ending-01"><button class="copy" onclick="copyText('Buyable-Ending-01')">Copy</button><br><p>
+                <mark>// Buildable Power</mark><br>
+	            <b>level thread custom_buildables_random::init();</b>
+            </p></div>
+            <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+            <div class="code" id="Buyable-Ending-02"><button class="copy" onclick="copyText('Buyable-Ending-02')">Copy</button><br><p>
+                <mark>// Buildable Power</mark><br>
+                <b>#using scripts\zm\custom_buildables_random;</b>
+            </p></div>
+            <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> folder and add the following lines at the end:</li>
+            <div class="code" id="Buyable-Ending-03"><button class="copy" onclick="copyText('Buyable-Ending-03')">Copy</button><br><p>
+                <mark>// Buildable Power</mark><br>
+                <b>scriptparsetree,scripts/zm/custom_buildables_random.gsc</b><br>
+                <b>xmodel,p7_zm_der_pswitch_body</b><br>
+                <b>xmodel,p7_zm_der_pswitch_handle</b><br>
+                <b>xmodel,p7_zm_zod_fuse</b><br>
+                <b>material,power_panel_shader</b><br>
+                <b>material,power_handle_shader</b><br>
+                <b>material,power_fuse_shader</b>
+            </p></div>
+            <li>Now it is time to open our map in <b>Radiant</b>.</li>
+            <li>Inside your map <b>Right Click &gt; Misc &gt; prefab</b>.</li>
+            <li><b>Double Click</b> the <b>Buildable_Power</b> folder and open the <b>master_power_switch.map</b> file.</li>
+            <li>Do the same for the <b>power_fuse.map</b> prefab and so on, until you have all the parts in your map. You can stamp said prefabs and rotate them however you like when placing them.</li>
+            <li>With all the parts placed, you can make some copies and place those as well. Our script will choose which copy of each part is active when the map loads.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>You now have a buildable power switch.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_05.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/buildable_power_06.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+        </ol>
+        <h3>Credits</h3>
+        <p>Archaicvirus: <a href="https://www.ugx-mods.com/forum/scripts/80/custom-buildables-random-spawning-shaders-etc/15031/">ugx-mods.com</a></p>
+    </div>
+    &nbsp;
+    <button class="collapsible">Buildable Rocket Shield</button>
+    <div class="innerContent">
+        <h2>Adding a Buildable Rocket Shield</h2>
+        <p>Want players to search for and be able to craft the hidden pieces of the rocket shield? Continue reading.</p>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs</b>
+            </p>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buildable%20Rocket%20Shield/Buildable_Rocket_Shield.zip" download>Buildable_Rocket_Shield.zip</a></li>
+            <li>Go to your <b>map_source\_prefabs</b> folder and create a folder called <b>Buildable_Rocket_Shield</b> and paste the assets inside or drag the provided folder into your <b>root</b> folder.</li>
+            <li>Now we need to open our map in <b>Radiant</b> and place all of the <b>.map</b> files you just downloaded.</li>
+            <li>Place 1 or more of each part just like we did with the <b>Buildable Power</b> tutorial and place as many fuel tanks for the shield as you want (<b>zm_craftables_rocketshield_refill.map</b>).</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>One more important step is for the <b>zm_craftables_rocketshield_spawner.map</b> file. We need to place it under the floor of our map and make it roughly as large.</li>
+            <li>Before you can resize it, we need to do <b>Right Click &gt; Prefab &gt; Stamp Prefab</b>.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield03.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield04.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/RocketShield05.png" alt="... Image" onclick="displayModal(this)"></div>
+        </ol>
+        <h3>Credits</h3>
+        <p>I updated the table prefab a little from the original source shown below using a workbench model and adding a clip that players won't be able to walk through.</p>
+        <p>Uptownpapi25: <a href="https://www.youtube.com/watch?v=Q7ZnEHDBEF0">Black Ops 3 Mod Tools How to Add Rocket Shield</a></p>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

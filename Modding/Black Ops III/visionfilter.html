@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="buildables.html">Previous</a>
+    <!--<a href="#" style="float: right;">Next</a>-->
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Vision Filter</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Adding an Ascension Style Black &amp; White Vision Filter</h2>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\scripts\zm</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\zone_source</b>
+        </p>
+        <li>Open your Maps' <b>.gsc</b> file from the <b>usermaps\zm_tutorial_level\scripts\zm</b> folder.</li>
+        <li>Inside the <b>main()</b> function add the following lines:</li>
+        <div class="code" id="BWFilter-01"><button class="copy" onclick="copyText('Brutus-01')">Copy</button><br><p>
+            <mark>// Black &amp; White Vision</mark><br>
+            <b>thread bw_vision();</b>
+        </p></div>
+        <li>Scroll up to the line <b>#using scripts\zm\zm_usermap;</b> and paste the following lines after it:</li>
+        <div class="code" id="BWFilter-02"><button class="copy" onclick="copyText('Brutus-02')">Copy</button><br><p>
+            <mark>// Black &amp; White Vision</mark><br>
+            <b>#using scripts\zm\_zm_laststand;</b><br>
+            <b>#using scripts\shared\lui_shared;</b> <mark>// flash</mark>
+        </p></div>
+        <li>Now scroll down to the very bottom and paste the following. Feel free to play with the values.</li>
+        <div class="code" id="BWFilter-03"><button class="copy" onclick="copyText('Brutus-02')">Copy</button><br><p>
+            <mark>// Black &amp; White Vision</mark><br>
+            <b>function bw_vision()</b><br>
+            <b>{</b><br>
+            &emsp;<b>level flag::wait_till( "initial_blackscreen_passed" );</b><br>
+            &emsp;<b>wait(2);</b><br><br>
+            &emsp;<b>VisionSetNaked( "zombie_last_stand", 2 );</b><br><br>
+            &emsp;<b>thread ending_bw_vision();</b><br>
+            <b>}</b><br><br>
+            <b>function ending_bw_vision()</b><br>
+            <b>{</b><br>
+            &emsp;<b>level flag::wait_till( "power_on" );</b><br>
+            &emsp;<b>lui::screen_flash( 0.2, 0.5, 1.0, 0.8, "white" ); // flash</b><br>
+            &emsp;<b>wait(0.5);</b><br>
+            &emsp;<b>VisionSetNaked( "zm_factory", 0.5 );</b><br>
+            <b>}</b>
+        </p></div>
+        <li>Now we need to open our Maps' zone file <b>zm_tutorial_level.zone</b> from the <b>zone_source</b> folder and add the following lines at the end:</li>
+        <div class="code" id="BWFilter-04"><button class="copy" onclick="copyText('Brutus-03')">Copy</button><br><p>
+            <mark>// Black &amp; White Vision</mark><br>
+            <b>rawfile,vision/zombie_last_stand.vision</b><br>
+            <b>rawfile,vision/zm_factory.vision</b>
+        </p></div>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/BWFilter01.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/BWFilter02.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+    </ol>
+    <h3>Credits</h3>
+    <p>Sharpgamers4you: <a href="https://forum.modme.co/threads/ascension-style-power.3541/">Ascension Style Power!</a></p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

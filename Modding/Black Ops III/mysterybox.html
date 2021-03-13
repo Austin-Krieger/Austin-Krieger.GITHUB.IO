@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="doors.html">Previous</a>
+    <a href="perks.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Mystery Box</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Mystery Box</h2>
+    <p>Fixing the Mystery Box and adding multiple locations.</p>
+    <p>Since Treyarch did not include box location prefabs with the mod tools, we need to add some files to our <b>zm_core</b> folder.</p>
+    <p class="code-sl" style="padding: 5px 10px;">
+        <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+    </p>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_01.map" download>box_01.map</a><br>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_02.map" download>box_02.map</a><br>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_03.map" download>box_03.map</a><br>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_start.map" download>box_start.map</a><br>
+    <ol>
+        <li>The first step is to download some of the assets from the above list. <b>box_start.map</b> is a prefab from the <b>giant</b> map and will be where the box spawns first on our map.</li>
+        <li>Place the new files in your <b>zm_core</b> folder:</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+        </p>
+        <li><b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and go to <b>Misc &gt; prefab</b>.</li>
+        <li>Open the <b>zm</b> folder and then open the <b>zm_core</b> folder.</li>
+        <li>The added files should be near the top of this list. Click on the <b>box_start.map</b> file and hit <b>Open</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/box_start.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Move the prefab to the location you want the box to spawn. Line it up with the floor and wall (or debris). The arrow should be pointing away from the wall. You can also use <b>Shift + D</b> to rotate an entity in 90&#176; increments.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox01.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox02.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Add a <b>clip</b> that will surround the box and prevent players from standing on top of it like so:<br>(Remember that <b>clip</b> is in the <b>Textures Pane</b>)</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox03.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li><b>Note</b>: After setting the height of our first clip, the subsequent clips will default to the same height when you draw them on the grid. This effect lasts until the next time you open the software.</li>
+        <li>Convert the <b>clip</b> to a <b>Brushmodel</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Here is a view of our new mystery box from inside the game:</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBoxInGame.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+    <h2>Fixing the Default Mystery Box</h2>
+    <p>The mystery box that you get with every new map is a bare bones prefab that will not work in game. We have two options for fixing this for all of our brand new maps.</p>
+    <h3>Option #1 - Replace your prefab file with the one I have provided</h3>
+    <ol>
+        <li>Download this file: <a href="../../downloads/Modding/BO3%20Mod%20Tools/buyable_magic_box_start.map" download>buyable_magic_box_start.map</a></li>
+        <li>Go to your <b>zm_core</b> folder:</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+        </p>
+        <li>Find the original <b>buyable_magic_box_start.map</b> file and delete it.</li>
+        <li>Move the file you just downloaded into this folder.</li>
+        <li>You should now have a working Mystery Box.</li>
+        <p><b>Note</b>: This is the location where the box will spawn first. To make / download more spawn locations for the box, refer to <b>Making more Mystery Boxes</b> below.</p>
+    </ol>
+    <h3>Option #2 - Fix the prefab yourself</h3>
+    <ol>
+        <li>Select the Prefab in your map. It will be the group of cinder blocks with a red clip around it.</li>
+        <li><b>Right Click</b> and go to <b>Prefab &gt; Enter Prefab</b>.</li>
+        <li>This prefab is missing some important components and will currently do nothing.</li>
+        <li>Select the clip entity and press <b>H</b> to hide it.</li>
+        <li>You will notice a broken entity called <b>jun_art_wood_plywood_dark03</b>. <b>Delete</b> it.</li>
+        <li>Open the <b>Models Pane</b> and search for <b>p7_debris_wood_plywood_2x8_flat_dirty_wet</b> and drag this onto your map placing it on top of your cinder blocks.</li>
+        <p><b>modelscale</b>: <sql>1.02</sql></p><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>angles:</b> <sql>{ 0, 90, 0}</sql><br>
+            <b>origin:</b> <sql>{ 0, 0, 13.5}</sql>
+        </p>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox00.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>To find the cinder block model, go to the <b>Models Pane</b> (<b>M</b>) and search for <b>p7_cinder_block</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab04.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>If you are starting from scratch you will need to drag one of these onto the map (<b>Note</b>: Press <b>space</b> to make a copy of an existing entity).</li>
+        <li>Here I am also providing the origin, rotation, and scaling for our cinder blocks from left to right:</li>
+        <p><b>modelscale</b>: <sql>1.65</sql></p><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>angles:</b> <sql>{ 0, 226.8, 0}</sql> <b>origin:</b> <sql>{ 32, 2, 7}</sql><br>
+            <b>angles:</b> <sql>{ 0, 297, 0}</sql> <b>origin:</b> <sql>{ 11, 0, 7}</sql><br>
+            <b>angles:</b> <sql>{ 0, 265.2, 0}</sql> <b>origin:</b> <sql>{ -14, 1, 7}</sql><br>
+            <b>angles:</b> <sql>{ 0, 291, 0}</sql> <b>origin:</b> <sql>{ -42, -1, 7}</sql><br>
+        </p>
+        <li>If you want the arrows to face forward on the cinder blocks, then use <b>Shift + D</b> twice on each to flip them around.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab05.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Now we need to add a <b>script_struct</b>. <b>Right Click &gt; Script &gt; struct</b> and line it up with the top of our cinder blocks and center it the best you can.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox01.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox02.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>With our new <b>struct</b> selected, go to the <b>Entity Info Pane</b> (<b>N</b>) and change the <b>targetname</b> to <b>treasure_chest_use</b>.</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>targetname</b>: <sql>treasure_chest_use</sql>
+        </p>
+        <li>Click <b>Add KVP</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>script_noteworthy</sql> <b>Value:</b> <sql>start_chest</sql><br>
+        </p>
+        <li>Click <b>Add KVP</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>zombie_cost</sql> <b>Value:</b> <sql>950</sql><br>
+        </p>
+        <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Next we need to add another <b>Script &gt; struct</b> and convert it to a <b>zbarrier_zmcore_magicbox</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox06.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>With your new <b>struct</b> selected, go to the <b>Entity Browser Pane</b>, scroll down to and click on <b>Zbarrier &gt; Zmcore</b> and double click <b>magicbox</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox03.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>We will see the outline of a box with a teddy bear on it. Line this up with the top of our plywood board and center it the best you can.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>In the <b>Entity Info Pane</b> you will see a long list of KVPs that were added for us:</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>barrieranimtime</sql> <b>Value:</b> <sql>0</sql><br>
+            <b>Property / Key:</b> <sql>showalternatemodel</sql> <b>Value:</b> <sql>0</sql><br>
+            <b>Property / Key:</b> <sql>showupgradedmodel</sql> <b>Value:</b> <sql>0</sql><br>
+            <b>Property / Key:</b> <sql>type</sql> <b>Value:</b> <sql>zmcore_magicbox</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardanim1</sql> <b>Value:</b> <sql>o_zombie_magic_box_fake_idle_twitch_a</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardanim2</sql> <b>Value:</b> <sql>o_zombie_magic_box_leave</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardanim3</sql> <b>Value:</b> <sql>o_zombie_magic_box_close</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardanim4</sql> <b>Value:</b> <sql>o_zombie_magic_box_teddy_rise</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardanim5</sql> <b>Value:</b> <sql>o_zombie_magic_box_teddy_rise</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardmodel1</sql> <b>Value:</b> <sql>p6_anime_zm_magic_box_fake</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardmodel2</sql> <b>Value:</b> <sql>p6_anime_zm_magic_box</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardmodel3</sql> <b>Value:</b> <sql>p6_anime_zm_magic_box</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardmodel4</sql> <b>Value:</b> <sql>tag_origin</sql><br>
+            <b>Property / Key:</b> <sql>zbarrierboardmodel5</sql> <b>Value:</b> <sql>tag_origin</sql><br>
+            <b>Property / Key:</b> <sql>zbarriernumboards</sql> <b>Value:</b> <sql>5</sql><br>
+            <b>Property / Key:</b> <sql>zbarriertearanim1</sql> <b>Value:</b> <sql>o_zombie_magic_box_fake_idle_twitch_b</sql><br>
+            <b>Property / Key:</b> <sql>zbarriertearanim2</sql> <b>Value:</b> <sql>o_zombie_magic_box_arrive</sql><br>
+            <b>Property / Key:</b> <sql>zbarriertearanim3</sql> <b>Value:</b> <sql>o_zombie_magic_box_open</sql><br>
+            <b>Property / Key:</b> <sql>zbarriertearanim4</sql> <b>Value:</b> <sql>o_zombie_magic_box_weapon_rise</sql><br>
+            <b>Property / Key:</b> <sql>zbarriertearanim5</sql> <b>Value:</b> <sql>o_zombie_magic_box_weapon_dual_rise</sql><br>
+        </p>
+        <li>Click <b>Add KVP</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
+            <b>Value:</b> <sql>start_chest_zbarrier</sql><br>
+        </p>
+        <li>Press <b>Shift + H</b> to show the hidden entities.</li>
+        <li>Select the <b>clip</b> entity and convert it to a <b>brushmodel</b>. In the <b>Entity Browser Pane</b> look for <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Next we can finally make a prefab out of our entities.</li>
+        <li>Press <b>i</b> to select everything.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox07.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li><b>Right Click &gt; Prefab &gt; Save selected as new Prefab</b>. You may get an error trying to overwrite the <b>buyable_magic_box_start.map</b>, so you can save it as <b>mystery_box.map</b> first.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox09.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>You can then delete the <b>buyable_magic_box_start.map</b> file from your <b>zm_core</b> folder and save your prefab again as <b>buyable_magic_box_start.map</b>.</li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+        </p>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox08.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>When you're done it should look similar to this:</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/FixingMysteryBox10.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+    <h2>Making more Mystery Boxes</h2>
+    <h3>Option #1 - Giant Map Style Box Locations</h3>
+    <ol>
+        <li>Drag a Mystery Box prefab onto the map. With the prefab selected <b>Right Click &gt; Prefab &gt; Enter Prefab</b>. Enter the prefab again if need be.</li>
+        <li>Select the <b>script_struct</b> and change the <b>value</b> of the <b>script_noteworthy</b> KVP.</li>
+        <li>You can change this value to <b>chest_1</b>, <b>chest_2</b>, and so on.</li>
+        <li>Next we need to select the <b>zbarrier_zmcore_MagicBox</b> entity and change the <b>value</b> of the <b>script_noteworthy</b> KVP.</li>
+        <li>You can change this value to <b>chest_1_zbarrier</b>, <b>chest_2_zbarrier</b>, and so on.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Prefab08.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Prefab09.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Finally we can save the edited prefab as a new prefab. Leave the prefab and make sure the entities are selected. <b>Right Click &gt; Prefab &gt; Save selected as new Prefab</b>.</li>
+        <li>Choose a name, preferably following our naming convension and matching the <b>targetname</b> of the <b>script_struct</b>, in this case: <b>chest_1.map</b>.</li>
+    </ol>
+    <h3>Option #2 - Default (cinder block) Style Box Locations</h3>
+    <p>You can make your own or download the three I have provided into the folder below.</p>
+    <p class="code-sl" style="padding: 5px 10px;">
+        <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
+    </p>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_04.map" download>box_04.map</a><br>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_05.map" download>box_05.map</a><br>
+    <a href="../../downloads/Modding/BO3%20Mod%20Tools/Mystery%20Box/box_06.map" download>box_06.map</a><br>
+    <ol>
+        <li>Select the <b>buyable_magic_box_start.map</b> prefab in your map.</li>
+        <li>If it is not already in your map, you can <b>Right Click &gt; Misc &gt; prefab</b>. <b>Double Click</b> the <b>zm</b> and <b>zm_core</b> folders and open the <b>buyable_magic_box_start.map</b> file.</li>
+        <li>With this prefab selected, <b>Right Click &gt; Prefab &gt; Enter Prefab</b>.</li>
+        <li>Hide the <b>clip</b> entity and select the <b>zbarrier_zmcore_magicbox</b> entity.</li>
+        <li>Change the <b>script_noteworthy</b> KVP to <b>chest_4_zbarrier</b> and hide the entity.</li>
+        <li>Select the <b>script_struct</b> entity and change the <b>script_noteworthy</b> KVP value to <b>chest_4</b>.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Prefab11.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/Prefab12.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Press <b>Shift + H</b> to show the hidden entities.</li>
+        <li>Press <b>i</b> to select all entities.</li>
+        <li><b>Right Click &gt; Prefab &gt; Save selected as new Prefab</b>. Name it <b>box_04.map</b> and hit <b>Save</b>.</li>
+        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Prefab13.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Follow the same process to make more.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

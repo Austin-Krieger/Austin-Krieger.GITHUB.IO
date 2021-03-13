@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding BO3</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span style="font-size: 30px; cursor: pointer; padding-left: 10px; padding-top: 2px; float: left; color: white;" onclick="openNav()">&#9776;</span>
+    <a href="index.html" style="float: left;">Home</a>
+    <a href="musiceasteregg.html">Previous</a>
+    <a href="buildables.html" style="float: right;">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">Home</a>
+    <a href="../Java/index.html">Java</a>
+    <a href="../Roblox/index.html">Roblox</a>
+    <a href="index.html">Unity</a>
+    <a href="../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Black Ops III Mod Tools</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Soul Boxes</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Soul Boxes</h2>
+    <p>This tutorial adds soul boxes that give out rewards and/or open magic doors.</p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\sound\zoneconfig</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>usermaps\zm_tutorial_level\scripts\zm</b>
+        </p>
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>share\raw\scripts\custom</b>
+        </p>
+
+        <p class="code-sl" style="padding: 5px 10px;">
+            <b>map_source\_prefabs\zm</b>
+        </p>
+        <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Soul%20Boxes/Soul_Boxes.zip" download>SoulBoxes.zip</a></li>
+        <li>Once you extract the files, open up the <b>Soul Boxes</b> folder and drag the contents into the <b>root</b> folder. You can also move the actual files into their appropriate folders yourself.</li>
+        <li>Go to your Maps' <b>zone_source</b> folder and open up the <b>zm_tutorial_level.zone</b> file.</li>
+        <li>Paste the following lines at the bottom of the file:</li>
+        <div class="code" id="Soul-Boxes-01"><button class="copy" onclick="copyText('Soul-Boxes-01')">Copy</button><br><p>
+             <mark>// Soul Boxes</mark><br>
+             <b>scriptparsetree,scripts/custom/growing_soulbox.gsc</b><br>
+             <b>fx,zombie/fx_ritual_pap_energy_trail</b><br>
+        </p></div>
+        <li>Go to your Maps' <b>scripts\zm</b> folder and open the <b>.gsc</b> file. Paste the following lines underneath <b>#using scripts\zm\zm_usermap;</b></li>
+        <div class="code" id="Soul-Boxes-02"><button class="copy" onclick="copyText('Soul-Boxes-02')">Copy</button><br><p>
+             <mark>// Soul Boxes</mark><br>
+             <b>#using scripts\custom\growing_soulbox;</b>
+        </p></div>
+        <li>Scroll down to the <b>main()</b> function and paste the following lines inside:</li>
+        <div class="code" id="Soul-Boxes-03"><button class="copy" onclick="copyText('Soul-Boxes-03')">Copy</button><br><p>
+             <mark>// Soul Boxes</mark><br>
+             <b>grow_soul::init();</b>
+        </p></div>
+        <li>Now we can open our map in <b>Radiant</b>.</li>
+        <li><b>Right Click &gt; Misc &gt; prefab</b>. <b>Double Click</b> the <b>Soul_Boxes</b> folder and open the <b>grow_soul.map</b> file.</li>
+        <li>Once the soul box is filled in game, it will disappear and drop a reward.</li>
+    </ol>
+    <h3>Additional Reading</h3>
+    <ol>
+        <li>If you add the <b>grow_soul_door_rotate.map</b> prefab to the map and fill the soul box with zombies in game, it will open the door when it is full. All the soul boxes need to be full to open the magic door, so you can have one or more soul boxes in your map.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
