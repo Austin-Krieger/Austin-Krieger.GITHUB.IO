@@ -347,6 +347,78 @@
         </ol>
     </div>
     &nbsp;
+    <button class="collapsible">Brushmodel Door</button>
+    <div class="innerContent">
+        <h3>Making a Brushmodel Door</h3>
+        <ol>
+            <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>map_source\_prefabs\Doors</b>
+            </p>
+            <li>Go to your <b>_prefabs</b> folder and create a new folder named <b>Doors</b> or place it wherever you want so long as you can find it later.</li>
+            <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/brushmodel_door.map" download>brushmodel_door.map</a></li>
+            <li>You can also perform the following steps to make your own.</li>
+            <li>Select <b>clip</b> from the <b>Textures Pane</b> and create a clip roughly the size of a door.</li>
+            <li>Make a copy of the clip and line it up on the side of the door where the hinges would be.</li>
+            <div class="imageRow">
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor01.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            <div class="imageColumn">
+                <img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor02.png" alt="... Image" onclick="displayModal(this)">
+            </div>
+            </div>
+            <li>Select the clip that will act as the door and return to the <b>Textures Pane</b>. Search for <b>t7_decal_fixture_door_wood_01</b> and double click.</li>
+            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Open the <b>Surface Inspector (S)</b> and in the <b>fit</b> section select <b>both</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Select the other clip and <b>Right Click &gt; Make Non-Colliding</b>. This will make it so the player will not run into an invisible door.</li>
+            <li>Next, select both clips <b>Right Click &gt; Script &gt; brushmodel</b> or go to the <b>Entity Browser</b> and double click <b>Script &gt; brushmodel</b>.</li>
+            <li>With both clips still selected <b>Right Click &gt; Entity &gt; Add Selected Brushes</b>. This will group the two clips.</li>
+            <li>The next steps you can do with only one clip selected.</li>
+            <li>Change the <b>targetname</b> to <b>brushmodel_door</b> and if you did the previous steps correctly, the <b>targetname</b> of our other clip will be the same. This applies to the KVPs we will be adding as well.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>brushmodel_door</sql>
+            </p>
+            <li>On either of the clips click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_string</sql><br>
+                <b>Value:</b> <sql>rotate</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_angles</sql><br>
+                <b>Value:</b> <sql>0 -120 0</sql>
+            </p>
+            <li>You can check the angle by selecting both clips and rotating them <b>(R)</b>. Look at the bottom of the mod tools window and you will see the z value changing. Use that value for the <b>Y</b> value of our <b>script_angles</b> KVP. Doesn't make sense, but it works.</li>
+            <li>Now we can make the door buyable.</li>
+            <li>Make a clip in front of the door and <b>Right Click &gt; Trigger &gt; use</b> or go to the <b>Entity Browser</b> and double click on <b>Trigger &gt; use</b>.</li>
+            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor05.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>Change the <b>targetname</b> to <b>zombie_door</b>.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>targetname:</b> <sql>zombie_door</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>zombie_cost</sql><br>
+                <b>Value:</b> <sql>750</sql>
+            </p>
+            <li>Click <b>Add KVP</b></li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>target</sql><br>
+                <b>Value:</b> <sql>brushmodel_door</sql>
+            </p>
+            <li>If you want it to also unlock the next zone we will need to add another KVP. Change the value to the name of the zone you want to enter.</li><br>
+            <p class="code-sl" style="padding: 5px 10px;">
+                <b>Property / Key:</b> <sql>script_flag</sql><br>
+                <b>Value:</b> <sql>enter_test_zone</sql>
+            </p>
+            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <li>You now have a working door made of brushmodels.</li>
+            <li>If you downloaded the prefab above, open your map in <b>Radiant</b> and <b>Right Click &gt; Misc &gt; prefab</b> to place the door and <b>stamp</b> the prefab or <b>Right Click &gt; Prefab &gt; Enter Prefab</b>, and make your changes.</li>
+        </ol>
+    </div>
+    &nbsp;
     <button class="collapsible">Downloadable Prefabs</button>
     <div class="innerContent">
         <h3>Prefabs:</h3>
@@ -356,6 +428,7 @@
             <li>Electric Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/electric_door.map" download>electric_door.map</a></li>
             <li>Large Garage Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/large_garage_door.map" download>large_garage_door.map</a></li>
             <li>Secret Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/secret_door.map" download>secret_door.map</a></li>
+            <li>Brushmodel Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/brushmodel_door.map" download>brushmodel_door.map</a></li>
             <li>Vault Door: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Doors/vault_door.map" download>vault_door.map</a></li>
             <p>Big thanks to JBird632 for the <a href="https://www.youtube.com/watch?v=RJGLeTIQRvo">Door Rotation Fix</a>. I used the idea to make the vault doors solid when they rotate open.</p>
         </ol>

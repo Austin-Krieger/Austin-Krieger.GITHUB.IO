@@ -1,0 +1,168 @@
+iwmap 4
+// entity 0
+{
+guid "{D9F57E64-862C-11EB-B3AE-C0B88302C2A3}"
+"classname" "worldspawn"
+"lightingquality" "1024"
+"samplescale" "1"
+"skyboxmodel" "skybox_default_day"
+"ssi" "default_day"
+"wsi" "default_day"
+}
+// entity 1
+// entity 2
+// entity 3
+// entity 4
+// entity 5
+// entity 6
+// entity 7
+// entity 8
+// entity 9
+// entity 10
+// entity 11
+// entity 12
+// entity 13
+// entity 14
+// entity 15
+// entity 16
+// entity 17
+// entity 18
+// entity 19
+// entity 20
+// entity 21
+// entity 22
+// entity 23
+// entity 24
+// entity 25
+// entity 26
+// entity 27
+// entity 28
+// entity 29
+// entity 30
+// entity 31
+// entity 32
+// entity 33
+// entity 34
+// entity 35
+// entity 36
+// entity 37
+// entity 38
+// entity 39
+// entity 40
+// entity 41
+// entity 42
+// entity 43
+// entity 44
+// entity 45
+// entity 46
+// entity 47
+// entity 48
+// entity 49
+// entity 50
+// entity 51
+// entity 52
+// entity 53
+// entity 54
+// entity 55
+// entity 56
+// entity 57
+// entity 58
+// entity 59
+// entity 60
+// entity 61
+// entity 62
+// entity 63
+// entity 64
+// entity 65
+// entity 66
+// entity 67
+// entity 68
+// entity 69
+// entity 70
+// entity 71
+// entity 72
+// entity 73
+// entity 74
+// entity 75
+// entity 76
+// entity 77
+// entity 78
+// entity 79
+// entity 80
+// entity 81
+// entity 82
+// entity 83
+// entity 84
+// entity 85
+// entity 86
+// entity 87
+// entity 88
+// entity 89
+// entity 90
+// entity 91
+// entity 92
+// entity 93
+// entity 94
+// entity 95
+// entity 96
+// entity 97
+// entity 98
+// entity 99
+// entity 100
+// entity 101
+// entity 102
+// entity 103
+// entity 104
+// entity 105
+// entity 106
+// entity 107
+// entity 108
+// entity 109
+// entity 110
+// entity 111
+{
+guid "{A3884604-862C-11EB-B3AE-C0B88302C2A3}"
+"classname" "script_brushmodel"
+"script_angles" "0 -120 0"
+"script_string" "rotate"
+"targetname" "brushmodel_door"
+// brush 0
+{
+ guid "{A3884602-862C-11EB-B3AE-C0B88302C2A3}"
+ ( 22.5 -510.25 0 ) ( -12.5 -510.25 0 ) ( -12.5 -513.25 0 ) t7_decal_fixture_door_wood_01 45.5 -3 159.2887 -0.53768969 -180 0 lightmap_gray 16384.1 16383.139 200.69205 1551.6987 0 -8.1680984e-005
+ ( -15.5 -513.25 94.5 ) ( -15.5 -510.25 94.5 ) ( 19.5 -510.25 94.5 ) t7_decal_fixture_door_wood_01 45.5 -3 159.24336 -0.53077066 -180 0 lightmap_gray 16384.076 16382.674 197.77014 1551.6636 0 2.6534337e-005
+ ( -12.5 -513.5 0.25 ) ( 22.5 -513.5 0.25 ) ( 22.5 -513.5 0 ) t7_decal_fixture_door_wood_01 45.502758 -94.5 159.26744 0 180 0 lightmap_gray 16384.24 16384 200.75107 0 0 0
+ ( 22.75 -513.25 0.25 ) ( 22.75 -510.25 0.25 ) ( 22.75 -510.25 0 ) t7_decal_fixture_door_wood_01 3 -94.5 0.59745407 0 180 0 lightmap_gray 16381.994 16384 -1551.6208 0 0 0
+ ( 22.5 -510.5 0.25 ) ( -12.5 -510.5 0.25 ) ( -12.5 -510.5 0 ) t7_decal_fixture_door_wood_01 45.5 -94.5 159.24348 0 180 0 lightmap_gray 16383.859 16384 200.75 0 0 0
+ ( -22.75 -511.25 0.25 ) ( -22.75 -514.25 0.25 ) ( -22.75 -514.25 0 ) t7_decal_fixture_door_wood_01 3 -94.5 0.60603166 0 180 0 lightmap_gray 16383.15 16384 -1552.6942 0 0 0
+}
+// brush 1
+{
+ guid "{A3884603-862C-11EB-B3AE-C0B88302C2A3}"
+  contents nonColliding;
+ ( -23 -510.25 0 ) ( -58 -510.25 0 ) ( -58 -513.25 0 ) clip 64 64 -166.32452 -0.013871807 0 -0.00012737986 lightmap_gray 16384.416 16386.32 155.17152 1551.9011 0 -0.00012765512
+ ( -70.75 -513.25 94.5 ) ( -70.75 -510.25 94.5 ) ( -35.75 -510.25 94.5 ) clip 64 64 -179.03439 -0.021262599 0 -6.4433807e-005 lightmap_gray 16384.441 16384.164 142.46347 1551.7633 0 -6.5027351e-005
+ ( -58 -513.5 0.25 ) ( -23 -513.5 0.25 ) ( -23 -513.5 0 ) clip 64 64 -166.26572 0 0 0 lightmap_gray 16383.77 16384 155.25 0 0 0
+ ( -22.75 -513.25 0.25 ) ( -22.75 -510.25 0.25 ) ( -22.75 -510.25 0 ) clip 63.989372 64 -0.076373711 0 0 0 lightmap_gray 16382.008 16384 -1551.6229 0 0 0
+ ( -23 -510.5 0.25 ) ( -58 -510.5 0.25 ) ( -58 -510.5 0 ) clip 64 64 -166.25 0 0 0 lightmap_gray 16384.027 16384 155.25 0 0 0
+ ( -68.25 -511.25 0.25 ) ( -68.25 -514.25 0.25 ) ( -68.25 -514.25 0 ) clip 63.990837 64 -0.072329305 0 0 0 lightmap_gray 16382.01 16384 -1552.625 0 0 0
+}
+}
+// entity 112
+{
+guid "{A3884607-862C-11EB-B3AE-C0B88302C2A3}"
+"classname" "trigger_use"
+"script_flag" "enter_test_zone"
+"targetname" "zombie_door"
+"zombie_cost" "750"
+// brush 0
+{
+ guid "{A3884606-862C-11EB-B3AE-C0B88302C2A3}"
+ ( 22.5 -504.25 0 ) ( -22.5 -504.25 0 ) ( -22.5 -509.5 0 ) trigger 64 64 -120.75 0 0 0 lightmap_gray 16384 16384 -120.75 0 0 0
+ ( -34.75 -509.5 94.5 ) ( -34.75 -504.25 94.5 ) ( 10.25 -504.25 94.5 ) trigger 64 64 -133 0 0 0 lightmap_gray 16384 16384 -133 0 0 0
+ ( -33.5 -510.5 83.25 ) ( 11.5 -510.5 83.25 ) ( 11.5 -510.5 83 ) trigger 64 64 -131.75 -83 0 0 lightmap_gray 16384 16384 -131.75 -83 0 0
+ ( 22.75 -509.5 0.25 ) ( 22.75 -504.25 0.25 ) ( 22.75 -504.25 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22.25 -507.5 0.25 ) ( -22.75 -507.5 0.25 ) ( -22.75 -507.5 0 ) trigger 64 64 -120.75 0 0 0 lightmap_gray 16384 16384 -121 0 0 0
+ ( -22.75 -504.25 0.25 ) ( -22.75 -509.5 0.25 ) ( -22.75 -509.5 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
