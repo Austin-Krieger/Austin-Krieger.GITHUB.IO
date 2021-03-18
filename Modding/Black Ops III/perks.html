@@ -57,7 +57,7 @@
         <ol>
             <li>Download our Widows Wine prefab here: <a href="../../downloads/Modding/BO3%20Mod%20Tools/vending_widowswine_struct.map" download>vending_widowswine_struct.map</a></li><br>
             <li>Move the file to your <b>zm_core</b> folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
             </p>
             <li><b>Right Click</b> in your map and go to <b>Misc &gt; prefab</b>.</li>
@@ -76,15 +76,15 @@
         <ol>
             <li>You can also make your own widows wine perk machine by adding a copy of the juggernog perk machine to your map and modifying the prefab.</li>
             <li>With perk machine selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>p7_zm_vending_widows_wine</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>p7_zm_vending_widows_wine</sql>
             </p>
             <li>Change the <b>script_noteworthy</b> to <b>specialty_widowswine</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>script_noteworthy:</b> <sql>specialty_widowswine</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/UseJuggernogPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WidowsWinePrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/UseJuggernogPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/WidowsWinePrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Finally, go to <b>File &gt; Save As</b> and name the new prefab <b>vending_widowswine_struct.map</b>. You don't want to save over your version of the juggernog machine.</li>
             <li>Now you can leave the copy of your juggernog prefab without saving over it and place your new widows wine prefab onto the map.</li>
         </ol>
@@ -93,11 +93,11 @@
         <ol>
             <li>Download our Electric Cherry prefab here: <a href="../../downloads/Modding/BO3%20Mod%20Tools/vending_electriccherry_struct.map" download>vending_electriccherry_struct.map</a></li><br>
             <li>Move the file to your <b>zm_core</b> folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\map_source\_prefabs\zm\zm_core</b>
             </p>
             <li>Next we need to open our <b>_zm_perk_electric_cherry.gsc</b> file. You can find the file in this folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\share\raw\scripts\zm</b>
             </p>
             <li>Like the comment says, we will need to replace some values. If you have a different model replace the <b>DISABLED_MODEL</b> and <b>ACTIVE_MODEL</b> values.</li>
@@ -112,13 +112,13 @@
                 #define ELECTRIC_CHERRY_MACHINE_LIGHT_FX &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;"<sql>zombie/fx_perk_vending_ec_hd_zmb</sql>"
             </p></div>
             <li>Find <b>function enable_electric_cherry_perk_for_level()</b>. You will need to replace part of the first line of code.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 zm_perks::register_perk_basic_info( ...<br>
                 <b>Replace</b>: &amp;<sql>"ZOMBIE_PERK_WIDOWSWINE"</sql><br>
                 <b>With</b>: <sql>"Hold ^3[{+activate}]^7 for Electric Cherry [Cost: &amp;&amp;1]"</sql>
             </p>
             <li>Find the setup function and replace <b>vending_marathon</b> with <b>vending_electriccherry</b>. You will also need to replace <b>marathon_perk</b> with <b>electriccherry_perk</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 function electric_cherry_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )<br>
                 {<br>
                 &emsp;use_trigger.script_sound = "<sql>mus_perks_ec_jingle</sql>";<br>
@@ -137,7 +137,7 @@
         <h3>source_data folder</h3>
         <ol>
             <li>We need to add some files to our <b>source_data</b> folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\source_data</b>
             </p>
             <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Electric%20Cherry/c_t7_zom_hd.gdt" download>c_t7_zom_hd.gdt</a><br>
@@ -147,7 +147,7 @@
         <h3>.efx file</h3>
         <ol>
             <li>Go to the <b>share\raw\fx\zombie</b> folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\share\raw\fx\zombie</b>
             </p>
             <li>Place this file inside: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Electric%20Cherry/fx_perk_vending_ec_hd_zmb.efx" download>fx_perk_vending_ec_hd_zmb.efx</a></li>
@@ -155,13 +155,13 @@
         <h3>model_export folder</h3>
         <ol>
             <li>Find the <b>t7_characters_dlc2</b> folder and then go into the <b>zombies</b> folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\model_export\t7_characters_dlc2\zombies</b>
             </p>
             <li>Place this folder inside:</li>
             <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Electric%20Cherry/c_zom_dlc2_jpn_zombie_head_1.zip" download>c_zom_dlc2_jpn_zombie_head_1.zip</a><br><br>
             <li>We also need to add a couple of folders with texture images to the <b>model_export</b> folder:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\model_export</b>
             </p>
             <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Electric%20Cherry/t7_characters_hd.zip" download>t7_characters_hd.zip</a><br>
@@ -171,24 +171,24 @@
         <ol>
             <li>Next we need to open the maps' <b>.gsc</b> file:  <b>zm_tutorial_level.gsc</b></li>
             <li>Go to the folder containing your <b>.gsc</b> file:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
             <li>Find the <b>//Perks</b> comment and duplicate the last line replacing the ending.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>#using scripts\zm\_zm_perk_electric_cherry;</b>
             </p>
             <li>Do the same in the maps' <b>.csc</b> file: <b>zm_tutorial_level.csc</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>#using scripts\zm\_zm_perk_electric_cherry;</b>
             </p>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/GSCFilePerks.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/GSCFilePerks.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Next we will open our maps' zone file: <b>zm_tutorial_level.zone</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\zone_source</b>
             </p>
             <li>Add a few lines to the bottom of the file:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 // Electric Cherry Perk<br>
                 xmodel,p7_zm_vending_cherry_hd_off<br>
                 xmodel,p7_zm_vending_cherry_hd_on<br>
@@ -211,7 +211,7 @@
             </div>
             </div>
             <li>Here is some <b>Entity Info</b> for our perk machine as an example if you did not use the prefab from above.</li>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricCherryPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricCherryPrefab01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>You should now have a working Electric Cherry perk machine.</li>
         </ol>
         <h3>References</h3>
@@ -228,12 +228,12 @@
         <p>We can add loose change to our perk machine prefabs fairly easily by following these steps.</p>
         <ol>
             <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
             <li><b>Right Click</b> the file and edit it with your preferred text editor.</li>
             <li>Add the following line near the top of the <b>Main()</b> function:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>level zm_perks::spare_change();</b>
             </p>
             <div class="code" id="Loose-Change-Main"><button class="copy" onclick="copyText('Loose-Change')">Copy</button><br><p>
@@ -252,7 +252,7 @@
                 }
             </p></div>
             <li>Add the following lines to the <b>Perks</b> section:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>#using scripts\zm\_zm_perks;</b><br>
                 <b>#insert scripts\zm\_zm_perks.gsh;</b>
             </p>
@@ -274,11 +274,11 @@
             </p></div>
             <li>Now we need to edit some perk prefabs in <b>Radiant</b>.</li>
             <li>In the <b>Entity Browser Pane</b> find <b>Trigger</b> and <b>Right Click &gt; Toggle Favorite</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Select a perk machine, I chose Electric Cherry</li>
             <li><b>Right Click &gt; Prefab &gt; Enter Prefab</b>.</li>
             <li>We can now <b>Right Click</b> in the <b>Game</b> or <b>Grid</b> view and add a <b>Trigger &gt; once</b> to the prefab. Other tutorials have you use a trigger multiple, but that just gives you either +200/+100+100/+100 (Not consistent or what we want).</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Resize and move the trigger box in front of the machine like so:</li>
             <div class="imageRow">
             <div class="imageColumn">
@@ -289,15 +289,15 @@
             </div>
             </div>
             <li>With our <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>audio_bump_trigger</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>audio_bump_trigger</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_sound</sql><br>
                 <b>Value:</b> <sql>zmb_perks_bump_bottle</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange05.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/LooseChange05.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Next you can copy the trigger box and paste it into your other perk machine prefabs.</li>
             <li>You can also download these prefabs with loose change trigger boxes included:</li>
             <a href="../../downloads/Modding/BO3%20Mod%20Tools/Perks/Spare%20Change%20Prefabs/vending_additionalprimaryweapon_struct.map" download>vending_additionalprimaryweapon_struct.map</a><br>
@@ -317,12 +317,12 @@
         <h2>Increasing the Perk Limit</h2>
         <ol>
             <li>Open your <b>Map</b> folder and go to the <b>scripts\zm</b> folder. Look for the file named <b>zm_tutorial_level.gsc</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\usermaps\zm_tutorial_level\scripts\zm</b>
             </p>
             <li><b>Right Click</b> the file and edit it with your preferred text editor.</li>
             <li>Add the following line near the top of the <b>Main()</b> function:</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>level.perk_purchase_limit = 20;</b>
             </p>
             <div class="code" id="Increasing-Perk-Limit"><button class="copy" onclick="copyText('Increasing-Perk-Limit')">Copy</button><br><p>

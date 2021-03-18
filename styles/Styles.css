@@ -24,7 +24,7 @@ table {
     width: 100%;
 }
 
-table li {
+ol li {
     word-wrap: break-word;
 }
 
@@ -107,7 +107,7 @@ tr:nth-child(even) {
     background-color: #c8c8c8;
     font-size: medium;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px 10px;
     margin-top: -10px;
     box-shadow: 1px 1px 1px 2px #bbbbbb;
     font-family: Arial, sans-serif;
@@ -178,12 +178,22 @@ sql {
     .code p, .unityCode p {
         word-wrap: break-word;
     }
+    .center img {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 600px) {
     .code-sl {
         overflow-x: scroll;
         border-radius: 5px 5px 0px 0px;
+    }
+    .center {
+        width: 100%;
+    }
+    .center img {
+        width: 100%;
     }
 }
 
@@ -335,15 +345,16 @@ sql {
 
 .center {
     margin: auto;
-    max-width: 700px;
+    max-width: 600px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .center img {
     width: 100%;
     max-height: 700px;
     object-fit: contain;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin-bottom: -5px;
 }
 
 .center img:hover {

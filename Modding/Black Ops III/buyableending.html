@@ -45,13 +45,13 @@
     <p>We can add an item to our map that when bought will end the game.</p>
     <ol>
         <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
-        <p class="code-sl" style="padding: 5px 10px;">
+        <p class="code-sl">
             <b>share\raw\scripts\zm</b>
         </p>
-        <p class="code-sl" style="padding: 5px 10px;">
+        <p class="code-sl">
             <b>map_source\_prefabs\zm\zm_core</b>
         </p>
-        <p class="code-sl" style="padding: 5px 10px;">
+        <p class="code-sl">
             <b>usermaps\zm_tutorial_level\scripts\zm</b>
         </p>
         <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Buyable%20Ending/buyable_ending.gsc" download>buyable_ending.gsc</a></li>
@@ -87,7 +87,7 @@
         </div>
         <li>Place the trigger against a wall. You can then resize the trigger box after stamping the prefab: <b>Right Click &gt; Prefab &gt; Stamp Prefab</b>.</li>
         <li>Make sure the <b>targetname</b> for the trigger is <b>end_game_trig</b>.</li>
-        <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTargetname.png" alt="... Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTargetname.png" alt="... Image" onclick="displayModal(this)"></div>
         <p><b>Note:</b> Don't add more than one of these triggers to your map or you will end up with an infinite loading screen.</p>
     </ol>
     <h3>Customizing the Trigger</h3>
@@ -96,20 +96,20 @@
         <li>After placing your trigger prefab, <b>Right Click</b> and go to <b>Prefab &gt; Enter Prefab</b>.</li>
         <li>I like to use a model in the buyable ending trigger, so open the <b>Models Pane (M)</b>.</li>
         <li>Search <b>monkey</b> and drag a cymbol monkey onto the grid.</li>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyModel.png" alt="... Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyModel.png" alt="... Image" onclick="displayModal(this)"></div>
         <li>Resize the trigger box to the size of the cymbol monkey model.</li>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ResizeEndGameTriggerBox.png" alt="... Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ResizeEndGameTriggerBox.png" alt="... Image" onclick="displayModal(this)"></div>
         <li>Make a <b>clip</b> the size of the trigger box so that players can't walk through it.</li>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTriggerClip.png" alt="... Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/EndGameTriggerClip.png" alt="... Image" onclick="displayModal(this)"></div>
         <li>Next we need to convert our <b>clip</b> to a <b>brushmodel</b> from the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
         <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b>.</li>
         <li>Click <b>Add KVP</b></li><br>
-        <p class="code-sl" style="padding: 5px 10px;">
+        <p class="code-sl">
             <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
             <b>Value:</b> <sql>clip</sql>
         </p>
         <li>Save your prefab and <b>Right Click &gt; Prefab &gt; Leave Prefab</b>.</li>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyEndGameTriggerAdded.png" alt="... Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/CymbolMonkeyEndGameTriggerAdded.png" alt="... Image" onclick="displayModal(this)"></div>
     </ol>
 </div>
 </div>

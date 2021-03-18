@@ -69,11 +69,11 @@
             </div></div>
             <li>Next we need to convert our <b>clip</b> to a <b>brushmodel</b> from the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>brushmodel</b> and <b>Double Click</b>.</li>
             <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_door</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>clip</sql>
             </p>
@@ -99,23 +99,23 @@
                 <img src="../../images/Modding/BO3%20Mod%20Tools/Doors08.png" alt="... Image" onclick="displayModal(this)">
             </div>
             </div>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With our new <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>zombie_door</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>zombie_door</sql>
             </p>
             <li>We also need to set the cost of our door. Hit <b>Add KVP</b> and set the price of the door (Default is 1000).</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>zombie_cost</sql><br>
                 <b>Value:</b> <sql>750</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_door</sql>
             </p>
             <li>Click <b>Add KVP</b> (This one is used when you have multiple zones)</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_flag</sql><br>
                 <b>Value:</b> <sql>enter_test_zone</sql>
             </p>
@@ -132,13 +132,13 @@
         <ol>
             <li>It may be a struggle to select a specific entity by this point, so we can press <b>H</b> to hide a selected entity and <b>Shift + H</b> to show everything you have hidden. <b>Shift + Ctrl + H</b> will reveal only the last item that was hidden.</li>
             <li>Select a <b>Door</b> and return to the <b>Entity Browser Pane</b>. Look for <b>Script</b> &gt; <b>model</b> and <b>Double Click</b>. Do the same for the other door and continue to the next step.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/TestDoorRight02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/TestDoorRight02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With a <b>Door</b> model selected go to the <b>Entity Info Pane (N)</b> and scroll down to <b>targetname</b>. We can change this to whatever as long as it matches throughout the tutorial.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_string</sql><br>
                 <b>Value:</b> <sql>rotate</sql>
             </p>
@@ -152,13 +152,13 @@
             </div>
             <li>Rotate the door in the <b>Game</b> view until you find a rotation that fits your needs. For the door on our right: <b>{0, 120, 0}</b> looks good.</li>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_angles</sql><br>
                 <b>Value:</b> <sql>0 120 0</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DoorRotation02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Follow the same steps for the door on the left. This time <b>{0, 240, 0}</b> will work.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_angles</sql><br>
                 <b>Value:</b> <sql>0 240 0</sql>
             </p>
@@ -172,7 +172,7 @@
         <h3>Door</h3>
         <ol>
             <li>Select <b>clip</b> from the <b>Textures Pane</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SelectClip.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/SelectClip.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Make a <b>clip</b> the size of the electric door you want to make.</li>
             <div class="imageRow">
             <div class="imageColumn">
@@ -183,65 +183,65 @@
             </div>
             </div>
             <li>Back in the <b>Textures Pane</b> search for <b>t7_metal_garage_door_rollup_01_bare</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddGarageDoorTexture01.png" alt="... Image" onclick="displayModal(this)"></div>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddGarageDoorTexture02.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddGarageDoorTexture01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddGarageDoorTexture02.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With the new <b>clip</b> selected, go to the <b>Entity Browser</b> and find <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With our door selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_garage_door</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_garage_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_string</sql><br>
                 <b>Value:</b> <sql>move</sql>
             </p>
             <li>Click <b>Add KVP</b> (In this example the door will move straight up to 100 on the Z axis)</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_vector</sql><br>
                 <b>Value:</b> <sql>0 0 100</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Clip</h3>
         <ol>
             <li>Create another <b>clip</b> the size of your door.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddElectricDoorClipBrushModel.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddElectricDoorClipBrushModel.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With the new <b>clip</b> selected, go to the <b>Entity Browser</b> and find <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With our <b>clip</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_garage_door</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_garage_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>clip</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Trigger</h3>
         <ol>
             <li>Add one last <b>clip</b> in front of the door.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddTriggerClip.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/AddTriggerClip.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With the new <b>clip</b> selected go to the <b>Entity Browser</b> and find <b>Trigger &gt; use</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ConvertToTriggerUse.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ConvertToTriggerUse.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With our new <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>zombie_door</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>zombie_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>electric_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_garage_door</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ElectricDoorTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
     &nbsp;
@@ -261,22 +261,22 @@
             </div>
             </div>
             <li>Select each crate individually and go to the <b>Entity Browser Pane</b>, find <b>Script &gt; model</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ConvertToModel01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center"><img src="../../images/Modding/BO3%20Mod%20Tools/ConvertToModel01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>For each of our <b>Script &gt; model</b>s, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_debris</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_debris</sql>
             </p>
             <li>Click <b>Add KVP</b> (On each).</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_struct</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptModelKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptModelKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Struct</h3>
         <ol>
             <li>In the <b>Entity Browser Pane</b> find <b>Script &gt; struct</b> and drag it onto the map.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStruct01.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStruct01.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Since this is where the debris will fly off to, we should place it high above our debris.</li>
             <div class="imageRow">
             <div class="imageColumn">
@@ -287,10 +287,10 @@
             </div>
             </div>
             <li>With our <b>struct</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_struct</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_struct</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStructKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/ScriptStructKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Clip</h3>
         <ol>
@@ -304,17 +304,17 @@
             </div>
             </div>
             <li>In the <b>Entity Browser Pane</b> go to <b>Script &gt; brushmodel</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/MysteryBox04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With our new <b>brushmodel</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>test_debris</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>test_debris</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_noteworthy</sql><br>
                 <b>Value:</b> <sql>clip</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisClipKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
         <h3>Trigger</h3>
         <ol>
@@ -328,22 +328,22 @@
             </div>
             </div>
             <li>In the <b>Entity Browser Pane</b> go to <b>Trigger &gt; use</b> and <b>Double Click</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/Doors09.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>With our new <b>Trigger</b> selected, go to the <b>Entity Info Pane (N)</b> and change the <b>targetname</b> to <b>zombie_debris</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>zombie_debris</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>zombie_cost</sql><br>
                 <b>Value:</b> <sql>1250</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>test_debris</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/DebrisTriggerKVPs.png" alt="... Image" onclick="displayModal(this)"></div>
         </ol>
     </div>
     &nbsp;
@@ -352,7 +352,7 @@
         <h3>Making a Brushmodel Door</h3>
         <ol>
             <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>map_source\_prefabs\Doors</b>
             </p>
             <li>Go to your <b>_prefabs</b> folder and create a new folder named <b>Doors</b> or place it wherever you want so long as you can find it later.</li>
@@ -369,51 +369,51 @@
             </div>
             </div>
             <li>Select the clip that will act as the door and return to the <b>Textures Pane</b>. Search for <b>t7_decal_fixture_door_wood_01</b> and double click.</li>
-            <div class="center" style="padding: 10px; max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor03.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor03.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Open the <b>Surface Inspector (S)</b> and in the <b>fit</b> section select <b>both</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor04.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor04.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Select the other clip and <b>Right Click &gt; Make Non-Colliding</b>. This will make it so the player will not run into an invisible door.</li>
             <li>Next, select both clips <b>Right Click &gt; Script &gt; brushmodel</b> or go to the <b>Entity Browser</b> and double click <b>Script &gt; brushmodel</b>.</li>
             <li>With both clips still selected <b>Right Click &gt; Entity &gt; Add Selected Brushes</b>. This will group the two clips.</li>
             <li>The next steps you can do with only one clip selected.</li>
             <li>Change the <b>targetname</b> to <b>brushmodel_door</b> and if you did the previous steps correctly, the <b>targetname</b> of our other clip will be the same. This applies to the KVPs we will be adding as well.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>brushmodel_door</sql>
             </p>
             <li>On either of the clips click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_string</sql><br>
                 <b>Value:</b> <sql>rotate</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_angles</sql><br>
                 <b>Value:</b> <sql>0 -120 0</sql>
             </p>
             <li>You can check the angle by selecting both clips and rotating them <b>(R)</b>. Look at the bottom of the mod tools window and you will see the z value changing. Use that value for the <b>Y</b> value of our <b>script_angles</b> KVP. Doesn't make sense, but it works.</li>
             <li>Now we can make the door buyable.</li>
             <li>Make a clip in front of the door and <b>Right Click &gt; Trigger &gt; use</b> or go to the <b>Entity Browser</b> and double click on <b>Trigger &gt; use</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor05.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor05.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>Change the <b>targetname</b> to <b>zombie_door</b>.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>targetname:</b> <sql>zombie_door</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>zombie_cost</sql><br>
                 <b>Value:</b> <sql>750</sql>
             </p>
             <li>Click <b>Add KVP</b></li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>target</sql><br>
                 <b>Value:</b> <sql>brushmodel_door</sql>
             </p>
             <li>If you want it to also unlock the next zone we will need to add another KVP. Change the value to the name of the zone you want to enter.</li><br>
-            <p class="code-sl" style="padding: 5px 10px;">
+            <p class="code-sl">
                 <b>Property / Key:</b> <sql>script_flag</sql><br>
                 <b>Value:</b> <sql>enter_test_zone</sql>
             </p>
-            <div class="center" style="padding: 10px; max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor06.png" alt="... Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 350px;"><img src="../../images/Modding/BO3%20Mod%20Tools/BrushmodelDoor06.png" alt="... Image" onclick="displayModal(this)"></div>
             <li>You now have a working door made of brushmodels.</li>
             <li>If you downloaded the prefab above, open your map in <b>Radiant</b> and <b>Right Click &gt; Misc &gt; prefab</b> to place the door and <b>stamp</b> the prefab or <b>Right Click &gt; Prefab &gt; Enter Prefab</b>, and make your changes.</li>
         </ol>

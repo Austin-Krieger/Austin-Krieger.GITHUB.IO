@@ -55,7 +55,7 @@
             <p>Models are made up of a mesh of triangles, and a Mesh Renderer "renders" that mesh so you can see it. A Skinned Mesh Renderer is a special type of Mesh Renderer that allows the mesh to change shape based on the positions and rotations of all of a model’s bones. These bones are child GameObjects of the model. The characters bones are all children of the Root GameObject.</p>
             <li>In the Hierarchy, select the <b>Root</b> GameObject. Hold alt/Option and click the arrow to the left of its name to expand all its child GameObjects. Each of these GameObjects represents a part of the character's body (RightLeg/Hips/Spine/Neck/LeftShoulder/etc.)</li>
             <li>In the Hierarchy, select the GameObject called LeftForeArm. In its Transform component, find the Rotation field and change the Y value to 90. You will see that the left arm has bent 90 degrees.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/LeftForearm.jpg" alt="Left Forearm Transform Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/LeftForearm.jpg" alt="Left Forearm Transform Image" onclick="displayModal(this)"></div>
             <p>The Animator component on the character's parent GameObject will change the rotation of all the bone GameObject Tranform components, and these changes will happen together to animate the character.</p>
             <li>Collapse all the GameObjects again by holding alt/Option and clicking the arrow next to the name of the parent GameObject.</li>
         </ol>
@@ -66,12 +66,12 @@
         <h2>What are Prefabs?</h2>
         <p>Prefabs are a special type of Asset that represent a GameObject or collection of GameObjects with components that are already set up. They're like a blueprint which you can use to easily make instances of the same thing. Each instance of a prefab is linked to the Prefab Asset, so changing the Asset will change all versions of the Prefab in all Scenes. This also means that if you go on to make mulitple level for a game, you won't need to remake a character for every level - you can just instantiate a new Prefab.</p>
         <p>Prefabs can be identified in the Hierarchy by their blue name and icon:</p>
-        <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Prefab.jpg" alt="Prefab Image" onclick="displayModal(this)" style="max-height: 100px;"></div>
+        <div class="center"><img src="../images/UnityImages/Prefab.jpg" alt="Prefab Image" onclick="displayModal(this)" style="max-height: 100px;"></div>
         <h2>Making a Prefab</h2>
         <ol>
             <li>Drag the GameObject from the Hierarchy into the <b>Assets > Prefab</b> folder in the Project window. A dialogue box will appear asking if you want to make an Original Prefab or a Prefab Variant - select <b>Original Prefab</b>.</li>
             <p>Dragging a GameObject like this makes it a Prefab regardless of the folder it is dragged into. Best practice would be to place them in a folder named Prefabs.</p>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/PrefabDialogueBox.JPG" alt="Prefab Dialogue Box Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
+            <div class="center"><img src="../images/UnityImages/PrefabDialogueBox.JPG" alt="Prefab Dialogue Box Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
             <li>Now the Prefab has been created, any changes you make will be reflected on the instance of the GameObject in the Scene. In order to make changes to a Prefab, you will need to open the Prefab for editing in Prefab Mode.</li>
             <li>Click on the Prefab and in the Inspector window you will see a button that reads "Open Prefab". Clicking on this button will put the Unity Editor in Prefab Mode.</li>
             <p>Alternatively, in the Hierarchy, click the arrow to the right of the GameObject.</p>
@@ -117,33 +117,33 @@
             <li>In order to use these animations in your Animator Controller, drag them from the Project window to the Animator window. Start with Idle.</li>
             <li>Animations exist in an Animator Controller in <b>Animator States</b>. When you dragged in the Idle and Walkanimations, the Animator Controller created two states containing them and named them after the animations.</li>
             <p>An Animator State is part of the state machine that an Animator Controller contains. The state machine contains logic which determines which state is the current state. The current state then determines the animation that is being played.</p>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Animator Default State Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
+            <div class="center"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Animator Default State Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
             <p>The default state is displayed in orange (Idle). Your state machine now has two states in it, but no logic to define which state should play. Currently, the state machine will start in the default state and never change, so the character will always be idle. We will need to make <b>Animator Transitions</b>.</p>
         </ol>
         <h2>Create Animator Transitions</h2>
         <ol>
             <li>Right click on the Idle state and select <b>Make Transition</b>. This starts a transition that follows the mouse cursor.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Make Transition Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
+            <div class="center"><img src="../images/UnityImages/AnimatorDefaultState.jpg" alt="Make Transition Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
             <p>To finish creating the transition, click on the Walk state.</p>
             <li>Your character needs to be able to change back to idle from walking, so repeat this process to create a trainsition from Walk to Idle.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/Transition.JPG" alt="Transition Image" onclick="displayModal(this)" style="max-height: 200px;"></div>
+            <div class="center"><img src="../images/UnityImages/Transition.JPG" alt="Transition Image" onclick="displayModal(this)" style="max-height: 200px;"></div>
             <li>The state machine now has a way of transitioning between the two animations, but it doesn't yet know when to transition. Select the transition from Idle to Walk by clicking on the connecting line.</li>
             <li>In the inspector, look at the settings from this transition. The first thing you need to change is the <b>Has Exit Time checkbox</b>.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/HasExitTime.JPG" alt="Has Exit Time Image" onclick="displayModal(this)" style="max-height: 220px;"></div>
+            <div class="center"><img src="../images/UnityImages/HasExitTime.JPG" alt="Has Exit Time Image" onclick="displayModal(this)" style="max-height: 220px;"></div>
             <p>If Has Exit Time is true (the checkbox is enabled) then after a certain amount of time has passed the transition will automatically be taken and the state machine will play the next state. So, <b>disable</b> the <b>Has Exit Time checkbox</b>.</p>
             <p>You will now see a warning, because there is no longer a reason to ever take this transition. We need to provide one by adding a <b>Condition</b>.</p>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/ConditionsWarning.JPG" alt="Condition Warning Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
+            <div class="center"><img src="../images/UnityImages/ConditionsWarning.JPG" alt="Condition Warning Image" onclick="displayModal(this)" style="max-height: 150px;"></div>
         </ol>
         <h2>Add Conditions to your Transition</h2>
         <ol>
             <li>Click the <b>+</b> button beneath the (currently empty) Conditions list.</li>
             <li>The transition from Idle to Walk is required when the character is walking - that is, when <b>IsWalking</b> is true.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/IsWalkingCondition.JPG" alt="Is Walking Condition Image" onclick="displayModal(this)" style="max-height: 100px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/IsWalkingCondition.JPG" alt="Is Walking Condition Image" onclick="displayModal(this)" style="max-height: 100px;"></div>
             <p>Next, you need to set up the transition from Walk to Idle.</p>
             <li>Select the transition from <b>Walk to Idle</b> in the Animator window. <b>Disable</b> the <b>Has Exit Time checkbox</b> - as before, you don't want the state to change after a certain amount of time, just when you want it to.</li>
             <li>Now that the Has Exit Time checkbox is disabled, you need to create another Condition.</li>
             <p>This Condition should also check IsWalking, but this time the value should be set as false.  If the character is not walking then it should transition from Walk to Idle.</p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/WalkTransition.JPG" alt="Walk Transition Image" onclick="displayModal(this)" style="max-height: 100px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/WalkTransition.JPG" alt="Walk Transition Image" onclick="displayModal(this)" style="max-height: 100px;"></div>
         </ol>
         <h2>Assign the Animator Controller to the Prefab</h2>
         <ol>
@@ -157,9 +157,9 @@
             <li>Open the character Prefab for editing in Prefab Mode. In the Inspector, you'll find two components: a Transform and an Animator. In order to react to physics your character needs two more components: a Rigidbody and a Collider.</li>
             <p>A <b>Rigidbody</b> component marks a GameObject as something that is part of the physics system that can move.</p>
             <li>Click the <b>Add Component</b> button.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/AddComponent.jpg" alt="Add Component Image" onclick="displayModal(this)" style="max-height: 50px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/AddComponent.jpg" alt="Add Component Image" onclick="displayModal(this)" style="max-height: 50px;"></div>
             <li>In the search bar that appears, type “Rigidbody” and select this from the options that appear.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/Rigidbody.jpg" alt="Rigidbody Image" onclick="displayModal(this)" style="max-height: 500px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/Rigidbody.jpg" alt="Rigidbody Image" onclick="displayModal(this)" style="max-height: 500px;"></div>
             <p>Since this is a 3D Project we want to make sure to choose Rigidbody and not Rigidbody 2D. To remove a component click on the cog in the top right of the component and select Remove Component.</p>
             <li>Save your work.</li>
             <li>Your character will now react to the effects of physics such as gravity. Press the play button to test the physics of the player and press play again to stop the test, since the physics isn't quite working correctly.</li>
@@ -176,13 +176,13 @@
         <h2>Fix Character Movement</h2>
         <ol>
             <li>Select your character in the Hierarchy and in the Inspector window click the Prefab Open button.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/PrefabOpen.jpg" alt="Prefab Open Image" onclick="displayModal(this)" style="max-height: 45px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/PrefabOpen.jpg" alt="Prefab Open Image" onclick="displayModal(this)" style="max-height: 45px;"></div>
             <li>Go to the Animator component. In the Update Mode property drop-down, select <b>Animate Physics</b>.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/AnimatePhysicsl.jpg" alt="Animate Physics Image" onclick="displayModal(this)" style="max-height: 45px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/AnimatePhysicsl.jpg" alt="Animate Physics Image" onclick="displayModal(this)" style="max-height: 45px;"></div>
             <p>This change will cause the Animator to move the character in time with physics. Now there should be no competition between update loops to move the character, and it will react to physics as it should.</p>
             <li>Now we need to contrain the characters movement using physics. We don't want the character moving vertically after colliding with something.</li>
             <li>Find the RigidBody component and click the arrow to expand the Contraints propterty.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Constraints.jpg" alt="Rigidbody Contraints Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 400px;"><img src="../images/UnityImages/Constraints.jpg" alt="Rigidbody Contraints Image" onclick="displayModal(this)"></div>
             <p>These Contraint propterties restrict the directions in which the Rigidbody can move.</p>
         </ol>
     </div>
@@ -191,7 +191,7 @@
     <div class="innerContent">
         <h2>Coordinates in Unity</h2>
         <p>Positions and directions in Unity work in 3D coordinates represented by x, y and z - together these make a vector. You’ll find out more about vectors later. A Scene has a global definition of these directions that you can see in the top right of the Scene window.</p>
-        <div class="center" style="padding: 10px; max-width: 150px;"><img src="../images/UnityImages/Coordniates.jpg" alt="Coordinates Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 150px;"><img src="../images/UnityImages/Coordniates.jpg" alt="Coordinates Image" onclick="displayModal(this)"></div>
         <p>The colored arrows represent the positive direction of each axis, with the grey arrow opposite representing the negative direction:</p>
         <ul>
             <li>x-axis is red</li>
@@ -212,14 +212,14 @@
             <li>Rotation refers to a rotation around a specific axis. For example, if the character were rotated around its x-axis then it would look like it was lying down on its front or back.</li>
             <p>If it were rotated around its z-axis, it would look like it was lying down on its side.</p>
             <p>Our character shouldn’t move in either of these ways, so enable the Freeze Rotation X and Z checkboxes.</p>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/Constraints2.jpg" alt="Constraints Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 400px;"><img src="../images/UnityImages/Constraints2.jpg" alt="Constraints Image" onclick="displayModal(this)"></div>
             <p>The Rigidbody component is now set up, and your character will react to the physics system. However, it doesn’t really have any physical presence in the Scene yet - nothing can bump into it and it can’t bump into anything else. In order for it to have a physical presence in the scene, it needs a <b>Collider.</b></p>
         </ol>
         <h2>Add a Collider to your Character</h2>
         <p>A Collider is a general term that covers a number of different components. Colliders define the shape of an object for the purpose of physical collisions, allowing your character to hit things and be hit. There are Collider components of many different shapes, but the simplest one that best fits our character is the Capsule Collider.</p>
         <ol>
             <li>Click the Add Component button in the Inspector window, and search for Capsule Collider. Select the <b>Capsule Collider</b> option, making sure not to click on Capsule Collider 2D.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/CapsuleCollider.jpg" alt="Capsule Collider Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 400px;"><img src="../images/UnityImages/CapsuleCollider.jpg" alt="Capsule Collider Image" onclick="displayModal(this)"></div>
             <p>Change the Capsule Collider's Height, Radius and Center properties to fit your character.</p>
         </ol>
     </div>
@@ -259,7 +259,7 @@
             </div>
             <p>Find the line which starts <b>“public class PlayerMovement”</b>. This is what defines the class name. If your script doesn’t say PlayerMovement, delete the script Asset then create a new one named PlayerMovement.</p>
             <li> Now you have created your script Asset, open it for editing. You can either double click on the Asset, or click the "Open…" button in the Inspector window.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/PlayerMovementInInspector.jpg" alt="Player Movement In Inspector Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 400px;"><img src="../images/UnityImages/PlayerMovementInInspector.jpg" alt="Player Movement In Inspector Image" onclick="displayModal(this)"></div>
             <p>Script editing is not done inside Unity - instead scripts open in another program called Visual Studio. Once that’s opened, you’ll be able to edit the script.</p>
         </ol>
         <h2>Explore the default script</h2>
@@ -356,7 +356,7 @@
         </p></div>
         <p>Vectors in 3D space have three values — this Set method assigns a value to each. It has three parameters, one for each coordinate of the vector. The movement vector now has a value of the horizontal input in the x axis, 0 in the y axis and the vertical input in the z axis. There’s also an f after the 0 for the second parameter, which is instructing the computer to treat that number as a float.</p>
         <p>Now you need to fix a small problem. The movement vector is made up of two numbers that can have a maximum value of 1. If they both have a value of 1, the length of the vector (known as its magnitude) will be greater than 1. This is the relation between sides of a triangle described by Pythagoras’ theorem.</p>
-        <div class="center" style="padding: 10px; max-width: 200px;"><img src="../images/UnityImages/TriangleDiagram.jpg" alt="Triangle Diagram Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 200px;"><img src="../images/UnityImages/TriangleDiagram.jpg" alt="Triangle Diagram Image" onclick="displayModal(this)"></div>
         <p>This means that your character will move faster diagonally than it will along a single axis. In order to make sure this doesn’t happen, you need to ensure the movement vector always has the same magnitude. You can do this by normalizing it. Normalizing a vector means keeping the vector’s direction the same, but changing its magnitude to 1.</p>
         <p>Add the following script beneath the previous line you wrote, to call a method on the vector itself:</p>
         <div class="unityCode" id="Normalize"><button class="copy" onclick="copyText('Normalize')">Copy</button><br><p>
@@ -595,7 +595,7 @@
             <li>In the Hierarchy window, select the Directional Light GameObject.</li>
             <li> You’re going to change some of the properties of the Light component, starting with the Color, but first you need to understand how colors work.</li>
             <p>In the Inspector, click on the Color property. Clicking on any Color property in Unity will open the Color picker window:</p>
-            <div class="center" style="max-width: 250px; padding: 10px;"><img src="../images/UnityImages/ColorPicker.jpg" alt="Color Picker Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 250px;"><img src="../images/UnityImages/ColorPicker.jpg" alt="Color Picker Image" onclick="displayModal(this)"></div>
             <li>The Color picker window gives you a number of different options to set the values for a color.</li>
             <p>Each color is made from four channels:</p>
             <ul>
@@ -619,10 +619,10 @@
             <li>Go to the Window menu and select Rendering > Lighting Settings. Click and drag on the name tag, and dock it next to Inspector window.</li>
             <p>The Lighting Settings window is the main control point for Unity’s Global Illumination features for the currently loaded scene. It also contains the settings for Environment Lighting, Reflections and Fog.</p>
             <li>In the Realtime Lighting section, disable the Realtime Global Illumination checkbox. In the Mixed Lighting section, disable the Baked Global Illumination checkbox.</li>
-            <div class="center" style="padding: 10px; max-width: 450px;"><img src="../images/UnityImages/BakedGlobalLighting.jpg" alt="Baked Global Lighting Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 450px;"><img src="../images/UnityImages/BakedGlobalLighting.jpg" alt="Baked Global Lighting Image" onclick="displayModal(this)"></div>
             <li> In the Environment section, use the circle select button to the far right of the Skybox Material property to set it to None (a null reference). You don’t need a realistic sky for this game, and will use alternative lighting.</li>
-            <div class="center" style="padding: 10px;"><img src="../images/UnityImages/SkyboxEnvironment.jpg" alt="Skybox Environment Image" onclick="displayModal(this)" style="max-height: 45px;"></div>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/MaterialList.jpg" alt="Skybox Material List Image" onclick="displayModal(this)"></div>
+            <div class="center"><img src="../images/UnityImages/SkyboxEnvironment.jpg" alt="Skybox Environment Image" onclick="displayModal(this)" style="max-height: 45px;"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/MaterialList.jpg" alt="Skybox Material List Image" onclick="displayModal(this)"></div>
             <li>In the Environment section, set the Environment Lighting Source to Gradient.</li>
             <p>The Gradient is broken into three color fields:</p>
             <ul>
@@ -647,7 +647,7 @@
         <ol>
             <li>In the Hierarchy, select the Level GameObject.</li>
             <li>In the Inspector, enable the Static checkbox.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/LevelStatic.jpg" alt="Level Static Checkbox Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/LevelStatic.jpg" alt="Level Static Checkbox Image" onclick="displayModal(this)"></div>
             <li>A dialogue box will appear asking whether you wish to enable the static flags for all the child objects as well. Select Yes, change children.</li>
             <li>Now the Level GameObject and all of its child GameObjects are marked as static, but you need to set one exception. There is a Ceiling Plane GameObject in the level design which is being used to cast shadows. If you include this in the bake, the ghosts might end up walking on the ceiling! As spooky as that sounds, it won’t work for this game.</li>
             <p>In the Hierarchy window, expand the Level GameObject and its children.</p>
@@ -660,10 +660,10 @@
         <ol>
             <li>In the Menu bar, go to Window > AI > Navigation to open the Navigation window. The window should dock itself with the Inspector window.  If it doesn’t, drag and dock it there.</li>
             <li>There are 4 tabs at the top of the Navigation window: Agents, Areas, Bake and Object.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/NavigationBake.jpg" alt="Navigation Bake Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/NavigationBake.jpg" alt="Navigation Bake Image" onclick="displayModal(this)"></div>
             <p>Select the Bake tab.</p>
             <li>The Bake settings control the details of how the NavMesh will be constructed. The first settings refer to the agents that will traverse (the ghosts that will move around) the NavMesh — the NavMesh Agents. They specifically refer to the size of the agents and the terrain they can move across.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/BakedAgent.jpg" alt="Baked Agent Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/BakedAgent.jpg" alt="Baked Agent Image" onclick="displayModal(this)"></div>
             <p>The only setting you need to adjust for your game is the Agent Radius; the ghosts roaming the haunted house will be smaller than the default. Change the Agent Radius to 0.25.</p>
             <li>Select the Bake button at the bottom of the window.</li>
             <p>The bake process will take from a second to a few minutes, depending on the power of your computer. When it finishes, the environment in the Scene window will be covered in a light blue mesh. This is the area of the environment that the ghosts will be able to move around.</p>
@@ -676,7 +676,7 @@
     <div class="innerContent">
         <h2>Explore the Camera Component</h2>
         <p>In the previous tutorial, you created a level for your game. The character can now walk around the Scene, but this means that he sometimes wanders away from the camera. In this tutorial, you’ll adjust the camera settings to make sure this doesn’t happen. Scenes in Unity are made up of GameObjects which in turn have a collection of components attached to them. The way that the Scene is viewed by players is constructed in the same way. To view the Scene, a GameObject in the Scene must have a Camera component. When a new Scene is created, a GameObject is added called Main Camera which has a Camera component.</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CameraObject.jpg" alt="Camera Object Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/CameraObject.jpg" alt="Camera Object Image" onclick="displayModal(this)"></div>
         <p>The camera points down the GameObject’s z-axis and behaves exactly like all other GameObjects. In the Scene view, you can see a gizmo representing the camera’s frustum. The frustrum is a solid shape that looks like a pyramid with the top cut off parallel to the base. This is the shape of the region that can be seen and rendered by a perspective camera.</p>
         <p>When you make a game, you have a few options to make sure that the camera followers the player character. One solution would be to write a script for this. However, Unity has a built-in solution to the problem: Cinemachine.</p>
         <h2>How does Cinemachine work?</h2>
@@ -695,7 +695,7 @@
             <li>Move your cursor over the Scene window and press the F key.</li>
             <li>In the top menu, go to Cinemachine > Create Virtual Camera.</li>
         </ol>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/Cinemachine.jpg" alt="Cinemachine Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/Cinemachine.jpg" alt="Cinemachine Image" onclick="displayModal(this)"></div>
         <p>This will create a new GameObject in the scene called CM vcam1.</p>
         <p>This will be created at the focus point of the Scene window’s camera, so it should be right on top of the character. However, since you now have a virtual camera in the Scene it will have moved the Game window’s view, so you can no longer see your character in the Game window.</p>
         <p>To fix this, you need to make sure the virtual camera is tracking the character by changing the Cinemachine Virtual Camera component settings.</p>
@@ -703,7 +703,7 @@
         <ol>
             <li>In the Hierarchy, select CM vcam1.</li>
             <li>In the Inspector, find the Cinemachine Virtual Camera component. This component has a lot of settings, but at the moment you just need to focus on three sections: the target references, the body and the aim.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CinemachineSettings.jpg" alt="Cinemachine Settings Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/CinemachineSettings.jpg" alt="Cinemachine Settings Image" onclick="displayModal(this)"></div>
             <p>The target references section has two settings: Follow and Look At.  These are optional references to the Transform components of GameObjects. If you want your virtual camera to move, then it needs to know how to move. Specifically, it needs a reference to a Transform that it will follow.  Likewise, if you want your virtual camera to rotate then it needs to know what it has to rotate to look at.</p>
             <p>The next section two sections are the Body and Aim. These are settings for how the camera moves and rotates respectively. You’re going to restrict the movement of the virtual camera, so it has the character in view all the time but doesn’t actually look at the character.</p>
             <li>In the Aim section, change the drop-down menu at the top right from Composer to Do Nothing.</li>
@@ -732,7 +732,7 @@
         <ol>
             <li>In the Hierarchy, select the Main Camera GameObject.</li>
             <li>In the Inspector, find the Layer property below the GameObject’s name.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/MainCameraLayerProperty.jpg" alt="Main Camera Layer Property Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/MainCameraLayerProperty.jpg" alt="Main Camera Layer Property Image" onclick="displayModal(this)"></div>
             <p>A GameObject can only belong to one layer. The Main Camera is on the Default Layer. There are several options by default in Unity, but you can also create your own layers in the Tags &amp; Layers Manager.</p>
             <li>In the Layer property drop-down, select Add Layer…</li>
             <li>In the Tags &amp; Layers Manager there are 32 available Layers in (starting with 0 and ending with 31).</li>
@@ -832,7 +832,7 @@
         <ol>
             <li>In the Hierarchy window, click the Create button. This can be used to create all sorts of basic GameObjects.</li>
             <li>Go to UI > Image. A UI Image can be stretched across the player’s entire screen, and it;s opacity can be changed to create a fade effect. Perfect!</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/UIImage.jpg" alt="UI Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/UIImage.jpg" alt="UI Image" onclick="displayModal(this)"></div>
             <p>This will add a few new GameObjects to your Scene.</p>
             <li>In the Scene window, click the 2D button in the top bar to enable 2D Mode. This will enable you to see the new GameObjects properly.</li>
             <li>In the Hierarchy, select the Canvas GameObject. Place your cursor over the Scene and press F.</li>
@@ -856,7 +856,7 @@
             <p>You need to stretch an Image across the screen and have it rendered over the top of everything else. This means that the default Render Mode of Screen Space - Overlay is perfect for you.</p>
             <li>The next component on the FaderCanvas GameObject is the Canvas Scaler.  This is used as an easy way of controlling the relative sizes of UI elements when they are displayed on different screen sizes. Your Image will be stretched across the entire screen, so you don’t need to worry about its relative scale.</li>
             <p>Click the cog icon in the top right of the Canvas Scalar component to open the context menu. Select Remove Component.</p>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/CanvasSliderRemoveComponent.jpg" alt="Canvas Scaler Remove Component Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/CanvasSliderRemoveComponent.jpg" alt="Canvas Scaler Remove Component Image" onclick="displayModal(this)"></div>
             <li>The final component on the FaderCanvas GameObject is the Graphic Raycaster. This is used to detect UI events such as clicks.  It will determine which UI element was clicked on and send the event to that element so the appropriate component can react. The player won’t interact with the UI in your game, so this component is not needed.</li>
             <p>Click the cog icon in the top right of the Graphic Raycaster component to open the context menu. Select Remove Component.</p>
         </ol>
@@ -871,21 +871,21 @@
         <h2>Explore the Rect Transform Component</h2>
         <p>A 3D GameObject’s position is represented by a single point at the GameObject’s pivot. The position of this pivot point in a Transform component is relative to the GameObject’s parent. Rect Transforms work similarly, but since UI elements can represent an area there are some differences. Instead of the position of a Rect Transform being relative to a single pivot point on their parent, they are relative to an area of their parent. This area of the parent is represented by a Rect Transform’s Anchors.</p>
         <p>You may have seen a gizmo in the Scene window which looks like a flower:</p>
-        <div class="center" style="padding: 10px; max-width: 100px;"><img src="../images/UnityImages/Flower.jpg" alt="Flower Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 100px;"><img src="../images/UnityImages/Flower.jpg" alt="Flower Image" onclick="displayModal(this)"></div>
         <p>This is actually multiple points all pulled together. Each of these points is an anchor. The rectangle created by the four anchor points is a proportion of the total area of the parent.</p>
-        <div class="center" style="padding: 10px; max-width: 100px;"><img src="../images/UnityImages/ExpandedFlower.jpg" alt="Expanded Flower Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 100px;"><img src="../images/UnityImages/ExpandedFlower.jpg" alt="Expanded Flower Image" onclick="displayModal(this)"></div>
         <p>Your Image is a child of the FaderCanvas, which fills the entire screen.  This means that your Image’s position is relative to an area of the entire screen.</p>
         <p>The position of UI elements is measured in pixels. This is very important, particularly because not all screens have the same number of pixels. This is what makes the anchor system so powerful — when the anchors are all together and they show a point, the Rect Transform shows a position in pixels that the UI element is offset from that point.</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform1.jpg" alt="Rect Transform 1 Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/RectTransform1.jpg" alt="Rect Transform 1 Image" onclick="displayModal(this)"></div>
         <p>However, if the anchors are separated then the Rect Transform shows a pixel offset from the sides of the anchor area:</p>
-        <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform2.jpg" alt="Rect Transform 2 Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/RectTransform2.jpg" alt="Rect Transform 2 Image" onclick="displayModal(this)"></div>
         <p>So how does this apply to your game?  Well, you need the whole screen to fade. That means your Image should cover the entire screen no matter what the screen shape or size is. In order to achieve this, you need to make sure that the anchor area is the entire screen and that there’s no offset from that area.</p>
         <h2>Configure the Rect Transform Component</h2>
         <ol>
             <li>In the Hierarchy window, select the Image GameObject.</li>
             <li>In the Inspector, find the Rect Transform component. Expand the Anchors setting.</li>
             <li>Set the minimum values for x and y to 0. Set the maximum values for x and y to 1.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/RectTransform3.jpg" alt="Rect Transform 3 Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/RectTransform3.jpg" alt="Rect Transform 3 Image" onclick="displayModal(this)"></div>
             <p>Remember that the Anchors are relative to their parent: 0 means the far left or bottom of the screen, 1 means the far right or top of the screen.</p>
             <p>Now that you have set the Anchors, you should see that your Image’s position has changed. The position is now listed as Left, Top, Pos Z, Right and Bottom. Apart from Pos Z (which you can ignore), these are the distance of the GameObject from its Anchor area in pixels. A negative value indicates that the element is outside of the Anchor area. A value of zero means there’s no offset from the Anchor area.</p>
             <p>In the example above, the left side of the Image is 394 pixels in from the left side of the anchor area; the right side of the Image is 942 pixels from the right side of the anchor area; the top side of the Image is 487 pixels from the top side of the anchor area and the bottom side of the Image is 145 pixels from the bottom of the anchor area.</p>
@@ -918,7 +918,7 @@
         <ol>
             <li>In the Hierarchy window, select the ExitImageBackground GameObject.</li>
             <li>In the Inspector, add a Canvas Group component.</li>
-            <div class="center" style="padding: 10px; max-width: 400px;"><img src="../images/UnityImages/CanvasGroup.jpg" alt="Canvas Group Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 400px;"><img src="../images/UnityImages/CanvasGroup.jpg" alt="Canvas Group Image" onclick="displayModal(this)"></div>
             <p>Change the Alpha property to 0.</p>
             <li>Now you’re done with making the UI, let’s switch the Scene window back to the level. First, disable 2D Mode in the Scene window.</li>
             <li>In the Hierarchy window, select the character GameObject. WIth your cursor over the Scene view, press F to focus.</li>
@@ -1130,7 +1130,7 @@
         <ol>
             <p>In your script, you created a number of variables that need to be set in the Editor. These make it easier to customise the game and test changes easily.</p>
             <li>In the Hierarchy, select the GameEnding GameObject.</li>
-            <div class="center" style="padding: 10px; max-width: 500px;"><img src="../images/UnityImages/GameEndingScript.jpg" alt="Game Ending Script Image" onclick="displayModal(this)"></div>
+            <div class="center" style="max-width: 500px;"><img src="../images/UnityImages/GameEndingScript.jpg" alt="Game Ending Script Image" onclick="displayModal(this)"></div>
             <li>Drag the character GameObject from the Hierarchy window onto the Game Ending script in the Inspector. This will assign the Player variable.</li>
             <li>In the Hierarchy, expand the FaderCanvas. Drag the ExitImageBackground GameObject onto the Exit Background Image Canvas Group field of the Game Ending component. Unity will automatically find the correct component to assign the Exit Background Image Canvas Group variable.</li>
         </ol>
