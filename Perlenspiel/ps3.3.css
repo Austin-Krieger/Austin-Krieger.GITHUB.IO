@@ -10,7 +10,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }*/
 
 body {
-    line-height: 1;
+    line-height: 1.2;
     overflow-y: hidden;
 }
 
@@ -21,6 +21,7 @@ ol, ul {
 blockquote, q {
     quotes: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -52,8 +53,6 @@ html {
 body {
     color: #fff;
     background-color: #303030;
-    /*font-family: 'Droid Sans', sans-serif;
-    font-size: 125%;*/
 }
 
 #main {

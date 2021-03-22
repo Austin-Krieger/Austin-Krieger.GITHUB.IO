@@ -7,7 +7,10 @@ body {
 
 h1 {
     text-align: center;
-    padding-top: 50px;
+}
+
+#closeSideNav {
+    padding-top: 60px;
 }
 
 h2 {
@@ -40,7 +43,9 @@ tr:nth-child(even) {
 }
 
 .containButtons {
-    padding: 18px;
+    padding-right: 18px;
+    padding-left: 18px;
+    padding-bottom: 18px;
     /*width: 100%;*/
 }
 
@@ -213,18 +218,32 @@ sql {
     z-index: 1;
 }
 
+.navbar span {
+    font-size: 25px;
+    cursor: pointer;
+    float: left;
+    color: white;
+    padding: 14px 16px;
+}
+
 .navbar a {
-    display: inline-block;
-    color: #f2f2f2;
-    text-align: center;
+    font-size: 21px;
+    cursor: pointer;
+    color: white;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+}
+
+.navbar a:not(:last-of-type) {
+    float: left;
+}
+
+.navbar a:last-of-type {
+    float: right;
 }
 
 .navbar a:hover {
     background-color: #777777;
-    color: white;
 }
 
 /* width */
