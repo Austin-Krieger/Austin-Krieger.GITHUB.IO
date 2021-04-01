@@ -29,7 +29,7 @@
     <a href="../index.html">Modding</a>
 </div>
 <div id="closeSideNav">
-<h1>Black Ops III Mod Tools</h1>
+<h1>Lighting</h1>
 <div class="containButtons">
 <button class="collapsible" id="autoClickBtn">Lighting</button>
 <div class="content">
@@ -45,14 +45,69 @@
     <button class="collapsible">Adding Lights</button>
     <div class="innerContent">
     <h2>Adding Simple Lights</h2>
-    <p>Description.</p>
+    <p>Here is a quick tutorial on adding a barn or shed like outdoor light to your map.</p>
+    <h3>Download</h3>
     <ol>
-        <li></li>
-        <li></li>
+        <li>Here is the folder you will need to open for this tutorial, starting with the <b>root</b> folder <b>D:\Steam\steamapps\common\Call of Duty Black Ops III\</b></li><br>
+        <p class="code-sl">
+            <b>map_source\_prefabs\zm</b>
+        </p>
+        <li>Download: <a href="../../downloads/Modding/BO3%20Mod%20Tools/Custom%20Lights/lamp_01.map" download>lamp_01.map</a></li>
+        <li>Add the prefab to your <b>map_source &gt; _prefabs &gt; zm</b> folder or you can even add it to a <b>custom</b> folder inside the default <b>lights</b> folder if you want.</li>
+        <li>Inside your map, <b>Right Click &gt; Misc &gt; prefab</b>. Go to where you placed the file and open the <b>lamp_01.map</b> file.</li>
+    </ol>
+    <h3>Make it Yourself</h3>
+    <ol>
+        <li>Go to the <b>Models Pane (M)</b> and search for <b>p7_lamp_old_wall_pan_01</b>. Drag it into the map and place it against a wall.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights01.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>You can rotate the lamp model using <b>Shift + D</b> or by pressing the <b>Rotate Z</b> button near the top of the editor.</li>
+        <div class="center" style="max-width: 300px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights02.png" alt="... Image" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights03.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>With only the metal lamp model selected, go to <b>Entity Browser > Script > model</b> and double click.</li>
+        <li>This model comes with a light, but if we use a model that doesn't come with one, we will have to add one ourselves.</li>
+        <li>Go to the <b>Entity Browser (B)</b>, click on <b>unsorted</b>, and drag in a <b>light</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights04.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Center the light in the model and go to the <b>Entity Info Pane (N)</b>.</li>
+        <li>Currently the light is a <b>PRIMARY_OMNI</b> which is a large spherical light, but for our lamp we will want to change the <b>PRIMARY_TYPE</b> to <b>PRIMARY_SPOT</b> which is a spotlight.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/lights05.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/lights06.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>Our spotlight is a little too square, so we will need to change the <b>roundness</b> property from <b>0.50</b> to <b>1.00</b>.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/lights07.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/lights08.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>We need our light to reach the floor from the lamp so, click and drag down the blue square scaling handle until the light reaches the floor.</li>
+        <li>Our lamp light needs to be a little wider to match the ring of our lamp model. Changing the <b>fov_outer</b> value will make our spotlight radius larger. I went with <b>101.00</b> for this example.</li>
+        <li>Finally, we need to bake our lights and see how this will look in game. Press <b>F8</b> to show lighting in the <b>Camera Pane</b> and then click on the yellow lightning bolt to bake lights.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights09.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Our light is way too bright, so we will need to lower its' intensity. Find the <b>stops</b> property and lower it to around <b>5.00</b>.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights10.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>We can now add a slight yellow tint to our light by clicking on the ellipsis button for the <b>_color</b> property.</li>
+        <li>Another window will appear with a color slider. We can change the RGB values to <b>[253, 251, 210]</b> and hit <b>OK</b>.</li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights11.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Our spotlight will not light up the inner ring of our model, so we need to add another light to our map with the same color. Copying the current light and changing some values will also work.</li>
+        <li>With our spotlight selected, press <b>space</b> to make a copy:</li>
+        <li>Center and vertically line up the new light, then modify these values until your happy:</li><br>
+        <p class="code-sl">
+            <b>stops</b>: <sql>3.00</sql><br>
+            <b>PRIMARY_TYPE</b>: <sql>PRIMARY_OMNI</sql><br>
+            <b>far_edge</b>: <sql>0.75</sql><br>
+            <b>radius</b>: <sql>11.00</sql>
+        </p>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights12.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>To soften the edges of the light more, you can play with the <b>falloffdistance</b> and <b>far_edge</b> property values.</li>
     </ol>
     </div>
     &nbsp;
-    <button class="collapsible" id="autoClickBtn">Changing the Skybox</button>
+    <button class="collapsible">Changing the Skybox</button>
     <div class="content">
     <h2>Change the Skybox</h2>
     <p>We can change the skybox from a daytime to a nighttime sky.</p>
@@ -83,7 +138,63 @@
         <li>We can now switch to <b>Game View (F9)</b> and then <b>Lighting View (F8)</b> to see our cooked lighting and pressing <b>F9</b> again will exit <b>Game View</b>. <b>F7</b> returns you to <b>Flat View</b>.</li>
         <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/GameViewAfterLightingBuilt02.png" alt="... Image" onclick="displayModal(this)"></div>
     </ol>
-</div>
+    </div>
+    &nbsp;
+    <button class="collapsible">Add Fog</button>
+    <div class="content">
+    <h2>Adding Fog</h2>
+    <p>We can easily add fog to our map by following these steps.</p>
+    <ol>
+        <li>In the <b>Entity Browser (B)</b> go to <b>Volume &gt; litfog</b> and drag it into your map.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights21.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Drag the sides of the <b>volume</b> until it matches the size of your map. You can also try the quicker way of lining up the sides as described in the <b>Fix Light Bleeding</b> tutorial below.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/lights22.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/BO3%20Mod%20Tools/lights23.png" alt="... Image" onclick="displayModal(this)">
+        </div></div>
+        <li>In the <b>Entity Info Pane (N)</b> click on the first ellipsis of the <b>fsi_1</b> property to bring up a list of fog options. Click on <b>zm_factory_dogs_volumetric</b> and hit <b>OK</b>.</li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights27.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Now you will need to select the lights you want this fog to effect and make them volumetric.</li>
+        <li>Click on the spotlight we made earlier and go to the <b>Entity Info Pane (N)</b>. Find the <b>volumetric</b> property and click the box to make it <b>True</b>.</li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights24.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Play with the <b>volumetricIntensityBoost</b> if you want.</li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights25.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>You now have a fog effect for the lights in your map.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights26.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+    </div>
+    &nbsp;
+    <button class="collapsible">Fix Light Bleeding</button>
+    <div class="content">
+    <h2>Fix Light Bleeding</h2>
+    <p>The sun volume likes to bleed through walls and light up the corners of the floor. Let's fix that.</p>
+    <ol>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights13.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Inside the <b>Entity Browser (B)</b> find <b>Unsorted &gt; Reflection_probe</b> and drag one into your room.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights14.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Now you can resize it to line up with your walls by clicking and draging each side, but there is a quicker method.</li>
+        <li>Move your camera inside of the reflection probe so you are surround by its green box and look at one of the walls.</li>
+        <li>Use <b>Ctrl + Left Click</b> and that side of the reflection probe will line itself up with that wall.</li>
+        <li>Do the same to the other walls, the floor, and the ceiling.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights15.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>The following steps can actually reduce the amount of bleeding on their own, but adding the <b>Reflection_probe</b> has better results than not adding it.</li>
+        <li>Select the <b>volume_sun</b> volume on the edge of your map.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights18.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Clicking on the ellipsis for the <b>ssi1</b> property will bring up a window with skybox options.</li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights19.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Search for and click on <b>default_day</b> or if that is the current skybox, then search for <b>zm_factory</b> and hit <b>OK</b>.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights16.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>Bake your lighting by hitting <b>F8</b> and clicking on the lightning bolt.</li>
+        <li>Change your skybox back to the one you want to use.</li>
+        <li>Bake your lighting again, and the bleeding should be fixed.</li>
+        <div class="center" style="max-width: 500px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights17.png" alt="... Image" onclick="displayModal(this)"></div>
+        <li>There is also a semi-fix that involved adding <b>caulk_shadow</b> texture boxes in front of the walls where the sun is hitting, but I prefer the <b>Reflection_probe</b> method.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/BO3%20Mod%20Tools/lights20.png" alt="... Image" onclick="displayModal(this)"></div>
+    </ol>
+    </div>
 </div>
 </div>
 </div>
