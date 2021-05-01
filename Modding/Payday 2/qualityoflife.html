@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding PAYDAY 2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="gettingstarted.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Quality of Life</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Quality of Life</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Installing</h2>
+    <ol>
+        <li>Download the mod.</li>
+        <li>Extract the folder.</li>
+        <li>Drag the folder to your <b>mods</b> folder (<b>D:\Steam\steamapps\common\PAYDAY 2</b>).</li>
+    </ol>
+    <h2>Equipment Boost</h2>
+    <p>This is my own personal mash up of mods. Want to hold hundreds of bags of near limitless equipment into the game with you? I got you. We also have: no fall damage, insane amounts of dodge chance, and much more. Secondary equipment counts will be halved. Some improvements require perk decks that increase health, armor, or stamina to take effect.</p>
+    <div style="column-count: 2;">
+    <h3 style="margin-top: 0px;">Equipment</h3>
+    <ul>
+        <li><b>Sentry Guns</b> (500)</li>
+        <li><b>Silent Sentry Guns</b> (500)</li>
+        <li><b>Body Bags</b> (500)</li>
+        <li><b>Doctor Bags</b> (500)</li>
+        <li><b>Ammo Bags</b> (500)</li>
+        <li><b>Armor Kits</b> (500)</li>
+        <li><b>First Aid Kits</b> (500)</li>
+        <li><b>Trip Mines</b> (500)</li>
+        <li><b>Cable Ties</b> (999)</li>
+        <li><b>Invulnerable Sentry Guns</b></li>
+        <li><b>Infinite Ammo Sentry Guns</b></li>
+        <li><b>Infinite ECM Jammer</b> (Commented Out)</li>
+        <li><b>Infinite ECM Jammer Warble</b></li>
+    </ul>
+    <h3>Player</h3>
+    <ul>
+        <li><b>No Fall Damage</b></li>
+        <li><b>Increased Movement Speed</b></li>
+        <li><b>Infinite Stamina</b></li>
+        <li><b>Faster Mask Up</b></li>
+        <li><b>Hostage Follow Limit</b> (100)</li>
+    </ul>
+    <h3>Gage</h3>
+    <ul>
+        <li><b>Gage Packages</b> (999)</li>
+    </ul> 
+    <h3>Cops</h3>
+    <ul>
+        <li><b>Remove Pagers</b> (Everyone)</li>
+        <li><b>Remove Pagers</b> (Intimidated Guards)</li>
+    </ul>
+    <h3>Skills (Requirements)</h3>
+    <ul>
+        <li><b>Melee Damage Increase</b> (Frenzy - Basic)</li>
+        <li><b>Ammo Pickup Multiplier Increase</b> (Ammo Efficiency - Basic)</li>
+        <li><b>Infinite Magazine</b> (Surefire - Aced)</li>
+        <li><b>Increased Gun Damage</b></li>
+        <li><b>Increased Weapon Stability</b> (Stable Shot - Basic)</li>
+        <li><b>Increased Weapon Accuracy</b> (Steady Grip - Basic)</li>
+        <li><b>Cleaning Costs Reduced</b> (Sixth Sense - Aced)</li>
+        <li><b>Messiah Revives</b> (999)</li>
+        <li><b>Passive Health Multiplier</b> (Perk Deck - Crew Chief...)</li>
+    </ul>
+    <h3>Armor</h3>
+    <ul>
+        <li><b>Increased Armor</b></li>
+        <li><b>Remove Movement Reduction</b></li>
+        <li><b>Increased Concealment</b></li>
+        <li><b>Increased Dodge</b></li>
+        <li><b>Reduced Damage Shake</b></li>
+        <li><b>Reduce Stamina Cost</b></li>
+    </ul>
+    </div>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/EquipmentBoost/EquipmentBoost.zip" download>EquipmentBoost.zip</a>.</p>
+    <h2>Carry Stacker</h2>
+    <p>Pick up everything (Body bags, Gold, Paintings, Drills, etc.).</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/CarryStackerReloaded/CarryStackerReloaded.zip">CarryStackerReloaded.zip</a>.</p>
+    <h2>Silent Assassin</h2>
+    <p>Silently take out guards without pagers going off. Headshots preferred.</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/SilentAssassin/SilentAssassin.zip" download>SilentAssassin.zip</a>.</p>
+    <h2>Better Bots</h2>
+    <p>Improve friendly bots in various ways. Improved chance they will be able to pick you up when things go wrong at the beginning of a heist.</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/BetterBots/BetterBots.zip" download>BetterBots.zip</a>.</p>
+    <h2>No Detection</h2>
+    <p>Make it much more difficult for security guards to detect you.</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/NoDetection/NoDetection.zip" download>NoDetection.zip</a>.</p>
+    <h2>No Drill Timers</h2>
+    <p>Remove the timer for many drills. On the newest maps this will crash the game, but for the majority of mission you will be glad you have this. Some drills are hard coded to break a few times, just so you know.</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/NoDrillTimers/NoDrillTimers.zip" download>NoDrillTimers.zip</a>.</p>
+    <h2>Remove Timers</h2>
+    <p>Want to pick a lock and interact with objects instantly? This mod has you covered (Mostly).</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/RemoveTimers/RemoveTimers.zip" download>RemoveTimers.zip</a>.</p>
+    <h2>Meth Helper</h2>
+    <p>Spams the chat with what meth ingrediant to add next.</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/MethHelper/MethHelper.zip" download>MethHelper.zip</a>.</p>
+    <h2>Secret Achievement Highlight Filter</h2>
+    <p>Highlight the achievements required to complete the secret in <b>PAYDAY 2</b>.</p>
+    <p>Download: <a href="../../downloads/Modding/Payday%202/SecretAchievementHighlightFilter/SecretAchievementHighlightFilter.zip" download>SecretAchievementHighlightFilter.zip</a>.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

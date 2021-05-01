@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding PAYDAY 2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="qualityoflife.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Getting Started</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Getting Started</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Install SuperBLT</h2>
+    <p>The original installation guide can be found <a href="https://superblt.znix.xyz">here</a> <i class="fa fa-external-link"></i>.</p>
+    <ol>
+        <li>Download and install the <a href="https://aka.ms/vs/15/release/VC_redist.x86.exe">Microsoft Visual C++ 2017 Redistributable package (x86)</a> <i class="fa fa-external-link"></i>.</li>
+        <li>Download the <a href="https://znix.xyz/random/payday-2/SuperBLT/latest-wsock.php">Latest Release DLL</a> <i class="fa fa-external-link"></i>, and place it in your PAYDAY 2 folder (<b>D:\Steam\steamapps\common\PAYDAY 2</b>) alongside <b>payday2_win32_release.exe</b>.</li>
+        <li>You can also get to your <b>PAYDAY 2</b> files by Right Clicking the game in your <b>Steam library &gt; Properties... &gt; LOCAL FILES &gt; Browse...</b></li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Payday%202/LocalFiles.png" alt="Payday 2 Local Files" onclick="displayModal(this)"></div>
+        <li>Start the game, and <b>SuperBLT</b> will prompt you to download the basemod. Select <b>Yes</b>, and it will notify you when it's done downloading. At this point, <b>SuperBLT</b> has been fully installed.</li>
+        <div class="center" style="max-width: 350px;"><img src="../../images/Modding/Payday%202/BaseModInstall.png" alt="Payday 2 Local Files" onclick="displayModal(this)"></div>
+        <li>Run the game again to check that it has installed.</li>
+    </ol>
+    <h2>Install BeardLib</h2>
+    <ol>
+        <li>First you need to create a <b>mods</b> folder within the <b>PAYDAY 2</b> folder.</li>
+        <li>You can download it from <a href="https://modworkshop.net/mod/14924">modworkshop</a> <i class="fa fa-external-link"></i>.</li>
+        <li>Extract the <b>.zip</b> file and move it to your newly created <b>mods</b> folder.</li>
+        <li>Once you have your mod files in your <b>PAYDAY 2</b> local files, run <b>PAYDAY 2</b> with your keyboard and mouse (controller won't let you select the updates available prompt).</li>
+        <li>Update your mods.</li>
+    </ol>
+    <h2>Install WolfHUD</h2>
+    <ol>
+        <li>Download the files from <a href="https://github.com/Kamikaze94/WolfHUD">GitHub</a> <i class="fa fa-external-link"></i></li>
+        <li>Extract the folder and place the files in your mods folder.</li>
+        <li>Start the game again and you will be prompted to update Federal Inventory.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
