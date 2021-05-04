@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding DST</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="gettingstarted.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>DST - Mods</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">DST - Mods</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Installing Mods (Non-Published)</h2>
+    <ol>
+        <li>Download the mod.</li>
+        <li>Extract the folder.</li>
+        <li>Drag the folder to your <b>mods</b> folder (<b>D:\Steam\steamapps\common\Don't Starve Together\mods</b>).</li>
+    </ol>
+    <h2>Installing Mods (Steam)</h2>
+    <ol>
+        <li>Open Don't Starve Together</li>
+        <li>From the main menu click on Mods.</li>
+        <li>Click on Get Mods and then click on More Mods to open the steam menu directly to the DST workshop.</li>
+        <li>Subscribe to your desired mods.</li>
+    </ol>
+    <h2>Mod Pack I</h2>
+    <p>I compiled various mods into the following mod packs.</p>
+    <ul style="column-count: 2;">
+        <li><b>Increase Inventory Slots</b></li>
+        <li><b>Ressurect From Skeleton</b></li>
+        <li><b>Faster Movement (Cane)</b></li>
+        <li><b>Infinite Tent Uses</b></li>
+        <li><b>Infinite Canopy Uses</b></li>
+        <li><b>Infinite Fridge Freshness</b></li>
+        <li><b>Increase Stack Sizes</b></li>
+        <li><b>Infinite Durabilities</b></li>
+    </ul>
+    <p>Download: <a href="../../downloads/Modding/DST/ModPackI.zip" download>ModPackI.zip</a></p>
+    <h2>Mod Pack II</h2>
+    <ul>
+        <li><b>Slower Sanity Drain</b></li>
+        <li><b>More Chesters Per Player</b></li>
+        <li><b>Craftable Gear</b></li>
+        <li><b>Increase Equipment Stack Size</b></li>
+    </ul>
+    <p>Download: <a href="../../downloads/Modding/DST/ModPackII.zip" download>ModPackII.zip</a></p>
+    <h2>Mod Pack III</h2>
+    <ul>
+        <li><b>Extended Indicators</b></li>
+        <li><b>Larger Campfire Collisions</b></li>
+        <li><b>Gold Survival Kit</b></li>
+        <li><b>Change Character</b> (Default Button: P)</li>
+    </ul>
+    <p>Download: <a href="../../downloads/Modding/DST/ModPackIII.zip" download>ModPackIII.zip</a></p>
+    <h2>Mod Pack IV</h2>
+    <p></p>
+    <ul>
+        <li><b>Gem Crafting</b></li>
+        <li><b>Gem Tools</b></li>
+    </ul>
+    <p>Download: <a href="../../downloads/Modding/DST/ModPackIV.zip" download>ModPackIV.zip</a></p>
+    <h2>Mod Pack Client Edition</h2>
+    <ul>
+        <li><b>Minimap HUD</b></li>
+        <li><b>Item Info</b></li>
+    </ul>
+    <p>Download: <a href="../../downloads/Modding/DST/ModPackClientEdition.zip" download>ModPackClientEdition.zip</a></p>
+    <h2>Isaac (Character Mod)</h2>
+    <p>Play as The Binding of Isaacs' main character; Isaac. Include Devil mode and Crybaby mode, also spawn with a walking stick.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/Isaac.zip" download>Isaac.zip</a></p>
+    <h2>Gollum (Character Mod)</h2>
+    <p>Play as Gollum from The Lord of The Rings.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/Gollum.zip" download>Gollum.zip</a></p>
+    <h2>Soulmates</h2>
+    <p>Create rings that will allow players to teleport to eachother.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/Soulmates.zip" download>Soulmates.zip</a></p>
+    <h2>Gesture Wheel</h2>
+    <p>Adds a wheel selection interface for emotes.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/GestureWheel.zip" download>GestureWheel.zip</a></p>
+    <h2>Combined Status</h2>
+    <p>Display: Health, Hunger, Sanity, Temp, Season, Moon Phase, and World Day.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/CombinedStatus.zip" download>CombinedStatus.zip</a></p>
+    <h2>Global Positioning</h2>
+    <p>Display player locations via arrows and minimap icons.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/GlobalPositioning.zip" download>GlobalPositioning.zip</a></p>
+    <h2>Mineable Gems</h2>
+    <p>Gives boulders a chance to drop gems.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/MineableGems.zip" download>MineableGems.zip</a></p>
+    <h2>Craft Stuff</h2>
+    <p>More craftable items.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/CraftStuff.zip" download>CraftStuff.zip</a></p>
+    <h2>AFK Detection</h2>
+    <p>Make the game safer for when you are AFK.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/AFKDetection.zip" download>AFKDetection.zip</a></p>
+    <h2>Classic Giants Health</h2>
+    <p>Change the health of creatures such as the Spider Queen, Warg, and much more.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/ClassicGiantsHealth.zip" download>ClassicGiantsHealth.zip</a></p>
+    <h2>More Actions</h2>
+    <p>Allow the player to Jump, Shove, Push, Hide, Take Refuge, and Search.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/MoreActions.zip" download>MoreActions.zip</a></p>
+    <h2>Health Regen</h2>
+    <p>Higher percentages in health and sanity will increase this effect at the cost of food.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/HealthRegen.zip" download>HealthRegen.zip</a></p>
+    <h2>Party Hud</h2>
+    <p>Display the health of other players.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/PartyHUD.zip" download>PartyHUD.zip</a></p>
+    <h2>Item Enchantments</h2>
+    <p>Randomized item enchantments from crafting and boss drops.</p>
+    <p>Download: <a href="../../downloads/Modding/DST/ItemEnchantments.zip" download>ItemEnchantments.zip</a></p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
