@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding DST</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="mods.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Making DST Mods</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Basics</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Start With the Basics</h2>
+    <p>Here we will cover some of the basics for making your own mods.</p>
+    <ol>
+        <li>Find the <b>mods</b> folder for Don't Starve Together.</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Don't Starve Together\mods
+        </p>
+        <li>Create a new folder for your mod where you will place your mod files.</li>
+        <li>Create a new file inside this folder with the name <b>modinfo.lua</b>. This will store the information about your mod.</li>
+        <li>Create another file named <b>modmain.lua</b>. This is where your mods' functionality will be set.</li>
+    </ol>
+    </div>&nbsp;
+    <button class="collapsible">modinfo.lua</button>
+    <div class="content">
+    <h2>Mod Info</h2>
+    <h3>Configuration Options</h3>
+    <ol>
+        <li>The name of the mod.</li><br>
+        <p class="code-sl">
+            <b>name</b> = "..."
+        </p>
+        <li>The description of the mod.</li><br>
+        <p class="code-sl">
+            <sql>-- Single line</sql><br>
+            <b>description</b> = "..."<br><br>
+            <sql>-- Multiline</sql><br>
+            <b>description</b> = [[<br>
+            &emsp;Show a multiline description in game.<br>
+            &emsp;Width: 52 characters<br>
+            &emsp;Height: 17 rows<br>
+            ]]
+        </p>
+        <li>Who made the mod.</li><br>
+        <p class="code-sl">
+            <b>author</b> = "..."
+        </p>
+        <li>The current version of the mod.</li><br>
+        <p class="code-sl">
+            <b>version</b> = "1.0"
+        </p>
+        <li>The game needs to know what API your mod expects. This should be set to the current version.</li><br>
+        <p class="code-sl">
+            <b>api_version</b> = 10
+        </p>
+        <li>This is the URL name of the mod's thread on the forum.</li><br>
+        <p class="code-sl">
+            <b>forumthread</b> = "http://forums.kleientertainment.com/..."
+        </p>
+        <li>Specify a custom icon for this mod.</li><br>
+        <p class="code-sl">
+            <b>icon_atlas</b> = "modicon.xml"<br>
+            <b>icon</b> = "modicon.tex"
+        </p>
+        <li>Let the mod system know this mod is functional with Don't Starve Together (Select where your mod should work).</li><br>
+        <p class="code-sl">
+            <b>dst_compatible</b> = true<br>
+            <b>dont_starve_compatible</b> = false<br>
+            <b>reign_of_giants_compatible</b> = false<br>
+            <b>hamlet_compatible</b> = false<br>
+            <b>forge_compatible</b> = false
+        </p>
+        <li>Let clients know they need the mod in order to join the server. This can be set to false if it won't be noticeable to other players (UI Changes).</li><br>
+        <p class="code-sl">
+            <b>all_clients_require_mod</b> = true
+        </p>
+        <li>This mod does not need to be listed in the server's mod listing.</li><br>
+        <p class="code-sl">
+            <b>client_only_mod</b> = false
+        </p>
+        <li>Other players can use these filter tags to find a server with this mod installed.</li><br>
+        <p class="code-sl">
+            <b>server_filter_tags</b> = { "Filter Tag", " ", " ", ... }
+        </p>
+        <li>Put it all together:</li><br>
+        <p class="code-sl">
+            <b>name</b> = "Mod Name"<br>
+            <b>description</b> = "Mod Description"<br>
+            <b>author</b> = "Your Name"<br>
+            <b>version</b> = "1.0"<br>
+            <b>api_version</b> = 10<br>
+            <b>forumthread</b> = " "<br><br>
+            <b>icon_atlas</b> = "modicon.xml"<br>
+            <b>icon</b> = "modicon.tex"<br><br>
+            <b>dst_compatible</b> = true<br>
+            <b>dont_starve_compatible</b> = false<br>
+            <b>reign_of_giants_compatible</b> = false<br>
+            <b>hamlet_compatible</b> = false<br>
+            <b>forge_compatible</b> = false<br><br>
+            <b>all_clients_require_mod</b> = true<br>
+            <b>client_only_mod</b> = false<br><br>
+            <b>server_filter_tags</b> = { "Filter Tag" }
+        </p>
+        <li>You can also add configuration options that can be accessed by your scripts.</li><br>
+        <p class="code-sl">
+            <b>configuration_options</b> = {<br>
+            &emsp;<b>name</b> = " ", <sql>-- Unique name for script access.</sql><br>
+            &emsp;<b>label</b> = " ", <sql>-- Title for the player to see (27 char max).</sql><br>
+            &emsp;<b>hover</b> = " ", <sql>-- Hint text on mouse over. (156 char max)</sql><br><br>
+            &emsp;<b>options</b> = {<br>
+            &emsp;&emsp;{<br>
+            &emsp;&emsp;&emsp;<b>description</b> = " ", <sql>-- Short string shown to the user. (14 char max)</sql><br>
+            &emsp;&emsp;&emsp;<b>data</b> = " " <sql>-- string, number or boolean value.</sql><br>
+            &emsp;&emsp;}<br>
+            &emsp;},<br>
+            &emsp;<b>default</b> = 1<br>
+            }
+        </p>
+    </ol>
+    <h3>How to make a title in options:</h3>
+    <p class="code-sl">
+        {<br>
+        &emsp;<b>name</b> = "someName", <sql>-- Any unique name</sql><br>
+        &emsp;<b>label</b> = "yourTitle",<br>
+        &emsp;<b>hover</b> = "on mouse hover hint",<br>
+        &emsp;<b>options</b> = { { description = " ", data = false}}, <sql>-- One item with a boolean option and no description</sql><br>
+        &emsp;<b>default</b> = false<br>
+        }
+    </p>
+    <h3>How to access options from scripts:</h3>
+    <p class="code-sl">
+        <b>GetModConfigData</b>("optionName")
+    </p>
+    </div>&nbsp;
+    <button class="collapsible">modmain.lua</button>
+    <div class="content">
+        <h2>Mod Main</h2>
+        <p>Read more about the <b>Don't Starve Together</b> API on the <a href="https://dst-api-docs.fandom.com/wiki/Home">wiki</a> <i class="fa fa-external-link"></i>.</p>
+        <p>You can also install and take notes from other mods. This section may be expanded in the future.</p>
+    </div>&nbsp;
+    <button class="collapsible">Mod Image</button>
+    <div class="content">
+    <h2>Mod Image</h2>
+    <ol>
+        <li>Using the <b>TEXTool</b> program we can convert <b>.png</b> to and from the <b>.tex</b> format.</li>
+        <li>Download: <a href="../../downloads/Modding/DST/TEXTool.zip" download>TEXTool.zip</a></li>
+        <li>Convert your <b>.png</b> to a <b>.tex</b> file and place it in the folder for your mod.</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Don't Starve Together\mods\<b>Mod Name</b>
+        </p>
+        <li>Create a new file in your mods' folder called <b>modicon.xml</b>. Make sure this matches with the name you used in <b>modinfo.lua</b>.</li><br>
+        <p class="code-sl">
+            &lt;Atlas&gt;<br>
+            &emsp;&lt;Texture filename="modicon.tex" /&gt;<br>
+            &emsp;&lt;Elements&gt;<br>
+            &emsp;&emsp;&lt;Element name="modicon.tex" u1="0.001" u2="0.999" v2="0.999" v1="0.001" variant="" /&gt;<br>
+            &emsp;&lt;/Elements&gt;<br>
+            &lt;/Atlas&gt;
+        </p>
+    </ol>
+    </div>&nbsp;
+    <button class="collapsible">Uploading to Steam Workshop</button>
+    <div class="content">
+    <h2>Uploading to Steam Workshop</h2>
+    <ol>
+        <li>Inside of Steam, search through your tools and find the <b>Don't Starve Mod Tools</b>.</li>
+        <li>Install and launch the program.</li>
+        <div class="center" style="max-width: 350px;"><img src="../../images/Modding/DST/LauchModUploader.png" alt="Mods Title Screen" onclick="displayModal(this)"></div>
+        <li>Change the <b>Target Game's Workshop</b> to <b>Don't Starve Together</b>.</li>
+        <li>Browse for and select the folder for your new mod.</li>
+        <div class="center" style="max-width: 450px;"><img src="../../images/Modding/DST/SelectModFolder.png" alt="Mods Title Screen" onclick="displayModal(this)"></div>
+        <li>Publish!</li>
+    </ol>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
