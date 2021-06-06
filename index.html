@@ -10,6 +10,63 @@
     <script type="text/javascript" src="scripts/JSFunctions.js"></script>
     <link rel="icon" href="images/ThirstyPenguin(Logo).ico">
 </head>
+<script>
+    /*window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "dark1", // "light1", "light2", "dark1", "dark2"
+            title:{
+                text: "GitHub Commits"
+            },
+            axisY: {
+                title: "# Commits"
+            },
+            data: [{        
+                type: "column",  
+                showInLegend: true, 
+                legendMarkerColor: "grey",
+                legendText: "Repositories",
+                dataPoints: [      
+                    { y: 363, label: "Austin-Krieger.GitHub.io" },
+                    { y: 163,  label: "AnimeList" },
+                ]
+            }]
+        });
+        chart.render();
+    }*/
+
+    function RequestJson() {
+        //User: https://api.github.com/users/austin-krieger
+        //Repos: https://api.github.com/users/Austin-Krieger/repos
+        
+        fetch('https://api.github.com/users/Austin-Krieger/repos')
+            .then(response => response.json())
+            .then(repos => alert(repos[0].name))
+            //.then(commits => alert(commits[0].commits_url.slice(0, repo.commits_url.length - 6)))
+        
+        //fetch('https://api.github.com/repos/Austin-Krieger/Austin-Krieger.GITHUB.IO/commits')
+            //.then(response => response.json())
+            //.then(commits => alert(commits[0].commit.message));
+        
+        // Returns Austin-Krieger.GITHUB.IO
+        /*fetch('https://api.github.com/users/Austin-Krieger/repos')
+        .then(response => response.json())
+        .then(commits => alert(commits[0].name));*/
+    }
+    
+    async function getCommits() {
+        var repoCommits = 0;
+        
+        //?page=1&per_page=100
+        commits = await (await fetch('https://api.github.com/repos/Austin-Krieger/Austin-Krieger.GITHUB.IO/commits?page=1&per_page=100')).json();
+        
+        commits.forEach (cmt => {
+            repoCommits++;
+        })
+        
+        alert("Commits: " + repoCommits);
+    }
+</script>
 <body>
 <div class="navbar">
     <span class="fa fa-bars" onclick="openNav()"><!--&#9776;--></span>
@@ -40,6 +97,8 @@
     </span> h1 padding-top: 40px;-->
     <h1 style="padding-top: 10px;">Austin Krieger - Notes</h1>
     <p>This is a website meant for storing my notes and tutorials on various subjects.</p>
+    <!--<button class="redirect" onclick="getCommits();">Request Json</button>
+    <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>-->
     <h1>Software Development</h1>
     <p>The Java section contains notes from my training in Texas. Some sections are still<br> incomplete, but I plan to get back to them later with additional examples.<br>
         Sources Include: <a href="https://www.javatpoint.com" target="_blank" style="color: black; text-decoration: none;"><b>JavaTPoint</b> <i class="fa fa-external-link"></i></a>, <a href="https://www.tutorialspoint.com/index.htm" target="_blank" style="color: black; text-decoration: none;"><b>TutorialsPoint</b> <i class="fa fa-external-link"></i></a>, <a href="https://www.journaldev.com" target="_blank" style="color: black; text-decoration: none;"><b>JournalDev</b> <i class="fa fa-external-link"></i></a>, <a href="https://www.geeksforgeeks.org" target="_blank" style="color: black; text-decoration: none;"><b>GeeksForGeeks</b> <i class="fa fa-external-link"></i></a>, etc.</p>
@@ -83,5 +142,6 @@
 </div>
 </div>
 </body>
+<!--<script src="scripts/canvasjs.min.js"></script>-->
 <script type="text/javascript" src="scripts/SideNav.js"></script>
 </html>
