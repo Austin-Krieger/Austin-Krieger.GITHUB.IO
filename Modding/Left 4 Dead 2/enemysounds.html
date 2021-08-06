@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding L4D2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="flashlights.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Changing Character Sounds</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Changing Character Sounds</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Change Boomer Sounds</h2>
+    <ol>
+        <li>Locate your Steam folder and continue to the second Left 4 Dead 2 folder like before.</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2
+        </p>
+        <li>Continue through the sound and player folders to find a list of characters whos' voice lines we can play around with:</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2\sound\player
+        </p>
+        <li>I would like to change the <b>Boomer</b> sound files to that of the <b>Boomer</b> from <b>Gears of War</b>.</li>
+        <li>Inside the boomer folder you will see a list of folders named: <b>explode, fall, hit</b>, etc.</li>
+        <li>Open the folder containing the sounds you wish to replace. This will give you an idea of how many sounds you can use when replacing them. If you don't have enough replacement files for the number they have, then you can just copy the files you do have until you come up with the 8 or 15 or whatever you need.</li>
+        <li>Create a new folder on your desktop or wherever and type in the name of the sound mod you wish to make.</li>
+        <li>Inside of this folder, we will need to copy the folder structure containing the boomer sound files.</li>
+        <li>Start by creating a <b>sound</b> folder and within that, create a <b>player</b> folder, and continue on to make a <b>boomer</b> folder.</li>
+        <li>Inside the <b>boomer</b> folder we need to make the folders containing any files we wish to replace. Referring to the original folder we have a <b>hit</b> folder with <b>boomer_shoved_##.wav</b> files. So then you would create your own <b>hit</b> folder and place your selected sound files inside.</li>
+        <li>Rename your files <b>boomer_shoved_01.wav</b>, <b>boomer_shoved_02.wav</b> and so on... continue from here until you are satisfied that you have a replacement file for every sound that character makes that you wish to replace.</li>
+        <li>You can download your sounds from soundboards or wherever, but make sure you convert them to a <b>.wav</b> format. You can use a free software called <b>Audacity</b> for your conversion and editing needs.</li>
+        <li>Use the following image as an example of what your sound files should look like. You can use <b>Effect > Amplify</b> on a selected area to make the sound lounder. They will need to hit the red area while playing, as you can see below. My go to value for amplifying is a 7.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/SoundFiles.png" alt="SoundFiles" onclick="displayModal(this)"></div>
+        <li>Remember to make an <b>addinfo.txt</b> just inside your mod folder using the example below:</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/soundmod-addoninfo.png" alt="soundmod-addoninfo" onclick="displayModal(this)"></div>
+        <li>Package your mod, move it to the addons folder, and get to work testing it out in game.</li>
+        <li>Additional information on the previous step can be found in the previous pages on this site.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

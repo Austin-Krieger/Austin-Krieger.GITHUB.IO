@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding L4D2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="flashlights.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Getting Started</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Getting Started</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Installing Software</h2>
+    <p>In order to edit the L4D2 files, you will need to download and install a couple of free programs which I have provided below.</p>
+    <ol>
+        <li>Download GCFScape: <a href="../../downloads/Modding/Left%204%20Dead%202/gcfscape186.exe" download>gcfscape186.exe</a></li>
+        <li>Download VTFEdit: <a href="../../downloads/Modding/Left%204%20Dead%202/vtfedit125-11.exe" download>vtfedit125-11.exe</a></li>
+    </ol>
+    <h3>Extracting Original L4D2 Files</h3>
+    <ol>
+        <li>Locate your Steam folder and continue to the second Left 4 Dead 2 folder.</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2
+        </p>
+        <li>Open up GCFScape and click <b>File &gt; Open</b></li>
+        <li>Locate the folder from the previous step and click on the <b>pak01_dir.vpk</b> file.</li>
+        <li>Click Open.</li>
+        <li>Your program should now look like this:</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/pak01_dir.png" alt="pak01_dir" onclick="displayModal(this)"></div>
+        <li>Navigate to the file you wish to edit. The flashlight texture for example.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/flashlight001.png" alt="flashlight001" onclick="displayModal(this)"></div>
+        <li>Click on the file and drag it out of the program and into a folder of your choice. This will copy the file to your folder.</li>
+    </ol>
+    <h3>Converting The File</h3>
+    <ol>
+        <li>This time we will need to open <b>VTFEdit</b>.</li>
+        <li>Click <b>File &gt; Open</b> and locate the file you copied for editing.</li>
+        <li>Once you have opened the file you will get a preview of the file and some additional information:</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/flashlight-vtfedit.png" alt="flashlight-vtfedit" onclick="displayModal(this)"></div>
+        <li>Take note of the <b>Flags</b> that the file uses for when you import your own. The flashlight file uses the <b>Flags</b>: Clamp S, Clamp T, No Level Of Detail, and Clamp All.</li>
+        <li>Next you will need to export the file as a targa file. Click <b>File &gt; Export</b> and save the file as <b>FileName.tga</b></li>
+        <li>This file you will be able to open and edit in another program such as <b>Photoshop</b> or <b>Illustrator</b>.</li>
+        <li>With <b>Photoshop</b> open, click on <b>File &gt; Open</b> and select the <b>.tga</b> file we just made. It should look like this:</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/flashlight001-photoshop.png" alt="flashlight-photoshop" onclick="displayModal(this)"></div>
+        <li>Make your changes and save the file as a <b>.tga</b> again. If you are using a newer version of <b>Photoshop</b> then you will need to use <b>File > Save a Copy</b> to save it as a <b>.tga</b></li>
+        <li>Next you will need to open <b>VTFEdit</b> again. Select <b>File > Import</b> and select the <b>.tga</b> file you just created.</li>
+        <li>A new window will pop up with some <b>Import</b> settings. For the flashlight001 file we need to make sure that its max size is 512x512 and the format is <b>BGR888</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/flashlight001-import.png" alt="flashlight-import" onclick="displayModal(this)"></div>
+        <li>Apply the <b>Flags</b> you took note of earlier.</li>
+        <li>Now we need to convert the file back to a <b>.vtf</b> file format.</li>
+        <li>Select <b>File &gt; Save As...</b> and make sure the name matches with the name of the original file.</li>
+    </ol>
+    <h3>Packaging Your Files</h3>
+    <ol>
+        <li>To package your mods and even upload to the workshop, you will first need to install the Left 4 Dead 2 Authoring Tools. Search through the uncategorized/tools section of Steam and install the program.</li>
+        <li>The new executable file that we need can be found in your bin folder:</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\bin
+        </p>
+        <li>You are looking for <b>vpk.exe</b></li>
+        <li><b>Right Click</b> on the executable and click <b>Create Shortcut</b>.</li>
+        <li>Move this shortcut to your modding folder for later convenience.</li>
+        <li>Once you have your mod files in a parent folder you will be able to drag said parent folder onto the vpk shortcut. This will package the folder and its containing files into a new readable mod file for the game.</li>
+        <li>To test your mods locally you will need to find your addons folder.</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2\addons
+        </p>
+        <li>Drag your packaged file to this folder and restart your game if it's already open.</li>
+        <li>Mods installed from the workshop will show up in your <b>addons/workshop</b> folder.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
