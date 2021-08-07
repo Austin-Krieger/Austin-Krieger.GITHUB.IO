@@ -60,12 +60,39 @@
         <li>Inside the <b>boomer</b> folder we need to make the folders containing any files we wish to replace. Referring to the original folder we have a <b>hit</b> folder with <b>boomer_shoved_##.wav</b> files. So then you would create your own <b>hit</b> folder and place your selected sound files inside.</li>
         <li>Rename your files <b>boomer_shoved_01.wav</b>, <b>boomer_shoved_02.wav</b> and so on... continue from here until you are satisfied that you have a replacement file for every sound that character makes that you wish to replace.</li>
         <li>You can download your sounds from soundboards or wherever, but make sure you convert them to a <b>.wav</b> format. You can use a free software called <b>Audacity</b> for your conversion and editing needs.</li>
-        <li>Use the following image as an example of what your sound files should look like. You can use <b>Effect > Amplify</b> on a selected area to make the sound lounder. They will need to hit the red area while playing, as you can see below. My go to value for amplifying is a 7.</li>
-        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/SoundFiles.png" alt="SoundFiles" onclick="displayModal(this)"></div>
+        <li>Use the following image as an example of what your sound files should look like. For more information on <b>Preparing Audio Files</b>, check the section below.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Audacity05.png" alt="Audacity05" onclick="displayModal(this)"></div>
         <li>Remember to make an <b>addinfo.txt</b> just inside your mod folder using the example below:</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/soundmod-addoninfo.png" alt="soundmod-addoninfo" onclick="displayModal(this)"></div>
         <li>Package your mod, move it to the addons folder, and get to work testing it out in game.</li>
         <li>Additional information on the previous step can be found in the previous pages on this site.</li>
+    </ol>
+    <h3>Preparing Audio Files</h3>
+    <ol>
+        <li>When you first drag an audio file into Audacity you will likely see this:</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Audacity01.png" alt="Audacity01" onclick="displayModal(this)"></div>
+        <li>The first problem here is that the sound file is set to <b>Stereo</b> which has two tracks. We need to change this to <b>Mono</b> and remove the second track.</li>
+        <li>Click on the drop down above the <b>Mute</b> and <b>Solo</b> buttons to the left of the audio waves.</li>
+        <li>Click <b>Split Stereo to Mono</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Audacity02.png" alt="Audacity02" onclick="displayModal(this)"></div>
+        <li>Next we want to either hit the <b>Mute</b> button on the second track or the <b>X</b> button and remove it completely.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Audacity03.png" alt="Audacity03" onclick="displayModal(this)"></div>
+        <li>We need to make sure the sound is loud enough by making a selection of the audio as shown below (<b>Click + Drag</b>), and using the <b>Effect > Amplify</b> option near the top of the program. You can use a value between <b>5</b> and <b>7</b> for some good results here.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Audacity04.png" alt="Audacity04" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Audacity05.png" alt="Audacity05" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>One more thing to be aware of is how long the original audio file is compared to the one you want to replace it with.</li>
+        <li>You can drag the original file into your <b>Audacity</b> project to check sound lengths.</li>
+        <li>As you can see below, our new sound is just a little longer than the original.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Audacity06.png" alt="Audacity06" onclick="displayModal(this)"></div>
+        <li>One way to fix this is to make a selection of our sound and hit the <b>delete</b> button, but a better way in this case is to select our entire sound and use the <b>Effect > Change Tempo</b> option. Give it a percentage like <b>17</b> or even more if needed and our sound will more closely match with the original.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Audacity07.png" alt="Audacity07" onclick="displayModal(this)"></div>
+        <li>Lastly you will need to export as a <b>.wav</b> file with the name of the original file and place it in your folder structure.</li>
     </ol>
 </div>
 </div>
