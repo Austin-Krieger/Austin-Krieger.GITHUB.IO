@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding L4D2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="enemysounds.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Changing Laser Sight Color</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Changing Laser Sight Color</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Laser Sight Color Change</h2>
+    <ol>
+        <li>Locate your Steam folder and continue to the second <b>Left 4 Dead 2</b> folder.</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2
+        </p>
+        <li>Open up GCFScape and click <b>File &gt; Open</b></li>
+        <li>Locate the folder from the previous step and click on the <b>pak01_dir.vpk</b> file.</li>
+        <li>Click <b>Open</b>.</li>
+        <li>Scroll down and open the particles folder.</li>
+        <li>Look for the file named <b>weapon_fx.pcf</b> and as with the other tutorials, click on and then drag this file into a folder of your choice. Make sure to copy the folder structure containing this file and make an <b>addoninfo.txt</b> file as well.</li>
+        <li>Now that we have the file we need we can move on to how we can open the <b>Hammer Particle Editor Tool</b> for <b>Left 4 Dead 2</b>.</li>
+        <li>In order to get to this tool we need to first locate and open the <b>Left 4 Dead 2 Authoring Tool</b> shown below. If you do not already have the program installed, you will need to look in your <b>Steam Library</b> and inside the <b>Tools</b> section.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/AuthoringTools01.png" alt="Authoring Tools 01" onclick="displayModal(this)"></div>
+        <li>Now that we have the <b>Authoring Tool</b> open we need to <b>double-click</b> on <b>Left 4 Dead 2 (Tools Mode)</b> to open the editor.</li>
+        <div class="center" style="max-width: 300px;"><img src="../../images/Modding/Left%204%20Dead%202/AuthoringTools02.png" alt="Authoring Tools 02" onclick="displayModal(this)"></div>
+        <li>Next we need to open up the <b>Particle Editor Tool</b>.</li>
+        <li>Click on the <b>Tools</b> button at the top and select the <b>Particle Editor</b>. You won't see a big change in the current window, but this will allow us to open the file we copied earlier.</li>
+        <li>Click <b>File > Open</b> and locate the <b>weapon_fx.pcf</b> file and hit <b>Open</b>.</li>
+        <li>Scroll down a little ways and look for <b>weapon_laser_sight</b>. There will be a total of 6 effects with similar names that we will want to apply our color changes to.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/AuthoringTools03.png" alt="Authoring Tools 03" onclick="displayModal(this)"></div>
+        <li>Once you have the <b>HEX</b> code for the color you want, we will need to convert it to <b>HSV</b> values using an online converter like this one: <b>https://colordesigner.io/convert/hextohsv</b></li>
+        <li><b>RGBA</b> values are also acceptable.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/AuthoringTools04.png" alt="Authoring Tools 04" onclick="displayModal(this)"></div>
+        <li>Each of the 6 effects has a <b>color1</b> and <b>color2</b> value for us to change.</li>
+        <li>Once you are done making all of these changes, you can use <b>File > Save As...</b> and replace the original file in your mod folder.</li>
+        <li>If you have done everything correctly, you can package up and place the mod in your addons folder like usual.</li>
+        <li>To quickly test our new mod, check out the console commands page where you can learn how to spawn in a laser sight box anywhere you want.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
