@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding L4D2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="lasersight.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Adding Custom Stencils</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Adding Custom Stencils</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Adding Custom Stencils</h2>
+    <ol>
+        <li>This tutorial will walk you through making a custom transparent stencil for <b>Left 4 Dead 2</b>.</li>
+        <li>First thing we need is a <b>.png</b> file. You can find an image online or even convert a <b>.jpg</b> file in a photo editting program such as <b>Photoshop</b>.</li>
+        <li>The next thing we need to do is resize the photo to an acceptable size such as: <b>512x512</b></li>
+        <li>Open up <b>Photoshop</b> and make a new file that is <b>512x512</b> pixels.</li>
+        <li>Place and resize your image on the canvas. You may have a very specific issue later involving the coach stencil appearing with new colors, in which case you can try  deleting any hidden layers you have and trying again.</li>
+        <li>Click <b>File > Export As..</b> and change the <b>Format</b> to <b>PNG</b> and <b>Image</b> Size to <b>512x512</b>.</li>
+        <li>Click <b>Export</b> and save the file with the name of your choice. There isn't a required naming convension for these files.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencils-Photoshop01.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencils-Photoshop02.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencils-Photoshop03.png" alt="" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Now that we have the <b>.png</b> file we need to convert it to an acceptable file format for <b>Left 4 Dead 2</b>.</li>
+        <li>You can use <b>VTFEdit</b> to convert files, but for stencils we have a more simplified program we can use called <b>spraygen-134</b>: <b>https://gamebanana.com/tools/download/5230</b></li>
+        <li>After downloading and extracting the program files we can open the program: <b>spraygen.exe</b></li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Spraygen01.png" alt="Stencils Folder" onclick="displayModal(this)"></div>
+        <li>Click on the <b>Import</b> button and locate the <b>.png</b> file we made earlier. The size should default to <b>512x512</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Spraygen02.png" alt="Stencils Folder" onclick="displayModal(this)"></div>
+        <li>Click on the <b>Transparent background</b> checkbox and hit <b>Convert to VTF</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Spraygen03.png" alt="Stencils Folder" onclick="displayModal(this)"></div>
+        <li>Save your file.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Spraygen04.png" alt="Stencils Folder" onclick="displayModal(this)"></div>
+        <li>Next we need to locate the the <b>logos</b> folder inside of the <b>Left 4 Dead 2</b> folder. This is where you will move your custom stencils (Recommended).</li><br>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2\materials\vgui\logos
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/Logos-Folder.png" alt="Stencils Folder" onclick="displayModal(this)"></div>
+        <li>Now we can finally open the file inside of <b>Left 4 Dead 2</b>.</li>
+        <li>Start up the game and go to <b>OPTIONS > Multiplayer</b>.</li>
+        <li>Click <b>IMPORT SPTRAY...</b></li>
+        <li>Navigate to the <b>materials/vgui/logos</b> folder and open the <b>.vtf</b> file we made using <b>spraygen-134</b></li>
+        <li>Your image should appear in the middle; make sure to click <b>DONE</b>.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import01.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import02.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import03.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import04.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import05.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import06.png" alt="" onclick="displayModal(this)">
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Left%204%20Dead%202/Stencil-Import07.png" alt="" onclick="displayModal(this)">
+        </div>
+        </div>
+        <li>Load into a mission and press <b>T</b> to paint your image onto a wall.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/In-Game.png" alt="Stencils Folder" onclick="displayModal(this)"></div>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
