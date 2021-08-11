@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding L4D2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="gettingstarted.html">Previous</a>
+    <a href="flashlights.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Console Commands</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Console Commands</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Console Commands</h2>
+    <ol>
+        <li>Enable the developer console in the main menu</li>
+        <li>Press the tilde key (~) to open the console</li>
+        <li>Type in sv_cheats 1 to enable cheats</li>
+        <li>Type map and hit space to see a list of campaign chapters to load into</li>
+        <br>
+        <div class="scrollableTable"><table>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>sv_cheats 1</td>
+            <td>Enable Cheats</td>
+        </tr>
+        <tr>
+            <td>god 1</td>
+            <td>Enable God Mode</td>
+        </tr>
+        </table></div>
+        <!--<div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/.png" alt="" onclick="displayModal(this)"></div>
+        <p class="code-sl">
+            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2\materials\vgui\logos
+        </p>-->
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
