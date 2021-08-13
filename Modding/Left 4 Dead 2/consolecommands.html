@@ -11,6 +11,14 @@
     <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
     <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
 </head>
+<style>
+    th {
+        background-color: #858585;
+    }
+    td:nth-of-type(1) {
+        font-weight: bold;
+    }
+</style>
 <body>
 <div class="navbar">
     <span class="fa fa-bars" onclick="openNav()"></span>
@@ -42,32 +50,704 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
     </div>
-    <h2>Console Commands</h2>
+    <button class="collapsible" id="autoClickBtn">Enabling Console Commands</button>
+    <div class="content">
+    <h2>Enabling Console Commands</h2>
     <ol>
-        <li>Enable the developer console in the main menu</li>
-        <li>Press the tilde key (~) to open the console</li>
-        <li>Type in sv_cheats 1 to enable cheats</li>
-        <li>Type map and hit space to see a list of campaign chapters to load into</li>
-        <br>
-        <div class="scrollableTable"><table>
-        <tr>
-            <th>Command</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>sv_cheats 1</td>
-            <td>Enable Cheats</td>
-        </tr>
-        <tr>
-            <td>god 1</td>
-            <td>Enable God Mode</td>
-        </tr>
-        </table></div>
-        <!--<div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/.png" alt="" onclick="displayModal(this)"></div>
-        <p class="code-sl">
-            D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2\materials\vgui\logos
-        </p>-->
+        <li>To use console commands, we need to enable the <b>Developer Console</b> from the main menu.</li>
+        <li>After opening the game to the main menu, go to <b>OPTIONS > Keyboard/Mouse</b></li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands01.png" alt="Console Commands 01" onclick="displayModal(this)"></div>
+        <li>You will see the option <b>ALLOW DEVELOPER CONSOLE</b>. Click on it and select <b>Enabled</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands02.png" alt="Console Commands 02" onclick="displayModal(this)"></div>
+        <li>Click <b>Done</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands03.png" alt="Console Commands 03" onclick="displayModal(this)"></div>
+        <li>To use the cheats we will need to load into a map using the console.</li>
+        <li>From the main menu press the tilde key (~) and the console will open.</li>
+        <li>Type in <b>sv_cheats 1</b> to enable cheats.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands04.png" alt="Console Commands 04" onclick="displayModal(this)"></div>
+        <li>If you now type <b>map</b> and hit space you will see a list of campaign chapters to load into. Using <b>map c1m1_hotel</b> will load you into the first chapter of <b>Dead Center</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands05.png" alt="Console Commands 05" onclick="displayModal(this)"></div>
+        <li>Pressing the <b>escape</b> key in game will pause the game and show the <b>Developer Console</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands06.png" alt="Console Commands 06" onclick="displayModal(this)"></div>
     </ol>
+    </div><br>
+    <button class="collapsible" id="autoClickBtn">Map Commands</button>
+    <div class="content">
+    <div class="scrollableTable"><table>
+    <tr>
+        <th>Command</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>map [map_name]</td>
+        <td>Level select</td>
+    </tr>
+    <tr>
+        <td>changelevel [map name]</td>
+        <td>Level select</td>
+    </tr>
+    <tr>
+        <td>Dead Center</td>
+        <td>map c1m1_hotel<br>map c1m2_streets<br>map c1m3_mall<br>map c1m4_atrium</td>
+    </tr>
+    <tr>
+        <td>Dark Carnival</td>
+        <td>map c2m1_highway<br>map c2m2_fairgrounds<br>map c2m3_coaster<br>map c2m4_barns<br>map c2m5_concert</td>
+    </tr>
+    <tr>
+        <td>Swamp Fever</td>
+        <td>map c3m1_plankcountry<br>map c3m2_swamp<br>map c3m3_shantytown<br>map c3m4_plantation</td>
+    </tr>
+    <tr>
+        <td>Hard Rain</td>
+        <td>map c4m1_milltown_a<br>map c4m2_sugarmill_a<br>map c4m3_sugarmill_b (Mill Escape level)<br>map c4m4_milltown_b (Return To Town level)<br>map c4m5_milltown_escape</td>
+    </tr>
+    <tr>
+        <td>The Parish</td>
+        <td>map c5m1_waterfront_sndscape (Demo level)<br>map c5m1_waterfront<br>map c5m2_park<br>map c5m3_cemetery<br>map c5m4_quarter<br>map c5m5_bridge</td>
+    </tr>
+    </table></div>
+    </div><br>
+    <button class="collapsible" id="autoClickBtn">Cheat Codes</button>
+    <div class="content">
+    <div class="scrollableTable"><table>
+    <tr>
+        <th>Command</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>sv_cheats [0 or 1]</td>
+        <td>Enable or Disable Cheats</td>
+    </tr>
+    <tr>
+        <td>god [0 or 1]</td>
+        <td>Toggle God Mode (team)</td>
+    </tr>
+    <tr>
+        <td>sv_infinite_ammo [0 or 1]</td>
+        <td>Toggle infinite ammunition</td>
+    </tr>
+    <tr>
+        <td>sv_infinite_primary_ammo [0 or 1]</td>
+        <td>Toggle infinite ammunition for your primary weapon</td>
+    </tr>
+    <tr>
+        <td>noclip</td>
+        <td>Toggle no clipping mode</td>
+    </tr>
+    <tr>
+        <td>burn</td>
+        <td>Ignite your character in a "friendly" fire</td>
+    </tr>
+    <tr>
+        <td>fire</td>
+        <td>Spawn fire on the ground around you</td>
+    </tr>
+    <tr>
+        <td>upgrade_add incendiary_ammo</td>
+        <td>Toggle Incendiary Ammo upgrade</td>
+    </tr>
+    <tr>
+        <td>upgrade_add explosive_ammo</td>
+        <td>Toggle Explosive Ammo upgrade</td>
+    </tr>
+    <tr>
+        <td>upgrade_add laser_sight</td>
+        <td>Toggle Laser Sight upgrade</td>
+    </tr>
+    <tr>
+        <td>give health</td>
+        <td>Refill health</td>
+    </tr>
+    <tr>
+        <td>give ammo</td>
+        <td>Refill ammunition</td>
+    </tr>
+    <tr>
+        <td>nb_stop [0 or 1]</td>
+        <td>Toggle freezing all bots in the game</td>
+    </tr>
+    <tr>
+        <td>sb_stop [0 or 1]</td>
+        <td>Toggle freezing all survivor bots, but not zombies.</td>
+    </tr>
+    <tr>
+        <td>impulse [101 or ...]</td>
+        <td>Get ammo for primary weapon</td>
+    </tr>
+    <tr>
+        <td>boom</td>
+        <td>Spawn active pipe bomb under you</td>
+    </tr>
+    <tr>
+        <td>buddha [0 or 1]</td>
+        <td>Toggle received damage, but cannot die</td>
+    </tr>
+    <tr>
+        <td>sb_friendlyfire [0 or 1]</td>
+        <td>Toggle if bots do friendly fire damage</td>
+    </tr>
+    <tr>
+        <td>sb_takecontrol [character name]</td>
+        <td>Take control of the bot in front of you or specify their name</td>
+    </tr>
+    <tr>
+        <td>sb_openfire or open_fire</td>
+        <td>Bot teammates shoot nonstop</td>
+    </tr>
+    <tr>
+        <td>sb_all_bot_game [0 or 1]</td>
+        <td>Allow your game to continue on with just bots and no players</td>
+    </tr>
+    <tr>
+        <td>sb_unstick [0 or 1]</td>
+        <td>If set to 0, stop bots from teleporting to "unstick" themselves from locations. By default this is set to 1, which will allow bots to teleport out of locations they get stuck inside.</td>
+    </tr>
+    <tr>
+        <td>hidehud [number]</td>
+        <td>Hide parts of the hud<br>0 - normal<br>1 - weapon<br>2 - flashlight<br>4 - all<br>8 - health<br>16 - when dead<br>32 - needssuit<br>64 - miscellaneous (teammate health)<br>128 - chat<br>256 - crosshair<br>512 - crosshair (vehicle)<br>1024 - vehicle hud</td>
+    </tr>
+    <tr>
+        <td>host_timescale [number]</td>
+        <td>Change the "timescale" of the game (speed the game runs at)</td>
+    </tr>
+    <tr>
+        <td>z_pounce_damage [number]</td>
+        <td>Set amount of damage done to survivors</td>
+    </tr>
+    <tr>
+        <td>hunter_pz_claw_dmg [number]</td>
+        <td>Set how much damage a PZ hunter's melee attack will deal</td>
+    </tr>
+    <tr>
+        <td>sv_noclipspeed [number]</td>
+        <td>Set no clipping mode speed; default is "5"</td>
+    </tr>
+    <tr>
+        <td>z_health [number]</td>
+        <td>Change zombie health</td>
+    </tr>
+    <tr>
+        <td>z_speed [number]</td>
+        <td>Change zombie speed</td>
+    </tr>
+    <tr>
+        <td>tongue_range [number]</td>
+        <td>Set maximum range of Smoker's tongue attack (Default is 750)</td>
+    </tr>
+    <tr>
+        <td>tongue_choke_damage_amount [number]</td>
+        <td>Set how much damage a Smoker's tongue choke attack will deal (Default is 10)</td>
+    </tr>
+    <tr>
+        <td>z_hit_from_behind_factor [multiplier]</td>
+        <td>Set how much extra damage a hit from a zombie from behind will deal to you (Default is 0)</td>
+    </tr>
+    <tr>
+        <td>inferno_damage [number]</td>
+        <td>Set the amount of damage dealt per second by flames and molotovs (Default is 40)</td>
+    </tr>
+    <tr>
+        <td>z_gun_damage [number]</td>
+        <td>Set the amount of damage dealt to doors, boxes, walls, and other breakable objects by melee attacks</td>
+    </tr>
+    <tr>
+        <td>sv_lan [0/1]</td>
+        <td>Make your current server a LAN server. Disables any services that require an internet connection</td>
+    </tr>
+    <tr>
+        <td>sv_allow_lobby_connect_only [0 or 1]</td>
+        <td>Toggle whether or not a player can connect to your server mid-game. Setting this to 1 means that players can only connect through the matchmaking lobby</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>rescue_distance [number]</td>
+        <td>How far your teammates must travel past your body before you can be rescued (Default is 4,500)</td>
+    </tr>
+    <tr>
+        <td>rescue_min_dead_time [seconds]</td>
+        <td>Set how long, in seconds, you or a teammate must be dead for before rescue is available</td>
+    </tr>
+    <tr>
+        <td>bot_mimic</td>
+        <td>Make bots mimic your actions</td>
+    </tr>
+    <tr>
+        <td>z_witch_burn_time [number]</td>
+        <td>Set amount of time before a burning Witch dies from fire</td>
+    </tr>
+    <tr>
+        <td>z_witch_allow_change_victim [0 or 1]</td>
+        <td>Focus on the survivor that first alerted her</td>
+    </tr>
+    <tr>
+        <td>z_witch_damage [number]</td>
+        <td>Set the damage for the Witch's attacks</td>
+    </tr>
+    <tr>
+        <td>z_witch_anger_rate [number]</td>
+        <td>Set how close you can get before startling her (Default is 0.2)</td>
+    </tr>
+    <tr>
+        <td>director_no_human_zombies [0 or 1]</td>
+        <td>Toggle controllable Boss infected on any map</td>
+    </tr>
+    <tr>
+        <td>director_no_survivor_bots [0 or 1]</td>
+        <td>Toggle the existence of non player survivors</td>
+    </tr>
+    <tr>
+        <td>director_panic_forever</td>
+        <td>Toggle never ending panics</td>
+    </tr>
+    <tr>
+        <td>director_force_panic_event</td>
+        <td>Force start a panic event</td>
+    </tr>
+    <tr>
+        <td>director_no_mobs [0 or 1]</td>
+        <td>Toggle mob rushes</td>
+    </tr>
+    <tr>
+        <td>director_no_bosses [0 or 1]</td>
+        <td>Toggle the spawning of bosses</td>
+    </tr>
+    <tr>
+        <td>director_no_specials [0 or 1]</td>
+        <td>Toggle the spawning of special zombies</td>
+    </tr>
+    <tr>
+        <td>r_flashlightconstant [constant]</td>
+        <td>Set how fast the light from your flashlight drops off (higher number = increased effective distance)</td>
+    </tr>
+    <tr>
+        <td>r_flashlightfov [fov]</td>
+        <td>Set how wide the light of your flashlight is</td>
+    </tr>
+    <tr>
+        <td>r_flashlightfar [distance]</td>
+        <td>Set maximum distance your flashlight can light up (Default is 750)</td>
+    </tr>
+    <tr>
+        <td>setinfo [key][value]</td>
+        <td>Set the specified info value for your client. Change your name by specifying "name" as the key and then the desired value</td>
+    </tr>
+    <tr>
+        <td>z_common_limit [number]</td>
+        <td>Set maximum number of regular zombies</td>
+    </tr>
+    <tr>
+        <td>z_tank_health [number]</td>
+        <td>Set maximum health of tank</td>
+    </tr>
+    <tr>
+        <td>z_tank_rock_debug [0 or 1]</td>
+        <td>This debug information displays when it is thinking about detonating survivors.</td>
+    </tr>
+    <tr>
+        <td>z_tank_throw_interval [seconds]</td>
+        <td>Set the minimum cooldown, between each throw attack from the tank</td>
+    </tr>
+    <tr>
+        <td>z_vomit_debug [0 or 1]</td>
+        <td>Enables debug information for vomit attacks from a boomer</td>
+    </tr>
+    <tr>
+        <td>z_vomit_interval [seconds]</td>
+        <td>Set the minimum cooldown, between each vomit attack from the boomer</td>
+    </tr>
+    <tr>
+        <td>z_frustration_lifetime [number]</td>
+        <td>Set number of seconds until player loses control of the tank from not attacking survivors</td>
+    </tr>
+    <tr>
+        <td>sv_infected_ceda_vomitjar_probability 0.1</td>
+        <td>Set probability of infected CEDA agents carrying bile jars</td>
+    </tr>
+    <tr>
+        <td>director_stop</td>
+        <td>Disable the spawning of all wanderers, mobs, specials, and bosses</td>
+    </tr>
+    <tr>
+        <td>director_start</td>
+        <td>Re-enable the spawning of all wanderers, mobs, specials, and bosses</td>
+    </tr>
+    <tr>
+        <td>director_force_versus_start</td>
+        <td>Forcefully start your current versus game (without you leaving the safe room)</td>
+    </tr>
+    <tr>
+        <td>director_debug [0 or 1]</td>
+        <td>Toggle debug information for the game's AI</td>
+    </tr>
+    <tr>
+        <td>upgrade_explosive_bullet_force [number]</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>cl_precacheinfo</td>
+        <td>Print to console information about the client's cache</td>
+    </tr>
+    <tr>
+        <td>thirdperson</td>
+        <td>Third person view</td>
+    </tr>
+    <tr>
+        <td>thirdpersonshoulder</td>
+        <td>Over the shoulder third person view</td>
+    </tr>
+    <tr>
+        <td>thirdperson_mayamode</td>
+        <td>Toggle set fixed camera in third person or third person shoulder mode</td>
+    </tr>
+    <tr>
+        <td>firstperson</td>
+        <td>Disable third person view</td>
+    </tr>
+    <tr>
+        <td>crosshair [0 or 1]</td>
+        <td>Toggle crosshairs</td>
+    </tr>
+    <tr>
+        <td>jointeam [number or name]</td>
+        <td>Join the specified team by number, team name, or character name</td>
+    </tr>
+    <tr>
+        <td>chooseteam</td>
+        <td>Open the manu to allow you to choose a team</td>
+    </tr>
+    <tr>
+        <td>spectate</td>
+        <td>"Should" put in spectator mode</td>
+    </tr>
+    <tr>
+        <td>kick [name]</td>
+        <td>Kick the player with the specified name</td>
+    </tr>
+    <tr>
+        <td>vs_max_team_switches [number]</td>
+        <td>Set the maximum amount of team switches that players can make</td>
+    </tr>
+    <tr>
+        <td>warp_all_survivors_here</td>
+        <td>Teleport all survivors to your current location</td>
+    </tr>
+    <tr>
+        <td>warp_all_survivors_to_battlefield</td>
+        <td>Teleport all survivors to your map's battlefield</td>
+    </tr>
+    <tr>
+        <td>warp_all_survivors_to_checkpoint</td>
+        <td>Teleport all survivors to the current checkpoint that you are at in your map</td>
+    </tr>
+    <tr>
+        <td>warp_all_survivors_to_finale</td>
+        <td>Teleport all survivors to the map's "finale"</td>
+    </tr>
+    <tr>
+        <td>warp_far_survivors_here</td>
+        <td>Teleport the survivor that is the furthest away to the location under your crosshair</td>
+    </tr>
+    <tr>
+        <td>warp_to_start_area</td>
+        <td>Teleport to the start location of the current map</td>
+    </tr>
+    <tr>
+        <td>mat_fullbright [0/1/2]</td>
+        <td>Enable "full bright" mode in which all areas of the map are at the maximum lighting level</td>
+    </tr>
+    <tr>
+        <td>fog_override [0 or 1]</td>
+        <td>Toggle fog effects on your current map</td>
+    </tr>
+    <tr>
+        <td>connect [ip address]</td>
+        <td>Connect to the L4D2 server at the specified IP Address</td>
+    </tr>
+    <tr>
+        <td>bind [key][command(s;)]</td>
+        <td>Bind the specified command(s) to the specified key</td>
+    </tr>
+    <tr>
+        <td>kill</td>
+        <td>Set your health to 0, killing you</td>
+    </tr>
+    <tr>
+        <td>explode</td>
+        <td>Kill yourself by creating an explosion under your character</td>
+    </tr>
+    <tr>
+        <td>quit</td>
+        <td>Quit game</td>
+    </tr>
+    </table></div>
+    </div><br>
+    <button class="collapsible" id="autoClickBtn">Create/Remove Entities</button>
+    <div class="content">
+    <div class="scrollableTable"><table>
+    <tr>
+        <th>Command</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>ent_create [entity name]</td>
+        <td>Spawn the specified entity at the location your crosshair is over</td>
+    </tr>
+    <tr>
+        <td>ent_remove [entity/class name]</td>
+        <td>Remove the entity under your crosshair. Adding an entity/class name will remove the specified entity of that name.</td>
+    </tr>
+    <tr>
+        <td>ent_remove_all [entity/class name]</td>
+        <td>Remove all entities of the given type</td>
+    </tr>
+    <tr>
+        <td>ent_setname [entity name]</td>
+        <td>Set the name of the entity under your crosshair</td>
+    </tr>
+    </table></div>
+    </div><br>
+    <button class="collapsible" id="autoClickBtn">Give Items</button>
+    <div class="content">
+    <div class="scrollableTable"><table>
+    <tr>
+        <th>Command</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>give pistol</td>
+        <td>Spawn double pistol</td>
+    </tr>
+    <tr>
+        <td>give pistol_magnum</td>
+        <td>Spawn Magnum</td>
+    </tr>
+    <tr>
+        <td>give autoshotgun</td>
+        <td>Spawn auto shotgun</td>
+    </tr>
+    <tr>
+        <td>give pumpshotgun</td>
+        <td>Spawn pump shotgun</td>
+    </tr>
+    <tr>
+        <td>give shotgun_spas</td>
+        <td>Spawn SPAS shotgun</td>
+    </tr>
+    <tr>
+        <td>give smg</td>
+        <td>Spawn SMG</td>
+    </tr>
+    <tr>
+        <td>give smg_silenced</td>
+        <td>Spawn silenced SMG</td>
+    </tr>
+    <tr>
+        <td>give rifle_ak47</td>
+        <td>Spawn AK-47</td>
+    </tr>
+    <tr>
+        <td>give rifle</td>
+        <td>Spawn M16</td>
+    </tr>
+    <tr>
+        <td>give rifle_desert</td>
+        <td>Spawn combat rifle</td>
+    </tr>
+    <tr>
+        <td>give hunting_rifle</td>
+        <td>Spawn hunting rifle</td>
+    </tr>
+    <tr>
+        <td>give sniper_military</td>
+        <td>Spawn sniper rifle</td>
+    </tr>
+    <tr>
+        <td>give weapon_grenade_launcher</td>
+        <td>Spawn grenade launcher</td>
+    </tr>
+    <tr>
+        <td>give melee</td>
+        <td>Spawn Hunter claws</td>
+    </tr>
+    <tr>
+        <td>give vomitjar</td>
+        <td>Spawn Boomer Bile</td>
+    </tr>
+    <tr>
+        <td>give chainsaw</td>
+        <td>Spawn chainsaw</td>
+    </tr>
+    <tr>
+        <td>give frying_pan</td>
+        <td>Spawn frying pan</td>
+    </tr>
+    <tr>
+        <td>give electric_guitar</td>
+        <td>Spawn guitar</td>
+    </tr>
+    <tr>
+        <td>give katana</td>
+        <td>Spawn katana</td>
+    </tr>
+    <tr>
+        <td>give machete</td>
+        <td>Spawn machete</td>
+    </tr>
+    <tr>
+        <td>give tonfa</td>
+        <td>Spawn nightstick</td>
+    </tr>
+    <tr>
+        <td>give molotov</td>
+        <td>Spawn Molotov cocktail</td>
+    </tr>
+    <tr>
+        <td>give pipe_bomb</td>
+        <td>Spawn pipe bomb</td>
+    </tr>
+    <tr>
+        <td>give propanetank</td>
+        <td>Spawn propane tank</td>
+    </tr>
+    <tr>
+        <td>give gascan</td>
+        <td>Spawn gas can</td>
+    </tr>
+    <tr>
+        <td>give oxygentank</td>
+        <td>Spawn oxygen tank</td>
+    </tr>
+    <tr>
+        <td>give first_aid_kit</td>
+        <td>Spawn first aid kit</td>
+    </tr>
+    <tr>
+        <td>give defibrilator</td>
+        <td>Spawn defibrillator</td>
+    </tr>
+    <tr>
+        <td>give adrenaline</td>
+        <td>Spawn adrenaline</td>
+    </tr>
+    <tr>
+        <td>give pain_pills</td>
+        <td>Spawn pain pills</td>
+    </tr>
+    </table></div>
+    </div><br>
+    <button class="collapsible" id="autoClickBtn">Spawn Zombies</button>
+    <div class="content">
+    <div class="scrollableTable"><table>
+    <tr>
+        <th>Command</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>z_spawn zombie</td>
+        <td>Spawn a zombie</td>
+    </tr>
+    <tr>
+        <td>z_spawn mob</td>
+        <td>Spawn zombie horde</td>
+    </tr>
+    <tr>
+        <td>z_spawn spitter</td>
+        <td>Spawn Spitter</td>
+    </tr>
+    <tr>
+        <td>z_spawn jockey</td>
+        <td>Spawn Jockey</td>
+    </tr>
+    <tr>
+        <td>z_spawn charger</td>
+        <td>Spawn Charger</td>
+    </tr>
+    <tr>
+        <td>z_spawn boomer</td>
+        <td>Spawn Boomer</td>
+    </tr>
+    <tr>
+        <td>z_spawn hunter</td>
+        <td>Spawn Hunter</td>
+    </tr>
+    <tr>
+        <td>z_spawn witch</td>
+        <td>Spawn Witch</td>
+    </tr>
+    <tr>
+        <td>z_spawn smoker</td>
+        <td>Spawn Smoker</td>
+    </tr>
+    <tr>
+        <td>z_spawn tank</td>
+        <td>Spawn Tank</td>
+    </tr>
+    </table></div>
+    </div>
+    <!--<div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/.png" alt="" onclick="displayModal(this)"></div>
+    <p class="code-sl">
+        D:\Steam\steamapps\common\Left 4 Dead 2\left4dead2\materials\vgui\logos
+    </p>-->
 </div>
 </div>
 </div>
