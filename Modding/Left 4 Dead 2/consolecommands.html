@@ -69,6 +69,11 @@
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands05.png" alt="Console Commands 05" onclick="displayModal(this)"></div>
         <li>Pressing the <b>escape</b> key in game will pause the game and show the <b>Developer Console</b>.</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/ConsoleCommands06.png" alt="Console Commands 06" onclick="displayModal(this)"></div>
+        <li>Note: Enabling cheats will disable achievements.</li>
+        <li>Cheats must be enabled in the main menu, before starting a game; then you must use the map command to load a game with cheats enabled. Starting a local server via any of the lobbies will disable cheats.</li>
+        <li>Commands can be chained. Example: sv_cheats 1; z_spawn boomer; z_spawn hunter; z_spawn smoker;</li>
+        <li>You can store your commands in the "<b>autoexec.cfg</b>" file you create and place in the <b>(steam install directory)/steamapps/common/left 4 dead/left4dead/cfg</b> folder.</li>
+        <li>Start typeing in the console and press <b>tab</b> to see a list of commands starting with what you have typed. Pressing the <b>tab</b> key will cycle through the commands list.</li>
     </ol>
     </div><br>
     <button class="collapsible" id="autoClickBtn">Map Commands</button>
@@ -133,7 +138,7 @@
     </tr>
     <tr>
         <td>noclip</td>
-        <td>Toggle no clipping mode</td>
+        <td>Toggle no clipping mode. Disables collision and physics, allows flying through walls and in the air around the map.</td>
     </tr>
     <tr>
         <td>burn</td>
@@ -142,6 +147,10 @@
     <tr>
         <td>fire</td>
         <td>Spawn fire on the ground around you</td>
+    </tr>
+    <tr>
+        <td>boom</td>
+        <td>Spawn active pipe bomb under you</td>
     </tr>
     <tr>
         <td>upgrade_add incendiary_ammo</td>
@@ -156,7 +165,7 @@
         <td>Toggle Laser Sight upgrade</td>
     </tr>
     <tr>
-        <td>give health</td>
+        <td>give [health or life]</td>
         <td>Refill health</td>
     </tr>
     <tr>
@@ -174,10 +183,6 @@
     <tr>
         <td>impulse [101 or ...]</td>
         <td>Get ammo for primary weapon</td>
-    </tr>
-    <tr>
-        <td>boom</td>
-        <td>Spawn active pipe bomb under you</td>
     </tr>
     <tr>
         <td>buddha [0 or 1]</td>
@@ -216,6 +221,10 @@
         <td>Set how long, in seconds, you or a teammate must be dead for before rescue is available (sv_cheats, Default 60)</td>
     </tr>
     <tr>
+        <td>survivor_extra_damage_ammo_factor [multiplier]</td>
+        <td>Set how much extra damage a friendly fire does</td>
+    </tr>
+    <tr>
         <td>setinfo [key][value]</td>
         <td>Set the specified info value for your client. Change your name by specifying "name" as the key and then the desired value</td>
     </tr>
@@ -232,8 +241,20 @@
         <td>Show the effective range of an explosion when an explosive bullet detonates (sv_cheats, Default 0)</td>
     </tr>
     <tr>
-        <td>cl_precacheinfo</td>
+        <td>c1_precacheinfo</td>
         <td>Print to console information about the client's cache</td>
+    </tr>
+    <tr>
+        <td>c1_precacheinfo modelprecache</td>
+        <td>This command gives you an advanced list of items</td>
+    </tr>
+    <tr>
+        <td>prop_dynamic_create [prop]</td>
+        <td>Creates prop with animation potential</td>
+    </tr>
+    <tr>
+        <td>prop_physics_create [prop]</td>
+        <td>Creates prop with gravity, mass, and collision properties</td>
     </tr>
     <tr>
         <td>warp_all_survivors_here</td>
@@ -268,12 +289,20 @@
         <td>Bind the specified command(s) to the specified key</td>
     </tr>
     <tr>
-        <td>kill</td>
-        <td>Set your health to 0, killing you</td>
+        <td>bind K "kick Tank; wait; kick Boomer; wait; kick Smoker; wait; kick Hunter"</td>
+        <td>To bind multiple kicks to a key, it is safer to use the wait command in between the kick commands. This stops each command executing simultaneously, instead it waits at least one frame before parsing the next command. When you try to kick a Hunter and it doesn't work, then there may be more than one Hunter on the map.</td>
     </tr>
     <tr>
-        <td>explode</td>
-        <td>Kill yourself by creating an explosion under your character</td>
+        <td>kill [survivor]</td>
+        <td>Kill alone will set your health to 0, killing you. Adding a survivor name like "Louis" or "L" will kill that survivor</td>
+    </tr>
+    <tr>
+        <td>explode [survivor]</td>
+        <td>Kill yourself by creating an explosion under your character or add a specific name to kill that survivor</td>
+    </tr>
+    <tr>
+        <td>respawn</td>
+        <td>Live again. Additionally, you can type "respawn_all" to resurrect bots and other dead players</td>
     </tr>
     <tr>
         <td>quit</td>
@@ -325,10 +354,6 @@
         <td>Re-enable the spawning of all wanderers, mobs, specials, and bosses</td>
     </tr>
     <tr>
-        <td>director_force_versus_start</td>
-        <td>Forcefully start your current versus game (without you leaving the safe room)</td>
-    </tr>
-    <tr>
         <td>director_debug [0 or 1]</td>
         <td>Toggle debug information for the game's AI (sv_cheats, Default 0)</td>
     </tr>
@@ -350,8 +375,8 @@
         <td>Kick the player with the specified name</td>
     </tr>
     <tr>
-        <td>jointeam [number or name]</td>
-        <td>Join the specified team by number, team name, or character name</td>
+        <td>jointeam 2 [name of bot]</td>
+        <td>Join the specified team by number, team name, or character name. You can also use this command mid-game by first using the spectate command</td>
     </tr>
     <tr>
         <td>chooseteam</td>
@@ -364,6 +389,30 @@
     <tr>
         <td>vs_max_team_switches [number]</td>
         <td>Set the maximum amount of team switches that players can make (sv_cheats, Default 1)</td>
+    </tr>
+    <tr>
+        <td>mp_gamemode versus</td>
+        <td>Set the gamemode to versus. If you want the AI to play with you, enter mp_gamemode coop. The Survivor Bots won't leave the safe room unless you enter "sb_all_bot_game 1".<br>Playing Survival mode on single player: map (map) Survival or mp_gamemode survival; map (map)</td>
+    </tr>
+    <tr>
+        <td>map [map] realism</td>
+        <td>Play realism mode on the map you want</td>
+    </tr>
+    <tr>
+        <td>map [map] mutation[number]</td>
+        <td>Play any mutation by adding the mutation number:<br>mutation1 - Last Man On Earth<br>mutation2 - Headshot!<br>mutation3 - Bleed Out<br>mutation4 - Hard Eight<br>mutation5 - Four Swordsmen<br>mutation6 - Nothing<br>mutation7 - Chainsaw Massacre<br>mutation8 - Iron Man<br>mutation9 - Last Gnome On Earth<br>mutation10 - Room For One<br>mutation11 - Healthpackalypse!<br>mutation12 - Realism Versus<br>mutation13 - Follow the Liter<br>mutation14 - Gib Fest<br>mutation15 - Versus Survival<br>mutation16 - Hunting Party<br>mutation17 - Lone Gunman<br>mutation18 - Bleed Out Versus<br>mutation19 - Taaannnkk!<br>mutation20 - Healing Gnome<br>community1 - Special Delivery<br>community2 - Flu Season<br>community3 - Riding My Survivor<br>community4 - Nightmare<br>community5 - Death Door<br>community6 - Confogl<br>rocketdude - Rocket Dude<br>tankrun - Tank Run</td>
+    </tr>
+    <tr>
+        <td>director_force_versus_start</td>
+        <td>Forcefully start your current versus game (without you leaving the safe room)</td>
+    </tr>
+    <tr>
+        <td>sb_all_bot_game [0 or 1]</td>
+        <td>Allow your game to continue on with just bots and no players (sv_cheats, Default 0)</td>
+    </tr>
+    <tr>
+        <td>sb_unstick [0 or 1]</td>
+        <td>If set to 0, stop bots from teleporting to "unstick" themselves from locations. By default this is set to 1, which will allow bots to teleport out of locations they get stuck inside (sv_cheats, Default 1)</td>
     </tr>
     </table></div>
     </div><br>
@@ -483,6 +532,14 @@
         <td>Set the maximum amount of special infected zombies that can be in the game at any given time (sv_cheats, Default 3)</td>
     </tr>
     <tr>
+        <td>z_gas_limit [number]</td>
+        <td>Set the maximum amount of smoker zombies that can be in the game at any given time (sv_cheats, Default 1)</td>
+    </tr>
+    <tr>
+        <td>z_exploding_limit [number]</td>
+        <td>Set the maximum amount of boomer zombies that can be in the game at any given time (sv_cheats, Default 1)</td>
+    </tr>
+    <tr>
         <td>z_health [number]</td>
         <td>Change zombie health (sv_cheats, Default 50)</td>
     </tr>
@@ -519,6 +576,10 @@
         <td>Allows you to force all zombies to have the model set by z_forcezombiemodelname (sv_cheats, Default 0)</td>
     </tr>
     <tr>
+        <td>z_forcezombiemodelname common_male_(Infected);z_forcezombiemodel 1;z_spawn</td>
+        <td>ceda = Hazmat CEDA zombies from Dead Center<br>jimmy = Jimmy Gibbs zombie from Dead Center's last level<br>fallen_survivor = The Fallen Survivor from The Passing<br>clown = Clowns from Dark Carnival<br>mud = Mud-Men from Swamp Fever<br>riot = Riot Cops from The Parish<br>worker = Workers from Hard Rain</td>
+    </tr>
+    <tr>
         <td>z_fallen_max_count [number]</td>
         <td>Set the maximum amount of fallen survivors that can be present at any given time (sv_cheats, Default 1)</td>
     </tr>
@@ -546,14 +607,6 @@
     <tr>
         <td>sb_open_fire [0 or 1]</td>
         <td>Bot teammates shoot nonstop (sv_cheats, Default 0)</td>
-    </tr>
-    <tr>
-        <td>sb_all_bot_game [0 or 1]</td>
-        <td>Allow your game to continue on with just bots and no players (sv_cheats, Default 0)</td>
-    </tr>
-    <tr>
-        <td>sb_unstick [0 or 1]</td>
-        <td>If set to 0, stop bots from teleporting to "unstick" themselves from locations. By default this is set to 1, which will allow bots to teleport out of locations they get stuck inside (sv_cheats, Default 1)</td>
     </tr>
     </table></div>
     </div><br>
@@ -696,7 +749,7 @@
     </tr>
     <tr>
         <td>give weapon_grenade_launcher</td>
-        <td>Spawn grenade launcher</td>
+        <td>Spawn grenade launcher. If that does not work then you can try <b>ent_create weapon_grenade_launcher</b></td>
     </tr>
     <tr>
         <td>give melee</td>
@@ -766,6 +819,10 @@
         <td>give pain_pills</td>
         <td>Spawn pain pills</td>
     </tr>
+    <tr>
+        <td>give smg_mp5<br>give sniper_awp<br>give sniper_scout<br>give rifle_sg552</td>
+        <td>Spawn Counter Strike: Source weapons. Be aware that these will do no damage whatsoever until you reload the map.</td>
+    </tr>
     </table></div>
     </div><br>
     <button class="collapsible" id="autoClickBtn">Spawn Zombies</button>
@@ -780,7 +837,19 @@
         <td>Spawn a zombie</td>
     </tr>
     <tr>
+        <td>z_spawn common</td>
+        <td>Spawn a zombie</td>
+    </tr>
+    <tr>
+        <td>z_spawn</td>
+        <td>Spawn a zombie</td>
+    </tr>
+    <tr>
         <td>z_spawn mob</td>
+        <td>Spawn zombie horde</td>
+    </tr>
+    <tr>
+        <td>z_spawn horde</td>
         <td>Spawn zombie horde</td>
     </tr>
     <tr>
