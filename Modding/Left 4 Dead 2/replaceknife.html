@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding L4D2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="stencils.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Replacing Knife Model</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Replacing Knife Model</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Replacing Knife Model</h2>
+    <ol>
+        <li>This tutorial will walk you through making a custom knife model replacement for <b>Left 4 Dead 2</b>.</li>
+        <li>Start by opening <b>GCFScape</b> and then opening <b>pak01_dir.vpk</b></li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/pak01_dir.png" alt="" onclick="displayModal(this)"></div>
+        <li>Open <b>models &gt; w_models &gt; weapons</b> and you will find 4 files starting with <b>w_knife_t</b>. Select the first one, hit <b>shift</b> and then the last one, and finally drag the files from <b>GCFScape</b> to your own folder.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/wmodels-knife.png" alt="" onclick="displayModal(this)"></div>
+        <li>Re-create the folder structure where you found the files.</li>
+        <li>Next we need to go to the <b>v_models</b> folder in <b>GCFScape</b> and find the 3 files starting with <b>v_knife_t</b>. Drag the files to your own folder. Make sure you have the same folder structure for the files like we did for <b>w_models</b>. This is not actually required until we compile the new files.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/vmodels-knife.png" alt="" onclick="displayModal(this)"></div>
+        <li>Next we need a decompiler called <a href="https://steamcommunity.com/groups/CrowbarTool">Crowbar</a></li>
+        <li>Open the application and go to the <b>Decompile</b> tab.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/vmodels-knife.png" alt="" onclick="displayModal(this)"></div>
+        <li>For the <b>MDL input</b> click on <b>Browse</b> and locate one of the mdl files you copied from <b>GCFScape</b> previously. I like to start with the <b>w_knife_t.mdl</b> file.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/crowbar01.png" alt="" onclick="displayModal(this)"></div>
+        <li>Now we need to pick the <b>Output to</b> folder. Click <b>Browse</b> and select your desired output folder. The decompiled files do not need to be in any specific folder structure, but one option is to make a folder named <b>Decompiled</b> next to the <b>MDL</b> file.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/wmodels-knife-decompiled.png" alt="" onclick="displayModal(this)"></div>
+        <li>With the <b>MDL</b> file decompiled, we will now have a file named <b>w_knife_t.qc</b> and another important file is the <b>w_knife_t_model.smd</b> file. The <b>QC</b> file will tell the game where to find our model and materials, while the <b>model.smd</b> file will be the actual exported model for our knife.</li>
+        <li>Next thing we need to install is <a href="https://www.blender.org">Blender</a>, an open source 3D creation suite. We will also need to install an addon for <b>Blender</b> so we can import and export our model files.</li>
+        <li>The addon we need can be found <a href="http://steamreview.org/BlenderSourceTools/">here</a> and some instructions on installing can be found on the Valve Developer Community site <a href="https://developer.valvesoftware.com/wiki/Blender_Source_Tools">here</a>. Once you have that installed we can continue.</li>
+        <li>Inside of blender go to <b>File > Import > Source Engine (.smd, .vta, .dmx, .qc)</b> and locate the <b>w_knife_t.qc</b> file. Once that loads in you will see a blocky object that doesn't look like the knife. Hide the <b>w_knife_t_physics</b> object in the hierarchy on the right and you will see the knife without any materials/textures (color) added.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-01.png" alt="" onclick="displayModal(this)"></div>
+        <li>You can add a cube by using the shortcut <b>Shift + A</b> and going to <b>Mesh > Cube</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-02.png" alt="" onclick="displayModal(this)"></div>
+        <li>Next we can hide the knife and make our cube into something more interesting. If you already have a model to import then you can skip past some of these steps.</li>
+        <li>With the cube selected, go to the right and click on the wrench icon (Modifier Properties). Click on the drop down for <b>Add Modifier</b> and choose the <b>Subdivide Surface</b> modifier. Change the <b>Levels Viewport</b> to 3.</li>
+         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-03.png" alt="" onclick="displayModal(this)"></div>
+        <li>If you now switch to the <b>Modeling</b> tab, you will see an orange box around what is now a sphere.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-04.png" alt="" onclick="displayModal(this)"></div>
+        <li>You can use the <b>loop cut</b> tool to add more details and faces to move around.</li>
+        <li>Switch to face select mode and when you select a face to move, the model will change to make a hill or maybe a dimple in the model.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-05.png" alt="" onclick="displayModal(this)"></div>
+        <li>Go back to layout mode when you are done making changes to the model. Click on the drop down arrow and you should now be able to click <b>Apply</b>.</li>
+        <li>Add another modifier called an <b>Armature</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-06.png" alt="" onclick="displayModal(this)"></div>
+        <li>Select the eye dropper and click on the skeleton (w_knife_t.qc_skeleton) in the layer list above.</li>
+        <li>Back in the <b>Modeling</b> tab, click on the <b>Object Data Properties</b> on the right and click the plus sign to make a new <b>Vertex Group</b>. Create one named <b>ValveBiped.knife</b> and another named <b>ValveBiped.weapon_bone</b></li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-07.png" alt="" onclick="displayModal(this)"></div>
+        <li>With the weapon_bone group selected click <b>A</b> and then click on the <b>Assign</b> button.</li>
+        <li>Now in the <b>View Layer</b> on the right we need to <b>Right Click</b> and click <b>New Collection</b>.</li>
+        <li>Drag the cube into the new collection and then with the cube selected in the <b>View Layer</b> go to <b>Object Properties</b> on the right next to <b>Modifier Properties</b> and click on <b>Relations</b>. The Parent box has an eye dropper to click on and select the <b>w_knife_t.qc_skeleton</b> in the <b>View Layer</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-08.png" alt="" onclick="displayModal(this)"></div>
+        <li>You can right click and use <b>Delete Hierarchy</b> on the collections we don't need.</li>
+        <li>Next we can rename our model and the collection.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-09.png" alt="" onclick="displayModal(this)"></div>
+        <li>If you go to the <b>UV Editing</b> tab and press <b>A</b> to select all vertices for the model, then a version of the <b>UV Map</b> will appear on the left where we can cut and unfold and all that.</li>
+        <li>Select everything on the left and press the <b>UV</b> button up above to show more uv options including an export uv option. I went with a 1024x1024 pixel <b>UV Map</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-10.png" alt="" onclick="displayModal(this)"></div>
+        <li>Open up the exported <b>UV Map</b> in photoshop and add the color detail you want to add to your model.</li>
+        <li>Save it as a <b>.png</b> file and go to the <b>Shading</b> tab in blender.</li>
+        <li>On the right you will see a <b>Material Properties</b> option (near the bottom). Add a new material using the plus button. I dragged in a random image from a previous tutorial for this tutorial, but when you are doing it, keep the names of materials in blender the same as the image files in your folder structure. Name your material something like <b>tutorial_model_material</b>.</li>
+        <li>Now drag the line from <b>Color</b> on your material image to <b>Base Color</b> on the <b>Principled BSDF</b> and the material will appear on your model.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-11.png" alt="" onclick="displayModal(this)"></div>
+        <li>Now we can finally export our model as a <b>.smd</b> file.</li>
+        <li>On the right as with <b>Material Properties</b> and <b>Modifier Properties</b>, you will find <b>Scene Properties</b>. It looks like a cone and two spheres.</li>
+        <li>Change the <b>Export Format</b> to <b>SMD</b>, make sure the <b>Target Up Axis</b> is set to <b>Z</b> and select an <b>Export Path</b> where you will be able to find the file.</li>
+        <li>Click the <b>Export</b> button and select <b>tutorial_knife.smd</b> or whatever you called your model and .smd</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/blender-knife-12.png" alt="" onclick="displayModal(this)"></div>
+        <li>Make sure you place that new file in the same folder as your <b>.qc</b> file.</li>
+        <li>Open the file in <b>notepad++</b> and change the folder location for your materials on line 16 and the name of the <b>.smd file on line 7.</b></li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/Left%204%20Dead%202/wknifeqcfile.png" alt="" onclick="displayModal(this)"></div>
+        <li>Next we can move on to the v_model and compiling.</li>
+        <li>Open up <b>Crowbar</b> and browse for the <b>v_knife_t.mdl</b> file we copied from <b>GCFScape</b> earlier and decompile and output it to your <b>v_models/Decompiled</b> folder. This is the same process we went through with the w_models <b>w_knife_t.mdl</b> file earlier.</li>
+        <li>Back in <b>Blender</b> go to <b>File &gt; New &gt; General</b>. Don't forget to save often when your modeling.</li>
+        <li>Now go to <b>File &gt; Import &gt; Source Engine (.smd, .vta, .dmx, .qc)</b> and find the <b>v_knife_t.qc</b> file we just decompiled.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/vmodel-blender-01.png" alt="" onclick="displayModal(this)"></div>
+        <li>Save it as a new project to save some time later.</li>
+        <li>Next we need to import the <b>.smd</b> file we exported (tutorial_knife.smd). For this part in the tutorial I just brought in my rubber chicken instead of that cube. You will want to keep the same model throughout the whole process; I'm just showing examples.</li>
+        <li>Switch to edit mode. Pressing tab once while in object mode will also take you to edit mode.</li>
+        <li>Select your model and move/rotate it to the location of the knife. The spheres essentially represent the characters arms and hands in game. Pressing the spacebar here will play the animation for the character swinging the knife as well.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/vmodel-blender-02.png" alt="" onclick="displayModal(this)"></div>
+        <li>Do some renaming so that the model and collection have a <b>v_</b> in front of the name.</li>
+        <li>Export the <b>.smd</b> like we did before.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Left%204%20Dead%202/vmodel-blender-03.png" alt="" onclick="displayModal(this)"></div>
+        <li>Now we can go to the <b>Decompiled</b> folders we made earlier and replace the <b>w_knife_t_model.smd</b> file with our tutorial/rubber chicken <b>.smd</b> file and replace the <b>knife_t_model.smd</b> file with our <b>v_</b> tutorial/rubber chicken <b>.smd</b> file.</li>
+        <li>Open up your <b>.qc</b> files and replace line 7 with the name of your model.smd file and replace line 17 with the folder location of your materials. For clarification, you will make a materials folder next to the models folder just inside your custom knife mod folder. It will automatically look in the materials folder, but you need to tell it where to go from there, for example: <b>"models\weapons\rubber_chicken\"</b>.</li>
+        <li>The game won't like you leaving your materials in <b>.png</b> format so you will need to open up <b>VTFEdit</b> like we did in previous tutorials and and easy way to convert all materials is to go to <b>Tools &gt; Convert Folder</b>; select the folder you stored your materials in for the <b>Input Folder</b> and set the <b>Output Folder</b> to the materials folder for your mod.</li>
+        <li>Hit <b>Convert</b> and close <b>VTFEdit</b>.</li>
+        <div class="center" style="max-width: 400px;"><img src="../../images/Modding/Left%204%20Dead%202/convert-folder.png" alt="" onclick="displayModal(this)"></div>
+        <li>For the material to show up properly we need to right click our newly created <b>material.vmt</b> file and change <b>LightmappedGeneric</b> to <b>VertexLitGeneric</b>. You can also tell it where to look for a bumpmap if you made one.</li>
+        <div class="center" style="max-width: 800px;"><img src="../../images/Modding/Left%204%20Dead%202/vmt-edit.png" alt="" onclick="displayModal(this)"></div>
+        <li>Add <b>Content_WeaponModel 1</b> to your addoninfo file and we can finally package our new mod.</li>
+        <li>Drag the folder onto your vpk.exe shortcut like we did in previous tutorials and drag the packaged mod to your addons folder inside of <b>Left 4 Dead 2</b>.</li>
+        <div class="center" style="max-width: 800px;"><img src="../../images/Modding/Left%204%20Dead%202/knife-addoninfo.png" alt="" onclick="displayModal(this)"></div>
+        <li>You can replace the knife icon that appears on the right side of the screen in game with a new one by adding the <b>materials\vgui\hud</b> folder to your mod and replacing the <b>icon_knife.vtf</b> file.</li>
+        <li>You can also replace the sounds for the knife by adding a <b>sound\weapons\knife</b> folder to your mod and swapping out the 8 sound files that go with the knife. Make sure to keep the same names and sound lengths; some of the sounds are also in mono while others are in stereo, not checking on this will lead to a poor sound replacement in game.</li>
+        <li>Clear as mud??? I Believe in you.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
