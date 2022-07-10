@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding KF2</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="flashlights.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Getting Started</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Getting Started</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Installing Software</h2>
+    <p>Starting with Dedicated Servers, we need to install SteamCMD:</p>
+    <ol>
+        <li>SteamCMD: <a href="../../downloads/Modding/Killing%20Floor%202/steamcmd.zip" download>steamcmd.zip</a></li>
+    </ol>
+    <h2>References</h2>
+    <p>References used for this tutorial:</p>
+    <ol>
+        <li><a href="https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2)#Command_Line_Launch_Options">Dedicated Server (Killing Floor 2)</a></li>
+        <li><a href="https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD">SteamCMD</a></li>
+        <li><a href="https://developer.valvesoftware.com/wiki/Dedicated_Servers_List">Dedicated Servers List</a></li>
+        <li><a href="https://www.brunokitsune.net/en/tutorials/games/kf2-server.html">Killing Floor 2: How to create a dedicated server</a></li>
+        <li><a href="https://nodecraft.com/support/games/killing-floor-2/setting-up-custom-maps-for-your-killing-floor-2-dedicated-server#h-download-the-map-file-from-workshop-cb354050">Setting up Custom Maps for Your Killing Floor 2 Dedicated Server</a></li>
+        <li><a href="https://nodecraft.com/support/games/killing-floor-2/how-to-install-workshop-mods-to-your-killing-floor-2-dedicated-server#h-find-your-modand39s-id-number-b6e3">How to Install Workshop Mods to your Killing Floor 2 Dedicated Server</a></li>
+        <li><a href="https://nordvpn.com/blog/open-ports-on-router/">How to open ports on your router</a></li>
+    </ol>
+    <h3>Extracting</h3>
+    <ol>
+        <li>Open the <b>File Explorer</b> to the <b>Local Disk (C:)</b> drive folder.</li>
+        <li>Create a new folder named <b>steamcmd</b>.</li><br>
+        <p class="code-sl">
+            C:\steamcmd
+        </p>
+        <li>Drag the steamcmd.zip file from above into the new folder and extract the files using your prefered extraction software. 7-zip for example.</li>
+        <li>Double-Click <b>steamcmd.exe</b> to open the Steam Console Client from Valve.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD1.jpg" alt="SteamCMD#1" onclick="displayModal(this)"></div>
+        <li>Running <b>steamcmd</b> opens a command prompt window where we will need to run a few commands later.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD2.jpg" alt="SteamCMD#2" onclick="displayModal(this)"></div>
+    </ol>
+    <h3>Logging In &amp; Installing Files</h3>
+    <ol>
+        <li>In order to use commands here, we will need to login. Using your own account or even one that owns the game is not required for this part.</li>
+        <li>Just logging in as anonymous will get us everything we need.</li><br>
+        <p class="code-sl">
+            Steam>login anonymous
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD3.jpg" alt="SteamCMD#3" onclick="displayModal(this)"></div>
+        <li>Now we want to install the killing floor 2 dedicated server files.</li>
+        <li>You can check the references above for more details, but the command we want to run next will install and verify the integrity of the server files.</li><br>
+        <p class="code-sl">
+            Steam>app_update 232130 validate
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD4.jpg" alt="SteamCMD#4" onclick="displayModal(this)"></div>
+        <li>Next we need to take care of some missing dependencies by going to the <b>Redist</b> folder and running the <b>UE3Redist.exe</b> application. When that is done we can close the application.</li><br>
+        <p class="code-sl">
+            C:\steamcmd\steamapps\common\kf2server\Binaries\Redist
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD5.jpg" alt="SteamCMD#5" onclick="displayModal(this)"></div>
+    </ol>
+    <h3>Server Configuration</h3>
+    <ol>
+        <li>Go to the Config folder and find the <b>PCServer-KFGame.ini</b> file.</li><br>
+        <p class="code-sl">
+            C:\steamcmd\steamapps\common\kf2server\KFGame\Config
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD10.jpg" alt="SteamCMD#10" onclick="displayModal(this)"></div>
+        <li>Change the AdminPassword.</li><br>
+        <p class="code-sl">
+            AdminPassword=<b>A1b2C34D</b>
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD7.jpg" alt="SteamCMD#7" onclick="displayModal(this)"></div>
+        <li>Change the ServerName. The example below is just what I use, so go with whatever you want.</li><br>
+        <p class="code-sl">
+            ServerName=<b>BNHS Server</b>
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD8.jpg" alt="SteamCMD#8" onclick="displayModal(this)"></div>
+        <li>Back to the Config folder, find and open the <b>KFWeb.ini</b> file.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD11.jpg" alt="SteamCMD#11" onclick="displayModal(this)"></div>
+        <li>Find <b>bEnabled=false</b> and change it to <b>true</b>. This should allow us to connect to and change some of our server settings from a browser.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD12.jpg" alt="SteamCMD#12" onclick="displayModal(this)"></div>
+        <li>Before we test our server, go back out to the <b>kf2server</b> folder and find the <b>KF2Server.bat</b> file.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD9.jpg" alt="SteamCMD#9" onclick="displayModal(this)"></div>
+        <li>Right click the file and click edit. Use the example below and replace the admin name with the name of your choice and password with the password we set earlier in the tutorial. The difficulty count starts at 0=normal 1=hard and so on. The port settings I have added to the second example are for making the server public, so if you are only running it on your local network then you can use the first one.</li><br>
+        <p class="code-sl">
+            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1
+        </p><br>
+        <p class="code-sl">
+            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1?Port=7777?QueryPort=27015?WebAdminPort=8080
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD18.jpg" alt="SteamCMD#18" onclick="displayModal(this)"></div>
+        <li>At this point you can start up the server by double clicking on the <b>KF2Server.bat</b> file. We will add workshop maps to our server and learn how to change settings in the browser next.</li>
+    </ol>
+    <h3>Installing Workshop Maps</h3>
+    <ol>
+        <li>Before we can download our workshop maps, we need to get Steams' app id for Killing Floor 2. Go to <a href="https://steamdb.info">SteamDB</a> and search <b>Killing Floor 2</b> and you will see <b>App ID: 232090</b>. Copy this number to a sticky note or txt file.</li>
+        <li>Next we need the id of the actual workshop map. You can get this from inside the steam client or in your browser. From the Steam client you can navigate to the workshop map where the subscribe button is located and right click to copy the page url. You can also view the url in your browser and by changing the Steam settings to show the url inside of the Steam client. However you get there is not important. Near the end of the url we need to find <b>?id=</b> and a big number. Copy this number to a sticky note or txt file as well.</li>
+        <br><p class="code-sl">
+            https://steamcommunity.com/sharedfiles/filedetails/?id=<b>643383080</b>
+        </p>
+        <li>If you already closed the <b>steamcmd</b> command prompt from earlier then run the executable and log in as anonymous again. Type in the command <b>workshop_download_item app-id workshop-id</b>. replace app-id with the Killing Floor 2 app id we copied to our sticky note and the replace the workshop-id with the id of the map you want to download.</li>
+        <br><p class="code-sl">
+            Steam>workshop_download_item <b>232090 643383080</b>
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD14.jpg" alt="SteamCMD#14" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD15.jpg" alt="SteamCMD#15" onclick="displayModal(this)"></div>
+        <li>You should now have the new map downloaded to the <b>content > 232090</b> folder. Open that folder, the folder with the mod id and so on until you get to the <b>.kfm</b> file. Copy this file and then go to the <b>BrewedPC\Maps</b> folder and paste the file. We do not need it to be within yet another folder with the map name like the default maps here.</li>
+        <br><p class="code-sl">
+            C:\steamcmd\steamapps\common\kf2server\KFGame\BrewedPC\Maps
+        </p>
+        <li>Back in the <b>PCServer-KFGame.ini</b> file we need to add the name of the map we just added to our server. Scroll down to the <b>KF-Default</b> map settings and add the new map to the list. Here is one example using the <b>KF-BikiniAtoll</b> map:</li>
+        <br><p class="code-sl">
+            [<b>KF-BikiniAtoll</b> KFMapSummary]<br>
+            MapName=<b>KF-BikiniAtoll</b><br>
+            MapAssociation=0<br>
+            ScreenshotPathName=UI_MapPreview_TEX.UI_MapPreview_Placeholder
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD13.jpg" alt="SteamCMD#13" onclick="displayModal(this)"></div>
+        <li>You are now ready to move on to the webapp section, which makes some things like changing game mode and map a bit easier than shutting down the server and changing them manually.</li>
+    </ol>
+    <h3>Accessing Our Server From a Web Browser</h3>
+    <ol>
+        <li>You will need the IP address of the computer you are using as a server. Hit the windows key, type cmd, and hit enter to open a command prompt. Type in the command <b>ipconfig</b> and hit enter. You will need the IPv4 address: 192.168.1.?the last number was 16 in my instance.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD20.jpg" alt="SteamCMD#20" onclick="displayModal(this)"></div>
+        <li>Now you will type that address into the address bar of your browser with <b>:8080</b> at the end.</li>
+        <br><p class="code-sl">
+            192.168.1.16:8080
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD20.jpg" alt="SteamCMD#20" onclick="displayModal(this)"></div>
+        <li>You will be asked to login, so use the name and admin password we set up previously in our tutorial.</li>
+        <li>Change Map</li>
+        <li>Change Map Queue</li>
+    </ol>
+    <h3>Making The Server Public</h3>
+    <ol>
+        <li>In order to make the server public we need to modify the <b>KF2Server.bat</b> file to include the port options I showed the example of earlier. Then for the hard part.</li>
+        <li>Remember the IP address of the computer you are using to host the server? We need to give it a Static IP Adress on our Router.</li>
+        <li>In a Browser type into the address bar: <b>192.168.1.1</b> this is the standard address for accessing your router. Login and search for your <b>Static DHCP Configuration</b> options and <b>Port Forwarding</b> options.</li>
+        <li>In your <b>Static DHCP Configuration</b> options choose the device info that matches your device and IP address, make it active and hit <b>OK</b>. The example image does not have it set to active currently.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD16.jpg" alt="SteamCMD#16" onclick="displayModal(this)"></div>
+        <li>Next find your <b>Port Forwarding</b> options and start adding the ports we want open. refer to the example below.</li>
+        <br><p class="code-sl">
+            Game Port: <b>7777</b> | UDP<br>
+            Query Port: <b>27015</b> | UDP<br>
+            Web Admin: <b>8080</b> | TCP<br>
+            Steam Port: <b>20560</b> | UDP
+        </p>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD17.jpg" alt="SteamCMD#17" onclick="displayModal(this)"></div>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
