@@ -49,13 +49,13 @@
     <h2>References</h2>
     <p>References used for this tutorial:</p>
     <ol>
-        <li><a href="https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2)#Command_Line_Launch_Options">Dedicated Server (Killing Floor 2)</a></li>
-        <li><a href="https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD">SteamCMD</a></li>
-        <li><a href="https://developer.valvesoftware.com/wiki/Dedicated_Servers_List">Dedicated Servers List</a></li>
-        <li><a href="https://www.brunokitsune.net/en/tutorials/games/kf2-server.html">Killing Floor 2: How to create a dedicated server</a></li>
-        <li><a href="https://nodecraft.com/support/games/killing-floor-2/setting-up-custom-maps-for-your-killing-floor-2-dedicated-server#h-download-the-map-file-from-workshop-cb354050">Setting up Custom Maps for Your Killing Floor 2 Dedicated Server</a></li>
-        <li><a href="https://nodecraft.com/support/games/killing-floor-2/how-to-install-workshop-mods-to-your-killing-floor-2-dedicated-server#h-find-your-modand39s-id-number-b6e3">How to Install Workshop Mods to your Killing Floor 2 Dedicated Server</a></li>
-        <li><a href="https://nordvpn.com/blog/open-ports-on-router/">How to open ports on your router</a></li>
+        <li><a href="https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2)#Command_Line_Launch_Options" target="_blank">Dedicated Server (Killing Floor 2)</a></li>
+        <li><a href="https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD" target="_blank">SteamCMD</a></li>
+        <li><a href="https://developer.valvesoftware.com/wiki/Dedicated_Servers_List" target="_blank">Dedicated Servers List</a></li>
+        <li><a href="https://www.brunokitsune.net/en/tutorials/games/kf2-server.html" target="_blank">Killing Floor 2: How to create a dedicated server</a></li>
+        <li><a href="https://nodecraft.com/support/games/killing-floor-2/setting-up-custom-maps-for-your-killing-floor-2-dedicated-server#h-download-the-map-file-from-workshop-cb354050" target="_blank">Setting up Custom Maps for Your Killing Floor 2 Dedicated Server</a></li>
+        <li><a href="https://nodecraft.com/support/games/killing-floor-2/how-to-install-workshop-mods-to-your-killing-floor-2-dedicated-server#h-find-your-modand39s-id-number-b6e3" target="_blank">How to Install Workshop Mods to your Killing Floor 2 Dedicated Server</a></li>
+        <li><a href="https://nordvpn.com/blog/open-ports-on-router/" target="_blank">How to open ports on your router</a></li>
     </ol>
     <h3>Extracting</h3>
     <ol>
@@ -140,7 +140,7 @@
         <br><p class="code-sl">
             C:\steamcmd\steamapps\common\kf2server\KFGame\BrewedPC\Maps
         </p>
-        <li>Back in the <b>PCServer-KFGame.ini</b> file we need to add the name of the map we just added to our server. Scroll down to the <b>KF-Default</b> map settings and add the new map to the list. Here is one example using the <b>KF-BikiniAtoll</b> map:</li>
+        <li>Back in the <b>PCServer-KFGame.ini</b> file we need to add the name of the map we just added to our server if we want to see the map from inside of Web Admin. Scroll down to the <b>KF-Default</b> map settings and add the new map to the list. Here is one example using the <b>KF-BikiniAtoll</b> map:</li>
         <br><p class="code-sl">
             [<b>KF-BikiniAtoll</b> KFMapSummary]<br>
             MapName=<b>KF-BikiniAtoll</b><br>
@@ -178,6 +178,20 @@
             Steam Port: <b>20560</b> | UDP
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD17.jpg" alt="SteamCMD#17" onclick="displayModal(this)"></div>
+    </ol>
+    <h3>Setting Up Steam Workshop For Servers</h3>
+    <ol>
+        <li>Make sure the server is not running before making your changes.</li>
+        <li>We need to add a new section to the <b>PCServer-KFGame.ini</b> config file.</li>
+        <br><p class="code-sl">
+            <b>[OnlineSubsystemSteamworks.KFWorkshopSteamworks]</b>
+        </p>
+        <li>For the next line we need to know the Workshop ID for our subscribed workshop item.</li>
+        <br><p class="code-sl">
+            [OnlineSubsystemSteamworks.KFWorkshopSteamworks]<br>
+            <b>ServerSubscribedWorkshopItems=643383080</b>
+        </p>
+        <li>Add more "<b>ServerSubscribedWorkshopItems=</b>" lines with the Workshop IDs of all the items you want your server to download. You will still need to add the map names in your <b>PCServer-KFGame.ini</b> file in order to see them from inside of <b>Web Admin</b>.</li>
     </ol>
 </div>
 </div>
