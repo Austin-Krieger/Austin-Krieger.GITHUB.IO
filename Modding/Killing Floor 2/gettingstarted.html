@@ -28,9 +28,9 @@
     <a href="../index.html">Modding</a>
 </div>
 <div id="closeSideNav">
-<h1>Getting Started</h1>
+<h1>Killing Floor 2 Dedicated Servers</h1>
 <div class="containButtons">
-<button class="collapsible" id="autoClickBtn">Getting Started</button>
+<button class="collapsible" id="autoClickBtn">Setting Up a Dedicated Server</button>
 <div class="content">
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -57,8 +57,9 @@
         <li><a href="https://nodecraft.com/support/games/killing-floor-2/how-to-install-workshop-mods-to-your-killing-floor-2-dedicated-server#h-find-your-modand39s-id-number-b6e3" target="_blank">How to Install Workshop Mods to your Killing Floor 2 Dedicated Server</a></li>
         <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1110775580" target="_blank">Dedicated Server Secrets, Tips, Fixes, Tutorials, &amp; More</a></li>
         <li><a href="https://nordvpn.com/blog/open-ports-on-router/" target="_blank">How to open ports on your router</a></li>
+        <li><a href="https://github.com/darkdks/KF2ServerTool/releases" target="_blank">Killing Floor 2 Server Tool</a></li>
     </ol>
-    <h3>Extracting</h3>
+    <h3>Installing SteamCMD</h3>
     <ol>
         <li>Open the <b>File Explorer</b> to the <b>Local Disk (C:)</b> drive folder.</li>
         <li>Create a new folder named <b>steamcmd</b>.</li><br>
@@ -71,88 +72,110 @@
         <li>Running <b>steamcmd</b> opens a command prompt window that will install the files necessary for running <b>steamcmd</b> and installing servers.</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD2.jpg" alt="SteamCMD#2" onclick="displayModal(this)"></div>
     </ol>
-    <h3>Logging In &amp; Installing Files</h3>
+    <h3>Logging In &amp; Installing Server Files</h3>
     <ol>
-        <li>We want to tell <b>steamcmd</b> where to install the server as soon as we can. Try running the following command:</li><br>
+        <li>We want to tell <b>steamcmd</b> where to install the server right away. Try running the following command:</li><br>
         <p class="code-sl">
             Steam>force_install_dir ..\KF2Server\
         </p>
-        <li>Some commands, require you to login. Using your own account or even one that owns the game is not required for this part.</li>
-        <li>Logging in as anonymous will get us access to everything we need.</li><br>
+        <li>Some commands require you to login. Using your own account or even one that owns the game however is not required, so we will be logging in as <b>anonymous</b> which will give us access to everything we need.</li><br>
         <p class="code-sl">
             Steam>login anonymous
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD3.jpg" alt="SteamCMD#3" onclick="displayModal(this)"></div>
-        <li>Now we want to install the killing floor 2 dedicated server files.</li>
-        <li>You can check the references above for more details, but the command we want to run next will install and verify the integrity of the server files.</li><br>
-        <li>You can try this one first just in case, it will also serve as our update command later.</li><br>
+        <li>Now we want to install the killing floor 2 dedicated server files. You can check the references section above for more details, but the command we want to run next will install and verify the integrity of the server files.</li>
+        <li>Try running this command next. (It will double as our update command later)</li><br>
         <p class="code-sl">
             Steam>login anonymous +force_install_dir ./KF2Server +app_update 232130
         </p>
-        <li>Likely nothing happened there, so you can move on to the next command. Validate should make sure the server files are actually downloaded. This will take up around 20GB of space as well.</li><br>
+        <li>If that command did not start the download then move on to this next command or try adding validate to the end of the one we just used. Validate should make sure the server files are actually downloaded. Around 20GB of free space is required for the server files, so make sure you have room on your drive.</li><br>
         <p class="code-sl">
             Steam>app_update 232130 validate
         </p>
-        <li>We can setup a more automated update command for our server by right clicking on <b>steamcmd.exe</b> > <b>Create shortcut</b> > Rename the shortcut <b>Update Server</b> and then right click on our new shortcut and select properties.</li>
-        <li>We want to add this line to the target box and hit apply.</li><br>
-        <p class="code-sl">
-            C:\steamcmd\steamcmd.exe +login anonymous +force_install_dir ./KF2Server +app_update 232130 +exit
-        </p>
-        <li>This should login as anonymous, update our server if necessary, and then exit the window. You will want to run this when the game comes out with an update.</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD4.jpg" alt="SteamCMD#4" onclick="displayModal(this)"></div>
-        <li>Next we need to take care of some missing dependencies by going to the <b>Redist</b> folder and running the <b>UE3Redist.exe</b> application. When that is done we can close the application.</li><br>
+    </ol>
+    <h3>Missing Dependencies</h3>
+    <ol>
+        <li>For the next step we need to take care of some missing dependencies. Navigate to the <b>Redist</b> folder inside of the kf2server folder and run <b>UE3Redist.exe</b>. When that is done we can close the application.</li><br>
         <p class="code-sl">
             C:\steamcmd\steamapps\common\kf2server\Binaries\Redist
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD5.jpg" alt="SteamCMD#5" onclick="displayModal(this)"></div>
     </ol>
     <h3>Server Configuration</h3>
+    <p>At this point we have a couple options to consider when configuring our server. Option #1 is a little more automated and made easy with the use of a program called <b>KF2ServerTool</b> and Option #2 is more manual setup without any programs to add lines to <b>.ini</b> files for us. Both options should be able to download custom maps automatically from the workshop, so players don't need to download and subscribe to each and every map themselves.<br><b>(Some of these Steps are not necessarily shared between both options, but it wouldn't hurt to complete the following steps either way)</b></p>
     <ol>
-        <li>Go to the Config folder and find the <b>PCServer-KFGame.ini</b> file.</li><br>
+        <li>Navigate to the <b>Config</b> folder and find the <b>PCServer-KFGame.ini</b> file.</li><br>
         <p class="code-sl">
             C:\steamcmd\steamapps\common\kf2server\KFGame\Config
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD10.jpg" alt="SteamCMD#10" onclick="displayModal(this)"></div>
-        <li>Change the AdminPassword.</li><br>
+        <li>Search for the <b>[Engine.AccessControl]</b> section and add a new admin password.</li><br>
         <p class="code-sl">
             AdminPassword=<b>A1b2C34D</b>
         </p>
-        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD7.jpg" alt="SteamCMD#7" onclick="displayModal(this)"></div>
-        <li>Change the ServerName. The example below is just what I use, so go with whatever you want.</li><br>
+        <div class="center" style="max-width: 300px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD7.jpg" alt="SteamCMD#7" onclick="displayModal(this)"></div>
+        <li>Search for the <b>[Engine.GameReplicationInfo]</b> section and set the server name to whatever you want, I went with <b>BNHS Server</b> because it is recognizable for my friends.</li><br>
         <p class="code-sl">
             ServerName=<b>BNHS Server</b>
         </p>
-        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD8.jpg" alt="SteamCMD#8" onclick="displayModal(this)"></div>
-        <li>Back to the Config folder, find and open the <b>KFWeb.ini</b> file.</li>
+        <div class="center" style="max-width: 300px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD8.jpg" alt="SteamCMD#8" onclick="displayModal(this)"></div>
+        <li>Back in the Config folder, find and edit the <b>KFWeb.ini</b> file.</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD11.jpg" alt="SteamCMD#11" onclick="displayModal(this)"></div>
-        <li>Find <b>bEnabled=false</b> and change it to <b>true</b>. This should allow us to connect to and change some of our server settings from a browser.</li>
-        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD12.jpg" alt="SteamCMD#12" onclick="displayModal(this)"></div>
-        <li>Before we test our server, go back out to the <b>kf2server</b> folder and find the <b>KF2Server.bat</b> file.</li>
+        <li>Search for the <b>[IpDrv.WebServer]</b> section and change <b>bEnabled=false</b> to <b>true</b>. This will allow us to connect to and modify server settings from a browser.</li>
+        <div class="center" style="max-width: 300px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD12.jpg" alt="SteamCMD#12" onclick="displayModal(this)"></div>
+        <li>Before we try to test our server, go back out to the <b>kf2server</b> folder and find the <b>KF2Server.bat</b> file.</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD9.jpg" alt="SteamCMD#9" onclick="displayModal(this)"></div>
-        <li>Right click the file and click edit. Use the example below and replace the admin name with the name of your choice and password with the password we set earlier in the tutorial. The difficulty count starts at 0=normal 1=hard and so on. The port settings I have added to the second example are for making the server public, so if you are only running it on your local network then you can use the first one.</li><br>
+        <li>Right click the file and click edit. Use the example below and replace the admin name with the name of your choice and password with the password we set earlier in the tutorial. The difficulty count starts at <b>0=normal, 1=hard, etc.</b> The port settings I have added to the second example are for making the server public and joinable by friends that don't share a LAN connection, so if you are only running it on your local network then you can use the first one.</li>
+        <p><b>LAN:</b></p><br>
         <p class="code-sl">
-            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1
-        </p><br>
+            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1?GameLength=1
+        </p>
+        <p><b>Public:</b></p><br>
         <p class="code-sl">
-            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1?Port=7777?QueryPort=27015?WebAdminPort=8080
+            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1?GameLength=1 -Port=7777 -QueryPort=27015 -WebAdminPort=8080
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD18.jpg" alt="SteamCMD#18" onclick="displayModal(this)"></div>
-        <li>At this point you can start up the server by double clicking on the <b>KF2Server.bat</b> file. We will add workshop maps to our server and learn how to change settings in the browser next.</li>
+        <li><b>Mutators:</b> If you have mutators downloaded as well then you should be able to get the necessary line from the developer on the workshop page. Mutators will likely disable experience gain, but if you still want them or found one that does not disable experience, then here is an example of the line used for Friendly Hud.</li><br>
+        <p class="code-sl">
+            start .\Binaries\win64\kfserver kf-bioticslab?adminname=yourname?adminpassword=A1b2C34D?Difficulty=1?GameLength=1?mutator=FriendlyHUD.FriendlyHUDMutator -Port=7777 -QueryPort=27015 -WebAdminPort=8080
+        </p>
+        <li>The <b>KF2ServerTool</b> has a MOD tab that should let you add workshop mutators to the server pretty easily, but if you are setting up the server manually then you should just need to add another <b>ServerSubscribedWorkshopItems=</b> line for the mutator workshop item.</li>
+        <li>At this point in option #2 you could try starting up the server by double clicking on the <b>KF2Server.bat</b> file, but setting up option #1 will just takes a few more steps, and they are well worth the effort. We will add workshop maps to our server and learn how to change settings in <b>Web Admin</b> next.</li>
     </ol>
-    <h3>Installing Workshop Maps</h3>
+    <h3>Option #1 - KF2ServerTool</h3>
+        <ol>
+            <li>For this option we will be using the <a href="https://github.com/darkdks/KF2ServerTool/releases" target="_blank">KF2ServerTool</a>. Download the latest release and move the <b>.zip</b> file to our <b>C:\steamcmd\kf2server</b> folder. The same one that contains <b>KF2Server.bat</b></li>
+            <li>Unzip the files and run <b>KF2ServerTool.exe</b>.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD22-1.jpg" alt="SteamCMD#22-1" onclick="displayModal(this)"></div>
+            <li>Once open you will see somthing similar to the image below. Create a new profile with your server name, add in the port settings (if your are making it public) and move on the the other settings tabs.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD25.jpg" alt="SteamCMD#25" onclick="displayModal(this)"></div>
+            <li>From the <b>Options</b> tab, check that <b>Workshop Download Manager</b> is enabled.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD27.jpg" alt="SteamCMD#27" onclick="displayModal(this)"></div>
+            <li>Moving on to the <b>Maps</b> tab we can start adding workshop maps for players to automatically download.</li>
+            <li>Click on the big <b>+Add</b> button in the bottom left and select <b>From Workshop Browser</b>. Type in the name of the workshop map you wish to download and a window will appear with the workshop options that match what you typed in. Subscribe your server to the map and you will see a new section appear in the maps list for <b>Steam Workshop</b> maps. Within this process you can also add the map to the <b>Map Cycle</b> which mean it will appear in the map vote options after each match inside of the game and within the <b>WebAdmin</b> tab.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD26.jpg" alt="SteamCMD#26" onclick="displayModal(this)"></div>
+            <li>If you have issues running your server or with the maps not downloading, you can always try right-clicking on the map names and forcing an update, reinstalling, and/or removing it from cache. It may be best to just remove the map completely and try doing the add from workshop step again for each workshop map.</li>
+            <li>With that out of the way you can go back to the <b>Server</b> tab and hit <b>Start Server</b>. This will open a similar batch process to option #2, but you no longer need to go to a web browser to change settings. Just head over to the <b>WebAdmin</b> tab where you will be able to change the map, make a custom map cycle, add mutators, change the clan motto and so on.</li>
+            <li>When changing the map, you may want to have the port settings on hand just in case. Paste them into the <b>Additional URL Variables</b> section like in the example below and hit the change map button. Port settings are discussed more in the <b>Making The Server Public</b> section below.</li>
+            <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD28.jpg" alt="SteamCMD#28" onclick="displayModal(this)"></div>
+            <li>If you have already tried testing your server, then your friends likely have been unable to join thus far, but don't worry, just head down to the <b>Making The Server Public</b> section below and configure your router to have port forwarding and your server computer to have a Static IPAddress. Once that is complete you can enjoy hosting your own KF2 Dedicated Server with all the custom maps you've been wanting to try out.</li>
+        </ol>
+    <h3>Option #2 - Manual Setup</h3>
     <ol>
+        <li>Continuing from the shared server configuration settings listed above we will work on adding maps to our server without the use of the <b>KF2ServerTool</b>.</li>
         <li>Before we can download our workshop maps, we need to get Steams' app id for Killing Floor 2. Go to <a href="https://steamdb.info">SteamDB</a> and search <b>Killing Floor 2</b> and you will see <b>App ID: 232090</b>. Copy this number to a sticky note or txt file.</li>
-        <li>Next we need the id of the actual workshop map. You can get this from inside the steam client or in your browser. From the Steam client you can navigate to the workshop map where the subscribe button is located and right click to copy the page url. You can also view the url in your browser and by changing the Steam settings to show the url inside of the Steam client. However you get there is not important. Near the end of the url we need to find <b>?id=</b> and a big number. Copy this number to a sticky note or txt file as well.</li><br>
+        <li>Next we need the id of the actual workshop map. You can get this from inside the steam client or in your browser. From the Steam client you can navigate to the workshop map where the subscribe button is located and right click to copy the page url. You can also view the url in your browser and by changing the Steam settings to show the url inside of the Steam client. However you get there is not important. At the end of the url you just copied or in the address bar we need to find <b>?id=</b> and a big number. Copy this number to a sticky note or txt file as well.</li><br>
         <br><p class="code-sl">
             https://steamcommunity.com/sharedfiles/filedetails/?id=<b>643383080</b>
         </p>
-        <li>If you already closed the <b>steamcmd</b> command prompt from earlier then run the executable and log in as anonymous again. Type in the command <b>workshop_download_item app-id workshop-id</b>. replace app-id with the Killing Floor 2 app id we copied to our sticky note and the replace the workshop-id with the id of the map you want to download.</li><br>
+        <li>If you already closed the <b>steamcmd</b> command prompt from earlier then run the executable and log in as anonymous again. Type in the command <b>workshop_download_item app-id workshop-id</b>. replace app-id with the Killing Floor 2 app id we copied to our sticky note and then replace the workshop-id with the id of the map you want to download.</li><br>
         <br><p class="code-sl">
             Steam>workshop_download_item <b>232090 643383080</b>
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD14.jpg" alt="SteamCMD#14" onclick="displayModal(this)"></div>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD15.jpg" alt="SteamCMD#15" onclick="displayModal(this)"></div>
-        <li>You should now have the new map downloaded to the <b>content > 232090</b> folder. Open that folder, the folder with the mod id and so on until you get to the <b>.kfm</b> file. Copy this file and then go to the <b>BrewedPC\Maps</b> folder and create a new folder called <b>CustomMaps</b>. Paste the file here for nice organization or in the Maps folder at the bottom of the list if you want.</li>
+        <li>You should now have the new map downloaded to the <b>content > 232090</b> folder. Open this folder and the folder with the mod id and so on until you get to the <b>.kfm</b> file. Copy this file and then go to the <b>BrewedPC\Maps</b> folder and create a new folder called <b>CustomMaps</b>. Paste the file here for nice organization or in the Maps folder at the bottom of the list if you want.</li>
         <br><p class="code-sl">
             C:\steamcmd\steamapps\common\kf2server\KFGame\BrewedPC\Maps
         </p>
@@ -163,7 +186,7 @@
             MapAssociation=0<br>
             ScreenshotPathName=UI_MapPreview_TEX.UI_MapPreview_Placeholder
         </p>
-        <li>The ScreenshotPathName line is not required and I would actually just recommend removing it. It is only in the example because you will likely see it when researching kf2 dedicated servers and custom maps, and most of them will likely not mention this.</li>
+        <li>The ScreenshotPathName and MapAssociation lines are not actually required and I would actually just recommend removing them. The example below shows both lines in use, but they are not required and really serve no purpose for custom maps.</li>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD13.jpg" alt="SteamCMD#13" onclick="displayModal(this)"></div>
         <li>You are now ready to move on to the Web Admin section, which makes some things like changing game mode and map a bit easier than shutting down the server and changing them manually.</li>
     </ol>
@@ -181,34 +204,62 @@
     </ol>
     <h3>Making The Server Public</h3>
     <ol>
-        <li>In order to make the server public we need to modify the <b>KF2Server.bat</b> file to include the port options I showed the example of earlier. Then for the hard part.</li>
-        <li>Remember the IP address of the computer you are using to host the server? We need to give it a Static IP Adress on our Router.</li>
-        <li>In a Browser type into the address bar: <b>192.168.1.1</b> this is the standard address for accessing your router. Login and search for your <b>Static DHCP Configuration</b> options and <b>Port Forwarding</b> options.</li>
-        <li>In your <b>Static DHCP Configuration</b> options choose the device info that matches your device and IP address, make it active and hit <b>OK</b>. The example image does not have it set to active currently.</li>
-        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD16.jpg" alt="SteamCMD#16" onclick="displayModal(this)"></div>
-        <li>Next find your <b>Port Forwarding</b> options and start adding the ports we want open. refer to the example below.</li>
+        <li>In order to make the server public we need to make sure the <b>KF2Server.bat</b> file includes the port options shown earlier in the tutorial. Then comes the hard part.</li>
+        <li>Remember the IP address of the computer you are using to host the server? We need to give it a Static IP Adress on our Router. If you are coming to this section from the <b>Option #1</b> settings then you can scroll back up to the beginning of the <b>Accessing Our Server From a Web Browser</b> section which describes how to get your computers' <b>IPAddress</b> through the use of <b>IPConfig</b>.</li>
+        <li>In a Browser type into the address bar: <b>192.168.1.1</b> this is a standard address for accessing your router. Login and search for your <b>Static DHCP Configuration</b> options and <b>Port Forwarding</b> options.</li>
+        <li>In your <b>Static DHCP Configuration</b> options choose the device info that matches your device and IP address, make it active and hit <b>OK</b>.</li>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD17.jpg" alt="SteamCMD#17" onclick="displayModal(this)"></div>
+        <li>Next find your <b>Port Forwarding</b> options and start adding the ports we want open. refer to the example below for range values and names.</li>
         <br><p class="code-sl">
             Game Port: <b>7777 - 7778</b> | UDP<br>
             Query Port: <b>27010 - 27019</b> | UDP<br>
             Web Admin: <b>8080 - 8081</b> | TCP<br>
             Steam Port: <b>20560</b> | UDP
         </p>
-        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD17.jpg" alt="SteamCMD#17" onclick="displayModal(this)"></div>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD16.jpg" alt="SteamCMD#16" onclick="displayModal(this)"></div>
+        <li>That should be everything for <b>Option #1</b> to work properly and act as a public server.</li>
     </ol>
-    <h3>Setting Up Steam Workshop For Servers</h3>
+    <h3>Installing Custom Maps (Workshop)</h3>
     <ol>
         <li>Make sure the server is not running before making your changes.</li>
-        <li>We need to add a new section to the <b>PCServer-KFGame.ini</b> config file. I would recommend adding this above the <b>[IniVersion]</b> section.</li>
+        <li>We need to add a new section to the <b>PCServer-KFEngine.ini</b> config file. I would recommend adding this section above the <b>[IniVersion]</b> section.</li>
         <br><p class="code-sl">
             <b>[OnlineSubsystemSteamworks.KFWorkshopSteamworks]</b>
         </p>
-        <li>For the next line we need to know the Workshop ID for our subscribed workshop item.</li>
+        <li>For the next few lines we need to know the Workshop IDs for our subscribed workshop items and a comment at the end with the name of the map which will help us remember what workshop id matches with what map. If you were following the <b>Option #1</b> steps earlier, these lines are actually added automatically by the <b>KF2ServerTool</b> program we downloaded and you would not need to mess with these settings personally.</li>
         <br><p class="code-sl">
             [OnlineSubsystemSteamworks.KFWorkshopSteamworks]<br>
-            <b>ServerSubscribedWorkshopItems=643383080</b>
+            <b>ServerSubscribedWorkshopItems=1158143366 // NachtDerUntoten<br>
+            ServerSubscribedWorkshopItems=1130264785 // KF-DeepinWall<br>
+            ServerSubscribedWorkshopItems=1285074158 // KF-Arid_Zedlands<br>
+            ServerSubscribedWorkshopItems=643383080 // KF-BikiniAtoll</b>
         </p>
         <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD21.jpg" alt="SteamCMD#21" onclick="displayModal(this)"></div>
-        <li>Add more "<b>ServerSubscribedWorkshopItems=</b>" lines with the Workshop IDs of all the items you want your server to download. You will still need to add the map names in your <b>PCServer-KFGame.ini</b> file in order to see them from inside of <b>Web Admin</b>.</li>
+        <li>Add more "<b>ServerSubscribedWorkshopItems=</b>" lines with the Workshop IDs of all the items you want your server to download. Also, you will still need to add the map names in your <b>PCServer-KFGame.ini</b> file in order to see them from inside of <b>Web Admin</b>.</li>
+        <li>The steam workshop option will take precedence over the redirect option below, but they can still be used together. I included both options in the screenshot above, but I would actually recommend leaving the <b>RedirectToURL=</b> option blank like it was.</li>
+    </ol>
+    <h3>Installing Custom Maps (Redirect)</h3>
+    <ol>
+        <li>Within the Config folder find the file named <b>PCServer-KFEngine.ini</b>, open this file and search for the <b>[IpDrv.HTTPDownload]</b> section. We will be adding onto the line: <b>RedirectToURL=</b></li>
+        <li>A popular yet I belive broken site that is used here is: <b>https://www.skillzservers.com/kf2-redirect/</b></li>
+        <br><p class="code-sl">
+            [IpDrv.HTTPDownload]
+            RedirectToURL=https://www.skillzservers.com/kf2-redirect/
+        </p>
+        <li>I have found another redirect site for some maps here: <b>http://kf2.tripwirecdn.com/</b>, but I still don't see this as the best option.</li>
+        <li>The next step is to go to the link/web address yourself, download the map files you want, and place them in your <b>KF2Server\KFGame\BrewedPC\Maps\CustomMaps</b> folder that we made earlier. This way your server and everyone joining it will have the same version of the custom map.</li>
+    </ol>
+    <h3>Creating a Server Update Shortcut</h3>
+    <ol>
+        <div class="center" style="max-width: 600px;"><img src="../../images/Modding/Killing%20Floor%202/SteamCMD23.jpg" alt="SteamCMD#23" onclick="displayModal(this)"></div>
+        <li>This shortcut can be used whenever the game gets an update, it is used to make sure our server files are all downloaded and up to date. For <b>Option #1</b> users above, the <b>KF2ServerTool</b> comes with update buttons to make this process easier.</li>
+        <li>We can setup a more automated update command for our server by right clicking on <b>steamcmd.exe</b> > <b>Create shortcut</b> > Rename the shortcut <b>Update Server</b> and then right click on our new shortcut and select properties.</li>
+        <li>We want to use the following line in the target box and hit apply. If you are using a different drive or steamcmd is in a folder that is not named steamcmd then make your changes to the command below before hitting apply.</li><br>
+        <p class="code-sl">
+            C:\steamcmd\steamcmd.exe +login anonymous +force_install_dir ./KF2Server +app_update 232130 +exit
+        </p>
+        <li>Double click on the shortcut to run this command whenever you feel like an update is required. The command itself should login as anonymous, update the server (if necessary), and then exit the window.</li>
+        <li>If you are experiencing any issues that can not be resolved by reading this guide then feel free to check out the references section at the top for more information and assisstance from other server hosts.</li>
     </ol>
 </div>
 </div>
