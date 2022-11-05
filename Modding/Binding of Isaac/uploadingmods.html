@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Binding of Isaac</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="fixinstapreview.html">Previous</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Uploading Mods</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Uploading Mods</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Uploading Mods to Steam Workshop</h2>
+    <p>We will be uploading our simple <b>Spawn Room Items</b> mod to the <b>Steam Workshop</b></p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\The Binding of Isaac Rebirth\</b></li><br>
+        <p class="code-sl">
+            <b>tools\ModUploader</b>
+        </p>
+        <p class="code-sl">
+            <b>C:\Users\*****\Documents\My Games\Binding of Isaac Afterbirth+ Mods</b>
+        </p>
+        <li>First thing you need to do is run the game with your mod enabled. This will create a <b>metadata.xml</b> file for the mod.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/11.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Have a preview image for your mod prepared.</li>
+        <li>Next you need to go to your <b>tools\ModUploader</b> folder and run <b>ModUploader.exe</b></li>
+        <li>Click <b>Choose Mod...</b> and select the newly created <b>metadata.xml</b> file</li>
+        <li>Choose your tags. I went with <b>Items</b> and <b>Rooms</b>.</li>
+        <li>Next you can add your preview image, choose the visibility, add change notes, and don't forget to add a description for your new mod.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/12.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Hit <b>Upload Mod</b> and your mod will be available on the <b>Steam Workshop</b>. You now have an updated <b>metadata.xml</b> file with the choices you made in the uploader.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/13.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

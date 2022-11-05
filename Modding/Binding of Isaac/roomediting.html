@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Binding of Isaac</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="fixinstapreview.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Room Editing</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Room Editing</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Editing Rooms in Binding of Isaac</h2>
+    <p>We will be adding items to the default room as well as the Greed room.</p>
+    <ol>
+        <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\The Binding of Isaac Rebirth\</b></li><br>
+        <p class="code-sl">
+            <b>tools\ResourceExtractor</b>
+        </p>
+        <p class="code-sl">
+            <b>tools\RoomEditor</b>
+        </p>
+        <p class="code-sl">
+            <b>resources\rooms</b>
+        </p>
+        <li>You can get to your <b>root</b> folder by right-clicking the game title in your Steam library and going to <b>Properties... > LOCAL FILES > Browse...</b></li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/05.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Now open the <b>tools/ResourceExtractor</b> folder and run <b>ResourceExtractor.exe</b> (a cmd window will appear and extract game files for you).</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/06.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Next let's make sure the program is looking for the game resources in the correct folder.</li>
+        <li>Go to the <b>tools/RoomEditor</b> folder and double click on <b>settings.ini</b> to open the file.</li>
+        <li>Use the path for your root folder and add <b>/resources</b> making sure all of the slashes are facing forward.</li><br>
+                <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/03.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Now we can open the Room Editor by going to <b>tools/RoomEditor</b> and double clicking <b>RoomEdirot.exe</b></li>
+        <li>An error will likely pop up for you at this point regarding the map files, but we will fix that right now.</li>
+        <li>Click on <b>File > Import Binary...</b> and a folder will open to your <b>resources/rooms</b> folder. You can just hit <b>Select Folder</b> here and the maps will be imported.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/07.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Now we can start editing rooms within the game. Click on <b>DEFAULT_2 Start Room</b> and select a gray square on the map. This will edit the map our player spawns into whenever starting a new game or reaching a new floor.</li>
+        <li>Choose from the list of items at the bottom of the room editor and move on to the next square. The item I chose is a randomized in game item stand.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/08.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>For the changes to take effect we need to export binary to a new mod folder.</li>
+        <li>Start by going to <b>File > Export Binary...</b> and navigate to your <b>Binding of Isaac Afterbirth+ Mods</b> folder. For me this was located here: <b>C:\Users\*****\Documents\My Games\Binding of Isaac Afterbirth+ Mods</b></li>
+        <li>Create a new folder for this mod, I suggest: <b>Spawn_Room_Items</b> but you can name it whatever you want. Double click on the new mod folder and create another folder named <b>resources</b>, within <b>resources</b> create another folder named <b>rooms</b>, and we can finally select this folder and save our new room files there.</li>
+        <li>For this mod you will only need the <b>00.special rooms.stb</b> file, the other room files have not been touched so they are not necessary for our mod.</li>
+        <li>We can now start up the game and when you check the mods menu you will be able to enable or disable our new mod.</li>
+        <li>Initially you may need to start a new game twice for the question marks to go away on our randomized items.</li>
+        <li>To modify the <b>Greed</b> and <b>Ultra Greed</b> maps, click on <b>Special Rooms (Greed)</b> and <b>SHOP_0</b> or <b>TREASURE_0</b> to get started. Add whatever items you want and export your rooms like before. You will need to keep <b>18.greed special.stb</b> and <b>25.ultra greed</b> for this mod.</li>
+        <li>Note: You will want to delete the other variations of <b>TREASURE_</b> and <b>SHOP_</b> to guarantee you will get the version of the map we just edited.</li>
+        <div class="imageRow">
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/09.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+        </div>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/10.png" alt="... Image" onclick="displayModal(this)">
+        </div>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
