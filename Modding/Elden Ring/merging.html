@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding Elden Ring</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="gettingstarted.html">Previous</a>
+    <a href="mods.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Merging Mods</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Merging Mods</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Merging regulation.bin Files</h2>
+    <p>A popular mod to start with is the <a href="https://www.nexusmods.com/eldenring/mods/129">Grand Merchant</a> <i class="fa fa-external-link"></i> mod that lets you buy anything you may need in the game from merchant Kale.</p>
+    <ol>
+        <li>Rather than just extracting the files and blindly moving them all to the <b>Mod Engine 2.0.0</b> > <b>mod</b> folder, we will start by opening <b>DSMapStudio</b>.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Elden%20Ring/merging01.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Create a new project, give it a <b>Project Name</b>, make the <b>Project Directory</b> the same folder as the <b>regulation.bin</b> file you just downloaded, and set the <b>Game Executable</b> to <b>eldenring.exe</b> found inside of your <b>Elden Ring</b> > <b>Game</b> folder.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Elden%20Ring/merging02.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Click <b>Create</b> and when the new project is created the <b>Param Editor</b> tab will be selected.</li>
+        <li>Now you can type "<b>modified</b>" into the search bars to see the files and values that were editted by the mods creator.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Elden%20Ring/merging03.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Inside of <b>EquipParamAccessory</b> the mods creator set the sell value of every item to <b>0</b>. As it happens, this value determines if the item will actually show up in merchant kales' inventory, so you will need to check a weapons sell value whenever merging a new mod.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Elden%20Ring/merging04.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Type modified into the center search bar to get only the weapons and items that were modified by the mods' creator and select everything you want to extract. Use <b>Ctrl+A</b> to select everything that showed up and then click <b>Edit</b> > <b>Export CSV</b> > <b>To File...</b> > <b>All</b>.</li>
+        <li>Choose a location to export the file to and name it <b>EquipParamAccessory.csv</b> so you know which param you are importing later.</li>
+        <li>Follow these same steps for the remaining params: <b>EquipParamGem</b>, <b>EquipParamGoods</b>, ...</li>
+        <li>Create a new project if one does not exist inside of your <b>Mod Engine 2.0.0</b> > <b>mod</b> folder and we can start importing the <b>CSV</b> files we just exported.</li>
+        <li>Search for and select the <b>EquipParamWeapon</b> param and then click <b>Edit</b> > <b>Import CSV</b> <b>From File...</b> <b>All</b>. Do this for the other <b>CSV</b> files you exported and the <b>regulation.bin</b> files are merged. Note: when exporting selected parameters it will only export/import the ones you selected, not the whole file.</li>
+        <li>Follow these steps for any <b>regulation.bin</b> files you download in the future. The only difference being that you will not need to create a new project inside of your <b>Mod Engine 2.0.0</b> > <b>mod</b> folder, just open that project and import your new <b>CSV</b> files.</li>
+        <li><b>Note</b>: Some mods were made using <b>Yapped-Rune-Bear</b> so if they give you <b>.csv</b> files and you get an error when importing about a number of params mismatch, it's because they used that program and you just need to follow the steps above and make your own <b>.csv</b> files to import.</li>
+    </ol>
+    <h2>Merging .dcx (Animation) Files</h2>
+    <p>The most common file to change when merging new weapon moveset mods is the: <b>c0000.anibnd.dcx</b> file.</p>
+    <ol>
+        <li>We will be using <b>Yabber</b> for this tutorial. Setup instructions can be found on the <a href="gettingstarted.html">Getting Started</a> page.</li>
+        <li>Drag the downloaded <b>chr</b> > <b>c0000.anibnd.dcx</b> file onto <b>Yabber.exe</b> to unpack the file.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Elden%20Ring/merging05.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Assuming you already have a <b>chr</b> > <b>c0000.anibnd.dcx</b> file in your <b>Mod Engine 2.0.0</b> > <b>mod</b> folder, you will need to unpack that as well.</li>
+        <li>Hopefully the creator left merging instructions in their mod description or <b>readme.txt</b> file listing the <b>aXX.tae</b> files you need to replace.</li>
+        <li>Navigate to the <b>tae</b> folder.</li>
+        <li>Select the new <b>.tae</b> files and replace them in your main mods' <b>c0000.anibnd.dcx</b> folder that we unpacked.</li>
+        <li>Next you will drag the main mods unpacked <b>c0000.anibnd.dcx</b> folder onto <b>Yabber.exe</b> to repack the file and begin testing your new mod.</li>
+        <li>You can follow the same process when merging <b>FXR</b> files (sfx changes).</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>

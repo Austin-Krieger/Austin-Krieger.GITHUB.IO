@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modding Elden Ring</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/Styles.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/SideNav.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/modal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../../scripts/JSFunctions.js"></script>
+    <link rel="icon" href="../../images/ThirstyPenguin(Logo).ico">
+</head>
+<body>
+<div class="navbar">
+    <span class="fa fa-bars" onclick="openNav()"></span>
+    <a href="index.html">Home</a>
+    <a href="index.html">Previous</a>
+    <a href="merging.html">Next</a>
+</div>
+<div id="Sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../index.html">Home</a>
+    <a href="../../Java/index.html">Java</a>
+    <a href="../../Roblox/index.html">Roblox</a>
+    <a href="../../Unity/index.html">Unity</a>
+    <a href="../../Perlenspiel/index.html">Perlenspiel</a>
+    <a href="../../Web/index.html">Web</a>
+    <a href="../index.html">Modding</a>
+</div>
+<div id="closeSideNav">
+<h1>Getting Started</h1>
+<div class="containButtons">
+<button class="collapsible" id="autoClickBtn">Getting Started</button>
+<div class="content">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+    <h2>Install DSMapStudio</h2>
+    <p>In order to merge mods (<b>regulation.bin</b> files) and make your own changes to the game, you will want to get <a href="https://github.com/soulsmods/DSMapStudio/releases">DSMapStudio</a> <i class="fa fa-external-link"></i>. I do not recommend <a href="https://github.com/vawser/Yapped-Rune-Bear/releases/">Yapped Rune Bear</a> <i class="fa fa-external-link"></i> as it is outdated at the moment and will make merging mods a lot more difficult.</p>
+    <ol>
+        <li>Download and install the latest release. You can keep the program wherever you want, I just keep it in the downloads folder for example.</li>
+        <li>At this point you will have some issues running the program due to missing runtimes.</li>
+        <li>The <b>System Requirements</b> section of their <b>GitHub</b> page will provide more details regarding this issue, but for now all you need to do is install these two runtimes and the program should work fine.</li>
+        <li>Microsoft .NET Core 6.0 Desktop Runtime: <a href="https://aka.ms/dotnet/6.0/windowsdesktop-runtime-win-x64.exe">https://aka.ms/dotnet/6.0/windowsdesktop-runtime-win-x64.exe</a> <i class="fa fa-external-link"></i>.</li>
+        <li>Microsoft .NET Core 6.0 ASP.NET Core Runtime: <a href="https://aka.ms/dotnet/6.0/aspnetcore-runtime-win-x64.exe">https://aka.ms/dotnet/6.0/aspnetcore-runtime-win-x64.exe</a> <i class="fa fa-external-link"></i>.</li>
+    </ol>
+    <h2>Install Yabber</h2>
+    <p>When merging animations and sfx changes for your latest weapon moveset mods, you will need a program like <a href="https://github.com/JKAnderson/Yabber/releases/">yabber</a> <i class="fa fa-external-link"></i> to unpack and repack the necessary <b>.dcx</b> files</p>
+    <ol>
+        <li>There is no need to run the executable (<b>yabber.exe</b>) just unzip the folder you downloaded and open up the <b>lib</b> folder. We need to copy an <b>Elden Ring</b> file to this location.</li>
+        <li>In a new file explorer window, navigate to <b>Steam</b> > <b>steamapps</b> > <b>common</b> > <b>Elden Ring</b> > <b>Game</b> and copy this file: <b>oo2core_6_win64.dll</b></li>
+        <li>Paste the file in your <b>lib</b> folder and <b>Yabber</b> is ready to go.</li>
+    </ol>
+    <h2>Install UXM Selective Unpacker</h2>
+    <p>To be able to fully utilize the features of <b>DSMapStudio</b> you may want to unpack the <b>Elden Ring</b> executable. For this you will need to get <a href="https://www.nexusmods.com/eldenring/mods/1651?tab=description">UXM Selective Unpacker</a> <i class="fa fa-external-link"></i> from <b>NexusMods</b>.</p>
+    <ol>
+        <li>The <b>Unpack</b> button will extract all files from the game archives. Any files already preset will be skipped.</li>
+        <li>The <b>Patch</b> button will modify the exectuable to use those extracted files instead of looking in the archives. Most users will not be using this button and will only unpack the files they need. Patching the executable without also unpacking all files from the archives will also crash the game.</li>
+        <li>The <b>Restore</b> button will restore the original executable and delete the extracted files.</li>
+        <li>The <b>Abort</b> button will cancel any operation in progress.</li>
+        <li>We will only need to use the <b>Unpack</b> and <b>Restore</b> buttons.</li>
+        <li>Go ahead and <b>Unpack</b> the game whenever you are ready. You do not have to worry about restoring the files until you are completely done modifying and testing your mods in game or have no use for the full functionality of <b>DSMapStudio</b> or <b>DSAnimStudio</b>. Just to be clear, <b>Restore</b> only removes (deletes) the files and folders that were "unpacked" and has no effect on the executable or mods we will be working with.</li>
+    </ol>
+    <h2>Install DSAnimStudio</h2>
+    <p>Another program that can be useful for both merging and creating mods is: <a href="https://github.com/Meowmaritus/DSAnimStudio/releases">DSAnimStudio</a> <i class="fa fa-external-link"></i>.</p>
+    <ol>
+        <li>More instructions can be found in <b>Basic User Instructions</b> on their <b>GitHub</b> page.</li>
+        <li>You can use this program to open <b>.dcx</b> files such as: <b>c0000.anibnd.dcx</b> and view the animations inside.</li>
+    </ol>
+    <h2>Running Anti-cheat Toggler</h2>
+    <p>Before running the game with mods, we need to install and run the <a href="https://www.nexusmods.com/eldenring/mods/90/%EF%BB%BF">Anti-cheat Toggler</a> <i class="fa fa-external-link"></i> and make sure <b>Easy Anti-cheat</b> is disabled.</p>
+    <ol>
+        <li>Extract the files to the <b>Steam</b> > <b>steamapps</b> > <b>common</b> > <b>Elden Ring</b> > <b>Game</b> folder.</li>
+        <li>Run <b>toggle_anti_cheat.exe</b> and a message will pop up notifying you that Anti-cheat has been disabled.</li>
+        <li>Next you could install your mods and run <b>start_game_in_offline_mode.exe</b>, but I will be installing <b>Seamless Co-op</b> so I can mod the game and still play with friends who have the same mods.</li>
+    </ol>
+    <h2>Install Elden Mod Loader</h2>
+    <p>Before we can get started installing and merging mods for <b>Seamless Co-op</b> we need to get <a href="https://www.nexusmods.com/eldenring/mods/117">Elden Mod Loader</a> <i class="fa fa-external-link"></i> from Nexus Mods and move the files to the <b>Elden Ring</b> > <b>Game</b> folder.</p>
+    <ol>
+        <li>The two files downloaded need to be placed inside of the <b>Elden Ring</b> > <b>Game</b> folder.</li>
+        <li>Next we need to install <b>Mod Engine 2.0.0</b>.</li>
+    </ol>
+    <h2>Install Mod Engine 2.0.0</h2>
+    <p>We will be using <a href="https://github.com/soulsmods/ModEngine2/releases">Mod Engine 2.0.0</a> <i class="fa fa-external-link"></i> to load our mods and start up the game.</p>
+    <ol>
+        <li>At the time of this tutorial being written, <b>Mod Engine 2.0.0</b> was on version "<b>preview4</b>".</li>
+        <li>Whenever you want to play the game, you will now run: <b>launchmod_eldenring.bat</b>. This will run any <b>.dll</b> files in your "<b>mods</b>" folder which is located in the <b>Elden Ring</b> > <b>Game</b> folder as well as your own merged mods located in the <b>Mod Engine 2.0.0</b> > <b>mod</b> folder.</li>
+    </ol>
+    <h2>Install Seamless Co-op</h2>
+    <p>Finally we can get <a href="https://www.nexusmods.com/eldenring/mods/510">Seamless Co-op</a> <i class="fa fa-external-link"></i> from <b>Nexus Mods</b> and start playing with friends.</p>
+    <ol>
+        <li>Extract the files and place the <b>.dll</b> and <b>.ini</b> files inside of the <b>Elden Ring</b> > <b>Game</b> > <b>mods</b> folder we added when we got <b>Elden Mod Loader</b>.</li>
+        <li>With the files placed inside of the <b>mods</b> folder they will automatically be called when we start the game from our <b>Mod Engine 2.0.0</b> file mentioned previously.</li>
+        <li>Another mod we can place inside of the <b>mods</b> folder is the <a href="https://www.nexusmods.com/eldenring/mods/421">Skip The Intro</a> <i class="fa fa-external-link"></i> mod which will skip the bright white screan that blinds you when launching the game.</li>
+        <li>Lastly, you will need to set a password for <b>Seamless Co-op</b> which will allow you to connect with your friends. Open the <b>seamlesscoopsettings.ini</b> file and choose a password for everyone to save after this equals sign: <b>cooppassword = </b></li>
+        <li>Now we can move on to the next page: <a href="merging.html">Merging Mods</a> where we will discuss how to merge the mods we have downloaded.</li>
+    </ol>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../scripts/SideNav.js"></script>
+<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+<script type="text/javascript" src="../../scripts/modal.js"></script>
+</body>
+</html>
