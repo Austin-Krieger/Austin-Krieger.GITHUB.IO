@@ -42,7 +42,7 @@
         <div id="caption"></div>
     </div>
     <h2>Editing Rooms in Binding of Isaac</h2>
-    <p>We will be adding items to the default room as well as the Greed room.</p>
+    <p>We will be adding items to the default room as well as the Greed rooms. <br><b>*New</b> steps and software changes due to the release of the <b>Repentance DLC</b> have been added below. There is still some good information in this first section, so remember to come back here if you get lost.</p>
     <ol>
         <li>Here are the folders you will need to open for this tutorial, starting with our <b>root</b> folder <b>D:\Steam\steamapps\common\The Binding of Isaac Rebirth\</b></li><br>
         <p class="code-sl">
@@ -65,7 +65,7 @@
         <li>Next let's make sure the program is looking for the game resources in the correct folder.</li>
         <li>Go to the <b>tools/RoomEditor</b> folder and double click on <b>settings.ini</b> to open the file.</li>
         <li>Use the path for your root folder and add <b>/resources</b> making sure all of the slashes are facing forward.</li><br>
-                <div class="imageColumn">
+        <div class="imageColumn">
             <img src="../../images/Modding/Binding%20of%20Isaac/03.png" alt="... Image" onclick="displayModal(this)">
         </div><br>
         <li>Now we can open the Room Editor by going to <b>tools/RoomEditor</b> and double clicking <b>RoomEdirot.exe</b></li>
@@ -95,6 +95,30 @@
         <div class="imageColumn">
             <img src="../../images/Modding/Binding%20of%20Isaac/10.png" alt="... Image" onclick="displayModal(this)">
         </div>
+    </ol>
+    <h2>Repentance DLC Notes</h2>
+    <p>Since the release of the <b>Repentance DLC</b>, my original map mods have broken. Using the default map editor is no longer my go to. When uploading mods, don't edit the <b>.xml</b> file before hand to avoid a few errors. Make sure thumbnail image is below 1 <b>MB</b> in size, dimensions are less important, but a more square image is preferrable.</p>
+    <ol>
+        <li>Let's start by downloading the new map editor. <a href="https://github.com/Basement-Renovator/basement-renovator">Basement Renovator</a></li>
+        <li>Find the releases section and download the latest release.</li>
+        <li>Once the software is installed and you launch the executable, you should see something like this:</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/14.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Next you will go to <b>File > Import (STB)...</b> find the <b>The Binding fo Isaac Rebirth/resources-dlc3/rooms</b> folder. The normal <b>resources</b> folder still exists, but since the <b>Repentance DLC</b> was released you will need to use <b>resources-dlc3</b> for your maps. If you want to edit the start room like before then find the first <b>00.special rooms.stb</b> file and click <b>Open</b>.</li>
+        <li>Find room <b>2 - Start Room</b> and start making your changes. You can select from the panel on the left and right click and drag to paint the items onto the grid. You can select and delete items and maps as well.</li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/15.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Note that the greed rooms are now in their own folder (greed) and renamed to: <b>00.special rooms.stb</b><b></b></li><br>
+        <div class="imageColumn">
+            <img src="../../images/Modding/Binding%20of%20Isaac/16.png" alt="... Image" onclick="displayModal(this)">
+        </div><br>
+        <li>Delete the other copies like before or make several different versions of the room if you like.</li>
+        <li>Same process for the greed treasure room, just scroll down a tiny bit more in the Rooms list.</li>
+        <li>Next we can export our changes. Click <b>file > Save As...</b> keeping the name: <b>00.special rooms</b> and saving it to your new mod folder. Remember to recreate the original folder structure of where you found the <b>.stb</b> file: <b>New Mod/resources-dlc3/rooms</b></li>
+        <li>Looking back in your folder you will have a <b>.xml</b> file and a <b>.stb</b> file with the name: <b>00.special rooms</b>. You can delete the <b>.xml</b> file.</li>
+        <li>Start up the game with your new mod and create a new game (May need to repeat this step once) and the items you added should show up properly. Your metadata file for the mod will also be created and you can move on to uploading the mod. Just remember not to modify the metadata file directly and choose a preview image below 1 <b>MB</b> in size to have a smoother time uploading than I had.</li>
     </ol>
 </div>
 </div>
